@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnSubscriptionType" 
+    table="PN_SUBSCRIPTION_TYPE"
+    lazy="false"
+>
+
+    <id
+        name="subscriptionTypeId"
+        type="java.math.BigDecimal"
+        column="SUBSCRIPTION_TYPE_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="tableName"
+        type="java.lang.String"
+        column="TABLE_NAME"
+        length="80"
+    />
+    <property
+        name="name"
+        type="java.lang.String"
+        column="NAME"
+        length="80"
+    />
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        length="500"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        length="1"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        length="7"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

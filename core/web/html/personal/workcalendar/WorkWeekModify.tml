@@ -1,0 +1,258 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:PersonalLayout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+<style type="text/css">
+.nonWorkingDay {
+    background-color: #CCCCCC;
+}
+.divHeader{
+	font-family: Arial,Helvetica; 
+	font-weight: bold; 
+	font-size: 16px;
+}
+
+body {
+	height: 100%;
+}
+</style>
+
+<script language="javascript" type="text/javascript">
+
+var JSPRootURL = '${jSPRootURL}';
+var presetConfirmMessage = '${presetConfirmMessage}';
+var moduleId = '${moduleId}';
+var individualDatesLbl = '<t:Message value="prm.workcalendar.individualdates.link" />';
+<!--//
+var theForm;
+
+function setup() {
+    theForm = self.document.forms[0];
+    document.getElementById('left-navbar').innerHTML +=  '<div id="toolbox-heading" class="toolbox-heading"> '+ goToHeadingLbl +' </div>';
+    document.getElementById('left-navbar').innerHTML += '<div id="toolbox-item" class="toolbox-item"><span><a href="'+JSPRootURL+'/personal/workcalendar/WorkDate?module='+moduleId+'"> '+individualDatesLbl+'</a></span></div>';
+}
+
+function helpMe() {
+	var helplocation = JSPRootURL +"/help/Help.jsp?page=schedule_personal_work_week";
+	openwin_help(helplocation);
+}
+
+function cancel() {
+    document.location.href = JSPRootURL+'/personal/workcalendar/WorkDay?module='+moduleId;
+}
+
+function reset() {
+    theForm.reset();
+}
+
+function submit() {
+    theForm.action.value = "submit";
+    theForm = self.document.forms[0];
+    theForm.submit();
+}
+
+function setStandard() {
+     Ext.MessageBox.confirm('<t:Message value="prm.global.extconfirm.title" />', presetConfirmMessage, function(btn) { 
+    	if(btn == 'yes'){
+	        theForm.action.value = "preset";
+	        theForm.presetType.value = "standard";
+	        theForm.submit();
+        }
+    });
+}
+
+function setNightshift() {
+    Ext.MessageBox.confirm('<t:Message value="prm.global.extconfirm.title" />', presetConfirmMessage, function(btn) { 
+    	if(btn == 'yes'){
+	        theForm.action.value = "preset";
+	        theForm.presetType.value = "nightshift";
+	        theForm.submit();
+        }
+    });
+}
+
+function set24Hour() {
+    Ext.MessageBox.confirm('<t:Message value="prm.global.extconfirm.title" />', presetConfirmMessage, function(btn) { 
+    	if(btn == 'yes'){
+	        theForm.action.value = "preset";
+	        theForm.presetType.value = "24hour";
+	        theForm.submit();
+        }
+    });
+}
+
+function updateTimeFields(dayNumber, isWorkingTime) {
+    var isEnabled;
+    var dayTable = document.getElementById("day_" + dayNumber);
+    if (isWorkingTime) {
+        dayTable.className = "workingDay";
+    } else {
+        dayTable.className = "nonWorkingDay";
+    }
+
+    var dayValue = getSelectedValue(theForm.elements["dayValue_" + dayNumber]);
+    if (dayValue == "workingtime") {
+        isEnabled = true;
+    } else {
+        isEnabled = false;
+    }
+
+    updateTimeFieldsForPrefix("dayTimeStart_" + dayNumber, isEnabled);
+    updateTimeFieldsForPrefix("dayTimeEnd_" + dayNumber, isEnabled);
+}
+
+function updateTimeFieldsForPrefix(prefix, isEnabled) {
+    for (var i = 0; i < 5; i++) {
+        var namePrefix = prefix + "_" + i + "_";
+        var nextElement;
+
+        nextElement = theForm.elements[namePrefix + "hour"]
+        if (nextElement) {
+            nextElement.disabled = !isEnabled;
+        }
+        nextElement = theForm.elements[namePrefix + "minute"];
+        if (nextElement) {
+            nextElement.disabled = !isEnabled;
+        }
+        nextElement = theForm.elements[namePrefix + "ampm"];
+        if (nextElement) {
+            nextElement.disabled = !isEnabled;
+        }
+    }
+}
+//-->
+</script>
+
+
+	<t:ActionBox groupTitle="${groupHeadingWorkCalendar}" buttons="blogit"/>
+
+	<div>
+		<div style="width: 80%; position: absolute; top: 104px; left: 180px;">		
+			<div><t:OutputRaw value="pageTitle"/></div>
+			<br/>
+			<label class="divHeader"><t:Message value="prm.workcalendar.workweekmodify.workweek.link" />
+				<t:if test="defaultCalendar">
+					<t:Message value="prm.workcalendar.workweekmodify.basedondefaultcalendar.label" />
+				</t:if> </label> <br />
+			<hr width="100%" style="color: gray;" />
+			
+			<t:form t:id="workWeekModifyForm" clientValidation="false" autofocus="false">
+			
+			<input type="hidden" name="action"/>
+			<input type="hidden" name="presetType"/>
+			<input type="hidden" name="name" value="personalCalender"/>
+
+			<font color="red"><b>${errorMessage}</b></font>
+				<table width="100%">
+					<tr>
+			            <td colspan="5">
+				            <table>
+				                <tr class="tableContent">
+				                    <td class="tableHeader"><t:Message value="prm.schedule.workingtime.edit.template.label" /></td>
+				                    <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:setStandard();"><t:Message value="prm.schedule.workingtime.edit.template.standard.label" /></a></td>
+				                    <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:setNightshift();"><t:Message value="prm.schedule.workingtime.edit.template.nightshift.label" /></a></td>
+				                    <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:set24Hour();"><t:Message value="prm.schedule.workingtime.edit.template.24hour.label" /></a></td>
+				                </tr>
+				            </table>
+			            </td>
+			        </tr>
+			        <tr><td colspan="5">&nbsp;</td></tr>
+
+					<tr>
+			            <td colspan="5">
+				            <table width="100%" cellspacing="0" border="1">
+				            <colgroup span="4" style="border: solid 1px; border-collapse: collapse" />
+	
+				            <!--  Start of Days Block -->
+	
+								<t:loop source="dayEntries" value="nextDayEntry" volatile="true">
+					            <tr class="tableContentNoBGC">
+									<td style="border: solid 1px" >
+									<table width="100%" cellspacing="0" class="${nextDayEntry.htmlClass}" id="day_${nextDayEntry.dayNumber}">
+										<colgroup span="2">
+				                            <col width="0*" />
+				                        </colgroup>
+				                        <tr class="tableHeaderNoBGC">
+				                            <td align="center" colspan="2" style="border-bottom: solid 1px">${nextDayEntry.dayOfWeekFormatted}</td>
+				                        </tr>
+				                        <tr class="tableContentNoBGC">
+				                            <td width="6%">
+				                            <t:if test="nextDayEntry.workingDay">
+					                            <input type="radio" id="dayValueNonWorkingTime_${nextDayEntry.dayNumber}" name="dayValue_${nextDayEntry.dayNumber}" 
+							                            value="nonworkingtime" onClick="updateTimeFields(${nextDayEntry.dayNumber}, false)"/>
+					                             <t:parameter name="else">
+					                             <input type="radio" id="dayValueNonWorkingTime_${nextDayEntry.dayNumber}" name="dayValue_${nextDayEntry.dayNumber}" 
+							                            checked="checked" value="nonworkingtime" onClick="updateTimeFields(${nextDayEntry.dayNumber}, false)"/>
+					                             </t:parameter>
+											</t:if>
+				                            </td>
+				                            <td><label for="dayValueNonWorkingTime_${nextDayEntry.dayNumber}">
+				                                   <t:Message value="prm.schedule.workingtime.edit.nonworkingtime" />
+				                                </label></td>
+				                        </tr>
+			       		                <tr class="tableContentNoBGC">
+				                            <td width="6%">
+				                            <t:if test="nextDayEntry.workingDay">
+				        	                    <input type="radio" id="dayValueWorkingTime_${nextDayEntry.dayNumber}" name="dayValue_${nextDayEntry.dayNumber}" 
+				            			                checked="checked" value="workingtime" onClick="updateTimeFields(${nextDayEntry.dayNumber}, true)"/>
+					                             <t:parameter name="else">
+					                             <input type="radio" id="dayValueWorkingTime_${nextDayEntry.dayNumber}" name="dayValue_${nextDayEntry.dayNumber}" 
+							                            value="workingtime" onClick="updateTimeFields(${nextDayEntry.dayNumber}, true)"/>
+					                             </t:parameter>
+											</t:if>
+				                            </td>
+				                            <td><label for="dayValueWorkingTime_${nextDayEntry.dayNumber}">
+				                                	<t:Message value="prm.schedule.workingtime.edit.workingtime" />
+				                                </label></td>
+				                        </tr>
+				                        
+				                        <!-- Draw the time boxes -->
+				                        <tr class="tableContentNoBGC">
+				                            <td colspan="2">
+				                            <table width="100%">
+				                                <tr>
+				                                    <td class="tableHeaderNoBGC"><t:Message value="prm.schedule.workingtime.edit.workingtime.from.label" /></td>
+				                                    <td class="tableHeaderNoBGC"><t:Message value="prm.schedule.workingtime.edit.workingtime.to.label" /></td>
+				                                </tr>
+				                                
+				                                <t:loop source="nextDayEntry.timeBoxIndexList" value="boxEntry"	volatile="true">
+					                                <tr class="tableHeaderNoBGC">
+							                            <td>
+							                                <input type="hidden" name="dayTimeControl_${nextDayEntry.dayNumber}_${boxEntry.timeBoxIndex}" value="1"/>
+							                                <t:TimeInput time="boxEntry.startDate" name="boxEntry.startTimeName" isOptional="true" isDisabled="boxEntry.disabled"/>
+							                            </td>
+							                            <td>
+								                            <t:TimeInput time="boxEntry.endDate" name="boxEntry.endTimeName" isOptional="true" isDisabled="boxEntry.disabled"/>
+														</td>
+							                        </tr>
+						                        </t:loop>
+						                    </table>
+				                            </td>
+				                        </tr>
+					                        <!-- End of time boxes -->
+				                    </table>
+		    	               		</td>
+		    	               </tr>
+    		               	  </t:loop>
+    	               <!-- End of Days Block -->		
+    	    	        	</table>
+   	            	   		</td>
+					</tr>
+					
+					<tr><td colspan="5">&nbsp;</td></tr>
+					
+				</table>
+			</t:form>
+			<br clear="all" />
+			<table width="100%" cellpadding="0" cellspacing="0" border="0">
+				<tr class="actionBar">
+				<td width="1%" class="actionBar"><img src="${jSPRootURL}/images/icons/actionbar-left_end.gif" width="8" height="27" alt="" border="0"/></td>
+					<td class="actionBar" align="right">&nbsp;
+						<nobr>&nbsp;&nbsp;&nbsp;<a href="javascript:submit();" class="channelNoUnderline"><t:Message value="all.global.toolbar.action.submit" />&nbsp; <img src="${jSPRootURL}/images/icons/actionbar-submit_off.gif" width="27" height="27" alt="Submit" title="Submit" border="0" align="absmiddle"/></a></nobr>
+					</td>
+					<td width="1%" align="right" class="actionBar"><img src="/pnet/images/icons/actionbar-right_end.gif" width="8" height="27" alt="" border="0"/></td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</t:PersonalLayout>

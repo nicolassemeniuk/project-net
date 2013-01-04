@@ -1,0 +1,176 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPhase" 
+    table="PN_PHASE"
+    lazy="false"
+>
+
+    <id
+        name="phaseId"
+        type="java.math.BigDecimal"
+        column="PHASE_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="phaseName"
+        type="java.lang.String"
+        column="PHASE_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="phaseDesc"
+        type="java.lang.String"
+        column="PHASE_DESC"
+        length="4000"
+    />
+    <property
+        name="startDate"
+        type="java.sql.Date"
+        column="START_DATE"
+        length="7"
+    />
+    <property
+        name="endDate"
+        type="java.sql.Date"
+        column="END_DATE"
+        length="7"
+    />
+    <property
+        name="sequence"
+        type="java.math.BigDecimal"
+        column="SEQUENCE"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="statusId"
+        type="java.math.BigDecimal"
+        column="STATUS_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="enteredPercentComplete"
+        type="java.math.BigDecimal"
+        column="ENTERED_PERCENT_COMPLETE"
+        length="22"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="progressReportingMethod"
+        type="java.lang.String"
+        column="PROGRESS_REPORTING_METHOD"
+        not-null="true"
+        length="80"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnObject -->
+    <one-to-one
+        name="pnObject"
+        class="net.project.hibernate.model.PnObject"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional many-to-one association to PnProcess -->
+    <many-to-one
+        name="pnProcess"
+        class="net.project.hibernate.model.PnProcess"
+        not-null="true"
+    >
+        <column name="PROCESS_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnGate -->
+
+    <set
+        name="pnGates"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PHASE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnGate"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnProcess -->
+
+    <set
+        name="pnProcesses"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="CURRENT_PHASE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnProcess"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnPhaseHasTask -->
+
+    <set
+        name="pnPhaseHasTasks"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PHASE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPhaseHasTask"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnPhaseHasDeliverable -->
+
+    <set
+        name="pnPhaseHasDeliverables"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PHASE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPhaseHasDeliverable"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

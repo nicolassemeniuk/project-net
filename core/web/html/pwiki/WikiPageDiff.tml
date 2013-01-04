@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:WikiLayout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+ <t:WikiMenu action="wikiAction" wikiPage="pnWikiPage"/>	
+ 
+ <div id="diffContent" class="diffcontent">	
+	<table width="80%" cellspacing="0" cellpadding="0" style="border: 1px solid #B0C1F9;">
+		<tr>
+			<td colspan="3" width="100%" align="center" style="height:20px;border: 1px solid #B0C1F9;"><b>${wikiPageName}</b></td>
+		</tr>
+		
+		<tr>
+			<td width="49%" class="diffRow"><b><t:message value="prm.wiki.historypage.wikidiff.version"/> : </b>${origVersion} ${origModifiedDate}</td>
+			<td width="2%">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+			<td width="49%" class="diffRow"><b><t:message value="prm.wiki.historypage.wikidiff.version"/> : </b>${prevVersion} ${prevModifiedDate}</td>
+		</tr>
+			<t:Diff leftString="currentVersionString" rightString="previousVersionString" isCancelled="false" isIgnoreLeadSpace="false"/>	
+		<tr>
+			<td width="49%" class="diffRow"><b><t:message value="prm.wiki.historypage.column.author"/> : </b>${origAuthorName}</td>
+			<td width="2%">&nbsp;</td>
+			<td width="49%" class="diffRow"><b><t:message value="prm.wiki.historypage.column.author"/> : </b>${prevAuthorName}</td>
+		</tr>
+	</table>
+</div>
+	<script language="javascript">
+		var accessIsExternal = ${accessIsExternal};
+		window.onload = function() { 
+			manageWindowHeightWidrh();
+		}
+		
+		window.onresize = function() { 
+			manageWindowHeightWidrh();
+		}
+		
+	</script>
+</t:WikiLayout>

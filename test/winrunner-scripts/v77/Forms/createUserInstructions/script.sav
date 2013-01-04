@@ -1,0 +1,34 @@
+function createUserInstructions(in name){
+# 	auto outText;
+	extern i;
+	
+	wait(1);
+	report_msg("Within User Instruction - "&i&"");
+	set_window("main",1);
+	list_select_item("ElementID","User Instructions");
+	wait(1);
+	set_window("main",1);
+	edit_set("field_label",name);
+	edit_set("row_num",i);
+	list_select_item("column_id","Left");
+	edit_set("instructions_clob","user instructions for automated testing");
+	web_link_click("Submit");
+	wait(1);
+	set_window("main",1);
+	if(obj_exists(name)==E_OK)
+		tl_step("Verify user instructions exists",0,"The User Instructions '"&name&"'created successfully");
+	else
+		tl_step("Verify user instructions exists",1,"The creation of User Instructions CANNOT be verified");
+	i = i + 1;
+# 	set_window("main",1);
+# 	win_get_text("main",outText,631,414,728,429);
+# 	if(outText == "User Instructions")
+# 		report_msg("The field created is of type User Instructions");
+# 	else
+# 		report_msg("UNABLE to verify");
+# 	if(obj_exists("User Instructions")==E_OK)
+# 		report_msg("The field created is of type User Instructions");
+# 	else
+# 		report_msg("Unable to verify");
+# 	report_msg("");	
+}

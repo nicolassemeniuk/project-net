@@ -1,0 +1,18 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 1 1098229671 0
+44 62 <obj_get_info:"Project.net Login" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\registerUser> 10 1098229674 0
+44 60 <set_window:"Project.net Login" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\registerUser> 10 1098229674 0
+44 55 <web_link_click:"Register" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\registerUser> 11 1098229674 0
+44 87 <obj_get_info:"New User Registration -- Legal Information" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\registerUser> 15 1098229675 0
+44 85 <set_window:"New User Registration -- Legal Information" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\registerUser> 15 1098229675 0
+44 55 <web_link_click:"I Accept" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\registerUser> 16 1098229675 0
+44 73 <obj_get_info:"Registration - Authorization" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\registerUser> 19 1098229676 0
+44 71 <set_window:"Registration - Authorization" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\registerUser> 19 1098229676 0
+44 46 <edit_set:"login" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\registerUser> 20 1098229676 0
+44 49 <edit_set:"password" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\registerUser> 21 1098229676 0
+44 51 <edit_set:"password_2" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\registerUser> 22 1098229676 0
+44 65 <edit_set:"ecom_ShipTo_Online_Email" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\registerUser> 23 1098229676 0
+44 66 <edit_set:"ecom_ShipTo_Online_Email2" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\registerUser> 24 1098229676 0
+44 60 <edit_set:"clearTextHintPhrase" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\registerUser> 25 1098229676 0
+44 60 <edit_set:"clearTextHintAnswer" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\registerUser> 26 1098229676 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\registerUser> 27 1098229686 0

@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnAuthenticator" 
+    table="PN_AUTHENTICATOR"
+    lazy="false"
+>
+
+    <id
+        name="authenticatorId"
+        type="java.math.BigDecimal"
+        column="AUTHENTICATOR_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="name"
+        type="java.lang.String"
+        column="NAME"
+        length="80"
+    />
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        length="240"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnPersonAuthenticator -->
+
+    <set
+        name="pnPersonAuthenticators"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="AUTHENTICATOR_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPersonAuthenticator"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to PnAuthenticatorType -->
+    <many-to-one
+        name="pnAuthenticatorType"
+        class="net.project.hibernate.model.PnAuthenticatorType"
+        not-null="true"
+    >
+        <column name="AUTHENTICATOR_TYPE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

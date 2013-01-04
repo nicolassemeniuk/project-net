@@ -1,0 +1,16 @@
+ <div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<!-- <div id="showDaysAndPostsDiv">
+	Show:
+	<span t:type="loop" source="archivesListForDaysAndPost" value="blogArchive">
+			<t:if test="blogArchive.isArchivesLinks">
+				<span id="DaysPostsFor_${blogArchive.linkDisplayName}" onclick="setBackgroundColorOf('DaysPostsFor_${blogArchive.linkDisplayName}');">
+					<a href="javascript:setDates('${blogArchive.linkHrefValue}',this)">${blogArchive.linkDisplayName}</a>
+				</span>
+				${blogArchive.commaSeparator}
+				<t:parameter name="else">
+					${blogArchive.linkDisplayName}
+				</t:parameter>
+			</t:if>
+	</span>
+</div> -->
+</div>

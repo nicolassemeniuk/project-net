@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<tr xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+	<td width="100%" class="border_gray" colspan="2">
+		<div class ="padding_activity_text_table" id="padding_activity_table">
+			<table width="100%">
+				<tr id="commentTitle_${activityLogId}">
+					<td width="85%" height="17" rowspan="1" colspan="2" class="blogCommentTitle">
+						<t:OutputRaw value="pnActivityLog.description" />
+						<span id="showLoading_${pnActivityLog.activityLogId}"></span>
+			        </td>
+			        <td><a href="javascript:addActivityComment(${activityLogId}, ${pnActivityLog.parentObjectId});">
+			 			<span id="commentImage_${activityLogId}"> <img src="${asset:context:/images/activitylog/coment_blank.gif}" /> </span></a>
+			 		</td>
+			       <td class="markedIcontd">
+						<a title="${unMarkedToken}" id="marked_${pnActivityLog.activityLogId}" href="javascript:marked(${pnActivityLog.activityLogId},1);">
+							<img src="${asset:context:/images/activitylog/blank_checkmark.gif}" class="markedIcon" />
+						</a>
+					</td>
+	      		</tr>
+				<tr>
+					<td id="personImage_${activityLogId}" width="0" valign="top"> <div class="personImage" align="center"><img width="37px" src="${personImg}"/> </div></td>	
+					<td align="left" class="content descriptionOn" colspan="1" width="100%">
+					   <div id="blogEntryTextShortView_${activityLogId}">
+						   <t:OutputRaw value="shortCommentContent" />&nbsp;&nbsp;
+							 <a title="${expand}" id="expand_${activityLogId}" href="javascript:fullView(${activityLogId},${pnActivityLog.targetObjectId},${pnActivityLog.activityBy},'blogComment');"><img src="${asset:context:/images/activitylog/expand.gif}"/></a> 
+				       </div>
+				       <div id="blogEntryTextFullView_${activityLogId}" style="display:none;"/>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div id="newComentDialogue_For_${activityLogId}" style="display:none;" height="55">
+			<table align="left" bgcolor="#DFE6FF" width="100%">
+				<tr>
+					<td><textarea id="textAreaContent_${activityLogId}" rows="2"
+						cols="87" class="textAreaContent" onblur="javascript:changeCommentMessage(${activityLogId});" onfocus="showCommentHere(${activityLogId});"><t:Message value="prm.project.activity.commenthere.label" />
+								     </textarea></td>
+					<td align="center" width="60">
+						<span class="commentText">
+							<a id="LBlueColor" href="javascript:saveBlogActivityComment(${pnActivityLog.parentObjectId}, ${pnActivityLog.targetObjectId}, ${activityLogId}, ${pnActivityLog.activityBy}, 'blogComment');"><t:Message value="prm.project.activity.submit.label" />
+							</a>
+						</span><br />
+					<hr class="submitCancelDevider" />
+					<span class="commentText">
+						<a id="LBlueColor" href="javascript:hideActivityCommentDialogue(${activityLogId});"><t:Message value="prm.project.activity.cancel.label" /></a>
+					</span>
+					</td>
+				</tr>
+			</table>
+	  	</div>
+	</td>
+</tr>

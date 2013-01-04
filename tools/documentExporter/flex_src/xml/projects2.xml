@@ -1,0 +1,506 @@
+<projects Name="Projects" ProjectId="root">
+<Project Name="8001 MC Habibas" Level="1" Folder="/8001 MC Habibas" selected="false" ProjectId="5950439">
+	</Project>
+<Project Name="@ditep 2004" Level="1" Folder="/@ditep 2004" selected="false" ProjectId="8417240">
+<Project Name="Change Management" Level="2" Folder="/@ditep 2004/Change Management" selected="false" ProjectId="8430740">
+	</Project>
+<Project Name="Decision Point" Level="2" Folder="/@ditep 2004/Decision Point" selected="false" ProjectId="8418799">
+	</Project>
+<Project Name="Drilling Project" Level="2" Folder="/@ditep 2004/Drilling Project" selected="false" ProjectId="7642802">
+<Project Name="Region Marinas" Level="3" Folder="/@ditep 2004/Drilling Project/Region Marinas" selected="false" ProjectId="9207893">
+	</Project>
+<Project Name="Region Norte" Level="3" Folder="/@ditep 2004/Drilling Project/Region Norte" selected="false" ProjectId="9207931">
+	</Project>
+<Project Name="Region Sur" Level="3" Folder="/@ditep 2004/Drilling Project/Region Sur" selected="false" ProjectId="9207911">
+<Project Name="SIOP Database Quality Control" Level="4" Folder="/@ditep 2004/Drilling Project/Region Sur/SIOP Database Quality Control" selected="false" ProjectId="10012969">
+	</Project>
+<Project Name="Wellview- Finder Data Migration" Level="4" Folder="/@ditep 2004/Drilling Project/Region Sur/Wellview- Finder Data Migration" selected="false" ProjectId="9575077">
+	</Project>
+	</Project>
+	</Project>
+<Project Name="GIS" Level="2" Folder="/@ditep 2004/GIS" selected="false" ProjectId="8418848">
+<Project Name="Region Marina" Level="3" Folder="/@ditep 2004/GIS/Region Marina" selected="false" ProjectId="9196658">
+<Project Name="Cartografia Linea 3" Level="4" Folder="/@ditep 2004/GIS/Region Marina/Cartografia Linea 3" selected="false" ProjectId="9197268">
+	</Project>
+<Project Name="Geoimagenes Linea 4" Level="4" Folder="/@ditep 2004/GIS/Region Marina/Geoimagenes Linea 4" selected="false" ProjectId="9197285">
+	</Project>
+<Project Name="Servicios Linea 6" Level="4" Folder="/@ditep 2004/GIS/Region Marina/Servicios Linea 6" selected="false" ProjectId="9197302">
+	</Project>
+	</Project>
+<Project Name="Region Norte" Level="3" Folder="/@ditep 2004/GIS/Region Norte" selected="false" ProjectId="9196568">
+<Project Name="PozaRica/Tampico" Level="4" Folder="/@ditep 2004/GIS/Region Norte/PozaRica Tampico" selected="false" ProjectId="9196803">
+<Project Name="Cartografia Linea 3" Level="5" Folder="/@ditep 2004/GIS/Region Norte/PozaRica Tampico/Cartografia Linea 3" selected="false" ProjectId="9197796">
+	</Project>
+<Project Name="Geoimagenes Linea 4" Level="5" Folder="/@ditep 2004/GIS/Region Norte/PozaRica Tampico/Geoimagenes Linea 4" selected="false" ProjectId="9197813">
+	</Project>
+<Project Name="Servicios Linea 6" Level="5" Folder="/@ditep 2004/GIS/Region Norte/PozaRica Tampico/Servicios Linea 6" selected="false" ProjectId="9197830">
+	</Project>
+	</Project>
+<Project Name="Reynosa" Level="4" Folder="/@ditep 2004/GIS/Region Norte/Reynosa" selected="false" ProjectId="9196754">
+<Project Name="Cartografia Linea 3" Level="5" Folder="/@ditep 2004/GIS/Region Norte/Reynosa/Cartografia Linea 3" selected="false" ProjectId="9197734">
+	</Project>
+<Project Name="Geoimagenes Linea 4" Level="5" Folder="/@ditep 2004/GIS/Region Norte/Reynosa/Geoimagenes Linea 4" selected="false" ProjectId="9197752">
+	</Project>
+<Project Name="Servicios Linea 6" Level="5" Folder="/@ditep 2004/GIS/Region Norte/Reynosa/Servicios Linea 6" selected="false" ProjectId="9197768">
+	</Project>
+	</Project>
+<Project Name="Veracruz" Level="4" Folder="/@ditep 2004/GIS/Region Norte/Veracruz" selected="false" ProjectId="9196734">
+<Project Name="Cartografia Linea 3" Level="5" Folder="/@ditep 2004/GIS/Region Norte/Veracruz/Cartografia Linea 3" selected="false" ProjectId="9197673">
+	</Project>
+<Project Name="Geoimagenes Linea 4" Level="5" Folder="/@ditep 2004/GIS/Region Norte/Veracruz/Geoimagenes Linea 4" selected="false" ProjectId="9197697">
+	</Project>
+<Project Name="Servicios Linea 6" Level="5" Folder="/@ditep 2004/GIS/Region Norte/Veracruz/Servicios Linea 6" selected="false" ProjectId="9197715">
+	</Project>
+	</Project>
+	</Project>
+<Project Name="Region Sur" Level="3" Folder="/@ditep 2004/GIS/Region Sur" selected="false" ProjectId="9196601">
+<Project Name="5 Presidente/Salina" Level="4" Folder="/@ditep 2004/GIS/Region Sur/5 Presidente Salina" selected="false" ProjectId="9196845">
+<Project Name="Cartografia Linea 3" Level="5" Folder="/@ditep 2004/GIS/Region Sur/5 Presidente Salina/Cartografia Linea 3" selected="false" ProjectId="9197334">
+	</Project>
+<Project Name="Geoimagenes Linea 4" Level="5" Folder="/@ditep 2004/GIS/Region Sur/5 Presidente Salina/Geoimagenes Linea 4" selected="false" ProjectId="9197351">
+	</Project>
+<Project Name="Servicios Linea 6" Level="5" Folder="/@ditep 2004/GIS/Region Sur/5 Presidente Salina/Servicios Linea 6" selected="false" ProjectId="9197370">
+	</Project>
+	</Project>
+<Project Name="Bellota/Jujo" Level="4" Folder="/@ditep 2004/GIS/Region Sur/Bellota Jujo" selected="false" ProjectId="9196879">
+<Project Name="Cartografia Linea 3" Level="5" Folder="/@ditep 2004/GIS/Region Sur/Bellota Jujo/Cartografia Linea 3" selected="false" ProjectId="9197388">
+	</Project>
+<Project Name="Geoimagenes Linea 4" Level="5" Folder="/@ditep 2004/GIS/Region Sur/Bellota Jujo/Geoimagenes Linea 4" selected="false" ProjectId="9197405">
+	</Project>
+<Project Name="Servicios Linea 6" Level="5" Folder="/@ditep 2004/GIS/Region Sur/Bellota Jujo/Servicios Linea 6" selected="false" ProjectId="9197422">
+	</Project>
+	</Project>
+<Project Name="Integral Exploracion" Level="4" Folder="/@ditep 2004/GIS/Region Sur/Integral Exploracion" selected="false" ProjectId="9197039">
+<Project Name="Cartografia Linea 3" Level="5" Folder="/@ditep 2004/GIS/Region Sur/Integral Exploracion/Cartografia Linea 3" selected="false" ProjectId="9197614">
+	</Project>
+<Project Name="Geoimagenes Linea 4" Level="5" Folder="/@ditep 2004/GIS/Region Sur/Integral Exploracion/Geoimagenes Linea 4" selected="false" ProjectId="9197631">
+	</Project>
+<Project Name="Servicios Linea 6" Level="5" Folder="/@ditep 2004/GIS/Region Sur/Integral Exploracion/Servicios Linea 6" selected="false" ProjectId="9197648">
+	</Project>
+	</Project>
+<Project Name="Macuspana/Chilapilla" Level="4" Folder="/@ditep 2004/GIS/Region Sur/Macuspana Chilapilla" selected="false" ProjectId="9196998">
+<Project Name="Cartografia Linea 3" Level="5" Folder="/@ditep 2004/GIS/Region Sur/Macuspana Chilapilla/Cartografia Linea 3" selected="false" ProjectId="9197505">
+	</Project>
+<Project Name="Geoimagenes Linea 4" Level="5" Folder="/@ditep 2004/GIS/Region Sur/Macuspana Chilapilla/Geoimagenes Linea 4" selected="false" ProjectId="9197522">
+	</Project>
+<Project Name="Servicios Linea 6" Level="5" Folder="/@ditep 2004/GIS/Region Sur/Macuspana Chilapilla/Servicios Linea 6" selected="false" ProjectId="9197539">
+	</Project>
+	</Project>
+<Project Name="Muspac" Level="4" Folder="/@ditep 2004/GIS/Region Sur/Muspac" selected="false" ProjectId="9197020">
+<Project Name="Cartografia Linea 3" Level="5" Folder="/@ditep 2004/GIS/Region Sur/Muspac/Cartografia Linea 3" selected="false" ProjectId="9197559">
+	</Project>
+<Project Name="Geoimagenes Linea 4" Level="5" Folder="/@ditep 2004/GIS/Region Sur/Muspac/Geoimagenes Linea 4" selected="false" ProjectId="9197576">
+	</Project>
+<Project Name="Servicios Linea 6" Level="5" Folder="/@ditep 2004/GIS/Region Sur/Muspac/Servicios Linea 6" selected="false" ProjectId="9197597">
+	</Project>
+	</Project>
+<Project Name="Samaria/Luna" Level="4" Folder="/@ditep 2004/GIS/Region Sur/Samaria Luna" selected="false" ProjectId="9196944">
+<Project Name="Cartografia Linea 3" Level="5" Folder="/@ditep 2004/GIS/Region Sur/Samaria Luna/Cartografia Linea 3" selected="false" ProjectId="9197448">
+	</Project>
+<Project Name="Geoimagenes Linea 4" Level="5" Folder="/@ditep 2004/GIS/Region Sur/Samaria Luna/Geoimagenes Linea 4" selected="false" ProjectId="9197465">
+	</Project>
+<Project Name="Servicios Linea 6" Level="5" Folder="/@ditep 2004/GIS/Region Sur/Samaria Luna/Servicios Linea 6" selected="false" ProjectId="9197486">
+	</Project>
+	</Project>
+	</Project>
+	</Project>
+<Project Name="Marine Region" Level="2" Folder="/@ditep 2004/Marine Region" selected="false" ProjectId="8418892">
+	</Project>
+<Project Name="Normatividad 2004" Level="2" Folder="/@ditep 2004/Normatividad 2004" selected="false" ProjectId="8533272">
+<Project Name="Homologacion de Identificadores Unicos" Level="3" Folder="/@ditep 2004/Normatividad 2004/Homologacion de Identificadores Unicos" selected="false" ProjectId="8788327">
+	</Project>
+	</Project>
+<Project Name="North Region" Level="2" Folder="/@ditep 2004/North Region" selected="false" ProjectId="8418908">
+	</Project>
+<Project Name="Portal" Level="2" Folder="/@ditep 2004/Portal" selected="false" ProjectId="8418820">
+<Project Name="Portal Fase 1" Level="3" Folder="/@ditep 2004/Portal/Portal Fase 1" selected="false" ProjectId="9721230">
+	</Project>
+<Project Name="Portal Fase 2" Level="3" Folder="/@ditep 2004/Portal/Portal Fase 2" selected="false" ProjectId="9721273">
+	</Project>
+	</Project>
+<Project Name="Quality Project" Level="2" Folder="/@ditep 2004/Quality Project" selected="false" ProjectId="8493760">
+<Project Name="Calidad de Servicio" Level="3" Folder="/@ditep 2004/Quality Project/Calidad de Servicio" selected="false" ProjectId="8532247">
+	</Project>
+<Project Name="Calidad del Dato" Level="3" Folder="/@ditep 2004/Quality Project/Calidad del Dato" selected="false" ProjectId="8532917">
+	</Project>
+<Project Name="Development Data Loading with Business Rules" Level="3" Folder="/@ditep 2004/Quality Project/Development Data Loading with Business Rules" selected="false" ProjectId="9958490">
+	</Project>
+<Project Name="Enabling PEMEX Operations and Processes " Level="3" Folder="/@ditep 2004/Quality Project/Enabling PEMEX Operations and Processes " selected="false" ProjectId="9958225">
+	</Project>
+	</Project>
+<Project Name="Seismic" Level="2" Folder="/@ditep 2004/Seismic" selected="false" ProjectId="8418873">
+<Project Name="Financial Follow-up" Level="3" Folder="/@ditep 2004/Seismic/Financial Follow-up" selected="false" ProjectId="9359618">
+	</Project>
+<Project Name="Seismic Marine Region" Level="3" Folder="/@ditep 2004/Seismic/Seismic Marine Region" selected="false" ProjectId="10168443">
+	</Project>
+<Project Name="Seismic North Region" Level="3" Folder="/@ditep 2004/Seismic/Seismic North Region" selected="false" ProjectId="10168281">
+	</Project>
+<Project Name="Seismic Sourth Region" Level="3" Folder="/@ditep 2004/Seismic/Seismic Sourth Region" selected="false" ProjectId="10168491">
+	</Project>
+	</Project>
+<Project Name="South Region" Level="2" Folder="/@ditep 2004/South Region" selected="false" ProjectId="8418924">
+<Project Name="UBDT Bellota Jujo" Level="3" Folder="/@ditep 2004/South Region/UBDT Bellota Jujo" selected="false" ProjectId="9204437">
+<Project Name="3U-11-038" Level="4" Folder="/@ditep 2004/South Region/UBDT Bellota Jujo/3U-11-038" selected="false" ProjectId="10530271">
+	</Project>
+<Project Name="3U-11-039" Level="4" Folder="/@ditep 2004/South Region/UBDT Bellota Jujo/3U-11-039" selected="false" ProjectId="10530370">
+	</Project>
+<Project Name="3U-11-042" Level="4" Folder="/@ditep 2004/South Region/UBDT Bellota Jujo/3U-11-042" selected="false" ProjectId="10537715">
+	</Project>
+<Project Name="4U-11-036" Level="4" Folder="/@ditep 2004/South Region/UBDT Bellota Jujo/4U-11-036" selected="false" ProjectId="10530134">
+	</Project>
+<Project Name="6U-11-035" Level="4" Folder="/@ditep 2004/South Region/UBDT Bellota Jujo/6U-11-035" selected="false" ProjectId="10529610">
+	</Project>
+<Project Name="6U-11-037" Level="4" Folder="/@ditep 2004/South Region/UBDT Bellota Jujo/6U-11-037" selected="false" ProjectId="10530188">
+	</Project>
+<Project Name="6U-11-041" Level="4" Folder="/@ditep 2004/South Region/UBDT Bellota Jujo/6U-11-041" selected="false" ProjectId="10537665">
+	</Project>
+<Project Name="7U-11-033" Level="4" Folder="/@ditep 2004/South Region/UBDT Bellota Jujo/7U-11-033" selected="false" ProjectId="10529997">
+	</Project>
+<Project Name="7U-11-34" Level="4" Folder="/@ditep 2004/South Region/UBDT Bellota Jujo/7U-11-34" selected="false" ProjectId="10530084">
+	</Project>
+<Project Name="8U-11-040" Level="4" Folder="/@ditep 2004/South Region/UBDT Bellota Jujo/8U-11-040" selected="false" ProjectId="10537560">
+	</Project>
+	</Project>
+<Project Name="UBDT Cinco Presidentes Salina del Istmo" Level="3" Folder="/@ditep 2004/South Region/UBDT Cinco Presidentes Salina del Istmo" selected="false" ProjectId="10056888">
+	</Project>
+<Project Name="UBDT Macuspana" Level="3" Folder="/@ditep 2004/South Region/UBDT Macuspana" selected="false" ProjectId="10057388">
+	</Project>
+<Project Name="UBDT Muspac" Level="3" Folder="/@ditep 2004/South Region/UBDT Muspac" selected="false" ProjectId="10057142">
+	</Project>
+<Project Name="UBDT Regional de Exploracion" Level="3" Folder="/@ditep 2004/South Region/UBDT Regional de Exploracion" selected="false" ProjectId="10056914">
+	</Project>
+<Project Name="UBDT Samaria Luna" Level="3" Folder="/@ditep 2004/South Region/UBDT Samaria Luna" selected="false" ProjectId="10056856">
+	</Project>
+	</Project>
+<Project Name="Union de BDs Tecnica PEP" Level="2" Folder="/@ditep 2004/Union de BDs Tecnica PEP" selected="false" ProjectId="9194982">
+	</Project>
+<Project Name="eSEARCH + 3rd. EDMS solutions" Level="2" Folder="/@ditep 2004/eSEARCH + 3rd. EDMS solutions" selected="false" ProjectId="9803922">
+	</Project>
+	</Project>
+<Project Name="@ditep Region Sur MR" Level="1" Folder="/@ditep Region Sur MR" selected="false" ProjectId="11635606">
+	</Project>
+<Project Name="A &amp; D Intelligence" Level="1" Folder="/A  D Intelligence" selected="false" ProjectId="5731946">
+	</Project>
+<Project Name="A Production &quot;Initiative&quot;" Level="1" Folder="/A Production Initiative" selected="false" ProjectId="10016813">
+	</Project>
+<Project Name="A Production Marketing space" Level="1" Folder="/A Production Marketing space" selected="false" ProjectId="10056958">
+	</Project>
+<Project Name="A Test Project" Level="1" Folder="/A Test Project" selected="false" ProjectId="1487782">
+	</Project>
+<Project Name="A&amp;D Project Template" Level="1" Folder="/AD Project Template" selected="false" ProjectId="456777">
+	</Project>
+<Project Name="AAPG  - Annual Conventions- Salt Lake City, UT" Level="1" Folder="/AAPG  - Annual Conventions- Salt Lake City UT" selected="false" ProjectId="3645968">
+	</Project>
+<Project Name="ABC" Level="1" Folder="/ABC" selected="false" ProjectId="3796130">
+	</Project>
+<Project Name="ABL Project" Level="1" Folder="/ABL Project" selected="false" ProjectId="2032839">
+	</Project>
+<Project Name="ABO" Level="1" Folder="/ABO" selected="false" ProjectId="1543387">
+	</Project>
+<Project Name="AD Migration / W2k server migration" Level="1" Folder="/AD Migration   W2k server migration" selected="false" ProjectId="1807311">
+	</Project>
+<Project Name="AD-17 Shipyard Project" Level="1" Folder="/AD-17 Shipyard Project" selected="false" ProjectId="9254992">
+	</Project>
+<Project Name="ADCO - Portal Feasibility Study" Level="1" Folder="/ADCO - Portal Feasibility Study" selected="false" ProjectId="5225608">
+	</Project>
+<Project Name="ADCO DY-71 IC" Level="1" Folder="/ADCO DY-71 IC" selected="false" ProjectId="11915352">
+	</Project>
+<Project Name="ADN Sustaining" Level="1" Folder="/ADN Sustaining" selected="false" ProjectId="14475527">
+<Project Name="30Kpsi ADN6 upgrade (feasibility)" Level="2" Folder="/ADN Sustaining/30Kpsi ADN6 upgrade feasibility" selected="false" ProjectId="14475695">
+	</Project>
+	</Project>
+<Project Name="ADNOC Thamama B EOR study" Level="1" Folder="/ADNOC Thamama B EOR study" selected="false" ProjectId="13569106">
+	</Project>
+<Project Name="ADS Prototype 1" Level="1" Folder="/ADS Prototype 1" selected="false" ProjectId="334746">
+	</Project>
+<Project Name="AEC Ecuador - Well Construction" Level="1" Folder="/AEC Ecuador - Well Construction" selected="false" ProjectId="1107432">
+	</Project>
+<Project Name="AFE Process Development - OXY " Level="1" Folder="/AFE Process Development - OXY " selected="false" ProjectId="788775">
+	</Project>
+<Project Name="AFE Process Solution Engagement - OXY" Level="1" Folder="/AFE Process Solution Engagement - OXY" selected="false" ProjectId="1446730">
+	</Project>
+<Project Name="AGIP / ENI" Level="1" Folder="/AGIP   ENI" selected="false" ProjectId="6438325">
+	</Project>
+<Project Name="AGIP 2002" Level="1" Folder="/AGIP 2002" selected="false" ProjectId="798682">
+	</Project>
+<Project Name="AGIP Houston" Level="1" Folder="/AGIP Houston" selected="false" ProjectId="1548712">
+	</Project>
+<Project Name="AGIP IDU 11" Level="1" Folder="/AGIP IDU 11" selected="false" ProjectId="901858">
+	</Project>
+<Project Name="AGIP Morpeth" Level="1" Folder="/AGIP Morpeth" selected="false" ProjectId="4286514">
+	</Project>
+<Project Name="AGO Orca and Receiver issues" Level="1" Folder="/AGO Orca and Receiver issues" selected="false" ProjectId="12115922">
+	</Project>
+<Project Name="AHC Northwestern GB201 " Level="1" Folder="/AHC Northwestern GB201 " selected="false" ProjectId="844859">
+	</Project>
+<Project Name="AK State Gov Directory Requirements" Level="1" Folder="/AK State Gov Directory Requirements" selected="false" ProjectId="563653">
+	</Project>
+<Project Name="AKA-Financials" Level="1" Folder="/AKA-Financials" selected="false" ProjectId="353581">
+	</Project>
+<Project Name="AKPO Project Schlumberger Internal Only" Level="1" Folder="/AKPO Project Schlumberger Internal Only" selected="false" ProjectId="5889710">
+<Project Name="AKPO Finance Control" Level="2" Folder="/AKPO Project Schlumberger Internal Only/AKPO Finance Control" selected="false" ProjectId="11530432">
+	</Project>
+	</Project>
+<Project Name="ALNAFT 2 - National Data Bank " Level="1" Folder="/ALNAFT 2 - National Data Bank " selected="false" ProjectId="10456400">
+	</Project>
+<Project Name="ALNAFT NDB Project - Algeria" Level="1" Folder="/ALNAFT NDB Project - Algeria" selected="false" ProjectId="1111864">
+	</Project>
+<Project Name="ALtest" Level="1" Folder="/ALtest" selected="false" ProjectId="3634724">
+	</Project>
+<Project Name="AM PROGRAM" Level="1" Folder="/AM PROGRAM" selected="false" ProjectId="3953909">
+	</Project>
+<Project Name="ANH - PETI" Level="1" Folder="/ANH - PETI" selected="false" ProjectId="15042711">
+	</Project>
+<Project Name="ANH - PETI" Level="1" Folder="/ANH - PETI" selected="false" ProjectId="15046711">
+	</Project>
+<Project Name="APACS 40 Q1 '04" Level="1" Folder="/APACS 40 Q1 '04" selected="false" ProjectId="6293858">
+	</Project>
+<Project Name="APACS CC EAL4 PIN Migration" Level="1" Folder="/APACS CC EAL4 PIN Migration" selected="false" ProjectId="3083143">
+	</Project>
+<Project Name="APACS PIN Addition" Level="1" Folder="/APACS PIN Addition" selected="false" ProjectId="841987">
+	</Project>
+<Project Name="APG Long Term Strategy" Level="1" Folder="/APG Long Term Strategy" selected="false" ProjectId="1449767">
+	</Project>
+<Project Name="API Equipment above 15Kpsi" Level="1" Folder="/API Equipment above 15Kpsi" selected="false" ProjectId="11401208">
+	</Project>
+<Project Name="ARBOUCHE " Level="1" Folder="/ARBOUCHE " selected="false" ProjectId="1258462">
+	</Project>
+<Project Name="ARC Sustaining" Level="1" Folder="/ARC Sustaining" selected="false" ProjectId="14475477">
+	</Project>
+<Project Name="ARM - Pakistan - Premier (PKP) Exploration Well" Level="1" Folder="/ARM - Pakistan - Premier PKP Exploration Well" selected="false" ProjectId="5548120">
+	</Project>
+<Project Name="ARM-KJO-Khafji" Level="1" Folder="/ARM-KJO-Khafji" selected="false" ProjectId="4123112">
+	</Project>
+<Project Name="ARN Firewall Installation" Level="1" Folder="/ARN Firewall Installation" selected="false" ProjectId="2263147">
+	</Project>
+<Project Name="ASAB Feasibility Study" Level="1" Folder="/ASAB Feasibility Study" selected="false" ProjectId="2977203">
+	</Project>
+<Project Name="ASME Gas Lift Work Show" Level="1" Folder="/ASME Gas Lift Work Show" selected="false" ProjectId="3645291">
+	</Project>
+<Project Name="ASR Abu Dhabi" Level="1" Folder="/ASR Abu Dhabi" selected="false" ProjectId="6034554">
+	</Project>
+<Project Name="ASR Marco Lakes Show Case" Level="1" Folder="/ASR Marco Lakes Show Case" selected="false" ProjectId="6034589">
+	</Project>
+<Project Name="ASR Sharjah" Level="1" Folder="/ASR Sharjah" selected="false" ProjectId="5405264">
+	</Project>
+<Project Name="ATC Patent Collaboration Space" Level="1" Folder="/ATC Patent Collaboration Space" selected="false" ProjectId="336568">
+<Project Name="58.0038 Lu (Interactively Constructing, Editing, Rendering and Manipulating...)" Level="2" Folder="/ATC Patent Collaboration Space/58.0038 Lu Interactively Constructing Editing Rendering and Manipulating..." selected="false" ProjectId="337322">
+	</Project>
+<Project Name="59.0051 Hubeli" Level="2" Folder="/ATC Patent Collaboration Space/59.0051 Hubeli" selected="false" ProjectId="337023">
+	</Project>
+	</Project>
+<Project Name="ATP   -   MC 711 Gomez" Level="1" Folder="/ATP   -   MC 711 Gomez" selected="false" ProjectId="8533917">
+	</Project>
+<Project Name="ATP - Aconcagua" Level="1" Folder="/ATP - Aconcagua" selected="false" ProjectId="14960805">
+	</Project>
+<Project Name="ATP - Gomez Phase III" Level="1" Folder="/ATP - Gomez Phase III" selected="false" ProjectId="12430397">
+	</Project>
+<Project Name="ATP - King's Peak - Phase I" Level="1" Folder="/ATP - King's Peak - Phase I" selected="false" ProjectId="12430415">
+	</Project>
+<Project Name="ATP - Mississippi Canyon Phase II" Level="1" Folder="/ATP - Mississippi Canyon Phase II" selected="false" ProjectId="9901985">
+	</Project>
+<Project Name="ATP - Telemark" Level="1" Folder="/ATP - Telemark" selected="false" ProjectId="14960820">
+	</Project>
+<Project Name="AUD Packeteer Installation" Level="1" Folder="/AUD Packeteer Installation" selected="false" ProjectId="2261934">
+	</Project>
+<Project Name="AUS Security Upgrade" Level="1" Folder="/AUS Security Upgrade" selected="false" ProjectId="2196425">
+	</Project>
+<Project Name="Accelerated Training Fund" Level="1" Folder="/Accelerated Training Fund" selected="false" ProjectId="2733410">
+	</Project>
+<Project Name="Actaris" Level="1" Folder="/Actaris" selected="false" ProjectId="2312840">
+	</Project>
+<Project Name="Active Directory Security" Level="1" Folder="/Active Directory Security" selected="false" ProjectId="12485569">
+	</Project>
+<Project Name="Active Sampling Device" Level="1" Folder="/Active Sampling Device" selected="false" ProjectId="7063328">
+	</Project>
+<Project Name="Added Value" Level="1" Folder="/Added Value" selected="false" ProjectId="7027811">
+	</Project>
+<Project Name="Addition of building records to LDAP" Level="1" Folder="/Addition of building records to LDAP" selected="false" ProjectId="6787639">
+	</Project>
+<Project Name="Adobe" Level="1" Folder="/Adobe" selected="false" ProjectId="4228025">
+	</Project>
+<Project Name="Advanced Well Engineering Course" Level="1" Folder="/Advanced Well Engineering Course" selected="false" ProjectId="2795185">
+	</Project>
+<Project Name="Aera Evaluation" Level="1" Folder="/Aera Evaluation" selected="false" ProjectId="1485851">
+	</Project>
+<Project Name="Agbami Project - Well Completions" Level="1" Folder="/Agbami Project - Well Completions" selected="false" ProjectId="8269464">
+	</Project>
+<Project Name="Agip Adriatic 2-7/8" Level="1" Folder="/Agip Adriatic 2-7 8" selected="false" ProjectId="303050">
+	</Project>
+<Project Name="Agip KCO" Level="1" Folder="/Agip KCO" selected="false" ProjectId="1507977">
+	</Project>
+<Project Name="Agip KCO LQ Barge" Level="1" Folder="/Agip KCO LQ Barge" selected="false" ProjectId="867824">
+	</Project>
+<Project Name="AirLiquide CO2 gas field" Level="1" Folder="/AirLiquide CO2 gas field" selected="false" ProjectId="1659789">
+	</Project>
+<Project Name="Airborne Laser Scanning" Level="1" Folder="/Airborne Laser Scanning" selected="false" ProjectId="2016529">
+	</Project>
+<Project Name="Akpo Project  - Well Completions" Level="1" Folder="/Akpo Project  - Well Completions" selected="false" ProjectId="5501988">
+<Project Name="Annular Barrier Tool Design Competition" Level="2" Folder="/Akpo Project  - Well Completions/Annular Barrier Tool Design Competition" selected="false" ProjectId="5502018">
+<Project Name="Phase 2 Prototype development" Level="3" Folder="/Akpo Project  - Well Completions/Annular Barrier Tool Design Competition/Phase 2 Prototype development" selected="false" ProjectId="6808074">
+	</Project>
+	</Project>
+	</Project>
+<Project Name="Akpul" Level="1" Folder="/Akpul" selected="false" ProjectId="11176617">
+	</Project>
+<Project Name="Al's Enterprise Management System" Level="1" Folder="/Al's Enterprise Management System" selected="false" ProjectId="12466678">
+	</Project>
+<Project Name="Alabama-Coushatta Tribe of Texas" Level="1" Folder="/Alabama-Coushatta Tribe of Texas" selected="false" ProjectId="10402927">
+	</Project>
+<Project Name="Alaska Demo" Level="1" Folder="/Alaska Demo" selected="false" ProjectId="12702987">
+	</Project>
+<Project Name="Aldbrough Gas Storage Project. Yorks UK" Level="1" Folder="/Aldbrough Gas Storage Project. Yorks UK" selected="false" ProjectId="3007542">
+	</Project>
+<Project Name="Alfonso Gonzalez" Level="1" Folder="/Alfonso Gonzalez" selected="false" ProjectId="1833949">
+	</Project>
+<Project Name="Algeria Tender BP" Level="1" Folder="/Algeria Tender BP" selected="false" ProjectId="12237998">
+	</Project>
+<Project Name="Alison _ Erwin workspace" Level="1" Folder="/Alison _ Erwin workspace" selected="false" ProjectId="10025679">
+	</Project>
+<Project Name="All Projects Overview" Level="1" Folder="/All Projects Overview" selected="false" ProjectId="750233">
+	</Project>
+<Project Name="Alliance Market Communication Plan" Level="1" Folder="/Alliance Market Communication Plan" selected="false" ProjectId="13338077">
+	</Project>
+<Project Name="Alpine Resources - Vastar #3 CoilFRAC Completion" Level="1" Folder="/Alpine Resources - Vastar #3 CoilFRAC Completion" selected="false" ProjectId="628628">
+<Project Name="Alpine Resources - Vastar #3  Matrix Stimulation" Level="2" Folder="/Alpine Resources - Vastar #3 CoilFRAC Completion/Alpine Resources - Vastar #3  Matrix Stimulation" selected="false" ProjectId="628938">
+	</Project>
+	</Project>
+<Project Name="Amerada Hess" Level="1" Folder="/Amerada Hess" selected="false" ProjectId="4984188">
+	</Project>
+<Project Name="Amerada Hess Scotts Water Solutions - UK" Level="1" Folder="/Amerada Hess Scotts Water Solutions - UK" selected="false" ProjectId="2100937">
+	</Project>
+<Project Name="Amereda Hess" Level="1" Folder="/Amereda Hess" selected="false" ProjectId="6103537">
+	</Project>
+<Project Name="American School Security Upgrade" Level="1" Folder="/American School Security Upgrade" selected="false" ProjectId="2262668">
+	</Project>
+<Project Name="Anadarko Al Rayyan" Level="1" Folder="/Anadarko Al Rayyan" selected="false" ProjectId="3964098">
+	</Project>
+<Project Name="Anadarko Canada eInvoicing" Level="1" Folder="/Anadarko Canada eInvoicing" selected="false" ProjectId="10793896">
+<Project Name="Anadarko Canada - Drilling &amp; Measurments" Level="2" Folder="/Anadarko Canada eInvoicing/Anadarko Canada - Drilling  Measurments" selected="false" ProjectId="10793964">
+	</Project>
+	</Project>
+<Project Name="Anadarko MC 401" Level="1" Folder="/Anadarko MC 401" selected="false" ProjectId="1163870">
+	</Project>
+<Project Name="Anadarko USA" Level="1" Folder="/Anadarko USA" selected="false" ProjectId="10793941">
+	</Project>
+<Project Name="Anadyr Basin Evaluation and Prospect Delineation - Beringovskaya-" Level="1" Folder="/Anadyr Basin Evaluation and Prospect Delineation - Beringovskaya-" selected="false" ProjectId="891097">
+	</Project>
+<Project Name="Anadyr Basin Evaluation and Prospect Delineation - Centralnaya Uplift - " Level="1" Folder="/Anadyr Basin Evaluation and Prospect Delineation - Centralnaya Uplift - " selected="false" ProjectId="885765">
+	</Project>
+<Project Name="Analyst Meeting" Level="1" Folder="/Analyst Meeting" selected="false" ProjectId="7385641">
+	</Project>
+<Project Name="Annular Gel Packer" Level="1" Folder="/Annular Gel Packer" selected="false" ProjectId="1253118">
+	</Project>
+<Project Name="Anoa-Merah" Level="1" Folder="/Anoa-Merah" selected="false" ProjectId="4625706">
+<Project Name="IPM ANM-A " Level="2" Folder="/Anoa-Merah/IPM ANM-A " selected="false" ProjectId="4626471">
+	</Project>
+<Project Name="IPM ANM-A Drilling" Level="2" Folder="/Anoa-Merah/IPM ANM-A Drilling" selected="false" ProjectId="4626500">
+	</Project>
+	</Project>
+<Project Name="Antel BPM" Level="1" Folder="/Antel BPM" selected="false" ProjectId="1245429">
+	</Project>
+<Project Name="Apache China Colored Inversion" Level="1" Folder="/Apache China Colored Inversion" selected="false" ProjectId="3698057">
+	</Project>
+<Project Name="Apache Egypt Inversion Study" Level="1" Folder="/Apache Egypt Inversion Study" selected="false" ProjectId="2228448">
+	</Project>
+<Project Name="Apache Egypt QSED Project March 2003" Level="1" Folder="/Apache Egypt QSED Project March 2003" selected="false" ProjectId="3493237">
+	</Project>
+<Project Name="Apache OW-OSP-Petrel" Level="1" Folder="/Apache OW-OSP-Petrel" selected="false" ProjectId="10133184">
+<Project Name="SW to Petrel Verification Testing" Level="2" Folder="/Apache OW-OSP-Petrel/SW to Petrel Verification Testing" selected="false" ProjectId="10133250">
+	</Project>
+	</Project>
+<Project Name="Apache PET Study" Level="1" Folder="/Apache PET Study" selected="false" ProjectId="15029573">
+	</Project>
+<Project Name="Apache Permanent Gauge" Level="1" Folder="/Apache Permanent Gauge" selected="false" ProjectId="504960">
+	</Project>
+<Project Name="Application Development Process" Level="1" Folder="/Application Development Process" selected="false" ProjectId="1680297">
+	</Project>
+<Project Name="Application Training Program at OTC" Level="1" Folder="/Application Training Program at OTC" selected="false" ProjectId="12497177">
+<Project Name="GeMS Training Program" Level="2" Folder="/Application Training Program at OTC/GeMS Training Program" selected="false" ProjectId="12497197">
+	</Project>
+<Project Name="MFG/PRO Training Program" Level="2" Folder="/Application Training Program at OTC/MFG PRO Training Program" selected="false" ProjectId="12497228">
+	</Project>
+<Project Name="PeTra Training Program" Level="2" Folder="/Application Training Program at OTC/PeTra Training Program" selected="false" ProjectId="12497246">
+	</Project>
+	</Project>
+<Project Name="Applications Infrastructure Migration Fase 2" Level="1" Folder="/Applications Infrastructure Migration Fase 2" selected="false" ProjectId="12846110">
+	</Project>
+<Project Name="Approval Tracking" Level="1" Folder="/Approval Tracking" selected="false" ProjectId="1798610">
+	</Project>
+<Project Name="Aramco Ghazal-12" Level="1" Folder="/Aramco Ghazal-12" selected="false" ProjectId="8397223">
+	</Project>
+<Project Name="Aramco Pilot" Level="1" Folder="/Aramco Pilot" selected="false" ProjectId="6446418">
+	</Project>
+<Project Name="Archive Data" Level="1" Folder="/Archive Data" selected="false" ProjectId="12318141">
+	</Project>
+<Project Name="Archived Projects" Level="1" Folder="/Archived Projects" selected="false" ProjectId="10101196">
+	</Project>
+<Project Name="Ardmore Web/DB Servers" Level="1" Folder="/Ardmore Web DB Servers" selected="false" ProjectId="5831431">
+	</Project>
+<Project Name="Area Forums" Level="1" Folder="/Area Forums" selected="false" ProjectId="1145730">
+	</Project>
+<Project Name="Arena Resources" Level="1" Folder="/Arena Resources" selected="false" ProjectId="12498086">
+	</Project>
+<Project Name="Arguello Hidalgo C-12 IC" Level="1" Folder="/Arguello Hidalgo C-12 IC" selected="false" ProjectId="6923680">
+	</Project>
+<Project Name="Arguello Hidalgo C-13" Level="1" Folder="/Arguello Hidalgo C-13" selected="false" ProjectId="9649762">
+	</Project>
+<Project Name="Ariba " Level="1" Folder="/Ariba " selected="false" ProjectId="1455746">
+	</Project>
+<Project Name="Artesia Web Servers" Level="1" Folder="/Artesia Web Servers" selected="false" ProjectId="4944224">
+	</Project>
+<Project Name="Artificial Lift: Power and Control " Level="1" Folder="/Artificial Lift: Power and Control " selected="false" ProjectId="696213">
+<Project Name="Canada Acquisition" Level="2" Folder="/Artificial Lift: Power and Control /Canada Acquisition" selected="false" ProjectId="696931">
+	</Project>
+	</Project>
+<Project Name="Arts Test Project" Level="1" Folder="/Arts Test Project" selected="false" ProjectId="3267325">
+	</Project>
+<Project Name="Asahi Kasei Group DeXa.Badge" Level="1" Folder="/Asahi Kasei Group DeXa.Badge" selected="false" ProjectId="1370632">
+	</Project>
+<Project Name="Asahi News Paper DeXa.Badge" Level="1" Folder="/Asahi News Paper DeXa.Badge" selected="false" ProjectId="1135779">
+	</Project>
+<Project Name="Asia Pacific Demo" Level="1" Folder="/Asia Pacific Demo" selected="false" ProjectId="12703904">
+	</Project>
+<Project Name="Assen site LAN upgrade" Level="1" Folder="/Assen site LAN upgrade" selected="false" ProjectId="12865180">
+	</Project>
+<Project Name="Asset Lifecycle Management" Level="1" Folder="/Asset Lifecycle Management" selected="false" ProjectId="6377179">
+	</Project>
+<Project Name="Asset Management" Level="1" Folder="/Asset Management" selected="false" ProjectId="2859868">
+	</Project>
+<Project Name="Asset Management &amp; Software Compliance" Level="1" Folder="/Asset Management  Software Compliance" selected="false" ProjectId="4491604">
+	</Project>
+<Project Name="Asset Management - Movers and Leavers" Level="1" Folder="/Asset Management - Movers and Leavers" selected="false" ProjectId="3247092">
+	</Project>
+<Project Name="Asset Portfolio Optimization" Level="1" Folder="/Asset Portfolio Optimization" selected="false" ProjectId="6377548">
+	</Project>
+<Project Name="Asset Portfolio Optimization" Level="1" Folder="/Asset Portfolio Optimization" selected="false" ProjectId="6377548">
+	</Project>
+<Project Name="AssetDB 4.0" Level="1" Folder="/AssetDB 4.0" selected="false" ProjectId="732134">
+	</Project>
+<Project Name="Astrium" Level="1" Folder="/Astrium" selected="false" ProjectId="654586">
+	</Project>
+<Project Name="Astrium BJH" Level="1" Folder="/Astrium BJH" selected="false" ProjectId="694610">
+	</Project>
+<Project Name="Astrium FR" Level="1" Folder="/Astrium FR" selected="false" ProjectId="727152">
+	</Project>
+<Project Name="Athens" Level="1" Folder="/Athens" selected="false" ProjectId="778112">
+	</Project>
+<Project Name="Atlantis" Level="1" Folder="/Atlantis" selected="false" ProjectId="5781375">
+	</Project>
+<Project Name="Atlantis Integrated Project" Level="1" Folder="/Atlantis Integrated Project" selected="false" ProjectId="602728">
+	</Project>
+<Project Name="Atwood Oceanics" Level="1" Folder="/Atwood Oceanics" selected="false" ProjectId="2989444">
+	</Project>
+<Project Name="Atyrau new Office" Level="1" Folder="/Atyrau new Office" selected="false" ProjectId="9791878">
+	</Project>
+<Project Name="Aurizonia Exploration Project" Level="1" Folder="/Aurizonia Exploration Project" selected="false" ProjectId="7314898">
+	</Project>
+<Project Name="Austin Web Server" Level="1" Folder="/Austin Web Server" selected="false" ProjectId="6101696">
+	</Project>
+<Project Name="Australia" Level="1" Folder="/Australia" selected="false" ProjectId="13008685">
+	</Project>
+<Project Name="Austria" Level="1" Folder="/Austria" selected="false" ProjectId="876898">
+	</Project>
+<Project Name="Automate Ticket Creation for Connected Not Backed Up" Level="1" Folder="/Automate Ticket Creation for Connected Not Backed Up" selected="false" ProjectId="6770357">
+	</Project>
+</projects>

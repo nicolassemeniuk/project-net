@@ -1,0 +1,12 @@
+function getFieldID(in fieldName){	
+	auto urlValue, fieldID, path_array[], elements;
+
+	wait(1);
+	set_window("main",2);
+	web_obj_get_info(fieldName,"url",urlValue);
+	elements = split(urlValue,path_array,"\'");
+	fieldID = path_array[2];
+# 	pause(field_id);
+	return fieldID;
+
+}

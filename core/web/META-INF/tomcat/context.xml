@@ -1,0 +1,30 @@
+<!--
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+-->
+
+<!-- This is a development-only context.xml that will be included as a default into the WAR file. -->
+<!-- Production deployments should use conf/context.xml with production-level settings to override this context. -->
+
+<Context debug="5" reloadable="true" crossContext="true">
+
+  <Resource name="jdbc/PnetDB" auth="Container"
+            type="javax.sql.DataSource" username="pnet_user" password="pnet_user"
+            driverClassName="oracle.jdbc.OracleDriver" url="jdbc:oracle:thin:@localhost:1521:v84dev"
+            maxActive="8" maxIdle="4"/>
+
+  <Resource name="mail/PnetSession" auth="Container"
+            type="javax.mail.Session"
+            mail.smtp.host="localhost"/>
+
+</Context>

@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnJavaErrorLog" 
+    table="PN_JAVA_ERROR_LOG"
+    lazy="false"
+>
+
+    <composite-id>
+        <key-property 
+            name="errorDate" 
+            column="ERROR_DATE" 
+            type="java.sql.Date"
+            length="7"
+        />
+        <key-property 
+            name="personId" 
+            column="PERSON_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="errorName" 
+            column="ERROR_NAME" 
+            type="java.lang.String"
+            length="255"
+        />
+        <key-property 
+            name="errorMessage" 
+            column="ERROR_MESSAGE" 
+            type="java.lang.String"
+            length="4000"
+        />
+        <key-property 
+            name="stackTrace" 
+            column="STACK_TRACE" 
+            type="java.lang.String"
+            length="4000"
+        />
+        <key-property 
+            name="severity" 
+            column="SEVERITY" 
+            type="java.lang.String"
+            length="80"
+        />
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

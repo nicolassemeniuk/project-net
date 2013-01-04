@@ -1,0 +1,10 @@
+<mappings>
+  <mapping>
+    <property name="attributes" ignore="true"/>
+    <property name="availableTimes" ignore="true"/>
+    <property name="nonAvailableDays" ignore="true"/>
+    <property name="nonAvailableDates" ignore="true"/>
+    <property name="recipientEmailAddresses" ignore="true"/>
+    <property name="timeZone" ignore="true"/>
+  </mapping>
+</mappings>

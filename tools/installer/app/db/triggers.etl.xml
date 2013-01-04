@@ -1,0 +1,397 @@
+<!DOCTYPE etl SYSTEM "http://scriptella.javaforge.com/dtd/etl.dtd">
+<etl>
+    <description>Database creation script</description>
+    <properties>
+        <include href="dbinit.properties"/>
+    </properties>
+    <connection driver="${driver}" url="${url}" user="${PNET_BUILD_USER_NAME}" password="${PNET_BUILD_USER_PASSWORD}">
+    plsql=true
+    </connection>
+	
+	<script>
+    	<include href="${ADMINPATH}triggers/activity_aft_ins.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/activity_aft_upd_name.trg"/>
+    </script>
+    
+	<script>
+    	<include href="${ADMINPATH}triggers/address_aft_upd_status.trg"/>
+    </script>
+
+    <script>
+    	<include href="${ADMINPATH}triggers/agenda_item_aft_upd_status.trg"/>
+    </script>
+    
+	<script>
+    	<include href="${ADMINPATH}triggers/application_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/application_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/bookmark_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/bookmark_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/brand_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/brand_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/business_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/business_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/calendar_aft_ins.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/calendar_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/calendar_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/calendar_event_aft_ins.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/class_aft_ins.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/class_instance_aft_ins.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/configuration_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/configuration_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/deliverable_aft_ins.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/deliverable_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/deliverable_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/directory_aft_ins.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/disc_group_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/disc_group_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/document_aft_ins.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/document_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/document_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/doc_container_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/doc_container_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/doc_space_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/doc_space_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/domain_value_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/domain_value_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/envelope_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/envelope_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/env_history_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/env_version_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/event_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/event_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/form_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/form_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/form_domain_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/form_field_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/form_field_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/form_inst_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/form_list_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/form_list_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/gate_aft_ins.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/gate_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/gate_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/group_aft_ins.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/group_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/group_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/meeting_aft_ins.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/meeting_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/methodology_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/methodology_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/news_aft_ins.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/news_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/news_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/person_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/person_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/phase_aft_ins.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/phase_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/phase_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/plan_aft_ins.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/plan_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/portfolio_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/portfolio_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/post_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/post_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/process_aft_ins.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/process_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/process_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/project_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/project_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/step_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/step_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/subscription_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/subscription_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/s_subscription_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/s_subscription_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/task_aft_ins.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/task_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/task_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/transition_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/transition_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/user_domain_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/user_domain_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/workflow_aft_ins.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/workflow_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/workflow_aft_upd_status.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/workflow_rule_aft_upd_name.trg"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}triggers/workflow_rule_aft_upd_status.trg"/>
+		COMMIT
+		/
+    </script>
+
+</etl>

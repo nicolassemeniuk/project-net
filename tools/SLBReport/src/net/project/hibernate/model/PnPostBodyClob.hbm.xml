@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPostBodyClob" 
+    table="PN_POST_BODY_CLOB"
+    lazy="false"
+>
+
+    <id
+        name="objectId"
+        type="java.math.BigDecimal"
+        column="OBJECT_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="clobField"
+        type="java.sql.Clob"
+        column="CLOB_FIELD"
+        length="4000"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnPost -->
+
+    <set
+        name="pnPosts"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="POST_BODY_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPost"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

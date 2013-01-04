@@ -1,0 +1,73 @@
+.wSelectedRow {
+	background: #FDFEBA none repeat scroll 0 0 ;
+	/*background:#DFE8F6 url(../images/default/grid/row-select.gif) repeat-x scroll left top;;*/
+	border: 1px dotted #A3BAE9;
+}
+
+.wMouseOverColor {
+	background: #EFEFEF url(../images/default/grid/row-over.gif) repeat-x
+		scroll left top;
+}
+
+#right-tab-scroll-previous{
+	background: transparent url(../images/tool-sprites.gif) no-repeat scroll	0 -105px;
+	cursor: pointer;
+	float: left;
+	height: 15px;
+	margin-top: 2px;
+	overflow: hidden;
+	width: 15px;
+}
+
+#right-tab-scroll-next{
+	background: transparent url(../images/tool-sprites.gif) no-repeat scroll	0 -120px;
+	cursor: pointer;
+	float: left;
+	height: 15px;
+	margin-top: 2px;
+	overflow: hidden;
+	width: 15px;
+}
+
+.right-tab {
+	float: left;
+	padding-left: 5px;
+	padding-right: 5px;
+	padding-top: 3px;
+	width: 30px;
+	height: 19px;
+	border-top: 1px solid #B0C1F9;
+	border-right: 1px solid #B0C1F9;
+	cursor: pointer;
+	text-align: center;
+	margin-right: 2px;
+}
+
+.two-pane-message{
+	text-align:center;
+	color: #848484;
+}
+
+.twopane-toolbar-data{
+	padding-top: 2px;
+}
+
+.twopane-dtail{
+	padding-left:20px;
+	padding-right: 20px;
+	padding-top: 10px;
+}
+
+#detail-tab{
+	width: 37px;
+}
+
+.twoPaneTableHeaderTd {
+	border-left: 1px solid #EEEEEE;
+	border-right: 1px solid #D0D0D0;
+	background: #F9F9F9 url(../images/default/grid/grid3-hrow.gif) repeat-x scroll 0 bottom;
+	line-height: 14px;
+	vertical-align: middle;
+	vertical-align: middle;
+	text-align: left;
+}

@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnSkillCategory" 
+    table="PN_SKILL_CATEGORY"
+    lazy="false"
+>
+
+    <id
+        name="skillCategoryId"
+        type="java.math.BigDecimal"
+        column="SKILL_CATEGORY_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="skillCategoryName"
+        type="java.lang.String"
+        column="SKILL_CATEGORY_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="skillCategoryDesc"
+        type="java.lang.String"
+        column="SKILL_CATEGORY_DESC"
+        length="500"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnSpaceHasSkillCategory -->
+
+    <set
+        name="pnSpaceHasSkillCategories"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="SKILL_CATEGORY_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasSkillCategory"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnSkill -->
+
+    <set
+        name="pnSkills"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="SKILL_CATEGORY_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSkill"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

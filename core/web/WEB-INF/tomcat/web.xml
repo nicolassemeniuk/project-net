@@ -1,0 +1,904 @@
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd"
+ [ <!ENTITY mappingfile SYSTEM "generated_web.xml" >]
+ >
+<!--
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+-->
+<web-app>
+
+	<display-name>Project.net</display-name>
+
+	<!-- JSP precompilation build process generates generated_web.xml file -->
+	<!-- the contents of generated_web.xml needs to be either copied to web.xml
+		 or file needs to be included here. -->
+	&mappingfile;
+
+
+    <!-- Tell Spring framework which files contain Spring configuration information. -->
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>/WEB-INF/springapp-servlet.xml, /WEB-INF/classes/bussinessContext.xml</param-value>
+    </context-param>
+
+	<!-- Tapestry 5 context and filters -->
+	<context-param>
+		<!-- The only significant configuration for Tapestry 5, this informs Tapestry
+		of where to look for pages, components and mixins. -->
+		<param-name>tapestry.app-package</param-name>
+		<param-value>net.project.view</param-value>
+	</context-param>
+
+    <context-param>
+        <param-name>tapestry.use-external-spring-context</param-name>
+        <param-value>true</param-value>
+    </context-param> 
+	
+	<!-- Tapestry 5 filter -->
+	<filter>
+	    <filter-name>tapestryFilter</filter-name>
+	    <description>Custom filter for Tapestry Framework</description> 
+	    <filter-class>net.project.hibernate.util.CustomTapestryFilter</filter-class>
+	</filter>
+
+	<!--  Check project.net access security every request -->
+	<filter>
+        <filter-name>securityFilter</filter-name>
+        <display-name>Security Filter</display-name>
+        <description>This filter checks security</description>
+        <filter-class>net.project.security.SecurityFilter</filter-class>
+    </filter>
+
+	<!-- This filter places the session in a ThreadLocal to provide "back door" access to the HTTPSession within the application code without passing a reference to the HTTPRequest. -->
+    <filter>
+        <filter-name>sessionAccessFilter</filter-name>
+        <display-name>Session Access Filter</display-name>
+        <description>This filter places the session in a ThreadLocal to provide "back door" access to the HTTPSession.</description>
+        <filter-class>net.project.security.SessionAccessFilter</filter-class>
+    </filter>
+
+	<!-- update Cascading Stylesheets with database values -->
+    <filter>
+	    <filter-name>CSSDbValues</filter-name>
+	    <filter-class>net.project.css.CSSDbValues</filter-class>
+	    <init-param>
+	    	<param-name>prm.custom.topmenu.height</param-name>
+	    	<param-value>62</param-value>
+	    </init-param>
+    </filter>
+    
+    <!--
+        The filter-mapping section defines the order in which filters
+        are applied.
+        Note: sessionAccessFilter _MUST_ be the first filter in the list
+        Note: We don't add url-pattern of * because that would match HTML
+        and images too
+        Note: Servlets perform their own security checks.  This is a legacy
+        decision since Bluestone; by allowing Bluestone to do security checks
+        the request was corrupted (?); or maybe they just didn't allow it
+    -->
+	<!-- CharacterEncodingFilter is to support non-english character support -->
+	<filter>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<init-param>
+		<param-name>encoding</param-name>
+		<param-value>UTF-8</param-value>
+		</init-param>
+	</filter>
+	
+	<!-- 
+		Cosign Authentication Filter is to support LDAP Cosign User login 
+	    Uncomment following block and change the init params #Cosign.ConfigurationFile and  #Auth.JAASConfigurationFile
+	-->
+	
+<!-- <filter>
+		<filter-name>Cosign Authentication Filter</filter-name>
+		<filter-class>net.project.security.CoSignFilter</filter-class>
+  		<init-param>
+    		<param-name>Cosign.ConfigurationFile</param-name>
+    		<param-value>E:\tomcat6\webapps\pnet\WEB-INF\classes\config\cosign\cosignConfig.xml</param-value>
+  		</init-param>
+  		<init-param>
+    		<param-name>Auth.JAASConfigurationFile</param-name>
+    		<param-value>E:\tomcat6\conf\jaas.conf</param-value>
+  		</init-param>
+	</filter>
+	
+	<filter-mapping>
+  		<filter-name>Cosign Authentication Filter</filter-name>
+  		<url-pattern>/cosign/valid</url-pattern>
+	</filter-mapping>
+	
+	<filter-mapping>
+	  <filter-name>Cosign Authentication Filter</filter-name>
+	  <url-pattern>/sso/SSOLogin.jsp</url-pattern>
+    </filter-mapping>
+-->
+	<filter-mapping>
+		<filter-name>CharacterEncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>*.htm</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/servlet/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/resource/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/blog/*</url-pattern>
+    </filter-mapping>  
+
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/wiki/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/pwiki/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/assignments/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/personal/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/project/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/timesheet/*</url-pattern>
+    </filter-mapping>
+        
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/activity/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/portfolio/*</url-pattern>
+    </filter-mapping>
+        
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/sessionHook/Extend.*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/directory/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/workplan/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/chargecode/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/ajax/schedule/WorkplanRetrieve</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/ajax/schedule/WorkplanAction</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/documents/*</url-pattern>
+    </filter-mapping>
+    
+   
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/notification/*</url-pattern>
+   	</filter-mapping>
+   	 
+   	<filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/methodology/ajaxHandler/save</url-pattern>
+    </filter-mapping>
+   
+    <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>*.jsp</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>/servlet/ScheduleController/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>/resource/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>/blog/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>/wiki/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>/pwiki/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>/assignments/*</url-pattern>
+    </filter-mapping>
+    
+     <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>/personal/*</url-pattern>
+    </filter-mapping>
+    
+     <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>/project/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>/timesheet/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>/documents/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>/activity/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>/portfolio/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>/directory/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>/workplan/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>/chargecode/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+	    <filter-name>CSSDbValues</filter-name>
+	    <url-pattern>/styles/noframes.css</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+	    <filter-name>CSSDbValues</filter-name>
+	    <url-pattern>/styles/noframesie.css</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+	    <filter-name>CSSDbValues</filter-name>
+	    <url-pattern>/styles/iepngfix.htc</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>sessionAccessFilter</filter-name>
+        <url-pattern>/business/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>/business/*</url-pattern>
+    </filter-mapping>
+    
+    <filter-mapping>
+        <filter-name>securityFilter</filter-name>
+        <url-pattern>/notification/*</url-pattern>
+    </filter-mapping>
+    
+	<!-- Tapestry 5 filter mapping -->
+	<filter-mapping>
+			<filter-name>tapestryFilter</filter-name>
+			<url-pattern>/*</url-pattern>
+	</filter-mapping>
+
+	<!-- Tapestry 5 listener mapping -->
+	<listener>
+		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+	</listener>
+	
+    <!-- The following two entries force the weblogic application server to use
+    precompiled jsp's.  Another way to prevent your JSPs from recompiling is to use the JSPClassServlet
+    in place of JSPServlet and to place your precompiled JSPs into the WEB-INF/classes directory.
+    This will remove any possibility of the JSPs being recompiled, as the server will not look at the source code.
+
+    <servlet>
+        <servlet-name>JSPClassServlet</servlet-name>
+        <servlet-class>weblogic.servlet.JSPClassServlet</servlet-class>
+    </servlet>
+	-->
+
+
+    <!-- Quartz initializer -->
+
+    <servlet>
+        <servlet-name>QuartzInitializer</servlet-name>
+        <display-name>Quartz Initializer Servlet</display-name>
+        <servlet-class>org.quartz.ee.servlet.QuartzInitializerServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+	<servlet>
+		<servlet-name>dwr-invoker</servlet-name>
+		<display-name>DWR Servlet</display-name>
+		<servlet-class>uk.ltd.getahead.dwr.DWRServlet</servlet-class>
+		<init-param>
+			<param-name>debug</param-name>
+			<param-value>false</param-value>
+		</init-param>
+	</servlet>
+
+    <!--
+    Servlet required for the Spring Framework.  This is necessary to make sure
+    that the application server knows that a file is a "spring" file.  Currently
+    the extension for Spring files is htm.  This should continue to work because
+    the only static files we have in the Project.net software have an extension
+    of HTML.  It could be changed if this bothered someone.
+    -->
+    <servlet>
+        <servlet-name>springapp</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!-- Project.net Application Servlet Mappings -->
+
+    <servlet>
+        <servlet-name>SchedulerSetup</servlet-name>
+        <display-name>Scheduler Setup Servlet</display-name>
+        <servlet-class>net.project.scheduler.SchedulerSetupServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>DocumentActionBroker</servlet-name>
+        <servlet-class>net.project.document.servlet.ActionProcessingServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DownloadDocument</servlet-name>
+        <servlet-class>net.project.document.servlet.DocumentDownloadServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>DownloadVersion</servlet-name>
+        <servlet-class>net.project.document.servlet.VersionDownloadServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Download</servlet-name>
+        <servlet-class>net.project.base.servlet.DownloadServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ViewDocument</servlet-name>
+        <servlet-class>net.project.document.servlet.ViewDocumentServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Photo</servlet-name>
+        <servlet-class>net.project.document.servlet.PhotoServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ChartingServlet</servlet-name>
+        <servlet-class>net.project.chart.servlet.ChartingServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>PieChartServlet</servlet-name>
+        <servlet-class>net.project.chart.servlet.PieChartServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ReportingServlet</servlet-name>
+        <servlet-class>net.project.report.servlet.ReportingServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ShowReportServlet</servlet-name>
+        <servlet-class>net.project.report.servlet.ShowReportServlet</servlet-class>
+    </servlet>
+    <servlet>
+	    <servlet-name>NonHtmlReportingServlet</servlet-name>
+	    <servlet-class>net.project.report.servlet.NonHtmlReportingServlet</servlet-class>
+    </servlet> 
+    <servlet>
+        <servlet-name>ScheduleController</servlet-name>
+        <servlet-class>net.project.schedule.mvc.ScheduleController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>ImportController</servlet-name>
+        <servlet-class>net.project.schedule.importer.mvc.ImportController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AssignmentController</servlet-name>
+        <servlet-class>net.project.resource.mvc.AssignmentController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>AdminController</servlet-name>
+        <servlet-class>net.project.admin.mvc.AdminController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GatewayController</servlet-name>
+        <servlet-class>net.project.api.GatewayController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HeaderServlet</servlet-name>
+        <servlet-class>net.project.schedule.gantt.servlet.HeaderServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>GanttBackground</servlet-name>
+        <servlet-class>net.project.schedule.gantt.servlet.GanttBackgroundServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>MetricsController</servlet-name>
+        <servlet-class>net.project.metric.mvc.MetricsController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HandlerMappingServlet</servlet-name>
+        <servlet-class>net.project.base.mvc.HandlerMappingServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>CrossSpaceController</servlet-name>
+        <servlet-class>net.project.base.mvc.GenericController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>FormAssignmentController</servlet-name>
+        <servlet-class>net.project.form.assignment.mvc.FormAssignmentController</servlet-class>
+    </servlet>
+    <!-- wiki view attached images-->
+    <servlet>
+        <servlet-name>WikiImageServlet</servlet-name>
+        <servlet-class>net.project.wiki.ViewWikiImageServlet</servlet-class>
+    </servlet>
+
+	<servlet>
+		<servlet-name>SpringServlet</servlet-name>
+		<display-name>Spring Servlet</display-name>
+		<servlet-class>net.project.hibernate.util.SpringServlet</servlet-class>
+		<load-on-startup>2</load-on-startup>
+	</servlet>
+
+	<servlet>
+        <servlet-name>SearchAssignments</servlet-name>
+        <servlet-class>net.project.resource.mvc.SearchAssignments</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>WorkplanAction</servlet-name>
+        <display-name>Workplan Action</display-name>
+        <description>Handles the Ajax requests to Workplan Actions</description>
+        <servlet-class>net.project.schedule.ajax.WorkplanAction</servlet-class>
+    </servlet>
+    
+    <servlet>
+        <servlet-name>WorkplanRetrieve</servlet-name>
+        <display-name>Retrieve Workplan</display-name>
+        <description>Handles the Ajax requests to retrieve a Workplan</description>
+        <servlet-class>net.project.schedule.ajax.WorkplanRetrieve</servlet-class>
+    </servlet>    
+
+   <servlet>
+		<servlet-name>CXFServlet</servlet-name>
+		<servlet-class>
+			org.apache.cxf.transport.servlet.CXFServlet
+		</servlet-class>
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+   <servlet>
+        <servlet-name>ExternalFormServlet</servlet-name>
+        <servlet-class>net.project.form.ExternalFormServlet</servlet-class>
+    </servlet>
+
+	<servlet>
+		<servlet-name>GanttPDF</servlet-name>
+		<servlet-class>net.project.schedule.mvc.handler.gantt.GanttPDFServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ExportViewPDF</servlet-name>
+		<servlet-class>net.project.portfolio.view.MetaColumnPdfView</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ExportAllScheduleHandler</servlet-name>
+		<servlet-class>net.project.schedule.exporter.mvc.ExportAllScheduleHandler</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ExportAllTasksScheduleHandler</servlet-name>
+		<servlet-class>net.project.schedule.exporter.mvc.ExportAllTasksScheduleHandler</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>GanttPNG</servlet-name>
+		<servlet-class>net.project.schedule.mvc.handler.gantt.GanttPNGServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ActivityRssFeed</servlet-name>
+		<servlet-class>net.project.activity.RssFeed</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ExportExcelTimesheet</servlet-name>
+		<servlet-class>net.project.resource.mvc.handler.ExportExcelTimesheet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ExportExcelTimeSummary</servlet-name>
+		<servlet-class>net.project.business.report.ExportExcelTimeSummary</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ExportExcelProjectPortfolio</servlet-name>
+		<servlet-class>net.project.portfolio.view.ExportExcelProjectPortfolio</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>ExportCSVClass</servlet-name>
+		<servlet-class>net.project.schedule.exporter.mvc.ExportAllWorkplanCSV</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ExportCSVClass</servlet-name>
+		<url-pattern>/business/exportCSV</url-pattern>
+	</servlet-mapping>
+	<servlet>
+		<servlet-name>ExportExcelClass</servlet-name>
+		<servlet-class>net.project.schedule.exporter.mvc.ExportExcelAllWorkplan</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ExportExcelClass</servlet-name>
+		<url-pattern>/business/exportExcel</url-pattern>
+	</servlet-mapping>
+
+	<servlet-mapping>
+		<servlet-name>dwr-invoker</servlet-name>
+		<url-pattern>/dwr/*</url-pattern>
+	</servlet-mapping>
+
+    <servlet-mapping>
+	    <servlet-name>NonHtmlReportingServlet</servlet-name>
+	    <url-pattern>/servlet/NonHtmlReportingServlet</url-pattern>
+    </servlet-mapping>
+	<servlet-mapping>
+        <servlet-name>SearchAssignments</servlet-name>
+        <url-pattern>/servlet/SearchAssignments</url-pattern>
+    </servlet-mapping>	
+    <servlet-mapping>
+        <servlet-name>springapp</servlet-name>
+        <url-pattern>*.htm</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DocumentActionBroker</servlet-name>
+        <url-pattern>/servlet/DocumentActionBroker/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Download</servlet-name>
+        <url-pattern>/servlet/Download</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DownloadDocument</servlet-name>
+        <url-pattern>/servlet/DownloadDocument</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>DownloadVersion</servlet-name>
+        <url-pattern>/servlet/DownloadVersion</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ViewDocument</servlet-name>
+        <url-pattern>/servlet/ViewDocument</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Photo</servlet-name>
+        <url-pattern>/servlet/photo</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ChartingServlet</servlet-name>
+        <url-pattern>/servlet/ChartingServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>PieChartServlet</servlet-name>
+        <url-pattern>/servlet/PieChartServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ReportingServlet</servlet-name>
+        <url-pattern>/servlet/ReportingServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowReportServlet</servlet-name>
+        <url-pattern>/servlet/ShowReportServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ScheduleController</servlet-name>
+        <url-pattern>/servlet/ScheduleController/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ImportController</servlet-name>
+        <url-pattern>/servlet/ImportController/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AssignmentController</servlet-name>
+        <url-pattern>/servlet/AssignmentController/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>AdminController</servlet-name>
+        <url-pattern>/servlet/AdminController/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GatewayController</servlet-name>
+        <url-pattern>/servlet/api/GatewayController</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HeaderServlet</servlet-name>
+        <url-pattern>/servlet/HeaderServlet/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>GanttBackground</servlet-name>
+        <url-pattern>/servlet/GanttBackground/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MetricsController</servlet-name>
+        <url-pattern>/servlet/MetricsController/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HandlerMappingServlet</servlet-name>
+        <url-pattern>/servlet/HandlerMappingServlet/*</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CrossSpaceController</servlet-name>
+        <url-pattern>/servlet/CrossSpaceController/*</url-pattern>
+    </servlet-mapping>
+    <!-- wiki view images -->
+    <servlet-mapping>
+        <servlet-name>WikiImageServlet</servlet-name>
+        <url-pattern>/servlet/ViewWikiImage</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>FormAssignmentController</servlet-name>
+        <url-pattern>/servlet/FormAssignmentController/*</url-pattern>
+    </servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>GanttPDF</servlet-name>
+		<url-pattern>/servlet/GanttPDF</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ExportViewPDF</servlet-name>
+		<url-pattern>/servlet/MetaColumnPdfView</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ExportAllTasksScheduleHandler</servlet-name>
+		<url-pattern>/servlet/AllTasksExportXml</url-pattern>
+	</servlet-mapping>
+	<servlet-mapping>
+		<servlet-name>ExportAllScheduleHandler</servlet-name>
+		<url-pattern>/servlet/AllMSPExportXml</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>GanttPNG</servlet-name>
+		<url-pattern>/servlet/GanttPNG</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+	   <servlet-name>WorkplanAction</servlet-name>
+	   <url-pattern>/ajax/schedule/WorkplanAction</url-pattern>
+	</servlet-mapping>
+	
+    <servlet-mapping>
+       <servlet-name>WorkplanRetrieve</servlet-name>
+       <url-pattern>/ajax/schedule/WorkplanRetrieve</url-pattern>
+    </servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>CXFServlet</servlet-name>
+		<url-pattern>/api/*</url-pattern>
+	</servlet-mapping>
+	
+   <servlet-mapping>
+        <servlet-name>ExternalFormServlet</servlet-name>
+        <url-pattern>/eaf/*</url-pattern>
+    </servlet-mapping>	
+    
+	<servlet-mapping>
+		<servlet-name>ActivityRssFeed</servlet-name>
+		<url-pattern>/activity/rssFeed/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ExportExcelTimesheet</servlet-name>
+		<url-pattern>/timesheet/exportExcel</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ExportExcelTimeSummary</servlet-name>
+		<url-pattern>/timesummary/exportExcel/*</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>ExportExcelProjectPortfolio</servlet-name>
+		<url-pattern>/projectportfolio/exportExcel/*</url-pattern>
+	</servlet-mapping>
+	
+   	<!-- Default Tomcat session timeout (in minutes) -->
+   	<!-- This can be over-ridden in application.xml in the Tomcat config outside the WAR -->
+	<session-config>
+  		<session-timeout>30</session-timeout>
+	</session-config>
+	
+    <welcome-file-list>
+        <welcome-file>Login.jsp</welcome-file>
+    </welcome-file-list>
+
+    <error-page>
+        <exception-type>javax.servlet.ServletException</exception-type>
+        <location>/errors.jsp</location>
+    </error-page>
+    
+    <error-page>
+        <exception-type>net.project.base.PnetException</exception-type>
+        <location>/errors.jsp</location>
+    </error-page>
+
+    <error-page>
+        <exception-type>net.project.base.PnetRuntimeException</exception-type>
+        <location>/errors.jsp</location>
+    </error-page>
+
+    <error-page>
+        <error-code>404</error-code>
+        <location>/404.jsp</location>
+    </error-page>
+
+    <taglib>
+        <taglib-uri>channel</taglib-uri>
+        <taglib-location>/WEB-INF/taglibs/channelTags.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>display</taglib-uri>
+        <taglib-location>/WEB-INF/taglibs/displayTags.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>history</taglib-uri>
+        <taglib-location>/WEB-INF/taglibs/historyTags.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>links</taglib-uri>
+        <taglib-location>/WEB-INF/taglibs/linksTags.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>navbar</taglib-uri>
+        <taglib-location>/WEB-INF/taglibs/navbarTags.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>pager</taglib-uri>
+        <taglib-location>/WEB-INF/taglibs/pagerTags.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>security</taglib-uri>
+        <taglib-location>/WEB-INF/taglibs/securityTags.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>session</taglib-uri>
+        <taglib-location>/WEB-INF/taglibs/sessionTags.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>tab</taglib-uri>
+        <taglib-location>/WEB-INF/taglibs/tabTags.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>template</taglib-uri>
+        <taglib-location>/WEB-INF/taglibs/templateTags.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>tb</taglib-uri>
+        <taglib-location>/WEB-INF/taglibs/toolbarTags.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>util</taglib-uri>
+        <taglib-location>/WEB-INF/taglibs/utilTags.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>xml</taglib-uri>
+        <taglib-location>/WEB-INF/taglibs/xmlTags.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>errors</taglib-uri>
+        <taglib-location>/WEB-INF/taglibs/errorTags.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>input</taglib-uri>
+        <taglib-location>/WEB-INF/taglibs/inputTags.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>pg</taglib-uri>
+        <taglib-location>/WEB-INF/taglibs/pagerTags.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>search</taglib-uri>
+        <taglib-location>/WEB-INF/taglibs/searchLetterTags.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>output</taglib-uri>
+        <taglib-location>/WEB-INF/taglibs/outputTags.tld</taglib-location>
+    </taglib>
+    <taglib>
+        <taglib-uri>dropDown</taglib-uri>
+        <taglib-location>/WEB-INF/taglibs/dropDownTags.tld</taglib-location>
+    </taglib>
+    
+    <resource-ref>
+        <description>Default data source</description>
+        <!-- jdbc/PnetDB is name of pool; used when looking up data source -->
+        <res-ref-name>jdbc/PnetDB</res-ref-name>
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>CONTAINER</res-auth>
+    </resource-ref>
+
+    <resource-ref>
+        <description>Default mail session</description>
+        <!-- mail/PnetSession is name of session; used when looking up session -->
+        <res-ref-name>mail/PnetSession</res-ref-name>
+        <res-type>javax.mail.Session</res-type>
+        <res-auth>CONTAINER</res-auth>
+    </resource-ref>
+
+</web-app>

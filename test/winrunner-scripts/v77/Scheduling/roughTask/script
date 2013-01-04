@@ -1,0 +1,22 @@
+# get_short_date(date);
+# pause(date);
+
+wait(3);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject"();
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+wait(2);
+set_window("main",2);
+web_link_click("WRProject");
+wait(2);
+set_window("menu",3);
+web_link_click("Calendar");
+wait(2);
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+
+reload("createMeeting");
+createMeeting("meeting test","7");
+
+reload("addAttendees");
+addAttendees("Jessica Althoff");
+
+reload("

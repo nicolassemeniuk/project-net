@@ -1,0 +1,9 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Reports\forLoginReports> 1 1101941957 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\forLoginProject> <C:\Documents and Settings\QA\Desktop\v77\Reports\forLoginReports> 2 1101941960 0
+11 1 <C:\Documents and Settings\QA\Desktop\v77\Reports\forLoginReports> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\forLoginProject> 19 1101941976 0
+44 56 <web_link_click:"WRProject" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Reports\forLoginReports> 8 1101941980 0
+44 49 <obj_get_info:"menu" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Reports\forLoginReports> 10 1101941983 0
+44 47 <set_window:"menu" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Reports\forLoginReports> 10 1101941983 0
+44 54 <web_link_click:"Reports" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Reports\forLoginReports> 12 1101941985 0
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\Reports\forLoginReports> 16 1101941988 0

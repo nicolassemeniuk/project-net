@@ -1,0 +1,16 @@
+#extracting Container ID from the database
+
+function extractContainerID(in projectID,in folderName){
+	static val; 
+	auto record_number, rc1, rc2;
+	
+	rc1 = db_connect("query1","DSN=v80stage;UID=pnet;PWD=pnet;DRIVER={Oracle in OraHome92};");
+ 	if (rc1!=E_OK)
+ 		report_msg("Cannot connect to database");
+	else (rc1 == E_OK)
+		rc2 = db_execute_query ("query1","select c.doc_container_id from pn_space_has_doc_space shds,pn_doc_space_has_container dshc,pn_doc_container c where shds.space_id = "&projectID&" and shds.doc_space_id = dshc.doc_space_id and dshc.doc_container_id = c.doc_container_id and c.is_hidden = 0 and c.record_status = 'A' and c.container_name = '"&folderName&"'", record_number);
+	val = db_get_field_value ("query1", "#0", "DOC_CONTAINER_ID");
+	db_disconnect("query1");
+	return val;
+}
+

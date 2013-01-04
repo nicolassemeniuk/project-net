@@ -1,0 +1,16 @@
+#Checklist for window "main"
+^T list2.ckl
+V 7.5
+main:
+{
+}1
+"{class: \"object\", MSW_class: \"html_table\", location: \"2\", tag: \"WRform (WR)\"},disp_tag:\"[html_table] WRform (WR)\"":
+{
+}1
+"{class: \"object\", MSW_class: \"html_table\", location: \"2\", tag: \"WRform (WR)\",row:\"5\" ,col:\"2\"},disp_tag:\"[html_cell] (5, 2)\"":
+{
+}1
+"{class: \"object\", MSW_class: \"html_table\", location: \"4\", tag: \"Number\"},disp_tag:\"[html_table] Number\"":
+{
+ TableContent: @gui3.002,
+}0

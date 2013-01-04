@@ -1,0 +1,145 @@
+wait(3);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject"();
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+reload("createTask",0,1);
+reload("check_taskProperties",0,1);
+
+public task_types[] = {"Fixed Duration","Fixed Units","Fixed Work"};
+public units[] = {"hours","days","weeks"};
+
+	
+function set_work(in task_name, in work_value, in work_units, in work_completed,in work_completed_units){
+	auto complete_percentage, complete_value;
+	auto w_value, w_completed, outText, value;
+	
+	set_window("main",1);
+	web_link_click(task_name);
+	set_window("main",1);
+	web_link_click("Modify");
+	set_window("main",1);
+	edit_set("work_complete",""&work_completed&"");
+	list_select_item("work_complete_units",""&work_completed_units&"");
+	edit_get_text("work_percent_complete",complete_value);
+	wait(2);
+	
+	if(work_units == "days")
+		w_value = work_value * 8;
+	if(work_units == "weeks")
+		w_value = work_value * 8 * 5;
+	if(work_units == "hours")
+		w_value = work_value;
+	if(work_completed_units == "days")
+		w_completed = work_completed * 8;
+	if(work_completed_units == "weeks")
+		w_completed = work_completed * 8 * 5;
+	if(work_completed_units == "hours")
+		w_completed = work_completed;
+	if(w_completed != 0)
+		complete_percentage = (w_completed/w_value)*100;
+	else
+		complete_percentage = 0;
+
+	web_link_click("Submit");
+	set_window("main",1);
+	web_link_click(task_name);
+	set_window("main",1);
+	wait(2);
+	if(work_completed_units == "hours")
+		work_completed_units = "hrs";
+	if(work_completed_units == "weeks")
+		work_completed_units = "wks";
+	if(web_obj_text_exists("channelbar-left_end","#8","#5",""&work_completed&" "&work_completed_units&"","","  ")==E_OK)
+		report_msg("The work complete being shown for task "&task_name&" is correct");
+	web_obj_get_text("channelbar-left_end","#9","#5",outText,"","%",1);
+	if((complete_percentage - outText)<1)
+		tl_step("Verify work complete%",0,"The work complete% set for "&task_name&" is correct");
+	else
+		tl_step("Verify work complete%",1,"The work complete% set for "&task_name&" is INCORRECT");
+	set_window("main",1);
+	web_link_click("Return to Task List");
+}
+	
+set_window("main",3);
+web_link_click("WRProject");
+set_window("menu",3);
+web_link_click("Workplan");
+wait(2);
+
+set_window("main",1);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer");
+button_press("OK");
+wait(5);
+set_window("main");
+
+createTask("t1", task_types[0], 1, units[1], 8, units[0]);
+check_taskProperties("t1", task_types[0], 1, units[1], 8, units[0],0);
+set_work("t1", 8, units[0], 2, units[0]);
+
+createTask("t2", task_types[1], 1, units[1], 8, units[0]);
+check_taskProperties("t2", task_types[1], 1, units[1], 8, units[0],0);
+set_work("t2", 8, units[0], 3, units[0]);
+
+createTask("t3", task_types[2], 1, units[1], 8, units[0]);
+check_taskProperties("t3", task_types[2], 1, units[1], 8, units[0],0);
+set_work("t3", 8, units[0], 4, units[0]);
+
+# createTask("t4", task_types[0], 2, units[1], 12, units[0]);
+# check_taskProperties("t4", task_types[0], 2, units[1], 12, units[0],0);
+# set_work("t4", 12, units[0], 4, units[0]);
+# 
+# createTask("t5", task_types[0], 2, units[1], 2, units[1]);
+# check_taskProperties("t5", task_types[0], 2, units[1], 2, units[1],0);
+# set_work("t5", 2, units[1], 4, units[0]);
+# 
+# createTask("t6", task_types[1], 1, units[1], 12, units[0]);
+# check_taskProperties("t6", task_types[1], 1, units[1], 12, units[0],0);
+# set_work("t6", 12, units[0], 4, units[0]);
+# 
+# createTask("t7", task_types[1], 2, units[1], 3, units[1]);
+# check_taskProperties("t7", task_types[1], 2, units[1], 3, units[1],0);
+# set_work("t7", 3, units[1], 4, units[0]);
+# 
+# createTask("t8", task_types[2], 1, units[1], 12, units[0]);
+# check_taskProperties("t8", task_types[2], 1, units[1], 12, units[0],0);
+# set_work("t8", 12, units[0], 4, units[0]);
+# 
+# createTask("t9", task_types[2], 2, units[1], 4, units[1]);
+# check_taskProperties("t9", task_types[2], 2, units[1], 4, units[1],0);
+# set_work("t9", 4, units[1], 4, units[0]);
+# 
+# createTask("t10", task_types[0], 1, units[2], 2, units[2]);
+# check_taskProperties("t10", task_types[0], 1, units[2], 2, units[2],0);
+# set_work("t10", 2, units[2], 1, units[1]);
+# 
+# createTask("t11", task_types[1], 1, units[2], 2, units[2]);
+# check_taskProperties("t11", task_types[1], 1, units[2], 2, units[2],0);
+# set_work("t11", 2, units[2], 2, units[1]);
+# 
+# createTask("t12", task_types[2], 1, units[2], 4, units[2]);
+# check_taskProperties("t12", task_types[2], 1, units[2], 4, units[2],0);
+# set_work("t12", 4, units[2], 2, units[1]);
+# 
+# createTask("t13", task_types[0], 8, units[0], 3, units[1]);
+# check_taskProperties("t13", task_types[0], 8, units[0], 3, units[1],0);
+# set_work("t13", 3, units[1], 4, units[0]);
+# 
+# createTask("t14", task_types[2], 16, units[0], 4, units[1]);
+# check_taskProperties("t14", task_types[2], 16, units[0], 4, units[1],0);
+# set_work("t14", 4, units[1], 4, units[1]);
+#  
+# # create_task(task_names[6], task_types[0], 0, units[1], 3, units[1]);Creating zero work and zero duration tasks causes
+# # create_task(task_names[7], task_types[1], 0, units[1], 12, units[0]);an exception to occur.Already reported
+# # create_task(task_names[8], task_types[2], 0, units[1], 4, units[1]);
+# 
+# # set_window("toolbar_main",3);
+# # web_link_click("Log Out");
+# # web_sync(3);
+# # 
+# # win_close("Browser Main Window");
+# 
+# GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+
+

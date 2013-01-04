@@ -1,0 +1,30 @@
+function date_diff(in date1, in date2){
+	auto elements, sDate[],month1, day1, year1;
+	auto eDate[], month2, day2, year2, days;	
+	
+	elements = split(date1,sDate,"/");
+	month1 = sDate[1];
+	day1 = sDate[2];
+	year1 = sDate[3];
+	
+	elements = split(date2,eDate,"/");
+	month2 = eDate[1];
+	day2 = eDate[2];
+	year2 = eDate[3];
+	
+	days = date_calc_days_in_string(date1, date2);
+	if(year1 > year2){
+		days = 0 - days;
+	}
+	if(year1 == year2){
+		if(month1 > month2)
+			days = 0 - days;
+		if(month1 == month2){
+			if( day1 > day2)
+				days = 0 - days;
+		}
+	}
+	 
+	return days;
+}		
+				

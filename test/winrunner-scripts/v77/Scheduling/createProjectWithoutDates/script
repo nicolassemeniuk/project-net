@@ -1,0 +1,48 @@
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createProjects\\createProjects.gui");
+
+#######################################
+# Create a project without any specified start/end date
+#######################################	
+public function create_Project(in ipro)
+{
+	set_window("main",3);
+	web_link_click("Create Project");
+	set_window("main",3);
+	edit_set("name", "TestProject"&ipro&"");
+	edit_set("description", "SmokeTest using WR for creation of a Project");
+	web_link_click("Next");
+	set_window("main",3);
+	web_link_click("Finish");
+	set_window("main",3);
+	web_obj_text_exists("TestProject"&ipro&"","#0","#0","TestProject"&ipro&"","","");
+}		 	
+
+#######################################
+# Create a sub-project to the above project
+#######################################	
+public function create_subProject(in ipro, in isub)
+{
+	set_window("main",3);
+	web_obj_click("Create_1", 8, 8);
+	web_obj_click("Create_1", 8, 8);
+	
+	set_window("main");
+	edit_set("name", "SubProject"&isub&"");
+	edit_set("description","SmokeTest using WR for creation of a SubProject");
+	list_select_item("parentProjectID","TestProject"&ipro&"");
+	web_link_click("Next");
+	set_window("main",3);
+	web_link_click("Finish");
+	set_window("main",3);
+	web_obj_text_exists("SubProject"&isub&"","#0","#0","SubProject"&isub&"","","");
+	set_window("main",1);
+}
+
+create_Project(1);
+set_window("main");
+web_link_click("TestProject1");
+
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createProjects\\createProjects.gui");
+
+
+

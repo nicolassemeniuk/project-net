@@ -1,0 +1,45 @@
+#uncomment the statement below when not running in batchTest 
+# call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\News\\forLoginNews"();
+GUI_close_all();
+wait(3);
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\News\\news.gui");
+
+#the 2 statements below need to be commented when running batchNews independently
+set_window("menu",2);
+web_link_click("News");
+
+# reload the compiled module for creating news item
+reload("createNewsItem",0,1);
+
+#############################################################
+# create 3 news item each of a different priority
+#############################################################
+createNewsItem("NewsItemTest1","Normal");
+createNewsItem("NewsItemTest2","Low");
+createNewsItem("NewsItemTest3","High");
+
+#############################################################
+# Verify whether the created news items exist on the project workspace dashboard
+#############################################################
+wait(1);
+set_window("menu",1);
+web_link_click("Dashboard");
+set_window("main",1);
+if(obj_exists("NewsItemTest1") ==E_OK)
+	tl_step("Verify news item", 0,"NewsItemtest1 exists on project workspace dashboard");
+else
+	tl_step("Verify news item", 1,"NewsItemtest1 DOES NOT exists on project workspace dashboard");
+
+if(obj_exists("NewsItemTest2") ==E_OK)
+	tl_step("Verify news item", 0,"NewsItemtest2 exists on project workspace dashboard");
+else
+	tl_step("Verify news item", 1,"NewsItemtest2 DOES NOT exists on project workspace dashboard");
+
+if(obj_exists("NewsItemTest3") ==E_OK)
+	tl_step("Verify news item", 0,"NewsItemtest3 exists on project workspace dashboard");
+else
+	tl_step("Verify news item", 1,"NewsItemtest3 DOES NOT exists on project workspace dashboard");
+
+# close the gui map	
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\News\\news.gui");
+wait(1);	

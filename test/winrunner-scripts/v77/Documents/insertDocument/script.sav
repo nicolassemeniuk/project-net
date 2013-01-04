@@ -1,0 +1,38 @@
+wait(3);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject"();
+wait(1);
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+wait(2);
+set_window("main",2);
+web_link_click("TestProject2");
+wait(1);
+set_window("menu",2);
+wait(2);
+web_link_click("Documents");
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+wait(3);
+
+reload("importFile",0,1);
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+
+importFile("","WRfile.txt");
+set_window("main",3);
+list_select_item("statusID","Not Started");
+web_link_click("Submit");
+wait(2);
+set_window("main",3);
+if(obj_exists("WRfile")==E_OK)
+	report_msg("File exists");
+else
+	report_msg("File DOES NOT exist");
+win_get_text("main",output,187,233,277,211);
+if(output=="Test Document")
+	report_msg("Test Document found on main");
+
+
+
+
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+
+

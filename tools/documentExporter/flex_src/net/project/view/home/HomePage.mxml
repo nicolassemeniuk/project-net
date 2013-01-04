@@ -1,0 +1,373 @@
+<mx:VBox xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:registration="net.project.view.home.*"
+	xmlns:fdg="fdg.*" 
+	xmlns:filters="fdg.filters.*"
+	xmlns:effects="net.project.view.effects.*"
+	width="100%" height="100%" creationComplete="initCollections();" horizontalGap="0" verticalGap="0">
+	
+	<mx:Style>
+        
+        .htmlLink
+        {
+            fontSize: 12;
+            fontWeight: normal;
+            text-decoration:none;
+        }
+        
+        .htmlLinkHover
+        {
+            fontSize: 12;
+            fontWeight: normal;
+            text-decoration:underline;
+            skin: ClassReference(null);
+        }
+    </mx:Style>
+    
+	<mx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			import flash.sampler.NewObjectSample;
+			import net.project.model.Project;
+			import mx.rpc.events.ResultEvent;
+			import mx.collections.ArrayCollection;
+			import mx.rpc.events.FaultEvent;
+			import mx.controls.listClasses.IDropInListItemRenderer;
+			import mx.controls.CheckBox;
+			import mx.events.DataGridEvent;
+			import net.project.model.LoginModel;
+			import net.project.model.States;
+			import mx.charts.events.ChartItemEvent;
+			import mx.controls.Label;
+			import mx.events.ListEvent;
+			import mx.events.AdvancedDataGridEventReason;
+			import mx.events.AdvancedDataGridEvent;
+			import mx.core.Application;
+			import mx.events.MenuEvent;
+			import mx.collections.XMLListCollection;
+			import mx.binding.utils.BindingUtils;
+			import mx.controls.Alert;
+			import mx.collections.HierarchicalData;
+			import mx.collections.XMLListCollection;
+			
+  
+ 
+ 
+   			
+			[Bindable]
+			public var menuBarCollection:XMLListCollection;
+
+			private var menubarXML:XMLList = new XMLList(
+			'<menuitem label="Logout" data="logout">'+
+			'<menuitem label="Logout" data="logout"/>'+
+			'</menuitem>');			
+			
+			private var dataBre:XMLList = new XMLList('<projects Name="Projects">'+
+'<Project Name="test used I" Level="1" ProjectId="11003">'+
+'<Project Name="subproject I" Level="2" ProjectId="12084">'+
+'</Project>'+
+	'</Project>'+
+'<Project Name="t1" Level="1" ProjectId="20673">'+
+'<Project Name="t11" Level="2" ProjectId="20688">'+
+'<Project Name="t111" Level="3" ProjectId="20704">'+
+'<Project Name="t1111" Level="4" ProjectId="21027">'+
+'</Project>'+
+'</Project>'+
+'</Project>'+
+'</Project>'+
+'</projects>');
+
+		private function initCollections():void {
+			menuBarCollection = new XMLListCollection(menubarXML);
+			var l:LoginModel = LoginModel.getInstance();
+			if(l.username =='appadmin'){
+				xmlService.send();
+			}else{
+				source.visible = false;
+				source.includeInLayout = false;
+				projectGrid.percentWidth = 100;
+				projectRemoteObject.getProjects(l.userId);
+			}
+		}
+		// Event handler for the MenuBar control's change event.
+		private function changeHandler(event:MenuEvent):void {
+		// Only open the Alert for a selection in a pop-up submenu.
+		// The MenuEvent.menu property is null for a change event
+		// dispatched by the menu bar.
+			if (event.menu != null) {
+				if (event.item.@data == 'statistic'){
+					contentViewStack.selectedIndex = 1;
+				}else if (event.item.@data == 'version'){
+					contentViewStack.selectedIndex = 2;
+				} else if(event.item.@data == 'statisticFiltered'){
+					contentViewStack.selectedIndex = 1;
+				} else if(event.item.@data == 'logout'){
+					//Alert.show("currentState:"+currentState);
+					model.state = "loginScreenState";
+					var l:LoginModel = LoginModel.getInstance();
+					l.password = '';
+					l.username = '';
+					l.userId = 0;
+				}else if(event.item.@data == 'charts'){
+					contentViewStack.selectedIndex = 4;
+				}
+			}else{
+				//Alert.show("currentState:"+currentState);
+			}
+		}
+		
+		[Bindable]
+		private var model:States = States.getInstance();
+					
+		// Event handler for the MenuBar control's itemRollOver event.
+		private function rollOverHandler(event:MenuEvent):void {
+		}
+		// Event handler for the MenuBar control's itemClick event.
+		private function itemClickHandler(event:MenuEvent):void {
+		}		
+		
+
+		
+		private function checkProject(event:ListEvent):void {
+			var colName:String = projectGrid.columns[event.columnIndex].dataField;
+			var p:Project = new Project();
+			/*
+			for(var i:int = 0; i < projects.length; i++){
+				p = projects.getItemAt(i) as Project;
+				Alert.show("project:"+p.projectId +" i:"+i)
+			}
+			*/
+			try{
+				if(colName == 'ProjectId'){
+					p = projects.getItemAt(event.rowIndex - 1) as Project;
+					p.selected = !p.selected;
+					//projects.removeItemAt(event.rowIndex - 1);
+					//projects.addItemAt(p, event.rowIndex - 2);
+					//Alert.show("projects:"+projects.length +" project:"+p.childSpaceId + " selected:"+p.selected +" index:"+event.rowIndex);
+				}
+			}catch(e:Error){
+				// index out of bounds exception, do nothing
+			}
+		}
+		
+		private function faultHandler(event:FaultEvent):void{
+			Alert.show("FaultEvent:"+event.fault + "\n");
+		}		
+	
+		[Bindable]
+		private var projects:ArrayCollection;
+		
+		[Bindable]
+		private var xmlProjects:XMLList;		
+		
+		private function resultProjectHandler(event:ResultEvent):void{
+			var obj:Object = event.result;
+			projects = obj.results;
+			var xml:XML = new XML(obj.generatedXml);
+			xmlProjects = new XMLList(xml);
+			projectList = new HierarchicalData(xmlProjects);
+		}		
+
+		private function xmlResultHandler(event:ResultEvent):void{
+			var obj:Object = event.result;
+			var xml:XML = new XML(event.result);
+			xmlProjects = new XMLList(xml);
+			projectList = new HierarchicalData(xmlProjects);
+		}		
+
+
+
+		private function exportDocumentsHandler(event:ResultEvent):void{
+			var done:Boolean = event.result;
+			if(done){
+				Alert.show("Documents extracted successfuly.");
+			}
+		}	
+		
+		private function validateFolderHandler(event:ResultEvent):void{
+			var isFolder:Boolean = event.result;
+			if(isFolder){
+				projectRemoteObject.exportDocuments(selectedProjects, folderLocation.text);
+			}else{
+				Alert.show("Please specify valid folder location.");
+			}
+		}	
+
+		private function exportDocuments():void{
+			projectRemoteObject.validateFolder(folderLocation.text);
+		}
+	[Bindable]
+	private var projectList:HierarchicalData;
+	
+	[Bindable]
+	private var selectedProjects:ArrayCollection = new ArrayCollection();
+	
+	public function onChangeListCheckBox(event:Event, selectedProjectId:Object, selected:Boolean, selectedProjectName:Object, selectedFolderName:Object):void{   
+		if(new Number(selectedProjectId) != 0){
+			if(selected){
+				//Alert.show("1."+selectedProjectId+" "+selected);
+				var pr:Project = new Project();
+				pr.projectId = new Number(selectedProjectId);
+				pr.childSpaceId = new Number(selectedProjectId);
+				pr.projectName = ""+selectedProjectName;
+				pr.folderName = ""+selectedFolderName;
+				pr.selected = true;
+				selectedProjects.addItem(pr);
+			}else if(!selected){
+				//Alert.show("2. "+selectedProjectId+" "+selected);
+				for(var i:int=0; i < selectedProjects.length; i++){
+					var p:Project = selectedProjects.getItemAt(i) as Project;
+					if(p.projectId == selectedProjectId){
+						selectedProjects.removeItemAt(i);
+						break;
+					}
+				}
+			}   
+		}  
+    	//Alert.show(""+avData+" "+selected);
+	}
+			
+		private function uncheckAll():void{
+			selectedProjects = new ArrayCollection();
+			serviceURL = this.selectedItem.data;
+			xmlService.send();
+		}
+		
+		private function onChangeEvent(event:ListEvent):void{
+			this.selectedItem = List(event.target).selectedItem;
+			serviceURL = this.selectedItem.data;
+			xmlService.send();
+		}
+		
+    	[Bindable]
+        public var selectedItem:Object;
+        
+    	[Bindable]
+        public var serviceURL:String = "xml/projects1.xml";
+                
+        
+        
+		]]>
+	</mx:Script>
+    <mx:Model id="mystates">
+      <states>
+        <state label="Projects -- - 80" data="xml/projects1.xml"/>
+        <state label="Projects 80 - Au" data="xml/projects2.xml"/>
+        <state label="Projects Au - CA" data="xml/projects3.xml"/>
+        <state label="Projects CA - Ca" data="xml/projects4.xml"/>
+        <state label="Projects Ca - DC" data="xml/projects5.xml"/>
+        <state label="Projects DC - Do" data="xml/projects6.xml"/>
+        <state label="Projects Do - En" data="xml/projects7.xml"/>
+        <state label="Projects En - GI" data="xml/projects8.xml"/>
+        <state label="Projects GI - Hu" data="xml/projects9.xml"/>
+        <state label="Projects Hu - In" data="xml/projects10.xml"/>
+        <state label="Projects In - Ki" data="xml/projects11.xml"/>
+        <state label="Projects Ki - MM" data="xml/projects12.xml"/>
+        <state label="Projects MM - NA" data="xml/projects13.xml"/>
+        <state label="Projects NA - No" data="xml/projects14.xml"/>
+        <state label="Projects No - SI" data="xml/projects15.xml"/>
+        <state label="Projects P  - Ox" data="xml/projects16.xml"/>
+        <state label="Projects Po - RM" data="xml/projects17.xml"/>
+        <state label="Projects RM - SB" data="xml/projects18.xml"/>
+        <state label="Projects SB - Sa" data="xml/projects19.xml"/>
+        <state label="Projects Sa - Se" data="xml/projects20.xml"/>
+        <state label="Projects Se - Si" data="xml/projects21.xml"/>  
+        <state label="Projects Si - Su" data="xml/projects22.xml"/>      
+        <state label="Projects Su - Te" data="xml/projects23.xml"/>      
+        <state label="Projects Te - Vi" data="xml/projects24.xml"/>   
+        <state label="Projects Vi - We" data="xml/projects25.xml"/> 
+        <state label="Projects We - zz" data="xml/projects26.xml"/> 
+        <state label="Projects zz - +S" data="xml/projects27.xml"/>                                         
+      </states>
+    </mx:Model>
+    
+
+	<mx:HTTPService id="xmlService" url="{serviceURL}" fault="faultHandler(event)" showBusyCursor="true"
+	result="xmlResultHandler(event)" resultFormat="e4x" />
+	
+	<mx:RemoteObject id="projectRemoteObject" showBusyCursor="true" destination="exportProjectService">
+		<mx:method name="getProjects" result="resultProjectHandler(event)" fault="faultHandler(event)" />
+		<mx:method name="exportDocuments" result="exportDocumentsHandler(event)" fault="faultHandler(event)" />
+		<mx:method name="validateFolder" result="validateFolderHandler(event)" fault="faultHandler(event)" />
+	</mx:RemoteObject>
+	
+	<mx:DateFormatter id="dateFormatter" formatString="MM/DD/YYYY"/>
+
+
+	<mx:VBox id="homePage" width="100%" height="100%" horizontalGap="0" verticalGap="0">
+	<mx:MenuBar labelField="@label" width="100%" dataProvider="{menuBarCollection}" change="changeHandler(event);" itemClick="itemClickHandler(event);" itemRollOver="rollOverHandler(event);"/>
+		<mx:ViewStack id="contentViewStack" width="100%" height="100%">
+			<mx:VBox>
+				<mx:Button label="Uncheck All" click="uncheckAll();" />
+				<mx:HBox width="100%" height="100%" >
+					<mx:List id="source" height="100%" width="20%" color="blue"  dataProvider="{mystates.state}" change="onChangeEvent(event)" />
+					<mx:AdvancedDataGrid dataProvider="{projectList}" displayItemsExpanded="true" enabled="true"  selectionMode="multipleRows" defaultLeafIcon="@Embed(source='/images/favicon.jpg')" id="projectGrid" width="100%" itemClick="checkProject(event);" change="checkProject(event)" 
+						folderClosedIcon="@Embed(source='/images/favicon.jpg')" folderOpenIcon="@Embed(source='/images/favicon.jpg')" 
+						disclosureOpenIcon="@Embed(source='/images/minus.png')" disclosureClosedIcon="@Embed(source='/images/expand.gif')" height="100%" >
+						<mx:columns>
+							<mx:AdvancedDataGridColumn dataField="@Name" headerText="Project Name"/>
+							<mx:AdvancedDataGridColumn dataField="@Level" headerText="Number of documents"/>
+							<mx:AdvancedDataGridColumn id="checkBoxColumn" editable="true" dataField="ProjectId" rendererIsEditor="true" headerWordWrap="false" 
+								headerText="Select Project" width="15" 
+								dataTipField="marked" editorDataField="selected">
+								<mx:itemRenderer>
+									<mx:Component>
+										<mx:CheckBox selected="{(data.@selected == 'true')?true:false}" click="{data.@selected = (data.@selected != 'true') ? 'true' : 'false';}"
+											change="outerDocument.onChangeListCheckBox(event, data.@ProjectId, (data.@selected == 'true')?false:true, data.@Name, data.@Folder)" />
+									</mx:Component>
+								</mx:itemRenderer>
+							</mx:AdvancedDataGridColumn>
+							<mx:AdvancedDataGridColumn dataField="@Users" headerText="Number of users"/>
+						</mx:columns>
+					</mx:AdvancedDataGrid>
+				</mx:HBox>
+				<mx:HBox>
+					<mx:Label text="Destination folder"/> 
+					<mx:TextInput id="folderLocation" />
+					<mx:Button label="Export documents" click="exportDocuments()" />
+				</mx:HBox>
+			</mx:VBox>
+			<mx:TabNavigator borderStyle="solid" width="100%" height="100%">
+				<mx:VBox label="User Information" id="dataGridBox" width="100%" height="100%">
+					<mx:DataGrid id="xmlGrid"  width="100%" height="100%" />
+					
+				</mx:VBox>
+				
+				<mx:VBox label="Project Information" id="projectGridBox" width="100%" height="100%">
+			
+				</mx:VBox>
+
+
+				<mx:VBox label="Login Information" id="loginGridBox" width="100%" height="100%">
+				
+				</mx:VBox>
+				
+				
+			</mx:TabNavigator>
+			<mx:HBox id="versions" width="100%" height="100%">
+			
+			</mx:HBox>
+			<mx:VBox id="chartBox" width="100%" height="100%" icon="@Embed('/images/icon_grid.png')" >
+				
+			</mx:VBox>
+			<mx:HBox id="charts" width="100%" height="100%">
+				<mx:VBox width="50%" height="100%" verticalAlign="middle" >
+					<mx:TabNavigator width="100%" height="100%" borderStyle="solid">
+						<mx:VBox id="pieChartBox" label="Chart" width="100%" height="100%">
+						</mx:VBox>
+						<mx:VBox label="Grid" width="100%" height="100%">
+						</mx:VBox>
+					</mx:TabNavigator>
+				</mx:VBox>
+				<mx:VBox width="50%" height="100%" verticalAlign="middle" >
+					<mx:TabNavigator width="100%" height="100%" borderStyle="solid">
+						<mx:VBox id="columnChartBox" label="Chart" width="100%" height="100%">
+						</mx:VBox>
+						<mx:VBox label="Grid" width="100%" height="100%">
+						</mx:VBox>						
+					</mx:TabNavigator>
+				</mx:VBox>				
+			</mx:HBox>
+		</mx:ViewStack>
+	</mx:VBox>
+</mx:VBox>
+	

@@ -1,0 +1,5 @@
+49
+1 6 <---> <forLoginBusiness> 1 1084383772 0
+44 53 <set_window:"toolbar_main" Error: Object is not found.> <forLoginBusiness> 12 1084383792 0
+44 67 <web_image_click:"topnav-projects-off" Object is not in the GUI map.> <forLoginBusiness> 14 1084383792 0
+2 21 <---> <forLoginBusiness> 18 1084383792 0

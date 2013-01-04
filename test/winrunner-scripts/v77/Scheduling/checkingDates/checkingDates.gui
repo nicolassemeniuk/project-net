@@ -1,0 +1,2129 @@
+"Assign Resources":
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: "Assign Resources"
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+"Assign Resources"."Assign Resources":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 0
+}
+"Assign Resources".Cancel:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Cancel
+}
+"Assign Resources".Cancel_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Cancel
+}
+"Assign Resources".Submit:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Submit
+}
+"Assign Resources".Submit_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Submit
+}
+"Assign Resources".replaceExisting:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: replaceExisting,
+ part_value: 0
+}
+"Assign Resources".replaceExisting_1:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: replaceExisting,
+ part_value: 1
+}
+"Browser Main Window":
+{
+ class: window,
+ MSW_class: browser_main_window,
+ NSTitle: "Browser Main Window"
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+"Browser Main Window".MainToolBar_0:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 0
+}
+"Browser Main Window".MainToolBar_1:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 1
+}
+"Browser Main Window".MainToolBar_2:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 2
+}
+"Browser Main Window".MainToolBar_3:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 3
+}
+"Browser Main Window".MainToolBar_4:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 4
+}
+"Browser Main Window".ReBarWindow32:
+{
+ class: object,
+ MSW_class: ReBarWindow32
+}
+"Browser Main Window".WorkerW:
+{
+ class: object,
+ MSW_id: 40965,
+ MSW_class: WorkerW
+}
+"Browser Main Window".WorkerW_1:
+{
+ class: object,
+ MSW_id: 0,
+ MSW_class: WorkerW
+}
+"Browser Main Window".browser_main_combo_location_0:
+{
+ class: list,
+ MSW_class: browser_main_combo_location,
+ location: 0
+}
+"Browser Main Window".browser_main_combo_location_1:
+{
+ class: list,
+ MSW_class: browser_main_combo_location,
+ location: 1
+}
+"Browser Main Window".browser_main_comboex_location:
+{
+ class: object,
+ MSW_id: 2,
+ MSW_class: browser_main_comboex_location
+}
+"Browser Main Window".browser_main_comboex_location_1:
+{
+ class: object,
+ MSW_id: 41477,
+ MSW_class: browser_main_comboex_location
+}
+"Browser Main Window".browser_main_edit_location_0:
+{
+ class: edit,
+ MSW_class: browser_main_edit_location,
+ location: 0
+}
+"Browser Main Window".browser_main_edit_location_1:
+{
+ class: edit,
+ MSW_class: browser_main_edit_location,
+ location: 1
+}
+"Browser Main Window"."sys_Close Alt+F4":
+{
+ class: menu_item,
+ label: "Close Alt+F4",
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Maximize:
+{
+ class: menu_item,
+ label: Maximize,
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Minimize:
+{
+ class: menu_item,
+ label: Minimize,
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Move:
+{
+ class: menu_item,
+ label: Move,
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Restore:
+{
+ class: menu_item,
+ label: Restore,
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Size:
+{
+ class: menu_item,
+ label: Size,
+ sysmenu: 1,
+ parent: none
+}
+Calendar:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: Calendar
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+Calendar.15:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: 15
+}
+Calendar.back:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "back.gif"
+}
+"Choose file":
+{
+ class: window,
+ label: "Choose file",
+ MSW_class: Dialog
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+"Choose file"."Look in:":
+{
+ class: list,
+ attached_text: "Look in:",
+ MSW_id: 1
+}
+"Choose file".Open:
+{
+ class: push_button,
+ label: Open
+}
+"Choose file".browser_main_combo_location_0:
+{
+ class: list,
+ MSW_class: browser_main_combo_location,
+ location: 0
+}
+"Microsoft Internet Explorer":
+{
+ class: window,
+ label: "Microsoft Internet Explorer",
+ MSW_class: Dialog
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+"Microsoft Internet Explorer"."(static)":
+{
+ class: static_text,
+ MSW_id: 20
+}
+"Microsoft Internet Explorer".Cancel:
+{
+ class: push_button,
+ label: Cancel
+}
+"Microsoft Internet Explorer"."Delete schedule entry(ies)?(static)":
+{
+ class: static_text,
+ MSW_id: 65535
+}
+"Microsoft Internet Explorer".OK:
+{
+ class: push_button,
+ label: OK
+}
+"Microsoft Internet Explorer"."sys_Close Alt+F4":
+{
+ class: menu_item,
+ label: "Close Alt+F4",
+ sysmenu: 1,
+ parent: none
+}
+"Microsoft Internet Explorer".sys_Move:
+{
+ class: menu_item,
+ label: Move,
+ sysmenu: 1,
+ parent: none
+}
+"Percent Complete":
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: "Percent Complete"
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+"Percent Complete".Cancel:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Cancel
+}
+"Percent Complete".Cancel_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Cancel
+}
+"Percent Complete".Submit:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Submit
+}
+"Percent Complete".Submit_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Submit
+}
+"Percent Complete"."actionbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 2
+}
+"Percent Complete"."actionbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-left_end.gif"
+}
+"Percent Complete"."actionbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-right_end.gif"
+}
+"Percent Complete"."channelbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 1
+}
+"Percent Complete"."channelbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-left_end.gif"
+}
+"Percent Complete"."channelbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif"
+}
+"Percent Complete"."http://hippo/images/icons/channelbar-left_end.gif http://hippo/images/":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 0
+}
+"Percent Complete".percentage:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: percentage
+}
+inlineframe:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: inlineframe
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+inlineframe.percent:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: percent_5919
+}
+inlineframe.resource:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: resource,
+ part_value: 5919
+}
+main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: main
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+main."ALAP Task":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "ALAP Task"
+}
+main."ASAP Task":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "ASAP Task"
+}
+main."Add Task":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Add Task"
+}
+main."Add to Workflow":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Add to Workflow"
+}
+main.Advanced:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Advanced
+}
+main."Apply Filters":
+{
+ class: push_button,
+ MSW_class: html_push_button,
+ html_name: "Apply Filters"
+}
+main."Assign Resource(s)":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Assign Resource(s)"
+}
+main."Avinash Padmanabhan":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Avinash Padmanabhan"
+}
+main."Baseline Start Date:":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 16
+}
+main."Browse...":
+{
+ class: push_button,
+ virtual: TRUE,
+ x: 703,
+ y: 199,
+ width: 65,
+ height: 17,
+ rows: 1,
+ columns: 1
+}
+main.Cancel:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Cancel
+}
+main.Cancel_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Cancel
+}
+main."Capture Work":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Capture Work"
+}
+main."Constraint Type:":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 13
+}
+main.Copy:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Copy
+}
+main.Create:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Create
+}
+main."Create Modify Remove Refresh Properties Copy Link Add to Workflow Sear":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 0
+}
+main."Create New Task":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Create New Task"
+}
+main."Daffy Duck":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Daffy Duck"
+}
+main."Delete Phase":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Delete Phase"
+}
+main."Delete Task":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Delete Task"
+}
+main.Dependencies:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Dependencies
+}
+main."FD Task":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "FD Task"
+}
+main."FNET Task":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "FNET Task"
+}
+main."FNLT Task":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "FNLT Task"
+}
+main."FU Task":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "FU Task"
+}
+main."FW Task":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "FW Task"
+}
+main.Help:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Help
+}
+main.History:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: History
+}
+main.Import:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Import
+}
+main."Import MS Project Database":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Import MS Project Database"
+}
+main."Indent Task(s)":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Indent Task(s)"
+}
+main."Kevin Chan":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Kevin Chan"
+}
+main.Link:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Link
+}
+main."Link Tasks":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Link Tasks"
+}
+main."MFO Task":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "MFO Task"
+}
+main."MSO Task":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "MSO Task"
+}
+main."Mickey Mouse":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Mickey Mouse"
+}
+main.Modify:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Modify
+}
+main."Modify Project Information":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Modify Project Information"
+}
+main."Modify Task":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Modify Task"
+}
+main."Name:":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 4
+}
+main.Next:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Next
+}
+main."No Constraint Task":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "No Constraint Task"
+}
+main.Notify:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Notify
+}
+main.Phase1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Phase1
+}
+main.Phase2:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Phase2
+}
+main.Phase3:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Phase3
+}
+main.Phase4:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Phase4
+}
+main.Process:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Process
+}
+main.Properties:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Properties
+}
+main.Refresh:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Refresh
+}
+main.Remove:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Remove
+}
+main.Reset:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Reset
+}
+main.Reset_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Reset
+}
+main.Resources:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Resources
+}
+main."Return to Task List":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Return to Task List"
+}
+main."SNET Task":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "SNET Task"
+}
+main."SNLT Task":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "SNLT Task"
+}
+main."Schedule Properties":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Schedule Properties"
+}
+main.Search:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Search
+}
+main.Security:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Security
+}
+main."Show more dependencies":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Show more dependencies"
+}
+main."Start Date:":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 7
+}
+main.Submit:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Submit
+}
+main.Submit_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Submit
+}
+main."Task 16hr Work 0% Complete":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Task 16hr Work 0% Complete"
+}
+main."Task 16hr Work 100% Complete":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Task 16hr Work 100% Complete"
+}
+main."Task 16hr Work 50% Complete":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Task 16hr Work 50% Complete"
+}
+main."Task 8hr Work 0% Complete":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Task 8hr Work 0% Complete"
+}
+main."Task 8hr Work 100% Complete":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Task 8hr Work 100% Complete"
+}
+main."Task 8hr Work 50% Complete":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Task 8hr Work 50% Complete"
+}
+main."Task Name":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 10
+}
+main."Task No Work 0% Complete":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Task No Work 0% Complete"
+}
+main."Task No Work 100% Complete":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Task No Work 100% Complete"
+}
+main."Task No Work 50% Complete":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Task No Work 50% Complete"
+}
+main.Tasks:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Tasks
+}
+main.TestProject2:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: TestProject2
+}
+main."Unlink Tasks":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Unlink Tasks"
+}
+main.Update:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Update
+}
+main."Update Percent Complete":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Update Percent Complete"
+}
+main.WRProject:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: WRProject
+}
+main."Winnie ThePooh":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Winnie ThePooh"
+}
+main."actionbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 17
+}
+main."actionbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-left_end.gif"
+}
+main."actionbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-right_end.gif"
+}
+main.actualEndDate:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: actualEndDate
+}
+main.actualStartDate:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: actualStartDate
+}
+main.assignment_work:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: assignment_work_5016
+}
+main.assignment_work_units:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: assignment_work_units_5016
+}
+main.autocalculation:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: autocalculation,
+ part_value: true
+}
+main.calendar:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "calendar.gif",
+ location: 0
+}
+main.calendar_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "calendar.gif",
+ location: 1
+}
+main.calendar_2:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "calendar.gif",
+ location: 2
+}
+main.calendar_3:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "calendar.gif",
+ location: 3
+}
+main.calendar_4:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "calendar.gif",
+ location: 4
+}
+main.calendar_5:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "calendar.gif",
+ location: 5
+}
+main.changeCheckedState:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: changeCheckedState,
+ part_value: on
+}
+main."channelbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 2
+}
+main."channelbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-left_end.gif"
+}
+main."channelbar-maximized":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 3
+}
+main."channelbar-maximized_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-maximized.gif"
+}
+main."channelbar-minimized":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-minimized.gif",
+ location: 0
+}
+main."channelbar-minimized_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-minimized.gif",
+ location: 1
+}
+main."channelbar-minimized_2":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-minimized.gif",
+ location: 2
+}
+main."channelbar-minimized_3":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-minimized.gif",
+ location: 3
+}
+main."channelbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif",
+ location: 0
+}
+main."channelbar-right_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif",
+ location: 1
+}
+main."channelbar-right_end_2":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif",
+ location: 2
+}
+main."channelbar-right_end_3":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif",
+ location: 3
+}
+main."channelbar-right_end_4":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif",
+ location: 4
+}
+main."channelbar-right_end_5":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif",
+ location: 5
+}
+main.constraintDateString:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: constraintDateString
+}
+main.constraintTypeID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: constraintTypeID
+}
+main.dateupd:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: dateupdX9572X1115881200000
+}
+main.deadlineString:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: deadlineString
+}
+main.deadlineTime_ampm:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: deadlineTime_ampm
+}
+main.deadlineTime_hour:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: deadlineTime_hour
+}
+main.deadlineTime_minute:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: deadlineTime_minute
+}
+main.dependency:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "dependency.gif"
+}
+main.dependency_1_lag:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: dependency_1_lag
+}
+main.dependency_1_lag_units:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: dependency_1_lag_units
+}
+main.dependency_1_task_id:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: dependency_1_task_id
+}
+main.dependency_1_type:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: dependency_1_type
+}
+main.dependency_2_lag:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: dependency_2_lag
+}
+main.dependency_2_lag_units:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: dependency_2_lag_units
+}
+main.dependency_2_task_id:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: dependency_2_task_id
+}
+main.dependency_2_type:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: dependency_2_type
+}
+main.dependency_3_lag:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: dependency_3_lag
+}
+main.dependency_3_lag_units:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: dependency_3_lag_units
+}
+main.dependency_3_task_id:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: dependency_3_task_id
+}
+main.dependency_3_type:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: dependency_3_type
+}
+main.description:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: description
+}
+main.dsd:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: dsd
+}
+main.duration:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: duration
+}
+main.duration_units:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: duration_units
+}
+main.effortDriven:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: effortDriven,
+ part_value: true
+}
+main.endTimeString:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: endTimeString
+}
+main.endTime_NotSubmitted:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: endTime_NotSubmitted
+}
+main.expand:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "expand.gif"
+}
+main.html_combobox_0:
+{
+ class: list,
+ MSW_class: html_combobox,
+ location: 0
+}
+main.html_combobox_1:
+{
+ class: list,
+ MSW_class: html_combobox,
+ location: 17
+}
+main.html_combobox_2:
+{
+ class: list,
+ MSW_class: html_combobox,
+ location: 18
+}
+main.html_combobox_3:
+{
+ class: list,
+ MSW_class: html_combobox,
+ location: 19
+}
+main.html_combobox_4:
+{
+ class: list,
+ MSW_class: html_combobox
+}
+main.milestone:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "milestone.gif"
+}
+main.milestoneCheckbox:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: milestoneCheckbox,
+ part_value: on
+}
+main.name:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: name
+}
+main.newTaskEffortDriven:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: newTaskEffortDriven,
+ part_value: true
+}
+main.next_page_sm:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "next_page_sm.gif"
+}
+main.percent:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: percent_6264
+}
+main.percent1:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: percent_6666
+}
+main.percentComplete:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: percentComplete
+}
+main.personCheckBox:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: resource,
+ part_value: 5919
+}
+main.personCheckBox1:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: resource,
+ part_value: 6666
+}
+main.phaseSelection:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: phaseSelection
+}
+main.popuphelp:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "popuphelp.gif",
+ location: 0
+}
+main.popuphelp_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "popuphelp.gif",
+ location: 1
+}
+main.popuphelp_2:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "popuphelp.gif",
+ location: 2
+}
+main.popuphelp_3:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "popuphelp.gif",
+ location: 3
+}
+main.popupwarning:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "popupwarning.gif",
+ location: 0
+}
+main.popupwarning_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "popupwarning.gif",
+ location: 1
+}
+main.prev_page_sm:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "prev_page_sm.gif"
+}
+main.priority:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: priority
+}
+main.resource:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: resource,
+ part_value: 5318
+}
+main.scheduleStart:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: scheduleStart
+}
+main.selected:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: selected,
+ part_value: 3323192
+}
+main.selectedPhaseID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: selectedPhaseID
+}
+main.startTimeString:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: startTimeString
+}
+main.startTime_NotSubmitted:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: startTime_NotSubmitted
+}
+main.t0:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t0
+}
+main.t1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t1
+}
+main.t10:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t10
+}
+main.t11:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t11
+}
+main.t12:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t12
+}
+main.t13:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t13
+}
+main.t14:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t14
+}
+main.t15:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t15
+}
+main.t16:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t16
+}
+main.t17:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t17
+}
+main.t18:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t18
+}
+main.t19:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t19
+}
+main.t1_button:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: selected,
+ part_value: 9572
+}
+main.t2:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t2
+}
+main.t20:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t20
+}
+main.t21:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t21
+}
+main.t22:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t22
+}
+main.t23:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t23
+}
+main.t24:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t24
+}
+main.t25:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t25
+}
+main.t26:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t26
+}
+main.t2_button:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: selected,
+ part_value: 9069
+}
+main.t3:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t3
+}
+main.t3_button:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: selected,
+ part_value: 2248813
+}
+main.t4:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t4
+}
+main.t4_button:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: selected,
+ part_value: 2248814
+}
+main.t5:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t5
+}
+main.t6:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t6
+}
+main.t7:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t7
+}
+main.t8:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t8
+}
+main.t9:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t9
+}
+main.taskCalculationTypeFixedElementID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: taskCalculationTypeFixedElementID
+}
+main."test User1":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "test User1"
+}
+main."test User2":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "test User2"
+}
+main.trans:
+{
+ class: object,
+ MSW_class: html_table,
+ location: 1
+}
+main.trans_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 0
+}
+main.trans_2:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 1
+}
+main.trans_3:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 2
+}
+main.work:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: work
+}
+main.work_complete:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: work_complete
+}
+main.work_complete_units:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: work_complete_units
+}
+main.work_percent_complete:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: work_percent_complete
+}
+main.work_units:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: work_units
+}
+menu:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: menu
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+menu.Calendar:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Calendar
+}
+menu.Dashboard:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Dashboard
+}
+menu.Directory:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Directory
+}
+menu.Discussions:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Discussions
+}
+menu.Documents:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Documents
+}
+menu.Forms:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Forms
+}
+menu.Go:
+{
+ class: push_button,
+ MSW_class: html_push_button,
+ html_name: Go
+}
+menu.KEYWORD:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: KEYWORD
+}
+menu.News:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: News
+}
+menu.Process:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Process
+}
+menu."Project Search AllCalendarFormsDeliverablesDocumentsTasksDiscussions":
+{
+ class: object,
+ MSW_class: html_table
+}
+menu.Reports:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Reports
+}
+menu.Setup:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Setup
+}
+menu.Subprojects:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Subprojects
+}
+menu.Workflow:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflow
+}
+menu.Workplan:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workplan
+}
+menu.html_combobox:
+{
+ class: list,
+ MSW_class: html_combobox
+}
+menu."leftnav-ball":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 0
+}
+menu."leftnav-ball_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 1
+}
+menu."leftnav-ball_10":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 10
+}
+menu."leftnav-ball_11":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 11
+}
+menu."leftnav-ball_2":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 2
+}
+menu."leftnav-ball_3":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 3
+}
+menu."leftnav-ball_4":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 4
+}
+menu."leftnav-ball_5":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 5
+}
+menu."leftnav-ball_6":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 6
+}
+menu."leftnav-ball_7":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 7
+}
+menu."leftnav-ball_8":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 8
+}
+menu."leftnav-ball_9":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 9
+}
+menu."leftnav-sm_ball":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-sm_ball.gif",
+ location: 0
+}
+menu."leftnav-sm_ball_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-sm_ball.gif",
+ location: 1
+}
+menu.trans:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 0
+}
+menu.trans_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 1
+}
+menu.trans_10:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 10
+}
+menu.trans_11:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 11
+}
+menu.trans_12:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 12
+}
+menu.trans_13:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 13
+}
+menu.trans_14:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 14
+}
+menu.trans_15:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 15
+}
+menu.trans_16:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 16
+}
+menu.trans_17:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 17
+}
+menu.trans_18:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 18
+}
+menu.trans_19:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 19
+}
+menu.trans_2:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 2
+}
+menu.trans_20:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 20
+}
+menu.trans_21:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 21
+}
+menu.trans_22:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 22
+}
+menu.trans_23:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 23
+}
+menu.trans_24:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 24
+}
+menu.trans_25:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 25
+}
+menu.trans_3:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 3
+}
+menu.trans_4:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 4
+}
+menu.trans_5:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 5
+}
+menu.trans_6:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 6
+}
+menu.trans_7:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 7
+}
+menu.trans_8:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 8
+}
+menu.trans_9:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 9
+}
+toolbar_main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: toolbar_main
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+toolbar_main."Log Out":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Log Out"
+}
+toolbar_main."topnav-projects-off":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "topnav-projects-off.gif"
+}

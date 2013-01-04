@@ -1,0 +1,90 @@
+
+<!-- Replace your development server domain and port here...and remove the alert :) -->
+<script> alert("please check the baseref parameter, and configure your server hostname and port to run this test succesfully");</script>
+<base href="http://localhost:7001/soa/" />
+
+
+<style type="text/css">
+<!--
+.style11 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; }
+.style12 {font-size: 10px}
+.style14 {font-family: Verdana, Arial, Helvetica, sans-serif; font-size: 10px; font-weight: bold; }
+-->
+</style>
+
+
+  <table width="341" border="0" cellspacing="2" cellpadding="2">
+  <form name="getPortfolio" action="describe.jws" method="get">
+  <input type="hidden" name="method" value="getPortfolio" >
+    <tr bgcolor="#D2D7FF">
+      <td colspan="3"><span class="style14">REST request for getting Portfolio </span></td>
+    </tr>
+    <tr>
+      <td width="110"><div align="right" class="style11">Username</div></td>
+      <td width="25"><span class="style12"></span></td>
+      <td width="186"><input name="j_username" type="text" value="appadmin"></td>
+    </tr>
+    <tr>
+      <td><div align="right" class="style11">Password</div></td>
+      <td><span class="style12"></span></td>
+      <td><input name="j_password" type="text" value="appadmin"></td>
+    </tr>
+    <tr>
+      <td><div align="right" class="style11">Domain</div></td>
+      <td><span class="style12"></span></td>
+      <td><input name="j_domain" type="text" value="1000"></td>
+    </tr>
+    <tr>
+      <td><span class="style12"></span></td>
+      <td><span class="style12"></span></td>
+      <td><input name="Button" onclick="document.getPortfolio.submit();"  type="button" value="Get portfolio for me..."></td>
+	  </form>
+      <span class="style11">
+      </tr>
+      </span>
+    
+    <tr>
+      <td><span class="style12"></span></td>
+      <td><span class="style12"></span></td>
+      <td><span class="style12"></span></td>
+    </tr>
+	<form name="getProjectInfo" action="describe.jws" method="get">
+	<input type="hidden" name="method" value="getProjectInfo" >
+    <tr bgcolor="#D2D7FF">
+      <td colspan="3"><span class="style14">REST request for getting Project Details </span></td>
+    </tr>
+    <tr>
+      <td><div align="right" class="style11">Username</div></td>
+      <td><span class="style12"></span></td>
+      <td><input name="j_username" type="text" value="appadmin" /></td>
+    </tr>
+    <tr>
+      <td><div align="right" class="style11">Password</div></td>
+      <td><span class="style12"></span></td>
+      <td><input name="j_password" type="text" value="appadmin" /></td>
+    </tr>
+    <tr>
+      <td><div align="right" class="style11">Domain</div></td>
+      <td><span class="style12"></span></td>
+      <td><input name="j_domain" type="text" value="1000" /></td>
+    </tr>
+    <tr>
+      <td><div align="right" class="style11">Project Id </div></td>
+      <td><span class="style12"></span></td>
+      <td><input name="p_id" type="text" value="5565"></td>
+    </tr>
+    <tr>
+      <td><span class="style12"></span></td>
+      <td><span class="style12"></span></td>
+      <td><input type="button" onclick="document.getProjectInfo.submit();" value="Get portfolio for me..." /></td>
+	  </form>
+      <span class="style11">
+      </tr>
+      </span>
+    
+    <tr>
+      <td><span class="style12"></span></td>
+      <td><span class="style12"></span></td>
+      <td><span class="style12"></span></td>
+    </tr>
+  </table>

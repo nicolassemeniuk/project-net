@@ -1,0 +1,9 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\checkingDates> 1 1098482863 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\forLoginProject> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\checkingDates> 2 1098482866 0
+11 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\checkingDates> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\forLoginProject> 19 1098482883 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\createProjectWithoutDates> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\checkingDates> 4 1098482886 0
+39 1 <web_obj_text_exists- TestProject1> <createProjectWithoutDates> 14 1098482890 0
+11 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\checkingDates> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\createProjectWithoutDates> 40 1098482890 0
+58 42 <scheduleStarttextedit(case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\checkingDates> 14 1098482899 24
+23 44 <The schedule correctly has no start date set> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\checkingDates> 15 1098482899 0

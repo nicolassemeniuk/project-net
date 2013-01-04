@@ -1,0 +1,37 @@
+function setDependencyQuick(in task1, in task2){
+	auto outText, taskID1, taskID2;
+	reload("getTaskID",0,1);
+	
+	taskID1 = getTaskID(task1);
+	taskID2 = getTaskID(task2);
+		
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","t1_button","part_value",taskID1)!=E_OK)
+		report_msg("NOT OK1");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","t2_button","part_value",taskID2)!=E_OK)
+		report_msg("NOT OK2");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+		
+	button_set("t1_button",ON);
+	button_set("t2_button",ON);
+	wait(1);
+	web_link_click("Link Tasks");
+	wait(1);
+	
+	set_window("main",2);
+	web_link_click(task2);
+	set_window("main",2);
+	web_link_click("Dependencies");
+	wait(1);
+	set_window("main",2);
+	win_get_text("main",outText,144,367,166,383);
+# 	report_msg(outText);
+	if((outText==task1)||(outText=="t"&task1&""))
+		tl_step("Dependency verification",0,"Dependency for "&task2&" has been set");
+	else
+		tl_step("Dependency verification",1,"Dependency for "&task2&" has NOT been set");	
+	web_link_click("Return to Task List");
+}

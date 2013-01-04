@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnClassListField" 
+    table="PN_CLASS_LIST_FIELD"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnClassListFieldPK">
+        <key-property 
+            name="classId" 
+            column="CLASS_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="listId" 
+            column="LIST_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="fieldId" 
+            column="FIELD_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="fieldWidth"
+        type="java.lang.Integer"
+        column="FIELD_WIDTH"
+        length="8"
+    />
+    <property
+        name="fieldOrder"
+        type="java.lang.Integer"
+        column="FIELD_ORDER"
+        length="8"
+    />
+    <property
+        name="wrapMode"
+        type="int"
+        column="WRAP_MODE"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isSubfield"
+        type="java.lang.Integer"
+        column="IS_SUBFIELD"
+        length="1"
+    />
+    <property
+        name="isListField"
+        type="java.lang.Integer"
+        column="IS_LIST_FIELD"
+        length="1"
+    />
+    <property
+        name="isSortField"
+        type="int"
+        column="IS_SORT_FIELD"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="sortOrder"
+        type="java.lang.Integer"
+        column="SORT_ORDER"
+        length="2"
+    />
+    <property
+        name="sortAscending"
+        type="java.lang.Integer"
+        column="SORT_ASCENDING"
+        length="1"
+    />
+    <property
+        name="isCalculateTotal"
+        type="java.lang.Integer"
+        column="IS_CALCULATE_TOTAL"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnClassList -->
+    <many-to-one
+        name="pnClassList"
+	    class="net.project.hibernate.model.PnClassList"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="CLASS_ID" />
+    	<column name="LIST_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

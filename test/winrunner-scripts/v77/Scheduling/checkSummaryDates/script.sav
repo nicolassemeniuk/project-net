@@ -1,0 +1,26 @@
+function checkDates(in summaryTask, in work, in duration){
+#######################################
+# declare the variables as auto
+#######################################
+	auto workVal, durationVal, out_num;
+
+#######################################
+# Proceed to the summary task edit page to verify properties and print out an error message if applicable
+#######################################	
+	set_window("main",1);
+	web_link_click(summaryTask);
+	set_window("main",1);
+	web_link_click("Modify");
+	set_window("main",1);
+	edit_get_text("work",workVal);
+	if(work == workVal)
+		tl_step("Verify work for summary task",0,"The work for "&summaryTask&" is correctly shown as "&workVal&"hrs");
+	else
+		tl_step("Verify work for summary task",1,"The work for "&summaryTask&" is being INCORRECTLY shown as "&workVal&"hrs");
+	edit_get_text("duration",durationVal);
+	if(duration == durationVal)
+		tl_step("Verify work for summary task",0,"The duration for "&summaryTask&" is correctly shown as "&durationVal&"hrs");
+	else
+		tl_step("Verify work for summary task",1,"The duration for "&summaryTask&" is being INCORRECTLY shown as "&durationVal&"hrs");
+	web_link_click("Cancel");
+}

@@ -1,0 +1,31 @@
+function createStep(in name, in status){
+	extern m;
+	wait(1);
+	set_window("main",2);
+	web_link_click("{class:object, MSW_class:html_rect,html_name:Create}");
+	wait(1);
+	set_window("main",2);
+	edit_set("name", name);
+	edit_set("sequence",m);
+	edit_set("description","just a step in the work flow");
+	if(m==0)
+		button_set("pres_stepType_1",ON);
+	else
+		button_set("pres_stepType",ON);
+	list_select_item("entryStatusID",status);
+	edit_set("notes","notes for steps");
+	wait(2);
+	set_window("main",3);
+	if(web_link_click("Submit")!=E_OK)
+		report_msg("Unable to Submit...");
+	wait(3);
+	set_window("main",3);
+	web_link_click("Submit");
+	wait(1);
+# 	set_window("main",3);
+# 	pause(m);
+	if(status!="Cancelled (Closed)"){
+# 		pause("wah!");
+		m=m+1;
+	}
+}	

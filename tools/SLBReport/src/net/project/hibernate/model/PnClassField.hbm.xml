@@ -1,0 +1,230 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnClassField" 
+    table="PN_CLASS_FIELD"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnClassFieldPK">
+        <key-property 
+            name="spaceId" 
+            column="SPACE_ID" 
+            type="java.math.BigDecimal"
+            length="22"
+        />
+        <key-property 
+            name="classId" 
+            column="CLASS_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="fieldId" 
+            column="FIELD_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="dataColumnName"
+        type="java.lang.String"
+        column="DATA_COLUMN_NAME"
+        length="80"
+    />
+    <property
+        name="dataTableName"
+        type="java.lang.String"
+        column="DATA_TABLE_NAME"
+        length="80"
+    />
+    <property
+        name="fieldLabel"
+        type="java.lang.String"
+        column="FIELD_LABEL"
+        length="80"
+    />
+    <property
+        name="dataColumnSize"
+        type="java.lang.Integer"
+        column="DATA_COLUMN_SIZE"
+        length="8"
+    />
+    <property
+        name="dataColumnExists"
+        type="int"
+        column="DATA_COLUMN_EXISTS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="rowNum"
+        type="int"
+        column="ROW_NUM"
+        not-null="true"
+        length="8"
+    />
+    <property
+        name="rowSpan"
+        type="int"
+        column="ROW_SPAN"
+        not-null="true"
+        length="8"
+    />
+    <property
+        name="columnNum"
+        type="int"
+        column="COLUMN_NUM"
+        not-null="true"
+        length="8"
+    />
+    <property
+        name="columnSpan"
+        type="java.lang.Integer"
+        column="COLUMN_SPAN"
+        length="8"
+    />
+    <property
+        name="columnId"
+        type="java.math.BigDecimal"
+        column="COLUMN_ID"
+        length="20"
+    />
+    <property
+        name="useDefault"
+        type="int"
+        column="USE_DEFAULT"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="fieldGroup"
+        type="java.lang.String"
+        column="FIELD_GROUP"
+        length="80"
+    />
+    <property
+        name="hasDomain"
+        type="int"
+        column="HAS_DOMAIN"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="maxValue"
+        type="java.lang.String"
+        column="MAX_VALUE"
+        length="80"
+    />
+    <property
+        name="minValue"
+        type="java.lang.String"
+        column="MIN_VALUE"
+        length="80"
+    />
+    <property
+        name="defaultValue"
+        type="java.lang.String"
+        column="DEFAULT_VALUE"
+        length="80"
+    />
+    <property
+        name="isMultiSelect"
+        type="int"
+        column="IS_MULTI_SELECT"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="sourceFieldId"
+        type="java.math.BigDecimal"
+        column="SOURCE_FIELD_ID"
+        length="20"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="dataColumnScale"
+        type="java.lang.Integer"
+        column="DATA_COLUMN_SCALE"
+        length="8"
+    />
+    <property
+        name="instructionsClob"
+        type="java.sql.Clob"
+        column="INSTRUCTIONS_CLOB"
+        length="4000"
+    />
+    <property
+        name="isValueRequired"
+        type="java.lang.Integer"
+        column="IS_VALUE_REQUIRED"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnObject -->
+    <many-to-one
+        name="pnObject"
+	    class="net.project.hibernate.model.PnObject"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="FIELD_ID" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to PnClass -->
+    <many-to-one
+        name="pnClass"
+	    class="net.project.hibernate.model.PnClass"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="CLASS_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to PnElement -->
+    <many-to-one
+        name="pnElement"
+        class="net.project.hibernate.model.PnElement"
+        not-null="true"
+    >
+        <column name="ELEMENT_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PnClassDomain -->
+    <many-to-one
+        name="pnClassDomain"
+        class="net.project.hibernate.model.PnClassDomain"
+        not-null="true"
+    >
+        <column name="DOMAIN_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

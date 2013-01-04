@@ -1,0 +1,156 @@
+main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: main
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+main.ChartingServlet:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "ChartingServlet?objectID=103332&filter40Start=&output=html&30=t.task_name&20order=asc&checkbox20=on&20=t.task_name&reportScope=10&reportType=tcdr&10order=asc&showReportParameters=false&10=t.task_name&30order=asc&grouping=10&filter40Finish=&module=310&height=100&width=400&chartType=tcdr"
+}
+main."Late Task Report":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Late Task Report"
+}
+main."Over-allocated Resources Report":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Over-allocated Resources Report"
+}
+main."Resource Allocation Report":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Resource Allocation Report"
+}
+main.Submit:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Submit
+}
+main."Tasks Coming Due Report":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Tasks Coming Due Report"
+}
+main."channelbar-left_end_2":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 3
+}
+main."channelbar-left_end_bp1":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 4
+}
+main."channelbar-left_end_bp2":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 5
+}
+main.filter10:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: filter10,
+ part_value: 20
+}
+main.filter10_1:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: filter10,
+ part_value: 30
+}
+main.filter10_2:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: filter10,
+ part_value: 50
+}
+main.filter50:
+{
+ class: list,
+ MSW_class: html_listbox,
+ html_name: filter50
+}
+main.grouping:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: grouping,
+ part_value: 10
+}
+main.grouping_1:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: grouping,
+ part_value: 20
+}
+main.grouping_2:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: grouping,
+ part_value: 30
+}
+main.output:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: output,
+ part_value: html
+}
+main.output_1:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: output,
+ part_value: pdf
+}
+main.showReportParameters:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: showReportParameters,
+ part_value: false
+}
+main.showReportParameters_1:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: showReportParameters,
+ part_value: true
+}
+menu:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: menu
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+menu.Reports:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Reports
+}

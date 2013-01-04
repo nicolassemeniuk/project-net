@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+    <!-- Define appenders -->
+
+
+    <!-- FILE Logs messages to a file, rolling at 4MB -->
+    <appender name="FILE" class="org.apache.log4j.RollingFileAppender">
+        <!-- The name of the log file to write to -->
+        <param name="file" value="@default.logging.location@/pnet-application.log"/>
+        <!-- The maximum size of the log file; for example 1048576, 1024KB, 1MB, 1GB -->
+        <param name="maxFileSize" value="4MB"/>
+        <!-- The maximum number of backup files to create -->
+        <param name="maxBackupIndex" value="5"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d %-5p [%t] %c - %m%n"/>
+        </layout>
+    </appender>
+
+
+
+    <!-- Setup logging priorities -->
+
+    <!-- Controls database logging, including printing of SQL statements. -->
+    <category name="net.project.database">
+        <priority value="error"/>
+    </category>
+
+    <!-- All Project.net logging execept for net.project categories listed above. -->
+    <category name="net.project">
+        <priority value="error"/>
+    </category>
+
+    <!-- Quartz scheduler logging -->
+    <category name="org.quartz">
+        <priority value="error"/>
+    </category>
+
+    <category name="org.springframework">
+        <priority value="error"/>
+    </category>
+
+    <!-- Default logging configuration for SAX digester -->
+    <category name="org.apache.commons.digester.Digester.sax">
+        <priority value="error"/>
+    </category>
+
+
+    <!--
+        Default logging level and target This logging level will be used by all categories,
+        except for categories listed explicitly above.
+        This includes 3rd party libraries that use log4j
+    -->
+    <root>
+        <priority value="error"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+</log4j:configuration>

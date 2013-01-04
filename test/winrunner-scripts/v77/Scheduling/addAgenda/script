@@ -1,0 +1,7 @@
+function addAgenda(){
+	set_window("main",2);
+	if(web_link_click("Add Agenda")!=E_OK)
+		report_msg("Not OK");
+	wait(1);
+	web_link_click("Finish");
+}

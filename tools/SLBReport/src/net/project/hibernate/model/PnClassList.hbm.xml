@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnClassList" 
+    table="PN_CLASS_LIST"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnClassListPK">
+        <key-property 
+            name="classId" 
+            column="CLASS_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="listId" 
+            column="LIST_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="listName"
+        type="java.lang.String"
+        column="LIST_NAME"
+        length="80"
+    />
+    <property
+        name="fieldCnt"
+        type="java.lang.Integer"
+        column="FIELD_CNT"
+        length="8"
+    />
+    <property
+        name="listDesc"
+        type="java.lang.String"
+        column="LIST_DESC"
+        length="500"
+    />
+    <property
+        name="isShared"
+        type="int"
+        column="IS_SHARED"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isAdmin"
+        type="int"
+        column="IS_ADMIN"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="ownerSpaceId"
+        type="java.math.BigDecimal"
+        column="OWNER_SPACE_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnClass -->
+    <many-to-one
+        name="pnClass"
+	    class="net.project.hibernate.model.PnClass"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="CLASS_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional one-to-many association to PnSpaceHasClassList -->
+
+    <set
+        name="pnSpaceHasClassLists"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="CLASS_ID" />
+            <column name="LIST_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasClassList"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnClassListField -->
+
+    <set
+        name="pnClassListFields"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="CLASS_ID" />
+            <column name="LIST_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnClassListField"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

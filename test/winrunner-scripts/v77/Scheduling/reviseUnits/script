@@ -1,0 +1,327 @@
+GUI_close_all();
+wait(3);
+
+###################################################################
+# Getting personID for each and every resource invited to the project
+###################################################################
+reload("getPersonID",0,1);
+id[0] = getPersonID("Avinash Padmanabhan");
+GUI_close_all();
+
+###################################################################
+# Defining task types and units 
+###################################################################
+wait(2);
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+public task_types[] = {"Fixed Duration","Fixed Units","Fixed Work"};
+public units[] = {"hours","days","weeks"};
+
+###################################################################
+# Loading compiled modules and deleting any tasks previously present in the schedule list
+###################################################################
+reload("createTaskRD",0,1);
+reload("createTaskRU",0,1);
+reload("createTaskRW",0,1);
+reload("getTaskID",0,1);
+
+set_window("menu",3);
+web_link_click("Workplan");
+wait(2);
+ 
+set_window("main",2);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer", 2);
+button_press("OK");
+wait(5);
+set_window("main",2);
+
+###################################################################
+# Modifying the GUI map so as to add the resourceID at runtime for both the resource edit page and the resource toolbar button pop up
+###################################################################
+if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","inlineframe","resource","part_value",id[0])!=E_OK)
+	report_msg("Not OK");
+else
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","inlineframe","percent","html_name","percent_"&id[0]&"")!=E_OK)
+	report_msg("Not OK");
+else
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","percent","html_name","percent_"&id[0]&"")!=E_OK)
+	report_msg("Not OK");
+else
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+	
+###################################################################
+# Creating a FD task and verifying if modifying units for a FD task changes work only
+###################################################################
+report_msg("REVISING UNITS - FIXED DURATION TASKS");
+createTaskRD("t1", 1, units[1], 8, units[0], 1, id, 0);
+wait(2);
+
+taskID1 = getTaskID("t1");
+wait(1);
+set_window("main",1);
+wait(1);
+if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","t1_button","part_value",taskID1)!=E_OK)
+	report_msg("NOT OK1");
+else
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+
+set_window("main",1);
+button_set("t1_button",ON);
+wait(1);
+web_link_click("Assign Resource(s)");
+wait(1);
+set_window("Assign Resources",2);
+wait(1);
+button_set("replaceExisting_1",ON);
+set_window("inlineframe",2);
+wait(1);
+button_set("resource",ON);
+wait(3);
+obj_type("percent", 50);
+wait(1);
+set_window("Assign Resources");
+web_link_click("Submit");
+wait(3);
+
+set_window("main",2);
+web_link_click("t1");
+wait(1);
+set_window("main",2);		
+web_link_click("Modify");
+wait(1);
+edit_get_text("duration",outText);
+list_get_selected("duration_units",outItem,outNum);
+report_msg("Quick Add...");
+if((outText == 1)&&(outItem == "days"))
+	tl_step("Verify duration",0,"The duration value and duration units for a FD task do match");
+else
+	tl_step("Verify duration", 1, "The duration value and duration units for a FD task DO NOT match"); 
+edit_get_text("work",outText);
+list_get_selected("work_units",outItem, outNum);
+# Though the pop-up window for the Resources toolbar window does advice you not to specify assignment% to a FD task
+# but if do you it should reduce the work as the resource edit page does. 
+if((outText == 4)&&(outItem == "hours"))
+	tl_step("Verify work",0,"The work value and work units for a FD task do match");
+else
+	tl_step("Verify work", 1, "The work value and work units for a FD task DO NOT match"); 
+web_link_click("Cancel");
+wait(1);
+
+set_window("main",1);
+web_link_click("t1");
+wait(1);
+set_window("main",1);		
+web_link_click("Resources");
+wait(2);
+set_window("main",2);
+edit_set("percent","");
+obj_type("percent","25");
+obj_type("percent","<kTab>");
+wait(1);
+web_link_click("Submit");
+wait(2);
+set_window("main",2);
+web_link_click("t1");
+wait(1);
+set_window("main",2);
+web_link_click("Modify");
+wait(1);
+set_window("main",2);
+edit_get_text("duration",outText);
+list_get_selected("duration_units",outItem,outNum);
+report_msg("Resource Edit...");
+if((outText == 1)&&(outItem == "days"))
+	tl_step("Verify duration",0,"The duration value and duration units for a FD task do match");
+else
+	tl_step("Verify duration", 0, "The duration value and duration units for a FD task DO NOT match"); 
+edit_get_text("work",outText);
+list_get_selected("work_units",outItem, outNum);
+if((outText == 2)&&(outItem == "hours"))
+	tl_step("Verify work",0,"The work value and work units for a FD task do match");
+else
+	tl_step("Verify work", 1, "The work value and work units for a FD task DO NOT match");
+web_link_click("Cancel");
+wait(2);
+
+###################################################################
+# Creating a FU task and verifying if modifying units for a FU task changes duration only
+###################################################################
+report_msg("");
+report_msg("REVISING UNITS - FIXED UNIT TASKS");
+createTaskRU("t2", 1, units[1], 8, units[0], 1, id, 0);
+wait(2);
+taskID1 = getTaskID("t2");
+	
+set_window("main",1);
+wait(1);
+if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","t1_button","part_value",""&taskID1&"")!=E_OK)
+	report_msg("NOT OK1");
+else
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+
+set_window("main",2);
+button_set("t1_button",ON);
+wait(1);
+web_link_click("Assign Resource(s)");
+wait(1);
+set_window("Assign Resources",2);
+button_set("replaceExisting_1",ON);
+wait(1);
+set_window("inlineframe",2);
+button_set("resource",ON);
+wait(3);
+obj_type("percent", 50);
+set_window("Assign Resources",2);
+web_link_click("Submit");
+wait(1);
+set_window("main",2);
+web_link_click("t2");
+wait(1);
+set_window("main",2);		
+web_link_click("Modify");
+wait(1);
+set_window("main",2);		
+edit_get_text("duration",outText);
+list_get_selected("duration_units",outItem,outNum);
+report_msg("Quick Add...");
+if((outText == 2)&&(outItem == "days"))
+	tl_step("Verify duration",0,"The duration value and duration units for a FU task do match");
+else
+	tl_step("Verify duration", 1, "The duration value and duration units for a FU task DO NOT match"); 
+edit_get_text("work",outText);
+list_get_selected("work_units",outItem, outNum);
+if((outText == 8)&&(outItem == "hours"))
+	tl_step("Verify work",0,"The work value and work units for a FU task do match");
+else
+	tl_step("Verify work", 1, "The work value and work units for a FU task DO NOT match"); 
+web_link_click("Cancel");
+wait(2);
+
+set_window("main",2);
+web_link_click("t2");
+wait(1);
+set_window("main",2);		
+web_link_click("Resources");
+wait(1);
+set_window("main",2);
+edit_set("percent","");
+obj_type("percent","25");
+obj_type("percent","<kTab>");
+wait(1);
+web_link_click("Submit");
+wait(2);
+set_window("main",2);
+web_link_click("t2");
+set_window("main",2);
+wait(1);
+web_link_click("Modify");
+wait(1);
+set_window("main",2);
+edit_get_text("duration",outText);
+list_get_selected("duration_units",outItem,outNum);
+report_msg("Resource Edit...");
+if((outText == 4)&&(outItem == "days"))
+	tl_step("Verify duration",0,"The duration value and duration units for a FU task match");
+else
+	tl_step("Verify duration", 1, "The duration value and duration units for a FU task DO NOT match"); 
+edit_get_text("work",outText);
+list_get_selected("work_units",outItem, outNum);
+if((outText == 8)&&(outItem == "hours"))
+	tl_step("Verify work",0,"The work value and work units for a FU task match");
+else
+	tl_step("Verify work", 1, "The work value and work units for a FU task DO NOT match");
+web_link_click("Cancel");
+wait(2);
+
+################################################################### 
+# Creating a FW task and verifying if modifying units for a FW task changes Duration only
+###################################################################
+report_msg("");
+report_msg("REVISING UNITS - FIXED WORK TASKS");
+createTaskRW("t3", 1, units[1], 8, units[0], 1, id, 0);
+taskID1 = getTaskID("t3");
+
+set_window("main",2);
+wait(1);
+if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","t1_button","part_value",""&taskID1&"")!=E_OK)
+	report_msg("NOT OK1");
+else
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+
+set_window("main",2);
+button_set("t1_button",ON);
+wait(1);
+web_link_click("Assign Resource(s)");
+wait(1);
+set_window("Assign Resources",2);
+wait(1);
+button_set("replaceExisting_1",ON);
+wait(1);
+set_window("inlineframe",3);
+button_set("resource",ON);
+wait(3);
+edit_set("percent", 50);
+set_window("Assign Resources");
+wait(1);
+web_link_click("Submit");
+wait(2);
+
+set_window("main",2);
+web_link_click("t3");
+set_window("main",2);		
+web_link_click("Modify");
+set_window("main",2);
+edit_get_text("duration",outText);
+list_get_selected("duration_units",outItem,outNum);
+report_msg("Quick Add...");
+if((outText == 2)&&(outItem == "days"))
+	tl_step("Verify duration",0,"The duration value and duration units for a FW task match");
+else
+	tl_step("Verify duration", 1, "The duration value and duration units for a FW task DO NOT match"); 
+edit_get_text("work",outText);
+list_get_selected("work_units",outItem, outNum);
+if((outText == 8)&&(outItem == "hours"))
+	tl_step("Verify work",0,"The work value and work units for a FW task match");
+else
+	tl_step("Verify work", 1, "The work value and work units for a FW task DO NOT match"); 
+web_link_click("Cancel");
+
+set_window("main",2);
+web_link_click("t3");
+set_window("main",2);		
+web_link_click("Resources");
+set_window("main",2);
+edit_set("percent","");
+obj_type("percent","25");
+obj_type("percent","<kTab>");
+wait(1);
+web_link_click("Submit");
+set_window("main",2);
+web_link_click("t3");
+web_link_click("Modify");
+set_window("main",2);
+edit_get_text("duration",outText);
+list_get_selected("duration_units",outItem,outNum);
+report_msg("Resource Edit...");
+if((outText == 4)&&(outItem == "days"))
+	tl_step("Verify duration",0,"The duration value and duration units for a FU task match");
+else
+	tl_step("Verify duration", 1, "The duration value and duration units for a FU task DO NOT match"); 
+edit_get_text("work",outText);
+list_get_selected("work_units",outItem, outNum);
+if((outText == 8)&&(outItem == "hours"))
+	tl_step("Verify work",0,"The work value and work units for a FU task match");
+else
+	tl_step("Verify work", 1, "The work value and work units for a FU task DO NOT match");
+web_link_click("Cancel");
+
+
+
+
+
+
+

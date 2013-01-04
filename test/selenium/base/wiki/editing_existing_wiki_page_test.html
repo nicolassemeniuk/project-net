@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>editing_existing_wiki_page_test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">editing_existing_wiki_page_test</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Wiki</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Wiki Page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>${rootPageCreationContent}</td>
+	<td></td>
+</tr>
+<!--tr>
+	<td>verifyTextPresent</td>
+	<td>Selenium wiki content test</td>
+	<td></td>
+</tr-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>editThisPageLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>editThisPageLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Editing Page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertValue</td>
+	<td>wikiContentText</td>
+	<td>${rootPageCreationContent}</td>
+</tr>
+<!--tr>
+	<td>assertValue</td>
+	<td>wikiContentText</td>
+	<td>Selenium wiki content test</td>
+</tr-->
+<tr>
+	<td>assertValue</td>
+	<td>wikiCommentText</td>
+	<td></td>
+</tr>
+<tr>
+    <td>store</td>
+    <td>Selenium wiki content edit test</td>
+    <td>rootPageEdit1Content</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>wikiContentText</td>
+	<td>${rootPageEdit1Content}</td>
+</tr>
+<!--tr>
+	<td>type</td>
+	<td>wikiContentText</td>
+	<td>Selenium wiki content edit test</td>
+</tr-->
+<tr>
+    <td>store</td>
+    <td>selenium wiki description edit test</td>
+    <td>rootPageEdit1CommentText</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>wikiCommentText</td>
+	<td>${rootPageEdit1CommentText}</td>
+</tr>
+<!--tr>
+	<td>type</td>
+	<td>wikiCommentText</td>
+	<td>selenium wiki description edit test</td>
+</tr-->
+<tr>
+	<td>click</td>
+	<td>previewLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>var pageBody = selenium.page().bodyText(); var expectedPreviewText = &quot;${rootPageEdit1Content}&quot;; pageBody.indexOf(expectedPreviewText) != -1;</td>
+	<td>30000</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>saveLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Wiki Page</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>${rootPageEdit1Content}</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertElementPresent</td>
+	<td>editThisPageLink</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,17 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\batchTest> 5 1112227126 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\BusinessWorkspace\createBusiness> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\batchTest> 6 1112227128 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\BusinessWorkspace\createBusiness> 69 1112227166 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProjects> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\batchTest> 8 1112227168 0
+11 25 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProjects> 219 1112227262 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createParticipantsDirectory> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\batchTest> 10 1112227264 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createParticipantsDirectory> 58 1112227319 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\insertDocument> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\batchTest> 12 1112227321 0
+11 25 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\insertDocument> 21 1112227356 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createDiscussionGroup> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\batchTest> 14 1112227359 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createDiscussionGroup> 26 1112227372 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\batchTest> 16 1112227374 0
+11 25 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 34 1112227514 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProcess> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\batchTest> 18 1112227516 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProcess> 53 1112227532 0
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\batchTest> 20 1112227534 0

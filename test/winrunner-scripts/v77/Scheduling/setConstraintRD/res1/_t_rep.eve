@@ -1,0 +1,11 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setConstraintRD> 1 1115937465 0
+37 125 <Step: Verify FNET constraint, Status: Pass, Description: The end date for t1 with FNET constraint is set correctly to 5/12/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setConstraintRD> 72 1115937540 24
+37 143 <Step: Verify FNLT constraint, Status: Fail, Description: The end date 5/13/05 set for task t2 with FNLT constraint date of 5/12/05 is INCORRECT> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setConstraintRD> 64 1115937595 25
+37 125 <Step: Verify MSO constraint, Status: Pass, Description: The start date for t3 with MSO constraint is set correctly to 5/12/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setConstraintRD> 82 1115937666 24
+37 123 <Step: Verify MFO constraint, Status: Pass, Description: The end date for t4 with MFO constraint is set correctly to 5/12/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setConstraintRD> 92 1115937737 24
+37 127 <Step: Verify SNET constraint, Status: Pass, Description: The start date for t5 with SNET constraint is set correctly to 5/12/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setConstraintRD> 102 1115937801 24
+37 127 <Step: Verify SNLT constraint, Status: Pass, Description: The start date for t6 with SNLT constraint is set correctly to 5/12/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setConstraintRD> 112 1115937865 24
+37 126 <Step: Verify ASAP constraint, Status: Pass, Description: The start date of t7 with ASAP constraint is correctly set to 5/12/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setConstraintRD> 44 1115937944 24
+37 128 <Step: Verify ALAP constraint, Status: Fail, Description: There has been an ERROR in setting end date for t8 with ALAP constraint> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setConstraintRD> 54 1115938021 25
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setConstraintRD> 75 1115938024 0

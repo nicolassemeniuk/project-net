@@ -1,0 +1,40 @@
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\forLoginForms"();
+wait(2);
+
+reload("createForm",0,1);
+reload("createField",0,1);
+
+reload("createList",0,1);
+reload("activateForm",0,1);
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");
+wait(1);
+set_window("menu",2);
+web_link_click("Forms");
+wait(1);
+set_window("main",2);
+public i = 1;
+
+createForm("TextFieldForm","TFF");#form definition function call
+web_link_click("TextFieldForm");
+web_link_click("Fields");
+# web_link_click("Create");
+# createField("TextFieldForm","TF","TextField");#form field function call
+# id[0] = createList("TextFieldList","TextField");#form list function call returns the value of the created field id
+# activateForm("TextFieldForm");
+# 
+# set_window("main",2);
+# web_link_click("TextFieldForm");
+# wait(1);
+# set_window("main",2);
+# web_link_click("Create");
+# 
+# fieldID = id[0];
+# if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui","main","field","html_name","field"&fieldID&"")!=E_OK)
+# 	report_msg("Not OK3");
+# else
+# 	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");
+# edit_set("field","Avinash");
+# 
+# web_link_click("Submit_2");

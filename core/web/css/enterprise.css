@@ -1,0 +1,155 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+/* MAIN */
+
+body.main			    {background-color: #FFFFFF;
+					    }
+body.mainNoBGC		    {
+					    }
+a					    {
+					    }
+.instructions		    {
+                        background-color: #FFFFFF;
+					    color: #006600;
+					    }
+
+a.channelNoUnderline	{
+                        color: #FFFFFF;
+					    }
+.channelHeader		    {
+                        background-color: #993333;
+					    color: #FFFFFF;
+					    }
+.channelHeaderDarker	{
+                        background-color: #663333;
+					    color: #FFFFFF;
+					    }
+.channelContent		    {
+                        background-color: #FFFFFF;
+                        color: #000000;
+                        }
+.white				    {
+					    }
+.calendar			    {color: #FFFFFF;
+					    }
+.calToday			    {
+                        color: #FF0000;
+					    background-color: #ffffcc;
+					    border: 1px solid #663333;
+					    }
+.actionBar			    {
+                        color: #FFFFFF;
+                        background-image: url('../images/enterprise/actionbar-background.gif');
+                        background-repeat: repeat-x;
+                        }
+.actionContentReq	    {
+                        color: #FFFFFF;
+					    }
+.actionContentNotReq	{
+                        color: #999999;
+					    }
+.pageTitle			    {
+                        color: #993333;
+					    }
+.label				    {
+                        color: #993333;
+					    }
+.rowSep                 {
+                        background-color: #663333;
+                        padding: 0px;
+                        height: 1px;
+                        border-collapse: collapse;
+                        }
+.headerSep              {
+                        background-color: #663333;
+                        padding: 0px;
+                        height: 2px;
+                        border-collapse: collapse;
+                        }
+.rowHighlight           {
+                        background-color: #663333;
+                        }
+
+/* BANNER */
+/*body.banner			    {
+                        background-image: url('../images/common/topnav-banner-bg.gif');
+					    background-repeat: no-repeat;
+					    }*/
+.bannerLink1		    {
+                        color: #000000;
+					    }
+.bannerLink2		    {
+                        color: #FFFFFF;
+					    }
+.userId				    {
+                        color: #FFFFFF;
+					    }
+.tableHeader		    {
+                        background-color: #FFFFFF;
+					    color: #993333;
+					    }
+.instructions		    {
+                        background-color: #FFFFFF;
+					    color: #993333;
+					    }
+.tableLine			    {
+                        background-color: #663333;
+					    }
+.tableContent		    {
+                        background-color: #FFFFFF;
+					    color: #000000;
+					    }
+.tableContentNoBGC	    {
+                        color: #000000;
+					    }
+.tableContentFontOnly	{
+					    }
+
+
+/* LEFT NAV */
+
+div#leftframe		    {
+                        /*background-image: url('../images/enterprise/background-leftnav.gif');*/
+					    background-repeat: repeat-y;
+					    }
+.leftNavHeader		    {
+                        color: #000000;
+					    }
+.leftNavLink		    {
+                        color: #000000;
+					    }
+.vertLine			    {
+					    }
+.vertNoLine			    {
+					    }
+
+/* FORMS */
+
+.fieldRequired		    {
+                        color: #000000;
+					    }
+.fieldNonRequired	    {
+                        color: #666666;
+					    }
+.fieldWithError		    {
+                        color: #FF0000;
+					    }
+.errorMessage           {
+                        color: #FF0000;
+                        }
+.successMessage         {
+                        color: #FF0000;
+                        }
+                    

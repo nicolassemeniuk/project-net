@@ -1,0 +1,61 @@
+function createField(in fName, in fieldType, in name){
+	extern i;
+	report_msg(Fieldi);
+	if(i <= 1){
+		set_window("main",2);
+		web_link_click(fName);
+		wait(1);
+		set_window("main",1);
+		web_link_click("Fields");
+		wait(1);
+	}
+	set_window("main",1);
+	web_link_click("Create");
+	set_window("main",1);
+	switch(fieldType){
+	case "TF":
+		reload("createTextField",0,1);
+		createTextField(name);
+		break;
+	case "TB":
+		reload("createTextBox",0,1);
+		createTextBox(name);
+		break;
+	case "SM":
+		reload("createSelectionMenu",0,1);
+		createSelectionMenu(name,0);
+		break;
+	case "DF":
+		reload("createDateField",0,1);
+		createDateField(name);
+		break;
+	case "CB":
+		reload("createCheckBox",0,1);
+		createCheckBox(name);
+		break;
+	case "PSM":
+		reload("createPersonSelectionMenu",0,1);
+		createPersonSelectionMenu(name,0,0);
+		break;
+	case "NF":
+		reload("createNumberField");
+		createNumberField(name);
+		break;
+	case "CF":
+		reload("createCurrencyField");
+		createCurrencyField(name);
+		break;
+	case "HST":
+		reload("createHorizontalSectionTitle",0,1);
+		createHorizontalSectionTitle(name);
+		break;
+	case "UI":
+		reload("createUserInstructions",0,1);
+		createUserInstructions(name);
+		break;
+	case "CaF":
+		reload("createCalculatedField",0,1);
+		createCalculatedField(name,"NumberField","CurrencyField");
+		break;
+	}
+}	

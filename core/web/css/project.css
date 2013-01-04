@@ -1,0 +1,439 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+ 
+/* MAIN */
+
+body.main			{background-color: #FFFFFF;
+					}
+body.mainNoBGC		{
+					}
+a					{
+					}
+.instructions		{background-color: #FFFFFF;
+					 color: #333399;
+					}
+a.channelNoUnderline	{	
+					}
+.channelHeader		{background-color: #CCD8FE;
+					 color: #000000;
+					}
+.channelHeaderDarker	{	background-color: #333399;
+					 color: #FFFFFF;
+					}
+.channelContent		{background-color: #FFFFFF;
+					 color: #000000;
+					}
+.white				{
+					}
+.calendar			{color: #000000;
+					}
+.calToday			{color: #FF0000;
+					 background-color: #ffffcc;
+					 border: 1px solid #9999FF;
+					}
+.pageTitle			{color: #333399;
+					}
+.label				{color: #333399;
+					}
+.actionBar			{color: #000000;
+					 background-image: url('../images/project/actionbar-background.gif');
+					 background-repeat: repeat-x;
+					}
+.actionContentReq	{color: #000000;
+					}
+.actionContentNotReq	{color: #999999;
+					}
+.tableFilterHeader  {background-color: #CCCCCC ! IMPORTANT;
+					 color: #333399;
+                    }
+.tableFilterHeaderWB  {background-color: none ! IMPORTANT;
+					 color: #333399;
+                    }
+.tableFilterContent {background-color: #CCCCCC ! IMPORTANT;
+                    }
+.tableFilterContentWB {background-color: none ! IMPORTANT;
+                    }                    
+.tableFilterControl {margin: 2px;
+                    }
+.rowSep             {background-color: #eceef6;
+                     padding: 0px;
+                     height: 1px;
+                     border-collapse: collapse;
+                    }
+.headerSep          {background-color: #eceef6;
+                     padding: 0px;
+                     height: 1px;
+                     border-collapse: collapse;
+                    }
+.rowHighlight       {background-color: #CCD8FE ! IMPORTANT;
+                    }
+.popup              {border: thin solid #CCD8FE;
+                    }
+.popupTitle         {background-color: #CCD8FE;
+                     color: #000000;
+                    }
+.popupBody          {background-color: #EEEEEE;
+                     color: #000000;
+                    }
+
+/* BANNER */
+/*body.banner			{background-image: url('../images/common/topnav-banner-bg.gif');
+					 background-repeat: no-repeat;
+					}*/
+.bannerLink1		{color: #000000;
+					}
+.bannerLink2		{color: #FFFFFF;
+					}
+.userId				{color: #FFFFFF;
+					}
+
+/* LEFT NAV */
+
+div#leftframe		{/*background-image: url('../images/project/background-leftnav.gif');*/
+					 background-repeat: repeat-y;
+					}
+.leftNavHeader		{color: #000000;
+					}
+.leftNavLink		{color: #000000;
+					}
+.vertLine			{
+					}
+.vertNoLine			{
+					}
+
+/* LEGACY */
+
+.tableHeader		{
+	background-color: #FFFFFF;
+	color: Gray;
+}
+.tableHeaderNoBGC	{color: #333399;
+					}
+.tableLine			{
+	background-color: transparent;
+}
+.tableContent		{background-color: #FFFFFF;
+					 color: #000000;
+					}
+.tableContentHighlight		{background-color: #ECECFF;
+					 color: #000000;
+					}
+.tableContentFontOnly	{
+					}
+					
+.tableContentNoBGC		{color: #000000;}
+
+/* FORMS */
+
+.fieldRequired		{color: #000000;
+					}
+.fieldNonRequired	{color: #666666;
+					}
+.fieldWithError		{color: #FF0000;
+					}
+.errorMessage       {color: #FF0000;
+                    }                    
+.warningMessage     {color: #FFCC00;
+                    }
+.successMessage     {color: #FF0000;
+                    }					                    
+
+.addSpacingBottom   {height: 23px;
+					}
+.left_tab {
+	background: url(../images/directory/active_button_project.gif) left no-repeat;
+	width: 130px;
+	height: 20px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+}
+.right_tab {
+	background: url(../images/directory/dactivat_btn_project_no-line.gif) left no-repeat;
+	width: 130px;
+	height: 20px;
+	text-align: center;
+	font-size: 12px;
+}
+#searchMemberBlockTop {
+	background:#CCD8FE url(../images/directory/top_left_blue.gif) no-repeat scroll center top;
+}
+
+#searchMemberBlockBottom {
+	background:#CCD8FE url(../images/directory/top_right_blue.gif) no-repeat scroll center top;
+}
+#searchMemberContents {
+	padding: 15px;
+	color: Black;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 13px;
+}
+TABLE.t-data-grid THEAD TR TH {
+    background-color:#CCD8FE;
+    width: 10px;
+}
+
+table.t-data-grid tbody tr td {
+	border-bottom:1px solid #CCD8FE;
+	border-right:none;
+	/* padding:2px; */
+}
+
+#inviteMemberBlockTop {
+	background: #F3F3FA url(../images/filter-top.gif) no-repeat scroll center top;
+}
+
+#inviteMemberBlockBottom {
+	background: #F3F3FA url(../images/filter-bottom.gif) no-repeat scroll center top;
+}
+#sendMailBlockTop {
+	background: #F3F3FA url(../images/filter-top.gif) no-repeat scroll center top;
+}
+
+#sendMailBlockBottom {
+	background: #F3F3FA url(../images/filter-bottom.gif) no-repeat scroll center top;
+	width:100%;
+}
+
+.borderCls {
+	border: 1px solid #CCD8FE;
+}
+
+.businessMembersTitle {
+	background: #CCD8FE;
+	color: Black;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	padding-left:5px;
+	border-bottom:1px solid #b2c2f9;
+}
+
+.UMTopBorder {
+	border-top:1px solid #b2c2f9;
+}
+
+.UMBottomBorder td {
+	border-bottom:1px solid #b2c2f9;
+}
+
+.UMBottomTopBorder {
+	border-top:1px solid #b2c2f9;
+	border-bottom:1px solid #b2c2f9;
+}
+
+.UMTableBorder {
+	border:1px solid #b2c2f9;
+}
+
+.inviteMemberSearch {
+	font-family:Arial,Helvetica,sans-serif;
+	background: #CCD8FE;
+	float: left;
+}
+
+.UMTableSemiBorder {
+	border-left:1px solid #b2c2f9;
+	border-right:1px solid #b2c2f9;
+	border-bottom:1px solid #b2c2f9;
+}
+
+.two-pane-right-top {
+	border-bottom:1px solid #B0C1F9;
+	border-left:1px solid #B0C1F9;
+	background-color: #EEF4FE;
+	padding: 5px 0px 5px 15px;
+	font-size: 11px;
+	text-align: left;
+	color: #999999;
+}
+
+.hidden{
+	display: none;
+}
+
+#hidePopup{
+	background-image: url('../images/project/dashboard_close.gif');
+	background-repeat: no-repeat;
+	background-position: right;
+	height: 20px;
+	width: 20px;
+}
+
+#lessButton{
+	background-image: url('../images/project/less_option.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 10px;
+}
+
+#moreButton{
+	background-image: url('../images/project/more_option.png');
+	background-repeat:no-repeat;
+	background-position: center;
+	height: 10px;
+}
+
+.scrollHeader{
+	color: #CCD8FE;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+#table-lines{
+	position: relative;
+	left:0;
+	top:0;
+	border-style:solid;
+	border-width:3px;
+	border-color:#CCD8FE;
+}	
+
+.top_left {
+	background: #818181 url('../images/project/top_left.png') left top no-repeat;
+	width: 6px;
+}
+
+.top_m {
+	background: url('../images/project/top_m.png') center top repeat-x;
+	font-size : 14px;
+	font-weight: bold;
+	height: 18px;
+}
+
+.top_right {
+	background: #818181 url('../images/project/top_right.png') right top no-repeat;
+	width: 6px;
+}
+
+.m_left {
+	background: url('../images/project/m_left.png') left top repeat-y;
+	-moz-opacity: 0.7;
+	opacity: 0.7;
+	z-index: 11;
+}
+
+.mid {
+	background: url('../images/project/top_m.png') bottom right repeat-x;
+}
+
+.m_right {
+	background: url('../images/project/m_right.png') right top repeat-y;
+	-moz-opacity: 0.7;
+	opacity: 0.7;
+	z-index: 11;
+}
+
+.bottom_left {
+	background: #818181 url('../images/project/bottom_left.png') left top no-repeat;
+	height: 36px;
+	-moz-opacity: 0.7;
+	opacity: 0.7;
+	z-index: 11;
+}
+
+.bottom_m {
+	background: url('../images/project/bottom_m.png') center top repeat-x;
+}
+
+.bottom_right {
+	background: #818181 url('../images/project/bottom_right.png') right top no-repeat;
+	-moz-opacity: 0.7;
+	opacity: 0.7;
+	z-index: 11;
+}
+
+.bar {
+	background: url('../images/project/notify_hbar.png') center top repeat-x;
+	height: 15px;
+}
+
+.editNotifyHeader{
+	border-bottom: 1px solid Silver;
+	color: #0066CC;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	width: 95%;
+}
+
+.notification-itemName{
+	background-color: #CCD8FE;
+	border-bottom: solid 1px #B0C1F9;	
+	font-size : 12px;
+	font-weight: bold;
+	height: 30px;
+	padding-left: 30px;
+	vertical-align: middle;
+	width: 99%;
+}
+
+.expand_allicon{
+	background-image: url("../images/project/expand.gif");
+	background-repeat: no-repeat;
+	cursor: pointer;
+	width: 15px;
+	height: 15px;
+}
+
+.collapse_allicon{
+	background-image: url("../images/project/collapse.gif");
+	background-repeat: no-repeat;
+	cursor: pointer;
+	width: 15px;
+	height: 15px;
+}
+
+.quick_addicon{
+	background-image: url("../images/project/quick_add.gif");
+	background-repeat: no-repeat;
+	cursor: pointer;
+	width: 15px;
+	height: 15px;
+}
+
+.column_settingicon{
+	background-image: url("../images/project/column_settings.gif");
+	background-repeat: no-repeat;
+	cursor: pointer;
+	width: 15px;
+	height: 15px;
+	padding-right: 5px;
+}
+
+div.tap5c_slidingPanelSubject-toggler {
+	background: transparent url(../images/tool-sprites.gif) no-repeat scroll
+		0 -75px;
+	cursor: pointer;
+	float: left;
+	height: 15px;
+	margin-right: 5px;
+	margin-top: 0;
+	overflow: hidden;
+	width: 15px;
+}
+
+div.tap5c_slidingPanelSubject-toggler-collapse {
+	background: transparent url(../images/tool-sprites.gif) no-repeat scroll
+		0 -60px;
+	cursor: pointer;
+	float: left;
+	height: 15px;
+	margin-right: 5px;
+	margin-top: 0;
+	overflow: hidden;
+	width: 15px;
+}
+

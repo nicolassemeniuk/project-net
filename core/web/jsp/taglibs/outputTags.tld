@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+  "http://java.sun.com/j2ee/dtds/web-jsptaglib_1_1.dtd">
+<taglib>
+    <tlibversion>1.0</tlibversion>
+    <jspversion>1.1</jspversion>
+    <shortname>output</shortname>
+    <info>Output tags for JSP</info>
+
+    <!--
+        <output:money ... /> tag
+     -->
+    <tag>
+        <name>money</name>
+        <tagclass>net.project.taglibs.output.MoneyTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>Display a formatted money value</info>
+        <attribute>
+            <name>money</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>currency</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <!--
+        <output:text ... /> tag
+     -->
+    <tag>
+        <name>text</name>
+        <tagclass>net.project.taglibs.output.TextTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>Displays formatted text</info>
+        <attribute>
+            <name>hyperlink</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <!--
+        <output:date ... /> tag
+     -->
+    <tag>
+        <name>date</name>
+        <tagclass>net.project.taglibs.output.DateTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>Display a formatted date value</info>
+        <attribute>
+            <name>date</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>format</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+</taglib>

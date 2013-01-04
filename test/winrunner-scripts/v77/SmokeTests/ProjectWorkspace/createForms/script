@@ -1,0 +1,34 @@
+# call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\forLoginProject"();
+wait(3);
+
+GUI_close_all();
+wait(1);
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createForms\\createForms.gui");
+
+set_window("main",2);
+web_link_click("WRProject");
+wait(1);
+set_window("menu",2);
+web_link_click("Forms");
+wait(1);
+set_window("main",2);
+
+reload("createForm",0,1);
+reload("createField",0,1);
+reload("createList",0,1);
+reload("activateForm",0,1);
+public i = 1;
+
+createForm("WRform","WR");
+
+createField("WRform","TF","TextField");#form field function call
+id[0] = createList("WRlist","TextField");#form list function call returns the value of the created field id
+
+createField("WRform","TB","TextBox");
+id[1] = createList("WRlist","TextBox");
+
+activateForm("WRform");
+i = 1;
+
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createForms\\createForms.gui");	
+	

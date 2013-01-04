@@ -1,0 +1,29 @@
+<!DOCTYPE etl SYSTEM "http://scriptella.javaforge.com/dtd/etl.dtd">
+<etl>
+    <description>Database creation script</description>
+    <properties>
+        <include href="dbinit.properties"/>
+    </properties>
+    <connection driver="${driver}" url="${url}" user="${PNET_BUILD_USER_NAME}" password="${PNET_BUILD_USER_PASSWORD}">
+    plsql=true
+    </connection>
+	
+	<script>
+    	<include href="${ADMINPATH}synonyms/create_private_table_synonyms.sql"/>
+    </script>
+	
+	<script>
+    	<include href="${ADMINPATH}synonyms/create_private_view_synonyms.sql"/>
+    </script>
+    
+	<script>
+    	<include href="${ADMINPATH}synonyms/create_private_package_synonyms.sql"/>
+    </script>
+
+    <script>
+    	<include href="${ADMINPATH}synonyms/create_private_sequence_synonyms.sql"/>
+		COMMIT
+		/
+    </script>
+    
+</etl>

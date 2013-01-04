@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnView" 
+    table="PN_VIEW"
+    lazy="false"
+>
+
+    <id
+        name="viewId"
+        type="java.math.BigDecimal"
+        column="VIEW_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="name"
+        type="java.lang.String"
+        column="NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        length="250"
+    />
+    <property
+        name="createdById"
+        type="java.math.BigDecimal"
+        column="CREATED_BY_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="createdDatetime"
+        type="java.sql.Date"
+        column="CREATED_DATETIME"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="modifiedById"
+        type="java.math.BigDecimal"
+        column="MODIFIED_BY_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="modifiedDatetime"
+        type="java.sql.Date"
+        column="MODIFIED_DATETIME"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PnFinderIngredient -->
+    <many-to-one
+        name="pnFinderIngredient"
+        class="net.project.hibernate.model.PnFinderIngredient"
+        not-null="true"
+    >
+        <column name="INGREDIENTS_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnSpaceViewContext -->
+
+    <set
+        name="pnSpaceViewContexts"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="VIEW_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceViewContext"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnViewDefaultSetting -->
+
+    <set
+        name="pnViewDefaultSettings"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="VIEW_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnViewDefaultSetting"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

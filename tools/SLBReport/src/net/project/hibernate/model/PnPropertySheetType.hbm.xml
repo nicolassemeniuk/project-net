@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPropertySheetType" 
+    table="PN_PROPERTY_SHEET_TYPE"
+    lazy="false"
+>
+
+    <id
+        name="propertySheetType"
+        type="java.lang.Integer"
+        column="PROPERTY_SHEET_TYPE"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="propertySheetName"
+        type="java.lang.String"
+        column="PROPERTY_SHEET_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="propertySheetDesc"
+        type="java.lang.String"
+        column="PROPERTY_SHEET_DESC"
+        length="255"
+    />
+    <property
+        name="propertiesTableName"
+        type="java.lang.String"
+        column="PROPERTIES_TABLE_NAME"
+        length="80"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnPropertySheet -->
+
+    <set
+        name="pnPropertySheets"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PROPERTY_SHEET_TYPE" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPropertySheet"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

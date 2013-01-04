@@ -1,0 +1,272 @@
+<?xml version="1.0"?>
+
+<!-- We need to go back after the fields are mapped so that it can be determined -->
+<!-- which fields are calculated. -->
+
+    <Schedule xslns="http://schemas.project.net/schedule/ProjectNetSchedule.xsd">
+        <TaskList>
+            <Task>
+                <!-- (MSP TASK_UID)
+                ID represents a unique primary key for this task that is stored in
+                the database.
+                TODO: right now, this XML assumes that Project and PRM are going to
+                share the same ID.  This is probably a false assumption.  Project
+                might define arbitrary limits as to the size of this field due to
+                old constants that have previously been defined.  We might have to
+                test to be sure of whether this is a limitation.  -->
+                <ID>1</ID>
+                <!-- (MSP TASK_NAME)
+                varchar Task name. -->
+                <Name>Test Task 1</Name>
+                <!-- (MSP None)
+                This is a 500 character description of a task that is separate from
+                the task comments that can also be entered for a task.  Currently,
+                the best bet for mapping this value to MS Project is to map it to
+                the Task Notes.  Unfortunately, the task notes in MS Project are an
+                RTF Field.  For now, this is going to remain unresolved until we can
+                figure out what to do with the RTF values.
+                TODO: Figure out how we are going to achieve interoperability with
+                RTF -->
+                <Description>This is a test task.</Description>
+                <!-- (MSP TASK_TYPE)
+                smallint Task type. -->
+                <Type></Type>
+                <!-- (MSP TASK_DUR)
+                integer Planned duration of the task.  This is the total amount of
+                working time for the task.
+                TODO: Get a list of the different unit types in MS Project so we can
+                map them properly to the PRM classes. --> 
+                <Duration>P1Y2M3DT10H30M12.3S </Duration> 
+                <!-- (MSP TASK_WORK)
+                decimal Amount of scheduled work. -->
+                <ScheduledWork>P1Y2M3DT10H30M12.3S </ScheduledWork>
+                <!-- (MSP TASK_ACT_WORK)
+                decimal Amount of actual work. -->
+                <CompletedWork>P1Y2M3DT10H30M12.3S </CompletedWork>
+                <!-- (MSP TASK_START_DATE)
+                datetime Scheduled start date. -->
+                <StartDate></StartDate>
+                <!-- (MSP TASK_FINISH_DATE)
+                datetime Scheduled finish date. -->
+                <FinishDate></FinishDate>
+                <!-- (MSP TASK_ACT_DUR)
+                integer This is the total amount of actual working time that has
+                passed by since the start of this task.  For example, if you have a
+                task that begins on Monday at 8am, finishes on Friday at 5pm, and if
+                you work 8 hour days, on Wednesday at noon your actual working time
+                would be 20 hours. -->
+                <ActualDuration>P1Y2M3DT10H30M12.3S</ActualDuration>
+                <!-- (MSP TASK_REM_DUR)
+                integer Remaining duration of the task. -->
+                <RemainingDuration>P1Y2M3DT10H30M12.3S</RemainingDuration>
+                <!-- (MSP TASK_ACT_START) 
+                datetime Actual start date. -->
+                <ActualStartDate></ActualStartDate> 
+                <!-- (MSP TASK_ACT_FINISH)
+                datetime Actual finish date. -->
+                <ActualFinishDate></ActualFinishDate>
+                <!-- (MSP TASK_PRIORITY)
+                smallint Priority of the task. -->
+                <Priority>1</Priority>
+                <!-- (MSP TASK_PCT_COMP)
+                smallint Percent complete. -->
+                <PercentComplete>50</PercentComplete>
+                <!-- (MSP TASK_CREATION_DATE)
+                datetime The date the task was created. -->
+                <CreationDate>2002-04-01T12:00:01</CreationDate>
+                <!-- (MSP No direct mapping)
+                bit Indicates whether the task has been modified if it was
+                previously checked out.  If this is the initial creation of this
+                task, this field does not apply. -->
+                <IsModified>1</IsModified>
+                <!-- (MSP No direct mapping)
+                datetime The date that the task was last modified. -->
+                <ModifiedDate>2002-04-01T12:00:01</ModifiedDate>
+                <!-- (MSP No direct mapping)
+                integer The user id of the user that modified the task.  If no user
+                ID is specified, the task is assumed to have been modified by the
+                user that is importing the project. -->
+                <ModifiedByID></ModifiedByID>
+                <!-- (MSP TASK_IS_MILESTONE)
+                IsMilestone indicates whether or not this task is actually a
+                milestone. -->
+                <IsMilestone>true</IsMilestone>
+                
+                <!-- (MSP TASK_ID)
+                ID represents that order that the tasks appear in a natural
+                list. -->
+                <ID>1</ID>
+                <!-- (MSP TASK_HAS_LINKED_FIELDS)
+                Indicates whether there are data links to the task. -->
+                <HasLinkedFields>True</HasLinkedFields>
+                <!-- (MSP TASK_IS_CRITICAL) -->
+                <IsCritical>False</IsCritical>
+                <!-- (MSP TASK_IS_SUMMARY)
+                Indicates whether this task is a summary task-->
+                <IsSummary>False</IsSummary>
+                <!-- (MSP TASK_IS_SUBPROJ)
+                Indicates whether the task is an inserted project. -->
+                <IsSubproj>False</IsSubproj>
+                <!-- (MSP TASK_IS_MARKED) -->
+                <IsMarked>False</IsMarked>
+                <!-- (MSP TASK_IGNORES_RES_CAL) -->
+                <IgnoresResourceCalendar>False</IgnoresResourceCalendar>
+                <!-- (MSP TASK_IS_ROLLED_UP) -->
+                <IsRolledUp>False</IsRolledUp>
+                <!-- (MSP TASK_IS_FROM_FINISH_SUBPROJ)
+                Indicates whether the inserted project is marked as
+                schedule-from-finish. -->
+                <IsFromFinishSubproject>False</IsFromFinishSubproject>
+                <!-- (MSP TASK_BAR_IS_HIDDEN)
+                Indicates whether the Gantt Bars are hidden when displayed in
+                Microsoft Project -->
+                <TaskBarHidden>False</TaskBarHidden>
+                <!-- (MSP TASK_IS_RECURRING)--> 
+                <IsRecurring>False</IsRecurring>
+                <!-- (MSP TASK_IS_RECURRING_SUMMARY)
+                Indicates whether the task is a summary of recurring tasks. --> 
+                <IsRecurringSummary>False</IsRecurringSummary>
+                <!-- (MSP TASK_IS_EXTERNAL)
+                Indicates whether this task is external and cross-project linked
+                to a task in this project. -->
+                <IsExternal>False</IsExternal>
+                <!-- (MSP TASK_IS_EFFORT_DRIVEN) -->
+                <IsEffortDriven>False</IsEffortDriven>
+                <!-- (MSP TASK_IS_COLLAPSED)
+                Indicates whether the summary task is collapsed when displayed
+                in Microsoft Project -->
+                <IsCollapsed>False</IsCollapsed>
+                <!-- (MSP TASK_IS_READONLY_SUBPROJ)
+                Indicates whether the inserted project is read-only -->
+                <IsReadOnlySubproject>True</IsReadOnlySubproject> 
+                <!-- (MSP TASK_LEVELING_CAN_SPLIT)
+                Indicates whether leveling can cause a task split -->
+                <LevelingCanSplit>False</LevelingCanSplit>
+                <!-- (MSP TASK_LEVELING_ADJUSTS_ASSN) -->
+                <LevelingAdjustsAssn>False</LevelingAdjustsAssn>
+                <!-- (MSP TASK_DUR_IS_EST)
+                Indicates whether task duration is estimated. -->
+                <DurationIsEstimated>False</DurationIsEstimated>
+                <!-- (MSP TASK_EARLY_START)
+                datetime Early start date. -->
+                <EarlyStart>2002-05-21T08:00:00</EarlyStart>
+                <!-- (MSP TASK_LATE_START) -->
+                <LateStart>2002-06-01T08:00:00</LateStart>
+                <!-- (MSP TASK_EARLY_FINISH) -->
+                <EarlyFinish>2002-06-30T14:30:00</EarlyFinish>
+                <!-- (MSP TASK_LATE_FINISH)
+                datetime Late finish date. -->
+                <LateFinish>2002-07-15T14:30:00</LateFinish>
+                <!-- (MSP TASK_STOP_DATE)
+                TODO: What is a stop date? -->
+                <StopDate>2002-06-01T08:00:00</StopDate>
+                <!-- (MSP TASK_RESUME_DATE)
+                datetime Resume date.
+                TODO: What is a resume date? -->
+                <ResumeDate>2002-06-05T08:00:00</ResumeDate>
+                <!-- (MSP TASK_FREE_SLACK)
+                integer   Amount of free slack.
+                TODO: What does this integer represent? -->
+                <FreeSlack></FreeSlack>
+                <!-- (MSP TASK_OUTLINE_LEVEL)
+                smallint Outline level.
+                TODO: What does the outline level represent? -->
+                <OutlineLevel></OutlineLevel>
+                <!-- (MSP TASK_BASE_DUR)
+                integer Baseline duration of the task. -->
+                <BaselineDuration></BaselineDuration>
+                <!-- (MSP TASK_BASE_DUR_FMT)
+                smallint Units in which the baseline duration is displayed in
+                Microsoft Project. -->
+                <BaselineDurationFormat></BaselineDurationFormat>
+                <!-- (MSP TASK_CONSTRAINT_TYPE)
+                smallint Constraint type.
+                TODO: Get a list of the constraint types -->
+                <ConstraintType></ConstraintType>
+                <!-- (MSP TASK_LEVELING_DELAY)
+                integer Delay caused by leveling. -->
+                <LevelingDelay></LevelingDelay>
+                <!-- (MSP TASK_LEVELING_DELAY_FMT)
+                smallint Units in which the leveling delay is displayed in
+                Microsoft Project. -->
+                <LevelingDelayFormat></LevelingDelayFormat>
+                <!-- (MSP TASK_BASE_START)
+                datetime Baseline start date. -->
+                <BaselineStartDate></BaselineStartDate>
+                <!-- (MSP TASK_BASE_FINISH)
+                datetime Baseline finish date. -->
+                <BaselineFinishDate></BaselineFinishDate>
+                <!-- (MSP TASK_CONSTRAINT_DATE)
+                datetime Constraint date. -->
+                <ConstraintDate></ConstraintDate>
+                <!-- (MSP TASK_PCT_WORK_COMP)
+                smallint Percent of work complete -->
+                <PercentWorkComplete></PercentWorkComplete>
+                <!-- (MSP TASK_FIXED_COST_ACCRUAL)
+                smallint The method used for accruing fixed costs. -->
+                <FixedCostAccrual></FixedCostAccrual>
+                <!-- (MSP TASK_PRELEVELED_START)
+                datetime Start date before the task was leveled. -->
+                <PreleveledStartDate></PreleveledStartDate>
+                <!-- (MSP TASK_PRELEVELED_FINISH)
+                datetime Finish date before the task was leveled. -->
+                <PreleveledFinishDate></PreleveledFinishDate>
+                <!-- (MSP TASK_CAL_UID)
+                integer Task calendar. -->
+                <CalendarID></CalendarID>
+                <!-- (MSP TASK_DEADLINE)
+                datetime Task schedule deadline date. -->
+                <Deadline></Deadline>
+                <!-- (MSP TASK_WORK)
+                decimal Amount of scheduled work. -->
+                <ScheduledWork></ScheduledWork>
+                <!-- (MSP TASK_BASE_WORK)
+                decimal Amount of baseline work. -->
+                <BaselineWork></BaselineWork>
+                <!-- (MSP TASK_REM_WORK)
+                decimal Amount of remaining work. -->
+                <RemainingWork></RemainingWork>
+                <!-- (MSP TASK_COST)
+                decimal Scheduled cost. -->
+                <ScheduledCost></ScheduledCost>
+                <!-- (MSP TASK_FIXED_COST)
+                decimal Fixed cost of the task. -->
+                <FixedCost></FixedCost>
+                <!-- (MSP TASK_ACT_COST)
+                decimal Actual cost -->
+                <ActualCost></ActualCost>
+                <!-- (MSP TASK_REM_COST)
+                decimal X Remaining cost. -->
+                <RemainingCost></RemainingCost>
+                <!-- (MSP TASK_BASE_COST)
+                decimal   Baseline cost. -->
+                <BaseCost></BaseCost>
+                <!-- (MSP TASK_ACT_OVT_WORK)
+                decimal Amount of actual overtime work. -->
+                <ActualOvertimeWork></ActualOvertimeWork>
+                <!-- (MSP TASK_REM_OVT_WORK)
+                decimal Amount of remaining overtime work. -->
+                <RemainingOvertimeWork></RemainingOvertimeWork>
+                <!-- (MSP TASK_OVT_COST)
+                decimal Scheduled overtime cost. -->
+                <ScheduledOvertimeCost></ScheduledOvertimeCost>
+                <!-- (MSP TASK_ACT_OVT_COST)
+                decimal Actual overtime cost. -->
+                <ActualOvertimeCost></ActualOvertimeCost>
+                <!-- (MSP TASK_REM_OVT_COST)
+                decimal Remaining overtime cost. -->
+                <RemainingOvertimeCost></RemainingOvertimeCost>
+                <!-- (MSP TASK_WBS)
+                text WBS number. -->
+                <WBS></WBS>
+                <!-- (MSP TASK_WBS_RIGHTMOST_LEVEL)
+                text The WBS level of the task. -->
+                <WBSLevel></WBSLevel>
+                <!-- (MSP TASK_HAS_NOTES) -->
+                <HasNotes>True</HasNotes>
+                <!-- (MSP TASK_RTF_NOTES)
+                image Rich-text format notes. -->
+                <RTFNotes></RTFNotes>
+            </Task>
+        </TaskList>
+    </Schedule>

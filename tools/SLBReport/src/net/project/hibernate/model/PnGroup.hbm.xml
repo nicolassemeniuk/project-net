@@ -1,0 +1,261 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnGroup" 
+    table="PN_GROUP"
+    lazy="false"
+>
+
+    <id
+        name="groupId"
+        type="java.math.BigDecimal"
+        column="GROUP_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="groupName"
+        type="java.lang.String"
+        column="GROUP_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="groupDesc"
+        type="java.lang.String"
+        column="GROUP_DESC"
+        length="255"
+    />
+    <property
+        name="isPrincipal"
+        type="int"
+        column="IS_PRINCIPAL"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isSystemGroup"
+        type="int"
+        column="IS_SYSTEM_GROUP"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnObject -->
+    <one-to-one
+        name="pnObject"
+        class="net.project.hibernate.model.PnObject"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPerson"
+        class="net.project.hibernate.model.PnPerson"
+        not-null="true"
+    >
+        <column name="PRINCIPAL_OWNER_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnSpaceHasGroup -->
+
+    <set
+        name="pnSpaceHasGroups"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="GROUP_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasGroup"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnGroupHasPerson -->
+
+    <set
+        name="pnGroupHasPersons"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="GROUP_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnGroupHasPerson"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnWorkflowStepHasGroup -->
+
+    <set
+        name="pnWorkflowStepHasGroups"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="GROUP_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnWorkflowStepHasGroup"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnDefaultObjectPermission -->
+
+    <set
+        name="pnDefaultObjectPermissions"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="GROUP_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDefaultObjectPermission"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnObjectPermission -->
+
+    <set
+        name="pnObjectPermissions"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="GROUP_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnObjectPermission"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnPagePermission -->
+
+    <set
+        name="pnPagePermissions"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="GROUP_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPagePermission"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnGroupHistory -->
+
+    <set
+        name="pnGroupHistories"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="GROUP_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnGroupHistory"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnModulePermission -->
+
+    <set
+        name="pnModulePermissions"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="GROUP_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnModulePermission"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnGroupHasGroup -->
+
+    <set
+        name="pnGroupHasGroupsByMemberGroupId"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="MEMBER_GROUP_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnGroupHasGroup"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnGroupHasGroup -->
+
+    <set
+        name="pnGroupHasGroupsByGroupId"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="GROUP_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnGroupHasGroup"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to PnGroupType -->
+    <many-to-one
+        name="pnGroupType"
+        class="net.project.hibernate.model.PnGroupType"
+        not-null="true"
+    >
+        <column name="GROUP_TYPE_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

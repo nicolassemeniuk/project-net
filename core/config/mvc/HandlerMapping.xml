@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<HandlerMapping>
+    <!-- Cross Space Handlers -->
+    <Handler url="/CreateShare" viewType="include">
+        <Class>net.project.crossspace.mvc.handler.CreateShareHandler</Class>
+    </Handler>
+    <Handler url="/CreateShareProcessing">
+        <Class>net.project.crossspace.mvc.handler.CreateShareProcessingHandler</Class>
+    </Handler>
+    <Handler url="/RemoveShare">
+        <Class>net.project.crossspace.mvc.handler.RemoveShareHandler</Class>
+    </Handler>
+    <Handler url="/ShowShares">
+        <Class>net.project.crossspace.mvc.handler.ShowSharesHandler</Class>
+    </Handler>
+    <Handler url="/AddExternal">
+        <Class>net.project.crossspace.mvc.handler.AddExternalHandler</Class>
+    </Handler>
+
+    <!-- Schedule Handlers -->
+    <Handler url="/TaskEdit">
+        <Class>net.project.schedule.mvc.handler.taskedit.TaskModifyHandler</Class>
+    </Handler>
+    <Handler url="/TaskEdit/Assignments">
+        <Class>net.project.schedule.mvc.handler.taskedit.TaskModifyAssignmentsHandler</Class>
+    </Handler>
+    <Handler url="/TaskCreate">
+        <Class>net.project.schedule.mvc.handler.taskedit.TaskCreateHandler</Class>
+    </Handler>
+    <Handler url="/TaskEditProcessing/Create">
+        <Class>net.project.schedule.mvc.handler.taskeditprocessing.TaskCreateProcessingHandler</Class>
+    </Handler>
+    <Handler url="/TaskEditProcessing/Modify">
+        <Class>net.project.schedule.mvc.handler.taskeditprocessing.TaskModifyProcessingHandler</Class>
+    </Handler>
+    <Handler url="/TaskEditProcessing/Recalculate">
+        <Class>net.project.schedule.mvc.handler.taskedit.RecalculateHandler</Class>
+    </Handler>
+    <Handler url="/TaskEditProcessing/MoreDependencies">
+        <Class>net.project.schedule.mvc.handler.taskedit.MoreDependenciesHandler</Class>
+    </Handler>
+    <Handler url="/TaskView">
+        <Class>net.project.schedule.mvc.handler.taskview.TaskViewHandler</Class>
+    </Handler>
+    <Handler url="/TaskView/Assignments">
+        <Class>net.project.schedule.mvc.handler.taskview.TaskAssignmentHandler</Class>
+    </Handler>
+    <Handler url="/TaskView/AssignmentsProcessing">
+        <Class>net.project.schedule.mvc.handler.taskview.TaskAssignmentProcessingHandler</Class>
+    </Handler>
+    <Handler url="/TaskView/AssignmentModifyPercent">
+        <Class>net.project.schedule.mvc.handler.taskcalculate.AssignmentModifyPercentHandler</Class>
+    </Handler>
+    <Handler url="/TaskView/AssignmentModifyWork">
+        <Class>net.project.schedule.mvc.handler.taskcalculate.AssignmentModifyWorkHandler</Class>
+    </Handler>
+
+    <Handler url="/TaskView/AssignmentWorker">
+        <Class>net.project.schedule.mvc.handler.taskview.TaskAssignmentWorker</Class>
+    </Handler>
+    <Handler url="/TaskView/Dependencies">
+        <Class>net.project.schedule.mvc.handler.taskview.TaskDependencyHandler</Class>
+    </Handler>
+    <Handler url="/TaskView/Advanced">
+        <Class>net.project.schedule.mvc.handler.taskview.TaskAdvancedHandler</Class>
+    </Handler>
+    <Handler url="/TaskView/History">
+        <Class>net.project.schedule.mvc.handler.taskview.TaskHistoryHandler</Class>
+    </Handler>
+    <Handler url="/TaskView/FixOverallocations">
+        <Class>net.project.schedule.mvc.handler.taskview.FixOverallocationsHandler</Class>
+    </Handler>
+    <Handler url="/TaskView/FixOverallocationsProcessing">
+        <Class>net.project.schedule.mvc.handler.taskview.FixOverallocationsProcessingHandler</Class>
+    </Handler>
+    <Handler url="/TaskList/AssignResourcesDialog">
+        <Class>net.project.schedule.mvc.handler.tasklist.AssignResourcesHandler</Class>
+    </Handler>
+    <Handler url="/TaskList/AssignResourcesDialogProcessing">
+        <Class>net.project.schedule.mvc.handler.tasklist.AssignResourcesDialogHandlerProcessing</Class>
+    </Handler>
+    <Handler url="/TaskList/DeleteTaskDialog">
+        <Class>net.project.schedule.mvc.handler.tasklist.DeleteTaskDialogHandler</Class>
+    </Handler>
+    <Handler url="/WorkingTime/List">
+        <Class>net.project.schedule.mvc.handler.workingtime.WorkingTimeListHandler</Class>
+    </Handler>
+    <Handler url="/WorkingTime/View">
+        <Class>net.project.schedule.mvc.handler.workingtime.WorkingTimeViewHandler</Class>
+    </Handler>
+    <Handler url="/WorkingTime/Edit">
+        <Class>net.project.schedule.mvc.handler.workingtime.WorkingTimeEditHandler</Class>
+    </Handler>
+    <Handler url="/WorkingTime/Create">
+        <Class>net.project.schedule.mvc.handler.workingtime.WorkingTimeCreateHandler</Class>
+    </Handler>
+    <Handler url="/WorkingTime/EditDate">
+        <Class>net.project.schedule.mvc.handler.workingtime.WorkingTimeEditDateHandler</Class>
+    </Handler>
+    <Handler url="/ScheduleProperties/TaskListDecoratingProcessing">
+        <Class>net.project.schedule.mvc.handler.properties.TaskListDecoratingProcessing</Class>
+    </Handler>
+    <Handler url="/ScheduleProperties/Sharing">
+        <Class>net.project.schedule.mvc.handler.properties.SharingHandler</Class>
+    </Handler>
+    <Handler url="/Main/StoreTreeViewSettings">
+        <Class>net.project.schedule.mvc.handler.main.StoreTreeViewSettings</Class>
+    </Handler>
+    <Handler url="/MainProcessing/LinkTasks">
+        <Class>net.project.schedule.mvc.handler.main.LinkTasksHandler</Class>
+    </Handler>
+    <Handler url="/MainProcessing/UnlinkTasks">
+        <Class>net.project.schedule.mvc.handler.main.UnlinkTasksHandler</Class>
+    </Handler>
+    <Handler url="/MainProcessing/Recalculate">
+        <Class>net.project.schedule.mvc.handler.main.RecalculateScheduleHandler</Class>
+    </Handler>
+    <Handler url="/MainProcessing/Resequence">
+        <Class>net.project.schedule.mvc.handler.main.ResequenceScheduleHandler</Class>
+    </Handler>
+    <Handler url="/MainProcessing/Indent">
+        <Class>net.project.schedule.mvc.handler.main.IndentHandler</Class>
+    </Handler>
+    <Handler url="/MainProcessing/Unindent">
+        <Class>net.project.schedule.mvc.handler.main.UnindentHandler</Class>
+    </Handler>
+    <Handler url="/MainProcessing/TaskUp">
+        <Class>net.project.schedule.mvc.handler.main.TaskUpHandler</Class>
+    </Handler>
+    <Handler url="/MainProcessing/TaskDown">
+        <Class>net.project.schedule.mvc.handler.main.TaskDownHandler</Class>
+    </Handler>
+    <Handler url="/MainProcessing/Percentage">
+        <Class>net.project.schedule.mvc.handler.main.PercentageChangeHandler</Class>
+    </Handler>
+    <Handler url="/MainProcessing/SetPhase">
+        <Class>net.project.schedule.mvc.handler.main.SetPhaseHandler</Class>
+    </Handler>
+    <Handler url="/MainProcessing/ApplyFilters">
+        <Class>net.project.schedule.mvc.handler.main.ApplyFiltersHandler</Class>
+    </Handler>
+	<Handler url="/MainProcessing/FindInconsistentTaskFilters">
+        <Class>net.project.schedule.mvc.handler.main.ApplyInconsistentTaskFiltersHandler</Class>
+    </Handler>
+	<Handler url="/MainProcessing/FindInconsistentTaskWorkFilters">
+        <Class>net.project.schedule.mvc.handler.main.ApplyInconsistentTaskWorkFiltersHandler</Class>
+    </Handler>
+    <Handler url="/MainProcessing/DeleteTask">
+        <Class>net.project.schedule.mvc.handler.main.DeleteTaskHandler</Class>
+    </Handler>
+    <Handler url="/MainProcessing/ModifyPermissions">
+        <Class>net.project.schedule.mvc.handler.main.ModifyPermissionsHandler</Class>
+    </Handler>
+    <Handler url="/MainProcessing/QuickAdd">
+        <Class>net.project.schedule.mvc.handler.main.QuickAddHandler</Class>
+    </Handler>
+    <Handler url="/MainProcessing/Share">
+        <Class>net.project.schedule.mvc.handler.main.ShareHandler</Class>
+    </Handler>
+    <Handler url="/Sharing/CreateFromExternal">
+        <Class>net.project.schedule.mvc.handler.main.CreateFromExternalHandler</Class>
+    </Handler>
+    <Handler url="/Sharing/CreateFromExternalProcessing">
+        <Class>net.project.schedule.mvc.handler.taskedit.CreateFromExternalProcessingHandler</Class>
+    </Handler>
+    <Handler url="/TaskCalculate/DurationChange">
+        <Class>net.project.schedule.mvc.handler.taskcalculate.DurationChangeHandler</Class>
+    </Handler>
+    <Handler url="/TaskCalculate/WorkChange">
+        <Class>net.project.schedule.mvc.handler.taskcalculate.WorkChangeHandler</Class>
+    </Handler>
+    <Handler url="/TaskCalculate/WorkCompleteChange">
+        <Class>net.project.schedule.mvc.handler.taskcalculate.WorkCompleteChangeHandler</Class>
+    </Handler>
+    <Handler url="/TaskCalculate/WorkPercentCompleteChange">
+        <Class>net.project.schedule.mvc.handler.taskcalculate.WorkPercentCompleteChangeHandler</Class>
+    </Handler>
+    <Handler url="/TaskCalculate/AssignmentAddRemove">
+        <Class>net.project.schedule.mvc.handler.taskcalculate.AssignmentAddRemoveHandler</Class>
+    </Handler>
+    <Handler url="/TaskCalculate/DateChange">
+        <Class>net.project.schedule.mvc.handler.taskcalculate.DateChangeHandler</Class>
+    </Handler>
+    <Handler url="/TaskCalculate/ConstraintChange">
+        <Class>net.project.schedule.mvc.handler.taskcalculate.ConstraintChangeHandler</Class>
+    </Handler>
+
+    <!-- Metrics Handlers -->
+    <Handler url="/personalAssignmentMetrics" viewType="include">
+        <Class>net.project.metric.mvc.handler.MetricsPersonalAssignmentHandler</Class>
+    </Handler>
+
+    <!-- Assignments Handlers -->
+    <Handler url="/PersonalAssignments">
+        <Class>net.project.resource.mvc.handler.PersonalAssignmentsHandler</Class>
+    </Handler>
+    <Handler url="/PersonalAssignments/Filter">
+        <Class>net.project.resource.mvc.handler.PersonalAssignmentsFilterHandler</Class>
+    </Handler>
+    <Handler url="/CurrentAssignments/Update">
+        <Class>net.project.resource.mvc.handler.UpdateAssignmentsHandler</Class>
+    </Handler>
+    <Handler url="/CurrentAssignments/SpecifyHours">
+        <Class>net.project.resource.mvc.handler.SpecifyHoursHandler</Class>
+    </Handler>
+    <Handler url="/CurrentAssignments/SpecifyHoursProcessing">
+        <Class>net.project.resource.mvc.handler.SpecifyHoursProcessingHandler</Class>
+    </Handler>
+    <Handler url="/CurrentAssignments/UpdateProcessing">
+        <Class>net.project.resource.mvc.handler.UpdateAssignmentsProcessingHandler</Class>
+    </Handler>
+    <Handler url="/CurrentAssignments/WorkChanged">
+        <Class>net.project.resource.mvc.handler.WorkChangeHandler</Class>
+    </Handler>
+    <Handler url="/CurrentAssignments/PCChanged">
+        <Class>net.project.resource.mvc.handler.PercentCompleteChangedHandler</Class>
+    </Handler>
+    <Handler url="/View">
+        <Class>net.project.resource.mvc.handler.AssignmentViewHandler</Class>
+    </Handler>
+
+	 <!-- Timesheets Handlers -->
+    <Handler url="/CurrentAssignments/CreateTimesheet">
+        <Class>net.project.resource.mvc.handler.CreateTimesheetHandler</Class>
+    </Handler>
+    <Handler url="/CurrentAssignments/CreateTimesheetProcessing">
+        <Class>net.project.resource.mvc.handler.CreateTimesheetProcessingHandler</Class>
+    </Handler>
+	<Handler url="/CurrentAssignments/CancelTimesheetProcessing">
+        <Class>net.project.resource.mvc.handler.CancelTimesheetProcessingHandler</Class>
+    </Handler>
+    <Handler url="/CurrentAssignments/SubmitTimesheetProcessing">
+        <Class>net.project.resource.mvc.handler.SubmitTimesheetProcessingHandler</Class>
+    </Handler>
+    <Handler url="/CurrentAssignments/UpdateTimesheetProcessing">
+        <Class>net.project.resource.mvc.handler.CreateTimesheetProcessingHandler</Class>
+    </Handler>
+
+    <!-- XML Import Handlers -->
+    <Handler url="/ChooseFile">
+        <Class>net.project.schedule.importer.mvc.ChooseFileHandler</Class>
+    </Handler>
+    <Handler url="/ChooseItemsToImport">
+        <Class>net.project.schedule.importer.mvc.ChooseItemsToImportHandler</Class>
+    </Handler>
+    <Handler url="/MapResources">
+        <Class>net.project.schedule.importer.mvc.MapResourcesHandler</Class>
+    </Handler>
+    <Handler url="/MapResourcesProcessing">
+        <Class>net.project.schedule.importer.mvc.MapResourcesProcessingHandler</Class>
+    </Handler>
+    <Handler url="/ResolveResourcesProcessing">
+        <Class>net.project.schedule.importer.mvc.ResolveResourcesProcessingHandler</Class>
+    </Handler>
+    <Handler url="/Import">
+        <Class>net.project.schedule.importer.mvc.ImportHandler</Class>
+    </Handler>
+
+    <!-- Export project to XML -->
+    <Handler url="/ExportXml">
+        <Class>net.project.schedule.exporter.mvc.ScheduleHandler</Class>
+    </Handler>
+    <Handler url="/FinishExportXml">
+        <Class>net.project.schedule.exporter.mvc.FinishScheduleHandler</Class>
+    </Handler>
+
+    <!-- Baseline -->
+     <Handler url="/TaskEditProcessing/AddTaskToBaseline">
+        <Class>net.project.schedule.mvc.handler.baseline.AddTaskToBaselineHandler</Class>
+    </Handler>
+    <Handler url="/Baseline/Create">
+        <Class>net.project.schedule.mvc.handler.baseline.BaselineCreateHandler</Class>
+    </Handler>
+    <Handler url="/Baseline/CreateProcessing">
+        <Class>net.project.schedule.mvc.handler.baseline.BaselineCreateProcessingHandler</Class>
+    </Handler>
+    <Handler url="/Baseline/List">
+        <Class>net.project.schedule.mvc.handler.baseline.BaselineListHandler</Class>
+    </Handler>
+    <Handler url="/Baseline/View">
+        <Class>net.project.schedule.mvc.handler.baseline.BaselineViewHandler</Class>
+    </Handler>
+    <Handler url="/Baseline/Modify">
+        <Class>net.project.schedule.mvc.handler.baseline.BaselineModifyHandler</Class>
+    </Handler>
+    <Handler url="/Baseline/Remove">
+        <Class>net.project.schedule.mvc.handler.baseline.BaselineRemoveHandler</Class>
+    </Handler>
+    <Handler url="/Baseline/RefreshBaselinePlan">
+        <Class>net.project.schedule.mvc.handler.baseline.BaselineRefreshPlanHandler</Class>
+    </Handler>
+    <Handler url="/TaskEditProcessing/RefreshBaselineTask">
+        <Class>net.project.schedule.mvc.handler.baseline.BaselineRefreshTaskHandler</Class>
+    </Handler>
+
+	<!-- Form Assignments -->
+    <Handler url="/FormAssignmentsView">
+        <Class>net.project.form.assignment.mvc.handler.FormAssignmentHandler</Class>
+    </Handler>
+    <Handler url="/FormAssignmentWorkView">
+        <Class>net.project.form.assignment.mvc.handler.FormAssignmentWorkHandler</Class>
+    </Handler>
+	<Handler url="/FormAssignmentAddRemove">
+        <Class>net.project.form.assignment.mvc.handler.FormAssignmentAddRemoveHandler</Class>
+    </Handler>
+	<Handler url="/FormAssignmentUpdate">
+        <Class>net.project.form.assignment.mvc.handler.FormAssignmentUpdateHandler</Class>
+    </Handler>
+	<Handler url="/FormAssignmentWorkUpdate">
+        <Class>net.project.form.assignment.mvc.handler.FormAssignmentWorkUpdateHandler</Class>
+    </Handler>
+	<Handler url="/FormAssignmentCheckAssignedUser">
+        <Class>net.project.form.assignment.mvc.handler.FormAssignmentCheckAssignedUserHander</Class>
+    </Handler>
+
+</HandlerMapping>

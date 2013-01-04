@@ -1,0 +1,695 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+        "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName">
+            <value>@driver@</value>
+        </property>
+        <property name="url">
+            <value>@url@</value>
+        </property>
+        <property name="username">
+            <value>@username@</value>
+        </property>
+        <property name="password">
+            <value>@password@</value>
+        </property>
+    </bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="sessionFactory"
+          class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="annotatedClasses">
+            <list>
+                <value>net.project.hibernate.model.ClientDatabaseVersion</value>
+                <value>net.project.hibernate.model.DatabaseVersion</value>
+                <value>net.project.hibernate.model.DatabaseVersionUpdate</value>
+                <value>net.project.hibernate.model.HelpFeedback</value>
+                <value>net.project.hibernate.model.PnAddress</value>
+                <value>net.project.hibernate.model.PnAgendaItem</value>
+                <value>net.project.hibernate.model.PnApplicationSpace</value>
+                <value>net.project.hibernate.model.PnAssignment</value>
+                <value>net.project.hibernate.model.PnAssignmentWork</value>
+                <value>net.project.hibernate.model.PnAuthenticator</value>
+                <value>net.project.hibernate.model.PnAuthenticatorType</value>
+                <value>net.project.hibernate.model.PnBaseline</value>
+                <value>net.project.hibernate.model.PnBaselineHasPlan</value>
+                <value>net.project.hibernate.model.PnBaselineHasTask</value>
+                <value>net.project.hibernate.model.PnBill</value>
+                <value>net.project.hibernate.model.PnBookmark</value>
+                <value>net.project.hibernate.model.PnBrand</value>
+                <value>net.project.hibernate.model.PnBrandHasHost</value>
+                <value>net.project.hibernate.model.PnBrandSupportsLanguage</value>
+                <value>net.project.hibernate.model.PnBusiness</value>
+                <value>net.project.hibernate.model.PnBusinessCategory</value>
+                <value>net.project.hibernate.model.PnBusinessSpace</value>
+                <value>net.project.hibernate.model.PnCalEventHasAttendee</value>
+                <value>net.project.hibernate.model.PnCalculationFieldFormula</value>
+                <value>net.project.hibernate.model.PnCalendar</value>
+                <value>net.project.hibernate.model.PnCalendarEvent</value>
+                <value>net.project.hibernate.model.PnCalendarHasEvent</value>
+                <value>net.project.hibernate.model.PnCategory</value>
+                <value>net.project.hibernate.model.PnCategoryHasCategory</value>
+                <value>net.project.hibernate.model.PnCcTransactionPayment</value>
+                <value>net.project.hibernate.model.PnClass</value>
+                <value>net.project.hibernate.model.PnClassDomain</value>
+                <value>net.project.hibernate.model.PnClassDomainValue</value>
+                <value>net.project.hibernate.model.PnClassField</value>
+                <value>net.project.hibernate.model.PnClassFieldProperty</value>
+                <value>net.project.hibernate.model.PnClassHasWorkflow</value>
+                <value>net.project.hibernate.model.PnClassInstance</value>
+                <value>net.project.hibernate.model.PnClassList</value>
+                <value>net.project.hibernate.model.PnClassListField</value>
+                <value>net.project.hibernate.model.PnClassListFilter</value>
+                <value>net.project.hibernate.model.PnClassType</value>
+                <value>net.project.hibernate.model.PnClassTypeElement</value>
+                <value>net.project.hibernate.model.PnClientType</value>
+                <value>net.project.hibernate.model.PnCodeType</value>
+                <value>net.project.hibernate.model.PnConfigurationSpace</value>
+                <value>net.project.hibernate.model.PnCountryLookup</value>
+                <value>net.project.hibernate.model.PnCreditCardTransaction</value>
+                <value>net.project.hibernate.model.PnCustomCode</value>
+                <value>net.project.hibernate.model.PnCustomDomain</value>
+                <value>net.project.hibernate.model.PnDateFormat</value>
+                <value>net.project.hibernate.model.PnDefaultObjectPermission</value>
+                <value>net.project.hibernate.model.PnDeliverable</value>
+                <value>net.project.hibernate.model.PnDeliveryAddress</value>
+                <value>net.project.hibernate.model.PnDirectory</value>
+                <value>net.project.hibernate.model.PnDirectoryField</value>
+                <value>net.project.hibernate.model.PnDirectoryHasPerson</value>
+                <value>net.project.hibernate.model.PnDirectoryProviderType</value>
+                <value>net.project.hibernate.model.PnDisciplineLookup</value>
+                <value>net.project.hibernate.model.PnDiscussionActionLookup</value>
+                <value>net.project.hibernate.model.PnDiscussionGroup</value>
+                <value>net.project.hibernate.model.PnDiscussionHistory</value>
+                <value>net.project.hibernate.model.PnDocActionLookup</value>
+                <value>net.project.hibernate.model.PnDocCheckoutLocation</value>
+                <value>net.project.hibernate.model.PnDocConfiguration</value>
+                <value>net.project.hibernate.model.PnDocConfigurationHasDoc</value>
+                <value>net.project.hibernate.model.PnDocContainer</value>
+                <value>net.project.hibernate.model.PnDocContainerHasObject</value>
+                <value>net.project.hibernate.model.PnDocContentElement</value>
+                <value>net.project.hibernate.model.PnDocContentRendition</value>
+                <value>net.project.hibernate.model.PnDocHandler</value>
+                <value>net.project.hibernate.model.PnDocHistory</value>
+                <value>net.project.hibernate.model.PnDocProvider</value>
+                <value>net.project.hibernate.model.PnDocProviderHasDocSpace</value>
+                <value>net.project.hibernate.model.PnDocProviderType</value>
+                <value>net.project.hibernate.model.PnDocRepositoryBase</value>
+                <value>net.project.hibernate.model.PnDocSpace</value>
+                <value>net.project.hibernate.model.PnDocSpaceHasContainer</value>
+                <value>net.project.hibernate.model.PnDocType</value>
+                <value>net.project.hibernate.model.PnDocVersion</value>
+                <value>net.project.hibernate.model.PnDocVersionHasContent</value>
+                <value>net.project.hibernate.model.PnDocument</value>
+                <value>net.project.hibernate.model.PnDomainMigration</value>
+                <value>net.project.hibernate.model.PnElement</value>
+                <value>net.project.hibernate.model.PnElementDisplayClass</value>
+                <value>net.project.hibernate.model.PnElementProperty</value>
+                <value>net.project.hibernate.model.PnEnvelopeHasObject</value>
+                <value>net.project.hibernate.model.PnEnvelopeHistory</value>
+                <value>net.project.hibernate.model.PnEnvelopeHistoryAction</value>
+                <value>net.project.hibernate.model.PnEnvelopeHistoryClob</value>
+                <value>net.project.hibernate.model.PnEnvelopeObjectClob</value>
+                <value>net.project.hibernate.model.PnEnvelopeVersion</value>
+                <value>net.project.hibernate.model.PnEnvelopeVersionHasObject</value>
+                <value>net.project.hibernate.model.PnEventHasNotification</value>
+                <value>net.project.hibernate.model.PnEventType</value>
+                <value>net.project.hibernate.model.PnFacility</value>
+                <value>net.project.hibernate.model.PnFinderIngredient</value>
+                <value>net.project.hibernate.model.PnFormsActionLookup</value>
+                <value>net.project.hibernate.model.PnFormsHistory</value>
+                <value>net.project.hibernate.model.PnGate</value>
+                <value>net.project.hibernate.model.PnGlobalCode</value>
+                <value>net.project.hibernate.model.PnGlobalDomain</value>
+                <value>net.project.hibernate.model.PnGroup</value>
+                <value>net.project.hibernate.model.PnGroupActionLookup</value>
+                <value>net.project.hibernate.model.PnGroupHasGroup</value>
+                <value>net.project.hibernate.model.PnGroupHasPerson</value>
+                <value>net.project.hibernate.model.PnGroupHistory</value>
+                <value>net.project.hibernate.model.PnGroupType</value>
+                <value>net.project.hibernate.model.PnIndustryClassification</value>
+                <value>net.project.hibernate.model.PnIndustryHasCategory</value>
+                <value>net.project.hibernate.model.PnInvitedUser</value>
+                <value>net.project.hibernate.model.PnInvoice</value>
+                <value>net.project.hibernate.model.PnInvoiceLob</value>
+                <value>net.project.hibernate.model.PnJavaErrorLog</value>
+                <value>net.project.hibernate.model.PnJobDescriptionFeedback</value>
+                <value>net.project.hibernate.model.PnJobDescriptionLookup</value>
+                <value>net.project.hibernate.model.PnLanguage</value>
+                <value>net.project.hibernate.model.PnLdapConfigurationContext</value>
+                <value>net.project.hibernate.model.PnLdapDirectoryAttrMap</value>
+                <value>net.project.hibernate.model.PnLdapDirectoryConfig</value>
+                <value>net.project.hibernate.model.PnLedger</value>
+                <value>net.project.hibernate.model.PnLicense</value>
+                <value>net.project.hibernate.model.PnLicenseCertificate</value>
+                <value>net.project.hibernate.model.PnLicensePersonHistory</value>
+                <value>net.project.hibernate.model.PnLicensePurchaser</value>
+                <value>net.project.hibernate.model.PnLicenseStatusReason</value>
+                <value>net.project.hibernate.model.PnLoginHistory</value>
+                <value>net.project.hibernate.model.PnMeeting</value>
+                <value>net.project.hibernate.model.PnMethodologyInIndustry</value>
+                <value>net.project.hibernate.model.PnMethodologySpace</value>
+                <value>net.project.hibernate.model.PnModule</value>
+                <value>net.project.hibernate.model.PnModuleHasObjectType</value>
+                <value>net.project.hibernate.model.PnModulePermission</value>
+                <value>net.project.hibernate.model.PnNews</value>
+                <value>net.project.hibernate.model.PnNewsActionLookup</value>
+                <value>net.project.hibernate.model.PnNewsHistory</value>
+                <value>net.project.hibernate.model.PnNextDocRepository</value>
+                <value>net.project.hibernate.model.PnNotification</value>
+                <value>net.project.hibernate.model.PnNotificationClob</value>
+                <value>net.project.hibernate.model.PnNotificationDeliveryType</value>
+                <value>net.project.hibernate.model.PnNotificationLog</value>
+                <value>net.project.hibernate.model.PnNotificationObjectType</value>
+                <value>net.project.hibernate.model.PnNotificationQueue</value>
+                <value>net.project.hibernate.model.PnNotificationSchedStatus</value>
+                <value>net.project.hibernate.model.PnNotificationType</value>
+                <value>net.project.hibernate.model.PnObject</value>
+                <value>net.project.hibernate.model.PnObjectHasDiscussion</value>
+                <value>net.project.hibernate.model.PnObjectHasDocContainer</value>
+                <value>net.project.hibernate.model.PnObjectHasSubscription</value>
+                <value>net.project.hibernate.model.PnObjectInCategory</value>
+                <value>net.project.hibernate.model.PnObjectLink</value>
+                <value>net.project.hibernate.model.PnObjectName</value>
+                <value>net.project.hibernate.model.PnObjectPermission</value>
+                <value>net.project.hibernate.model.PnObjectSpace</value>
+                <value>net.project.hibernate.model.PnObjectType</value>
+                <value>net.project.hibernate.model.PnObjectTypeSubscription</value>
+                <value>net.project.hibernate.model.PnObjectTypeSupportsAction</value>
+                <value>net.project.hibernate.model.PnPagePermission</value>
+                <value>net.project.hibernate.model.PnPaymentInformation</value>
+                <value>net.project.hibernate.model.PnPaymentModel</value>
+                <value>net.project.hibernate.model.PnPaymentModelCharge</value>
+                <value>net.project.hibernate.model.PnPaymentModelCreditcard</value>
+                <value>net.project.hibernate.model.PnPaymentModelType</value>
+                <value>net.project.hibernate.model.PnPerson</value>
+                <value>net.project.hibernate.model.PnPersonView</value>
+                <value>net.project.hibernate.model.PnPersonAllocation</value>
+                <value>net.project.hibernate.model.PnPersonAuthenticator</value>
+                <value>net.project.hibernate.model.PnPersonHasAlternateEmail</value>
+                <value>net.project.hibernate.model.PnPersonHasDiscipline</value>
+                <value>net.project.hibernate.model.PnPersonHasLicense</value>
+                <value>net.project.hibernate.model.PnPersonHasProfCert</value>
+                <value>net.project.hibernate.model.PnPersonHasSkill</value>
+                <value>net.project.hibernate.model.PnPersonHasStateReg</value>
+                <value>net.project.hibernate.model.PnPersonHasVote</value>
+                <value>net.project.hibernate.model.PnPersonNotificationAddress</value>
+                <value>net.project.hibernate.model.PnPersonNotificationPref</value>
+                <value>net.project.hibernate.model.PnPersonPicksSpam</value>
+                <value>net.project.hibernate.model.PnPersonProfile</value>
+                <value>net.project.hibernate.model.PnPersonProperty</value>
+                <value>net.project.hibernate.model.PnPersonSkillComment</value>
+                <value>net.project.hibernate.model.PnPersonSurvey</value>
+                <value>net.project.hibernate.model.PnPersonUsedSkill</value>
+                <value>net.project.hibernate.model.PnPhase</value>
+                <value>net.project.hibernate.model.PnPhaseHasDeliverable</value>
+                <value>net.project.hibernate.model.PnPhaseHasTask</value>
+                <value>net.project.hibernate.model.PnPivot</value>
+                <value>net.project.hibernate.model.PnPlan</value>
+                <value>net.project.hibernate.model.PnPlanHasTask</value>
+                <value>net.project.hibernate.model.PnPlanVersion</value>
+                <value>net.project.hibernate.model.PnPortfolio</value>
+                <value>net.project.hibernate.model.PnPortfolioHasConfiguration</value>
+                <value>net.project.hibernate.model.PnPortfolioHasSpace</value>
+                <value>net.project.hibernate.model.PnPost</value>
+                <value>net.project.hibernate.model.PnPostActionLookup</value>
+                <value>net.project.hibernate.model.PnPostBodyClob</value>
+                <value>net.project.hibernate.model.PnPostHistory</value>
+                <value>net.project.hibernate.model.PnPostReader</value>
+                <value>net.project.hibernate.model.PnProcess</value>
+                <value>net.project.hibernate.model.PnProfCertLookup</value>
+                <value>net.project.hibernate.model.PnProjectSpace</value>
+                <value>net.project.hibernate.model.PnPropCategoryHasProperty</value>
+                <value>net.project.hibernate.model.PnProperty</value>
+                <value>net.project.hibernate.model.PnPropertyCategory</value>
+                <value>net.project.hibernate.model.PnPropertyChange</value>
+                <value>net.project.hibernate.model.PnPropertySheet</value>
+                <value>net.project.hibernate.model.PnPropertySheetType</value>
+                <value>net.project.hibernate.model.PnReportSequence</value>
+                <value>net.project.hibernate.model.PnScheduleNtwkIdToCheck</value>
+                <value>net.project.hibernate.model.PnScheduleNtwkIdToReturn</value>
+                <value>net.project.hibernate.model.PnScheduledSubscription</value>
+                <value>net.project.hibernate.model.PnSecurityAction</value>
+                <value>net.project.hibernate.model.PnShareable</value>
+                <value>net.project.hibernate.model.PnShareablePermission</value>
+                <value>net.project.hibernate.model.PnShared</value>
+                <value>net.project.hibernate.model.PnSkill</value>
+                <value>net.project.hibernate.model.PnSkillCategory</value>
+                <value>net.project.hibernate.model.PnSkillHasSubskill</value>
+                <value>net.project.hibernate.model.PnSpErrorCode</value>
+                <value>net.project.hibernate.model.PnSpErrorLog</value>
+                <value>net.project.hibernate.model.PnSpaceAccessHistory</value>
+                <value>net.project.hibernate.model.PnSpaceHasCalendar</value>
+                <value>net.project.hibernate.model.PnSpaceHasClass</value>
+                <value>net.project.hibernate.model.PnSpaceHasClassList</value>
+                <value>net.project.hibernate.model.PnSpaceHasDirectory</value>
+                <value>net.project.hibernate.model.PnSpaceHasDirectoryField</value>
+                <value>net.project.hibernate.model.PnSpaceHasDocProvider</value>
+                <value>net.project.hibernate.model.PnSpaceHasDocSpace</value>
+                <value>net.project.hibernate.model.PnSpaceHasFeaturedMenuitem</value>
+                <value>net.project.hibernate.model.PnSpaceHasGroup</value>
+                <value>net.project.hibernate.model.PnSpaceHasMethodology</value>
+                <value>net.project.hibernate.model.PnSpaceHasModule</value>
+                <value>net.project.hibernate.model.PnSpaceHasNew</value>
+                <value>net.project.hibernate.model.PnSpaceHasPerson</value>
+                <value>net.project.hibernate.model.PnSpaceHasPlan</value>
+                <value>net.project.hibernate.model.PnSpaceHasPortfolio</value>
+                <value>net.project.hibernate.model.PnSpaceHasProcess</value>
+                <value>net.project.hibernate.model.PnSpaceHasPropertySheet</value>
+                <value>net.project.hibernate.model.PnSpaceHasSkill</value>
+                <value>net.project.hibernate.model.PnSpaceHasSkillCategory</value>
+                <value>net.project.hibernate.model.PnSpaceHasSpace</value>
+                <value>net.project.hibernate.model.PnSpaceHasSubscription</value>
+                <value>net.project.hibernate.model.PnSpaceHasWeather</value>
+                <value>net.project.hibernate.model.PnSpaceHasWorkflow</value>
+                <value>net.project.hibernate.model.PnSpaceTypeHasReportType</value>
+                <value>net.project.hibernate.model.PnSpaceViewContext</value>
+                <value>net.project.hibernate.model.PnSpamLookup</value>
+                <value>net.project.hibernate.model.PnStateLookup</value>
+                <value>net.project.hibernate.model.PnSubHasNotifyType</value>
+                <value>net.project.hibernate.model.PnSubscription</value>
+                <value>net.project.hibernate.model.PnSubscriptionHasGroup</value>
+                <value>net.project.hibernate.model.PnSubscriptionRecurrence</value>
+                <value>net.project.hibernate.model.PnSubscriptionType</value>
+                <value>net.project.hibernate.model.PnSystemConfig</value>
+                <value>net.project.hibernate.model.PnSystemSetting</value>
+                <value>net.project.hibernate.model.PnTask</value>
+                <value>net.project.hibernate.model.PnTaskActionLookup</value>
+                <value>net.project.hibernate.model.PnTaskBaseline</value>
+                <value>net.project.hibernate.model.PnTaskComment</value>
+                <value>net.project.hibernate.model.PnTaskCycleDependency</value>
+                <value>net.project.hibernate.model.PnTaskCycleWork</value>
+                <value>net.project.hibernate.model.PnTaskDependency</value>
+                <value>net.project.hibernate.model.PnTaskDependencyVersion</value>
+                <value>net.project.hibernate.model.PnTaskHistory</value>
+                <value>net.project.hibernate.model.PnTaskVersion</value>
+                <value>net.project.hibernate.model.PnTimeFormat</value>
+                <value>net.project.hibernate.model.PnTimezoneLookup</value>
+                <value>net.project.hibernate.model.PnTmpDocPathInfo</value>
+                <value>net.project.hibernate.model.PnTmpDocument</value>
+                <value>net.project.hibernate.model.PnTmpHeartbeatMetric</value>
+                <value>net.project.hibernate.model.PnUser</value>
+                <value>net.project.hibernate.model.PnUserDefaultCredential</value>
+                <value>net.project.hibernate.model.PnUserDomain</value>
+                <value>net.project.hibernate.model.PnUserDomainMigration</value>
+                <value>net.project.hibernate.model.PnUserDomainSupportsConfig</value>
+                <value>net.project.hibernate.model.PnUserHasMasterBusiness</value>
+                <value>net.project.hibernate.model.PnView</value>
+                <value>net.project.hibernate.model.PnViewDefaultSetting</value>
+                <value>net.project.hibernate.model.PnVote</value>
+                <value>net.project.hibernate.model.PnVoteQuestionair</value>
+                <value>net.project.hibernate.model.PnVoteResponse</value>
+                <value>net.project.hibernate.model.PnWfRuleAuth</value>
+                <value>net.project.hibernate.model.PnWfRuleAuthHasGroup</value>
+                <value>net.project.hibernate.model.PnWorkflow</value>
+                <value>net.project.hibernate.model.PnWorkflowEnvelope</value>
+                <value>net.project.hibernate.model.PnWorkflowHasObjectType</value>
+                <value>net.project.hibernate.model.PnWorkflowRule</value>
+                <value>net.project.hibernate.model.PnWorkflowRuleStatus</value>
+                <value>net.project.hibernate.model.PnWorkflowRuleType</value>
+                <value>net.project.hibernate.model.PnWorkflowStatus</value>
+                <value>net.project.hibernate.model.PnWorkflowStep</value>
+                <value>net.project.hibernate.model.PnWorkflowStepCopy</value>
+                <value>net.project.hibernate.model.PnWorkflowStepHasGroup</value>
+                <value>net.project.hibernate.model.PnWorkflowStrictness</value>
+                <value>net.project.hibernate.model.PnWorkflowTransition</value>
+                <value>net.project.hibernate.model.PnWorkingtimeCalendar</value>
+                <value>net.project.hibernate.model.PnWorkingtimeCalendarEntry</value>
+                <value>net.project.hibernate.model.PnZipcodeFeedLookup</value>
+                <value>net.project.hibernate.model.ProductVersion</value>
+                <value>net.project.hibernate.model.QrtzBlobTrigger</value>
+                <value>net.project.hibernate.model.QrtzCalendar</value>
+                <value>net.project.hibernate.model.QrtzCronTrigger</value>
+                <value>net.project.hibernate.model.QrtzFiredTrigger</value>
+                <value>net.project.hibernate.model.QrtzJobDetail</value>
+                <value>net.project.hibernate.model.QrtzJobListener</value>
+                <value>net.project.hibernate.model.QrtzLock</value>
+                <value>net.project.hibernate.model.QrtzPausedTriggerGrp</value>
+                <value>net.project.hibernate.model.QrtzSchedulerState</value>
+                <value>net.project.hibernate.model.QrtzSimpleTrigger</value>
+                <value>net.project.hibernate.model.QrtzTrigger</value>
+                <value>net.project.hibernate.model.QrtzTriggerListener</value>
+                <value>net.project.hibernate.model.StatusMessage</value>
+                <value>net.project.hibernate.model.PnMethodologyView</value>
+                <value>net.project.hibernate.model.PnProjectSpaceMetaProp</value>
+                <value>net.project.hibernate.model.PnProjectSpaceMetaCombo</value>
+                <value>net.project.hibernate.model.PnProjectSpaceMetaValue</value>
+                <value>net.project.hibernate.model.PnBusinessSpaceView</value>
+                <value>net.project.hibernate.model.PnBusinessView</value>
+                <!-- Resource tab -->
+                <value>net.project.hibernate.model.PnResourceList</value>
+                <value>net.project.hibernate.model.PnResourceListHasPersons</value>
+                <!-- Blog related file mappings -->
+                <value>net.project.hibernate.model.PnWeblog</value>
+                <value>net.project.hibernate.model.PnWeblogEntry</value>
+                <value>net.project.hibernate.model.PnWeblogComment</value>
+                <value>net.project.hibernate.model.PnWeblogEntryAttribute</value>
+                <!-- Wiki related file mappings -->
+                <value>net.project.hibernate.model.PnWikiPage</value>
+                <value>net.project.hibernate.model.PnWikiHistory</value>
+                <value>net.project.hibernate.model.PnWikiAttachment</value>
+                <value>net.project.hibernate.model.PnWikiAssignment</value>
+                <value>net.project.hibernate.model.PnTimelog</value>
+                <value>net.project.hibernate.model.PnDocContainerListView</value>
+                <value>net.project.hibernate.model.PnActivityLog</value>
+                <value>net.project.hibernate.model.PnSharedFormsVisibility</value>
+                <value>net.project.hibernate.model.PnActivityLogMarked</value>
+            </list>
+        </property>
+
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.max_fetch_depth">3</prop>
+                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.format_sql">false</prop>
+                <prop key="hibernate.generate_statistics">false</prop>
+                <prop key="hibernate.use_sql_comments">false</prop>
+                <prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- Transaction manager -->
+    <bean id="transactionManager"
+          class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <!-- Transaction attributes -->
+    <bean id="transactionAttributeSource"
+          class="org.springframework.transaction.interceptor.NameMatchTransactionAttributeSource">
+        <property name="properties">
+            <props>
+                <prop key="*">PROPAGATION_REQUIRED</prop>
+            </props>
+        </property>
+    </bean>
+
+    <!-- Transaction proxy template -->
+    <bean id="transactionProxyTemplate" abstract="true"
+          class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean">
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="transactionAttributeSource" ref="transactionAttributeSource"/>
+    </bean>
+
+    <bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+<!--  Begin -->
+    <bean id="businessSpaceDAO" class="net.project.hibernate.dao.impl.BusinessSpaceDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnActivityLogDAO" class="net.project.hibernate.dao.impl.PnActivityLogDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnActivityLogMarkedDAO" class="net.project.hibernate.dao.impl.PnActivityLogMarkedDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnAddressDAO" class="net.project.hibernate.dao.impl.PnAddressDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="assignmentDAO" class="net.project.hibernate.dao.impl.PnAssignmentDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnAssignmentWorkDAO" class="net.project.hibernate.dao.impl.PnAssignmentWorkDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnBusinessSpaceDAO" class="net.project.hibernate.dao.impl.PnBusinessSpaceDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnCalendarDAO" class="net.project.hibernate.dao.impl.PnCalendarDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnClassDAO" class="net.project.hibernate.dao.impl.PnClassDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnDefaultObjectPermissionDAO" class="net.project.hibernate.dao.impl.PnDefaultObjectPermissionDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnDirectoryDAO" class="net.project.hibernate.dao.impl.PnDirectoryDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnDirectoryHasPersonDAO" class="net.project.hibernate.dao.impl.PnDirectoryHasPersonDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnDocContainerDAO" class="net.project.hibernate.dao.impl.PnDocContainerDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="docContainerListViewDAO" class="net.project.hibernate.dao.impl.PnDocContainerListViewDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnDocProviderDAO" class="net.project.hibernate.dao.impl.PnDocProviderDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="dao" class="net.project.hibernate.dao.impl.PnDocumentDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnGroupDAO" class="net.project.hibernate.dao.impl.PnGroupDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnGroupHasPersonDAO" class="net.project.hibernate.dao.impl.PnGroupHasPersonDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnModuleDAO" class="net.project.hibernate.dao.impl.PnModuleDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnNewsDAO" class="net.project.hibernate.dao.impl.PnNewsDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnObjectDAO" class="net.project.hibernate.dao.impl.PnObjectDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnObjectLinkDAO" class="net.project.hibernate.dao.impl.PnObjectLinkDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnObjectNameDAO" class="net.project.hibernate.dao.impl.PnObjectNameDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnObjectPermissionDAO" class="net.project.hibernate.dao.impl.PnObjectPermissionDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnObjectTypeDAO" class="net.project.hibernate.dao.impl.PnObjectTypeDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnPersonAllocationDAO" class="net.project.hibernate.dao.impl.PnPersonAllocationDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnPersonPropertyDAO" class="net.project.hibernate.dao.impl.PnPersonPropertyDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnPortfolioDAO" class="net.project.hibernate.dao.impl.PnPortfolioDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnProjectSpaceMetaPropDAO" class="net.project.hibernate.dao.impl.PnProjectSpaceMetaPropDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnProjectSpaceMetaValueDAO" class="net.project.hibernate.dao.impl.PnProjectSpaceMetaValueDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnSpaceAccessHistoryDAO" class="net.project.hibernate.dao.impl.PnSpaceAccessHistoryDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnSpaceHasCalendarDAO" class="net.project.hibernate.dao.impl.PnSpaceHasCalendarDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnSpaceHasDocProviderDAO" class="net.project.hibernate.dao.impl.PnSpaceHasDocProviderDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnSpaceHasPersonDAO" class="net.project.hibernate.dao.impl.PnSpaceHasPersonDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnTaskDAO" class="net.project.hibernate.dao.impl.PnTaskDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnUserDAO" class="net.project.hibernate.dao.impl.PnUserDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnUserDomainDAO" class="net.project.hibernate.dao.impl.PnUserDomainDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnWeblogCommentDAO" class="net.project.hibernate.dao.impl.PnWeblogCommentDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnWeblogDAO" class="net.project.hibernate.dao.impl.PnWeblogDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnWeblogEntryAttributeDAO" class="net.project.hibernate.dao.impl.PnWeblogEntryAttributeDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <!-- PnProjectSpace DAO -->
+	<bean id="pnProjectSpaceDAO" class="net.project.hibernate.dao.impl.PnProjectSpaceDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnProjectSpace Service -->
+	<bean id="pnProjectSpaceService" parent="transactionProxyTemplate" lazy-init="true">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnProjectSpaceServiceImpl">
+				<property name="pnProjectSpaceDAO" ref="pnProjectSpaceDAO"/>
+			</bean>
+		</property>
+	</bean>	
+
+    <bean id="pnWeblogEntryDAO" class="net.project.hibernate.dao.impl.PnWeblogEntryDAOImpl">
+        <property name="hibernateTemplate" ref="hibernateTemplate"/>
+		<property name="pnProjectSpaceService" ref="pnProjectSpaceService"/>    
+	</bean>
+
+    <bean id="pnWikiAssignmentDAO" class="net.project.hibernate.dao.impl.PnWikiAssignmentDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnWikiAttachmentDAO" class="net.project.hibernate.dao.impl.PnWikiAttachmentDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnWikiHistoryDAO" class="net.project.hibernate.dao.impl.PnWikiHistoryDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="pnWikiPageDAO" class="net.project.hibernate.dao.impl.PnWikiPageDAOImpl">
+        <property name="hibernateTemplate">
+            <ref local="hibernateTemplate"/>
+        </property>
+    </bean>
+
+    <bean id="utilService" class="net.project.hibernate.service.impl.UtilServiceImpl">
+    </bean>
+    
+    <!--<import resource="bussinessContext-dao.xml"/>-->
+    <!--<import resource="bussinessContext-service.xml"/>-->
+
+</beans>

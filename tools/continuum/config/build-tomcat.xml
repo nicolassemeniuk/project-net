@@ -1,0 +1,916 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="pnet-core-tomcat" default="deploy" basedir=".">
+
+	<property file="build-tomcat.properties"/>
+	
+	<!-- Additional directories required for building and distribution -->
+    <property name="devroot.dir" location="${basedir}/.."/>
+    <property name="tools.dir" location="${devroot.dir}/tools"/>
+    <property name="test.dir" location="${devroot.dir}/test"/>
+    <property name="unit-test.dir" location="${test.dir}/unit-test"/>
+
+	<path id="tomcat.ant.classpath">
+		<pathelement path="${catalina.home}/server/lib/catalina-ant.jar"></pathelement>
+	</path>
+	
+	<!-- Unit test classpath -->
+    <path id="unittest.compile.classpath">
+        <pathelement location="${env.JAVA_HOME}"/>
+		<pathelement location="${build.classes.dir}"/> 
+		<pathelement location="${unit-test.dir}/bin"/> 
+		<fileset dir="${src.lib.dir}">
+        	<include name="**/*.jar"/>
+        </fileset>    
+		<fileset dir="${unit-test.dir}/lib">
+        	<include name="**/*.jar"/>
+        </fileset>  
+    </path>
+
+    <taskdef name="deploy" classpathref="tomcat.ant.classpath" classname="org.apache.catalina.ant.DeployTask"/>
+    <taskdef name="reload" classpathref="tomcat.ant.classpath" classname="org.apache.catalina.ant.ReloadTask"/>
+    <taskdef name="start" classpathref="tomcat.ant.classpath" classname="org.apache.catalina.ant.StartTask"/>
+    <taskdef name="stop" classpathref="tomcat.ant.classpath" classname="org.apache.catalina.ant.StopTask"/>
+    <taskdef name="undeploy" classpathref="tomcat.ant.classpath" classname="org.apache.catalina.ant.UndeployTask"/>
+
+    <target name="deploy" description="Install the web application" depends="build">
+        <deploy url="${tomcat.url}" username="${tomcat.username}" password="${tomcat.password}" path="${tomcat.path}"
+                localWar="${build.dir}" config="${build.metainf.dir}/context.xml"/>
+    </target>
+
+    <target name="reload" depends="build">
+		<condition property="app.path" value="/ROOT" else="${tomcat.path}">
+			<equals arg1="${tomcat.path}" arg2="/"/>
+		</condition>
+        <copy todir="${catalina.home}/webapps${app.path}" preservelastmodified="true">
+            <fileset dir="${build.dir}"/>
+        </copy>
+		<echo message="reloading at webapps path ${app.path}"/>         
+        <reload url="${tomcat.url}" username="${tomcat.username}" password="${tomcat.password}" path="${tomcat.path}"/>
+    </target>
+    
+    <target name="undeploy" description="Uninstall the web application" depends="init">
+        <undeploy url="${tomcat.url}" username="${tomcat.username}" password="${tomcat.password}"
+                  path="${tomcat.path}"/>
+    </target>
+
+	<target name="build" depends="init, jars, compile, copy-jsp, xsl, taglib, etc, resource, config, translate-jsp, compile-jsp"/>
+
+	<target name="build-pni" depends="init, jars, compile-pni-java, copy-pni-jsp, xsl, taglib, etc, resource, config, translate-jsp, compile-jsp"/>
+
+    <target name="init">
+        <property file="build-tomcat.properties"/>
+        <property name="deprecation" value="off"/>
+        <property name="debug" value="on"/>
+        <mkdir dir="${build.dir}"/>
+        <mkdir dir="${build.metainf.dir}"/>
+        <mkdir dir="${build.webinf.dir}"/>
+        <mkdir dir="${build.classes.dir}"/>
+        <mkdir dir="${build.lib.dir}"/>
+        <mkdir dir="${build.xsl.dir}"/>
+        <mkdir dir="${build.etc.dir}"/>
+        <mkdir dir="${build.taglib.dir}"/>
+        <mkdir dir="${build.resource.dir}"/>
+		<mkdir dir="${build.webinf.dir}/src"/>
+    	<!--For Resource tab -->
+    	<mkdir dir="${build.webinf.dir}/components"/>
+    	<mkdir dir="${build.webinf.dir}/resource"/>
+    	<!--For Blog -->
+    	<mkdir dir="${build.webinf.dir}/blog"/>   
+    	<!--For Wiki -->
+    	<mkdir dir="${build.webinf.dir}/wiki"/>
+    	<!--For Assignments -->
+    	<mkdir dir="${build.webinf.dir}/assignments"/>
+    	<!--For Project -->
+    	<mkdir dir="${build.webinf.dir}/project"/>
+    	<!--For Personal -->
+    	<mkdir dir="${build.webinf.dir}/personal"/>
+    	<!--For unit tests -->
+    	<mkdir dir="${unit-test.dir}/bin"/>
+		<mkdir dir="${unit-test.dir}/test-report"/>
+    </target>
+
+	<target name="translate-jsp"  depends="init" > 
+		<taskdef classname="org.apache.jasper.JspC" name="jasper2" > 
+		  <classpath id="jspc.classpath"> 
+			<pathelement location="${java.home}/../lib/tools.jar"/> 
+			<fileset dir="${catalina.home}/bin"> 
+			  <include name="*.jar"/> 
+			</fileset> 
+			<fileset dir="${catalina.home}/server/lib"> 
+			  <include name="*.jar"/> 
+			</fileset> 
+			<fileset dir="${catalina.home}/common/lib"> 
+			  <include name="*.jar"/> 
+			</fileset> 
+		  </classpath> 
+		</taskdef> 
+
+		<jasper2 
+				 validateXml="false" 
+				 uriroot="${build.dir}" 
+				 webXmlFragment="${build.dir}/WEB-INF/generated_web.xml" 
+				 outputDir="${build.dir}/WEB-INF/src" /> 
+	</target> 
+
+	<target name="compile-jsp" depends="translate-jsp" >
+
+		<javac destdir="${build.dir}/WEB-INF/classes"
+			   optimize="off"
+			   fork="yes"
+			   debug="${debug}" 
+			   failonerror="false"
+			   deprecation="${deprecation}"
+			   nowarn="on"
+			   source="1.5"
+			   memoryinitialsize="32m"
+               memorymaximumsize="256m"
+			   srcdir="${build.dir}/WEB-INF/src" 
+		   excludes="**/*.smap">
+		  <classpath>
+			<pathelement location="${build.dir}/WEB-INF/classes"/>
+			<fileset dir="${build.dir}/WEB-INF/lib">
+			  <include name="*.jar"/>
+			</fileset>
+			<pathelement location="${catalina.home}/common/classes"/>
+			<fileset dir="${catalina.home}/common/lib">
+			  <include name="*.jar"/>
+			</fileset>
+			<pathelement location="${catalina.home}/shared/classes"/>
+			<fileset dir="${catalina.home}/shared/lib">
+			  <include name="*.jar"/>
+			</fileset>
+			<fileset dir="${catalina.home}/bin"> 
+			  <include name="*.jar"/> 
+			</fileset> 
+		  </classpath>
+		  <include name="**" />
+		  <exclude name="tags/**" />
+		  <exclude name="**/_svn"/>
+		</javac>
+	</target>
+
+    <target name="compile" depends="init" description="Compile java sources">
+        <javac srcdir="${src.java.dir}"
+               destdir="${build.classes.dir}"
+               fork="yes"
+               debug="${debug}"
+               deprecation="${deprecation}"
+               nowarn="on"
+               source="1.5"
+               memoryinitialsize="32m"
+               memorymaximumsize="256m">
+            <classpath>
+                <pathelement location="${catalina.home}/common/lib/servlet-api.jar"/>
+                <pathelement location="${catalina.home}/common/lib/jsp-api.jar"/>
+
+                <fileset dir="${src.lib.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+            </classpath>
+
+            <include name="org/**"/>
+            <include name="net/**"/>
+            <include name="com/**"/>
+        	
+        	<exclude name="**/_svn"/>
+
+            <!-- Not needed for Tomcat at all -->
+            <exclude name="net/project/base/compatibility/weblogic/*.java"/>
+
+            <!-- In development - quartz scheduler -->
+            <exclude name="net/project/notification/scheduler/**/*.java"/>
+        </javac>
+    </target>
+
+	<target name="compile-pni-java" depends="compile" description="Compile all the pni classes">
+		<touch>
+			<fileset dir="${src.java.pni.dir}">
+				 <include name="**/*.java"/>
+				 <exclude name="**/_svn"/>
+			</fileset>
+		</touch>
+
+		<javac srcdir="${src.java.pni.dir}"
+			destdir="${build.classes.dir}"
+			debug="${debug}"
+			deprecation="${deprecation}"
+			nowarn="on"
+			source="1.5"
+			>
+
+		<classpath>
+			<pathelement location="${catalina.home}/common/lib/servlet-api.jar"/>
+			<pathelement location="${catalina.home}/common/lib/jsp-api.jar"/>
+
+			<fileset dir="${src.lib.dir}">
+				<include name="**/*.jar"/>
+			</fileset>
+        </classpath>
+			<exclude name="**/_svn"/>
+			<include name="net/project/**"/>
+		</javac>
+	</target>
+	
+	<!-- Compile junit test classes  -->
+	<target name="compile-tests" depends="build" description="Compiles all unit tests">
+	        <javac srcdir="${unit-test.dir}/src"
+	               destdir="${unit-test.dir}/bin"
+	               fork="yes"
+	               debug="${debug}"
+	               deprecation="${deprecation}"
+	               nowarn="on"
+	               memoryMaximumSize="512m"
+	               source="1.5">
+	            <exclude name="**/_svn"/>
+	            <classpath refid="unittest.compile.classpath"/>
+	        </javac>
+	</target>
+
+	<target name="-ensure-jdbc-properties" >
+		<property file="${unit-test.dir}/jdbc.properties" />
+
+		<!-- Set a flag if required properties do not exist -->
+		<condition property="error.cannot-find-jdbc-properties">
+			<not>
+				<available file="${unit-test.dir}/jdbc.properties" />
+			</not>
+		</condition>
+
+		<!-- Fail if above condiition is true -->
+		<fail if="error.cannot-find-jdbc-properties">
+			jdbc.properties file not found. This file is required for running junit tests. Please rename ${unit-test.dir}/jdbc.properties.example to ${unit-test.dir}/jdbc.properties and follow the instructions provided in ${unit-test.dir}/jdbc.properties.example
+		</fail>
+	</target>
+
+	<target name="prepare-tests" description="Prepares unit tests resources">
+		<pathconvert dirsep = "/" property="unit-test.dir.c">
+			<path>
+				<pathelement location="${unit-test.dir}"/>
+			</path>
+		</pathconvert>
+		<pathconvert dirsep = "/" property="build.xsl.dir.c">
+			<path>
+				<pathelement location="${build.xsl.dir}"/>
+			</path>
+		</pathconvert>
+		<pathconvert dirsep = "/" property="build.etc.dir.c">
+			<path>
+				<pathelement location="${build.etc.dir}"/>
+			</path>
+		</pathconvert>
+	
+		<copy todir="${unit-test.dir}/bin" overwrite="true">
+			<fileset dir="${unit-test.dir}" includes="test-bussinessContext.xml" />
+			<fileset dir="${unit-test.dir}" includes="test.properties" />			
+			<filterset>
+				<filter token="mockobject.properties.location" value="${unit-test.dir.c}"/>
+				<filter token="xslPath" value="${build.xsl.dir.c}"/>
+				<filter token="etcPath" value="${build.etc.dir.c}"/>
+				<filter token="resourcePath" value="${unit-test.dir.c}/resources"/>
+				<filter token="srcPath" value="${unit-test.dir.c}/src"/>
+			</filterset>
+		</copy>
+		
+		<replace file="${unit-test.dir}/bin/test.properties" propertyFile="${unit-test.dir}/jdbc.properties">
+			  <replacefilter token="@username@" property="username"/>
+			  <replacefilter token="@password@" property="password"/>
+			  <replacefilter token="@url@" property="url"/>
+		</replace>
+
+		<replace file="${unit-test.dir}/bin/test-bussinessContext.xml" propertyFile="${unit-test.dir}/jdbc.properties">
+			  <replacefilter token="@username@" property="username"/>
+			  <replacefilter token="@password@" property="password"/>
+			  <replacefilter token="@url@" property="url"/>
+			  <replacefilter token="@driver@" property="driver"/>
+		</replace>
+
+		<delete includeemptydirs="true">
+			<fileset dir="${unit-test.dir}/test-report" includes="**/*"/>
+		</delete>
+	</target>
+		
+	<target name="test" depends="-ensure-jdbc-properties, prepare-tests, compile-tests" description="Run unit tests">
+		<junit fork="yes" printsummary="no" haltonfailure="no">
+			<batchtest fork="yes" todir="${unit-test.dir}/test-report" >
+				<fileset dir="${unit-test.dir}/bin">
+					<include name="**/*Test.class" />
+				</fileset>
+			</batchtest>
+			<formatter type="xml" />
+			<classpath refid="unittest.compile.classpath" />
+		</junit>
+
+		<junitreport todir="${unit-test.dir}/test-report">
+			<fileset dir="${unit-test.dir}/test-report">
+				<include name="TEST-*.xml" />
+			</fileset>
+			<report todir="/opt/apache-tomcat-5.5.25/webapps/trunk-test" />
+		</junitreport>
+
+		<echo>
+			To view unit test report, open file:///${unit-test.dir}/test-report/index.html in web browser.
+		</echo>
+	</target>
+
+    <target name="copy-jsp" depends="init">
+        <copy todir="${build.dir}">
+            <fileset dir="${src.jsp.dir}">
+                <exclude name="**/.#*"/>
+                <include name="**/*.jsp"/>
+            </fileset>
+        </copy>
+    </target>
+
+	<target name="copy-pni-jsp" depends="copy-jsp">
+		<echo>
+			Copying ${src.jsp.pni.dir} to ${build.dir}
+		</echo>
+		<copy todir="${build.dir}" overwrite="yes">
+			<fileset dir="${src.jsp.pni.dir}">
+				<exclude name="**.#*"/>
+				<include name="**/*.jsp"/>
+			</fileset>
+		</copy>
+	</target>
+
+    <target name="xsl" depends="init">
+        <copy todir="${build.xsl.dir}">
+            <fileset dir="${src.jsp.dir}">
+                <exclude name="**/.#*"/>
+                <include name="**/*.xsl"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="taglib" depends="init">
+        <copy todir="${build.taglib.dir}">
+            <fileset dir="${src.taglib.dir}">
+                <exclude name="**/.#*"/>
+                <include name="**/*.tld"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="etc" depends="init">
+        <!-- Key files -->
+        <copy todir="${build.etc.dir}">
+            <fileset dir="${src.config.dir}/crypto" excludes="**/.#*"/>
+        </copy>
+
+        <!-- Log4j configuration files -->
+        <copy todir="${build.etc.dir}">
+            <fileset dir="${src.config.dir}/log4j">
+                <exclude name="**/.#*"/>
+                <include name="*.xml"/>
+            </fileset>
+        </copy>
+
+        <!-- Misc configuration files -->
+        <copy todir="${build.etc.dir}" overwrite="true">
+            <fileset dir="${src.config.dir}">
+                <exclude name="**/.#*"/>
+                <include name="*.properties"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${build.classes.dir}">
+            <fileset dir="${src.config.dir}/scheduler">
+                <include name="quartz.properties"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${build.etc.dir}">
+            <fileset dir="${src.config.dir}/mvc">
+                <include name="HandlerMapping.xml"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${build.webinf.dir}">
+            <fileset dir="${src.config.dir}/spring">
+                <exclude name="**/.#*"/>
+                <include name="springapp-servlet.xml"/>
+            	<include name="tiles-definitions.xml"/>
+            </fileset>
+        </copy>
+
+		<!-- copy Hibernate configuration file in WEB-INF/classes -->
+        <copy todir="${build.classes.dir}">
+           <fileset dir="${src.config.dir}/spring">
+                <include name="bussinessContext.xml"/>
+            	<include name="bussinessContext-dao.xml"/>
+                <include name="bussinessContext-service.xml"/>           	
+           </fileset>
+        </copy>
+
+		<!-- copy Hibernate configuration file in WEB-INF/classes -->
+        <copy todir="${build.classes.dir}">
+           <fileset dir="${src.config.dir}/hibernate">
+               <include name="hibernate.cfg.xml"/>
+           </fileset>
+        </copy>
+
+        <!-- copy Hibernate mapping files in appropriate package in WEB-INF/classes/... -->
+        <copy todir="${build.classes.dir}">
+           <fileset dir="${src.java.dir}">
+               <include name="**/*.xml"/>
+           </fileset>
+        </copy>
+
+		<!-- copy xfire mapping files in appropriate package in WEB-INF/classes/... -->
+        <copy todir="${build.classes.dir}">
+           <fileset dir="${src.config.dir}/api">
+               <include name="**/*.xml"/>
+           </fileset>
+        </copy>
+    </target>
+
+    <target name="resource" depends="init">
+        <!-- Images -->
+        <copy todir="${build.resource.dir}/images">
+            <fileset dir="${src.resource.dir}/images">
+                <exclude name="**/.#*"/>
+                <exclude name="tabs/src/*"/>
+                <exclude name="toolbar/src/*"/>
+            	<exclude name="**/_svn"/>
+            </fileset>
+        </copy>
+        <copy todir="${build.dir}/src/timeline/api/images">
+            <fileset dir="${src.dir}/web/src/timeline/api/images">
+                <exclude name="**/.#*"/>
+            	<exclude name="**/_svn"/>
+            </fileset>
+        </copy>
+
+		<!-- Include jars -->
+		<property name="yui-compressor.jar" location="${build.lib.dir}/yuicompressor-2.3.5.jar" />
+		<property name="yui-compressor-ant-task.jar" location="${build.lib.dir}/yui-compressor-ant-task-0.3.jar" />
+
+       	<!--  YUI Compressor jars -->
+		<path id="task.classpath">
+		  <pathelement location="${yui-compressor.jar}" />
+		  <pathelement location="${yui-compressor-ant-task.jar}" />
+		</path>
+    	
+    	<!-- Task YUI compression definition -->
+		<taskdef name="yui-compressor" classname="net.noha.tools.ant.yuicompressor.tasks.YuiCompressorTask">
+		  <classpath refid="task.classpath"/>
+		</taskdef>    	
+    	
+		<!-- Create the Compressed Folder -->
+		<mkdir dir="${src.resource.dir}/compressFiles"/>
+		<mkdir dir="${src.resource.dir}/compressFiles/compressJS"/>
+		<mkdir dir="${src.resource.dir}/compressFiles/compressCSS"/>
+
+	    <!-- Extjs Resources -->
+		<copy todir="${build.resource.dir}/src/extjs/resources/">
+			<fileset dir="${src.resource.dir}/src/extjs/resources/" includes="**/*" excludes="**/.css"/>
+		</copy>
+
+		<!-- Compress Js Files -->
+		<yui-compressor warn="false" jsSuffix=".js" munge="true" preserveallsemicolons="false" fromdir="${src.resource.dir}/src" todir="${src.resource.dir}/compressFiles/compressJS">
+		  <include name="**/*.js" />
+		</yui-compressor>
+
+		<yui-compressor warn="false" cssSuffix=".css" munge="true" preserveallsemicolons="false" fromdir="${src.resource.dir}/src" todir="${src.resource.dir}/compressFiles/compressJS">
+		  <include name="**/*.css" />
+		</yui-compressor>
+
+		<!-- Javascript Source -->
+		<copy todir="${build.resource.dir}/src">
+			<fileset dir="${src.resource.dir}/compressFiles/compressJS" excludes="**/.#*"/>
+		</copy>
+		
+		<!-- Compress CSS Files -->
+		<yui-compressor warn="false" cssSuffix=".css" munge="true" preserveallsemicolons="false" fromdir="${src.resource.dir}/css" todir="${src.resource.dir}/compressFiles/compressCSS">
+		  <include name="**/*.css" />
+		</yui-compressor>
+		
+		<!-- CSS -->
+		<copy todir="${build.resource.dir}/styles">
+			<fileset dir="${src.resource.dir}/compressFiles/compressCSS" excludes="**/.#*" />
+		</copy>
+
+    	
+
+		<copy todir="${build.resource.dir}/styles" file="${src.resource.dir}/css/iepngfix.htc">
+		</copy>
+
+        <!-- HTML files and other resources -->
+        <copy todir="${build.resource.dir}">
+            <fileset dir="${src.resource.dir}/html">
+                <exclude name="**/.#*"/>
+                <include name="**/*.html"/>
+                <include name="**/*.htm"/>
+                <include name="**/*.ico"/>
+            </fileset>
+        </copy>
+    	
+    	<!-- Tapestry components -->
+    	<copy todir="${build.classes.dir}/net/project/view/components">
+			<fileset dir="${src.resource.dir}/html/resource/management/components">
+				<exclude name="**/.#*"/>
+				<include name="**/*.html"/>    	                  
+			</fileset>
+		</copy>
+    	
+    	<!-- For resource tab -->
+		<copy todir="${build.resource.dir}/WEB-INF/resource/management">
+			<fileset dir="${src.resource.dir}/html/resource">
+				<exclude name="**/.#*"/>
+				<include name="*.html"/>	                 
+			</fileset>
+		</copy>    	 
+    	
+    	<!-- For Blogs -->
+    	<copy todir="${build.resource.dir}/WEB-INF/blog">
+			<fileset dir="${src.resource.dir}/html/blog">
+				<exclude name="**/.#*"/>
+				<include name="**/*.html"/>	                 
+			</fileset>
+		</copy>	
+    	
+    	<!-- For Wiki -->
+    	<copy todir="${build.resource.dir}/WEB-INF/wiki">
+			<fileset dir="${src.resource.dir}/html/wiki">
+				<exclude name="**/.#*"/>
+				<include name="**/*.html"/>	                 
+			</fileset>
+		</copy>	
+    	
+    	<!-- For assignments -->
+    	<copy todir="${build.resource.dir}/WEB-INF/assignments">
+			<fileset dir="${src.resource.dir}/html/assignments">
+				<exclude name="**/.#*"/>
+				<include name="**/*.html"/>	                 
+			</fileset>
+		</copy>	
+    	
+    	<!-- For project -->
+        <copy todir="${build.resource.dir}/WEB-INF/project">
+            <fileset dir="${src.resource.dir}/html/project">
+                <exclude name="**/.#*"/>
+                <include name="**/*.html"/>                  
+            </fileset>
+        </copy> 
+    	    	
+    	<!-- For personal -->
+	    <copy todir="${build.resource.dir}/WEB-INF/personal">
+			<fileset dir="${src.resource.dir}/html/personal">
+				<exclude name="**/.#*"/>
+				<include name="**/*.html"/>
+			</fileset>
+		</copy>
+    </target>
+	
+    <target name="config" depends="init">
+        <copy todir="${build.metainf.dir}">
+            <fileset dir="${src.metainf.dir}/tomcat">
+                <exclude name="**/.#*"/>
+                <include name="*.xml"/>
+            </fileset>
+        </copy>
+
+        <copy todir="${build.webinf.dir}">
+            <fileset dir="${src.webinf.dir}/tomcat">
+                <exclude name="**/.#*"/>
+                <include name="*.xml"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="exclude-tomcat-specific-jars" depends="init">
+        <!--
+        jsp-api.jar must be excluded from WEB-INF/lib Tomcat build because Tomcat already provides such a jar
+        in CATALINA_HOME/common/lib and these two collide (different versions);
+        this jar is excluded from the "jars" target but may get in the build folder if you use the same folder
+        to build both the Weblogic and Tomcat versions;
+		Some versions of tomcat releases does not include this, so the step to copy these files to common/lib 
+		has been added.
+        -->
+        <delete>
+            <fileset dir="${build.lib.dir}">
+                <include name="jsp-api.jar"/>
+				<include name="mail.jar"/>
+				<include name="activation.jar"/>
+            </fileset>
+        </delete>
+    </target>
+
+    <target name="jars" depends="init">
+        <copy todir="${build.lib.dir}">
+            <fileset dir="${src.lib.dir}">
+                <exclude name="**/.#*"/>
+                <exclude name="jsp-api.jar"/>
+				<exclude name="mail.jar"/>
+				<exclude name="activation.jar"/>
+                <include name="*.jar"/>
+                <include name="*.zip"/>
+            </fileset>
+        </copy>
+        <antcall target="exclude-tomcat-specific-jars"/>
+    </target>
+
+
+    <target name="clean" depends="init">
+		  <delete includeemptydirs="true">
+			    <fileset dir="${build.dir}" includes="**/*"/>
+				<fileset dir="${unit-test.dir}/bin" includes="**/*"/>
+				<fileset dir="${unit-test.dir}/test-report" includes="**/*"/>
+		  </delete>
+    </target>
+
+    <!--
+      Tomcat Dist build targets ...
+      -->
+
+    <target name="prepare-dist-tomcat" depends="init">
+        <property name="dist.tomcat.dir" value="${build.dist}/tomcat"/>
+        <property name="dist.tomcat.zip.name" value="${build.dist}/prm-tomcat.zip"/>
+        <!--<property name="package.tomcat.war.dir" value="${dist.tomcat.dir}/${app.name}"/>-->
+        <property name="package.tomcat.war.name" value="${dist.tomcat.dir}/${app.name}.war"/>
+        <property name="package.tomcat.ear.name" value="${dist.tomcat.dir}/${app.name}.ear"/>
+
+        <mkdir dir="${dist.tomcat.dir}"/>
+        <!--<mkdir dir="${package.tomcat.war.dir}"/>-->
+    </target>
+
+    <target name="tomcat-package-war" depends="build,prepare-dist-tomcat">
+        <war destfile="${package.tomcat.war.name}"
+             webxml="${build.webinf.dir}/web.xml">
+             
+            <!-- Include all the common items -->
+            <fileset dir="${build.dir}">
+                <exclude name="**/*.java"/>
+				<exclude name="${build.dist}/*"/>	
+				<exclude name="${build.dir}/WEB-INF/src/*"/>
+				<exclude name="${build.metainf.dir}/application.xml"/>
+				<exclude name="${build.webinf.dir}/web.xml"/>
+            	<exclude name="${build.webinf.dir}/dwr.xml"/>
+            </fileset>
+        </war>
+    </target>
+
+    <target name="tomcat-package-pni-war" depends="build-pni,prepare-dist-tomcat">
+        <war destfile="${package.tomcat.war.name}"
+             webxml="${build.webinf.dir}/web.xml">
+
+            <!-- Include all the common items -->
+            <fileset dir="${build.dir}">
+                <exclude name="**/*.java"/>
+				<exclude name="${build.dist}/*"/>	
+				<exclude name="${build.dir}/WEB-INF/src/*"/>
+				<exclude name="${build.metainf.dir}/application.xml"/>
+				<exclude name="${build.webinf.dir}/web.xml"/>
+            	<exclude name="${build.webinf.dir}/dwr.xml"/>
+            </fileset>
+        </war>
+    </target>
+
+    <target name="tomcat-dist" depends="tomcat-package-war" description="Tomcat Distribution">
+		<delete file="${dist.tomcat.zip.name}"/>
+        <zip destfile="${dist.tomcat.zip.name}">
+
+            <zipfileset dir="${src.database.dir}" prefix="database">
+                <exclude name="**/.#*"/>
+            	<exclude name="**/_svn"/>
+                <include name="create-scripts/**"/>
+            </zipfileset>
+
+			<zipfileset dir="${src.lib.dir}" prefix="lib">
+                <exclude name="**/.#*"/>
+                <include name="endorsed/**"/>
+				<include name="jce/**"/>
+				<include name="jdbc/**"/>
+            </zipfileset>
+
+            <zipfileset dir="${dist.tomcat.dir}" prefix="app">
+                <include name="${app.name}.war"/>
+            </zipfileset>
+
+        </zip>
+    </target>
+
+    <target name="tomcat-dist-clean" depends="clean">
+		  <delete includeemptydirs="true">
+			    <fileset dir="${build.dist}" includes="**/*"/>
+		  </delete>
+    </target>
+
+	<!--
+	depends="deploy" 
+	
+	fork, forkmode, maxmemory ?
+	filtertrace ?
+	
+	-->
+	
+	<!--pathelement location="../test/acceptance/src"/-->
+	
+	<target name="web-a-tests-compiling"  
+			description="Compile web acceptance tests sources">
+		
+		<mkdir dir="${build.test.acceptance}" />
+		
+		<javac srcdir="${src.test.acceptance}"
+			destdir="${build.test.acceptance}"
+			fork="yes"
+			debug="${debug}"
+			deprecation="${deprecation}"
+			nowarn="on"
+			source="1.5"
+			memoryinitialsize="32m"
+			memorymaximumsize="256m">
+	        	
+	        <classpath>
+	        	<fileset dir="${lib.test.acceptance}">
+	        		<include name="**/*.jar"/>
+	        	</fileset>
+	        </classpath>
+			
+			<include name="net/**"/>
+	            
+	    </javac>
+	</target>
+	
+	<target name="web-a-tests-running" description="Run web acceptance tests">
+	
+		<antcall target="web-a-tests-compiling"/>
+		
+		<antcall target="web-a-tests-compiling"/>
+		
+		<copy todir="${build.test.acceptance}" overwrite="true">
+			<fileset dir="${dir.test.acceptance}" 
+				includes="testacceptance.properties" />
+		</copy>
+		
+		<junit 
+			printsummary="withOutAndErr" 
+			showoutput="true"
+			fork="true" 
+			filtertrace="on"
+			haltonfailure="no"
+			dir="."
+			maxmemory="256m">
+			
+			<classpath>
+				<fileset dir="${lib.test.acceptance}">
+					<include name="**/*.jar"/>
+				</fileset>
+				<pathelement location="${build.test.acceptance}"/>
+			</classpath>
+			
+			<!--formatter type="xml" /-->
+			<formatter type="plain" usefile="false" />
+			
+			<test name="net.project.test.acceptance.AllTests" />
+			
+		</junit>
+	</target>
+
+  <target name="saveprops">
+    <buildnumber file="${build.dir}/buildnumber.txt"/>
+    <tstamp>
+      <format property="buildDAY" pattern="d-MMMM h:mm aa"/>
+    </tstamp>
+    <exec dir="." executable="/opt/CollabNet_Subversion/bin/svnversion" output="${build.dir}/svnversion.txt">
+      <arg line="."/>
+      <env key="LANG" value=""/>
+    </exec>
+    <exec dir="." executable="svn" output="${build.dir}/svninfo.txt">
+      <arg line="info"/>
+    </exec>
+    <exec dir="." executable="egrep" output="${build.dir}/svnbranch.txt">
+      <arg line="-o 'branch|trunk' ${build.dir}/svninfo.txt"/>
+    </exec>
+    <exec executable="hostname" output="${build.dir}/hostname.txt"/>
+    <echo message="${user.name}" append="false" file="${build.dir}/username.txt"/>
+
+    <replace file="${build.dir}/svnversion.txt" token=":" value="~"/>
+
+    <loadfile property="svnversion" srcFile="${build.dir}/svnversion.txt">
+      <filterchain>
+        <striplinebreaks/>
+      </filterchain>
+    </loadfile>
+    <loadfile property="hostname" srcFile="${build.dir}/hostname.txt">
+      <filterchain>
+        <striplinebreaks/>
+      </filterchain>
+    </loadfile>
+    <loadfile property="svnbranch" srcFile="${build.dir}/svnbranch.txt">
+      <filterchain>
+        <striplinebreaks/>
+      </filterchain>
+    </loadfile>
+    <property name="svnbranch" value="trunk"/>
+    <echo message="svnversion: ${svnversion}"/>
+    <echo message="svnbranch: ${svnbranch}"/>
+    <echo message="hostname: ${hostname}"/>
+    <echo message="username: ${user.name}"/>
+
+    <replace file="${build.etc.dir}/version.properties" token="@revision@" value="${svnversion}"/>
+    <replace file="${build.etc.dir}/version.properties" token="@branch@" value="${svnbranch}"/>
+    <replace file="${build.etc.dir}/version.properties" token="@buildDAY@" value="${buildDAY} (updated by Continuum)"/>
+  </target>
+
+
+  <target name="db-update" >
+    <exec dir="${src.database.dir}/create-scripts" executable="${src.database.dir}/create-scripts/version_update.sh" >
+      <arg line=" pnet/pnet@test2 9.0.0 "/>
+      <env key="ORACLE_HOME" value="/usr/lib/oracle/xe/app/oracle/product/10.2.0/server/"/>
+    </exec>
+    <exec dir="${src.database.dir}/create-scripts" executable="${src.database.dir}/create-scripts/version_update.sh" >
+      <arg line=" pnet/pnet@test3 9.0.0 "/>
+      <env key="ORACLE_HOME" value="/usr/lib/oracle/xe/app/oracle/product/10.2.0/server/"/>
+    </exec>
+  </target>
+	
+  <target name="db-update-local" >
+    <exec dir="${src.database.dir}/create-scripts" executable="${src.database.dir}/create-scripts/version_update.sh" >
+      <arg line=" pnet/pnet@xe 9.0.0 "/>
+      <env key="ORACLE_HOME" value="/usr/lib/oracle/xe/app/oracle/product/10.2.0/server/"/>
+    </exec>
+  </target>
+
+  <target name="auto-build" depends="build-pni, saveprops, db-update" description="Automated run junit tests">
+	  <echo message="Automated build --- done."/>
+  </target>
+
+  <target name="auto-war" depends="auto-build" description="Automated run junit tests">
+         <mkdir dir="${build.dist}"/>
+         <delete file="${build.dist}/${app.name}.war" failonerror="false" />
+         <war destfile="${build.dist}/${app.name}.war"
+             webxml="${build.webinf.dir}/web.xml">
+            <!-- Include all the common items -->
+            <fileset dir="${build.dir}">
+                <exclude name="**/*.java"/>
+				<exclude name="${build.dist}/*"/>	
+				<exclude name="${build.dir}/WEB-INF/src/*"/>
+				<exclude name="${build.metainf.dir}/application.xml"/>
+				<exclude name="${build.webinf.dir}/web.xml"/>
+            	<exclude name="${build.webinf.dir}/dwr.xml"/>
+            </fileset>
+        </war>
+	  <echo message="Automated build --- done."/>
+  </target>
+
+  <target name="auto-java-test" depends="db-update-local, test" description="Automated run junit tests">
+	  <echo message="Automated java tests --- done."/>
+  </target>
+
+  <target name="auto-web-test"  description="Automated run web tests">
+	  <echo message="auto-web-test - not yet integrated"/>
+  </target>
+
+  <target name="auto-tomcat-dist" depends="tomcat-dist" description="Create Tomcat distribution package">
+	  <echo message="Automated tomcat dist --- done."/>
+  </target>
+
+  <target name="auto-weblogic-dist" description="Create weblogic distribution package">
+	<echo message="Automated weblogic dist --- not yet integrated."/>
+  </target>
+
+  <!-- hourly target for branch and trunk -->
+  <target name="auto-test" depends="clean" description="Automated run junit and web tests">
+  </target>
+
+  <!-- daily target for branch and trunk -->
+  <target name="auto-tomcat-deploy" depends="auto-war" description="Automated deployment to tomcat server">
+
+        <stop url="${tomcat.url}" username="${tomcat.username}" password="${tomcat.password}"
+                  path="${tomcat.path}" failonerror="false" />
+		<sleep seconds="10"/>
+
+        <undeploy url="${tomcat.url}" username="${tomcat.username}" password="${tomcat.password}"
+                  path="${tomcat.path}" failonerror="false" />
+		<sleep seconds="10"/>
+
+        <deploy url="${tomcat.url}" username="${tomcat.username}" password="${tomcat.password}" path="${tomcat.path}"
+                war="${build.dist}/${app.name}.war" config="${build.metainf.dir}/context.xml"/>
+
+        <start url="${tomcat.url}" username="${tomcat.username}" password="${tomcat.password}"
+                  path="${tomcat.path}" failonerror="false" />
+		<sleep seconds="10"/>
+	
+	<stop url="${test3.tomcat.url}" username="${test3.tomcat.username}" password="${test3.tomcat.password}"
+                  path="${test3.tomcat.path}" failonerror="false" />
+		<sleep seconds="10"/>
+
+        <undeploy url="${test3.tomcat.url}" username="${test3.tomcat.username}" password="${test3.tomcat.password}"
+                  path="${test3.tomcat.path}" failonerror="false" />
+		<sleep seconds="10"/>
+
+        <deploy url="${test3.tomcat.url}" username="${test3.tomcat.username}" password="${test3.tomcat.password}" path="${test3.tomcat.path}"
+                war="${build.dist}/${app.name}.war" config="${build.metainf.dir}/context.xml"/>
+
+        <start url="${test3.tomcat.url}" username="${test3.tomcat.username}" password="${test3.tomcat.password}"
+                  path="${test3.tomcat.path}" failonerror="false" />
+		<sleep seconds="10"/>
+  </target>
+
+  <!-- hourly target for branch and trunk -->
+  <target name="auto-dist" depends="auto-tomcat-dist, auto-weblogic-dist" description="Create distribution package">
+  </target>
+
+
+</project>

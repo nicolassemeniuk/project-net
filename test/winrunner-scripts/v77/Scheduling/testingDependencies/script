@@ -1,0 +1,181 @@
+wait(3);
+# call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject"();
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+reload("createTask",0,1);
+
+public task_types[] = {"Fixed Duration","Fixed Units","Fixed Work"};
+public units[] = {"hours","days","weeks"};
+# public dependencyTypes[] = {"Finish-to-Start","Start-to-Start","Finish-to-Finish","Start-to-Finish"};
+
+function set_dependencyType(in task1, in task2, in dependencyType){
+	auto duration_task1,duration_task2,duration_total, day, day1, day2;
+	auto startDate, endDate, sDate[], eDate[], elements;
+	wait(1);
+	set_window("main",1);
+	web_link_click(""&task2&"");
+	wait(2);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",1);
+	switch(dependencyType){
+	case "FS":
+		list_select_item("dependency_1_task_id",""&task1&"");
+		list_select_item("dependency_1_type","Finish-to-Start");
+		break;
+	case "SS":
+		list_select_item("dependency_1_task_id",""&task1&"");
+		list_select_item("dependency_1_type","Start-to-Start");
+		break;
+	case "FF":
+		list_select_item("dependency_1_task_id",""&task1&"");
+		list_select_item("dependency_1_type","Finish-to-Finish");
+		break;
+	case "SF":
+		list_select_item("dependency_1_task_id",""&task1&"");
+		list_select_item("dependency_1_type","Start-to-Finish");
+		break;
+	default:
+		list_select_item("dependency_1_task_id",""&task1&"");
+		list_select_item("dependency_1_type","Finish-to-Start");
+		report_msg("The default dependency FS was chosen");
+	}
+	check_dates(task1,task2,dependencyType);
+		
+}
+
+function check_dates(in task1, in task2, in dependencyType){
+	auto startDate, elements, sDate[], month11, month12, day11, day12, year11, year12;
+	auto endDate, eDate[], day, duration_task1, duration_task2, duration_total;
+	auto month21, month22, day21, day22, year21, year22;
+
+
+	web_link_click("Submit");
+	set_window("main",2);
+	web_link_click(task1);
+	wait(2);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",1);
+	report_msg("For Task "&task1&"...");
+	edit_get_text("startTime_NotSubmitted", startDate);
+	report_msg("The start date is "&startDate);
+	elements = split(startDate,sDate,"/");
+	month11 = sDate[1];
+	day11 = sDate[2];
+	year11 = sDate[3];
+	edit_get_text("endTime_NotSubmitted", endDate);
+	report_msg("The end date is "&endDate);
+	elements = split(endDate,eDate,"/");
+	month12 = eDate[1];
+	day12 = eDate[2];
+	year12 = eDate[3];
+	edit_get_text("duration",duration_task1);		
+	wait(1);
+	web_link_click("Cancel");
+
+	set_window("main",2);
+	web_link_click(""&task2&"");
+	wait(2);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",1);
+	report_msg("For Task "&task2&"...");
+	edit_get_text("startTime_NotSubmitted", startDate);
+	report_msg("The start date is "&startDate);
+	elements = split(startDate,sDate,"/");
+	month21 = sDate[1];
+	day21 = sDate[2];
+	year21 = sDate[3];
+	edit_get_text("endTime_NotSubmitted", endDate);
+	report_msg("The end date is "&endDate);
+	elements = split(endDate,eDate,"/");
+	month22 = eDate[1];
+	day22 = eDate[2];
+	year22 = eDate[3];
+	edit_get_text("duration",duration_task2);		
+	wait(1);
+	web_link_click("Cancel");
+	
+	if(dependencyType == "FS"){
+		duration_total = duration_task1 + duration_task2 - 1;
+		day = day22 - day11;
+		pause(day);
+		if((duration_total == day)) 
+			tl_step("Verify FS dependency type",0,"FS dependency verified for "&task2&" and "&task1&"");
+		else
+			tl_step("Verify FS dependency type",1,""&task2&" end date is NOT correctly set");
+	}
+	
+	if(dependencyType == "SS"){
+		if((day21 == day11)&&(month21 == month11)&&(year21 == year11))
+			tl_step("Verify SS dependency",0,"SS dependency verified with tasks "&task1&" and "&task2&" starting on the same date");
+		else
+			tl_step("Verify SS dependency",1,"Tasks "&task1&" and "&task2&" do NOT start on the same date");
+	}
+	
+	if(dependencyType == "FF"){
+		if((day22 == day12)&&(month22 == month12)&&(year22 == year12))
+			tl_step("Verify FF dependency",0,"FF dependency verified with tasks "&task1&" and "&task2&" ending on the same date");
+		else
+			tl_step("Verify FF dependency",1,"Tasks "&task1&" and "&task2&" do NOT end on the same date");
+	}
+	
+	if(dependencyType == "SF"){
+		if(year22 >= year11)
+			if(month22 >= month11)
+				if(day22 >= day11)
+					tl_step("Verify SF dependency",0,"SF dependency verified with task "&task2&" NOT finishing before the start of "&task1&"");
+	}
+}
+
+# set_window("main",2);
+# web_link_click("TestProject2");
+# set_window("menu",3);
+# web_link_click("Workplan");
+# wait(2);
+
+set_window("main",2);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer");
+button_press("OK");
+wait(6);
+set_window("main",1);
+
+report_msg("FOR FIXED DURATION TASKS");
+createTask("t1", task_types[0], 2, units[1], 1, units[1]);
+createTask("t2", task_types[0], 1, units[1], 8, units[0]);
+createTask("t3", task_types[0], 2, units[1], 8, units[0]);
+createTask("t4", task_types[0], 2, units[1], 8, units[0]);
+createTask("t5", task_types[0], 8, units[0], 10, units[0]);
+set_dependencyType("t1","t2","FS");
+set_dependencyType("t1","t3","SS");		
+set_dependencyType("t1","t4","FF");
+set_dependencyType("t1","t5","SF");
+
+report_msg("");
+report_msg("FOR FIXED UNIT TASKS");
+createTask("t6", task_types[1], 2, units[1], 1, units[1]);
+createTask("t7", task_types[1], 1, units[1], 8, units[0]);
+createTask("t8", task_types[1], 2, units[1], 8, units[0]);
+createTask("t9", task_types[1], 2, units[1], 8, units[0]);
+createTask("t10", task_types[1], 3, units[1], 8, units[0]);
+set_dependencyType("t6","t7","FS");
+set_dependencyType("t6","t8","SS");		
+set_dependencyType("t6","t9","FF");
+set_dependencyType("t6","t10","SF");
+
+report_msg("");
+report_msg("FOR FIXED WORK TASKS");
+createTask("t11", task_types[2], 2, units[1], 1, units[1]);
+createTask("t12", task_types[2], 1, units[1], 8, units[0]);
+createTask("t13", task_types[2], 2, units[1], 8, units[0]);
+createTask("t14", task_types[2], 2, units[1], 8, units[0]);
+createTask("t15", task_types[2], 3, units[1], 8, units[0]);
+set_dependencyType("t11","t12","FS");
+set_dependencyType("t11","t13","SS");		
+set_dependencyType("t11","t14","FF");
+set_dependencyType("t11","t15","SF");
+
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");

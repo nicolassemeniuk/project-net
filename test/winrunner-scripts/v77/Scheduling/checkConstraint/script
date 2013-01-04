@@ -1,0 +1,121 @@
+function checkConstraint(in task_name, in constraint_type){
+#######################################
+# declare the variables as auto
+#######################################
+	auto days, date1, date2;
+	auto scheduleStartDate, scheduleEndDate;
+#Load the compiled module to calculate the difference in dates	
+	reload("date_diff",0,1);
+
+#######################################
+# If the constraint type is ASAP or ALAP then go to the schedule properties
+# first to extract the schedule start date and end date for verification
+#######################################	
+	if((constraint_type == "ASAP")||(constraint_type == "ALAP")){
+		wait(1);
+		set_window("main",2);
+		web_link_click("Schedule Properties");
+		wait(1);
+		set_window("main",2);
+		edit_get_text("scheduleStart",scheduleStartDate);
+# 		pause(scheduleStartDate);
+		set_window("main",2);
+		web_obj_get_text("channelbar-maximized","#6","#2",scheduleEndDate,""," 5:00:00",1);
+# 		pause(scheduleEndDate);
+		web_link_click("Cancel");
+		wait(2);
+	}
+	
+	set_window("main",2);
+	web_link_click(task_name);
+	set_window("main",2);
+	web_link_click("Modify");
+	set_window("main",2);
+	wait(1);
+
+#######################################
+# Verify the conditions for each constraint
+#######################################		
+# ASAP constraint task should start on the first day of the schedule
+	if(constraint_type == "ASAP"){
+# 	web_link_click("Cancel");
+		edit_get_text("startTime_NotSubmitted",date1);
+		if(date1 == scheduleStartDate)
+			tl_step("Verify ASAP constraint",0,"The start date of "&task_name&" with ASAP constraint is correctly set to "&date1&"");
+		else
+			tl_step("Verify ASAP constraint",1,"There has been an ERROR in setting start date for "&task_name&" with ASAP constraint");
+	}
+# ALAP constraint task should start as late as possible that will also ensure completion of the task	
+	if(constraint_type == "ALAP"){
+		edit_get_text("endTime_NotSubmitted",date1);
+		if(scheduleEndDate == date1)
+			tl_step("Verify ALAP constraint",0,"The end date of "&task_name&" with ALAP constraint is correctly set to "&date1&"");
+		else
+			tl_step("Verify ALAP constraint",1,"There has been an ERROR in setting end date for "&task_name&" with ALAP constraint");
+	}
+# FNLT constraint task should finish no later than the specified date	
+	if(constraint_type == "FNLT"){
+		edit_get_text("endTime_NotSubmitted",date1);
+		edit_get_text("constraintDateString",date2);
+		days = date_diff(date1, date2);
+		if(days >= 0)
+			tl_step("Verify FNLT constraint",0,"The task "&task_name&" with FNLT constraint ends on "&date1&" before the constraint date "&date2&"");
+		else
+			tl_step("Verify FNLT constraint",1,"The end date "&date1&" set for task "&task_name&" with FNLT constraint date of "&date2&" is INCORRECT");
+	}
+# FNET constraint taskshould finish no earlier than the specified date	
+	if(constraint_type == "FNET"){
+		edit_get_text("endTime_NotSubmitted",date1);
+		edit_get_text("constraintDateString",date2);
+		days = date_diff(date1, date2);
+		if(days <= 0)
+			tl_step("Verify FNET constraint",0,"The end date for "&task_name&" with FNET constraint is set correctly to "&date2&"");
+		else
+			tl_step("Verify FNET constraint",1,"The end date "&date1&" set for task "&task_name&" with FNET constraint date of "&date2&" is INCORRECT");
+	}
+# MSO task must start on the date specified	
+	if(constraint_type == "MSO"){
+		edit_get_text("startTime_NotSubmitted",date1);
+		edit_get_text("constraintDateString",date2);
+		days = date_diff(date1, date2);
+		if(days == 0)
+			tl_step("Verify MSO constraint",0,"The start date for "&task_name&" with MSO constraint is set correctly to "&date2&"");
+		else
+			tl_step("Verify MSO constraint",1,"The start date "&date1&" set for task "&task_name&" with MSO constraint date of "&date2&" is INCORRECT");	
+	}
+# MFO task must finish on the date specified.	
+	if(constraint_type == "MFO"){
+		edit_get_text("endTime_NotSubmitted",date1);
+		edit_get_text("constraintDateString",date2);
+		days = date_diff(date1, date2);
+		if(days == 0)
+			tl_step("Verify MFO constraint",0,"The end date for "&task_name&" with MFO constraint is set correctly to "&date2&"");
+		else
+			tl_step("Verify MFO constraint",1,"The end date "&date1&" set for task "&task_name&" with MFO constraint date of "&date2&" is INCORRECT");
+	}
+# SNET constraint task should start no earlier than the specified date.A later date is fine.	
+	if(constraint_type == "SNET"){
+		edit_get_text("startTime_NotSubmitted",date1);
+		edit_get_text("constraintDateString",date2);
+		days = date_diff(date1, date2);
+		if(days <= 0)
+			tl_step("Verify SNET constraint",0,"The start date for "&task_name&" with SNET constraint is set correctly to "&date2&"");
+		else
+			tl_step("Verify SNET constraint",0,"The start date "&date1&" set for task "&task_name&" with SNET constraint date of "&date2&" is INCORRECT");
+	}
+# SNLT constraint task should start no later than the specified date. An earlier date is fine.	
+	if(constraint_type == "SNLT"){
+		edit_get_text("startTime_NotSubmitted",date1);
+		edit_get_text("constraintDateString",date2);
+		days = date_diff(date1, date2);
+		if(days >= 0)
+			tl_step("Verify SNLT constraint",0,"The start date for "&task_name&" with SNLT constraint is set correctly to "&date2&"");
+		else
+			tl_step("Verify SNLT constraint",0,"The start date "&date1&" set for task "&task_name&" with SNLT constraint date of "&date2&" is INCORRECT");	
+	}
+	
+	wait(1);
+	set_window("main",2);
+	web_link_click("Cancel");
+	wait(2);		
+}

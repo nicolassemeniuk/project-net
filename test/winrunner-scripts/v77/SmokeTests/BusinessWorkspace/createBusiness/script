@@ -1,0 +1,68 @@
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\forLoginBusiness"();
+wait(5);
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\BusinessWorkspace\\createBusiness\\createBusiness.gui");
+
+businessName = "WinrunnerBusiness";
+subBusinessName = "SubWinrunnerBusiness";
+
+public function createBusiness(in businessName)
+{
+	set_window("main",3);
+	web_obj_click("Create Business", 8, 8);
+	set_window("main",3);
+	edit_set("name",businessName);
+	edit_set("flavor","Smoke testing for creating a business using WR");
+	web_link_click("Next");
+	set_window("main",3);
+	web_link_click("Finish");
+}
+
+public function createSubBusiness(in businessName, in subBusinessName)
+{
+	set_window("main",3);
+	web_link_click("Create Business");
+	set_window("main",3);
+	edit_set("name",subBusinessName);
+	edit_set("flavor","Smoke testing for creating a sub business using WR");
+	list_select_item("parentSpaceID",businessName);
+	web_link_click("Next");
+	set_window("main",3);
+	web_link_click("Finish");
+}
+
+createBusiness(businessName);
+createSubBusiness(businessName,subBusinessName);
+
+wait(2);
+set_window("main",1);
+web_link_click(businessName);
+set_window("main",1);
+web_link_click("Modify");
+set_window("main",1);
+list_get_info("parentSpaceID","count",val);
+# pause(val);
+for(i=0;i<val;i++){
+	list_get_item("parentSpaceID",i,flavorValue);
+# 	pause(flavorValue);
+	if(flavorValue != "SubWinrunnerBusiness")
+		tl_step("Verify redundancy",0,"Parent business cannot be made the child of it sub business");
+	else
+		tl_step("Verify redundancy",1,"Sub Business is being shown in Sub Business Of list of its parent");
+}			
+
+set_window("toolbar_main",3);
+web_image_click("topnav-personal-off",20,20);
+wait(3);
+set_window("main",3);
+if(obj_exists(businessName)==E_OK)
+	tl_step("Business name exists",0,""&businessName&" exists on Personal Workspace");
+else
+	tl_step("Business name exists",1,""&businessName&" does not exist on Personal Workspace");
+
+if(obj_exists(subBusinessName)==E_OK)
+	tl_step("Business name exists",0,""&subBusinessName&" exists on Personal Workspace");
+else
+	tl_step("Business name exists",1,""&subBusinessName&" does not exist on Personal Workspace");
+
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\BusinessWorkspace\\createBusiness\\createBusiness.gui");

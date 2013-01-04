@@ -1,0 +1,173 @@
+main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: main
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+main.Add:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Add,
+ location: 7
+}
+main."Add Agenda":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Add Agenda"
+}
+main."Add Attendees":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Add Attendees"
+}
+main.FacilityDescription:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: FacilityDescription
+}
+main.FacilityType:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: FacilityType
+}
+main.Finish:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Finish
+}
+main.Next:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Next
+}
+main.Submit:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Submit
+}
+main.allotedTime:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: allotedTime
+}
+main.comment:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: comment
+}
+main.dateString:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: dateString
+}
+main.description:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: description
+}
+main.end_ampm:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: end_ampm
+}
+main.end_hour:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: end_hour
+}
+main.end_minute:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: end_minute
+}
+main.hostID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: hostID
+}
+main.itemSequence:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: itemSequence
+}
+main."meeting test":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "meeting test"
+}
+main.meetingNotes:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: meetingNotes
+}
+main.name:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: name
+}
+main.ownerId:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: ownerId
+}
+main.personID:
+{
+ class: list,
+ MSW_class: html_listbox,
+ html_name: personID
+}
+main.purpose:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: purpose
+}
+main.start_ampm:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: start_ampm
+}
+main.start_hour:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: start_hour
+}
+main.start_minute:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: start_minute
+}
+main.statusID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: statusID
+}

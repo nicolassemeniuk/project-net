@@ -1,0 +1,436 @@
+main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: main
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+main.Activate:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Activate
+}
+main.Add:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Add
+}
+main."Capture Work":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Capture Work"
+}
+main.Copy:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Copy
+}
+main.Create:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Create
+}
+main."Create New Form":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Create New Form"
+}
+main."Create Project":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Create Project"
+}
+main.ElementID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: ElementID
+}
+main.Fields:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Fields
+}
+main."Form Designer":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Form Designer"
+}
+main.Help:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Help
+}
+main.Link:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Link
+}
+main.Lists:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Lists
+}
+main."Manage Views":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Manage Views"
+}
+main.Modify:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Modify
+}
+main.Name:
+{
+ class: object,
+ MSW_class: html_table,
+ location: 8
+}
+main.Notify:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Notify
+}
+main."Personalize this Page":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Personalize this Page"
+}
+main.Properties:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Properties
+}
+main.Refresh:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Refresh
+}
+main.Remove:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Remove
+}
+main.ReplyArrow:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "ReplyArrow.gif"
+}
+main.Search:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Search
+}
+main.Security:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Security
+}
+main.SubProject1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: SubProject1
+}
+main.Submit:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Submit
+}
+main.TestBusiness1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: TestBusiness1
+}
+main.TestProject1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: TestProject1
+}
+main.WRProject:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: WRProject
+}
+main.abbreviation:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: abbreviation
+}
+main.column_id:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: column_id
+}
+main.column_num__8197:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: "!column_num__.*"
+}
+main.data_column_size:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: data_column_size
+}
+main.description:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: description
+}
+main.displayedInToolsMenu:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: displayedInToolsMenu,
+ part_value: true
+}
+main.field_checked__8197:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: "!field_checked__.*",
+ part_value: 1
+}
+main.field_label:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: field_label
+}
+main.field_width__8197:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: "!field_width__.*"
+}
+main.formStatus:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: formStatus
+}
+main.html_combobox:
+{
+ class: list,
+ MSW_class: html_combobox
+}
+main.name:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: name
+}
+main.personalize:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "personalize.gif"
+}
+main.row_num:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: row_num
+}
+main.selected:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: selected,
+ part_value: 8104
+}
+main.selected_1:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: selected,
+ part_value: 8136
+}
+main.size:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: size
+}
+main.supportsDiscussionGroup:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: supportsDiscussionGroup,
+ part_value: true
+}
+main.supportsDocumentVault:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: supportsDocumentVault,
+ part_value: true
+}
+menu:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: menu
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+menu.Calendar:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Calendar
+}
+menu.Dashboard:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Dashboard
+}
+menu.Directory:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Directory
+}
+menu.Discussions:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Discussions
+}
+menu.Documents:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Documents
+}
+menu.Forms:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Forms
+}
+menu.Go:
+{
+ class: push_button,
+ MSW_class: html_push_button,
+ html_name: Go
+}
+menu.KEYWORD:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: KEYWORD
+}
+menu.News:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: News
+}
+menu.Process:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Process
+}
+menu."Project Search AllCalendarFormsDeliverablesDocumentsTasksDiscussions":
+{
+ class: object,
+ MSW_class: html_table
+}
+menu.Reports:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Reports
+}
+menu.Setup:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Setup
+}
+menu.Subprojects:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Subprojects
+}
+menu.Workflow:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflow
+}
+menu.Workplan:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workplan
+}
+menu.html_combobox:
+{
+ class: list,
+ MSW_class: html_combobox
+}
+toolbar_main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: toolbar_main,
+ location: 0
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+toolbar_main."topnav-projects-off":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "topnav-projects-off.gif"
+}
+toolbar_main."topnav-projects-on":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "topnav-projects-on.gif"
+}

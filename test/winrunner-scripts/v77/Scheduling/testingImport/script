@@ -1,0 +1,158 @@
+wait(3);
+# call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject"();
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+reload("extractTaskName",0,1);
+reload("extractProjectID",0,1);
+reload("compareDates",0,1);
+reload("importMpd",0,1);
+
+function testImport(in tableName){
+	auto rc,name,startDate,endDate,duration,work,rowCount;
+	auto projectID,taskname,sDate,eDate,d_value,d_units,outNum;
+	auto w_value,w_units,taskType,elements,val,array[];
+	auto i,duration_units, work_units, work_value, duration_value,taskName;
+	auto constraint, constraintDate;
+	
+	rc = ddt_open(tableName);
+	ddt_get_row_count(tableName,rowCount);
+	pause(rowCount);
+	for(i=1;i<=rowCount;i++){
+		name = ddt_val_by_row(tableName,i,"Task_Name");
+# 		pause(name);
+		startDate= ddt_val_by_row(tableName,i,"Start_Date");
+# 		pause(startDate);
+		endDate= ddt_val_by_row(tableName,i,"Finish_Date");
+# 		pause(endDate);
+		duration = ddt_val_by_row(tableName,i,"Duration");
+# 		pause(duration);
+		work = ddt_val_by_row(tableName,i,"Work");
+# 		pause(work);
+	
+		projectID = extractProjectID("TestProject2");
+		taskname = extractTaskName(i,projectID);
+		pause(taskname);
+	
+		set_window("main",1);
+		web_link_click(taskname);
+		wait(2);
+		set_window("main",1);
+		web_link_click("Modify");
+		wait(1);
+		set_window("main",1);
+		wait(1);
+		edit_get_text("name",taskName);
+		edit_get_text("startTime_NotSubmitted",sDate);
+		edit_get_text("endTime_NotSubmitted",eDate);
+		edit_get_text("duration",d_value);
+		list_get_selected("duration_units",d_units, outNum);
+		edit_get_text("work",w_value);
+		list_get_selected("work_units",w_units, outNum);
+	
+		if(name == taskName)
+			tl_step("Verify Task Name",0,"Taskname '"&taskName&"' matches with the imported task name");
+		else
+			tl_step("Verify Task Name",1,"Taskname '"&taskName&"' DOES NOT match with the imported task name");
+		list_get_selected("taskCalculationTypeFixedElementID",taskType,outNum);
+		report_msg("The task type selected is "&taskType&"");
+		val = compareDates(sDate,startDate);
+		if(val == 1)
+			tl_step("Verify Start Date",0,"Start Date "&sDate&" of '"&taskName&"' matches with that of imported task");
+		else
+			tl_step("Verify Start Date",1,"Start Date "&sDate&" of '"&taskName&"' DOES NOT match with that of imported task");
+		val = compareDates(eDate,endDate);
+		if(val == 1)
+			tl_step("Verify End Date",0,"End Date "&eDate&" of '"&taskName&"' matches with that of imported task");
+		else
+			tl_step("Verify End Date",1,"End Date "&eDate&" of '"&taskName&"' DOES NOT match with that of imported task");	
+		elements = split(duration,array," ");
+		duration_value = array[1];
+		if(duration_value == d_value)
+			tl_step("Verify Duration",0,"Duration value of '"&taskName&"' matches with that of the imported task");
+		else
+			tl_step("Verify Duration",1,"Duration value of  '"&taskName&"' DOES NOT match with that of the imported task");
+		duration_units = array[2];
+		if(duration_units == "day")
+			duration_units = "days";
+		if(duration_units == d_units)
+			tl_step("Verify duration units",0,"Duration units of '"&taskName&"' matches with that of the imported task");
+		else
+			tl_step("Verify duration units",1,"Duration units of  '"&taskName&"' DOES NOT match with that of the imported task");
+		elements = split(work,array," ");
+		work_value = array[1];
+		if(work_value == w_value)
+			tl_step("Verify work",0,"Work value of '"&taskName&"' matches with that of the imported task");
+		else
+			tl_step("Verify work",1,"Work value of  '"&taskName&"' DOES NOT match with that of the imported task");
+		work_units = array[2];
+		if(work_units == "hrs")
+			work_units = "hours";
+		if(work_units == w_units)
+			tl_step("Verify work units",0,"Work units of '"&taskName&"' matches with that of the imported task");
+		else
+			tl_step("Verify work units",1,"Work units of  '"&taskName&"' DOES NOT match with that of the imported task");
+		list_get_selected("constraintTypeID",constraint,outNum);
+		report_msg("The constraint type set is "&constraint&"");
+		edit_get_text("constraintDateString",constraintDate)
+		report_msg("The constraint date set is "&constraintDate&"");	
+		
+		pause(" ");
+		web_link_click("Cancel");
+	}
+ddt_close(tableName);
+}
+
+
+# wait(2);
+# set_window("main",2);
+# web_link_click("TestProject2");
+# set_window("menu",3);
+# web_link_click("Workplan");
+# wait(2);
+# set_window("main",1);
+# 
+set_window("main",2);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer");
+button_press("OK");
+wait(6);
+set_window("main",1);
+
+table1 = "C:\\Documents and Settings\\QA\\Desktop\\settingWorkComplete.xls";
+table2 = "C:\\Documents and Settings\\QA\\Desktop\\settingTaskTypes.xls";
+table3 = "C:\\Documents and Settings\\QA\\Desktop\\settingConstraints.xls";
+
+report_msg("IMPORTING TASKS WITH WORK COMPLETE"); 
+importMpd("settingWorkComplete.mpd");
+testImport(table1);
+
+set_window("main",2);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer");
+button_press("OK");
+wait(6);
+set_window("main",1);
+
+report_msg("");
+report_msg("IMPORTING DIFFERENT TASK TYPES");
+importMpd("settingTaskTypes.mpd");
+testImport(table2);
+
+set_window("main",2);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer");
+button_press("OK");
+wait(6);
+set_window("main",1);
+
+report_msg("");
+report_msg("IMPORTING CONSTRAINED TASKS");
+importMpd("settingConstraints.mpd");
+testImport(table3);
+
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");

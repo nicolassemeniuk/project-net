@@ -1,0 +1,3 @@
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\forLoginDocument"();
+wait(2);

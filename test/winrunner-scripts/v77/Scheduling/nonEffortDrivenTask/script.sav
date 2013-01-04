@@ -1,0 +1,97 @@
+# Modifies a non-effort driven task.
+# Adds a resource and verifies that work remains the same.
+# Add a second resource and does the same.
+# Finally removes the resource one by one to see if the conditions still hold.
+
+function nonEffortDrivenTask(in taskName,in taskType, in work_value,in work_units){
+	auto outWork, outNum, outUnits;
+	
+###################################################################
+# Adding the first resource will not change work because its already set to the default 8hrs
+###################################################################
+	set_window("main",2);
+	web_link_click(taskName);
+	set_window("main",2);
+	web_link_click("Resources");
+	set_window("main",2);
+	wait(1);
+	button_set("personCheckBox",ON);
+	wait(3);
+	web_link_click("Submit");
+	wait(2);
+
+###################################################################
+# Assigning the second resource and now verifying effort driven condition holds
+###################################################################
+	wait(2);
+	set_window("main",2);
+	web_link_click(taskName);
+	wait(1);
+	set_window("main");
+	web_link_click("Resources");
+	wait(2);
+	set_window("main",2);
+	button_set("personCheckBox1",ON);
+	wait(3);
+	web_link_click("Submit");
+	wait(2);
+	
+	
+	set_window("main",2);
+	web_link_click(taskName);
+	wait(1);
+	set_window("main",2);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",2);
+	edit_get_text("work",outWork);
+	list_get_selected("work_units",outUnits,outNum);
+	web_link_click("Cancel");
+	if(taskType != "Fixed Work"){
+		if((outWork==(2*work_value))&&(outUnits==work_units))
+			tl_step("Verify non effort driven",0,"Non - effort driven condition for "&taskName&" task satisfied - Work increases when resource added");
+		else
+			tl_step("Verify non effort driven",1,"Non - effort driven condition for "&taskName&" task NOT SATISFIED - Work does not change when resource added");
+	}	
+	else{
+		if((outWork==work_value)&&(outUnits==work_units))
+			tl_step("Verify non effort driven",0,"Non - effort driven condition for "&taskName&" task satisfied - Work remains same when resource added");
+		else
+			tl_step("Verify non effort driven",1,"Non - effort driven condition for "&taskName&" task NOT SATISFIED - Work changes when resource added");
+	}
+	
+	wait(2);
+	set_window("main",2);
+	web_link_click(taskName);
+	wait(1);
+	set_window("main",2);
+	web_link_click("Resources");
+	wait(2);
+	button_set("personCheckBox",OFF);
+	wait(3);
+	web_link_click("Submit");
+	wait(2);
+	set_window("main",2);
+	web_link_click(taskName);
+	wait(1);
+	set_window("main",2);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",2);
+	edit_get_text("work",outWork);
+	list_get_selected("work_units",outUnits,outNum);
+	web_link_click("Cancel");
+	if(taskType != "Fixed Work"){
+		if((outWork==work_value)&&(outUnits==work_units))
+			tl_step("Verify non effort driven",0,"Non - effort driven condition for "&taskName&" task satisfied - Work decreases when resource added");
+		else
+			tl_step("Verify non effort driven",1,"Non - effort driven condition for "&taskName&" task NOT SATISFIED - Work does not change when resource added");
+	}
+	else{
+		if((outWork==work_value)&&(outUnits==work_units))
+			tl_step("Verify non effort driven",0,"Non - effort driven condition for "&taskName&" task satisfied - Work remains same when resource removed");
+		else
+			tl_step("Verify non effort driven",1,"Non - effort driven condition for "&taskName&" task NOT SATISFIED - Work changes when resource removed");
+	}
+	wait(2);
+}

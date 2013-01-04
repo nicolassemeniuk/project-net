@@ -1,0 +1,226 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnClass" 
+    table="PN_CLASS"
+    lazy="false"
+>
+
+    <id
+        name="classId"
+        type="java.math.BigDecimal"
+        column="CLASS_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="className"
+        type="java.lang.String"
+        column="CLASS_NAME"
+        length="80"
+    />
+    <property
+        name="classDesc"
+        type="java.lang.String"
+        column="CLASS_DESC"
+        length="500"
+    />
+    <property
+        name="classAbbreviation"
+        type="java.lang.String"
+        column="CLASS_ABBREVIATION"
+        length="20"
+    />
+    <property
+        name="ownerSpaceId"
+        type="java.math.BigDecimal"
+        column="OWNER_SPACE_ID"
+        length="20"
+    />
+    <property
+        name="methodologyId"
+        type="java.math.BigDecimal"
+        column="METHODOLOGY_ID"
+        length="20"
+    />
+    <property
+        name="maxRow"
+        type="int"
+        column="MAX_ROW"
+        not-null="true"
+        length="8"
+    />
+    <property
+        name="maxColumn"
+        type="int"
+        column="MAX_COLUMN"
+        not-null="true"
+        length="8"
+    />
+    <property
+        name="nextDataSeq"
+        type="int"
+        column="NEXT_DATA_SEQ"
+        not-null="true"
+        length="8"
+    />
+    <property
+        name="dataTableSeq"
+        type="int"
+        column="DATA_TABLE_SEQ"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="masterTableName"
+        type="java.lang.String"
+        column="MASTER_TABLE_NAME"
+        length="80"
+    />
+    <property
+        name="dataTableKey"
+        type="java.lang.String"
+        column="DATA_TABLE_KEY"
+        length="80"
+    />
+    <property
+        name="isSequenced"
+        type="int"
+        column="IS_SEQUENCED"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isSystemClass"
+        type="int"
+        column="IS_SYSTEM_CLASS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="supportsDiscussionGroup"
+        type="java.lang.Integer"
+        column="SUPPORTS_DISCUSSION_GROUP"
+        length="1"
+    />
+    <property
+        name="supportsDocumentVault"
+        type="java.lang.Integer"
+        column="SUPPORTS_DOCUMENT_VAULT"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnObject -->
+    <one-to-one
+        name="pnObject"
+        class="net.project.hibernate.model.PnObject"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional one-to-many association to PnSpaceHasClass -->
+
+    <set
+        name="pnSpaceHasClasses"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="CLASS_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasClass"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnClassField -->
+
+    <set
+        name="pnClassFields"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="CLASS_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnClassField"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnClassList -->
+
+    <set
+        name="pnClassLists"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="CLASS_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnClassList"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnElementDisplayClass -->
+
+    <set
+        name="pnElementDisplayClasses"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="CLASS_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnElementDisplayClass"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to PnClassType -->
+    <many-to-one
+        name="pnClassType"
+        class="net.project.hibernate.model.PnClassType"
+        not-null="true"
+    >
+        <column name="CLASS_TYPE_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

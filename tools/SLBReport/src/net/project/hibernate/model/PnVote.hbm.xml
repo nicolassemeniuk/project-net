@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnVote" 
+    table="PN_VOTES"
+    lazy="false"
+>
+
+    <composite-id>
+        <key-property 
+            name="voteId" 
+            column="VOTE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="question" 
+            column="QUESTION" 
+            type="java.lang.String"
+            length="20"
+        />
+        <key-property 
+            name="response" 
+            column="RESPONSE" 
+            type="java.lang.String"
+            length="20"
+        />
+        <key-property 
+            name="comments" 
+            column="COMMENTS" 
+            type="java.lang.String"
+            length="20"
+        />
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

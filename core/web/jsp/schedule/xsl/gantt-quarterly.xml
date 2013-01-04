@@ -1,0 +1,35 @@
+<gantt>	
+	<timescale>
+		<major_scale>
+			<type>week</type>
+			<total_units>4</total_units>
+			<major_unit>Q1</major_unit>
+			<major_unit>Q2</major_unit>
+			<major_unit>Q3</major_unit>
+			<major_unit>Q4</major_unit>
+		 </major_scale>
+		 <minor_scale>
+			<type>day</type>
+			<total_units>3</total_units>
+			<minor_unit>M1</minor_unit> 
+			<minor_unit>M2</minor_unit> 
+			<minor_unit>M3</minor_unit> 
+		</minor_scale>
+	</timescale>
+	<calendar>
+		<non_working_days>
+			<day>S</day>
+		</non_working_days>
+	</calendar>
+	<tasklist>
+		<task>
+			<id>1234</id>
+			<name>Phil's Task</name>
+			<description>whatever</description>
+			<work>8</work>
+			<duration>3</duration>
+			<start_unit>2</start_unit>
+			<pct_complete>40</pct_complete>
+		</task>
+	</tasklist>
+</gantt>

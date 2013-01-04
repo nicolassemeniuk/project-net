@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnSpamLookup" 
+    table="PN_SPAM_LOOKUP"
+    lazy="false"
+>
+
+    <id
+        name="spamTypeCode"
+        type="java.lang.Integer"
+        column="SPAM_TYPE_CODE"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="spamType"
+        type="java.lang.String"
+        column="SPAM_TYPE"
+        not-null="true"
+        length="40"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnPersonPicksSpam -->
+
+    <set
+        name="pnPersonPicksSpams"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="SPAM_TYPE_CODE" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPersonPicksSpam"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

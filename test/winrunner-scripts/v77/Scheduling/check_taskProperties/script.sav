@@ -1,0 +1,79 @@
+function check_taskProperties(in task_name, in task_type, in duration_value,in duration_units,in work_value,in work_units, in numResources){
+	auto work;
+	
+	wait(1);
+	set_window("main",2);
+	web_link_click(task_name);
+	set_window("main",2);
+	
+	if(task_type == "Fixed Work")
+		web_obj_text_exists("channelbar-left_end","#4","#5",""&task_type&"","","");
+	else
+		web_obj_text_exists("channelbar-left_end","#4","#5",""&task_type&", Effort Driven ","","");
+
+# 	web_obj_text_exists("channelbar-left_end","#6","#3","8:00:00 AM ","","PDT");
+# 	web_obj_text_exists("channelbar-left_end","#6","#5","5:00:00 PM ","","PDT");
+	
+	if(duration_units == "hours"){
+		duration_units = "days";
+		duration_value = (duration_value/8);
+	}
+	
+	pause("a");
+	pause(duration_value);
+	pause(duration_units);
+# 	pause(work_value);
+# 	pause(numResources);
+# 	pause(task_type);
+# 	if((task_type == "Fixed Units")||(task_type = "Fixed Work")){
+	if(task_type != "Fixed Duration"){
+		if(numResources>0){	
+			if(work_value!=duration_value){
+# 					pause("ab");
+					duration_value = work_value;
+					duration_units = work_units;
+					duration_value = duration_value/numResources;
+		}
+# 		pause("b");
+# 		pause(duration_value);
+# 		pause(duration_units);
+		
+		if(duration_units == "hours"){
+			duration_units = "days";
+			duration_value = (duration_value/8);
+		}
+		}
+	}
+# 	pause("c");
+# 	pause(duration_value);
+# 	pause(duration_units);
+	
+	if((duration_value == "1")&&(duration_units == "days"))
+		duration_units = "day";
+	if(duration_units == "weeks"){
+		duration_units = "days";
+		duration_value = (5*duration_value);
+	}
+	pause("d");
+	pause(duration_value);
+	pause(duration_units);
+	
+	web_obj_text_exists("channelbar-left_end","#9","#3",""&duration_value&" "&duration_units&"","","");
+	web_obj_get_text("channelbar-left_end","#8","#3",work,"","",1);
+	if(work_value == 1)
+		work_units = "day";
+# 	pause(work);
+# 	pause(work_value);
+# 	pause(work_units);
+	if(work_units=="hours")
+		work_units = "hrs";
+	if((work==""&work_value&" "&work_units&"")||(work==""&work_value&" "&work_units&"")) 
+		tl_step("Verify ",0,""&work&" of work is correct");
+	else
+		tl_step("Verify work",1,""&work&" of work is INCORRRECT");
+
+	wait(1);
+	set_window("main",1);
+	web_link_click("Return to Task List");
+	wait(1);
+}

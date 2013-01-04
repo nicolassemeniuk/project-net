@@ -1,0 +1,35 @@
+function unlinkDependency(in task1, in task2){
+	auto taskID1, taskID2, out_item, out_num;
+		
+	reload("getTaskID",0,1);
+	taskID1 = getTaskID(task1);
+	taskID2 = getTaskID(task2);
+	
+	set_window("main",1);
+	
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","t1_button","part_value",taskID1)!=E_OK)
+		report_msg("NOT OK1");
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","t2_button","part_value",taskID2)!=E_OK)
+		report_msg("NOT OK2");
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+	
+	button_set("t1_button",ON);
+	button_set("t2_button",ON);
+	wait(1);
+	web_link_click("Unlink Tasks");
+	wait(2);
+	set_window("main",1);
+	web_link_click(task2);
+	set_window("main",1);
+	web_link_click("Modify");
+	set_window("main",1);
+	list_get_selected("dependency_1_task_id",out_item, out_num);
+	if(out_item == "None")
+		tl_step("Verify unlinking tasks(quick link)",0,"Task "&task2&" is no longer dependent on task "&task1&"(quick link)");
+	else
+		tl_step("Verify unlinking tasks(quick link)",1,"Task "&task2&" is STILL dependent on task "&task1&"(quick link)");
+	web_link_click("Cancel");
+	set_window("main");
+}

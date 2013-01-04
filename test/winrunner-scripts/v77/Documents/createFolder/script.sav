@@ -1,0 +1,27 @@
+#compiled module for creating a folder in the top folder
+
+function createFolder(in topFolderName, in folderName){
+	GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+	wait(2);
+	set_window("main",2);
+	
+	if(topFolderName == "asdf"))#go to the folder where you require the new folder to be created
+		web_link_click(topFolderName);
+	wait(1);
+	set_window("main");
+	web_link_click("Create New Folder");
+	wait(2);
+	set_window("Create New Folder");
+	edit_set("name",folderName);
+	edit_set("description","Testing whether folder creation is successful");
+	web_link_click("New Folder");
+	wait(2);
+	
+	set_window("main", 1);
+	wait(2);
+	if(obj_exists("WRfolder")==E_OK)#checking if the folder is created
+		report_msg("Folder exists");
+	else
+		report_msg("Folder DOES NOT exist");
+	GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+}

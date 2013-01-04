@@ -1,0 +1,41 @@
+#still need a reliable way to verify things are happening
+
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\forLoginDocument"();
+wait(2);
+reload("createFolder",0,1);
+reload("importFile",0,1);
+reload("checkOutDoc",0,1);
+reload("undoCheckOut",0,1);
+reload("checkInDoc",0,1);
+reload("movingDoc",0,1);
+reload("deleteDoc",0,1);
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+
+# public i = 1;
+createFolder("","WRfolder");
+wait(1);
+importFile("","","WRfile.txt","Not Started");
+# wait(1);
+# importFile("","","WR.txt","Not Started");
+# wait(1);
+# checkOutDoc("Top folder","WRfile.txt");
+# wait(1);
+# undoCheckOut("Top folder","WRfile.txt");
+# wait(1);
+# checkOutDoc("Top folder","WRfile.txt");
+# wait(1);
+# checkInDoc("Top folder","WRfile.txt");
+# wait(1);
+# movingDoc("Top folder","WRfolder","WRfile.txt");#generally assumed that the source folder is the top folder
+# wait(1);
+# set_window("main",1);
+# web_link_click("WRfolder");
+# wait(1);
+# deleteDoc("WRfile.txt");#change the top folder name in the script when u do a build
+# 
+# GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+
+
+
+

@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<!--
+
+  @(#)form.html	1.0 10/1/99
+
+  Copyright 1999 Project.net, Inc. 4740 Mount Etna Drive,
+  San Diego, CA, U.S.A.  All Rights Reserved.
+
+  This software is the confidential and proprietary information of 
+  Project.net, Inc. ("Confidential Information").  You shall not
+  disclose such Confidential Information and shall use it only in
+  accordance with the terms of the license agreement you entered into
+  with Project.net
+
+-->
+</head>
+<body bgcolor="white">
+The form item time series is a report designed to show the how many of each value
+an individual form field has taken over time.  If you were to run the report and
+to specify a field and table, you might get the following output:<br>
+<br>
+<center>
+<table border="1">
+<tr>
+<td><b>Date</b></td>
+<td><b>Field Value</b></td>
+<td><b>Count</b></td>
+</tr>
+<tr>
+<td>01/01/2002</td>
+<td>Apple</td>
+<td>15</td>
+</tr>
+<tr>
+<td>01/01/2002</td>
+<td>Orange</td>
+<td>17</td>
+</tr>
+<tr>
+<td>01/02/2002</td>
+<td>Apple</td>
+<td>20</td>
+</tr>
+<tr>
+<td>01/02/2002</td>
+<td>Orange</td>
+<td>18</td>
+</tr>
+<tr>
+<td>01/03/2002</td>
+<td>Apple</td>
+<td>21</td>
+</tr>
+<tr>
+<td>01/03/2002</td>
+<td>Orange</td>
+<td>19</td>
+</tr>
+</table>
+</center>
+<p>
+This table tells us that on 1/1/2002 there were 15 rows which contained the
+value "Apple" and 17 that contained the value "Orange" in the field you selected.
+On 01/02/2002, there were 20 apples and 18 oranges.  Finally, on 01/03/2002
+there were 21 apples and 19 oranges.<br>
+<br>
+The form item time series report also contains a graph which gives a visual
+representation of the same data.  This information could be useful for analyzing
+trends, though no formal trendline exists in the data right now.<br>
+<br>
+This graph is technically difficult to produce, and should be modified with a
+lot of thought in mind.  Specifically, it is difficult to avoid queries that run
+very slowly.  It is for this reason, that the FormItemTimeSeriesFinder does
+4 queries as opposed to one.  Originally this report was constructed with a
+single query, but it was rather slow.  This is less a product of bad programming
+or missing indices and more a product of a large and complex set of data.<br>
+<br>
+
+
+</body>
+</html>

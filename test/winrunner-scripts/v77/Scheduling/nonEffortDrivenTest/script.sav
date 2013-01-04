@@ -1,0 +1,112 @@
+# if (invoke_application ("C:\\Program Files\\Internet Explorer\\iexplore.exe"," ", "C:\\Program Files\\Internet Explorer", SW_SHOWMAXIMIZED)!=0)
+# 	report_msg("AUT is not found. exiting.");
+# 
+# # logging in to the application and then navigating to the projecton which testing will be done
+# wait(2);
+# GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject\\forLoginProject.gui");
+# wait(2);
+# set_window("Project.net Login", 2);
+# edit_set("J_USERNAME","avinashp");
+# edit_set("J_PASSWORD","abc123");
+# button_press("Login");
+# wait(3);
+# set_window("toolbar_main",3);
+# wait(3);
+# web_image_click("topnav-projects-off",20,20);
+# wait(1);
+# set_window("main",2);
+# web_link_click("WRProject");
+# wait(2);
+GUI_close_all();
+wait(3);
+
+#####################################################
+# Getting my id (resource id)
+#####################################################
+reload("getPersonID",0,1);
+id[1] = getPersonID("Avinash Padmanabhan");
+fieldID= id[1];
+
+#####################################################
+# inviting a user to the project
+#####################################################
+reload("inviteUser",0,1);
+inviteUser("Mickey","Mouse","mickey@project.net");
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+web_obj_get_info("Mickey Mouse","url",urlValue);
+elements = split(urlValue,path_array,"=");
+id[0] = path_array[3];
+resourceID = id[0];
+
+#####################################################
+# Turning off the effort driven condition an deleting existing tasks
+#####################################################	
+set_window("menu",1);
+web_link_click("Workplan");
+wait(2);
+set_window("main",1);
+web_link_click("Schedule Properties");
+set_window("main",1);
+button_set("newTaskEffortDriven",OFF);
+wait(1);
+web_link_click("Submit");
+
+wait(2);
+set_window("main",2);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer");
+button_press("OK");
+wait(5);
+set_window("main");
+
+#####################################################
+# Reloading compiled modules and saving resource id's to the GUI map
+#####################################################
+
+public task_types[] = {"Fixed Duration","Fixed Units","Fixed Work"};
+public units[] = {"hours","days","weeks"};
+reload("createTask",0,1);
+reload("nonEffortDrivenTask",0,1);
+
+if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","personCheckBox","part_value",resourceID)!=E_OK)
+	report_msg("Not OK3");
+else
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","percent","html_name","percent_"&resourceID&"")!=E_OK)
+	report_msg("Not OK3");
+else
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+
+#create a non effort driven task and verify whether adding/removing resources changes work in an FD task
+report_msg("FIXED DURATION");
+createTask("t1","Fixed Duration", 2, units[1], 16, units[0]);
+wait(1);
+nonEffortDrivenTask("t1","Fixed Duration", 16, units[0]);
+wait(1);
+
+# #create a non effort driven task and verify whether adding/removing resources changes work in an FU task
+# report_msg("");
+# report_msg("FIXED UNITS");
+# createTask("t2","Fixed Units",3, units[1], 24, units[0]);
+# wait(1);
+# nonEffortDrivenTask("t2", "Fixed Units", 24, units[0]);
+# wait(1);
+# 
+# #create a non effort driven task and verify whether adding/removing resources changes work in an FW task
+# report_msg("");
+# report_msg("FIXED WORK");
+# createTask("t3",4, units[1], 32, units[0]);
+# wait(1);
+# nonEffortDrivenTask("t3","Fixed Work", 32, units[0]);
+# wait(1);
+
+set_window("main",1);
+web_link_click("Schedule Properties");
+set_window("main",1);
+button_set("newTaskEffortDriven",ON);
+web_link_click("Submit");
+wait(2);
+
+GUI_close_all();

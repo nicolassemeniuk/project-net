@@ -1,0 +1,16 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseDuration> 1 1115930303 0
+23 32 <FIXED DURATION - REVISE DURATION> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseDuration> 45 1115930328 0
+37 115 <Step: Verify duration, Status: Pass, Description: The duration value and duration units for a FD task correctly set> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseDuration> 70 1115930381 24
+37 103 <Step: Verify work, Status: Pass, Description: The work value and work units for a FD task correctly set> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseDuration> 76 1115930381 24
+37 99 <Step: Verify assignment percentage, Status: Pass, Description: The assignment percentage is correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseDuration> 90 1115930390 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseDuration> 99 1115930392 0
+23 28 <FIXED UNIT - REVISE DURATION> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseDuration> 100 1115930392 0
+37 119 <Step: Verify duration, Status: Pass, Description: The duration value and duration units for a FU task are set correctly> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseDuration> 127 1115930437 24
+37 107 <Step: Verify work, Status: Pass, Description: The work value and work units for a FU task are set correctly> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseDuration> 133 1115930437 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseDuration> 142 1115930439 0
+23 28 <FIXED WORK - REVISE DURATION> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseDuration> 143 1115930439 0
+37 107 <Step: Verify duration, Status: Pass, Description: The duration value and duration units for a FW task match> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseDuration> 170 1115930491 24
+37 95 <Step: Verify work, Status: Pass, Description: The work value and work units for a FW task match> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseDuration> 176 1115930491 24
+37 93 <Step: Verify assignment%, Status: Pass, Description: The assignment% for a FW task does match> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseDuration> 197 1115930499 24
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseDuration> 202 1115930501 0

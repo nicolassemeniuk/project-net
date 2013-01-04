@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:Layout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/column-tree.css?${versionNumber}"/>
+<style type="text/css">
+#messageDiv {
+	position: absolute;
+	width: 60px;
+	height: 10px;
+	left: 510px;
+	top: 200px;	
+	padding: 10px;
+	z-index: 99999;
+	}
+	
+#resourceFormDiv{
+	position: absolute;
+	width: 60px;
+	height: 10px;
+	left: 510px;
+	top: 150px;	
+	padding: 10px;
+	z-index: 1000;
+	}
+	
+#roleNoteDiv {
+	position: absolute;
+	visibility: hidden;
+	height: 10px;
+	right: 5px;
+	bottom: 5px;
+	padding: 10px;
+	}
+.note {
+	position: absolute;
+	visibility: hidden;
+	height: 10px;
+	right: 5px;
+	bottom: 38px;
+	padding: 10px;
+}
+#advanceOption {
+	position: absolute;
+	visibility: hidden;
+	width: 500px;
+	height: 350px;
+	left: 290px;
+	top: 100px;	
+	background-color: #FFFFFF;
+	border: 4px solid #99CCFF;
+	padding: 10px;
+	z-index: 100001;
+}
+#close {
+	float: right;
+}
+#directoryPanelPosition{
+	position: absolute;
+	top: 100px;
+	left: 185px;
+}
+
+</style>
+<script type="text/javascript">
+	var jspRootUrl = '${jSPRootURL}';
+	var resourceList = ${resourceList};
+	var directoryListData = ${directoryListData};
+</script>
+	<script type="text/javascript" src="${jSPRootURL}/src/ColumnNodeUI.js?${versionNumber}"></script>
+	<script type="text/javascript" src="${jSPRootURL}/src/directory-Panel.js?${versionNumber}"></script>
+	<t:SpaceMainMenu />
+	<t:NavBar/>
+	<div>
+		<div id ="directoryPanelPosition"></div>
+		<div id ="resourceFormDiv"></div>
+		<div id ="messageDiv"></div>
+		<div id ="roleNoteDiv"> 
+			<label style="color:brown; font-weight:bold;">
+				<t:Message value="prm.resource.directory.resourceautomaticallyadded.message" /><!-- , You may select other role to which they will also be added. -->
+			</label>
+		</div>
+		<div id ="projectNoteDiv" class="note"> 
+			<label style="color:brown; font-weight:bold;">
+				<t:Message value="prm.resource.directory.doubleclickonprojectnametoviewdetails.message" />
+			</label>
+		</div>
+		<div id ="businessNoteDiv" class="note"> 
+			<label style="color:brown; font-weight:bold;">
+				<t:Message value="prm.resource.directory.doubleclickonbusinessnametoviewdetails.message" />
+			</label>
+		</div>
+	<!-- Advance Option for inviting user -->
+		<div id="advanceOption">
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" style="padding-left: 60px">
+			  
+			  <tr><td colspan="4" height="50">&nbsp;</td></tr>
+			  
+			  <tr align="left">
+				 <td><img src="${jSPRootURL}/images/default/tree/cog.png" alt=""/>&nbsp;</td>
+				 <td><t:Message value="prm.resource.directory.selectrole.label" /></td>	
+				 <td>
+					<select name="assignedRoles" height="5" multiple="multiple" onchange="">
+						<option value="19064"><t:Message value="prm.security.group.type.spaceadministrator.name" /></option><option value="19065"><t:Message value="prm.security.group.type.poweruser.name" /></option>
+					</select>
+				 </td>
+				 <td>&nbsp;</td>
+			  </tr>
+			  
+			  <tr><td colspan="4" height="10">&nbsp;</td></tr>
+			  
+			  <tr align="left"> 
+				<td><img src="${jSPRootURL}/images/default/tree/cog.png" alt=""/>&nbsp;</td> 
+				<td class="fieldNonRequired"><t:Message value="prm.directory.memberview.responsibilities.label" /></td>
+				<td class="tableContent"> 
+				  <input type="text" name="inviteeResponsibilities" size="30" value=""/>
+				</td>
+				<td>&nbsp;</td> 
+			  </tr>
+			  
+			  <tr><td colspan="4" height="10">&nbsp;</td></tr>
+			  
+			  <tr align="left"> 
+				<td valign="top"><img src="${jSPRootURL}/images/default/tree/cog.png" alt=""/>&nbsp;</td> 
+				 <td class="fieldNonRequired" valign="top"><t:Message value="prm.discussion.postnew.message.label" /></td>
+				 <td class="tableContent">
+					  <textarea cols="35" rows="3" wrap="virtual"></textarea>
+				 </td>
+				<td >&nbsp;</td>
+			  </tr>
+			 
+			  <tr><td colspan="4" height="10">&nbsp;</td></tr>
+			 
+			  <tr align="left">
+				<td><img src="${jSPRootURL}/images/default/tree/cog.png" alt=""/>&nbsp;</td>
+				<td class="tableContent" colspan="2">
+					<input type="checkbox"/>
+					<t:Message value="prm.directory.invite.memberinformation.notification.message" /></td>
+				<td>&nbsp;</td>
+			  </tr>
+			  
+			  <tr><td colspan="4" height="10">&nbsp;</td></tr>
+			  			  
+			  <tr align="left"> 
+				 <td><img src="${jSPRootURL}/images/default/tree/cog.png" alt=""/>&nbsp;</td>
+				 <td colspan="2" class="tableContent" style="padding-top: 4px">
+					<input type="radio" name="autoAcceptInvite" id="autoAcceptInviteTrue" value="false" onclick=""/>
+					<label for="autoAcceptInviteTrue"><t:Message value="prm.directory.invite.memberinformation.manualacceptance.label" /></label><br/>
+					<input type="radio" name="autoAcceptInvite" id="autoAcceptInviteFalse" value="true" onclick=""/>
+					<label for="autoAcceptInviteFalse"><t:Message value="prm.directory.invite.memberinformation.autoacceptance.label" /></label>
+				 </td>
+				 <td>&nbsp;</td>
+			  </tr>
+			  
+			  <tr><td colspan="4" height="10">&nbsp;</td></tr>
+			  
+			  <tr>
+				<td>&nbsp;</td>
+				<td>&nbsp;</td>
+				<td align="right"><button onclick="javascript:document.getElementById('advanceOption').style.visibility = 'hidden'"><t:Message value="prm.resource.directory.applybutton.caption" /></button> </td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;<button align="left" onclick="javascript:document.getElementById('advanceOption').style.visibility = 'hidden'"><t:Message value="prm.resource.directory.cancelbutton.caption" /></button></td>
+			  </tr>
+			  <tr><td colspan="4">&nbsp;</td></tr>
+			</table>
+		</div>
+	</div>
+<script type="text/javascript">
+	//document.getElementById('tLeftframe').style.zIndex = "1";	
+</script>
+</t:Layout>

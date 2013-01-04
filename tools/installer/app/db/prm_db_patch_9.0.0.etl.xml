@@ -1,0 +1,165 @@
+<!DOCTYPE etl SYSTEM "http://scriptella.javaforge.com/dtd/etl.dtd">
+<etl>
+    <description>Database creation script</description>
+    <properties>
+        <include href="dbinit.properties"/>
+    </properties>
+    <connection driver="${driver}" url="${url}" user="${PNET_BUILD_USER_NAME}" password="${PNET_BUILD_USER_PASSWORD}">
+    plsql=true
+    </connection>
+	
+	<script>
+    	<include href="${SCRIPTPATH}/update_database_version.sql"/>
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/tables/alter_pn_assignment.sql"/>
+    </script>
+    
+	<script>
+    	<include href="${SCRIPTPATH}/tables/alter_pn_wiki_page.sql"/>
+    </script>
+
+    <script>
+    	<include href="${SCRIPTPATH}/tables/alter_pn_person_profile.sql"/>
+    </script>
+    
+	<script>
+    	<include href="${SCRIPTPATH}/tables/alter_pn_wiki_history.sql"/>
+		COMMIT
+		/
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/tables/cr_pn_project_space_meta_combo.sql"/>
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/tables/alter_pn_workingtime_calendar.sql"/>
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/tables/alter_pn_class.sql"/>
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/tables/insert_pn_element.sql"/>
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/tables/insert_pn_language.sql"/>
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/tables/alter_pn_person.sql"/>
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/tables/cr_pn_wiki_assignment.sql"/>
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/tables/alter_pn_workingtime_calendar_entry.sql"/>
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/tables/alter_pn_weblog_comment.sql"/>
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/tables/create_weblog_synonyms.sql"/>
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/tables/alter_pn_project_space.sql"/>
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/tables/alter_pn_weblog_entry.sql"/>
+		COMMIT
+		/
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/tables/alter_pn_notification_type.sql"/>
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/tables/update_pn_notification_type.sql"/>
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/tables/alter_pn_class_field.sql"/>
+		COMMIT
+		/
+    </script>
+
+
+	<script>
+    	<include href="${SCRIPTPATH}/packages/schedule.spc"/>
+		<include href="${SCRIPTPATH}/packages/schedule.bdy"/>
+    </script>
+	
+	<script>
+    	<include href="${SCRIPTPATH}/packages/space.spc"/>
+		<include href="${SCRIPTPATH}/packages/space.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/packages/forms.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/packages/security.spc"/>
+		<include href="${SCRIPTPATH}/packages/security.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/views/pn_person_view.vw"/>
+    </script>
+	<!--
+	<script>
+    	<include href="${SCRIPTPATH}/triggers/pn_object_name_aft_upd_name.tgr"/>
+    </script>
+	-->
+	<script>
+    	<include href="${SCRIPTPATH}/update_existing_object_permissions.sql"/>
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/recompile_objects.sql"/>
+		COMMIT
+		/
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/update_system_properties.sql"/>
+		COMMIT
+		/
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/update_opensource_tokens.sql"/>
+		COMMIT
+		/
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/tables/alter_pnet_user_tables.sql"/>
+		COMMIT
+		/
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/tables/update_pn_object_type.sql"/>
+		COMMIT
+		/
+    </script>
+
+	<script>
+    	<include href="${SCRIPTPATH}/tables/insert_pn_class_field.sql"/>
+		COMMIT
+		/
+    </script>
+
+</etl>

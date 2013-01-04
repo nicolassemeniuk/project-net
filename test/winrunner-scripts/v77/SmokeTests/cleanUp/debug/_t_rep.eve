@@ -1,0 +1,7 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\cleanUp> 1 1084481039 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\forLoginPersonal> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\cleanUp> 1 1084481039 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\forLoginPersonal> 15 1084481044 0
+44 49 <button_set:"selected" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\cleanUp> 18 1084481072 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\cleanUp> 19 1084481101 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\cleanUp> 19 1084481110 0

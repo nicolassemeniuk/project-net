@@ -1,0 +1,131 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnUserDomain" 
+    table="PN_USER_DOMAIN"
+    lazy="false"
+>
+
+    <id
+        name="domainId"
+        type="java.math.BigDecimal"
+        column="DOMAIN_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="name"
+        type="java.lang.String"
+        column="NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        length="240"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isVerificationRequired"
+        type="java.lang.Integer"
+        column="IS_VERIFICATION_REQUIRED"
+        length="1"
+    />
+    <property
+        name="registrationInstructionsClob"
+        type="java.sql.Clob"
+        column="REGISTRATION_INSTRUCTIONS_CLOB"
+        length="4000"
+    />
+    <property
+        name="supportsCreditCardPurchases"
+        type="java.lang.Integer"
+        column="SUPPORTS_CREDIT_CARD_PURCHASES"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnDomainMigration -->
+
+    <set
+        name="pnDomainMigrationsByToDomain"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="TO_DOMAIN" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDomainMigration"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnDomainMigration -->
+
+    <set
+        name="pnDomainMigrationsByFromDomain"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="FROM_DOMAIN" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDomainMigration"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnUser -->
+
+    <set
+        name="pnUsers"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DOMAIN_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnUser"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to PnDirectoryProviderType -->
+    <many-to-one
+        name="pnDirectoryProviderType"
+        class="net.project.hibernate.model.PnDirectoryProviderType"
+        not-null="true"
+    >
+        <column name="DIRECTORY_PROVIDER_TYPE_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

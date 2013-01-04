@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnMeeting" 
+    table="PN_MEETING"
+    lazy="false"
+>
+
+    <id
+        name="meetingId"
+        type="java.math.BigDecimal"
+        column="MEETING_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="nextAgendaItemSeq"
+        type="int"
+        column="NEXT_AGENDA_ITEM_SEQ"
+        not-null="true"
+        length="8"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnObject -->
+    <one-to-one
+        name="pnObject"
+        class="net.project.hibernate.model.PnObject"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPerson"
+        class="net.project.hibernate.model.PnPerson"
+        not-null="true"
+    >
+        <column name="HOST_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnAgendaItem -->
+
+    <set
+        name="pnAgendaItems"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="MEETING_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnAgendaItem"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to PnCalendarEvent -->
+    <many-to-one
+        name="pnCalendarEvent"
+        class="net.project.hibernate.model.PnCalendarEvent"
+        not-null="true"
+    >
+        <column name="CALENDAR_EVENT_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

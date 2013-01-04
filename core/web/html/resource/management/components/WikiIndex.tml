@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+	<div id="scroll" style="height: 70%; width: 90%; position: absolute; left: 100px; top: 165px;" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+			<table cellspacing="10" align="center" width="80%">
+				<t:if test="${emptyWiki}">	<!-- if there are no pages in this wiki -->
+					<tr>
+						<td colspan="2">
+							<div style="border: 1px solid rgb(204, 204, 204); padding: 4px; background: rgb(238, 238, 238); text-align: left;">
+								${noEntriesMsg}
+							</div>
+						</td>
+					</tr>					
+					<t:parameter name="else">	<!-- map contains returned wiki pages (index is not empty) -->
+						<tr>
+							<td colspan="2">
+								<input type="text" id="searchIndex" size="40" class="x-form-text x-form-field" style="width: 562px;"/>
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">
+								<div id="indexHeaderMsg" style="background: #EEEEEE none repeat scroll 0%; border: 1px solid #CCCCCC; float: left; margin-right: 15px; padding: 4px; text-align: left; width: 60%;">
+									${indexHeaderMsg}
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>
+								<strong><b>All:&nbsp;</b></strong>
+							</th>
+							<th>
+								<t:loop source="resultingIndex" value="currEl" encoder="mapEncoder">
+									<strong><b> <a href="#${currEl.key}">${currEl.key}</a> </b></strong>&nbsp;&nbsp;
+								</t:loop>
+							</th>
+						</tr>
+						
+						<t:loop source="resultingIndex" value="currEl" encoder="mapEncoder">	<!-- looping Index Map -->
+								<tr>
+									<th colspan="2">
+										<div id="${currEl.key}"  style="padding-top:30px;"><strong><b> ${currEl.key} </b></strong></div>
+									</th>
+								</tr>
+	
+								<t:loop source="currEl.values" value="currWPgEl" encoder="listEncoder">	<!-- looping the list of pages with same key -->
+									<tr style="padding: 20px;">
+										<td align="left" style="padding-left:30px;">
+											<strong><b>
+												<a id="${currWPgEl.pageName}" href="${jspRootUrl}/wiki/EditWikiPage/${currWPgEl.pageName}/${currWPgEl.parentPageName?.pageName}/${objectId}/${userId}?module=${module}">
+													${currWPgEl.pageName}
+												</a>
+											</b></strong>
+										</td>
+										<td>
+											<b>Last Editor: </b> ${currWPgEl.editedBy.displayName}, <b>edited on:</b> ${currWPgEl.editDate} <br/>
+											<b>Edit comment: </b> ${currWPgEl.commentText}
+										</td>
+									</tr>
+								</t:loop>				<!-- end looping pages with same key -->
+						</t:loop>					<!-- end looping Index Map -->
+						
+					</t:parameter>				<!-- emptyWiki end else -->
+				</t:if>						<!-- emptyWiki end if -->
+			</table><br/>			
+	</div>

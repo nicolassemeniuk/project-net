@@ -1,0 +1,103 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnEnvelopeHistoryAction" 
+    table="PN_ENVELOPE_HISTORY_ACTION"
+    lazy="false"
+>
+
+    <id
+        name="historyActionId"
+        type="java.math.BigDecimal"
+        column="HISTORY_ACTION_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="actionName"
+        type="java.lang.String"
+        column="ACTION_NAME"
+        length="80"
+    />
+    <property
+        name="actionDescription"
+        type="java.lang.String"
+        column="ACTION_DESCRIPTION"
+        length="500"
+    />
+    <property
+        name="createdById"
+        type="java.math.BigDecimal"
+        column="CREATED_BY_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="createdDatetime"
+        type="java.sql.Date"
+        column="CREATED_DATETIME"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="modifiedById"
+        type="java.math.BigDecimal"
+        column="MODIFIED_BY_ID"
+        length="20"
+    />
+    <property
+        name="modifiedDatetime"
+        type="java.sql.Date"
+        column="MODIFIED_DATETIME"
+        length="7"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnEnvelopeHistory -->
+
+    <set
+        name="pnEnvelopeHistories"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="HISTORY_ACTION_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnEnvelopeHistory"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,14 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\nonEffortDrivenTest> 1 1115931866 0
+23 14 <FIXED DURATION> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\nonEffortDrivenTest> 66 1115931925 0
+37 147 <Step: Verify non effort driven, Status: Pass, Description: Non - effort driven condition for t1 task satisfied - Work increases when resource added> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\nonEffortDrivenTest> 53 1115931977 24
+37 149 <Step: Verify non effort driven, Status: Pass, Description: Non - effort driven condition for t1 task satisfied - Work decreases when resource removed> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\nonEffortDrivenTest> 92 1115931996 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\nonEffortDrivenTest> 75 1115931999 0
+23 11 <FIXED UNITS> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\nonEffortDrivenTest> 76 1115931999 0
+37 147 <Step: Verify non effort driven, Status: Pass, Description: Non - effort driven condition for t2 task satisfied - Work increases when resource added> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\nonEffortDrivenTest> 53 1115932054 24
+37 149 <Step: Verify non effort driven, Status: Pass, Description: Non - effort driven condition for t2 task satisfied - Work decreases when resource removed> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\nonEffortDrivenTest> 92 1115932073 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\nonEffortDrivenTest> 85 1115932076 0
+23 10 <FIXED WORK> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\nonEffortDrivenTest> 86 1115932076 0
+37 150 <Step: Verify non effort driven, Status: Pass, Description: Non - effort driven condition for t3 task satisfied - Work remains same when resource added> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\nonEffortDrivenTest> 59 1115932128 24
+37 152 <Step: Verify non effort driven, Status: Pass, Description: Non - effort driven condition for t3 task satisfied - Work remains same when resource removed> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\nonEffortDrivenTest> 98 1115932146 24
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\nonEffortDrivenTest> 103 1115932153 0

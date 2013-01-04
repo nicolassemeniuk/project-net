@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.QrtzTrigger" 
+    table="QRTZ_TRIGGERS"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.QrtzTriggerPK">
+        <key-property 
+            name="triggerName" 
+            column="TRIGGER_NAME" 
+            type="java.lang.String"
+            length="80"
+        />
+        <key-property 
+            name="triggerGroup" 
+            column="TRIGGER_GROUP" 
+            type="java.lang.String"
+            length="80"
+        />
+    </composite-id>    
+
+    <property
+        name="isVolatile"
+        type="java.lang.String"
+        column="IS_VOLATILE"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        length="120"
+    />
+    <property
+        name="nextFireTime"
+        type="java.lang.Long"
+        column="NEXT_FIRE_TIME"
+        length="13"
+    />
+    <property
+        name="prevFireTime"
+        type="java.lang.Long"
+        column="PREV_FIRE_TIME"
+        length="13"
+    />
+    <property
+        name="triggerState"
+        type="java.lang.String"
+        column="TRIGGER_STATE"
+        not-null="true"
+        length="16"
+    />
+    <property
+        name="triggerType"
+        type="java.lang.String"
+        column="TRIGGER_TYPE"
+        not-null="true"
+        length="8"
+    />
+    <property
+        name="startTime"
+        type="long"
+        column="START_TIME"
+        not-null="true"
+        length="13"
+    />
+    <property
+        name="endTime"
+        type="java.lang.Long"
+        column="END_TIME"
+        length="13"
+    />
+    <property
+        name="calendarName"
+        type="java.lang.String"
+        column="CALENDAR_NAME"
+        length="80"
+    />
+    <property
+        name="misfireInstr"
+        type="java.lang.Integer"
+        column="MISFIRE_INSTR"
+        length="2"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional one-to-many association to QrtzTriggerListener -->
+
+    <set
+        name="qrtzTriggerListeners"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="TRIGGER_NAME" />
+            <column name="TRIGGER_GROUP" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.QrtzTriggerListener"
+        />
+    </set>
+    <!-- bi-directional one-to-one association to QrtzBlobTrigger -->
+    <one-to-one
+        name="qrtzBlobTrigger"
+        class="net.project.hibernate.model.QrtzBlobTrigger"
+        outer-join="auto"
+    />
+    <!-- bi-directional one-to-one association to QrtzSimpleTrigger -->
+    <one-to-one
+        name="qrtzSimpleTrigger"
+        class="net.project.hibernate.model.QrtzSimpleTrigger"
+        outer-join="auto"
+    />
+    <!-- bi-directional one-to-one association to QrtzCronTrigger -->
+    <one-to-one
+        name="qrtzCronTrigger"
+        class="net.project.hibernate.model.QrtzCronTrigger"
+        outer-join="auto"
+    />
+    <!-- bi-directional many-to-one association to QrtzJobDetail -->
+    <many-to-one
+        name="qrtzJobDetail"
+        class="net.project.hibernate.model.QrtzJobDetail"
+        not-null="true"
+    >
+        <column name="JOB_NAME" />
+        <column name="JOB_GROUP" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

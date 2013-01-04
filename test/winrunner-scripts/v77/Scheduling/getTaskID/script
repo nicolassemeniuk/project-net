@@ -1,0 +1,11 @@
+function getTaskID(in taskName){
+	auto urlValue, taskID, path_array[], elements;
+	
+	wait(1);
+	set_window("main",2);
+	web_obj_get_info(taskName,"url",urlValue);
+	elements = split(urlValue,path_array,"=");
+	taskID = path_array[4];
+# 	pause(taskID);
+	return taskID;
+}

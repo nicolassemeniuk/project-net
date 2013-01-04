@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<head> <title><t:Message value="prm.global.application.title" /></title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<!-- Linking all css files only here. 
+	 These are used for blog pages developed in Tapestry 5 -->
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/global.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/fonts.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/personal_dashboard.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/noframes.css?${versionNumber}"/>
+
+<script language="javascript" src="${jSPRootURL}/src/util.js?${versionNumber}"></script>
+<script language="javascript" src="${jSPRootURL}/src/window_functions.js${versionNumber}"></script>
+<script language="javascript" src="${jSPRootURL}/src/JSCookMenu.js${versionNumber}"></script>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/src/menu/ThemeOffice/theme.css?${versionNumber}"/>
+<script language="javascript" src="${jSPRootURL}/src/menu/ThemeOffice/theme.js${versionNumber}"></script>
+<script language="javascript" src="${jSPRootURL}/src/components/gridView.js${versionNumber}"></script>
+
+<script type="text/javascript">
+
+	var projectMenu =
+	[
+	    ['', 'Dashboard', '${jSPRootURL}/project/Main.jsp?module=${projectSpace}', '', ''], _cmSplit,
+	    ['', 'Calendar', '${jSPRootURL}/project/Main.jsp?module=${projectSpace}', '', ''], _cmSplit,
+	    ['', 'Assignments', '${jSPRootURL}/project/Main.jsp?module=${projectSpace}', '', ''], _cmSplit,
+	    ['', 'Documents', '${jSPRootURL}/project/Main.jsp?module=${projectSpace}', '', ''], _cmSplit,
+	    ['', 'Forms', '${jSPRootURL}/project/Main.jsp?module="${projectSpace}', '', ''], _cmSplit,
+	    ['', 'Templates', '${jSPRootURL}/project/Main.jsp?module=${projectSpace}', '', ''], _cmSplit,
+	    ['', 'Setup', '${jSPRootURL}/project/Main.jsp?module=${projectSpace}', '', ''], _cmSplit,
+	    ['', 'Licensing', '${jSPRootURL}/project/Main.jsp?module=${projectSpace}', '', ''], _cmSplit,
+	    ['', 'My Blog', '${jSPRootURL}/project/Main.jsp?module=${projectSpace}', '', '']
+	];
+
+//-->
+</script>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body onload="setup();" class="main" id="tBodyWithFixedAreasSupport" style="overflow: hidden;">
+	<div style="margin-top: 60px;">
+		<div id="toolbar_top">
+			<div id="toolbar_container">
+				<div id="projectMenuId"></div>
+			</div>
+			<script type="text/javascript"><!--
+				cmDraw ('projectMenuId', projectMenu, 'hbr', cmThemeOffice);
+			--></script>
+		</div>
+	</div>
+	<div id='content'>
+ 		<t:body />
+ 	</div>
+</body>
+</html>

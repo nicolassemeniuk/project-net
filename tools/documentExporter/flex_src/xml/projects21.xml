@@ -1,0 +1,400 @@
+<projects Name="Projects" ProjectId="root">
+<Project Name="Seismic Back Deck Project " Level="1" Folder="/Seismic Back Deck Project " selected="false" ProjectId="14792908">
+<Project Name="Insea Streamer" Level="2" Folder="/Seismic Back Deck Project /Insea Streamer" selected="false" ProjectId="14808528">
+<Project Name="Adapter, Offset sections etc" Level="3" Folder="/Seismic Back Deck Project /Insea Streamer/Adapter Offset sections etc" selected="false" ProjectId="14809444">
+	</Project>
+<Project Name="ICU" Level="3" Folder="/Seismic Back Deck Project /Insea Streamer/ICU" selected="false" ProjectId="14809462">
+	</Project>
+<Project Name="ITX" Level="3" Folder="/Seismic Back Deck Project /Insea Streamer/ITX" selected="false" ProjectId="14809504">
+	</Project>
+<Project Name="Live sections" Level="3" Folder="/Seismic Back Deck Project /Insea Streamer/Live sections" selected="false" ProjectId="14809426">
+	</Project>
+<Project Name="Other" Level="3" Folder="/Seismic Back Deck Project /Insea Streamer/Other" selected="false" ProjectId="14809556">
+	</Project>
+<Project Name="Q-Fin" Level="3" Folder="/Seismic Back Deck Project /Insea Streamer/Q-Fin" selected="false" ProjectId="14809480">
+	</Project>
+<Project Name="Q-Fin / ITX Test System" Level="3" Folder="/Seismic Back Deck Project /Insea Streamer/Q-Fin   ITX Test System" selected="false" ProjectId="14809521">
+	</Project>
+<Project Name="Tool-kit and test system " Level="3" Folder="/Seismic Back Deck Project /Insea Streamer/Tool-kit and test system " selected="false" ProjectId="14809540">
+	</Project>
+	</Project>
+<Project Name="Insea Towing and Source" Level="2" Folder="/Seismic Back Deck Project /Insea Towing and Source" selected="false" ProjectId="14808511">
+<Project Name="Insea Towing" Level="3" Folder="/Seismic Back Deck Project /Insea Towing and Source/Insea Towing" selected="false" ProjectId="14808718">
+<Project Name="Additional" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Insea Towing/Additional" selected="false" ProjectId="14808885">
+	</Project>
+<Project Name="Advance Spread Control" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Insea Towing/Advance Spread Control" selected="false" ProjectId="14809029">
+	</Project>
+<Project Name="Cumberland grips" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Insea Towing/Cumberland grips" selected="false" ProjectId="14808949">
+	</Project>
+<Project Name="Insea Towing Hardware / Paravane" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Insea Towing/Insea Towing Hardware   Paravane" selected="false" ProjectId="14808902">
+	</Project>
+<Project Name="Lead-In" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Insea Towing/Lead-In" selected="false" ProjectId="14808772">
+	</Project>
+<Project Name="MK2 elec lines and hoses" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Insea Towing/MK2 elec lines and hoses" selected="false" ProjectId="14808850">
+	</Project>
+<Project Name="Monowing / Miniwing" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Insea Towing/Monowing   Miniwing" selected="false" ProjectId="14808789">
+	</Project>
+<Project Name="Monowing / Miniwing Spare Parts" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Insea Towing/Monowing   Miniwing Spare Parts" selected="false" ProjectId="14808807">
+	</Project>
+<Project Name="Monowing Rigging" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Insea Towing/Monowing Rigging" selected="false" ProjectId="14808824">
+	</Project>
+<Project Name="Paravane Spare Parts" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Insea Towing/Paravane Spare Parts" selected="false" ProjectId="14808924">
+	</Project>
+<Project Name="Seatrack 220 / 330 installation" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Insea Towing/Seatrack 220   330 installation" selected="false" ProjectId="14809012">
+	</Project>
+<Project Name="Streamer Rigging" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Insea Towing/Streamer Rigging" selected="false" ProjectId="14808868">
+	</Project>
+<Project Name="Tail / Front Buoy" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Insea Towing/Tail   Front Buoy" selected="false" ProjectId="14808991">
+	</Project>
+<Project Name="Workboat tool kits" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Insea Towing/Workboat tool kits" selected="false" ProjectId="14808970">
+	</Project>
+	</Project>
+<Project Name="Trisor / Source Insea" Level="3" Folder="/Seismic Back Deck Project /Insea Towing and Source/Trisor   Source Insea" selected="false" ProjectId="14808737">
+<Project Name="Change Orders" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Trisor   Source Insea/Change Orders" selected="false" ProjectId="14809326">
+	</Project>
+<Project Name="Source - 1500LL Air Gun Spare" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Trisor   Source Insea/Source - 1500LL Air Gun Spare" selected="false" ProjectId="14809187">
+	</Project>
+<Project Name="Source - 1900LL Air Gun Spare" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Trisor   Source Insea/Source - 1900LL Air Gun Spare" selected="false" ProjectId="14809205">
+	</Project>
+<Project Name="Source - Array hardware assuming 6780, 3047" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Trisor   Source Insea/Source - Array hardware assuming 6780 3047" selected="false" ProjectId="14809243">
+	</Project>
+<Project Name="Source - Bolts, nuts, shackles and chain" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Trisor   Source Insea/Source - Bolts nuts shackles and chain" selected="false" ProjectId="14809283">
+	</Project>
+<Project Name="Source - Depth ropes" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Trisor   Source Insea/Source - Depth ropes" selected="false" ProjectId="14809302">
+	</Project>
+<Project Name="Source - Floatation FTF" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Trisor   Source Insea/Source - Floatation FTF" selected="false" ProjectId="14809119">
+	</Project>
+<Project Name="Source - Gun, Chambers and Solenoids" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Trisor   Source Insea/Source - Gun Chambers and Solenoids" selected="false" ProjectId="14809170">
+	</Project>
+<Project Name="Source - Solenoid Valve SV1200 Spares" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Trisor   Source Insea/Source - Solenoid Valve SV1200 Spares" selected="false" ProjectId="14809225">
+	</Project>
+<Project Name="Source - Specialist Tools" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Trisor   Source Insea/Source - Specialist Tools" selected="false" ProjectId="14809260">
+	</Project>
+<Project Name="Source - Trisor" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Trisor   Source Insea/Source - Trisor" selected="false" ProjectId="14809153">
+	</Project>
+<Project Name="Source - Trisor Onboard" Level="4" Folder="/Seismic Back Deck Project /Insea Towing and Source/Trisor   Source Insea/Source - Trisor Onboard" selected="false" ProjectId="14809136">
+	</Project>
+	</Project>
+	</Project>
+<Project Name="Mechanical Fixed Equipments" Level="2" Folder="/Seismic Back Deck Project /Mechanical Fixed Equipments" selected="false" ProjectId="14808640">
+<Project Name="Streamer winch" Level="3" Folder="/Seismic Back Deck Project /Mechanical Fixed Equipments/Streamer winch" selected="false" ProjectId="14833746">
+	</Project>
+	</Project>
+<Project Name="Onboard Seismic Systems " Level="2" Folder="/Seismic Back Deck Project /Onboard Seismic Systems " selected="false" ProjectId="14808616">
+<Project Name="Onboard Seismic Change Orders" Level="3" Folder="/Seismic Back Deck Project /Onboard Seismic Systems /Onboard Seismic Change Orders" selected="false" ProjectId="14809683">
+	</Project>
+<Project Name="Onboard Source" Level="3" Folder="/Seismic Back Deck Project /Onboard Seismic Systems /Onboard Source" selected="false" ProjectId="14809663">
+	</Project>
+<Project Name="Onboard Streamer" Level="3" Folder="/Seismic Back Deck Project /Onboard Seismic Systems /Onboard Streamer" selected="false" ProjectId="14809646">
+<Project Name="Birdy 1" Level="4" Folder="/Seismic Back Deck Project /Onboard Seismic Systems /Onboard Streamer/Birdy 1" selected="false" ProjectId="14810007">
+	</Project>
+<Project Name="Birdy 3" Level="4" Folder="/Seismic Back Deck Project /Onboard Seismic Systems /Onboard Streamer/Birdy 3" selected="false" ProjectId="14810033">
+	</Project>
+<Project Name="Deck cables, patch panels" Level="4" Folder="/Seismic Back Deck Project /Onboard Seismic Systems /Onboard Streamer/Deck cables patch panels" selected="false" ProjectId="14809750">
+	</Project>
+<Project Name="Q-Fin Baccus " Level="4" Folder="/Seismic Back Deck Project /Onboard Seismic Systems /Onboard Streamer/Q-Fin Baccus " selected="false" ProjectId="14810061">
+	</Project>
+<Project Name="Q-Fin Onboard Test System" Level="4" Folder="/Seismic Back Deck Project /Onboard Seismic Systems /Onboard Streamer/Q-Fin Onboard Test System" selected="false" ProjectId="14810078">
+	</Project>
+<Project Name="Slipring" Level="4" Folder="/Seismic Back Deck Project /Onboard Seismic Systems /Onboard Streamer/Slipring" selected="false" ProjectId="14809717">
+	</Project>
+<Project Name="Streamer Power System" Level="4" Folder="/Seismic Back Deck Project /Onboard Seismic Systems /Onboard Streamer/Streamer Power System" selected="false" ProjectId="14809830">
+	</Project>
+<Project Name="Test SMU - 2" Level="4" Folder="/Seismic Back Deck Project /Onboard Seismic Systems /Onboard Streamer/Test SMU - 2" selected="false" ProjectId="14809847">
+	</Project>
+	</Project>
+	</Project>
+	</Project>
+<Project Name="Seismic Back Deck Simulation Project" Level="1" Folder="/Seismic Back Deck Simulation Project" selected="false" ProjectId="14910929">
+	</Project>
+<Project Name="Seismic Derived Facies Model For Raven Field" Level="1" Folder="/Seismic Derived Facies Model For Raven Field" selected="false" ProjectId="13631754">
+	</Project>
+<Project Name="Seismic Process" Level="1" Folder="/Seismic Process" selected="false" ProjectId="3551711">
+	</Project>
+<Project Name="Seismic to Simulation " Level="1" Folder="/Seismic to Simulation " selected="false" ProjectId="10498739">
+<Project Name="Financial Follow-up" Level="2" Folder="/Seismic/Financial Follow-up" selected="false" ProjectId="9359618">
+	</Project>
+<Project Name="Seismic Marine Region" Level="2" Folder="/Seismic/Seismic Marine Region" selected="false" ProjectId="10168443">
+	</Project>
+<Project Name="Seismic North Region" Level="2" Folder="/Seismic/Seismic North Region" selected="false" ProjectId="10168281">
+	</Project>
+<Project Name="Seismic Sourth Region" Level="2" Folder="/Seismic/Seismic Sourth Region" selected="false" ProjectId="10168491">
+	</Project>
+	</Project>
+<Project Name="Self Training" Level="1" Folder="/Self Training" selected="false" ProjectId="2289177">
+	</Project>
+<Project Name="Self-diverting acid for sandstone" Level="1" Folder="/Self-diverting acid for sandstone" selected="false" ProjectId="1320177">
+	</Project>
+<Project Name="Sema Divestiture" Level="1" Folder="/Sema Divestiture" selected="false" ProjectId="6061691">
+	</Project>
+<Project Name="Sema Integration" Level="1" Folder="/Sema Integration" selected="false" ProjectId="264128">
+	</Project>
+<Project Name="Sema Integration BSAS" Level="1" Folder="/Sema Integration BSAS" selected="false" ProjectId="534872">
+	</Project>
+<Project Name="Sema Integration Phase II" Level="1" Folder="/Sema Integration Phase II" selected="false" ProjectId="398970">
+<Project Name="Core Integration" Level="2" Folder="/Sema Integration/Core Integration" selected="false" ProjectId="294975">
+	</Project>
+	</Project>
+<Project Name="Sema Intergration" Level="1" Folder="/Sema Intergration" selected="false" ProjectId="1201213">
+	</Project>
+<Project Name="Sema NAM server monitoring" Level="1" Folder="/Sema NAM server monitoring" selected="false" ProjectId="1292556">
+	</Project>
+<Project Name="Sema Radia Server Monitoring" Level="1" Folder="/Sema Radia Server Monitoring" selected="false" ProjectId="4368468">
+	</Project>
+<Project Name="Sema Transition Plan" Level="1" Folder="/Sema Transition Plan" selected="false" ProjectId="4105706">
+	</Project>
+<Project Name="SenTREE 3 E-H Control Systems - 2003" Level="1" Folder="/SenTREE 3 E-H Control Systems - 2003" selected="false" ProjectId="5578228">
+	</Project>
+<Project Name="SenTREE HP &amp; Anson 15K Flowhead" Level="1" Folder="/SenTREE HP  Anson 15K Flowhead" selected="false" ProjectId="10643138">
+	</Project>
+<Project Name="SenTREE HP Lube Valve" Level="1" Folder="/SenTREE HP Lube Valve" selected="false" ProjectId="15033813">
+	</Project>
+<Project Name="SenTREE LARGE BORE ASSETS" Level="1" Folder="/SenTREE LARGE BORE ASSETS" selected="false" ProjectId="13660546">
+<Project Name="P00416 SenTREE7 Major Surveys" Level="2" Folder="/SenTREE LARGE BORE ASSETS/P00416 SenTREE7 Major Surveys" selected="false" ProjectId="13696931">
+	</Project>
+	</Project>
+<Project Name="SenTREE Large Bore Cutter Module" Level="1" Folder="/SenTREE Large Bore Cutter Module" selected="false" ProjectId="15033873">
+	</Project>
+<Project Name="SenTREE Well Control Bids" Level="1" Folder="/SenTREE Well Control Bids" selected="false" ProjectId="15202672">
+	</Project>
+<Project Name="SenTURIAN Product Champion" Level="1" Folder="/SenTURIAN Product Champion" selected="false" ProjectId="12730593">
+	</Project>
+<Project Name="SenTURIAN Subsea Control System 2006-2007" Level="1" Folder="/SenTURIAN Subsea Control System 2006-2007" selected="false" ProjectId="12895175">
+<Project Name="Budget - Combined NPD &amp; RR" Level="2" Folder="/SenTURIAN Subsea Control System 2006-2007/Budget - Combined NPD  RR" selected="false" ProjectId="12898154">
+	</Project>
+<Project Name="Deliverables" Level="2" Folder="/SenTURIAN Subsea Control System 2006-2007/Deliverables" selected="false" ProjectId="12898320">
+	</Project>
+<Project Name="Issue Log" Level="2" Folder="/SenTURIAN Subsea Control System 2006-2007/Issue Log" selected="false" ProjectId="12898304">
+	</Project>
+<Project Name="MDL" Level="2" Folder="/SenTURIAN Subsea Control System 2006-2007/MDL" selected="false" ProjectId="12898270">
+	</Project>
+<Project Name="MOM" Level="2" Folder="/SenTURIAN Subsea Control System 2006-2007/MOM" selected="false" ProjectId="12898171">
+	</Project>
+<Project Name="PLMP Milestone Documents" Level="2" Folder="/SenTURIAN Subsea Control System 2006-2007/PLMP Milestone Documents" selected="false" ProjectId="12898188">
+	</Project>
+<Project Name="Presentations" Level="2" Folder="/SenTURIAN Subsea Control System 2006-2007/Presentations" selected="false" ProjectId="12898254">
+	</Project>
+<Project Name="Product Champion" Level="2" Folder="/SenTURIAN Subsea Control System 2006-2007/Product Champion" selected="false" ProjectId="12898221">
+	</Project>
+<Project Name="Progress Reports" Level="2" Folder="/SenTURIAN Subsea Control System 2006-2007/Progress Reports" selected="false" ProjectId="12898204">
+	</Project>
+<Project Name="Project Management" Level="2" Folder="/SenTURIAN Subsea Control System 2006-2007/Project Management" selected="false" ProjectId="12898137">
+	</Project>
+<Project Name="Quality Plans" Level="2" Folder="/SenTURIAN Subsea Control System 2006-2007/Quality Plans" selected="false" ProjectId="12898389">
+	</Project>
+<Project Name="Schedules" Level="2" Folder="/SenTURIAN Subsea Control System 2006-2007/Schedules" selected="false" ProjectId="12898288">
+	</Project>
+<Project Name="Technical" Level="2" Folder="/SenTURIAN Subsea Control System 2006-2007/Technical" selected="false" ProjectId="12898121">
+<Project Name="Electrical - SCM" Level="3" Folder="/SenTURIAN Subsea Control System 2006-2007/Technical/Electrical - SCM" selected="false" ProjectId="12898406">
+<Project Name="Vendor Documentation" Level="4" Folder="/SenTURIAN Subsea Control System 2006-2007/Technical/Electrical - SCM/Vendor Documentation" selected="false" ProjectId="12920441">
+	</Project>
+	</Project>
+<Project Name="Electrical - Topside" Level="3" Folder="/SenTURIAN Subsea Control System 2006-2007/Technical/Electrical - Topside" selected="false" ProjectId="12898371">
+<Project Name="Vendor Documentation" Level="4" Folder="/SenTURIAN Subsea Control System 2006-2007/Technical/Electrical - Topside/Vendor Documentation" selected="false" ProjectId="12920373">
+	</Project>
+	</Project>
+<Project Name="Mechanical - SCM" Level="3" Folder="/SenTURIAN Subsea Control System 2006-2007/Technical/Mechanical - SCM" selected="false" ProjectId="12898353">
+<Project Name="Vendor Documentation" Level="4" Folder="/SenTURIAN Subsea Control System 2006-2007/Technical/Mechanical - SCM/Vendor Documentation" selected="false" ProjectId="12920356">
+	</Project>
+	</Project>
+<Project Name="Mechanical - Topside" Level="3" Folder="/SenTURIAN Subsea Control System 2006-2007/Technical/Mechanical - Topside" selected="false" ProjectId="12898337">
+<Project Name="Vendor Documentation" Level="4" Folder="/SenTURIAN Subsea Control System 2006-2007/Technical/Mechanical - Topside/Vendor Documentation" selected="false" ProjectId="12920338">
+	</Project>
+	</Project>
+	</Project>
+<Project Name="Testing/Qualification" Level="2" Folder="/SenTURIAN Subsea Control System 2006-2007/Testing Qualification" selected="false" ProjectId="12898237">
+	</Project>
+	</Project>
+<Project Name="Senoro 3" Level="1" Folder="/Senoro 3" selected="false" ProjectId="512847">
+<Project Name="Rig Zoning" Level="2" Folder="/Senoro 3/Rig Zoning" selected="false" ProjectId="584947">
+	</Project>
+	</Project>
+<Project Name="Sensa DTS" Level="1" Folder="/Sensa DTS" selected="false" ProjectId="5277477">
+<Project Name="OXY Cogdell" Level="2" Folder="/Sensa DTS/OXY Cogdell" selected="false" ProjectId="5277638">
+	</Project>
+	</Project>
+<Project Name="Sensa Interface" Level="1" Folder="/Sensa Interface" selected="false" ProjectId="1039859">
+	</Project>
+<Project Name="Server Application" Level="1" Folder="/Server Application" selected="false" ProjectId="12318126">
+	</Project>
+<Project Name="Server Backup Waiver Forms" Level="1" Folder="/Server Backup Waiver Forms" selected="false" ProjectId="6770643">
+	</Project>
+<Project Name="Server Consolidation" Level="1" Folder="/Server Consolidation" selected="false" ProjectId="12318081">
+	</Project>
+<Project Name="Server Management - 100% in RAM" Level="1" Folder="/Server Management - 100 in RAM" selected="false" ProjectId="6770423">
+	</Project>
+<Project Name="Server RFP 2005" Level="1" Folder="/Server RFP 2005" selected="false" ProjectId="11184028">
+	</Project>
+<Project Name="Server replacement." Level="1" Folder="/Server replacement." selected="false" ProjectId="13126631">
+	</Project>
+<Project Name="Server replacement." Level="1" Folder="/Server replacement." selected="false" ProjectId="13126671">
+	</Project>
+<Project Name="Service Desk Toolset Rollout" Level="1" Folder="/Service Desk Toolset Rollout" selected="false" ProjectId="1451598">
+	</Project>
+<Project Name="Service Desk Toolset Rollout Costs" Level="1" Folder="/Service Desk Toolset Rollout Costs" selected="false" ProjectId="3110862">
+<Project Name="Test" Level="2" Folder="/Service Desk Toolset Rollout Costs/Test" selected="false" ProjectId="3289135">
+	</Project>
+	</Project>
+<Project Name="Service Excellence" Level="1" Folder="/Service Excellence" selected="false" ProjectId="13960751">
+	</Project>
+<Project Name="Service Line Training Modules" Level="1" Folder="/Service Line Training Modules" selected="false" ProjectId="5657813">
+	</Project>
+<Project Name="Service Marketing" Level="1" Folder="/Service Marketing" selected="false" ProjectId="498688">
+	</Project>
+<Project Name="Service Quality - Keeping Score" Level="1" Folder="/Service Quality - Keeping Score" selected="false" ProjectId="9949079">
+	</Project>
+<Project Name="ServiceWare Fixes" Level="1" Folder="/ServiceWare Fixes" selected="false" ProjectId="1183499">
+	</Project>
+<Project Name="Services URM" Level="1" Folder="/Services URM" selected="false" ProjectId="2090531">
+	</Project>
+<Project Name="Seton" Level="1" Folder="/Seton" selected="false" ProjectId="2373912">
+	</Project>
+<Project Name="Shady Lane CBM Water" Level="1" Folder="/Shady Lane CBM Water" selected="false" ProjectId="11349932">
+	</Project>
+<Project Name="Shallow Water Route Survey - Shah Daniz" Level="1" Folder="/Shallow Water Route Survey - Shah Daniz" selected="false" ProjectId="9801538">
+	</Project>
+<Project Name="Shannon Test" Level="1" Folder="/Shannon Test" selected="false" ProjectId="2486163">
+	</Project>
+<Project Name="Shared Internet Services" Level="1" Folder="/Shared Internet Services" selected="false" ProjectId="4529595">
+<Project Name="Product - EMC Service" Level="2" Folder="/Shared Internet Services/Product - EMC Service" selected="false" ProjectId="4530647">
+	</Project>
+<Project Name="Product - Installation of Andover Circuit" Level="2" Folder="/Shared Internet Services/Product - Installation of Andover Circuit" selected="false" ProjectId="4530388">
+	</Project>
+<Project Name="Product - Installation of H/ware BBP/ACP" Level="2" Folder="/Shared Internet Services/Product - Installation of H ware BBP ACP" selected="false" ProjectId="4530490">
+	</Project>
+<Project Name="Product - Technical Design" Level="2" Folder="/Shared Internet Services/Product - Technical Design" selected="false" ProjectId="4530469">
+	</Project>
+<Project Name="Product -Commercial Model &amp; Service Description" Level="2" Folder="/Shared Internet Services/Product -Commercial Model  Service Description" selected="false" ProjectId="4530508">
+	</Project>
+	</Project>
+<Project Name="Sharing of Technical skills across OFS segments" Level="1" Folder="/Sharing of Technical skills across OFS segments" selected="false" ProjectId="3638071">
+	</Project>
+<Project Name="Shekou OFS Facility" Level="1" Folder="/Shekou OFS Facility" selected="false" ProjectId="13247270">
+	</Project>
+<Project Name="Shell " Level="1" Folder="/Shell " selected="false" ProjectId="5319554">
+	</Project>
+<Project Name="Shell  - DM/DP Assessment AGI/EPB/EPX 2003" Level="1" Folder="/Shell  - DM DP Assessment AGI EPB EPX 2003" selected="false" ProjectId="848627">
+	</Project>
+<Project Name="Shell - AGI Petrotechnical Portal 2003" Level="1" Folder="/Shell - AGI Petrotechnical Portal 2003" selected="false" ProjectId="3216419">
+	</Project>
+<Project Name="Shell - AMS-DC Installation 2004" Level="1" Folder="/Shell - AMS-DC Installation 2004" selected="false" ProjectId="8738535">
+	</Project>
+<Project Name="Shell - CIO technology pilot 2003" Level="1" Folder="/Shell - CIO technology pilot 2003" selected="false" ProjectId="4844975">
+	</Project>
+<Project Name="Shell - DM Business Case 2004" Level="1" Folder="/Shell - DM Business Case 2004" selected="false" ProjectId="7837941">
+	</Project>
+<Project Name="Shell - DM Global Rollout" Level="1" Folder="/Shell - DM Global Rollout" selected="false" ProjectId="8848727">
+	</Project>
+<Project Name="Shell - EPE Pathfinder 2004" Level="1" Folder="/Shell - EPE Pathfinder 2004" selected="false" ProjectId="7837484">
+	</Project>
+<Project Name="Shell - EPT-S DM 2005" Level="1" Folder="/Shell - EPT-S DM 2005" selected="false" ProjectId="9771303">
+<Project Name="Shell - EPT-S eSearch 2005" Level="2" Folder="/Shell - EPT-S DM 2005/Shell - EPT-S eSearch 2005" selected="false" ProjectId="8848688">
+	</Project>
+	</Project>
+<Project Name="Shell - EPT-S Pathfinder 2004" Level="1" Folder="/Shell - EPT-S Pathfinder 2004" selected="false" ProjectId="7837857">
+	</Project>
+<Project Name="Shell - EPT-S eSearch 2005" Level="1" Folder="/Shell - EPT-S eSearch 2005" selected="false" ProjectId="8848688">
+	</Project>
+<Project Name="Shell - Global IM RFI/RFP" Level="1" Folder="/Shell - Global IM RFI RFP" selected="false" ProjectId="7838545">
+	</Project>
+<Project Name="Shell - Information Exchange Space" Level="1" Folder="/Shell - Information Exchange Space" selected="false" ProjectId="9077473">
+	</Project>
+<Project Name="Shell - Michigan" Level="1" Folder="/Shell - Michigan" selected="false" ProjectId="4254444">
+	</Project>
+<Project Name="Shell - OpenWorks-QDS(Finder) Mapping and Implementation 2004" Level="1" Folder="/Shell - OpenWorks-QDSFinder Mapping and Implementation 2004" selected="false" ProjectId="7838034">
+<Project Name="SSMAM Load Profile Modificaion" Level="2" Folder="/Shell /SSMAM Load Profile Modificaion" selected="false" ProjectId="5319902">
+	</Project>
+	</Project>
+<Project Name="Shell AGI OpenSpirit Feasibility Study" Level="1" Folder="/Shell AGI OpenSpirit Feasibility Study" selected="false" ProjectId="380239">
+	</Project>
+<Project Name="Shell Brent" Level="1" Folder="/Shell Brent" selected="false" ProjectId="5548950">
+	</Project>
+<Project Name="Shell Contract 2008 - 2011" Level="1" Folder="/Shell Contract 2008 - 2011" selected="false" ProjectId="15003154">
+	</Project>
+<Project Name="Shell Demiatta PDR Docs" Level="1" Folder="/Shell Demiatta PDR Docs" selected="false" ProjectId="14052739">
+	</Project>
+<Project Name="Shell EPE Model Changes" Level="1" Folder="/Shell EPE Model Changes" selected="false" ProjectId="14332965">
+	</Project>
+<Project Name="Shell Europe BLC re-tender" Level="1" Folder="/Shell Europe BLC re-tender" selected="false" ProjectId="1657095">
+	</Project>
+<Project Name="Shell Jotun" Level="1" Folder="/Shell Jotun" selected="false" ProjectId="12511961">
+	</Project>
+<Project Name="Shell Mars Basin Smart Fields" Level="1" Folder="/Shell Mars Basin Smart Fields" selected="false" ProjectId="7041568">
+	</Project>
+<Project Name="Shell NAM" Level="1" Folder="/Shell NAM" selected="false" ProjectId="708670">
+	</Project>
+<Project Name="Shell OFM Global Standardisation" Level="1" Folder="/Shell OFM Global Standardisation" selected="false" ProjectId="12055379">
+	</Project>
+<Project Name="Shell Offshore integrated drilling services project" Level="1" Folder="/Shell Offshore integrated drilling services project" selected="false" ProjectId="14844529">
+	</Project>
+<Project Name="Shell Packeteer Installation" Level="1" Folder="/Shell Packeteer Installation" selected="false" ProjectId="2262796">
+	</Project>
+<Project Name="Shell Pierce CPS UK" Level="1" Folder="/Shell Pierce CPS UK" selected="false" ProjectId="15096634">
+	</Project>
+<Project Name="Shell Pierce Saddle AVO" Level="1" Folder="/Shell Pierce Saddle AVO" selected="false" ProjectId="3322257">
+	</Project>
+<Project Name="Shell Pilgrim" Level="1" Folder="/Shell Pilgrim" selected="false" ProjectId="14757428">
+	</Project>
+<Project Name="Shell SPEED" Level="1" Folder="/Shell SPEED" selected="false" ProjectId="14333369">
+	</Project>
+<Project Name="Shell SPEED 3rd Line Support" Level="1" Folder="/Shell SPEED 3rd Line Support" selected="false" ProjectId="14333001">
+<Project Name="Shell Abu Dhabi" Level="2" Folder="/Shell SPEED/Shell Abu Dhabi" selected="false" ProjectId="14333531">
+	</Project>
+<Project Name="Shell Cameroon" Level="2" Folder="/Shell SPEED/Shell Cameroon" selected="false" ProjectId="14333548">
+	</Project>
+<Project Name="Shell EPE Model Changes" Level="2" Folder="/Shell SPEED/Shell EPE Model Changes" selected="false" ProjectId="14332965">
+	</Project>
+<Project Name="Shell Kazakhstan" Level="2" Folder="/Shell SPEED/Shell Kazakhstan" selected="false" ProjectId="14333395">
+	</Project>
+<Project Name="Shell Oman" Level="2" Folder="/Shell SPEED/Shell Oman" selected="false" ProjectId="14333413">
+	</Project>
+<Project Name="Shell SPEED 3rd Line Support" Level="2" Folder="/Shell SPEED/Shell SPEED 3rd Line Support" selected="false" ProjectId="14333001">
+	</Project>
+	</Project>
+<Project Name="Shell Sakhalin" Level="1" Folder="/Shell Sakhalin" selected="false" ProjectId="11782659">
+	</Project>
+<Project Name="Shell Sakhalin IC Tender" Level="1" Folder="/Shell Sakhalin IC Tender" selected="false" ProjectId="13526280">
+<Project Name="SEIC Tender Commercial Documentation" Level="2" Folder="/Shell Sakhalin IC Tender/SEIC Tender Commercial Documentation" selected="false" ProjectId="13923665">
+	</Project>
+	</Project>
+<Project Name="Shell Saloon 3" Level="1" Folder="/Shell Saloon 3" selected="false" ProjectId="14574351">
+	</Project>
+<Project Name="Shell Salym" Level="1" Folder="/Shell Salym" selected="false" ProjectId="7195352">
+	</Project>
+<Project Name="Shell Sarawak Bottom Discharge Pinned Pump REDACoil* Installation" Level="1" Folder="/Shell Sarawak Bottom Discharge Pinned Pump REDACoil Installation" selected="false" ProjectId="3776136">
+	</Project>
+<Project Name="Shell Thatcher" Level="1" Folder="/Shell Thatcher" selected="false" ProjectId="14679355">
+	</Project>
+<Project Name="Shell iCompletion" Level="1" Folder="/Shell iCompletion" selected="false" ProjectId="4175173">
+	</Project>
+<Project Name="Shell-GoM" Level="1" Folder="/Shell-GoM" selected="false" ProjectId="11927260">
+	</Project>
+<Project Name="Shell-Sakhalin-2005" Level="1" Folder="/Shell-Sakhalin-2005" selected="false" ProjectId="12304137">
+	</Project>
+<Project Name="Shield 2002 " Level="1" Folder="/Shield 2002 " selected="false" ProjectId="283481">
+	</Project>
+<Project Name="Shipment from non US Tech Center to Nafta" Level="1" Folder="/Shipment from non US Tech Center to Nafta" selected="false" ProjectId="13937723">
+	</Project>
+<Project Name="Shirvan Collaboration Space" Level="1" Folder="/Shirvan Collaboration Space" selected="false" ProjectId="170800">
+	</Project>
+<Project Name="Shiva VPN Conversion" Level="1" Folder="/Shiva VPN Conversion" selected="false" ProjectId="3796907">
+	</Project>
+<Project Name="Shyama" Level="1" Folder="/Shyama" selected="false" ProjectId="9998958">
+	</Project>
+<Project Name="Shyama - June 23-06" Level="1" Folder="/Shyama - June 23-06" selected="false" ProjectId="12898825">
+	</Project>
+<Project Name="Shyama Demo" Level="1" Folder="/Shyama Demo" selected="false" ProjectId="14438859">
+<Project Name="Sign Off Test Project" Level="2" Folder="/Shyama/Sign Off Test Project" selected="false" ProjectId="12638243">
+	</Project>
+<Project Name="Sub-project test" Level="2" Folder="/Shyama/Sub-project test" selected="false" ProjectId="12218968">
+	</Project>
+<Project Name="Visibility test" Level="2" Folder="/Shyama/Visibility test" selected="false" ProjectId="12218988">
+	</Project>
+	</Project>
+<Project Name="Shyama_Disable_test2" Level="1" Folder="/Shyama_Disable_test2" selected="false" ProjectId="12883406">
+	</Project>
+<Project Name="Shyama_delete_project_test" Level="1" Folder="/Shyama_delete_project_test" selected="false" ProjectId="12883371">
+	</Project>
+<Project Name="Sibneft - Pryobskoye" Level="1" Folder="/Sibneft - Pryobskoye" selected="false" ProjectId="1329366">
+	</Project>
+</projects>

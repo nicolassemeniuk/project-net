@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPersonProfile" 
+    table="PN_PERSON_PROFILE"
+    lazy="false"
+>
+
+    <id
+        name="personId"
+        type="java.math.BigDecimal"
+        column="PERSON_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="prefixName"
+        type="java.lang.String"
+        column="PREFIX_NAME"
+        length="80"
+    />
+    <property
+        name="middleName"
+        type="java.lang.String"
+        column="MIDDLE_NAME"
+        length="80"
+    />
+    <property
+        name="secondLastName"
+        type="java.lang.String"
+        column="SECOND_LAST_NAME"
+        length="80"
+    />
+    <property
+        name="suffixName"
+        type="java.lang.String"
+        column="SUFFIX_NAME"
+        length="80"
+    />
+    <property
+        name="companyName"
+        type="java.lang.String"
+        column="COMPANY_NAME"
+        length="120"
+    />
+    <property
+        name="companyDivision"
+        type="java.lang.String"
+        column="COMPANY_DIVISION"
+        length="120"
+    />
+    <property
+        name="jobDescriptionCode"
+        type="java.lang.Integer"
+        column="JOB_DESCRIPTION_CODE"
+        length="4"
+    />
+    <property
+        name="addressId"
+        type="java.math.BigDecimal"
+        column="ADDRESS_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="languageCode"
+        type="java.lang.String"
+        column="LANGUAGE_CODE"
+        length="80"
+    />
+    <property
+        name="timezoneCode"
+        type="java.lang.String"
+        column="TIMEZONE_CODE"
+        not-null="true"
+        length="60"
+    />
+    <property
+        name="personalSpaceName"
+        type="java.lang.String"
+        column="PERSONAL_SPACE_NAME"
+        not-null="true"
+        length="240"
+    />
+    <property
+        name="verificationCode"
+        type="java.lang.String"
+        column="VERIFICATION_CODE"
+        length="80"
+    />
+    <property
+        name="alternateEmail1"
+        type="java.lang.String"
+        column="ALTERNATE_EMAIL_1"
+        length="240"
+    />
+    <property
+        name="alternateEmail2"
+        type="java.lang.String"
+        column="ALTERNATE_EMAIL_2"
+        length="240"
+    />
+    <property
+        name="alternateEmail3"
+        type="java.lang.String"
+        column="ALTERNATE_EMAIL_3"
+        length="240"
+    />
+    <property
+        name="localeCode"
+        type="java.lang.String"
+        column="LOCALE_CODE"
+        length="20"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnPerson -->
+    <one-to-one
+        name="pnPerson"
+        class="net.project.hibernate.model.PnPerson"
+        outer-join="auto"
+        constrained="false"
+    />
+
+</class>
+</hibernate-mapping>

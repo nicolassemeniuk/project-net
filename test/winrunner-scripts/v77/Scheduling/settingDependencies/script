@@ -1,0 +1,132 @@
+wait(3);
+# call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject"();
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+reload("extractTaskID",0,1);
+reload("extractProjectID",0,1);
+reload("createTask",0,1);
+
+public task_types[] = {"Fixed Duration","Fixed Units","Fixed Work"};
+public units[] = {"hours","days","weeks"};
+
+function set_dependency_edit(in task1, in task2){
+	auto record_number, rc1, rc2;
+	auto taskID1, taskID2;
+	auto val, val1;
+	
+# 	val1 = extractProjectID("WRProject");
+# 	taskID1 = extractTaskID(task1,val1);
+# 	taskID2 = extractTaskID(task2,val1);
+	
+	set_window("main",1);
+	web_link_click(""&task2&"");
+	set_window("main",1);
+	web_link_click("Modify");
+	set_window("main",1);
+	list_select_item("dependency_1_task_id",""&task1&"");
+	web_link_click("Submit"); 
+	wait(3);
+# 	
+# 	rc1 = db_connect("query1","DSN=v77stage;UID=pnet;PWD=pnet;DRIVER={Oracle in OraHome92};");
+#  	if (rc1!=E_OK)
+#  		report_msg("Cannot connect to database");
+# 	else (rc1 == E_OK)
+# 		rc2 = db_execute_query ("query1","Select t.seq from pn_task t, pn_space_has_plan shp, pn_plan_has_task pht where shp.space_id = "&val1&" and pht.plan_id = shp.plan_id and pht.task_id = t.task_id and t.record_status = 'A' and t.task_id ='"&taskID2&"' ", record_number);
+# 	val = db_get_field_value ("query1", "#0", "SEQ");
+# 	db_disconnect("query1");
+	
+	set_window("main",1);
+	web_link_click(""&task2&"");
+	set_window("main",1);
+	web_link_click("Dependencies");
+	wait(3);
+	if(web_obj_text_exists("Name:","#5","#2",""&task1&"","","")==E_OK)
+		report_msg("Verified that "&task2&" is dependant on "&task1&"");
+	web_link_click("Return to Task List");
+}
+
+function set_dependency_quick(in task1, in task2){ 
+	auto record_number, rc1, rc2;
+	auto taskID1, taskID2;
+	auto val,val1;
+	
+	val1 = extractProjectID("WRProject");
+	taskID1 = extractTaskID(task1,val1);
+	taskID2 = extractTaskID(task2,val1);
+	
+	set_window("main",1);
+	wait(1);
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","t1_button","part_value",""&taskID1&"")!=E_OK)
+		report_msg("NOT OK1");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","t2_button","part_value",""&taskID2&"")!=E_OK)
+		report_msg("NOT OK2");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+	
+	button_set("t1_button",ON);
+	button_set("t2_button",ON);
+	wait(1);
+	web_link_click("Link Tasks");
+	rc1 = db_connect("query1","DSN=v80stage;UID=pnet;PWD=pnet;DRIVER={Oracle in OraHome92};");
+ 	if (rc1!=E_OK)
+ 		report_msg("Cannot connect to database");
+	else (rc1 == E_OK)
+		rc2 = db_execute_query ("query1","Select t.seq from pn_task t, pn_space_has_plan shp, pn_plan_has_task pht where shp.space_id = "&val1&" and pht.plan_id = shp.plan_id and pht.task_id = t.task_id and t.record_status = 'A' and t.task_id ='"&taskID2&"' ", record_number);
+	val = db_get_field_value ("query1", "#0", "SEQ");
+	db_disconnect("query1");
+    wait(1);
+	set_window("main",1);
+	web_link_click(""&task2&"");
+	set_window("main",1);
+	web_link_click("Dependencies");
+	wait(5);
+	if(web_obj_text_exists("Name:","#5","#2",""&task1&"","","")==E_OK)
+		report_msg("Verified that "&task2&" is dependant on "&task1&"");
+	web_link_click("Return to Task List");	
+}
+
+# set_window("main",3);
+# web_link_click("TestProject2");
+# set_window("menu",3);
+# web_link_click("Workplan");
+# wait(2);
+
+set_window("main",2);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer");
+button_press("OK");
+wait(6);
+set_window("main",1);
+
+createTask("t1", task_types[0], 2, units[1], 1, units[1]);
+createTask("t2", task_types[0], 1, units[1], 8, units[0]);
+createTask("t3", task_types[0], 1, units[1], 8, units[0]);
+createTask("t4", task_types[0], 1, units[1], 8, units[0]);
+report_msg("FIXED DURATION TASKS");
+set_dependency_edit("t1","t2");
+set_dependency_quick("t3","t4");	
+
+createTask("t5", task_types[1], 1, units[1], 8, units[0]);
+createTask("t6", task_types[1], 1, units[1], 8, units[0]);
+createTask("t7", task_types[1], 1, units[1], 8, units[0]);
+createTask("t8", task_types[1], 1, units[1], 8, units[0]);
+report_msg("FIXED UNIT TASKS");
+set_dependency_edit("t5","t6");
+set_dependency_quick("t7","t8");	
+
+createTask("t9", task_types[2], 1, units[1], 8, units[0]);
+createTask("t10", task_types[2], 1, units[1], 8, units[0]);
+createTask("t11", task_types[2], 1, units[1], 8, units[0]);
+createTask("t12", task_types[2], 1, units[1], 8, units[0]);
+report_msg("FIXED WORK TASKS");
+set_dependency_edit("t9","t10");
+set_dependency_quick("t11","t12");
+wait(2);
+
+# set_window("toolbar_main","Log Out");
+# wait(2);
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
