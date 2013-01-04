@@ -1,0 +1,19 @@
+function testWorkComplete(in taskName, in workCompleteValue,in workCompleteUnits){
+	auto value1, value2;
+
+	set_window("main",2);
+	web_link_click(taskName);
+	set_window("main",1);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",1);
+	edit_get_text("work_complete",value1);
+	list_check_selected
+# 	pause(workPercentageValue);
+# 	pause(workPercentage);
+	if(value1 == ""&workCompleteValue&"%")
+		tl_step("Verify work complete",0,"Work complete value and units for "&taskName&" correctly specified");
+	else
+		tl_step("Verify work complete",1,"Work complete value and units for "&taskName&" INCORRECTLY specified");
+	web_link_click("Cancel");
+} 	

@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnAssignment" 
+    table="PN_ASSIGNMENT"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnAssignmentPK">
+        <key-property 
+            name="spaceId" 
+            column="SPACE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="personId" 
+            column="PERSON_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="objectId" 
+            column="OBJECT_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="statusId"
+        type="int"
+        column="STATUS_ID"
+        not-null="true"
+        length="3"
+    />
+    <property
+        name="percentAllocated"
+        type="java.math.BigDecimal"
+        column="PERCENT_ALLOCATED"
+        length="22"
+    />
+    <property
+        name="role"
+        type="java.lang.String"
+        column="ROLE"
+        length="80"
+    />
+    <property
+        name="isPrimaryOwner"
+        type="int"
+        column="IS_PRIMARY_OWNER"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="startDate"
+        type="java.sql.Date"
+        column="START_DATE"
+        length="7"
+    />
+    <property
+        name="endDate"
+        type="java.sql.Date"
+        column="END_DATE"
+        length="7"
+    />
+    <property
+        name="work"
+        type="java.math.BigDecimal"
+        column="WORK"
+        length="22"
+    />
+    <property
+        name="workUnits"
+        type="java.math.BigDecimal"
+        column="WORK_UNITS"
+        length="22"
+    />
+    <property
+        name="workComplete"
+        type="java.math.BigDecimal"
+        column="WORK_COMPLETE"
+        length="22"
+    />
+    <property
+        name="workCompleteUnits"
+        type="java.math.BigDecimal"
+        column="WORK_COMPLETE_UNITS"
+        length="22"
+    />
+    <property
+        name="dateCreated"
+        type="java.sql.Date"
+        column="DATE_CREATED"
+        length="7"
+    />
+    <property
+        name="modifiedDate"
+        type="java.sql.Date"
+        column="MODIFIED_DATE"
+        length="7"
+    />
+    <property
+        name="modifiedBy"
+        type="java.math.BigDecimal"
+        column="MODIFIED_BY"
+        length="20"
+    />
+    <property
+        name="isComplete"
+        type="java.math.BigDecimal"
+        column="IS_COMPLETE"
+        length="22"
+    />
+    <property
+        name="percentComplete"
+        type="java.math.BigDecimal"
+        column="PERCENT_COMPLETE"
+        length="22"
+    />
+    <property
+        name="actualStart"
+        type="java.sql.Date"
+        column="ACTUAL_START"
+        length="7"
+    />
+    <property
+        name="actualFinish"
+        type="java.sql.Date"
+        column="ACTUAL_FINISH"
+        length="7"
+    />
+    <property
+        name="estimatedFinish"
+        type="java.sql.Date"
+        column="ESTIMATED_FINISH"
+        length="7"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnObject -->
+    <many-to-one
+        name="pnObject"
+	    class="net.project.hibernate.model.PnObject"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="OBJECT_ID" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to PnSpaceHasPerson -->
+    <many-to-one
+        name="pnSpaceHasPerson"
+	    class="net.project.hibernate.model.PnSpaceHasPerson"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="SPACE_ID" />
+    	<column name="PERSON_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

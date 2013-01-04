@@ -1,0 +1,216 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnWorkflowStep" 
+    table="PN_WORKFLOW_STEP"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnWorkflowStepPK">
+        <key-property 
+            name="stepId" 
+            column="STEP_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="workflowId" 
+            column="WORKFLOW_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="stepName"
+        type="java.lang.String"
+        column="STEP_NAME"
+        length="80"
+    />
+    <property
+        name="stepDescription"
+        type="java.lang.String"
+        column="STEP_DESCRIPTION"
+        length="500"
+    />
+    <property
+        name="isFinalStep"
+        type="int"
+        column="IS_FINAL_STEP"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isInitialStep"
+        type="int"
+        column="IS_INITIAL_STEP"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="entryStatusId"
+        type="java.math.BigDecimal"
+        column="ENTRY_STATUS_ID"
+        length="20"
+    />
+    <property
+        name="createdById"
+        type="java.math.BigDecimal"
+        column="CREATED_BY_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="createdDatetime"
+        type="java.sql.Date"
+        column="CREATED_DATETIME"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="modifiedById"
+        type="java.math.BigDecimal"
+        column="MODIFIED_BY_ID"
+        length="20"
+    />
+    <property
+        name="modifiedDatetime"
+        type="java.sql.Date"
+        column="MODIFIED_DATETIME"
+        length="7"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="notesClob"
+        type="java.sql.Clob"
+        column="NOTES_CLOB"
+        length="4000"
+    />
+    <property
+        name="stepSequence"
+        type="java.lang.Integer"
+        column="STEP_SEQUENCE"
+        length="5"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnWorkflow -->
+    <many-to-one
+        name="pnWorkflow"
+	    class="net.project.hibernate.model.PnWorkflow"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="WORKFLOW_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to PnSubscription -->
+    <many-to-one
+        name="pnSubscription"
+        class="net.project.hibernate.model.PnSubscription"
+        not-null="true"
+    >
+        <column name="SUBSCRIPTION_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnWorkflowStepHasGroup -->
+
+    <set
+        name="pnWorkflowStepHasGroups"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="STEP_ID" />
+            <column name="WORKFLOW_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnWorkflowStepHasGroup"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnWorkflowTransition -->
+
+    <set
+        name="pnWorkflowTransitionsByEndStepIdAndWorkflowId"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="END_STEP_ID" />
+            <column name="WORKFLOW_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnWorkflowTransition"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnWorkflowTransition -->
+
+    <set
+        name="pnWorkflowTransitionsByBeginStepIdAndWorkflowId"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="BEGIN_STEP_ID" />
+            <column name="WORKFLOW_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnWorkflowTransition"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnEnvelopeVersion -->
+
+    <set
+        name="pnEnvelopeVersions"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="STEP_ID" />
+            <column name="WORKFLOW_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnEnvelopeVersion"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

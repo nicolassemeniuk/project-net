@@ -1,0 +1,106 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnLanguage" 
+    table="PN_LANGUAGE"
+    lazy="false"
+>
+
+    <id
+        name="languageCode"
+        type="java.lang.String"
+        column="LANGUAGE_CODE"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="languageName"
+        type="java.lang.String"
+        column="LANGUAGE_NAME"
+        not-null="true"
+        length="500"
+    />
+    <property
+        name="characterSet"
+        type="java.lang.String"
+        column="CHARACTER_SET"
+        not-null="true"
+        length="500"
+    />
+    <property
+        name="isActive"
+        type="int"
+        column="IS_ACTIVE"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnProperty -->
+
+    <set
+        name="pnProperties"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="LANGUAGE" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnProperty"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnBrandSupportsLanguage -->
+
+    <set
+        name="pnBrandSupportsLanguages"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="LANGUAGE_CODE" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnBrandSupportsLanguage"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnBrand -->
+
+    <set
+        name="pnBrands"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DEFAULT_LANGUAGE" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnBrand"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

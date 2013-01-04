@@ -1,0 +1,345 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnTask" 
+    table="PN_TASK"
+    lazy="false"
+>
+
+    <id
+        name="taskId"
+        type="java.math.BigDecimal"
+        column="TASK_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="taskName"
+        type="java.lang.String"
+        column="TASK_NAME"
+        not-null="true"
+        length="255"
+    />
+    <property
+        name="taskDesc"
+        type="java.lang.String"
+        column="TASK_DESC"
+        length="4000"
+    />
+    <property
+        name="taskType"
+        type="java.lang.String"
+        column="TASK_TYPE"
+        length="80"
+    />
+    <property
+        name="duration"
+        type="java.math.BigDecimal"
+        column="DURATION"
+        length="22"
+    />
+    <property
+        name="work"
+        type="java.math.BigDecimal"
+        column="WORK"
+        length="22"
+    />
+    <property
+        name="workUnits"
+        type="java.math.BigDecimal"
+        column="WORK_UNITS"
+        length="20"
+    />
+    <property
+        name="workComplete"
+        type="java.math.BigDecimal"
+        column="WORK_COMPLETE"
+        length="22"
+    />
+    <property
+        name="dateStart"
+        type="java.sql.Date"
+        column="DATE_START"
+        length="7"
+    />
+    <property
+        name="workCompleteUnits"
+        type="java.math.BigDecimal"
+        column="WORK_COMPLETE_UNITS"
+        length="20"
+    />
+    <property
+        name="dateFinish"
+        type="java.sql.Date"
+        column="DATE_FINISH"
+        length="7"
+    />
+    <property
+        name="actualStart"
+        type="java.sql.Date"
+        column="ACTUAL_START"
+        length="7"
+    />
+    <property
+        name="actualFinish"
+        type="java.sql.Date"
+        column="ACTUAL_FINISH"
+        length="7"
+    />
+    <property
+        name="priority"
+        type="java.lang.Integer"
+        column="PRIORITY"
+        length="6"
+    />
+    <property
+        name="percentComplete"
+        type="java.lang.Integer"
+        column="PERCENT_COMPLETE"
+        length="6"
+    />
+    <property
+        name="dateCreated"
+        type="java.sql.Date"
+        column="DATE_CREATED"
+        length="7"
+    />
+    <property
+        name="dateModified"
+        type="java.sql.Date"
+        column="DATE_MODIFIED"
+        length="7"
+    />
+    <property
+        name="modifiedBy"
+        type="java.math.BigDecimal"
+        column="MODIFIED_BY"
+        length="20"
+    />
+    <property
+        name="durationUnits"
+        type="java.math.BigDecimal"
+        column="DURATION_UNITS"
+        length="20"
+    />
+    <property
+        name="parentTaskId"
+        type="java.math.BigDecimal"
+        column="PARENT_TASK_ID"
+        length="20"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="criticalPath"
+        type="java.math.BigDecimal"
+        column="CRITICAL_PATH"
+        length="22"
+    />
+    <property
+        name="seq"
+        type="java.math.BigDecimal"
+        column="SEQ"
+        length="22"
+    />
+    <property
+        name="ignoreTimesForDates"
+        type="java.lang.Integer"
+        column="IGNORE_TIMES_FOR_DATES"
+        length="1"
+    />
+    <property
+        name="isMilestone"
+        type="java.lang.Integer"
+        column="IS_MILESTONE"
+        length="1"
+    />
+    <property
+        name="earlyStart"
+        type="java.sql.Date"
+        column="EARLY_START"
+        length="7"
+    />
+    <property
+        name="earlyFinish"
+        type="java.sql.Date"
+        column="EARLY_FINISH"
+        length="7"
+    />
+    <property
+        name="lateStart"
+        type="java.sql.Date"
+        column="LATE_START"
+        length="7"
+    />
+    <property
+        name="lateFinish"
+        type="java.sql.Date"
+        column="LATE_FINISH"
+        length="7"
+    />
+    <property
+        name="workPercentComplete"
+        type="java.math.BigDecimal"
+        column="WORK_PERCENT_COMPLETE"
+        length="22"
+    />
+    <property
+        name="calculationTypeId"
+        type="java.math.BigDecimal"
+        column="CALCULATION_TYPE_ID"
+        length="20"
+    />
+    <property
+        name="unallocatedWorkComplete"
+        type="java.math.BigDecimal"
+        column="UNALLOCATED_WORK_COMPLETE"
+        length="22"
+    />
+    <property
+        name="unallocatedWorkCompleteUnit"
+        type="java.math.BigDecimal"
+        column="UNALLOCATED_WORK_COMPLETE_UNIT"
+        length="20"
+    />
+    <property
+        name="constraintType"
+        type="java.lang.String"
+        column="CONSTRAINT_TYPE"
+        length="10"
+    />
+    <property
+        name="constraintDate"
+        type="java.sql.Date"
+        column="CONSTRAINT_DATE"
+        length="7"
+    />
+    <property
+        name="deadline"
+        type="java.sql.Date"
+        column="DEADLINE"
+        length="7"
+    />
+    <property
+        name="workMs"
+        type="java.math.BigDecimal"
+        column="WORK_MS"
+        length="22"
+    />
+    <property
+        name="workCompleteMs"
+        type="java.math.BigDecimal"
+        column="WORK_COMPLETE_MS"
+        length="22"
+    />
+    <property
+        name="unassignedWork"
+        type="java.math.BigDecimal"
+        column="UNASSIGNED_WORK"
+        length="22"
+    />
+    <property
+        name="unassignedWorkUnits"
+        type="java.math.BigDecimal"
+        column="UNASSIGNED_WORK_UNITS"
+        length="22"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnObject -->
+    <one-to-one
+        name="pnObject"
+        class="net.project.hibernate.model.PnObject"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional one-to-many association to PnPlanHasTask -->
+
+    <set
+        name="pnPlanHasTasks"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="TASK_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPlanHasTask"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnPhaseHasTask -->
+
+    <set
+        name="pnPhaseHasTasks"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="TASK_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPhaseHasTask"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnTaskHistory -->
+
+    <set
+        name="pnTaskHistories"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="TASK_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnTaskHistory"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnTaskBaseline -->
+
+    <set
+        name="pnTaskBaselines"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="TASK_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnTaskBaseline"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

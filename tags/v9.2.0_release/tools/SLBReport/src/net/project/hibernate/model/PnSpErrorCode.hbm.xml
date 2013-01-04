@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnSpErrorCode" 
+    table="PN_SP_ERROR_CODES"
+    lazy="false"
+>
+
+    <id
+        name="errorCode"
+        type="java.math.BigDecimal"
+        column="ERROR_CODE"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="errorName"
+        type="java.lang.String"
+        column="ERROR_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="errorDescription"
+        type="java.lang.String"
+        column="ERROR_DESCRIPTION"
+        length="2000"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

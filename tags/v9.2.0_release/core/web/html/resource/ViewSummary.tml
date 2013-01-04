@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:Layout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<style type="text/css">
+.cellColorRed{
+	background-color:#FF9999;
+}
+#popupScreen {
+	position: absolute;
+	overflow: hidden;
+	visibility: hidden;	
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	filter:alpha(opacity=50); 
+	-moz-opacity: 0.5; 
+	opacity: 0.5;
+	background-color: #DDDDDD;
+	z-index: 100000;
+}
+#resourceDetailPopup {
+	position: absolute;
+	visibility: hidden;
+	overflow-y: auto;
+	width: 550px;
+	height: 400px;
+	left: 250px;
+	top: 100px;	
+	background-color: #FFFFFF;
+	border: 3px solid #CCCCFF;
+	padding: 10px;
+	z-index: 100001;
+}
+#close {
+	float: right;
+}
+.x-grid3-sort-icon {
+	display: none !IMPORTANT;
+}
+</style>
+<script type="text/javascript">
+var year = ${year};
+var monthIndex = ${monthIndex};
+var gridData = ${summaryGridData};
+var resourceColumnHeader = '${resourceColumnLabel}';
+var projectNameColumnHeader = '${projectNameColumnLabel}';
+var totalAssignedColumnHeader = '${totalAssignedColumnLabel}';
+var totalAvailableColumnHeader = '${totalAvailableColumnLabel}';
+var summaryGridTitle = '${summaryGridTitle}';
+var searchMessage = '${searchMessage}';
+var extAlertTitle = '${extAlertTitle}';
+var serverRequestFailedMessage = '${serverRequestFailedMessage}';
+var jspRootUrl = '${jSPRootURL}';
+var workingHoursInMonth = ${workingHoursInMonth};
+var gridTotalRowLabel = '${gridTotalRowLabel}';
+</script>
+<script type="text/javascript" src="${jSPRootURL}/src/viewSummary-grid.js?${versionNumber}"></script>
+<t:SpaceMainMenu />
+<t:NavBar />
+<div id="tcontent">
+	<table width="98%" border="0" cellpadding="0" cellspacing="0">
+		<tr class="channelHeader">
+			<td class="channelHeader" width="1%"><img
+				src="${jSPRootURL}/images/icons/channelbar-left_end.gif" width="8"
+				height="15" border="0" hspace="0" vspace="0" /></td>
+			<td nowrap="nowrap" class="channelHeader"><t:Message value="prm.resource.viewsummary.pagetitle" /></td>
+			<td align="right" nowrap="nowrap" class="channelHeader">&nbsp;</td>
+			<td align="right" class="channelHeader" width="5%"><img
+				src="${jSPRootURL}/images/icons/channelbar-right_end.gif" width="8"
+				height="15" border="0" hspace="0" vspace="0" /></td>
+		</tr>
+	</table>
+	<br />
+	<t:form autofocus="false" clientValidation="false">
+		<table align="center" cellpadding="0" cellspacing="0" border="0"
+			style="z-index: 1;">
+			<tr class="fieldNonRequired">
+				<td align="left" colspan="2"><t:Message value="prm.resource.viewsummary.business.label" />
+				:&nbsp;&nbsp;&nbsp; <t:select model="businessesModel"
+					encoder="businessesModel" value="businessList"
+					clientId="businessList" blankOption="NEVER" /></td>
+			</tr>
+			<tr height="5">
+				<td></td>
+			</tr>
+			<tr align="center" class="fieldNonRequired">
+				<td align="left"><t:Message value="prm.resource.viewsummary.startmonth.label" /> : <t:select
+					model="monthsModel" value="month" clientId="monthsId" blankOption="NEVER" /></td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;<t:select model="yearsModel"
+					value="year" clientId="yearsId" blankOption="NEVER" />&nbsp;&nbsp; <input
+					type="button" id="viewBtn" value=" ${viewButtonCaption} "
+					onclick="fetchDataByMonths(0);" /></td>
+			</tr>
+			<tr height="5">
+				<td></td>
+			</tr>			
+			<tr>
+				<td colspan="2" align="center"><br />
+				<div id="searchMessage"><label
+					style="color:red; font-weight:bold;"> ${message} </label></div>
+				</td>
+			</tr>
+		</table>
+	</t:form>
+	<table width="93%">
+		<tr>
+			<td align="right" colspan="3">&nbsp;&nbsp;&nbsp;&nbsp; <img
+				src="${jSPRootURL}/images/icons/actionbar-previouspost_off.gif"
+				id="preThreeMonthImage" onclick="fetchDataByMonths(-3);"
+				title="${goThreeMonthsBackwardImageTooltip}" /> &nbsp;&nbsp;&nbsp;&nbsp; <img
+				src="${jSPRootURL}/images/icons/actionbar-back_off.gif"
+				id="preOneMonthImage" onclick="fetchDataByMonths(-1);"
+				title="${goOneMonthBackwardImageTooltip}" /> &nbsp;&nbsp;&nbsp;&nbsp; <img
+				src="${jSPRootURL}/images/icons/actionbar-next_off.gif"
+				id="nextOneMonthImage" onclick="fetchDataByMonths(1);"
+				title="${goOneMonthForwardImageTooltip}" /> &nbsp;&nbsp;&nbsp;&nbsp; <img
+				src="${jSPRootURL}/images/icons/actionbar-nextpost_off.gif"
+				id="nextThreeMonthImage" onclick="fetchDataByMonths(3);"
+				title="${goThreeMonthsForwardImageTooltip}" /> &nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td colspan="3">
+				<div id="summaryGridPosition" style="margin-right: 10px;"></div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<table width="130">
+				<tr>
+					<td width="30">	
+					<div id="colorCode" style="margin-top:2px;background-color:#FF9999;height:15px;width:30px;border-color:black;border: medium;" ></div>
+					</td>
+					<td width="100" nowrap="nowrap"><font face="Arial" style="font-weight:bold;" color="brown">&nbsp;&nbsp;<t:Message value="prm.resource.viewsummary.gridcellredcolor.legend" /></font></td>
+				</tr>
+				</table>
+			</td>
+			<td align="right">
+				<div style="margin-right: 20px;"><font face="Arial" color="brown" style="font-weight:bold"><t:Message value="prm.resource.viewsummary.allworkvaluesareinhours.notemessage" /></font></div>
+			</td>
+		</tr>
+	</table>
+</div>
+<!-- End of content -->
+
+<div id="popupScreen"></div>
+<div id="resourceDetailPopup">
+	<span id="close"> 
+	<a href="#" onclick="enableScreen();">
+	<strong><u><t:Message value="prm.resource.viewsummary.popupcloselink.label" /></u>&nbsp;&nbsp;X</strong></a> </span>
+	<div id="resourceDetails"></div>
+	<table align="center" width="92%">
+		<tr>
+			<td align="left">
+			<table width="300" align="left"><tr>
+				<td width="30">
+					<div id="colorCode" style="margin-top:2px;background-color:#99FFFF;height:15px;width:30px;border-color:black;border-style:solid;border-width:1px;" ></div>
+				</td>
+				<td width="100">&nbsp;&nbsp;<font face="Arial" color="brown" style="font-weight:bold;margin-left: 0"><t:Message value="prm.resource.resourceassignmentsummary.bluecolor.legend" /></font></td>
+				<td width="30">
+					<div id="colorCode" style="margin-top:2px;background-color:#FFFFCC;height:15px;width:30px;border-color:black;border-style:solid;border-width:1px;" ></div>
+				</td>
+				<td width="140">&nbsp;&nbsp;<font face="Arial" color="brown" style="font-weight:bold;margin-left: 0"><t:Message value="prm.resource.resourceassignmentsummary.yellowcolor.legend" /></font></td></tr>
+			</table>	
+			</td>
+			<td align="right">
+				<font face="Arial" color="brown" style="font-weight:bold;margin-left: 0"><t:Message value="prm.resource.viewsummary.allworkvaluesareinhours.notemessage" /></font>
+			</td>
+		</tr>
+	</table>
+</div>
+</t:Layout>

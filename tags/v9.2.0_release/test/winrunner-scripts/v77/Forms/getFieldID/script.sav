@@ -1,0 +1,25 @@
+function getFieldID(in fieldName){	
+	auto urlValue, fieldID, path_array[], elements;
+# 	wait(2);
+# 	call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\forLoginForms"();
+# 	wait(2);
+# 	GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");
+# 	wait(1);
+# 	set_window("main",2);
+# 	wait(2);
+# 	web_link_click("Form Designer");
+# 	wait(1);
+# 	set_window("main",2);
+# 	web_link_click("WRform");
+# 	wait(1);
+# 	set_window("main",2);
+# 	web_link_click("Fields");
+	wait(1);
+	set_window("main",2);
+	web_obj_get_info(fieldName,"url",urlValue);
+	elements = split(urlValue,path_array,"\'");
+	fieldID = path_array[2];
+# 	pause(field_id);
+	return fieldID;
+# 	GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");
+}

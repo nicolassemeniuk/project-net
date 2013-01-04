@@ -1,0 +1,9 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\News\batchNews> 3 1115917008 0
+37 83 <Step: News, Status: Pass, Description: News Item NewsItemTest1 successfully created> <C:\Documents and Settings\QA\Desktop\v77\News\batchNews> 15 1115917018 24
+37 83 <Step: News, Status: Pass, Description: News Item NewsItemTest2 successfully created> <C:\Documents and Settings\QA\Desktop\v77\News\batchNews> 15 1115917023 24
+37 83 <Step: News, Status: Pass, Description: News Item NewsItemTest3 successfully created> <C:\Documents and Settings\QA\Desktop\v77\News\batchNews> 15 1115917028 24
+37 102 <Step: Verify news item, Status: Pass, Description: NewsItemtest1 exists on project workspace dashboard> <C:\Documents and Settings\QA\Desktop\v77\News\batchNews> 29 1115917030 24
+37 102 <Step: Verify news item, Status: Pass, Description: NewsItemtest2 exists on project workspace dashboard> <C:\Documents and Settings\QA\Desktop\v77\News\batchNews> 34 1115917030 24
+37 102 <Step: Verify news item, Status: Pass, Description: NewsItemtest3 exists on project workspace dashboard> <C:\Documents and Settings\QA\Desktop\v77\News\batchNews> 39 1115917030 24
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\News\batchNews> 46 1115917031 0

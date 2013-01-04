@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPagePermission" 
+    table="PN_PAGE_PERMISSION"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnPagePermissionPK">
+        <key-property 
+            name="spaceId" 
+            column="SPACE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="page" 
+            column="PAGE" 
+            type="java.lang.String"
+            length="240"
+        />
+        <key-property 
+            name="groupId" 
+            column="GROUP_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="actions"
+        type="long"
+        column="ACTIONS"
+        not-null="true"
+        length="10"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnGroup -->
+    <many-to-one
+        name="pnGroup"
+	    class="net.project.hibernate.model.PnGroup"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="GROUP_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

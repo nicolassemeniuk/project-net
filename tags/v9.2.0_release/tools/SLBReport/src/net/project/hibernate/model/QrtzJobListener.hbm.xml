@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.QrtzJobListener" 
+    table="QRTZ_JOB_LISTENERS"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.QrtzJobListenerPK">
+        <key-property 
+            name="jobName" 
+            column="JOB_NAME" 
+            type="java.lang.String"
+            length="80"
+        />
+        <key-property 
+            name="jobGroup" 
+            column="JOB_GROUP" 
+            type="java.lang.String"
+            length="80"
+        />
+        <key-property 
+            name="jobListener" 
+            column="JOB_LISTENER" 
+            type="java.lang.String"
+            length="80"
+        />
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to QrtzJobDetail -->
+    <many-to-one
+        name="qrtzJobDetail"
+	    class="net.project.hibernate.model.QrtzJobDetail"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="JOB_NAME" />
+    	<column name="JOB_GROUP" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

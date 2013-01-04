@@ -1,0 +1,14 @@
+function extractTaskName(in seqID, in projectID){
+	auto val;
+	auto record_number, rc1, rc2;
+
+	rc1 = db_connect("query1","DSN=v80stage;UID=pnet;PWD=pnet;DRIVER={Oracle in OraHome92};");
+	if (rc1!=E_OK)
+		report_msg("Cannot connect to database");
+	else (rc1 == E_OK)
+		rc2 = db_execute_query ("query1","select t.task_name from pn_task t, pn_space_has_plan shp, pn_plan_has_task pht where shp.space_id = "&projectID&" and pht.plan_id = shp.plan_id and pht.task_id = t.task_id and t.record_status = 'A' and t.seq = "&seqID&"", record_number);
+	val = db_get_field_value ("query1", "#0", "TASK_NAME");
+	pause(val);
+	db_disconnect("query1");
+	return val;
+}

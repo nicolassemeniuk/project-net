@@ -1,0 +1,47 @@
+function setDependencyType(in task1, in task2,in dependencyType){
+	wait(1);
+	set_window("main",2);
+	web_link_click(task2);
+	wait(2);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",2);
+	switch(dependencyType){
+	case "FS":
+		list_select_item("dependency_1_task_id",task1);
+		list_select_item("dependency_1_type","Finish-to-Start");
+		break;
+	case "SS":
+		list_select_item("dependency_1_task_id",task1);
+		list_select_item("dependency_1_type","Start-to-Start");
+		break;
+	case "FF":
+		list_select_item("dependency_1_task_id",task1);
+		list_select_item("dependency_1_type","Finish-to-Finish");
+		break;
+	case "SF":
+		list_select_item("dependency_1_task_id",task1);
+		list_select_item("dependency_1_type","Start-to-Finish");
+		break;
+	default:
+		list_select_item("dependency_1_task_id",task1);
+		list_select_item("dependency_1_type","Finish-to-Start");
+		report_msg("The default dependency FS was chosen");
+	}
+	wait(1);
+	web_link_click("Submit");
+	
+	set_window("main",2);
+	web_link_click(task2);
+	set_window("main",2);
+	web_link_click("Dependencies");
+	wait(1);
+	set_window("main",2);
+	win_get_text("main",outText,144,367,166,383);
+# 	report_msg(outText);
+	if((outText==task1)||(outText=="t"&task1&""))
+		tl_step("Dependency verification",0,"Dependency for "&task2&" has been set");
+	else
+		tl_step("Dependency verification",1,"Dependency for "&task2&" has NOT been set");	
+	web_link_click("Return to Task List");
+}

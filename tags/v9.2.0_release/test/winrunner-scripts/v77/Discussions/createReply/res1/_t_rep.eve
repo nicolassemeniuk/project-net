@@ -1,0 +1,6 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Discussions\createReply> 3 1106678015 0
+58 66 <subjecttexteditRe: Post testRe: Post test(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Discussions\createReply> 19 1106678018 24
+37 92 <Step: Verify reply post subject, Status: Pass, Description: The subject for reply is correct> <C:\Documents and Settings\QA\Desktop\v77\Discussions\createReply> 20 1106678018 24
+37 79 <Step: Post reply, Status: Pass, Description: Reply to the post Post test exists> <C:\Documents and Settings\QA\Desktop\v77\Discussions\createReply> 28 1106678019 24
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\Discussions\createReply> 31 1106678019 0

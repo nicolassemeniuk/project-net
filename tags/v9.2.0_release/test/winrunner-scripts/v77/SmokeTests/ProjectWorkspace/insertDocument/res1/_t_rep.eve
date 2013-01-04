@@ -1,0 +1,5 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\insertDocument> 2 1112227321 0
+37 65 <Step: Creating a folder, Status: Pass, Description: Folder exists> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\insertDocument> 24 1112227340 24
+37 75 <Step: Importing file, Status: Fail, Description: File COULD NOT be imported> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\insertDocument> 40 1112227356 25
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\insertDocument> 21 1112227356 0

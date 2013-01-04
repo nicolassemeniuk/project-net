@@ -1,0 +1,36 @@
+function checkAutoCalculateOffTask(in taskName, in durationValue, in durationUnits, in workValue, in workUnits){
+	auto outText, outNum;
+
+	set_window("main",2);
+	web_link_click(taskName);
+	wait(1);
+	set_window("main",2);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",2);
+	edit_get_text("duration",outText);
+	if(outText==durationValue)
+		tl_step("Verify duration value",0,"The duration value of a summary task "&taskName&" does not change when auto calculate is turned off");
+	else
+		tl_step("Verify duration value",1,"The duration value of a summary task "&taskName&" CHANGES when auto calculate is turned off");
+	list_get_selected("duration_units",outText, outNum);
+	if(outText==durationUnits)
+		tl_step("Verify duration value",0,"The duration units of a summary task "&taskName&" does not change when auto calculate is turned off");
+	else
+		tl_step("Verify duration value",1,"The duration units of a summary task "&taskName&" CHANGES when auto calculate is turned off");
+		
+	edit_get_text("work",outText);
+	if(outText==workValue)
+		tl_step("Verify work value",0,"The work value of a summary task "&taskName&" does not change when auto calculate is turned off");
+	else
+		tl_step("Verify work value",1,"The work value of a summary task "&taskName&" CHANGES when auto calculate is turned off");
+	list_get_selected("work_units",outText, outNum);
+	if(outText==workUnits)
+		tl_step("Verify duration value",0,"The work units of a summary task "&taskName&" does not change when auto calculate is turned off");
+	else
+		tl_step("Verify duration value",1,"The work units of a summary task "&taskName&" CHANGES when auto calculate is turned off");
+				
+	web_link_click("Cancel");
+	wait(2);
+	set_window("main",2);			
+}		

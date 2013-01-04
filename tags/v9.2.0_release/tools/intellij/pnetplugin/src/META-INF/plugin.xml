@@ -1,0 +1,74 @@
+<!--
+Put here descriptor of your plugin and remove comments with tips
+-->
+<idea-plugin>
+  <!-- Plugin name -->
+  <name>Project.Net Plugin</name>
+  <!-- Description -->
+  <description>
+      Provides functionality specific to Project.Net in order to speed
+      development.  Initial implementation includes the ability to add tokens to
+      the database from the dev environment.
+  </description>
+  <!-- Plugin version -->
+  <version>0.3</version>
+  <vendor>Matthew Flower</vendor>
+  <!-- Minimum and maximum IDEA version plugin is supposed to work with -->
+  <idea-version min="3.0" max="4.0"/>
+
+  <!-- Project components of the plugin -->
+  <project-components>
+    <!--
+    Example of project component
+    -->
+    <component>
+      <!-- Component implementation class -->
+      <!-- If you obfuscate realization you may not use follow tag -->
+      <implementation-class>net.project.devtools.pnetplugin.PnetPlugin</implementation-class>
+      <!-- Component interface class -->
+      <interface-class>net.project.devtools.pnetplugin.PnetPlugin</interface-class>
+    </component>
+  </project-components>
+
+  <!-- Component's actions -->
+  <actions>
+      <action id="ProjectNet.PnetPlugin.AddProperty" class="net.project.devtools.pnetplugin.AddPropertyAction" text="Add/Insert Token" description="">
+          <keyboard-shortcut first-keystroke="control alt shift P" keymap="$default"/>
+          <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="ViewInspectionWindow" />
+      </action>
+      <action id="ProjectNet.PnetPlugin.AddPropertyNoModify" class="net.project.devtools.pnetplugin.AddPropertyActionNoModify" text="Add Token" description="">
+          <keyboard-shortcut first-keystroke="control alt shift O" keymap="$default"/>
+          <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="ProjectNet.PnetPlugin.AddProperty" />
+      </action>
+      <action id="ProjectNet.PnetPlugin.ModifyProperty" class="net.project.devtools.pnetplugin.ModifyPropertyAction" text="Modify Token" description="">
+          <keyboard-shortcut first-keystroke="control alt shift M" keymap="$default"/>
+          <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="ProjectNet.PnetPlugin.AddProperty" />
+      </action>
+      <action id="ProjectNet.PnetPlugin.DeleteProperty" class="net.project.devtools.pnetplugin.DeletePropertyAction" text="Delete Token" description="">
+          <keyboard-shortcut first-keystroke="control alt shift D" keymap="$default"/>
+          <add-to-group group-id="ToolsMenu" anchor="after" relative-to-action="ProjectNet.PnetPlugin.DeleteProperty" />
+      </action>
+    <!--
+    Example of actions definition
+    -->
+<!--    <action id="ActionsSample.ActionsPlugin.GarbageCollection" class="com.intellij.openapi.samples.GarbageCollectionAction" text="Collect _garbage" description="Run garbage collector">-->
+<!--      <keyboard-shortcut first-keystroke="control alt G" second-keystroke="C" keymap="$default"/>-->
+<!--      <mouse-shortcut keystroke="ctrl alt button2" keymap="$default"/>-->
+<!--    </action>-->
+<!--    <action id="Actions.ActionsPlugin.HelloWorld1" class="com.intellij.openapi.samples.HelloWorldAction" text="Hello World1" description=""/>-->
+<!--    <group id="Actions.ActionsPlugin.SampleGroup" text="S_ample" description="Sample group">-->
+<!--      <reference id="ActionsSample.ActionsPlugin.GarbageCollection"/>-->
+<!--      <separator/>-->
+<!--      <action id="Actions.ActionsPlugin.HelloWorld" class="com.intellij.openapi.samples.HelloWorldAction" text="Hello World" description=""/>-->
+<!--      <add-to-group group-id="MainMenu" anchor="last"/>-->
+<!--      <add-to-group group-id="MainToolBar" anchor="before" relative-to-action="HelpTopics"/>-->
+<!--    </group>-->
+<!--    <group>-->
+<!--      <reference id="Actions.ActionsPlugin.HelloWorld1"/>-->
+<!--      <add-to-group group-id="EditorPopupMenu" anchor="after" relative-to-action="CutCopyPasteGroup"/>-->
+<!--    </group>-->
+
+  </actions>
+
+</idea-plugin>
+

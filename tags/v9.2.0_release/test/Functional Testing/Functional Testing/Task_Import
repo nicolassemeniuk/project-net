@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://test2.project.net" />
+<title>Task_Import</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Task_Import</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>http://test2.project.net/</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>Project.net Login</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>J_USERNAME</td>
+	<td>dkarthikeyan</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>J_PASSWORD</td>
+	<td>cgvak1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>Project.net</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Projects</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Projects</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Projects</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>Project.net</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New Project</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>Project.net</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>Bug Tracking Tool</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>Project.net</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Finish</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Finish</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Finish</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>Project.net</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Bug Tracking Tool</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>Project.net</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Bug Tracking Tool</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Workplan</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>Project.net</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Import MSP xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Import MSP xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Import MSP xml</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTable</td>
+	<td>//div[@id='content']/form/table[1]/tbody/tr[2]/td[2]/table.2.0</td>
+	<td>Please choose an XML File to upload:</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>scheduleFile</td>
+	<td>C:\Documents and Settings\karthikeyan.CGDOMAIN\Desktop\Pnet Doc\indent.xml</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeElementPresent</td>
+	<td>link=Next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Next</td>
+	<td>Next</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>resource0</td>
+	<td>label=Karthikeyan Dharmarajan</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Next</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Import</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Import</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Import</td>
+	<td>Import</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Import</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>Please Wait</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Log Out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>Project.net Login</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

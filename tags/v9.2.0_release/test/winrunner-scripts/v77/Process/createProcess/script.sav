@@ -1,0 +1,6 @@
+function createProcess(in processName){
+	set_window("main",1);
+	edit_set("processname",processName);
+	edit_set("processdesc","Creating process for testing");
+	web_link_click("Submit");
+}

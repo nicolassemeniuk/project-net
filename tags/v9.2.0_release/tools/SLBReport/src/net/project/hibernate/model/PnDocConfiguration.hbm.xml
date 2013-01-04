@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDocConfiguration" 
+    table="PN_DOC_CONFIGURATION"
+    lazy="false"
+>
+
+    <id
+        name="docConfigurationId"
+        type="java.math.BigDecimal"
+        column="DOC_CONFIGURATION_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="dateFrozen"
+        type="java.sql.Date"
+        column="DATE_FROZEN"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="docConfigurationName"
+        type="java.lang.String"
+        column="DOC_CONFIGURATION_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPerson"
+        class="net.project.hibernate.model.PnPerson"
+        not-null="true"
+    >
+        <column name="CREATED_BY" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnDocConfigurationHasDoc -->
+
+    <set
+        name="pnDocConfigurationHasDocs"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DOC_CONFIGURATION_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDocConfigurationHasDoc"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

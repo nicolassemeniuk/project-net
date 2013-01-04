@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+		xmlns:jee="http://www.springframework.org/schema/jee" xmlns:tx="http://www.springframework.org/schema/tx"
+		xmlns:jaxws="http://cxf.apache.org/jaxws"
+		xmlns:simple="http://cxf.apache.org/simple"
+        xmlns:soap="http://cxf.apache.org/bindings/soap"
+		xsi:schemaLocation="
+			http://cxf.apache.org/jaxws
+			http://cxf.apache.org/schemas/jaxws.xsd
+			http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+			http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+			http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-2.5.xsd
+			http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+			http://cxf.apache.org/simple http://cxf.apache.org/schemas/simple.xsd
+			http://cxf.apache.org/bindings/soap http://cxf.apache.org/schemas/configuration/soap.xsd">
+
+    <import resource="classpath:META-INF/cxf/cxf.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-extension-http-binding.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml"/>
+    <import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
+    
+    <context:component-scan base-package="net.project"/>
+    
+    <!-- ANNOTATION DRIVEN TRANSACTIONS -->
+	<tx:annotation-driven transaction-manager="transactionManager" />
+	
+		<!-- ========================= BUSINESS OBJECT DEFINITIONS ========================= -->
+
+	<!--
+		Activates various annotations to be detected in bean classes:
+		Spring's @Required and @Autowired, as well as JSR 250's @Resource.
+	-->
+	<context:annotation-config/>
+
+	<!--
+		Instruct Spring to perform declarative transaction management
+		automatically on annotated classes.
+		<tx:annotation-driven/>
+	-->
+	
+
+	<!--
+		Exporter that exposes the Hibernate statistics service via JMX. Autodetects the
+		service MBean, using its bean name as JMX object name.
+	-->
+	<context:mbean-export/>
+
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	
+	<!-- Transaction attributes -->
+	<bean id="transactionAttributeSource" class="org.springframework.transaction.interceptor.NameMatchTransactionAttributeSource">
+		<property name="properties">
+			<props>
+                <prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Transaction proxy template -->
+	<bean id="transactionProxyTemplate" abstract="true" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" lazy-init="true">
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="transactionAttributeSource" ref="transactionAttributeSource"/>
+    </bean>	
+
+	<context:property-placeholder location="classpath:/config/etc/defaultsettings.properties"/>
+
+    <!-- Controller beans -->
+
+
+    <!--
+    A urlMapping object tells our application what beans are going to respond to
+    which urls that end with .htm.  There are a few of them available.  The
+    BeanNameUrlHandlerMapping object lets you name a bean with the URL
+    -->
+	<bean id="urlMapping" class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+		<property name="order"><value>0</value></property>
+	</bean>
+	
+	<bean id="handlerMapping" class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="order"><value>1</value></property>
+		<property name="mappings">
+			<props>
+				<prop key="/methodology/MethodologyList.htm">methodologyController</prop>
+				<prop key="/methodology/Main.htm">methodologyController</prop>
+				<prop key="/methodology/PropertiesEdit.htm">methodologyController</prop>
+				<prop key="/methodology/PropertiesEditProcessing.htm">methodologyController</prop>
+				<prop key="/roster/MemberWizardController.htm">addMemberWizardController</prop>
+			</props>
+		</property>		
+	</bean>	
+		
+
+	 <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	    <property name="requestContextAttribute" value="requestContext"/>
+	    <property name="viewClass" value="org.springframework.web.servlet.view.tiles.TilesJstlView"/>
+	</bean>
+
+	<bean id="tilesConfigurer" class="org.springframework.web.servlet.view.tiles.TilesConfigurer">
+		<property name="factoryClass" value="org.apache.struts.tiles.xmlDefinition.I18nFactorySet"/>
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles-definitions.xml</value>
+			</list>
+		</property>
+	</bean>
+	
+    <!--
+    
+	 <bean id="tilesViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+	    <property name="order"><value>2</value></property>
+	    <property name="requestContextAttribute" value="requestContext"/>
+	    <property name="viewClass" value="org.springframework.web.servlet.view.tiles.TilesJstlView"/>
+	</bean>
+	    
+    Setup for FileUpload.  By default we are using the Multipart resolver made
+    available by the Apache Commons project.  (See http://jakarta.apache.org/commons/fileupload/)
+
+    This component is easily replaced by COS, also known as the com.oreilley.servlet.
+    This implementation can be found at http://www.servlets.com/cos/.  The author
+    of that implementation, Jason Hunter, has some pretty unusual licensing requirements,
+    as outlined at http://www.servlets.com/cos/license.html.  For this reason,
+    this implementation is secondary.
+
+    For more information on switching implementations, see
+    (http://static.springframework.org/spring/docs/1.2.x/reference/mvc.html#mvc-multipart)
+    -->
+ 
+    
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+    <!--<bean id="multipartResolver" class="org.springframework.web.multipart.cos.CosMultipartResolver"/>-->
+
+    <!--
+    Controller declarations
+    -->
+    <bean name="/schedule/importer/ScheduleImport.htm" class="net.project.schedule.importer.ScheduleUpload">
+        <property name="commandClass" value="net.project.schedule.importer.ScheduleUploadCommand"/>
+    </bean>
+
+    <bean name="/business/BusinessLogoUpload.htm" class="net.project.business.LogoUpload">
+        <property name="commandClass" value="net.project.business.LogoUploadCommand"/>
+    </bean>
+
+    <bean name="/project/ProjectLogoUpload.htm" class="net.project.project.LogoUpload">
+        <property name="commandClass" value="net.project.project.LogoUploadCommand"/>
+    </bean>
+
+    <bean name="/datatransform/CSVUpload.htm" class="net.project.datatransform.csv.CSVUpload">
+        <property name="commandClass" value="net.project.datatransform.csv.CSVUploadCommand"/>
+    </bean>
+
+    <bean name="/document/CheckInUpload.htm" class="net.project.document.CheckInUpload">
+        <property name="commandClass" value="net.project.document.CheckInUploadCommand"/>
+    </bean>
+
+    <bean name="/document/DocumentUpload.htm" class="net.project.document.DocumentUpload">
+        <property name="commandClass" value="net.project.document.DocumentUploadCommand"/>
+    </bean>
+    
+    <!-- templates related mappings -->
+	<bean id="methodologyController" class="net.project.methodology.mvc.MethodologyController">
+		<property name="methodNameResolver">
+			<bean class="org.springframework.web.servlet.mvc.multiaction.PropertiesMethodNameResolver">
+				<property name="mappings">
+					<props>
+						<prop key="/methodology/MethodologyList.htm">initMethodology</prop>
+						<prop key="/methodology/Main.htm">handleMain</prop>
+						<prop key="/methodology/PropertiesEdit.htm">handleEdit</prop>
+						<prop key="/methodology/PropertiesEditProcessing.htm">handleUpdate</prop>
+					</props>
+				</property>
+			</bean>
+		</property>
+	</bean>
+	    
+	<!-- Add new members to project/business/template -->
+	<bean id="addMemberWizardController" class="net.project.roster.mvc.AddMemberWizardController">
+		<property name="commandClass" value="net.project.roster.model.MemberModel"/>
+		<property name="pages">
+			<list>
+				<value>/tile_add_member_init</value>
+				<value>/tile_search_member</value>
+				<value>/tile_add_member_privileges</value>
+				<value>/tile_add_member_finish</value>
+			</list>
+		</property>
+	</bean>
+	
+	<!-- Personal Directory -->
+	<bean name="/roster/PersonalDirectoryView.htm" class="net.project.roster.mvc.PersonalDirectoryViewController">
+    </bean>
+    
+    <bean name="/roster/PersonalImageUpload.htm" class="net.project.roster.mvc.PersonalImageUpload">
+	    <property name="commandClass" value="net.project.project.LogoUploadCommand"/>
+    </bean>
+
+
+   
+	
+	<!--               CXF WEB SERVICES              -->
+	
+	<!--  form export web service -->
+	
+   <bean id="paramManager" class="net.project.hibernate.ParamManager" />
+	
+	<jaxws:endpoint id="formExport"
+                  implementor="net.project.form.soa.FormExportServiceImpl"
+                  address="/FormExport">
+        <jaxws:serviceFactory>
+            <bean class="org.apache.cxf.jaxws.support.JaxWsServiceFactoryBean">
+                <property name="wrapped" value="false"/>
+            </bean>
+        </jaxws:serviceFactory>                  
+  	<jaxws:properties>
+    	  <entry key="mtom-enabled" value="true"/>
+    </jaxws:properties>	
+    </jaxws:endpoint>       
+	
+	
+	<bean id="formExportClient" class="net.project.form.soa.IFormExportService"
+      factory-bean="formExportClientFactory" factory-method="create"/>		
+
+<!--  	
+	<bean id="formExportClientFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean" >
+	  <property name="serviceClass" value="net.project.soa.forms.IFormExportService"/>
+	  <property name="address" value="${siteScheme}${siteHost}${jspRootURL}/services/FormExport"/>
+      <property name="serviceFactory.wrapped" value="false" />
+    </bean>	
+-->	
+	<bean id="formExportClientFactory" class="net.project.hibernate.JaxWsProxyFactory" >
+		<constructor-arg ref="paramManager" />
+		<constructor-arg value="net.project.form.soa.IFormExportService" />
+		<constructor-arg value="/services/FormExport" />
+	</bean>
+	
+    <bean  name="/form/designer/formExportClient.htm" class="net.project.form.soa.FormExportClient">
+    	<property name="formExportClient"  ref="formExportClient"/>
+    </bean>		
+    
+    
+	<jaxws:endpoint id="formImport"
+                  implementor="net.project.form.soa.FormImportServiceImpl"
+                  address="/FormImport">
+        <jaxws:serviceFactory>
+            <bean class="org.apache.cxf.jaxws.support.JaxWsServiceFactoryBean">
+                <property name="wrapped" value="false"/>
+            </bean>
+        </jaxws:serviceFactory>                  
+  	<jaxws:properties>
+    	  <entry key="mtom-enabled" value="true"/>
+    </jaxws:properties>	
+    </jaxws:endpoint>       
+	
+	
+	<bean id="formImportClient" class="net.project.form.soa.IFormImportService"
+      factory-bean="formImportClientFactory" factory-method="create">
+     	
+    </bean>  		
+
+<!-- 	
+	<bean id="formImportClientFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean" >
+	  <property name="serviceClass" value="net.project.form.soa.IFormImportService"/>
+	  <property name="address" value="${siteScheme}${siteHost}${jspRootURL}/services/FormImport"/>
+       <property name="serviceFactory.wrapped" value="false" />
+    </bean>	    
+ -->    
+    <bean id="formImportClientFactory" class="net.project.hibernate.JaxWsProxyFactory" >
+		<constructor-arg ref="paramManager" />
+		<constructor-arg value="net.project.form.soa.IFormImportService" />
+		<constructor-arg value="/services/FormImport" />
+	</bean>    
+    
+ 	<bean  name="/form/designer/formImportClient.htm" class="net.project.form.soa.FormImportClient">
+    	<property name="formImportClient"  ref="formImportClient"/>
+    	<property name="commandClass" value="net.project.form.soa.FormImportClientCommand"/>
+ 	</bean>    
+
+  <simple:server id="AssignmentManager" serviceClass="net.project.soa.resource.IAssignmentManager" address="/AssignmentManager">
+  	<simple:serviceBean>
+  		<bean class="net.project.soa.resource.AssignmentManagerImpl" />
+  	</simple:serviceBean>
+    <simple:dataBinding>
+       <bean class="org.apache.cxf.aegis.databinding.AegisDatabinding" />
+    </simple:dataBinding>
+	<simple:inInterceptors>
+		<bean class="net.project.soa.handler.SecurityHandler" />
+	</simple:inInterceptors>
+  </simple:server>
+
+  <simple:server id="BusinessPortfolio" serviceClass="net.project.soa.portfolio.IBusinessPortfolio" address="/BusinessPortfolio">
+  	<simple:serviceBean>
+  		<bean class="net.project.soa.portfolio.BusinessPortfolioImpl" />
+  	</simple:serviceBean>
+    <simple:dataBinding>
+       <bean class="org.apache.cxf.aegis.databinding.AegisDatabinding" />
+    </simple:dataBinding>
+	<simple:inInterceptors>
+		<bean class="net.project.soa.handler.SecurityHandler" />
+	</simple:inInterceptors>
+  </simple:server>	  
+
+  <simple:server id="ProjectPortfolio" serviceClass="net.project.soa.portfolio.IProjectPortfolio" address="/ProjectPortfolio">
+  	<simple:serviceBean>
+  		<bean class="net.project.soa.portfolio.ProjectPortfolioImpl" />
+  	</simple:serviceBean>
+    <simple:dataBinding>
+       <bean class="org.apache.cxf.aegis.databinding.AegisDatabinding" />
+    </simple:dataBinding>
+	<simple:inInterceptors>
+		<bean class="net.project.soa.handler.SecurityHandler" />
+	</simple:inInterceptors>
+  </simple:server>	  
+
+  <simple:server id="MyMeetings" serviceClass="net.project.soa.calendar.IMyMeetings" address="/MyMeetings">
+  	<simple:serviceBean>
+  		<bean class="net.project.soa.calendar.MyMeetingsImpl" />
+  	</simple:serviceBean>
+    <simple:dataBinding>
+       <bean class="org.apache.cxf.aegis.databinding.AegisDatabinding" />
+    </simple:dataBinding>
+	<simple:inInterceptors>
+		<bean class="net.project.soa.handler.SecurityHandler" />
+	</simple:inInterceptors>
+  </simple:server>	  
+
+  <simple:server id="NewsManager" serviceClass="net.project.soa.news.INewsManager" address="/NewsManager">
+  	<simple:serviceBean>
+  		<bean class="net.project.soa.news.NewsManagerImpl" />
+  	</simple:serviceBean>
+    <simple:dataBinding>
+       <bean class="org.apache.cxf.aegis.databinding.AegisDatabinding" />
+    </simple:dataBinding>
+	<simple:inInterceptors>
+		<bean class="net.project.soa.handler.SecurityHandler" />
+	</simple:inInterceptors>
+  </simple:server>	 
+
+  <simple:server id="Process" serviceClass="net.project.soa.process.IProcess" address="/Process">
+  	<simple:serviceBean>
+  		<bean class="net.project.soa.process.ProcessImpl" />
+  	</simple:serviceBean>
+    <simple:dataBinding>
+       <bean class="org.apache.cxf.aegis.databinding.AegisDatabinding" />
+    </simple:dataBinding>
+	<simple:inInterceptors>
+		<bean class="net.project.soa.handler.SecurityHandler" />
+	</simple:inInterceptors>
+  </simple:server>	 
+
+  <simple:server id="DiscussionManager" serviceClass="net.project.soa.discussion.IDiscussionManager" address="/DiscussionManager">
+  	<simple:serviceBean>
+  		<bean class="net.project.soa.discussion.DiscussionManagerImpl" />
+  	</simple:serviceBean>
+    <simple:dataBinding>
+       <bean class="org.apache.cxf.aegis.databinding.AegisDatabinding" />
+    </simple:dataBinding>
+	<simple:inInterceptors>
+		<bean class="net.project.soa.handler.SecurityHandler" />
+	</simple:inInterceptors>
+  </simple:server>	 
+
+  <simple:server id="Schedule" serviceClass="net.project.soa.schedule.ISchedule" address="/Schedule">
+  	<simple:serviceBean>
+  		<bean class="net.project.soa.schedule.ScheduleImpl" />
+  	</simple:serviceBean>
+    <simple:dataBinding>
+       <bean class="org.apache.cxf.aegis.databinding.AegisDatabinding" />
+    </simple:dataBinding>
+	<simple:inInterceptors>
+		<bean class="net.project.soa.handler.SecurityHandler" />
+	</simple:inInterceptors>
+  </simple:server>	 
+</beans>

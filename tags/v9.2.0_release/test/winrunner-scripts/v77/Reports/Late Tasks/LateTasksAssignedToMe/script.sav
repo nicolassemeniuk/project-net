@@ -1,0 +1,37 @@
+# call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Reports\\forLoginReports"();
+
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject"();
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+set_window("main",3);
+web_link_click("WRProject");
+set_window("menu",3);
+web_link_click("Workplan");
+wait(2);
+
+set_window("main",1);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer");
+button_press("OK");
+wait(5);
+set_window("main");
+
+reload("createTask");
+public task_types[] = {"Fixed Duration","Fixed Units","Fixed Work"};
+public units[] = {"hours","days","weeks"};
+
+createTask("t1", task_types[0], 1, units[1], 8, units[0]);
+
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Reports\\reports.gui");
+wait(1);
+set_window("main",2);
+web_link_click("Late Task Report");
+wait(1);
+set_window("main",1);
+button_set("filter10_1",ON);
+web_link_click("Submit");
+
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Reports\\reports.gui");

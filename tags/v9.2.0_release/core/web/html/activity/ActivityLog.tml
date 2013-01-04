@@ -1,0 +1,33 @@
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<script type="text/javascript"> 
+	startDate = '${startDateString}';
+	endDate = '${endDateString}';
+	activitiesCounter = '${activitiesCounter}';
+	encryptedValue = '${encryptedValue}';
+	activityIdsPerPage = '${activityIdsPerPage}';
+	unMarkedToken = '${unMarkedToken}';
+	markedToken = '${markedToken}';
+	continuedDateMessage = '${continuedDateMessage}';
+	blogActivityIds = '${blogActivityIds}';
+</script>
+<script type="text/javascript" src="${JSPRootURL}/src/activityLog.js"></script>
+<t:if test="formattedActivityList">
+	<table  cellpadding="5" width="100%" cellspacing="0">
+		<t:loop source="formattedActivityList" value="currentDate" encoder="mapEncoder"> <!-- looping Activity Map -->
+		    <tr height="7px"><td /></tr>
+			<tr>
+				<td colspan="2"><span class="heading" > <t:DisplayDate date="currentDate.key" continuedDate="continuedDate" /> </span></td>
+			</tr>
+			<t:loop source="currentDate.values" value="pnActivityLog" encoder="listEncoder">
+				<t:ShowActivityText activityLog="pnActivityLog" unMarkedToken="unMarkedToken" />	
+				<t:actionlink t:id="showobject"/>	
+			</t:loop>
+		</t:loop>
+	</table>
+	<t:parameter name="else">	
+		<div class="noActivityFound">
+			<t:Message value="prm.project.activity.noactivityfound.message"/>
+		</div>	 
+	</t:parameter>	
+</t:if>
+</div>

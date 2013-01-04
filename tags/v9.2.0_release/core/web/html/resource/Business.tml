@@ -1,0 +1,8 @@
+<t:Layout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+	 <t:SpaceMainMenu />
+		<t:NavBar />
+		<div id="tcontent">
+			<h3> ${message} </h3>
+		</div>
+	 <t:Footer />
+</t:Layout>

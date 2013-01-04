@@ -1,0 +1,10 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\BusinessWorkspace\createBusiness> 1 1112227129 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\forLoginBusiness> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\BusinessWorkspace\createBusiness> 1 1112227129 0
+11 1 <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\BusinessWorkspace\createBusiness> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\forLoginBusiness> 19 1112227143 0
+37 111 <Step: Verify redundancy, Status: Pass, Description: Parent business cannot be made the child of it sub business> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\BusinessWorkspace\createBusiness> 49 1112227162 24
+37 111 <Step: Verify redundancy, Status: Pass, Description: Parent business cannot be made the child of it sub business> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\BusinessWorkspace\createBusiness> 49 1112227162 24
+37 111 <Step: Verify redundancy, Status: Pass, Description: Parent business cannot be made the child of it sub business> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\BusinessWorkspace\createBusiness> 49 1112227162 24
+37 101 <Step: Business name exists, Status: Pass, Description: WinrunnerBusiness exists on Personal Workspace> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\BusinessWorkspace\createBusiness> 59 1112227166 24
+37 104 <Step: Business name exists, Status: Pass, Description: SubWinrunnerBusiness exists on Personal Workspace> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\BusinessWorkspace\createBusiness> 64 1112227166 24
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\BusinessWorkspace\createBusiness> 69 1112227166 0

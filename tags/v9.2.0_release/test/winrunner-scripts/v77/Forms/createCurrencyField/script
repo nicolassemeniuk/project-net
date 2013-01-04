@@ -1,0 +1,27 @@
+function createCurrencyField(in name){
+	extern i;
+# 	auto outText;
+
+	wait(1);
+# 	report_msg("Within Currency Field - "&i&"");
+	set_window("main",3);
+	list_select_item("ElementID","Currency Field");
+	wait(1);
+	set_window("main",3);
+	edit_set("field_label",name);
+	edit_set("row_num",i);
+	list_select_item("column_id","Left");
+	edit_set("size",20);
+	edit_set("data_column_size",5);
+	edit_set("data_column_scale",2);
+	web_link_click("Submit");
+	wait(2);
+	set_window("main",3);
+	
+	# Verifying the currency field was created and exists in the fields list
+	if(obj_exists(name)==E_OK)
+		tl_step("Verify currency field exists",0,"The Currency Field '"&name&"'created successfully");
+	else
+		tl_step("Verify currency field exists",1,"The Currency Field CANNOT be verified");
+}
+		

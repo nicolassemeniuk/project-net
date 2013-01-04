@@ -1,0 +1,20 @@
+To check task creatin with resource in workplan module
+Steps:
+1. Open Firefox and Click Tools tab then select IDE(Recording is default)
+2. Open test2.project.net
+3. Enter user name and password then click login button
+4. Navigate to project workspace
+5. Select created project and open it
+6. Project dashbaord will be displayed
+7. Navigate to workplan module and click New Task link under Toolbox channel bar
+8. Create new task page will be displayed
+9. Enter task name and click Submit button
+10. Assign resoure yourself then click submit button
+11. Task list page will be displayed
+12. Click logout link
+Expecetd Result:
+The task should be created with resource
+Actual Result:
+As Expecetd  
+
+

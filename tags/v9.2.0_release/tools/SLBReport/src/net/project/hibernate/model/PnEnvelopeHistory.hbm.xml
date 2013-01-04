@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnEnvelopeHistory" 
+    table="PN_ENVELOPE_HISTORY"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnEnvelopeHistoryPK">
+        <key-property 
+            name="historyId" 
+            column="HISTORY_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="envelopeId" 
+            column="ENVELOPE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="actionById"
+        type="java.math.BigDecimal"
+        column="ACTION_BY_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="actionDatetime"
+        type="java.sql.Date"
+        column="ACTION_DATETIME"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnWorkflowEnvelope -->
+    <many-to-one
+        name="pnWorkflowEnvelope"
+	    class="net.project.hibernate.model.PnWorkflowEnvelope"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="ENVELOPE_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to PnEnvelopeHistoryAction -->
+    <many-to-one
+        name="pnEnvelopeHistoryAction"
+        class="net.project.hibernate.model.PnEnvelopeHistoryAction"
+        not-null="true"
+    >
+        <column name="HISTORY_ACTION_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PnEnvelopeHistoryClob -->
+    <many-to-one
+        name="pnEnvelopeHistoryClob"
+        class="net.project.hibernate.model.PnEnvelopeHistoryClob"
+        not-null="true"
+    >
+        <column name="HISTORY_MESSAGE_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

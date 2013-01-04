@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnBaselineHasPlan" 
+    table="PN_BASELINE_HAS_PLAN"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnBaselineHasPlanPK">
+        <key-property 
+            name="baselineId" 
+            column="BASELINE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="planId" 
+            column="PLAN_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="planVersionId"
+        type="java.math.BigDecimal"
+        column="PLAN_VERSION_ID"
+        not-null="true"
+        length="20"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnBaseline -->
+    <many-to-one
+        name="pnBaseline"
+	    class="net.project.hibernate.model.PnBaseline"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="BASELINE_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

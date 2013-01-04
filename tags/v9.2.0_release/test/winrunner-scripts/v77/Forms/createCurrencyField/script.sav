@@ -1,0 +1,30 @@
+function createCurrencyField(in name){
+	extern i;
+# 	auto outText;
+	set_window("main",1);
+	list_select_item("ElementID","Currency Field");
+	wait(1);
+	set_window("main",1);
+	edit_set("field_label",name);
+	edit_set("row_num",i);
+	list_select_item("column_id","Left");
+	edit_set("size",20);
+	edit_set("data_column_size",5);
+	edit_set("data_column_scale",2);
+	web_link_click("Submit");
+	wait(2);
+	set_window("main",1);
+	if(obj_exists(name)==E_OK)
+		tl_step("Verify curren exists",0,"The Currency Field '"&name&"'created successfully");
+	else
+		report_msg("The Currency Field CANNOT be verified");
+# 	i = i + 1;
+# 	set_window("main",1);
+# 	win_get_text("main",outText,631,373,714,385);
+# 	if(outText == "Currency Field")
+# 		report_msg("The field created is of type Currency Field");
+# 	else
+# 		report_msg("UNABLE to verify");
+# 	report_msg("");
+}
+		

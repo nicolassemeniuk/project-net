@@ -1,0 +1,121 @@
+GUI_close_all();
+wait(3);
+
+###################################################################
+# Getting personID for each and every resource invited to the project
+###################################################################
+reload("getPersonID",0,1);
+id[0] = getPersonID("Avinash Padmanabhan");
+
+
+reload("inviteUser",0,1);
+inviteUser("Mickey","Mouse","mickey@project.net");
+GUI_close_all();
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+web_obj_get_info("Mickey Mouse","url",urlValue);
+elements = split(urlValue,path_array,"=");
+id[1] = path_array[3];
+resourceID = id[1];
+
+###################################################################
+# Defining task types and units 
+###################################################################
+wait(2);
+public task_types[] = {"Fixed Duration","Fixed Units","Fixed Work"};
+public units[] = {"hours","days","weeks"};
+
+###################################################################
+# Loading compiled modules and deleting any tasks previously present in the schedule list
+###################################################################
+set_window("menu",3);
+web_link_click("Workplan");
+wait(2);
+ 
+set_window("main",2);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer", 2);
+button_press("OK");
+wait(5);
+set_window("main", 2);
+
+reload("createTaskRW",0,1);#creating a task with resources
+reload("checkResourcesW",0,1);#verifying the assignment percentages, work assigned to each resource and work units
+reload("checkTaskProperties",0,1);#verifying whether the task properties remain the same after resources are assigned to the task
+
+###################################################################
+# Creating Fixed Work Tasks, Checking Task Properties and Resource Assignments
+###################################################################
+report_msg("");
+report_msg("T1");
+createTaskRW("t1",1, units[1], 8, units[0], 2, id, 0);
+checkTaskProperties("t1", task_types[2], 0.5, units[1], 8, units[0]);
+checkResourcesW("t1", 4, units[0], 2, id);
+
+report_msg("");
+report_msg("T6(Quick Adding Resources)");
+createTaskRW("t6", 1, units[1], 8, units[0], 2, id, 1);
+checkTaskProperties("t6", task_types[2], 0.5, units[1], 8, units[0]);
+checkResourcesW("t6", 4, units[0], 2, id);
+
+report_msg("");
+report_msg("T2");
+createTaskRW("t2", 1, units[1], 16, units[0], 2, id, 0);
+checkTaskProperties("t2", task_types[2], 1, units[1], 16, units[0]);
+checkResourcesW("t2", 8, units[0], 2, id);
+
+report_msg("");
+report_msg("T7(Quick Adding Resources)");
+createTaskRW("t7", 1, units[1], 16, units[0], 2, id, 1);
+checkTaskProperties("t7", task_types[2], 1, units[1], 16, units[0]);
+checkResourcesW("t7", 8, units[0], 2, id);
+
+report_msg("");
+report_msg("T3");
+createTaskRW("t3", 3, units[1], 16, units[0], 1, id, 0);
+checkTaskProperties("t3", task_types[2], 2, units[1], 16, units[0]);
+checkResourcesW("t3", 16, units[0], 1, id);
+
+report_msg("");
+report_msg("T8(Quick Adding Resources)");
+createTaskRW("t8", 3, units[1], 16, units[0], 1, id, 1);
+checkTaskProperties("t8", task_types[2], 2, units[1], 16, units[0]);
+checkResourcesW("t8", 16, units[0], 1, id);
+
+report_msg("");
+report_msg("T4");
+createTaskRW("t4", 2, units[1], 24, units[0], 2, id, 0);
+checkTaskProperties("t4", task_types[2], 1.5, units[1], 24, units[0]);
+checkResourcesW("t4", 12, units[0], 2, id);
+
+report_msg("");
+report_msg("T9(Quick Adding Resources)");
+createTaskRW("t9", 3, units[1], 24, units[0], 2, id, 1);
+checkTaskProperties("t9", task_types[2], 1.5, units[1], 24, units[0]);
+checkResourcesW("t9", 12, units[0], 2, id);
+
+report_msg("");
+report_msg("T5");
+createTaskRW("t5", 1, units[2], 8, units[1], 1, id, 0);
+checkTaskProperties("t5", task_types[2], 8, units[1], 8, units[1]);
+checkResourcesW("t5", 64, units[0], 1, id);
+
+report_msg("");
+report_msg("T10(Quick Adding Resources)");
+createTaskRW("t10", 1, units[2], 8, units[1], 1, id, 1);
+checkTaskProperties("t10", task_types[2], 8, units[1], 8, units[1]);
+checkResourcesW("t10", 64, units[0], 1, id);
+
+report_msg("");
+report_msg("T11");
+createTaskRW("t11", 2, units[1], 12, units[0], 1, id, 0);
+checkTaskProperties("t11", task_types[2], 1.5, units[1], 12, units[0]);
+checkResourcesW("t11", 12, units[0], 1, id);
+
+report_msg("");
+report_msg("T12(Quick Adding Resources)");
+createTaskRW("t12", 2, units[1], 12, units[0], 1, id, 1);
+checkTaskProperties("t12", task_types[2], 1.5, units[1], 12, units[0]);
+checkResourcesW("t12", 12, units[0], 1, id);
+

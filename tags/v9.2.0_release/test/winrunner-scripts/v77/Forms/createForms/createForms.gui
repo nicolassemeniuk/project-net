@@ -1,0 +1,1057 @@
+"Browser Main Window":
+{
+ class: window,
+ MSW_class: browser_main_window,
+ NSTitle: "Browser Main Window"
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+"Browser Main Window".MainToolBar_0:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 0
+}
+"Browser Main Window".MainToolBar_1:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 1
+}
+"Browser Main Window".MainToolBar_2:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 2
+}
+"Browser Main Window".MainToolBar_3:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 3
+}
+"Browser Main Window".MainToolBar_4:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 4
+}
+"Browser Main Window".ReBarWindow32:
+{
+ class: object,
+ MSW_class: ReBarWindow32
+}
+"Browser Main Window".WorkerW:
+{
+ class: object,
+ MSW_id: 40965,
+ MSW_class: WorkerW
+}
+"Browser Main Window".WorkerW_1:
+{
+ class: object,
+ MSW_id: 0,
+ MSW_class: WorkerW
+}
+"Browser Main Window".browser_main_combo_location_0:
+{
+ class: list,
+ MSW_class: browser_main_combo_location,
+ location: 0
+}
+"Browser Main Window".browser_main_combo_location_1:
+{
+ class: list,
+ MSW_class: browser_main_combo_location,
+ location: 1
+}
+"Browser Main Window".browser_main_comboex_location:
+{
+ class: object,
+ MSW_id: 2,
+ MSW_class: browser_main_comboex_location
+}
+"Browser Main Window".browser_main_comboex_location_1:
+{
+ class: object,
+ MSW_id: 41477,
+ MSW_class: browser_main_comboex_location
+}
+"Browser Main Window".browser_main_edit_location_0:
+{
+ class: edit,
+ MSW_class: browser_main_edit_location,
+ location: 0
+}
+"Browser Main Window".browser_main_edit_location_1:
+{
+ class: edit,
+ MSW_class: browser_main_edit_location,
+ location: 1
+}
+"Browser Main Window"."sys_Close Alt+F4":
+{
+ class: menu_item,
+ label: "Close Alt+F4",
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Maximize:
+{
+ class: menu_item,
+ label: Maximize,
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Minimize:
+{
+ class: menu_item,
+ label: Minimize,
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Move:
+{
+ class: menu_item,
+ label: Move,
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Restore:
+{
+ class: menu_item,
+ label: Restore,
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Size:
+{
+ class: menu_item,
+ label: Size,
+ sysmenu: 1,
+ parent: none
+}
+main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: main
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+main."2000-2003 Project.net, Inc.":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "2000-2003 Project.net, Inc."
+}
+main.Activate:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Activate
+}
+main.Add:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Add
+}
+main."Add to Workflow":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Add to Workflow"
+}
+main."All projects in your portfolio.":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 7
+}
+main."Capture Work":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Capture Work"
+}
+main."ChartingServlet?chartType=pbc":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "ChartingServlet?chartType=pbc"
+}
+main."ChartingServlet?chartType=psc":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "ChartingServlet?chartType=psc"
+}
+main.Copy:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Copy
+}
+main.Create:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Create
+}
+main."Create Modify Remove Refresh Properties Copy Link Add to Workflow Sear":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 0
+}
+main."Create New Form":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Create New Form"
+}
+main."Create Project":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Create Project"
+}
+main.ElementID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: ElementID
+}
+main.Fields:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Fields
+}
+main."Form Designer":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Form Designer"
+}
+main.Help:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Help
+}
+main.Link:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Link
+}
+main.Lists:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Lists
+}
+main."Manage Views":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Manage Views"
+}
+main.Modify:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Modify
+}
+main.Name:
+{
+ class: object,
+ MSW_class: html_table,
+ location: 8
+}
+main.Notify:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Notify
+}
+main."Personalize this Page":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Personalize this Page"
+}
+main.Properties:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Properties
+}
+main.Refresh:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Refresh
+}
+main.Remove:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Remove
+}
+main.ReplyArrow:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "ReplyArrow.gif"
+}
+main.Search:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Search
+}
+main.Security:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Security
+}
+main."Select a View: Default Tree View Manage Views":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 1
+}
+main.SubProject1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: SubProject1
+}
+main.Submit:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Submit
+}
+main.TestBusiness1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: TestBusiness1
+}
+main.TestProject1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: TestProject1
+}
+main.abbreviation:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: abbreviation
+}
+main."actionbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 11
+}
+main."actionbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-left_end.gif"
+}
+main."actionbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-right_end.gif"
+}
+main."channelbar-close_it":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-close_it.gif",
+ location: 0
+}
+main."channelbar-close_it_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-close_it.gif",
+ location: 1
+}
+main."channelbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 6
+}
+main."channelbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-left_end.gif"
+}
+main."channelbar-maximized":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 3
+}
+main."channelbar-maximized_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-maximized.gif",
+ location: 0
+}
+main."channelbar-maximized_2":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 4
+}
+main."channelbar-maximized_3":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-maximized.gif",
+ location: 1
+}
+main."channelbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif"
+}
+main.circle_green:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "circle_green.gif",
+ location: 0
+}
+main.circle_green_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "circle_green.gif",
+ location: 1
+}
+main.column_id:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: column_id
+}
+main.column_num__8197:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: "!column_num__.*"
+}
+main.data_column_size:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: data_column_size
+}
+main.field_checked__8197:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: "!field_checked__.*",
+ part_value: 1
+}
+main.field_label:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: field_label
+}
+main.field_width__8197:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: "!field_width__.*"
+}
+main.formStatus:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: formStatus
+}
+main.html_combobox:
+{
+ class: list,
+ MSW_class: html_combobox
+}
+main."http://hippo/images/icons/channelbar-left_end.gif http://hippo/images/":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 5
+}
+main."http://hippo/images/icons/channelbar-maximized.gif http://hippo/images":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 2
+}
+main.lgreen:
+{
+ class: object,
+ MSW_class: html_table,
+ location: 9
+}
+main.lgreen_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "lgreen.gif",
+ location: 0
+}
+main.lgreen_2:
+{
+ class: object,
+ MSW_class: html_table,
+ location: 10
+}
+main.lgreen_3:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "lgreen.gif",
+ location: 1
+}
+main.name:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: name
+}
+main.personalize:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "personalize.gif"
+}
+main.row_num:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: row_num
+}
+main.selected:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: selected,
+ part_value: 8104
+}
+main.selected_1:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: selected,
+ part_value: 8136
+}
+main.size:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: size
+}
+main.trans:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 0
+}
+main.trans_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 1
+}
+main.trans_2:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 2
+}
+main.trans_3:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 3
+}
+main.trans_4:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 4
+}
+main.trans_5:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 5
+}
+main.trans_6:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 6
+}
+main.trans_7:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 7
+}
+main.trans_8:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 8
+}
+menu:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: menu
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+menu.Calendar:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Calendar
+}
+menu.Dashboard:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Dashboard
+}
+menu.Directory:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Directory
+}
+menu.Discussions:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Discussions
+}
+menu.Documents:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Documents
+}
+menu.Forms:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Forms
+}
+menu.Go:
+{
+ class: push_button,
+ MSW_class: html_push_button,
+ html_name: Go
+}
+menu.KEYWORD:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: KEYWORD
+}
+menu.News:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: News
+}
+menu.Process:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Process
+}
+menu."Project Search AllCalendarFormsDeliverablesDocumentsTasksDiscussions":
+{
+ class: object,
+ MSW_class: html_table
+}
+menu.Reports:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Reports
+}
+menu.Setup:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Setup
+}
+menu.Subprojects:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Subprojects
+}
+menu.Workflow:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflow
+}
+menu.Workplan:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workplan
+}
+menu.html_combobox:
+{
+ class: list,
+ MSW_class: html_combobox
+}
+menu."leftnav-ball":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 0
+}
+menu."leftnav-ball_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 1
+}
+menu."leftnav-ball_10":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 10
+}
+menu."leftnav-ball_11":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 11
+}
+menu."leftnav-ball_2":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 2
+}
+menu."leftnav-ball_3":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 3
+}
+menu."leftnav-ball_4":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 4
+}
+menu."leftnav-ball_5":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 5
+}
+menu."leftnav-ball_6":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 6
+}
+menu."leftnav-ball_7":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 7
+}
+menu."leftnav-ball_8":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 8
+}
+menu."leftnav-ball_9":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-ball.gif",
+ location: 9
+}
+menu."leftnav-sm_ball":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-sm_ball.gif",
+ location: 0
+}
+menu."leftnav-sm_ball_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "leftnav-sm_ball.gif",
+ location: 1
+}
+menu.trans:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 0
+}
+menu.trans_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 1
+}
+menu.trans_10:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 10
+}
+menu.trans_11:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 11
+}
+menu.trans_12:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 12
+}
+menu.trans_13:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 13
+}
+menu.trans_14:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 14
+}
+menu.trans_15:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 15
+}
+menu.trans_16:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 16
+}
+menu.trans_17:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 17
+}
+menu.trans_18:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 18
+}
+menu.trans_19:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 19
+}
+menu.trans_2:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 2
+}
+menu.trans_20:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 20
+}
+menu.trans_21:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 21
+}
+menu.trans_22:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 22
+}
+menu.trans_23:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 23
+}
+menu.trans_24:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 24
+}
+menu.trans_25:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 25
+}
+menu.trans_3:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 3
+}
+menu.trans_4:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 4
+}
+menu.trans_5:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 5
+}
+menu.trans_6:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 6
+}
+menu.trans_7:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 7
+}
+menu.trans_8:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 8
+}
+menu.trans_9:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 9
+}
+toolbar_main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: toolbar_main,
+ location: 0
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+toolbar_main."Log Out":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Log Out"
+}
+toolbar_main."topnav-projects-off":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "topnav-projects-off.gif"
+}
+toolbar_main."topnav-projects-on":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "topnav-projects-on.gif"
+}

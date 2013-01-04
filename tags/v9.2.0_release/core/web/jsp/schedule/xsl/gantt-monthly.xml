@@ -1,0 +1,41 @@
+<gantt>	
+	<timescale>
+		<major_scale>
+			<type>week</type>
+			<total_units>6</total_units>
+			<major_unit>October 2</major_unit>
+			<major_unit>October 9</major_unit>
+			<major_unit>October 18</major_unit>
+			<major_unit>October 25</major_unit>
+			<major_unit>November 1</major_unit>
+			<major_unit>November 8</major_unit>
+		 </major_scale>
+		 <minor_scale>
+			<type>day</type>
+			<total_units>7</total_units>
+			<minor_unit>S</minor_unit> 
+			<minor_unit>M</minor_unit> 
+			<minor_unit>T</minor_unit> 
+			<minor_unit>W</minor_unit> 
+			<minor_unit>T</minor_unit> 
+			<minor_unit>F</minor_unit> 
+			<minor_unit>S</minor_unit> 
+		</minor_scale>
+	</timescale>
+	<calendar>
+		<non_working_days>
+			<day>S</day>
+		</non_working_days>
+	</calendar>
+	<tasklist>
+		<task>
+			<id>1234</id>
+			<name>Phil's Task</name>
+			<description>whatever</description>
+			<work>8</work>
+			<duration>3</duration>
+			<start_unit>2</start_unit>
+			<pct_complete>40</pct_complete>
+		</task>
+	</tasklist>
+</gantt>

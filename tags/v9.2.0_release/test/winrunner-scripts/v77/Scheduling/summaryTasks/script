@@ -1,0 +1,238 @@
+wait(3);
+# call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject"();
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+public task_types[] = {"Fixed Duration","Fixed Units","Fixed Work"};
+public units[] = {"hours","days","weeks"};
+reload("createTask",0,1);
+reload("date_diff",0,1);
+reload("getTaskID",0,1);
+reload("setSummaryTask",0,1);
+
+function checkDates(in summaryTask, in childTask1, in childTask2){#, in childTask3, in childTask4, in childTask5, in childTask6){
+	auto duration1,duration1_units, work1, work1_units;
+	auto duration2,duration2_units, work2, work2_units;
+	auto duration3,duration3_units, work3, work3_units;
+	auto start1, start2, start3, end1, end2, end3;
+	auto out_num,days, value;
+	
+	set_window("main",1);
+	web_link_click(childTask1);
+	wait(1);
+	set_window("main",1);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",1);
+	edit_get_text("startTime_NotSubmitted",start2);
+	edit_get_text("endTime_NotSubmitted",end2);
+	edit_get_text("duration",duration2);
+	list_get_selected("duration_units",duration2_units,out_num);
+	edit_get_text("work",work2);
+	list_get_selected("work_units",work2_units,out_num);
+	web_link_click("Cancel");
+	
+	set_window("main",1);
+	web_link_click(childTask2);
+	wait(1);
+	set_window("main",1);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",1);
+	edit_get_text("startTime_NotSubmitted",start3);
+	edit_get_text("endTime_NotSubmitted",end3);
+	edit_get_text("duration",duration3);
+# 	list_get_selected("duration_units",duration3_units,out_num);
+	edit_get_text("work",work3);
+# 	list_get_selected("work_units",work3_units,out_num);
+	web_link_click("Cancel");
+	
+	set_window("main",1);
+	web_link_click(summaryTask);
+	wait(1);
+	set_window("main",1);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",1);
+	edit_get_text("startTime_NotSubmitted",start1);
+	edit_get_text("endTime_NotSubmitted",end1);
+	edit_get_text("duration",duration1);
+# 	list_get_selected("duration_units",duration1_units,out_num);
+	edit_get_text("work",work1);
+# 	list_get_selected("work_units",work1_units,out_num);
+	web_link_click("Cancel");
+	
+	if(duration2_units == "hours"){
+		duration2 = duration2/8;
+		duration2_units = "days";
+	}
+	if(duration2_units == "weeks"){
+		duration2 = duration2 * 5;
+		duration2_units = "hours";
+	}
+# 	if(duration3_units == "hours"){
+# 		duration3 = duration3/8;
+# 		duration3_units = "days";
+# 	}
+# 	if(duration3_units == "weeks"){
+# 		duration3 = duration3 * 5;
+# 		duration3_units = "hours";
+# 	}
+	if(work2_units == "days"){
+		work2 = work2 * 8;
+		work2_units = "hours";
+	}
+	if(work2_units == "weeks"){
+		work2 = work2 * 8 * 5;
+		work3_units = "hours";
+	}
+	
+# 	if(work3_units == "weeks"){
+# 		work3 = work3 * 8 * 5;
+# 		work3_units = "hours";
+# 	}
+# 	if(work3_units == "days"){
+# 		work3 = work3 * 8;
+# 		work3_units = "hours";
+# 	}
+	
+	if((work2+ work3) == work1)
+		tl_step("Verify summary task work",0,"The work of the summary task changes correctly to "&work1&"");
+	else
+		tl_step("Verify summary task work",1,"The duration of the summary task INCORRECTLY set to "&work1&"");
+	if(duration2 > duration3){
+		if(duration1 == duration2)
+			tl_step("Verify summary task duration",0,"The duration of the summary task is set correctly to "&duration2&"");
+		else
+			tl_step("Verify summary task duration",1,"The duration of summary task INCORRECTLY set to "&duration2&"");
+		days = date_diff(start2,start1);
+		if(days == 0)
+			tl_step("Verify summary start date",0,"The start date "&start1&" is set correctly for "&summaryTask&"");
+		else
+			tl_step("Verify summary start date",1,"The start date "&start1&" is set INCORRECTLY for "&summaryTask&"");
+		days = date_diff(end2,end1);
+		if(days == 0)
+			tl_step("Verify summary end date",0,"The end date "&end1&" is set correctly for "&summaryTask&"");
+		else
+			tl_step("Verify summary end date",1,"The end date "&end1&" is set INCORRECTLY for "&summaryTask&"");
+	}
+	
+	if(duration2 < duration3){
+		if(duration1 == duration3)
+			tl_step("Verify summary task duration",0,"The duration of the summary task is set correctly to "&duration3&"");
+		else
+			tl_step("Verify summary task duration",1,"The duration of summary task INCORRECTLY set to "&duration3&"");
+		days = date_diff(start3,start1);
+		if(days == 0)
+			tl_step("Verify summary start date",0,"The start date "&start1&" is set correctly for "&summaryTask&"");
+		else
+			tl_step("Verify summary start date",1,"The start date "&start1&" is set INCORRECTLY for "&summaryTask&"");
+		days = date_diff(end3,end1);
+		if(days == 0)
+			tl_step("Verify summary end date",0,"The end date "&end1&" is set correctly for "&summaryTask&"");
+		else
+			tl_step("Verify summary end date",1,"The end date "&end1&" is set INCORRECTLY for "&summaryTask&"");
+	}
+	
+	if(duration2 == duration3){
+		if((duration1==duration2) && (duration1==duration3))
+			tl_step("Verify summary task duration",0,"The duration of the summary task is set correctly");
+		else
+			tl_step("Verify summary task duration",1,"The duration of summary task INCORRECTLY set");
+# 		value = date_diff(start3,start2);
+# 		pause(value);
+		if(date_diff(start3,start2)== 0){
+			days = date_diff(start3,start1);
+			if(days == 0)
+				tl_step("Verify summary start date",0,"The start date "&start1&" is set correctly for "&summaryTask&"");
+			else
+				tl_step("Verify summary start date",1,"The summary start date "&start1&" is set INCORRECTLY = for "&summaryTask&"");
+		}
+		else
+			tl_step("Verify child start date",1,"Error in setting of start date for either the child tasks");
+		if(date_diff(end3,end2)== 0){
+			days = date_diff(end3,end1);
+			if(days == 0)
+				tl_step("Verify summary end date",0,"The start date "&end1&" is set correctly for "&summaryTask&"");
+			else
+				tl_step("Verify summary end date",1,"The summary end date "&end1&" is set INCORRECTLY =  for "&summaryTask&"");
+		}
+		else
+			tl_step("Verify child end date",1,"Error in setting of end date for either the child tasks");
+		
+	}
+		
+}
+	
+# set_window("main",2);
+# web_link_click("WRProject");
+# set_window("menu",3);
+# web_link_click("Workplan");
+wait(2);
+
+set_window("main",2);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer");
+button_press("OK");
+wait(8);
+set_window("main",1);
+
+createTask("t0", task_types[0], 1, units[1], 8, units[0]);
+createTask("t1", task_types[0], 1, units[2], 1, units[2]);
+createTask("t2", task_types[0], 1, units[1], 8, units[0]);
+setSummaryTask("t1","t2",1);
+createTask("t3", task_types[0], 1, units[2], 1, units[2]);
+createTask("t4", task_types[0], 1, units[1], 8, units[0]);
+setSummaryTask("t3","t4",2);
+createTask("t5", task_types[0], 1, units[2], 1, units[2]);
+createTask("t6", task_types[0], 1, units[1], 8, units[0]);
+setSummaryTask("t5","t6",3);
+createTask("t7", task_types[0], 1, units[2], 1, units[2]);
+createTask("t8", task_types[0], 1, units[1], 8, units[0]);
+setSummaryTask("t7","t8",4);
+checkDates("t6","t7","t8");
+checkDates("t4","t5","t6");
+checkDates("t2","t3","t4");
+checkDates("t0","t1","t2");
+report_msg("");
+
+createTask("t9", task_types[1], 1, units[1], 8, units[0]);
+createTask("t10", task_types[1], 1, units[2], 1, units[2]);
+createTask("t11", task_types[1], 1, units[1], 8, units[0]);
+setSummaryTask("t10","t11",1);
+createTask("t12", task_types[1], 1, units[2], 1, units[2]);
+createTask("t13", task_types[1], 1, units[1], 8, units[0]);
+setSummaryTask("t12","t13",2);
+createTask("t14", task_types[1], 1, units[2], 1, units[2]);
+createTask("t15", task_types[1], 1, units[1], 8, units[0]);
+setSummaryTask("t14","t15",3);
+createTask("t16", task_types[1], 1, units[2], 1, units[2]);
+createTask("t17", task_types[1], 1, units[1], 8, units[0]);
+setSummaryTask("t16","t17",4);
+checkDates("t15","t16","t17");
+checkDates("t13","t14","t15");
+checkDates("t11","t12","t13");
+checkDates("t9","t10","t11");
+report_msg("");
+
+createTask("t18", task_types[1], 1, units[1], 8, units[0]);
+createTask("t19", task_types[1], 1, units[2], 1, units[2]);
+createTask("t20", task_types[1], 1, units[1], 8, units[0]);
+setSummaryTask("t19","t20",1);
+createTask("t21", task_types[1], 1, units[2], 1, units[2]);
+createTask("t22", task_types[1], 1, units[1], 8, units[0]);
+setSummaryTask("t21","t22",2);
+createTask("t23", task_types[1], 1, units[2], 1, units[2]);
+createTask("t24", task_types[1], 1, units[1], 8, units[0]);
+setSummaryTask("t23","t24",3);
+createTask("t25", task_types[1], 1, units[2], 1, units[2]);
+createTask("t26", task_types[1], 1, units[1], 8, units[0]);
+setSummaryTask("t25","t26",4);
+checkDates("t24","t25","t26");
+checkDates("t22","t23","t24");
+checkDates("t20","t21","t22");
+checkDates("t18","t19","t20");
+
+set_window("main",2);
+wait(3);
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");

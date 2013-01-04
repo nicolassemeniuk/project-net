@@ -1,0 +1,396 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<!-- 
+	<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
+        <property name="jndiName">
+            <value>java:comp/env/jdbc/PnetDB</value>
+        </property>
+	</bean>
+	-->
+	
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">			
+		<property name="driverClass"><value>oracle.jdbc.driver.OracleDriver</value></property>
+		<property name="user"><value>pnet</value></property>
+		<property name="password"><value>pnet</value></property> 
+		<property name="jdbcUrl"><value>jdbc:oracle:thin:@localhost:1521:v83dev</value></property>	
+		<property name="acquireIncrement">
+			<value>1</value>
+		</property>
+		<property name="minPoolSize">
+			<value>0</value>
+		</property>
+		<property name="initialPoolSize">
+			<value>1</value>
+		</property>
+		<property name="maxPoolSize">
+			<value>20</value>
+		</property>
+		<property name="idleConnectionTestPeriod">
+			<value>30</value>
+		</property>
+		<property name="maxIdleTime">
+			<value>20</value>
+		</property>
+		<property name="maxStatements">
+			<value>0</value>
+		</property>	
+	</bean>
+	
+	<bean id="sessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSource"/>
+		<property name="mappingResources">
+			<list>
+				<value>net/project/hibernate/model/ClientDatabaseVersion.hbm.xml</value>
+				<value>net/project/hibernate/model/DatabaseVersion.hbm.xml</value>
+				<value>net/project/hibernate/model/DatabaseVersionUpdate.hbm.xml</value>
+				<value>net/project/hibernate/model/HelpFeedback.hbm.xml</value>
+				<value>net/project/hibernate/model/PnAddress.hbm.xml</value>
+				<value>net/project/hibernate/model/PnAgendaItem.hbm.xml</value>
+				<value>net/project/hibernate/model/PnApplicationSpace.hbm.xml</value>
+				<value>net/project/hibernate/model/PnAssignment.hbm.xml</value>
+				<value>net/project/hibernate/model/PnAssignmentWork.hbm.xml</value>
+				<value>net/project/hibernate/model/PnAuthenticator.hbm.xml</value>
+				<value>net/project/hibernate/model/PnAuthenticatorType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnBaseline.hbm.xml</value>
+				<value>net/project/hibernate/model/PnBaselineHasPlan.hbm.xml</value>
+				<value>net/project/hibernate/model/PnBaselineHasTask.hbm.xml</value>
+				<value>net/project/hibernate/model/PnBill.hbm.xml</value>
+				<value>net/project/hibernate/model/PnBookmark.hbm.xml</value>
+				<value>net/project/hibernate/model/PnBrand.hbm.xml</value>
+				<value>net/project/hibernate/model/PnBrandHasHost.hbm.xml</value>
+				<value>net/project/hibernate/model/PnBrandSupportsLanguage.hbm.xml</value>
+				<value>net/project/hibernate/model/PnBusiness.hbm.xml</value>
+				<value>net/project/hibernate/model/PnBusinessCategory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnBusinessSpace.hbm.xml</value>
+				<value>net/project/hibernate/model/PnCalEventHasAttendee.hbm.xml</value>
+				<value>net/project/hibernate/model/PnCalculationFieldFormula.hbm.xml</value>
+				<value>net/project/hibernate/model/PnCalendar.hbm.xml</value>
+				<value>net/project/hibernate/model/PnCalendarEvent.hbm.xml</value>
+				<value>net/project/hibernate/model/PnCalendarHasEvent.hbm.xml</value>
+				<value>net/project/hibernate/model/PnCategory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnCategoryHasCategory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnCcTransactionPayment.hbm.xml</value>
+				<value>net/project/hibernate/model/PnClass.hbm.xml</value>
+				<value>net/project/hibernate/model/PnClassDomain.hbm.xml</value>
+				<value>net/project/hibernate/model/PnClassDomainValue.hbm.xml</value>
+				<value>net/project/hibernate/model/PnClassField.hbm.xml</value>
+				<value>net/project/hibernate/model/PnClassFieldProperty.hbm.xml</value>
+				<value>net/project/hibernate/model/PnClassHasWorkflow.hbm.xml</value>
+				<value>net/project/hibernate/model/PnClassInstance.hbm.xml</value>
+				<value>net/project/hibernate/model/PnClassList.hbm.xml</value>
+				<value>net/project/hibernate/model/PnClassListField.hbm.xml</value>
+				<value>net/project/hibernate/model/PnClassListFilter.hbm.xml</value>
+				<value>net/project/hibernate/model/PnClassType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnClassTypeElement.hbm.xml</value>
+				<value>net/project/hibernate/model/PnClientType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnCodeType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnConfigurationSpace.hbm.xml</value>
+				<value>net/project/hibernate/model/PnCountryLookup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnCreditCardTransaction.hbm.xml</value>
+				<value>net/project/hibernate/model/PnCustomCode.hbm.xml</value>
+				<value>net/project/hibernate/model/PnCustomDomain.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDateFormat.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDefaultObjectPermission.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDeliverable.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDeliveryAddress.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDirectory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDirectoryField.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDirectoryHasPerson.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDirectoryProviderType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDisciplineLookup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDiscussionActionLookup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDiscussionGroup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDiscussionHistory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocActionLookup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocCheckoutLocation.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocConfiguration.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocConfigurationHasDoc.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocContainer.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocContainerHasObject.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocContentElement.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocContentRendition.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocHandler.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocHistory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocProvider.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocProviderHasDocSpace.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocProviderType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocRepositoryBase.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocSpace.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocSpaceHasContainer.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocVersion.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocVersionHasContent.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDocument.hbm.xml</value>
+				<value>net/project/hibernate/model/PnDomainMigration.hbm.xml</value>
+				<value>net/project/hibernate/model/PnElement.hbm.xml</value>
+				<value>net/project/hibernate/model/PnElementDisplayClass.hbm.xml</value>
+				<value>net/project/hibernate/model/PnElementProperty.hbm.xml</value>
+				<value>net/project/hibernate/model/PnEnvelopeHasObject.hbm.xml</value>
+				<value>net/project/hibernate/model/PnEnvelopeHistory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnEnvelopeHistoryAction.hbm.xml</value>
+				<value>net/project/hibernate/model/PnEnvelopeHistoryClob.hbm.xml</value>
+				<value>net/project/hibernate/model/PnEnvelopeObjectClob.hbm.xml</value>
+				<value>net/project/hibernate/model/PnEnvelopeVersion.hbm.xml</value>
+				<value>net/project/hibernate/model/PnEnvelopeVersionHasObject.hbm.xml</value>
+				<value>net/project/hibernate/model/PnEventHasNotification.hbm.xml</value>
+				<value>net/project/hibernate/model/PnEventType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnFacility.hbm.xml</value>
+				<value>net/project/hibernate/model/PnFinderIngredient.hbm.xml</value>
+				<value>net/project/hibernate/model/PnFormsActionLookup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnFormsHistory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnGate.hbm.xml</value>
+				<value>net/project/hibernate/model/PnGlobalCode.hbm.xml</value>
+				<value>net/project/hibernate/model/PnGlobalDomain.hbm.xml</value>
+				<value>net/project/hibernate/model/PnGroup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnGroupActionLookup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnGroupHasGroup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnGroupHasPerson.hbm.xml</value>
+				<value>net/project/hibernate/model/PnGroupHistory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnGroupType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnIndustryClassification.hbm.xml</value>
+				<value>net/project/hibernate/model/PnIndustryHasCategory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnInvitedUser.hbm.xml</value>
+				<value>net/project/hibernate/model/PnInvoice.hbm.xml</value>
+				<value>net/project/hibernate/model/PnInvoiceLob.hbm.xml</value>
+				<value>net/project/hibernate/model/PnJavaErrorLog.hbm.xml</value>
+				<value>net/project/hibernate/model/PnJobDescriptionFeedback.hbm.xml</value>
+				<value>net/project/hibernate/model/PnJobDescriptionLookup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnLanguage.hbm.xml</value>
+				<value>net/project/hibernate/model/PnLdapConfigurationContext.hbm.xml</value>
+				<value>net/project/hibernate/model/PnLdapDirectoryAttrMap.hbm.xml</value>
+				<value>net/project/hibernate/model/PnLdapDirectoryConfig.hbm.xml</value>
+				<value>net/project/hibernate/model/PnLedger.hbm.xml</value>
+				<value>net/project/hibernate/model/PnLicense.hbm.xml</value>
+				<value>net/project/hibernate/model/PnLicenseCertificate.hbm.xml</value>
+				<value>net/project/hibernate/model/PnLicensePersonHistory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnLicensePurchaser.hbm.xml</value>
+				<value>net/project/hibernate/model/PnLicenseStatusReason.hbm.xml</value>
+				<value>net/project/hibernate/model/PnLoginHistory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnMeeting.hbm.xml</value>
+				<value>net/project/hibernate/model/PnMethodologyInIndustry.hbm.xml</value>
+				<value>net/project/hibernate/model/PnMethodologySpace.hbm.xml</value>
+				<value>net/project/hibernate/model/PnModule.hbm.xml</value>
+				<value>net/project/hibernate/model/PnModuleHasObjectType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnModulePermission.hbm.xml</value>
+				<value>net/project/hibernate/model/PnNew.hbm.xml</value>
+				<value>net/project/hibernate/model/PnNewsActionLookup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnNewsHistory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnNextDocRepository.hbm.xml</value>
+				<value>net/project/hibernate/model/PnNotification.hbm.xml</value>
+				<value>net/project/hibernate/model/PnNotificationClob.hbm.xml</value>
+				<value>net/project/hibernate/model/PnNotificationDeliveryType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnNotificationLog.hbm.xml</value>
+				<value>net/project/hibernate/model/PnNotificationObjectType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnNotificationQueue.hbm.xml</value>
+				<value>net/project/hibernate/model/PnNotificationSchedStatus.hbm.xml</value>
+				<value>net/project/hibernate/model/PnNotificationType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnObject.hbm.xml</value>
+				<value>net/project/hibernate/model/PnObjectHasDiscussion.hbm.xml</value>
+				<value>net/project/hibernate/model/PnObjectHasDocContainer.hbm.xml</value>
+				<value>net/project/hibernate/model/PnObjectHasSubscription.hbm.xml</value>
+				<value>net/project/hibernate/model/PnObjectInCategory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnObjectLink.hbm.xml</value>
+				<value>net/project/hibernate/model/PnObjectName.hbm.xml</value>
+				<value>net/project/hibernate/model/PnObjectPermission.hbm.xml</value>
+				<value>net/project/hibernate/model/PnObjectSpace.hbm.xml</value>
+				<value>net/project/hibernate/model/PnObjectType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnObjectTypeSubscription.hbm.xml</value>
+				<value>net/project/hibernate/model/PnObjectTypeSupportsAction.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPagePermission.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPaymentInformation.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPaymentModel.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPaymentModelCharge.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPaymentModelCreditcard.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPaymentModelType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPerson.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPersonAllocation.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPersonAuthenticator.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPersonHasAlternateEmail.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPersonHasDiscipline.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPersonHasLicense.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPersonHasProfCert.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPersonHasSkill.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPersonHasStateReg.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPersonHasVote.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPersonNotificationAddress.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPersonNotificationPref.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPersonPicksSpam.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPersonProfile.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPersonProperty.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPersonSkillComment.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPersonSurvey.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPersonUsedSkill.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPhase.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPhaseHasDeliverable.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPhaseHasTask.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPivot.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPlan.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPlanHasTask.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPlanVersion.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPortfolio.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPortfolioHasConfiguration.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPortfolioHasSpace.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPost.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPostActionLookup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPostBodyClob.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPostHistory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPostReader.hbm.xml</value>
+				<value>net/project/hibernate/model/PnProcess.hbm.xml</value>
+				<value>net/project/hibernate/model/PnProfCertLookup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnProjectSpace.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPropCategoryHasProperty.hbm.xml</value>
+				<value>net/project/hibernate/model/PnProperty.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPropertyCategory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPropertyChange.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPropertySheet.hbm.xml</value>
+				<value>net/project/hibernate/model/PnPropertySheetType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnReportSequence.hbm.xml</value>
+				<value>net/project/hibernate/model/PnScheduleNtwkIdToCheck.hbm.xml</value>
+				<value>net/project/hibernate/model/PnScheduleNtwkIdToReturn.hbm.xml</value>
+				<value>net/project/hibernate/model/PnScheduledSubscription.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSecurityAction.hbm.xml</value>
+				<value>net/project/hibernate/model/PnShareable.hbm.xml</value>
+				<value>net/project/hibernate/model/PnShareablePermission.hbm.xml</value>
+				<value>net/project/hibernate/model/PnShared.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSkill.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSkillCategory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSkillHasSubskill.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpErrorCode.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpErrorLog.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceAccessHistory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasCalendar.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasClass.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasClassList.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasDirectory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasDirectoryField.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasDocProvider.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasDocSpace.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasFeaturedMenuitem.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasGroup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasMethodology.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasModule.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasNew.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasPerson.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasPlan.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasPortfolio.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasProcess.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasPropertySheet.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasSkill.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasSkillCategory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasSpace.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasSubscription.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasWeather.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceHasWorkflow.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceTypeHasReportType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpaceViewContext.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSpamLookup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnStateLookup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSubHasNotifyType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSubscription.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSubscriptionHasGroup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSubscriptionRecurrence.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSubscriptionType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSystemConfig.hbm.xml</value>
+				<value>net/project/hibernate/model/PnSystemSetting.hbm.xml</value>
+				<value>net/project/hibernate/model/PnTask.hbm.xml</value>
+				<value>net/project/hibernate/model/PnTaskActionLookup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnTaskBaseline.hbm.xml</value>
+				<value>net/project/hibernate/model/PnTaskComment.hbm.xml</value>
+				<value>net/project/hibernate/model/PnTaskCycleDependency.hbm.xml</value>
+				<value>net/project/hibernate/model/PnTaskCycleWork.hbm.xml</value>
+				<value>net/project/hibernate/model/PnTaskDependency.hbm.xml</value>
+				<value>net/project/hibernate/model/PnTaskDependencyVersion.hbm.xml</value>
+				<value>net/project/hibernate/model/PnTaskHistory.hbm.xml</value>
+				<value>net/project/hibernate/model/PnTaskVersion.hbm.xml</value>
+				<value>net/project/hibernate/model/PnTimeFormat.hbm.xml</value>
+				<value>net/project/hibernate/model/PnTimezoneLookup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnTmpDocPathInfo.hbm.xml</value>
+				<value>net/project/hibernate/model/PnTmpDocument.hbm.xml</value>
+				<value>net/project/hibernate/model/PnTmpHeartbeatMetric.hbm.xml</value>
+				<value>net/project/hibernate/model/PnUser.hbm.xml</value>
+				<value>net/project/hibernate/model/PnUserDefaultCredential.hbm.xml</value>
+				<value>net/project/hibernate/model/PnUserDomain.hbm.xml</value>
+				<value>net/project/hibernate/model/PnUserDomainMigration.hbm.xml</value>
+				<value>net/project/hibernate/model/PnUserDomainSupportsConfig.hbm.xml</value>
+				<value>net/project/hibernate/model/PnUserHasMasterBusiness.hbm.xml</value>
+				<value>net/project/hibernate/model/PnView.hbm.xml</value>
+				<value>net/project/hibernate/model/PnViewDefaultSetting.hbm.xml</value>
+				<value>net/project/hibernate/model/PnVote.hbm.xml</value>
+				<value>net/project/hibernate/model/PnVoteQuestionair.hbm.xml</value>
+				<value>net/project/hibernate/model/PnVoteResponse.hbm.xml</value>
+				<value>net/project/hibernate/model/PnWfRuleAuth.hbm.xml</value>
+				<value>net/project/hibernate/model/PnWfRuleAuthHasGroup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnWorkflow.hbm.xml</value>
+				<value>net/project/hibernate/model/PnWorkflowEnvelope.hbm.xml</value>
+				<value>net/project/hibernate/model/PnWorkflowHasObjectType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnWorkflowRule.hbm.xml</value>
+				<value>net/project/hibernate/model/PnWorkflowRuleStatus.hbm.xml</value>
+				<value>net/project/hibernate/model/PnWorkflowRuleType.hbm.xml</value>
+				<value>net/project/hibernate/model/PnWorkflowStatus.hbm.xml</value>
+				<value>net/project/hibernate/model/PnWorkflowStep.hbm.xml</value>
+				<value>net/project/hibernate/model/PnWorkflowStepCopy.hbm.xml</value>
+				<value>net/project/hibernate/model/PnWorkflowStepHasGroup.hbm.xml</value>
+				<value>net/project/hibernate/model/PnWorkflowStrictness.hbm.xml</value>
+				<value>net/project/hibernate/model/PnWorkflowTransition.hbm.xml</value>
+				<value>net/project/hibernate/model/PnWorkingtimeCalendar.hbm.xml</value>
+				<value>net/project/hibernate/model/PnWorkingtimeCalendarEntry.hbm.xml</value>
+				<value>net/project/hibernate/model/PnZipcodeFeedLookup.hbm.xml</value>
+				<value>net/project/hibernate/model/ProductVersion.hbm.xml</value>
+				<value>net/project/hibernate/model/QrtzBlobTrigger.hbm.xml</value>
+				<value>net/project/hibernate/model/QrtzCalendar.hbm.xml</value>
+				<value>net/project/hibernate/model/QrtzCronTrigger.hbm.xml</value>
+				<value>net/project/hibernate/model/QrtzFiredTrigger.hbm.xml</value>
+				<value>net/project/hibernate/model/QrtzJobDetail.hbm.xml</value>
+				<value>net/project/hibernate/model/QrtzJobListener.hbm.xml</value>
+				<value>net/project/hibernate/model/QrtzLock.hbm.xml</value>
+				<value>net/project/hibernate/model/QrtzPausedTriggerGrp.hbm.xml</value>
+				<value>net/project/hibernate/model/QrtzSchedulerState.hbm.xml</value>
+				<value>net/project/hibernate/model/QrtzSimpleTrigger.hbm.xml</value>
+				<value>net/project/hibernate/model/QrtzTrigger.hbm.xml</value>
+				<value>net/project/hibernate/model/QrtzTriggerListener.hbm.xml</value>
+				<value>net/project/hibernate/model/StatusMessage.hbm.xml</value>
+				<value>net/project/hibernate/model/PnMethodologyView.hbm.xml</value>
+				<value>net/project/hibernate/model/PnProjectSpaceMetaProp.hbm.xml</value>
+				<value>net/project/hibernate/model/PnProjectSpaceMetaValue.hbm.xml</value>
+			</list>
+		</property>
+
+		<property name="hibernateProperties">
+			<props>
+			    <prop key="hibernate.dialect">org.hibernate.dialect.OracleDialect</prop>
+				<prop key="hibernate.max_fetch_depth">3</prop>
+				<prop key="hibernate.show_sql">false</prop>
+			</props>
+		</property>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>
+
+	<bean id="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">
+		<property name="sessionFactory" ref="sessionFactory"/>
+	</bean>	
+	
+	<!-- Transaction attributes -->
+	<bean id="transactionAttributeSource" class="org.springframework.transaction.interceptor.NameMatchTransactionAttributeSource">
+		<property name="properties">
+			<props>
+                <prop key="*">PROPAGATION_REQUIRED</prop>
+			</props>
+		</property>
+	</bean>
+
+	<!-- Transaction proxy template -->
+	<bean id="transactionProxyTemplate" abstract="true" class="org.springframework.transaction.interceptor.TransactionProxyFactoryBean" lazy-init="true">
+        <property name="transactionManager" ref="transactionManager"/>
+        <property name="transactionAttributeSource" ref="transactionAttributeSource"/>
+    </bean>		
+	
+	<import resource="bussinessContext-dao.xml"/>
+	<import resource="bussinessContext-service.xml"/>
+	
+	
+</beans>

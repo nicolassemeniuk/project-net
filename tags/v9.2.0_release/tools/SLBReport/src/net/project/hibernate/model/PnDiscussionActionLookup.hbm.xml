@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDiscussionActionLookup" 
+    table="PN_DISCUSSION_ACTION_LOOKUP"
+    lazy="false"
+>
+
+    <id
+        name="action"
+        type="java.lang.String"
+        column="ACTION"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnDiscussionHistory -->
+
+    <set
+        name="pnDiscussionHistories"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="ACTION" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDiscussionHistory"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

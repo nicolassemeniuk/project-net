@@ -1,0 +1,1016 @@
+CSVExport1:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: "CSVExport1.jsp"
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+CSVExport1.Cancel:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Cancel
+}
+CSVExport1.Cancel_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Cancel
+}
+CSVExport1.Next:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Next
+}
+CSVExport1.Next_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Next
+}
+CSVExport1."Please select the character set for your CSV file.":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 0
+}
+CSVExport1."actionbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 1
+}
+CSVExport1."actionbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-left_end.gif"
+}
+CSVExport1."actionbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-right_end.gif"
+}
+CSVExport1.characterSet:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: characterSet
+}
+CSVExport1.html_combobox:
+{
+ class: list,
+ MSW_class: html_combobox
+}
+"File Download":
+{
+ class: window,
+ label: "File Download",
+ MSW_class: Dialog
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+"File Download"."(static)_0":
+{
+ class: static_text,
+ MSW_id: 32514
+}
+"File Download"."(static)_1":
+{
+ class: static_text,
+ MSW_id: 4424
+}
+"File Download"."Always ask before opening this type of file":
+{
+ class: check_button,
+ label: "Always ask before opening this type of file"
+}
+"File Download".Cancel:
+{
+ class: push_button,
+ label: Cancel
+}
+"File Download"."File name:(static)":
+{
+ class: static_text,
+ MSW_id: 65535,
+ label: "File name:"
+}
+"File Download"."File type:(static)":
+{
+ class: static_text,
+ MSW_id: 65535,
+ label: "File type:"
+}
+"File Download"."FormList.csv(static)":
+{
+ class: static_text,
+ MSW_id: 4418
+}
+"File Download"."From:(static)":
+{
+ class: static_text,
+ MSW_id: 65535,
+ label: "From:"
+}
+"File Download"."Microsoft Excel Comma Separated Values File(static)":
+{
+ class: static_text,
+ MSW_id: 4422
+}
+"File Download"."More Info":
+{
+ class: push_button,
+ label: "More Info"
+}
+"File Download".Open:
+{
+ class: push_button,
+ label: Open
+}
+"File Download".Save:
+{
+ class: push_button,
+ label: Save
+}
+"File Download"."Some files can harm your computer. If the file information below looks suspicious, or you do not fully trust the source, do not open or save this file.(static)":
+{
+ class: static_text,
+ MSW_id: 65535,
+ label: "Some files can harm your computer. If the file information below looks suspicious, or you do not fully trust the source, do not open or save this file."
+}
+"File Download"."Would you like to open the file or save it to your computer?(static)":
+{
+ class: static_text,
+ MSW_id: 65535,
+ label: "Would you like to open the file or save it to your computer?"
+}
+"File Download"."hippo(static)":
+{
+ class: static_text,
+ MSW_id: 4423
+}
+"File Download"."sys_Close Alt+F4":
+{
+ class: menu_item,
+ label: "Close Alt+F4",
+ sysmenu: 1,
+ parent: none
+}
+"File Download".sys_Move:
+{
+ class: menu_item,
+ label: Move,
+ sysmenu: 1,
+ parent: none
+}
+main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: main
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+main.100:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: 100,
+ part_value: 10
+}
+main.100_1:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: 100,
+ part_value: 20
+}
+main.100_2:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: 100,
+ part_value: 30
+}
+main.100_3:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: 100
+}
+main.101:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: 101
+}
+main.102:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: 102
+}
+main.99:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: 99
+}
+main.Activate:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Activate
+}
+main.Add:
+{
+ class: push_button,
+ MSW_class: html_push_button,
+ html_name: Add
+}
+main."Add to Workflow":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Add to Workflow"
+}
+main.CalculatedField:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: CalculatedField
+}
+main.Cancel:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Cancel
+}
+main.Cancel_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Cancel
+}
+main."Capture Work":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Capture Work"
+}
+main.CheckBoxField:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: CheckBoxField
+}
+main.Copy:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Copy
+}
+main.Create:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Create
+}
+main.CurrencyField:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: CurrencyField
+}
+main.DateField:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: DateField
+}
+main.DefaultValue:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: DefaultValue,
+ part_value: 2336026
+}
+main.DefaultValue_1:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: DefaultValue,
+ part_value: 2336023
+}
+main."Demote this menu choice":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Demote this menu choice",
+ location: 0
+}
+main."Demote this menu choice_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Demote this menu choice",
+ location: 1
+}
+main."Demote this menu choice_2":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Demote this menu choice",
+ location: 2
+}
+main."Demote this menu choice_3":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Demote this menu choice",
+ location: 3
+}
+main.DomainValueName:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: DomainValueName
+}
+main.ElementID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: ElementID
+}
+main.Export:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Export
+}
+main.Fields:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Fields
+}
+main."Form Designer":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Form Designer"
+}
+main."Form Name:":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 4
+}
+main.Forms:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Forms
+}
+main.Help:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Help
+}
+main.HorizontalSectionTitle:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: HorizontalSectionTitle
+}
+main.Import:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Import
+}
+main.Link:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Link
+}
+main.Lists:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Lists
+}
+main.Modify:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Modify
+}
+main.Notify:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Notify
+}
+main.Number:
+{
+ class: object,
+ MSW_class: html_table,
+ location: 4
+}
+main.NumberField:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: NumberField
+}
+main.PersonSelectionMenu:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: PersonSelectionMenu
+}
+main."Promote this menu choice":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Promote this menu choice",
+ location: 0
+}
+main."Promote this menu choice_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Promote this menu choice",
+ location: 1
+}
+main."Promote this menu choice_2":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Promote this menu choice",
+ location: 2
+}
+main."Promote this menu choice_3":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Promote this menu choice",
+ location: 3
+}
+main.Properties:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Properties
+}
+main.Refresh:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Refresh
+}
+main.Remove:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Remove
+}
+main.Reset:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Reset
+}
+main.Reset_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Reset
+}
+main.Search:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Search
+}
+main.Security:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Security
+}
+main.Select:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Select,
+ location: 0
+}
+main.SelectionMenu:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: SelectionMenu
+}
+main.Submit:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Submit
+}
+main.Submit_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Submit
+}
+main.Submit_2:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Submit,
+ location: 1
+}
+main.TestProject1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: TestProject1
+}
+main.TextBox:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: TextBox
+}
+main.TextField:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: TextField
+}
+main.TextFieldForm:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: TextFieldForm
+}
+main.UserInstructions:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: UserInstructions
+}
+main.WRform:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: WRform
+}
+main.WRlist:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: WRlist
+}
+main.Workflow:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflow
+}
+main.Workflow1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflow1
+}
+main.Workflow2:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflow2
+}
+main.Workflow3:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflow3
+}
+main.Workflow4:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflow4
+}
+main.Workflow5:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflow5
+}
+main.Workflow6:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflow6
+}
+main.WorkflowForm:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: WorkflowForm
+}
+main.WorkflowList:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: WorkflowList
+}
+main.Workflows:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflows
+}
+main.abbreviation:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: abbreviation
+}
+main."actionbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 5
+}
+main."actionbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-left_end.gif"
+}
+main."actionbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-right_end.gif"
+}
+main."channelbar-maximized":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 3
+}
+main."channelbar-maximized_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-maximized.gif"
+}
+main."channelbar-minimized":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-minimized.gif",
+ location: 0
+}
+main."channelbar-minimized_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-minimized.gif",
+ location: 1
+}
+main."channelbar-minimized_2":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-minimized.gif",
+ location: 2
+}
+main."channelbar-minimized_3":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-minimized.gif",
+ location: 3
+}
+main."channelbar-minimized_4":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-minimized.gif",
+ location: 4
+}
+main."channelbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif",
+ location: 0
+}
+main."channelbar-right_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif",
+ location: 1
+}
+main."channelbar-right_end_2":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif",
+ location: 2
+}
+main."channelbar-right_end_3":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif",
+ location: 3
+}
+main."channelbar-right_end_4":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif",
+ location: 4
+}
+main."channelbar-right_end_5":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif",
+ location: 5
+}
+main.cols:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: cols
+}
+main.column_id:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: column_id
+}
+main.column_num:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: column_num__5912
+}
+main.data_column_scale:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: data_column_scale
+}
+main.data_column_size:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: data_column_size
+}
+main.description:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: description
+}
+main.displayedInToolsMenu:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: displayedInToolsMenu,
+ part_value: true
+}
+main.field:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: field5494
+}
+main.field2360458:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: field5492
+}
+main.field2360467:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: field5491,
+ part_value: 1
+}
+main.field_checked:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: field_checked__5912,
+ part_value: 1
+}
+main.field_label:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: field_label
+}
+main.field_width:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: field_width__5912
+}
+main.formStatus:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: formStatus
+}
+main.html_combobox:
+{
+ class: list,
+ MSW_class: html_combobox
+}
+main.indented_subfield__2340115:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: indented_subfield__2340115,
+ part_value: 1
+}
+main.instructions_clob:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: instructions_clob
+}
+main.is_multi_select:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: is_multi_select,
+ part_value: 1
+}
+main.is_value_required:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: is_value_required,
+ part_value: 1
+}
+main.name:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: name
+}
+main.null:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: null,
+ location: 0
+}
+main.row_num:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: row_num
+}
+main.rows:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: rows
+}
+main.selectionMenu:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: selectionMenu
+}
+main.size:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: size
+}
+main.supportsDiscussionGroup:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: supportsDiscussionGroup,
+ part_value: true
+}
+main.supportsDocumentVault:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: supportsDocumentVault,
+ part_value: true
+}
+main."test data text field":
+{
+ class: object,
+ virtual: TRUE,
+ x: 809,
+ y: 213,
+ width: 95,
+ height: 14,
+ rows: 1,
+ columns: 1
+}
+main.trans:
+{
+ class: object,
+ MSW_class: html_table,
+ location: 1
+}
+main.trans_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 0
+}
+main.trans_2:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 1
+}
+main.use_default:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: use_default,
+ part_value: 1
+}
+main.wrap_mode__2340115:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: wrap_mode__2340115,
+ part_value: 1
+}
+menu:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: menu
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+menu.Forms:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Forms
+}
+menu.WRform:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: WRform
+}
+menu.Workflow:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflow
+}
+menu.WorkflowForm:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: WorkflowForm
+}
+menu.selectionMenu:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: selectionMenu
+}

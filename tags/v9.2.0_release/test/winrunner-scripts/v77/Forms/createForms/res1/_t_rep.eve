@@ -1,0 +1,7 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Forms\createForms> 1 1093900611 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\forLoginProject> <C:\Documents and Settings\QA\Desktop\v77\Forms\createForms> 1 1093900611 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\forLoginProject> 19 1093900630 0
+39 1 <web_obj_text_exists- FR1> <createForms> 52 1093900663 0
+39 1 <web_obj_text_exists- Form1> <createForms> 54 1093900663 0
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\Forms\createForms> 62 1093900665 0

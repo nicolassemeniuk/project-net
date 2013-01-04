@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnSpErrorLog" 
+    table="PN_SP_ERROR_LOG"
+    lazy="false"
+>
+
+    <composite-id>
+        <key-property 
+            name="timestamp" 
+            column="TIMESTAMP" 
+            type="java.sql.Date"
+            length="7"
+        />
+        <key-property 
+            name="storedProcName" 
+            column="STORED_PROC_NAME" 
+            type="java.lang.String"
+            length="60"
+        />
+        <key-property 
+            name="errorCode" 
+            column="ERROR_CODE" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="errorMsg" 
+            column="ERROR_MSG" 
+            type="java.lang.String"
+            length="240"
+        />
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,106 @@
+# This is an ant properties file that configures the Project.net ant build for your tomcat on
+# local workstation.  You must update the properties in this file to match your
+# machine's configuration, installation locations, source working directories, etc.
+# compile a build.  It is used by the build-tomcat.xml Ant build file.
+#
+# If you are using windows paths with backslashes, you'll need to use c:\\dir1\\dir2
+# rather than c:\dir1\dir2 to refer to paths -- Java thinks a single backslash
+# is an escape character followed by a control character.
+# Project.net ant build properties example file for tomcat.
+# Copy this file to core/build-tomcat.properties and modify for your workstation.
+
+# Tomcat home location.
+# Examples:
+#   catalina.home=C:\\apache-tomcat-5.5.25   (windows)
+#   catalina.home=/opt/apache-tomcat-5.5.25  (linux)
+
+catalina.home=/opt/apache-tomcat-5.5.25
+
+
+# Tomcat server username and password
+# By default, no user is included in the "manager" role required
+# to deploy/undeploy the application
+# Edit catalina.home/conf/tomcat-users.xml file
+# Sample tomcat-users.xml would be as follows
+# 	<?xml version='1.0' encoding='utf-8'?;
+# 	<tomcat-users>
+# 	  <role rolename="tomcat"/>
+# 	  <role rolename="role1"/>
+# 	  <role rolename="manager"/>
+# 	  <user username="tomcat" password="tomcat" roles="tomcat"/>
+# 	  <user username="both" password="tomcat" roles="tomcat,role1"/>
+# 	  <user username="role1" password="tomcat" roles="role1"/>
+# 	  <user username="manager" password="manager" roles="manager"/>
+# 	</tomcat-users>
+
+tomcat.url=http://test2.project.net:80//manager
+test3.tomcat.url=http://test3.project.net:8080//manager
+
+tomcat.username=manager
+tomcat.password=xxxxxx
+
+test3.tomcat.username=manager
+test3.tomcat.password=xxxxxx
+
+
+# tomcat WAR deployment path (webapps directory).
+# Examples:
+#   tomcat.path=/  (for ROOT deployment)
+#   tomcat.path=pnet   (for non-root deployment)
+
+tomcat.path=/
+app.name=ROOT
+
+test3.tomcat.path=/pnet
+test3.app.name=ROOT
+
+# Source root
+# The location of the application source.
+
+src.dir=${basedir}
+
+# Project.net application settings
+# The paths are specific to source structure of Project.net application
+
+src.java.dir=${src.dir}/src
+src.jsp.dir=${src.dir}/web/jsp
+src.config.dir=${src.dir}/config
+src.docs.dir=${src.dir}/docs
+src.database.dir=${src.dir}/db/oracle
+src.taglib.dir=${src.dir}/web/jsp/taglibs
+src.resource.dir=${src.dir}/web
+src.metainf.dir=${src.dir}/web/META-INF
+src.webinf.dir=${src.dir}/web/WEB-INF
+src.lib.dir=${src.dir}/lib
+devroot.dir=${src.dir}/..
+pni.dir=${devroot.dir}/internal/license-generator
+src.java.pni.dir=${pni.dir}/java
+src.jsp.pni.dir=${pni.dir}/jsp/pnet
+
+# Distribution root
+# The location where distribution builds of the application will be placed.
+# Examples:
+#   dist.dir=c:\\pnet\\dist\\tomcat
+#   dist.dir=/home/user-name/pnet/dist/tomcat
+
+build.dir=${src.dir}/bin/${app.name}
+build.dist=${src.dir}/dist
+
+# Project.net application settings
+# The paths are specific to build structure of Project.net application
+
+build.metainf.dir=${build.dir}/META-INF
+build.webinf.dir=${build.dir}/WEB-INF
+build.classes.dir=${build.dir}/WEB-INF/classes
+build.lib.dir=${build.dir}/WEB-INF/lib
+build.xsl.dir=${build.classes.dir}/config/xsl
+build.etc.dir=${build.classes.dir}/config/etc
+build.taglib.dir=${build.webinf.dir}/taglibs
+build.resource.dir=${build.dir}
+
+#jWebUnit acceptance testing framework
+
+src.test.acceptance=${devroot.dir}/test/acceptance/src
+build.test.acceptance=${devroot.dir}/test/acceptance/bin
+lib.test.acceptance=${devroot.dir}/test/acceptance/lib
+

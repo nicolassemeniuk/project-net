@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 1.3//EN"
+       "http://struts.apache.org/dtds/tiles-config_1_3.dtd">
+<tiles-definitions>
+
+
+	<definition name="/tiles_error" path="/errors.jsp">
+	</definition>
+	
+	<definition name="/tiles_schedule_upload" path="/schedule/importer/ChooseItemsToImport.jsp">
+	</definition>
+	
+	<definition name="/tiles_logo_upload" path="/document/CloseWindow.jsp">
+	</definition>
+	
+	<definition name="/tiles_logo_upload_validation" path="/project/AddProjectLogo.jsp">
+	</definition>
+	
+	<definition name="/tiles_csv_stepone" path="/datatransform/csv/FileUpload.jsp">
+	</definition>
+	
+	<definition name="/tiles_csv_upload" path="/datatransform/csv/ColumnMap.jsp">
+	</definition>
+	
+	<definition name="/tiles_check_in_upload" path="/document/CheckIn.jsp">
+	</definition>
+		
+	<definition name="/tiles_document_upload" path="/document/ImportObject.jsp">
+	</definition>
+	
+	<definition name="/tiles_document_main" path="/document/Main.jsp">
+	</definition>						
+	 
+	<definition name="/tiles_import" path="/servlet/ImportController/ChooseFile">
+	</definition>
+	
+	<definition name="/tiles_methodology_list" path="/methodology/MethodologyList.jsp">
+	</definition>
+		
+	<definition name="/tiles_methodology_main" path="/methodology/Main.jsp">
+	</definition>
+	
+	<definition name="/tiles_methodology_edit" path="/methodology/PropertiesEdit.jsp">
+	</definition>
+		
+	<!-- add member related tiles -->		
+	
+	<definition name="/tile_add_member_init" path="/directory/AddMember.jsp" controllerClass="net.project.roster.tiles.AddMemberInitTileController">
+		<put name="currentInvites" value="/directory/CurrentInvite.jsp"/>
+	</definition>
+	
+	<definition name="/tile_search_member" path="/roster/MemberAdd1Processing.jsp">
+	</definition>
+	
+	<definition name="/tile_add_member_privileges" path="/methodology/PropertiesEdit.jsp">
+	</definition>
+	
+	<definition name="/tile_add_member_finish" path="/methodology/PropertiesEdit.jsp">
+	</definition>			
+
+	<!-- Personal Directory -->
+	
+	<definition name="/tile_view_personal_profile" path="/roster/MemberView.jsp" />
+
+	<!-- Forms -->
+	
+	<definition name="/tile_view_form_definition" path="/form/designer/DefinitionEdit.jsp" />
+	
+	<definition name="/tile_view_form_designer_list" path="/form/designer/Main.jsp" />
+
+	<definition name="/tile_view_form_definition_upload" path="/form/designer/FormDefinitionUpload.jsp" />
+	
+	<!-- Bulk import -->
+	<definition name="/tiles_workplan_upload" path="/bulkimport/ImportTasks.jsp" />
+	
+	<definition name="/tiles_workplan_bulkerror" path="/bulkimport/ImportTasks.jsp" />
+	
+</tiles-definitions>	

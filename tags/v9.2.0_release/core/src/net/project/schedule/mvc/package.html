@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<!--
+
+  @(#)form.html	1.0 10/1/99
+
+  Copyright 1999 Project.net, Inc.
+  San Diego, CA, U.S.A.  All Rights Reserved.
+
+  This software is the confidential and proprietary information of 
+  Project.net, Inc. ("Confidential Information").  You shall not
+  disclose such Confidential Information and shall use it only in
+  accordance with the terms of the license agreement you entered into
+  with Project.net
+
+-->
+</head>
+<body bgcolor="white">
+
+The MVC package is an implementation of a model-view-controller architecture
+that attempts to start moving the application from what is known as a JSP
+"Model 1" architecture to something a bit more modern.
+
+The code desires to break up all user round trips into three parts:
+<ol>
+<li><b>Controller:</b> This code that actually does the work of loading, saving,
+and routing.  This part does everything that is normally considered to be
+"domain logic."</li>
+<li><b>Model:</b> This code stores the information that will be necessary to
+render a view.</li>
+<li><b>View:</b> This code changes the model into something that users can use,
+ultimately HTML or PDF.  The View itself might be coded in JSP, XSLT, or
+something like iText that can render PDF.</li>
+</ol>
+
+</body>
+</html>

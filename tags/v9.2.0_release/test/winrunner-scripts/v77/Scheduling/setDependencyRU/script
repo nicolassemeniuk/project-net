@@ -1,0 +1,93 @@
+GUI_close_all();
+wait(3);
+
+reload("getPersonID",0,1);
+id[0] = getPersonID("Avinash Padmanabhan");
+fieldID= id[0];
+
+# Inviting a user to the project
+reload("inviteUser",0,1);
+inviteUser("Winnie","ThePooh","winnieThePooh@project.net");
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+web_obj_get_info("Winnie ThePooh","url",urlValue);
+elements = split(urlValue,path_array,"=");
+id[1] = path_array[3];
+resourceID = id[1];
+# pause(resourceID);
+
+set_window("menu",2);
+web_link_click("Workplan");
+wait(2);
+
+set_window("main",2);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer", 2);
+button_press("OK");
+wait(5);
+set_window("main", 2);
+
+public task_types[] = {"Fixed Duration","Fixed Units","Fixed Work"};
+public units[] = {"hours","days","weeks"};
+reload("createTaskRU",0,1);
+reload("setDependencyType",0,1);
+reload("setDependencyQuick",0,1);
+reload("testDependencyType",0,1);
+reload("unlinkDependency",0,1);
+
+createTaskRU("t1",3, units[1], 24, units[0], 1, id, 0);
+createTaskRU("t2",2, units[1], 16, units[0], 1, id, 0);
+setDependencyType("t1","t2","FF");
+testDependencyType("t1","t2","FF");
+unlinkDependency("t1","t2");
+
+report_msg("");
+createTaskRU("t3",2, units[1], 16, units[0], 1, id, 1);
+createTaskRU("t4",2, units[1], 16, units[0], 1, id, 1);
+setDependencyType("t3","t4","SS");
+testDependencyType("t3","t4","SS");
+unlinkDependency("t3","t4");
+
+report_msg("");
+createTaskRU("t5",2, units[1], 16, units[0], 2, id, 0);
+createTaskRU("t6",2, units[1], 16, units[0], 2, id, 0);
+setDependencyType("t5","t6");
+testDependencyType("t5","t6","FS");
+unlinkDependency("t5","t6");
+
+report_msg("");
+createTaskRU("t7",2, units[1], 16, units[0], 2, id, 1);
+createTaskRU("t8",2, units[1], 16, units[0], 2, id, 1);
+setDependencyType("t7","t8");
+testDependencyType("t7","t8","FS");
+unlinkDependency("t7","t8");
+
+report_msg("");
+createTaskRU("t9",2, units[1], 16, units[0], 1, id, 0);
+createTaskRU("t10",2, units[1], 16, units[0], 1, id, 0);
+setDependencyQuick("t9","t10");
+testDependencyType("t9","t10","FS");
+unlinkDependency("t9","t10");
+
+report_msg("");
+createTaskRU("t11",2, units[1], 16, units[0], 1, id, 1);
+createTaskRU("t12",2, units[1], 16, units[0], 1, id, 1);
+setDependencyQuick("t11","t12");
+testDependencyType("t11","t12","FS");
+unlinkDependency("t11","t12");
+
+report_msg("");
+createTaskRU("t13",2, units[1], 16, units[0], 2, id, 0);
+createTaskRU("t14",2, units[1], 16, units[0], 2, id, 0);
+setDependencyQuick("t13","t14");
+testDependencyType("t13","t14","FS");
+unlinkDependency("t13","t14");
+
+report_msg("");
+createTaskRU("t15",2, units[1], 16, units[0], 2, id, 1);
+createTaskRU("t16",2, units[1], 16, units[0], 2, id, 1);
+setDependencyQuick("t15","t16");
+testDependencyType("t15","t16","FS");
+unlinkDependency("t15","t16");
+

@@ -1,0 +1,15 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\registerNewUser> 1 1091119068 0
+39 1 <web_obj_text_exists- Register> <registerNewUser> 51 1091119086 0
+23 36 <Register link on Login Page is valid> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\registerNewUser> 15 1091119087 0
+39 1 <web_obj_text_exists- LEGAL INFORMATION ; > <registerNewUser> 61 1091119090 0
+23 54 <End User License Agreement link on Login Page is valid> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\registerNewUser> 15 1091119090 0
+39 1 <web_obj_text_exists- Login Name> <registerNewUser> 67 1091119091 0
+23 53 <Operation in Registration - Authorization page failed> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\registerNewUser> 20 1091119094 0
+23 53 <Operation in Registration - Authorization page failed> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\registerNewUser> 20 1091119095 0
+39 1 <web_obj_text_exists-  Login Information> <registerNewUser> 93 1091119098 0
+23 53 <Operation in Registration - Authorization page failed> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\registerNewUser> 20 1091119100 0
+23 41 <Password is not present in password field> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\registerNewUser> 113 1091119102 0
+23 48 <Password is not present in retype password field> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\registerNewUser> 116 1091119102 0
+23 41 <Answer is not present in jog answer field> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\registerNewUser> 119 1091119102 0
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\registerNewUser> 180 1091119142 0

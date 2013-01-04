@@ -1,0 +1,252 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:AssignmentPageLayout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+	
+	<div style="padding: 10px;">
+		<div style="width: 100%; height: 10px;"></div>
+		<div style="width: 100%;">
+			<div style="float: right; width: 50%;">
+				<span style="background-color: #9acbfe; color: #696c72; margin-right: 3px;">
+					<span style="padding: 5px;">
+						${blogTabTitle} 
+					</span>
+				</span>
+				<span style="background-color: #d9e3ee; color: #696c72; margin-right: 3px;">
+					<span style="padding: 5px;">
+						${wikiTabTitle} 
+					</span>
+				</span>
+				<span style="background-color: #d9e3ee; color: #696c72;">
+					<span style="padding: 5px;">
+						${linksTabTitle}
+					</span>
+				</span>
+			</div>
+			<div style="clear: both;"></div>
+		</div>
+		<div style="width: 50%; float: left; height: 400px;">
+			<div style="width: 100%; background-color: #d0d0d0;">
+				<div style="padding: 3px;"> 
+					<b>Assignments</b>
+				</div>
+			</div>
+			<div id='schedule-grid'></div>
+		</div>
+		<div style="width: 50%; float: right; height: 400px;">
+			<div style="width: 100%; background-color: #e9e9e9;">
+				<div style="padding: 3px;"> 
+					<b>new entry</b>
+				</div>
+			</div>
+			<div id="blog-div">
+				<div t:type="loop" elementName="div" source="blogEntries"  value="blogEntries">
+					${blogEntries.pubTimeString}<br />
+					<br /><p />
+					${blogEntries.title}<br />
+					<br /><p />
+					<br /><p />
+					${blogEntries.text}<br />
+					Comments: <a href="#">add a comment</a> | <a href="#">edit</a><br />
+					<hr />
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<t:SpaceMainMenu />
+	<t:Footer />
+	<div id="leftframe"></div>
+	
+<script type="text/javascript">
+	var JSPRootURL = '${jspRootURL}';
+	spaceType = '${spaceType}';
+	var spaceId = '${spaceId}';
+	getNavbar();
+	
+	var isLoaded = false;
+	var isFlatView = true;
+	var milestoneText = '${milestoneText}';
+	var grid = null; 
+	var theGrid = null;
+
+	//Custom renderers
+	function workRenderer(value, element, record){
+	    return value ? String.format('{0} {1}', record.data['work'], record.data['workUnits']) : '';
+	}
+	
+	function durationRenderer(value, element, record){
+	    // Check this whether it is a milestone
+	    if(record.data['isMilestone'] == "1"){
+	        return milestoneText;
+	    }
+	    return value ? record.data['duration'] : '';
+	}
+	
+	function formatPercentRenderer(value) {
+	    return value ? String.format('{0} {1}', value, '%') : '0 %';
+	};
+	
+	function nameRenderer(value, element, record){
+	    var result = "";
+	    // Check this whether it is a milestone
+	    if(record.data['isMilestone'] == "1"){
+	        result = String.format('<img src="{0}/images/milestone.gif" height="10" width="10" border="0" />', JSPRootURL);
+	        result += ' ';
+	    }
+	    result += value;
+	    return result;
+	}
+	
+	function dependencyRenderer(value){
+	    var result = "";
+	    if(value && value.length > 0){
+	        // What we get is a separated comma list of Task IDs that this task is depending on
+	        var idArray = value.split(',');
+	        for(var i=0; i<idArray.length; i++){
+	            // For each ID, search the correspondent record in store
+	            var record = grid.getRecordById(trim(idArray[i]));
+	            result+= record.data['sequence'];
+	            if(i < idArray.length - 1){
+	                // Then it remains more sequence numbers to add
+	                result += ', ';
+	            }
+	        }
+	    }
+	    return result;
+	}
+
+	function setup() {
+	   setupGrid();
+		isLoaded = true;
+	}
+	
+	function setupGrid(){
+	    if(null == grid){
+	        grid = new GridView();
+	    }
+	    
+	    setRecordDefinition();
+	    grid.setConfigurationReader('id', '*:has(id)');
+	    grid.setDataStore(JSPRootURL + '/personal/tasks.jsp?module=60');
+	    
+	    setColumns();
+	    grid.init('schedule-grid');
+	    theGrid = grid.getGrid();
+	    theGrid.on('rowclick', function (theGrid, rowIndex, e) {
+	    						var record = grid.getStore().getAt(rowIndex);
+	    						changeTask(record.get('id'));
+	    					}
+	    		);
+	}
+	
+	function setRecordDefinition(){
+	    if(null != grid){
+	        grid.addRecord(null, 'sequence', 'sequence', 'int');
+	        grid.addRecord(null, 'name', 'name', null);
+	        grid.addRecord(null, 'description', 'description', null);
+	        grid.addRecord(null, 'work', 'work', null);
+	        grid.addRecord(null, 'workUnits', 'workUnits', null);
+	        grid.addRecord(null, 'duration', 'duration', null);
+	        grid.addRecord(null, 'calculationType', 'calculationType', null);
+	        grid.addRecord(null, 'isMilestone', 'isMilestone', null);
+	        grid.addRecord('Y-m-d\\TH:i:s', 'startDateTime', 'startDate', 'date');
+	        grid.addRecord('Y-m-d\\TH:i:s', 'actualStart', 'actualStartDate', 'date');
+	        grid.addRecord('Y-m-d\\TH:i:s', 'endDateTime', 'endDate', 'date');
+	        grid.addRecord('Y-m-d\\TH:i:s', 'actualFinish', 'actualEndDate', 'date');
+	        grid.addRecord(null, 'workInHours', 'workInHours', 'float');
+	        grid.addRecord(null, 'workRemainingString', 'workRemainingString', null);
+	        grid.addRecord(null, 'durationInHours', 'durationInHours', 'float');
+	        grid.addRecord(null, 'workPercentComplete', 'workPercentComplete', 'float');
+	        grid.addRecord(null, 'workComplete', 'workCompleteString', null);
+	        grid.addRecord(null, 'assigneeString', 'assignees', null);
+	        grid.addRecord(null, 'phase_name', 'phase', null);
+	        grid.addRecord(null, 'priorityString', 'priority', null);
+	        grid.addRecord(null, 'idlist', 'idlist', null);
+	        grid.addRecord(null, 'project', 'project', null);
+	        grid.addRecord(null, 'type', 'type', null);
+	        grid.addRecord(null, 'id', 'id', 'int');
+	    }
+	}
+	
+	function setColumns(){
+	    if(null != grid){
+	        grid.addColumn('sequence', '<display:get name="prm.schedule.list.sequence.column" />', true, null, 40, null);
+	        grid.addColumn('name', 'Assignment', false, nameRenderer, null, null);
+	        grid.addColumn('project', 'Project', false, null, null, null);
+	        grid.addColumn('type', 'Type', false, null, null, null);
+	        grid.addColumn('description', '<display:get name="prm.schedule.list.taskdescription.column" />', true, null, null, null);        
+	        grid.addColumn('startDate', '<display:get name="prm.schedule.list.startdate.column" />', true, Ext.util.Format.dateRenderer('n/j/y'), null, null);
+	        grid.addColumn('actualStartDate', '<display:get name="prm.schedule.list.actualstartdate.column" />', true, Ext.util.Format.dateRenderer('n/j/y'), null, null);
+	        grid.addColumn('endDate', 'Due Date', false, Ext.util.Format.dateRenderer('n/j/y'), null, null);
+	        grid.addColumn('actualEndDate', '<display:get name="prm.schedule.list.actualenddate.column" />', true, Ext.util.Format.dateRenderer('n/j/y'), null, null);
+	        grid.addColumn('workInHours', '<display:get name="prm.schedule.list.work.column" />', true, workRenderer, null, null);
+	        grid.addColumn('durationInHours', '<display:get name="prm.schedule.list.duration.column" />', true, durationRenderer, null, null);
+	        grid.addColumn('workComplete', '<display:get name="prm.schedule.list.workcomplete.column" />', true, null, null, null);
+	        grid.addColumn('workPercentComplete', '<display:get name="prm.schedule.list.complete.column" />', true, formatPercentRenderer, null, null);
+	        grid.addColumn('workRemainingString', 'Work Remaining', false, null, null, null);
+	        grid.addColumn('idlist', '<display:get name="prm.schedule.list.dependencies.column" />', true, dependencyRenderer, null, null);
+	        grid.addColumn('assignees', '<display:get name="prm.schedule.list.resources.column" />', true, null, null, null);
+	        grid.addColumn('phase', '<display:get name="prm.schedule.list.phase.column" />', true, null, null, null);
+	        grid.addColumn('priority', '<display:get name="prm.schedule.list.priority.column" />', true, null, null, null);
+	        grid.addColumn('calculationType', '<display:get name="prm.schedule.list.calculationtype.column" />', true, null, null, null);
+	        grid.addColumn('id', 'id', true, null, 40, null);
+	    }
+	}
+
+	function changeTask(task) {
+        var xmlHttpReq = false;
+        var self = this;
+        // Mozilla/Safari
+        if (window.XMLHttpRequest) {
+            self.xmlHttpReq = new XMLHttpRequest();
+        }
+        // IE
+        else if (window.ActiveXObject) {
+            self.xmlHttpReq = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+       
+        self.xmlHttpReq.open('POST', JSPRootURL + "/personal/include/weblogsByTaskId.jsp?module=160", true);
+        self.xmlHttpReq.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        self.xmlHttpReq.onreadystatechange = function() {
+            if (self.xmlHttpReq.readyState == 4) {
+                updatepage(self.xmlHttpReq.responseText);
+            }
+        }
+        self.xmlHttpReq.send(getquerystring(task));
+    }
+   
+    function getquerystring(task) {
+        return "task=" + task;
+    }
+       
+    function updatepage(str){
+        document.getElementById("blog-div").innerHTML = str;
+    }
+
+
+// getting navbar contents as per space type
+function getNavbar(){
+	var url = '';
+	var moduleId = 0;
+	if(spaceType == 'person'){
+		url = JSPRootURL+'/personal/include/NavBar.jsp';
+		moduleId = 160;
+	} else if(spaceType == 'project'){
+		url = JSPRootURL+'/project/include/NavBar.jsp';
+		moduleId = 150;
+	}
+	Ext.Ajax.request({
+	   url: url,
+	   params: {blog_spaceId : spaceId, module : moduleId},
+	   method: 'POST',
+	   success: function(result, request){
+	   	   document.getElementById('leftframe').innerHTML = result.responseText;
+	   },
+	   failure: function(result, response){
+		   extAlert(errotAlertTitle, 'Error occured while loading navbar.', Ext.MessageBox.ERROR);
+	   }
+	});	
+}
+// -->
+</script>
+</t:AssignmentPageLayout>

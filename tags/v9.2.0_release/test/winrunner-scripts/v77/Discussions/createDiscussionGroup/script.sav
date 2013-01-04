@@ -1,0 +1,37 @@
+function createDiscussionGroup(in name){
+	web_link_click("Create New Discussion Group");
+	set_window("main",2);
+	edit_set("name",name);
+	edit_set("description","Description for the discussion group");
+	edit_set("charter","Charter for the discussion group");
+	web_link_click("Submit");
+	wait(1);
+	set_window("main",2);
+	if(obj_exists(name)==E_OK)
+		tl_step("Verify discussion group creation",0,"Discussion group was successfully created");
+	else
+		tl_step("Verify discussion group creation",1,"Discussion group COULD NOT be created");
+	wait(1);
+	web_link_click(name);
+	wait(1);
+	set_window("upper_frame",2);
+	if(obj_exists("Welcome")==E_OK)
+		tl_step("Welcome message",0,"Discussion group welcome message present");
+	else
+		tl_step("Welcome message",1,"Discussion group welcome message ABSENT");
+	wait(1);
+	set_window("lower_frame",2);
+	if(obj_exists("Reply")==E_OK)
+		tl_step("Reply button",0,"Reply button exists");
+	else
+		tl_step("Reply button",1,"Reply button DOES NOT exist");
+	if(obj_exists("Next")==E_OK)
+		tl_step("Modify button",0,"Modify button exists");
+	else
+		tl_step("Modify button",1,"Modify button DOES NOT exist");
+	if(obj_exists("Modify")==E_OK)
+		tl_step("Modify button",0,"Modify button exists");
+	else
+		tl_step("Modify button",1,"Modify button DOES NOT exist");				
+}
+	

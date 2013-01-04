@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<head>
+<title><t:Message value="prm.resource.resourceassignmentsummary.pagetitle" /></title>
+</head>
+<body background="#FFFFFF"> 
+	<br/>
+	<center>
+		<label class="fieldNonRequired"><t:Message value="prm.resource.resourceassignmentsummary.pagetitle" /><br/><hr align="center" width="50%" /> <br/>
+				${resourceName}, ${monthYear}
+		</label>
+	</center> 
+	<br/>
+	<table align="center" border="1" width="90%"  cellspacing="0" cellpadding="10">
+		<tr align="center" class="tableHeader">
+			<td><t:Message value="prm.resource.resourceassignmentsummary.column.projectname.label" /> </td>
+			<td> <t:Message value="prm.resource.resourceassignmentsummary.column.assignment.label" /></td>
+			<td><t:Message value="prm.resource.resourceassignmentsummary.column.type.label" /> </td>
+			<td><t:Message value="prm.resource.resourceassignmentsummary.column.workassigned.label" /> </td>			
+			<td><t:Message value="prm.resource.resourceassignmentsummary.column.workremaining.label" /> </td>
+			<td> <t:Message value="prm.resource.resourceassignmentsummary.column.start.label" /></td>			
+			<td><t:Message value="prm.resource.resourceassignmentsummary.column.finish.label" /> </td>			
+		</tr>
+		<tr t:type="loop" elementName="tr" source="assignments" value="pnAssignment" align="center"> 
+			<td  bgcolor="${pnAssignment.rowClass}">${pnAssignment.pnProjectSpace.projectName}</td>
+			<td  bgcolor="${pnAssignment.rowClass}">${pnAssignment.taskName}</td>
+			<td  bgcolor="${pnAssignment.rowClass}">${pnAssignment.pnObjectType.objectType}</td>
+			<td  bgcolor="${pnAssignment.rowClass}">${pnAssignment.workString}</td>
+			<td  bgcolor="${pnAssignment.rowClass}">${pnAssignment.workCompleteString}</td>
+			<td  bgcolor="${pnAssignment.rowClass}">${pnAssignment.startDateString}</td>
+			<td  bgcolor="${pnAssignment.rowClass}">${pnAssignment.endDateString}</td>
+		</tr>				
+	</table>
+</body>
+</html>

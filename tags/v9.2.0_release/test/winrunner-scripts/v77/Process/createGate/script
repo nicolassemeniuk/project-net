@@ -1,0 +1,21 @@
+function createGate(in processName, in phaseName, in gateName){
+	set_window("main",1);
+	web_link_click(phaseName);
+	wait(1);
+	set_window("main",1);
+	web_link_click("Add Gate");
+	wait(1);
+	set_window("main",1);
+	edit_set("gatename",gateName);
+	edit_set("gatedesc","Testing for gate creation");
+	list_select_item("gatestatus","Scheduled");
+	edit_set("gatedate","11/15/04");
+	web_link_click("Submit");
+	wait(1);
+	set_window("main",1);
+	web_link_click(processName);
+	wait(1);
+	set_window("main",1);
+}
+	
+

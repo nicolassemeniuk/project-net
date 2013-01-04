@@ -1,0 +1,48 @@
+function createSelectionMenu(in name, in mulsel){
+	extern i;
+# 	auto outText;
+	set_window("main",1);
+	list_select_item("ElementID","Selection Menu");
+	wait(1);
+	set_window("main",1);
+	edit_set("field_label",name);
+	edit_set("row_num",i);
+	if(mulsel == 1)
+		button_set("is_multi_select",ON);
+	list_select_item("column_id","Left");
+	edit_set("DomainValueName","SM1");
+	button_press("Add");
+	wait(1);
+	set_window("main",1);
+	edit_set("DomainValueName","SM2");
+	button_press("Add");
+	wait(1);
+	set_window("main",1);
+	edit_set("DomainValueName","SM3");
+	button_press("Add");
+	wait(1);
+	set_window("main",1);
+	edit_set("DomainValueName","SM4");
+	button_press("Add");
+	wait(1);
+	set_window("main",1);
+	web_link_click("Submit");
+	wait(1);
+	set_window("main",1);
+	if(obj_exists(name)==E_OK)
+		tl_step("Verify selec exists",0,"The Selection Menu '"&name&"' created successfully");
+	else
+		report_msg("The creation of selection menu CANNOT be verified");
+# 	web_obj_text_exists("channelbar-left_end","#8","#3","Selection Menu","","");
+# 	if(obj_exists("Selection Menu")==E_OK)
+# 		report_msg("The field created is of type Text Field");
+# 	else
+# 		report_msg("Unable to verify");
+# 	i = i + 1;
+# 	win_get_text("main",outText,631,267,719,282);
+# 	if(outText == "Selection Menu")
+# 		report_msg("The field created is of type Selection Menu");
+# 	else
+# 		report_msg("UNABLE to verify");
+# 	report_msg("");
+}

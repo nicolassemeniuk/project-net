@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPersonNotificationAddress" 
+    table="PN_PERSON_NOTIFICATION_ADDRESS"
+    lazy="false"
+>
+
+    <id
+        name="personId"
+        type="java.math.BigDecimal"
+        column="PERSON_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="deliveryAddress"
+        type="java.lang.String"
+        column="DELIVERY_ADDRESS"
+        not-null="true"
+        length="240"
+    />
+    <property
+        name="isDefault"
+        type="java.lang.Integer"
+        column="IS_DEFAULT"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnPerson -->
+    <one-to-one
+        name="pnPerson"
+        class="net.project.hibernate.model.PnPerson"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional many-to-one association to PnNotificationDeliveryType -->
+    <many-to-one
+        name="pnNotificationDeliveryType"
+        class="net.project.hibernate.model.PnNotificationDeliveryType"
+        not-null="true"
+    >
+        <column name="DELIVERY_TYPE_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

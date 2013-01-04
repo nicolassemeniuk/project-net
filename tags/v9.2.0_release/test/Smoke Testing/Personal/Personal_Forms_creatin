@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>Personal_Forms_creatin</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Personal_Forms_creatin</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/Login.jsp</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>J_USERNAME</td>
+	<td>dkarthikeya</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>J_USERNAME</td>
+	<td>dkarthikeyan</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>J_PASSWORD</td>
+	<td>cgvak1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Personal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>Project.net</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Setup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Setup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manage Forms</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New Form</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>Management System</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>abbreviation</td>
+	<td>MS</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>displayedInToolsMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>supportsDiscussionGroup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New Field</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>field_label</td>
+	<td>Address</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>row_num</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>size</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>data_column_size</td>
+	<td>5</td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Submit</td>
+	<td>Submit</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Preview</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Lists</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>Test List</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Created on</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>Created on</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Address</td>
+	<td></td>
+</tr>
+<tr>
+	<td>storeText</td>
+	<td>Address</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>Address</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Modified by</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForText</td>
+	<td>link=Submit</td>
+	<td>Submit</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sharing</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Activate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Hidden Activated</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Log Out</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

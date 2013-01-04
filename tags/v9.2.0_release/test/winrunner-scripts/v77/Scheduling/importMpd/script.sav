@@ -1,0 +1,26 @@
+function importMpd(in fileName){
+	set_window("main",1);
+	web_link_click("Import MS Project Database");
+	
+	set_window("main",1);
+	wait(2);
+	button_press("Browse...");
+	set_window ("Choose file", 3);
+	list_select_item ("browser_main_combo_location_0", "Desktop");
+	list_select_item ("Look in:", fileName);
+	button_press ("Open");
+	wait(2);
+	
+	set_window("main",12);
+	web_link_click("Next");
+	wait(3);
+	web_link_click("Next");
+	wait(3);
+	list_select_item("resource1","Avinash Padmanabhan");
+	web_link_click("Next");
+	wait(2);
+	web_link_click("Next");
+	wait(2);
+	web_link_click("Import");
+	wait(4);
+}

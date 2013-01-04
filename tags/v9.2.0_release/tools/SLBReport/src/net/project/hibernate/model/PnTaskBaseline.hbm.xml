@@ -1,0 +1,156 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnTaskBaseline" 
+    table="PN_TASK_BASELINE"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnTaskBaselinePK">
+        <key-property 
+            name="taskId" 
+            column="TASK_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="baselineId" 
+            column="BASELINE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="taskName"
+        type="java.lang.String"
+        column="TASK_NAME"
+        length="255"
+    />
+    <property
+        name="createdBy"
+        type="java.math.BigDecimal"
+        column="CREATED_BY"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="baselineSetDate"
+        type="java.sql.Date"
+        column="BASELINE_SET_DATE"
+        length="7"
+    />
+    <property
+        name="taskType"
+        type="java.lang.String"
+        column="TASK_TYPE"
+        length="80"
+    />
+    <property
+        name="taskDuration"
+        type="java.lang.Long"
+        column="TASK_DURATION"
+        length="18"
+    />
+    <property
+        name="priority"
+        type="java.lang.Integer"
+        column="PRIORITY"
+        length="6"
+    />
+    <property
+        name="taskWork"
+        type="java.math.BigDecimal"
+        column="TASK_WORK"
+        length="22"
+    />
+    <property
+        name="statusId"
+        type="java.math.BigDecimal"
+        column="STATUS_ID"
+        length="20"
+    />
+    <property
+        name="workUnits"
+        type="java.lang.String"
+        column="WORK_UNITS"
+        length="80"
+    />
+    <property
+        name="taskWorkComplete"
+        type="java.math.BigDecimal"
+        column="TASK_WORK_COMPLETE"
+        length="22"
+    />
+    <property
+        name="dateStart"
+        type="java.sql.Date"
+        column="DATE_START"
+        length="7"
+    />
+    <property
+        name="durationUnits"
+        type="java.math.BigDecimal"
+        column="DURATION_UNITS"
+        length="20"
+    />
+    <property
+        name="dateFinish"
+        type="java.sql.Date"
+        column="DATE_FINISH"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="workCompleteUnits"
+        type="java.math.BigDecimal"
+        column="WORK_COMPLETE_UNITS"
+        length="20"
+    />
+    <property
+        name="parentTaskId"
+        type="java.math.BigDecimal"
+        column="PARENT_TASK_ID"
+        length="20"
+    />
+    <property
+        name="criticalPath"
+        type="java.lang.Integer"
+        column="CRITICAL_PATH"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnTask -->
+    <many-to-one
+        name="pnTask"
+	    class="net.project.hibernate.model.PnTask"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="TASK_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

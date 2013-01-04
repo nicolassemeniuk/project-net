@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDisciplineLookup" 
+    table="PN_DISCIPLINE_LOOKUP"
+    lazy="false"
+>
+
+    <id
+        name="disciplineCode"
+        type="java.lang.Integer"
+        column="DISCIPLINE_CODE"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="disciplineName"
+        type="java.lang.String"
+        column="DISCIPLINE_NAME"
+        not-null="true"
+        length="30"
+    />
+    <property
+        name="disciplineDescription"
+        type="java.lang.String"
+        column="DISCIPLINE_DESCRIPTION"
+        length="80"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnPersonHasDiscipline -->
+
+    <set
+        name="pnPersonHasDisciplines"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DISCIPLINE_CODE" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPersonHasDiscipline"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

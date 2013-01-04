@@ -1,0 +1,7 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Workflow\createDocumentEnvelope> 1 1100646447 0
+24 163 <C:\Documents and Settings\QA\Desktop\v77\Workflow\createDocumentEnvelope (10):	Error: Variable val1 has not been declared
+				val1 = extractProjectID(projectName);> <C:\Documents and Settings\QA\Desktop\v77\Workflow\createDocumentEnvelope> 1 1100646447 0
+25 161 <C:\Documents and Settings\QA\Desktop\v77\Workflow\createDocumentEnvelope (10):
+Error: Variable val1 has not been declared
+		val1 = extractProjectID(projectName);> <C:\Documents and Settings\QA\Desktop\v77\Workflow\createDocumentEnvelope> 1 1100646447 0

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<span xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"> 
+	<t:delegate to="objectCase"/>
+        <t:block t:id="form">
+            <t:ShowActivityTextForForm pnActivityLog="activityLog" personName="personName" personLink="personLink" objectLink="objectLink" activityTime="activityTime" unMarkedToken="unMarkedToken" />
+        </t:block>
+
+        <t:block t:id="formData">
+            <t:ShowActivityTextForFormData pnActivityLog="activityLog" personName="personName" personLink="personLink" objectLink="objectLink" activityTime="activityTime" unMarkedToken="unMarkedToken" />
+        </t:block>
+        
+        <t:block t:id="document">
+            <t:ShowActivityTextForDocument pnActivityLog="activityLog" personName="personName" personLink="personLink" objectLink="objectLink" activityTime="activityTime" unMarkedToken="unMarkedToken" />
+        </t:block>
+        
+        <t:block t:id="task">
+            <t:ShowActivityTextForTask pnActivityLog="activityLog" personName="personName" personLink="personLink" objectLink="objectLink" activityTime="activityTime" unMarkedToken="unMarkedToken" />
+        </t:block>
+        
+        <t:block t:id="blogEntry">
+            <t:ShowActivityTextForBlogEntry pnActivityLog="activityLog" personName="personName" personLink="personLink" objectLink="objectLink" activityTime="activityTime" personImg="personImg" unMarkedToken="unMarkedToken" />
+        </t:block>
+        
+        <t:block t:id="blogComment">
+            <t:ShowActivityTextForBlogComment pnActivityLog="activityLog"  personName="personName" personLink="personLink" objectLink="objectLink" activityTime="activityTime" personImg="personImg" unMarkedToken="unMarkedToken" />
+        </t:block>
+        
+        <t:block t:id="wiki">
+            <t:ShowActivityTextForWiki pnActivityLog="activityLog"  personName="personName" personLink="personLink" objectLink="objectLink" activityTime="activityTime" unMarkedToken="unMarkedToken" />
+        </t:block>
+        
+        <t:block t:id="news">
+            <t:ShowActivityTextForNews pnActivityLog="activityLog"  personName="personName" personLink="personLink" objectLink="objectLink" activityTime="activityTime" unMarkedToken="unMarkedToken" />
+        </t:block>
+        
+         <t:block t:id="project">
+            <t:ShowActivityTextForProject pnActivityLog="activityLog"  personName="personName" personLink="personLink" objectLink="objectLink" activityTime="activityTime" unMarkedToken="unMarkedToken" />
+        </t:block>
+
+        <t:block t:id="activityNotPresent">
+            <tr>
+				<td width="100%" class="border_gray" colspan="2">
+					<div class ="padding_activity_text_table"><t:Message value="prm.project.activity.jumptodate.noactivityfound.message"/></div>
+				</td>
+			</tr>
+        </t:block>
+</span>

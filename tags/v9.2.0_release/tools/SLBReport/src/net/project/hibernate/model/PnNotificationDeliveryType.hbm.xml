@@ -1,0 +1,121 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnNotificationDeliveryType" 
+    table="PN_NOTIFICATION_DELIVERY_TYPE"
+    lazy="false"
+>
+
+    <id
+        name="deliveryTypeId"
+        type="java.math.BigDecimal"
+        column="DELIVERY_TYPE_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="name"
+        type="java.lang.String"
+        column="NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        length="500"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnPersonNotificationAddress -->
+
+    <set
+        name="pnPersonNotificationAddresses"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DELIVERY_TYPE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPersonNotificationAddress"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnDeliveryAddress -->
+
+    <set
+        name="pnDeliveryAddresses"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DELIVERY_TYPE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDeliveryAddress"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnSubscriptionHasGroup -->
+
+    <set
+        name="pnSubscriptionHasGroups"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DELIVERY_TYPE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSubscriptionHasGroup"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnNotification -->
+
+    <set
+        name="pnNotifications"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DELIVERY_TYPE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnNotification"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

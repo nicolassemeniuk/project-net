@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>delete_business_test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">delete_business_test</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Business</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>selenium test business</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>remove();</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>name=theLinker</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.browserbot.getCurrentWindow().isLoaded == true</td>
+	<td>10000</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>disablebusiness</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>finish();</td>
+	<td></td>
+</tr>
+<tr>
+	<td>selectWindow</td>
+	<td>null</td>
+	<td></td>
+</tr>
+<tr>
+	<td>pause</td>
+	<td>1000</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Business Portfolio</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

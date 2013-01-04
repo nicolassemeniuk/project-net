@@ -1,0 +1,32 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 1 1115934425 0
+37 122 <Step: Verify FF dependency, Status: Pass, Description: FF dependency verified with tasks t1 and t2 ending on the same date> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 53 1115934547 24
+37 122 <Step: Verify unlinking tasks(quick link), Status: Pass, Description: Task t2 is no longer dependent on task t1(quick link)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 30 1115934556 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 45 1115934556 0
+37 124 <Step: Verify SS dependency, Status: Pass, Description: SS dependency verified with tasks t3 and t4 starting on the same date> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 46 1115934684 24
+37 122 <Step: Verify unlinking tasks(quick link), Status: Pass, Description: Task t4 is no longer dependent on task t3(quick link)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 30 1115934694 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 52 1115934694 0
+23 36 <The default dependency FS was chosen> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 29 1115934791 0
+37 96 <Step: Verify FS dependency type, Status: Pass, Description: FS dependency verified for t6 and t5> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 39 1115934805 24
+37 122 <Step: Verify unlinking tasks(quick link), Status: Pass, Description: Task t6 is no longer dependent on task t5(quick link)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 30 1115934815 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 59 1115934815 0
+23 36 <The default dependency FS was chosen> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 29 1115934930 0
+37 96 <Step: Verify FS dependency type, Status: Pass, Description: FS dependency verified for t8 and t7> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 39 1115934945 24
+37 122 <Step: Verify unlinking tasks(quick link), Status: Pass, Description: Task t8 is no longer dependent on task t7(quick link)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 30 1115934954 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 67 1115934955 0
+37 89 <Step: Dependency verification, Status: Pass, Description: Dependency for t10 has been set> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 31 1115935038 24
+37 97 <Step: Verify FS dependency type, Status: Pass, Description: FS dependency verified for t10 and t9> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 39 1115935052 24
+37 123 <Step: Verify unlinking tasks(quick link), Status: Pass, Description: Task t10 is no longer dependent on task t9(quick link)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 30 1115935062 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 74 1115935062 0
+37 89 <Step: Dependency verification, Status: Pass, Description: Dependency for t12 has been set> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 31 1115935179 24
+37 98 <Step: Verify FS dependency type, Status: Pass, Description: FS dependency verified for t12 and t11> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 39 1115935193 24
+37 124 <Step: Verify unlinking tasks(quick link), Status: Pass, Description: Task t12 is no longer dependent on task t11(quick link)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 30 1115935203 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 81 1115935203 0
+37 89 <Step: Dependency verification, Status: Pass, Description: Dependency for t14 has been set> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 31 1115935306 24
+37 98 <Step: Verify FS dependency type, Status: Pass, Description: FS dependency verified for t14 and t13> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 39 1115935319 24
+37 124 <Step: Verify unlinking tasks(quick link), Status: Pass, Description: Task t14 is no longer dependent on task t13(quick link)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 30 1115935329 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 88 1115935330 0
+37 89 <Step: Dependency verification, Status: Pass, Description: Dependency for t16 has been set> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 31 1115935449 24
+37 98 <Step: Verify FS dependency type, Status: Pass, Description: FS dependency verified for t16 and t15> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 39 1115935463 24
+37 124 <Step: Verify unlinking tasks(quick link), Status: Pass, Description: Task t16 is no longer dependent on task t15(quick link)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 30 1115935473 24
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 96 1115935473 0

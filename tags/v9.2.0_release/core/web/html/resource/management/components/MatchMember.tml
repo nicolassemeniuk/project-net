@@ -1,0 +1,15 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<td xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" nowrap="nowrap">
+<t:if test="present">
+		<input type="checkbox" id="chk_disable_${projectName}" name="chk_disable_${projectName}" disabled="disabled" checked="checked"/>&nbsp;&nbsp;
+		<span id="roleslist_disable_${projectName}" name="roleslist_disable_${projectName}" style="width:135px; height:20px;">
+		</span>
+	<t:parameter name="else">
+		<input type="checkbox" id="chk_${projectName}_${memberId}" name="chk_${projectName}_${memberId}" onclick="javascript:enableRoleList('${projectName}','${memberId}','${cntProject}');"/>&nbsp;&nbsp;
+		<span id="roles_${projectName}_${memberId}" name="roles_${projectName}_${memberId}" style="display:none;width:135px; height:17px;">
+			<select id="rolesselect_${projectName}_${memberId}" name="rolesselect_${projectName}_${memberId}" style="width:135px; height:20px;"><t:OutputRaw  value="roleOptionList"/></select>
+		</span>
+	</t:parameter>
+</t:if>
+ </td>

@@ -1,0 +1,309 @@
+main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: main
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+main."Change to NOT published":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Change to NOT published"
+}
+main.Create:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Create
+}
+main.Create_1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Create
+}
+main.Envelope:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Envelope
+}
+main.Envelope1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Envelope1
+}
+main.Envelopes:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Envelopes
+}
+main."Form WF-1":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Form WF-1"
+}
+main.Publish:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Publish
+}
+main."Publish Workflow":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Publish Workflow"
+}
+main.Step1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Step1
+}
+main.Step2:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Step2
+}
+main.Step3:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Step3
+}
+main.Step41:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Step41
+}
+main.Step42:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Step42
+}
+main.Steps:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Steps
+}
+main.Submit:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Submit
+}
+main.Transitions:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Transitions
+}
+main.Workflow:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflow
+}
+main."Workflow Designer":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Workflow Designer"
+}
+main.Workflow1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflow1
+}
+main.Workflow2:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflow2
+}
+main.Workflow3:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflow3
+}
+main.Workflow4:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflow4
+}
+main.Workflow5:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflow5
+}
+main.beginStepID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: beginStepID
+}
+main.comments:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: comments
+}
+main.description:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: description
+}
+main.endStepID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: endStepID
+}
+main.entryStatusID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: entryStatusID
+}
+main.name:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: name
+}
+main.notes:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: notes
+}
+main.objectTypeSelect:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: objectTypeSelect
+}
+main.ownerID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: ownerID
+}
+main.pres_stepType:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: pres_stepType,
+ part_value: 0
+}
+main.pres_stepType_1:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: pres_stepType,
+ part_value: 1
+}
+main.pres_stepType_2:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: pres_stepType,
+ part_value: 2
+}
+main.sequence:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: sequence
+}
+main.strictnessID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: strictnessID
+}
+main.transition1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: transition1,
+ location: 0
+}
+main.transition2:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: transition2,
+ location: 0
+}
+main.transition3:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: transition3,
+ location: 0
+}
+main.transition4:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: transition4,
+ location: 0
+}
+main.transitionVerb:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: transitionVerb
+}
+menu:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: menu
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+menu.Documents:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Documents
+}
+menu.Forms:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Forms
+}
+menu.News:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: News
+}
+menu.Workflow:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflow
+}

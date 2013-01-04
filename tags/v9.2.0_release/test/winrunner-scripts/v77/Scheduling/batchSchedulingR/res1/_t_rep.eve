@@ -1,0 +1,47 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 3 1115928919 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRU> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 4 1115928922 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRU> 129 1115929571 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 6 1115929574 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 120 1115930300 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseDuration> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 8 1115930303 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseDuration> 202 1115930501 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 10 1115930504 0
+11 25 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 320 1115930748 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 12 1115930751 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 219 1115930959 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\effortDrivenTest> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 14 1115930962 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\effortDrivenTest> 117 1115931862 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\nonEffortDrivenTest> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 16 1115931865 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\nonEffortDrivenTest> 103 1115932153 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 20 1115932156 0
+11 25 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 87 1115932944 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRU> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 22 1115932948 0
+11 25 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRU> 84 1115933661 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRW> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 24 1115933664 0
+11 25 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRW> 85 1115934421 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 26 1115934425 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 96 1115935473 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRU> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 28 1115935476 0
+11 25 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRU> 92 1115936469 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRW> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 30 1115936472 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRW> 93 1115937462 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setConstraintRD> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 32 1115937465 0
+11 25 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setConstraintRD> 75 1115938024 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setConstraintRU> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 34 1115938028 0
+11 25 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setConstraintRU> 68 1115938537 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setConstraintRW> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 36 1115938541 0
+11 25 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setConstraintRW> 68 1115939079 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRD> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 38 1115939083 0
+11 25 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRD> 66 1115939734 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 40 1115939738 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 66 1115940328 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRW> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 42 1115940331 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRW> 66 1115940949 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRD> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 44 1115940952 0
+11 25 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRD> 114 1115941653 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRU> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 46 1115941656 0
+11 25 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRU> 114 1115942296 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 48 1115942300 0
+11 25 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 115 1115942972 0
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchSchedulingR> 50 1115942975 0

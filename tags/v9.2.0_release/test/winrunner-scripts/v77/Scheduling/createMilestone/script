@@ -1,0 +1,25 @@
+function createMilestone(in milestone_name,in task_type, in duration_value,in work_value){
+	wait(1);
+	set_window("main",2);
+	#when we create a task through "Add Task" in a phase it directly takes us to the task create/edit page
+	#So if "Create New Task" not present on page then skip the body of if statement body
+	if(obj_exists("Create New Task")==E_OK)	
+		web_link_click("Create New Task");
+	wait(1);
+	set_window("main",2);
+	edit_set("name",milestone_name);
+	wait(1);
+	list_select_item("taskCalculationTypeFixedElementID",""&task_type&"");
+	wait(1);
+	edit_set("work",""&work_value&"");
+	wait(1);
+	edit_set("duration",""&duration_value&"");
+	button_set("milestoneCheckbox",ON);
+	
+	web_link_click("Submit");
+	wait(2);
+	set_window("main",2);
+	web_link_click("Return to Task List");
+	wait(1);
+}
+

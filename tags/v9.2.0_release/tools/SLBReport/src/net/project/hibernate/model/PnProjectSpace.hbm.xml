@@ -1,0 +1,296 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnProjectSpace" 
+    table="PN_PROJECT_SPACE"
+    lazy="false"
+>
+
+    <id
+        name="projectId"
+        type="java.math.BigDecimal"
+        column="PROJECT_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="projectDesc"
+        type="java.lang.String"
+        column="PROJECT_DESC"
+        length="1000"
+    />
+    <property
+        name="projectName"
+        type="java.lang.String"
+        column="PROJECT_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="statusCodeId"
+        type="java.math.BigDecimal"
+        column="STATUS_CODE_ID"
+        length="20"
+    />
+    <property
+        name="colorCodeId"
+        type="java.math.BigDecimal"
+        column="COLOR_CODE_ID"
+        length="20"
+    />
+    <property
+        name="isSubproject"
+        type="int"
+        column="IS_SUBPROJECT"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="percentComplete"
+        type="java.lang.Integer"
+        column="PERCENT_COMPLETE"
+        length="3"
+    />
+    <property
+        name="startDate"
+        type="java.sql.Date"
+        column="START_DATE"
+        length="7"
+    />
+    <property
+        name="endDate"
+        type="java.sql.Date"
+        column="END_DATE"
+        length="7"
+    />
+    <property
+        name="dateModified"
+        type="java.sql.Date"
+        column="DATE_MODIFIED"
+        length="7"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="defaultCurrencyCode"
+        type="java.lang.String"
+        column="DEFAULT_CURRENCY_CODE"
+        not-null="true"
+        length="3"
+    />
+    <property
+        name="sponsorDesc"
+        type="java.lang.String"
+        column="SPONSOR_DESC"
+        length="1000"
+    />
+    <property
+        name="improvementCodeId"
+        type="java.math.BigDecimal"
+        column="IMPROVEMENT_CODE_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="currentStatusDescription"
+        type="java.lang.String"
+        column="CURRENT_STATUS_DESCRIPTION"
+        length="1000"
+    />
+    <property
+        name="financialStatusColorCodeId"
+        type="java.math.BigDecimal"
+        column="FINANCIAL_STATUS_COLOR_CODE_ID"
+        length="20"
+    />
+    <property
+        name="financialStatusImpCodeId"
+        type="java.math.BigDecimal"
+        column="FINANCIAL_STATUS_IMP_CODE_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="budgetedTotalCostValue"
+        type="java.math.BigDecimal"
+        column="BUDGETED_TOTAL_COST_VALUE"
+        length="22"
+    />
+    <property
+        name="budgetedTotalCostCc"
+        type="java.lang.String"
+        column="BUDGETED_TOTAL_COST_CC"
+        length="3"
+    />
+    <property
+        name="currentEstTotalCostValue"
+        type="java.math.BigDecimal"
+        column="CURRENT_EST_TOTAL_COST_VALUE"
+        length="22"
+    />
+    <property
+        name="currentEstTotalCostCc"
+        type="java.lang.String"
+        column="CURRENT_EST_TOTAL_COST_CC"
+        length="3"
+    />
+    <property
+        name="actualToDateCostValue"
+        type="java.math.BigDecimal"
+        column="ACTUAL_TO_DATE_COST_VALUE"
+        length="22"
+    />
+    <property
+        name="actualToDateCostCc"
+        type="java.lang.String"
+        column="ACTUAL_TO_DATE_COST_CC"
+        length="3"
+    />
+    <property
+        name="estimatedRoiCostValue"
+        type="java.math.BigDecimal"
+        column="ESTIMATED_ROI_COST_VALUE"
+        length="22"
+    />
+    <property
+        name="estimatedRoiCostCc"
+        type="java.lang.String"
+        column="ESTIMATED_ROI_COST_CC"
+        length="3"
+    />
+    <property
+        name="costCenter"
+        type="java.lang.String"
+        column="COST_CENTER"
+        length="1000"
+    />
+    <property
+        name="scheduleStatusColorCodeId"
+        type="java.math.BigDecimal"
+        column="SCHEDULE_STATUS_COLOR_CODE_ID"
+        length="20"
+    />
+    <property
+        name="scheduleStatusImpCodeId"
+        type="java.math.BigDecimal"
+        column="SCHEDULE_STATUS_IMP_CODE_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="resourceStatusColorCodeId"
+        type="java.math.BigDecimal"
+        column="RESOURCE_STATUS_COLOR_CODE_ID"
+        length="20"
+    />
+    <property
+        name="resourceStatusImpCodeId"
+        type="java.math.BigDecimal"
+        column="RESOURCE_STATUS_IMP_CODE_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="priorityCodeId"
+        type="java.math.BigDecimal"
+        column="PRIORITY_CODE_ID"
+        length="20"
+    />
+    <property
+        name="riskRatingCodeId"
+        type="java.math.BigDecimal"
+        column="RISK_RATING_CODE_ID"
+        length="20"
+    />
+    <property
+        name="visibilityId"
+        type="java.math.BigDecimal"
+        column="VISIBILITY_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="percentCalculationMethod"
+        type="java.lang.String"
+        column="PERCENT_CALCULATION_METHOD"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="includesEveryone"
+        type="int"
+        column="INCLUDES_EVERYONE"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnObject -->
+    <one-to-one
+        name="pnObject"
+        class="net.project.hibernate.model.PnObject"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional many-to-one association to PnDocument -->
+    <many-to-one
+        name="pnDocument"
+        class="net.project.hibernate.model.PnDocument"
+        not-null="true"
+    >
+        <column name="PROJECT_LOGO_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPerson"
+        class="net.project.hibernate.model.PnPerson"
+        not-null="true"
+    >
+        <column name="MODIFIED_BY_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to HelpFeedback -->
+
+    <set
+        name="helpFeedbacks"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PROJECT_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.HelpFeedback"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,120 @@
+function checkResourcesU(in task_name,in duration_value,in duration_units,in work_value,in work_units,in numResources,inout id[]){
+#######################################
+# declare the variables as auto
+#######################################		
+	auto i, fieldID, out_item, out_num, units;
+	wait(1);
+
+#######################################
+# Going to the resources page of each Fixed Unit task
+#######################################
+	set_window("main",2);
+	web_link_click(task_name);
+	set_window("main",2);
+	web_link_click("Resources");
+	set_window("main",2);
+	wait(2);
+
+#######################################
+# Converting duration and work units to a common unit for comparison
+#######################################	
+# 	report_msg(work_value);
+# 	report_msg(work_units);
+	if(work_units == "weeks"){
+			work_units = "hours";
+			work_value = 5*8*work_value;
+	}
+	if(work_units == "days"){
+			work_units = "hours";
+			work_value = 8*work_value;
+	}
+# 	report_msg(work_value);
+# 	report_msg(work_units);
+	if(duration_units == "weeks"){
+			duration_units = "hours";
+			duration_value = 5*8*duration_value;
+	}
+	if(duration_units == "days"){
+			duration_units = "hours";
+			duration_value = 8*duration_value;
+	}
+	if(numResources>0){	
+		if(work_value!=duration_value){
+			duration_value = work_value;
+			duration_units = work_units;
+		}
+	}
+	if(duration_units == "hours"){
+			duration_units = "days";
+			duration_value = duration_value/8;
+	}		
+	if(numResources>1){
+		work_value = work_value/numResources;
+		duration_value = duration_value/numResources;
+# 		report_msg(work_value);
+# 		report_msg(duration_value);		
+	}
+	units = 100;
+# 	report_msg(work_value);
+# 	report_msg(work_units);
+#######################################
+# Dynamically selecting a resource based on the resource id obtained in the main script and 
+# saving the GUI map File so modified.
+#######################################
+	for(i = 0; i<=(numResources-1); i++){
+		fieldID = id[i];
+		if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","assignment_work","html_name","assignment_work_"&fieldID&"")!=E_OK)
+			report_msg("Not OK1");
+		else
+			GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+		
+		if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","assignment_work_units","html_name","assignment_work_units_"&fieldID&"")!=E_OK)
+			report_msg("Not OK2");
+		else
+			GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+			
+		if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","percent","html_name","percent_"&fieldID&"")!=E_OK)
+			report_msg("Not OK3");
+		else
+			GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+
+#######################################
+# Printing out debugging/error messages based on the assigned work and assignment percentage
+#######################################		
+		if(edit_check_text("percent",units,FALSE)==E_OK)
+			tl_step("Assignment work",0,"Assignment percentage for resource "&i&" is correctly set as "&units&"");
+		else
+			tl_step("Assignment work",1,"Assignment percentage for resource "&i&" is INCORRECT");
+			
+		if(edit_check_text("assignment_work",work_value,FALSE)==E_OK)
+			tl_step("Assignment work",0,"Assignment work for resource "&i&" is correctly set as "&work_value&"");
+		else
+			tl_step("Assignment work",1,"Assignment work for resource "&i&" is INCORRECT");
+		
+		list_get_selected("assignment_work_units",out_item, out_num);
+		if(out_item == work_units)
+			tl_step("Assignment work units",0,"Assignment work units for resource "&i&" is correctly set as "&work_units&"");
+		else
+			tl_step("Assignment work units",1,"Assignment work units for resource "&i&" is INCORRECT");
+	}
+# Again convert the duration units back to days	
+	if(duration_units == "weeks"){
+			duration_units = "days";
+			duration_value = 5*duration_value;
+	}
+	if(duration_units == "hours"){
+			duration_units = "days";
+			duration_value = duration_value/8;
+	}
+# 	pause(duration_value);
+# 	pause(duration_units);
+	set_window("main",1);
+	if(duration_value == 1)
+		web_obj_text_exists("channelbar-left_end","#11","#3",""&duration_value&" day","","");
+	else
+		web_obj_text_exists("channelbar-left_end","#11","#3",""&duration_value&" days","","");
+# Returning to the scheduling list
+	set_window("main",1);
+	web_link_click("Return to Task List");
+}
+	

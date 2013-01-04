@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPropertySheet" 
+    table="PN_PROPERTY_SHEET"
+    lazy="false"
+>
+
+    <id
+        name="propertySheetId"
+        type="java.math.BigDecimal"
+        column="PROPERTY_SHEET_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="propertyGroupId"
+        type="java.math.BigDecimal"
+        column="PROPERTY_GROUP_ID"
+        length="20"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PnPropertySheetType -->
+    <many-to-one
+        name="pnPropertySheetType"
+        class="net.project.hibernate.model.PnPropertySheetType"
+        not-null="true"
+    >
+        <column name="PROPERTY_SHEET_TYPE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnSpaceHasPropertySheet -->
+
+    <set
+        name="pnSpaceHasPropertySheets"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PROPERTY_SHEET_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasPropertySheet"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

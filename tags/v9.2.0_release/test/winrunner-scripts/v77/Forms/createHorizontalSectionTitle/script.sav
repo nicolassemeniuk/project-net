@@ -1,0 +1,24 @@
+function createHorizontalSectionTitle(){
+	extern i;
+	set_window("main",1);
+	list_select_item("ElementID","Horizontal Section Title");
+	wait(1);
+	set_window("main",1);
+	edit_set("field_label",name);
+	edit_set("row_num",i);
+	list_select_item("column_id","Left");
+	web_link_click("Submit");
+	wait(1);
+	set_window("main",1);
+	if(obj_exists(name)==E_OK)
+		report_msg("The Horizontal Section Title '"&name&"'created successfully");
+	else
+		report_msg("The creation of Horizontal Section Title CANNOT be verified");
+	i = i + 1;
+	set_window("main",1);
+	win_get_text("main",outText,631,394,759,410);
+	if(outText == "Horizontal Section ")
+		report_msg("The field created is of type Currency Field");
+	web_obj_text_exists("channelbar-left_end","#12","#3","","","");
+	
+}

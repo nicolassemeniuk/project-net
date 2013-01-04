@@ -1,0 +1,9 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Discussions\createReply> 3 1101854723 0
+58 66 <subjecttexteditRe: Post testRe: Post test(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Discussions\createReply> 19 1101854725 24
+37 92 <Step: Verify reply post subject, Status: Pass, Description: The subject for reply is correct> <C:\Documents and Settings\QA\Desktop\v77\Discussions\createReply> 20 1101854725 24
+37 79 <Step: Post reply, Status: Pass, Description: Reply to the post Post test exists> <C:\Documents and Settings\QA\Desktop\v77\Discussions\createReply> 28 1101854727 24
+32 0 <gui1> <createReply> 33 1101854727 0
+24 109 <Error: Cannot open file 'C:\Documents and Settings\QA\Desktop\v77\Discussions\createReply\chklist\list1.ckl'.> <C:\Documents and Settings\QA\Desktop\v77\Discussions\createReply> 33 1101854727 0
+33 11 <gui1> <createReply> 33 1101854727 0
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\Discussions\createReply> 34 1101854727 0

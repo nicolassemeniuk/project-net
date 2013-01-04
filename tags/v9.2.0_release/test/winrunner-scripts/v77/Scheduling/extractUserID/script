@@ -1,0 +1,13 @@
+function extractUserID(in projectID){
+	static val1,i; 
+	i = 1;
+	auto record_number, rc1, rc2;
+	rc1 = db_connect("query1","DSN=v80stage;UID=pnet;PWD=pnet;DRIVER={Oracle in OraHome92};");
+ 	if (rc1!=E_OK)
+ 		report_msg("Cannot connect to database");
+	else (rc1 == E_OK)
+		rc2 = db_execute_query ("query1","select person_id from pn_space_has_person where space_id = "&projectID&"", record_number);
+	val1 = db_get_field_value ("query1", "#i", "PERSON_ID");
+	db_disconnect("query1");
+	return val1;
+}

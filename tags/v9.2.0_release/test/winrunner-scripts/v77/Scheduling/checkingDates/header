@@ -1,0 +1,28 @@
+[General]
+TDDB_ID=0
+NAME=C:\Documents and Settings\QA\Desktop\v77\Scheduling\checkingDates
+TYPE=TP
+AUTHOR=qa
+DATE=1091207623
+FUNCTION=
+SPEC=
+FSEARCH=
+TSEARCH=
+SUM_DESCRIPTION=checking dates
+DESCRIPTION=This script tests whether the workplan picks up HDEOLa start/end date of a project when specified while HDEOLcreating the project. It should not have any start/end date HDEOLif none is specified.HDEOL
+COMMENTS=
+ADDONS=WebTest
+DATA_TBL=default.xls
+VERSION=7.50
+AUT=0
+AUT_PATH=
+AUT_PARAMS=
+AUT_WAIT_TIME=0
+AUT_SHOW=5
+FUNC=0
+FUNC_NAME=
+FUNC_PARAMS=""
+FUNC_COMPILE_MODULE=
+WAY_TO_LOAD_MODULE=0
+[Params]
+PARAM_CNT=0

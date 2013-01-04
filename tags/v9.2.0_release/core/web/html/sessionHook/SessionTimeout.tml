@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+	<t:if test="sessionExpired">
+	  	<table border="0" width="95%" height="80" align="center" class="sessionPopupHeadingTable">
+			<tr>
+				<td colspan="3" class="sessionPopupHeading"><b>${stillThereOptionMessage}</b></td>
+				<td><img  src="${jspRootURL}/images/menu/logo_pnet.png" align="right"/></td>
+			</tr>
+		</table>
+		<table width="95%" align="center" class="sessionPopupContentTable">
+			<tr>
+				<td class="sessionPopupContent">
+					${sessionAlertMessage}
+				</td>
+			</tr>
+			<tr width="100%">
+				<td class="sessionPopupSubContent">
+					<b>
+						${sessionExpiredInMinutes}
+						<span id="remainingTimeId">${startSessionTime}</span> 
+						${sessionExpInMinutesMessage}
+					</b>
+					<br/><br/><br/>
+				</td>
+			</tr>
+		</table>
+		<table>
+			<tr>
+				<td class="sessionPopupLink">
+					<img  src="${jspRootURL}/images/button/bullet.gif"/>
+					<a href="javascript:checkSession();"> ${continueCurrentSession}</a>
+				</td>
+			</tr>
+			<tr>
+				<td style="color: navy; font-family: Arial, Verdana, Helvetica; font-size:12px; padding-left: 50px;">
+					<img  src="${jspRootURL}/images/button/bullet.gif"/> 
+					<a href="${jspRootURL}/Login.jsp">
+						${logOutCurrentSession}
+					</a>
+				</td>
+			</tr>
+		</table>
+	    <t:parameter name="else">
+	 	   <img  src="${jspRootURL}/images/directory/close-icon.png" onclick="javascript:hideSessionTimeoutPopup();" align="right"/>
+		  	<table border="0" width="95%" height="80" align="center" class="sessionPopupHeadingTable">
+				<tr>
+					<td colspan="3" class="sessionPopupHeading"><b>${sessionExpTitleMessage}</b></td>
+					<td><img  src="${jspRootURL}/images/menu/logo_pnet.png" align="right"/></td>
+				</tr>
+			</table>
+			<table width="95%" align="center" class="sessionPopupContentTable">
+				<tr>
+					<td class="sessionPopupContent">
+						${sessionTimedOutMessage}
+					</td>
+				</tr>
+				<tr width="100%">
+					<td class="sessionPopupSubContent">
+						<b>${sessionExpiredAt} </b> <span id="expireTime" style="font-weight: bold;"></span>
+						<br/><br/><br/>
+					</td>
+				</tr>
+			</table>
+			<table>
+				<tr>
+					<td class="sessionPopupLink">
+						<img  src="${jspRootURL}/images/button/bullet.gif"/>
+						${stayOnThisPageMessage}
+					</td>
+				</tr>
+				<tr>
+					<td style="color: navy; font-family: Arial, Verdana, Helvetica; font-size: 12px; padding-left: 50px;">
+						<img  src="${jspRootURL}/images/button/bullet.gif"/> 
+						<a href="${jspRootURL}/Login.jsp"> 
+							${newLoginAfterExpired}
+						</a>
+					</td>
+				</tr>
+			</table>
+		</t:parameter>
+	</t:if>
+</html>
+
+

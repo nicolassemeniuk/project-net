@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+  "http://java.sun.com/j2ee/dtds/web-jsptaglib_1_1.dtd">
+<taglib>
+    <tlibversion>1.0</tlibversion>
+    <jspversion>1.1</jspversion>
+	<shortname>filter</shortname>
+	<info>Filter tags for JSP</info>
+
+    <!-- The enclosing tag that will hold all of the dropdown tags. -->
+    <!-- Default values of divs would be ddopen and ddclosed, if id is specified then id replaces dd. -->
+    <tag>
+        <name>dropDown</name>
+        <tagclass>net.project.taglibs.dropdown.DropDownTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>Identifies blocks that will be dropdown</info>
+        <attribute>
+            <name>closed</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>showClosedContentWhenOpen</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>divId</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <!-- This tag will draw the image that will a user to expand or collapse the dropdown. -->
+    <tag>
+        <name>image</name>
+        <tagclass>net.project.taglibs.dropdown.ImageTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>Draws the plus/minus drop down image</info>
+        <attribute>
+            <name>openImage</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>closedImage</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <!-- The contents of this tag will always be shown when the dropdown area is expanded. -->
+    <tag>
+        <name>open</name>
+        <tagclass>net.project.taglibs.dropdown.OpenTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>Contains the html that will show up when the filter is open</info>
+    </tag>
+
+    <!-- The contents of this tag will be shown when the dropdown area is closed
+    or it will be shown always if the user has set the showClosedContentWhenOpen
+    attribute to true on the outer dropdown tag. -->
+    <tag>
+        <name>closed</name>
+        <tagclass>net.project.taglibs.dropdown.ClosedTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>Contains the html that will show up when the filter is closed</info>
+    </tag>
+
+</taglib>
+

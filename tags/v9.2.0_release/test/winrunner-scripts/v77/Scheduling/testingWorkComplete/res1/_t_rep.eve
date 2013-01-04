@@ -1,0 +1,30 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 1 1112227991 0
+23 20 <FIXED DURATION TASKS> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 209 1112228006 0
+23 17 <The work is 1days> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 147 1112228032 0
+23 28 <The work completed is 2hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 167 1112228032 0
+37 114 <Step: Verify work complete, Status: Pass, Description: The work complete percentage for t1 is correctly set at 25%> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 190 1112228032 24
+23 25 <The work for t2 is 8hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 78 1112228055 0
+37 135 <Step: Work percentage edit, Status: Pass, Description: The work complete for t2 has been set correctly to 2hours for a percentage of 25> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 103 1112228055 24
+23 25 <The work for t3 is 8hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 33 1112228077 0
+58 56 <work_percent_completetextedit25%25%(case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 52 1112228077 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 216 1112228079 0
+23 16 <FIXED UNIT TASKS> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 218 1112228079 0
+23 17 <The work is 1days> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 147 1112228109 0
+23 28 <The work completed is 2hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 167 1112228109 0
+37 114 <Step: Verify work complete, Status: Pass, Description: The work complete percentage for t4 is correctly set at 25%> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 190 1112228109 24
+23 25 <The work for t5 is 8hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 78 1112228132 0
+37 135 <Step: Work percentage edit, Status: Pass, Description: The work complete for t5 has been set correctly to 2hours for a percentage of 25> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 103 1112228132 24
+23 25 <The work for t6 is 8hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 33 1112228159 0
+58 56 <work_percent_completetextedit25%25%(case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 52 1112228159 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 225 1112228161 0
+23 16 <FIXED WORK TASKS> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 227 1112228161 0
+23 17 <The work is 1days> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 147 1112228185 0
+23 28 <The work completed is 2hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 167 1112228186 0
+37 114 <Step: Verify work complete, Status: Pass, Description: The work complete percentage for t7 is correctly set at 25%> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 190 1112228186 24
+23 25 <The work for t8 is 8hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 78 1112228209 0
+37 135 <Step: Work percentage edit, Status: Pass, Description: The work complete for t8 has been set correctly to 2hours for a percentage of 25> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 103 1112228209 24
+23 25 <The work for t9 is 8hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 33 1112228232 0
+58 56 <work_percent_completetextedit25%25%(case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 52 1112228232 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 234 1112228233 0
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 235 1112228233 0

@@ -1,0 +1,8 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWork> 1 1113249451 0
+24 142 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWork (7):	Error: Variable taskID has not been declared
+			taskID= getTaskID("t14");> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWork> 1 1113249451 0
+25 140 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWork (7):
+Error: Variable taskID has not been declared
+	taskID= getTaskID("t14");> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWork> 1 1113249451 0
+2 10 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWork> 10 1113249729 0

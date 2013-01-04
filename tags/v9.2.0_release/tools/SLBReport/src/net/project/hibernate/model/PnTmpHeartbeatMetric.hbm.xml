@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnTmpHeartbeatMetric" 
+    table="PN_TMP_HEARTBEAT_METRICS"
+    lazy="false"
+>
+
+    <id
+        name="collectionId"
+        type="java.math.BigDecimal"
+        column="COLLECTION_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="moduleName"
+        type="java.lang.String"
+        column="MODULE_NAME"
+        length="80"
+    />
+    <property
+        name="total"
+        type="java.lang.Integer"
+        column="TOTAL"
+        length="9"
+    />
+    <property
+        name="totalOpen"
+        type="java.lang.Integer"
+        column="TOTAL_OPEN"
+        length="9"
+    />
+    <property
+        name="totalClosed"
+        type="java.lang.Integer"
+        column="TOTAL_CLOSED"
+        length="9"
+    />
+    <property
+        name="totalClosedLastWeek"
+        type="java.lang.Integer"
+        column="TOTAL_CLOSED_LAST_WEEK"
+        length="9"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

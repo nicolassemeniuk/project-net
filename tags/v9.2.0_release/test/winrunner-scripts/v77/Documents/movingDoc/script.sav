@@ -1,0 +1,37 @@
+#compiled module for moving a document from a source folder to a destination folder assuming both already exist
+
+function movingDoc(in projectName, in sourceFolder, in destinationFolder, in fileName){
+	auto val1, val2, val3;
+
+	reload("extractProjectID",0,1);
+	reload("extractContainerID",0,1);
+	reload("extractDocumentID",0,1);
+	GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+	
+	val1 = extractProjectID(projectName);#extracting the project ID from the database
+	val2 = extractContainerID(val1,sourceFolder);#extracting the Container ID for the document
+	val3 = extractDocumentID(val2,fileName);#extracting the Document ID
+	
+	#saving the Document ID to the GUI map file so as to aid in selection
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui","main","selected","part_value",""&val3&"")!=E_OK)
+		report_msg("NOT OK1");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+	
+	set_window("main",2);
+	web_link_click(sourceFolder);
+	wait(1);
+	button_set("selected",ON);
+	wait(1);
+	web_link_click("Move");#moving the document using the toolbar button
+	wait(1);
+	set_window("moveBrowser",2);
+	web_link_click(destinationFolder);
+	wait(1);
+	set_window("moveBrowser",2);
+	web_link_click("Move");
+	wait(1);
+	web_link_click(sourceFolder);#assumed th
+	wait(1);
+	set_window("main",2);
+}	

@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnNew" 
+    table="PN_NEWS"
+    lazy="false"
+>
+
+    <id
+        name="newsId"
+        type="java.math.BigDecimal"
+        column="NEWS_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="topic"
+        type="java.lang.String"
+        column="TOPIC"
+        length="80"
+    />
+    <property
+        name="priorityId"
+        type="java.math.BigDecimal"
+        column="PRIORITY_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="postedById"
+        type="java.math.BigDecimal"
+        column="POSTED_BY_ID"
+        length="20"
+    />
+    <property
+        name="postedDatetime"
+        type="java.sql.Date"
+        column="POSTED_DATETIME"
+        length="7"
+    />
+    <property
+        name="createdById"
+        type="java.math.BigDecimal"
+        column="CREATED_BY_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="createdDatetime"
+        type="java.sql.Date"
+        column="CREATED_DATETIME"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="modifiedById"
+        type="java.math.BigDecimal"
+        column="MODIFIED_BY_ID"
+        length="20"
+    />
+    <property
+        name="modifiedDatetime"
+        type="java.sql.Date"
+        column="MODIFIED_DATETIME"
+        length="7"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="notificationId"
+        type="java.math.BigDecimal"
+        column="NOTIFICATION_ID"
+        length="22"
+    />
+    <property
+        name="messageClob"
+        type="java.sql.Clob"
+        column="MESSAGE_CLOB"
+        length="4000"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnSpaceHasNew -->
+
+    <set
+        name="pnSpaceHasNews"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="NEWS_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasNew"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnNewsHistory -->
+
+    <set
+        name="pnNewsHistories"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="NEWS_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnNewsHistory"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

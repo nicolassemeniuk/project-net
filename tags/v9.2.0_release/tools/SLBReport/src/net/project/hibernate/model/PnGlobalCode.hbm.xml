@@ -1,0 +1,91 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnGlobalCode" 
+    table="PN_GLOBAL_CODE"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnGlobalCodePK">
+        <key-property 
+            name="code" 
+            column="CODE" 
+            type="java.lang.Integer"
+            length="8"
+        />
+        <key-property 
+            name="codeTypeId" 
+            column="CODE_TYPE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="codeName"
+        type="java.lang.String"
+        column="CODE_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="codeDesc"
+        type="java.lang.String"
+        column="CODE_DESC"
+        length="80"
+    />
+    <property
+        name="codeUrl"
+        type="java.lang.String"
+        column="CODE_URL"
+        length="240"
+    />
+    <property
+        name="presentationSequence"
+        type="java.lang.Integer"
+        column="PRESENTATION_SEQUENCE"
+        length="8"
+    />
+    <property
+        name="isDefault"
+        type="int"
+        column="IS_DEFAULT"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnCodeType -->
+    <many-to-one
+        name="pnCodeType"
+	    class="net.project.hibernate.model.PnCodeType"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="CODE_TYPE_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

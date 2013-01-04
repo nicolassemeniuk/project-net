@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnBusinessSpace" 
+    table="PN_BUSINESS_SPACE"
+    lazy="false"
+>
+
+    <id
+        name="businessSpaceId"
+        type="java.math.BigDecimal"
+        column="BUSINESS_SPACE_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="spaceType"
+        type="java.math.BigDecimal"
+        column="SPACE_TYPE"
+        length="20"
+    />
+    <property
+        name="completePortfolioId"
+        type="java.math.BigDecimal"
+        column="COMPLETE_PORTFOLIO_ID"
+        length="20"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="includesEveryone"
+        type="int"
+        column="INCLUDES_EVERYONE"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PnBusiness -->
+    <many-to-one
+        name="pnBusiness"
+        class="net.project.hibernate.model.PnBusiness"
+        not-null="true"
+    >
+        <column name="BUSINESS_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,54 @@
+# wait(3);
+# call "C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\forLoginProject"();
+wait(3);
+GUI_close_all();
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createProcess\\createProcess.gui");
+
+reload("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\setDate",0,1);
+currentDate = setDate();
+# pause(currentDate);
+
+set_window("main",3);
+web_link_click("WRProject");
+web_sync(3);
+set_window("menu");
+web_link_click("Process");
+
+set_window("main",3);
+if(obj_exists("processname")==E_OK){
+	edit_set("processname","WRProcess");
+	edit_set("processdesc","Smoke Testing for creation of a Process using WR");
+	web_link_click("Submit");
+}
+
+public function createManualPhase(in iphase, in currentDate){
+	pause(currentDate);
+	set_window("main",3);
+	web_link_click("Create Phase");
+	set_window("main",3);
+	edit_set("phasename","Phase"&iphase&"");
+	edit_set("phasedesc","Phase1 description");
+	edit_set("sequence", iphase);
+	button_set("progressReportingMethod_1",ON);
+	edit_set("startdate",currentDate);
+	edit_set("enddate",currentDate);
+	edit_set("percentcomplete","0");
+	web_link_click("Submit");
+}
+
+public function createSchedulePhase(in iphase){
+	set_window("main",3);
+	web_link_click("Create Phase");
+	set_window("main",3);
+	edit_set("phasename","Phase"&iphase&"");
+	button_set("progressReportingMethod",ON);
+	edit_set("sequence", iphase);
+	web_link_click("Submit");
+}
+
+createManualPhase(1, currentDate);
+createSchedulePhase(2);
+
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createProcess\\createProcess.gui");
+
+

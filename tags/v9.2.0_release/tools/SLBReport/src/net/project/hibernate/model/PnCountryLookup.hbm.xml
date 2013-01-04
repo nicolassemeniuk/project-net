@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnCountryLookup" 
+    table="PN_COUNTRY_LOOKUP"
+    lazy="false"
+>
+
+    <id
+        name="countryCode"
+        type="java.lang.String"
+        column="COUNTRY_CODE"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="countryName"
+        type="java.lang.String"
+        column="COUNTRY_NAME"
+        not-null="true"
+        length="500"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnAddress -->
+
+    <set
+        name="pnAddresses"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="COUNTRY_CODE" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnAddress"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnSpaceHasWeather -->
+
+    <set
+        name="pnSpaceHasWeathers"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="COUNTRY_CODE" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasWeather"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnStateLookup -->
+
+    <set
+        name="pnStateLookups"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="COUNTRY_CODE" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnStateLookup"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

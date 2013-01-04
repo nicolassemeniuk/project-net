@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:PersonalLayout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+<style type="text/css">
+.workDate{
+	position: absolute;
+	top: 90px;	
+	padding: 10px;
+	text-align:left;
+	}	
+.buttonBar{
+	position: absolute;
+	top: 400px;	
+	left:350px;
+	padding: 10px;
+	text-align:left;
+	}
+	
+.nonWorkingDay {
+    background-color: #CCCCCC;
+}
+
+.workingDay {
+}
+
+.divHeader{
+	font-family: Arial,Helvetica; 
+	font-weight: bold; 
+	font-size: 16px;
+}
+
+body {
+	height: 100%;
+}
+</style>
+
+<script type="text/javascript">
+var JSPRootURL = '${jSPRootURL}';
+var moduleId = '${moduleId}';
+var workWeekLbl = '<t:Message value="prm.workcalendar.workdate.workweek.link" />';
+<!-- //
+
+var theForm;
+
+function setup() {
+    theForm = self.document.forms[0];
+    document.getElementById('left-navbar').innerHTML +=  '<div id="toolbox-heading" class="toolbox-heading"> '+goToHeadingLbl+' </div>';
+    document.getElementById('left-navbar').innerHTML += '<div id="toolbox-item" class="toolbox-item"><span><a href="'+JSPRootURL+'/personal/workcalendar/WorkDay?module='+moduleId+'">'+workWeekLbl+'</a></span></div>';
+}
+
+function helpMe() {
+	var helplocation= JSPRootURL + "/help/Help.jsp?page=schedule_personal_work_days";
+	openwin_help(helplocation);
+}
+
+function reset() {
+    theForm.reset();
+}
+
+function submit() {
+	theForm.action.value ='submit';
+   	theForm.submit();
+}
+
+function modify() {
+    if (verifySelection(theForm, 'single', '')) {
+        clickDate(getSelection(theForm));
+    }
+}
+
+function clickDate(value) {
+    theForm.action.value = "modifyDate";
+    theForm.entryID.value = value;
+    theForm.submit();
+}
+
+function remove() {
+    if (verifySelection(theForm, 'single', '')) {
+	    Ext.MessageBox.confirm('Confirm', 
+			'Are you sure you want to remove this entry?', 
+			function(btn){
+				if(btn=='yes'){
+					theForm.action.value = "removeDate";
+		            theForm.entryID.value = getSelection(theForm);
+	       		    theForm.submit();
+				}else{
+					return false;
+				}
+			}
+		);
+    }
+}
+
+function create() {
+    theForm.action.value = "createDate";
+    theForm.submit();
+}
+
+// -->
+</script>
+	<t:ActionBox groupTitle="${groupHeadingWorkCalendar}" buttons="create,modify,remove,blogit" 
+		caption="prm.workcalendar.workdate.newdate.link,prm.workcalendar.workdate.modifydate.link,prm.workcalendar.workdate.removedate.link,all.global.toolbar.standard.blogit"/>
+	
+	<div>
+		<div id="contactInfo" style="width: 80%; position: absolute; top: 104px; left: 180px;">		
+		<div><t:OutputRaw value="pageTitle"/></div>
+		<br/>
+		<label class="divHeader"><t:Message value="prm.workcalendar.workday.individualdates.header" /></label> <br />
+		<hr width="100%" style="color: gray;" />
+			
+		<t:form t:id="workdateForm" clientValidation="false" autofocus="false">
+		<input type="hidden" name="action" />
+		<input type="hidden" name="entryID"/>
+		
+		<font color="red" style="font: bold;"><b>${errorMessage}</b></font>	
+		
+		<table width="100%">
+	         <tr>
+	            <td colspan="4">
+	                <table width="100%" border="0">
+	                    <colgroup span="3">
+	                        <col width="0*" />
+	                    </colgroup>
+	                    <t:if test="datesEntryFound">
+	                   		<t:loop source="dateEntries" value="nextDateEntry" volatile="true">
+			                    <tr class="tableContent"> 
+				                    <td><input type="radio" name="selected" value="${nextDateEntry.entryID}"/></td>
+				                    <td><a href="javascript:clickDate(${nextDateEntry.entryID});"> ${nextDateEntry.dateDisplay} </a> </td>
+									<td>${nextDateEntry.dateDescription}</td>
+				                    <td>
+										<t:if test="nextDateEntry.workingDay">
+											<t:Message value="prm.schedule.workingtime.editdate.workingtime.label" />
+											<t:parameter name="else">
+												<t:Message value="prm.schedule.workingtime.editdate.nonworkingtime.label" />
+									        </t:parameter>
+										</t:if>
+									</td>
+				               </tr>
+			               </t:loop>
+			               <t:parameter name="else">
+			               	   <tr>
+			               	   	   <td colspan="4" align="center"><b><t:Message value="prm.workcalendar.workdate.nodatesspecified.label" /></b></td>
+			               	   </tr>
+			               </t:parameter>
+		               </t:if>
+		            </table>
+		        </td>
+		        <td>&nbsp;</td>
+		     </tr>
+	        
+		</table>
+
+	</t:form>
+	</div>
+	</div>
+</t:PersonalLayout>

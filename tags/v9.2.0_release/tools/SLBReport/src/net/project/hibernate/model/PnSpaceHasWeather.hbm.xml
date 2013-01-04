@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnSpaceHasWeather" 
+    table="PN_SPACE_HAS_WEATHER"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnSpaceHasWeatherPK">
+        <key-property 
+            name="spaceId" 
+            column="SPACE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="city" 
+            column="CITY" 
+            type="java.lang.String"
+            length="80"
+        />
+        <key-property 
+            name="stateCode" 
+            column="STATE_CODE" 
+            type="java.lang.String"
+            length="2"
+        />
+        <key-property 
+            name="countryCode" 
+            column="COUNTRY_CODE" 
+            type="java.lang.String"
+            length="2"
+        />
+    </composite-id>    
+
+    <property
+        name="name"
+        type="java.lang.String"
+        column="NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="isPrimary"
+        type="int"
+        column="IS_PRIMARY"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnStateLookup -->
+    <many-to-one
+        name="pnStateLookup"
+	    class="net.project.hibernate.model.PnStateLookup"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="STATE_CODE" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to PnCountryLookup -->
+    <many-to-one
+        name="pnCountryLookup"
+	    class="net.project.hibernate.model.PnCountryLookup"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="COUNTRY_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to PnZipcodeFeedLookup -->
+    <many-to-one
+        name="pnZipcodeFeedLookup"
+        class="net.project.hibernate.model.PnZipcodeFeedLookup"
+        not-null="true"
+    >
+        <column name="POSTAL_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

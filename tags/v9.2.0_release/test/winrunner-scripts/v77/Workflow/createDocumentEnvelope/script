@@ -1,0 +1,32 @@
+function createDocumentEnvelope(in fileName, in workflowName, in envelopeName){
+	auto val;
+	reload("getDocumentID");
+	val = getDocumentID(fileName);
+	
+	#saving the Document ID or the Container ID in the GUI map file so as to select it
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui","main","selected","part_value",""&val&"")!=E_OK)
+		report_msg("NOT OK1");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+	
+	set_window("main",2);
+	wait(1);
+	if(button_set("selected",ON)!=E_OK)
+		report_msg("document selection not ok");
+	
+	web_link_click("Add to Workflow");
+	wait(1);
+	set_window("Start Workflow Wizard",2);
+	list_select_item("workflowID",workflowName);
+	edit_set("name",envelopeName);
+	edit_set("description","Envelope for workflow");
+	web_link_click("Next");
+	set_window("Start Workflow Wizard",1);
+	list_select_item("strictnessID","Relaxed");
+	set_window("Start Workflow Wizard",1);
+	list_select_item("priorityID","Normal");
+	set_window("Start Workflow Wizard",1);
+	list_select_item("statusID","New");
+	edit_set("comments","Comments for an envelope");
+	web_link_click("Finish");
+}

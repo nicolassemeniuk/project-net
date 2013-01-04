@@ -1,0 +1,8 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\checkDates> 1 1105557540 0
+24 163 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\checkDates (6):	Error: Variable start2 has not been declared
+			edit_get_text("startTime_NotSubmitted",start2);> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\checkDates> 1 1105557540 0
+25 161 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\checkDates (6):
+Error: Variable start2 has not been declared
+	edit_get_text("startTime_NotSubmitted",start2);> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\checkDates> 1 1105557540 0
+2 10 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\checkDates> 1 1105557544 0

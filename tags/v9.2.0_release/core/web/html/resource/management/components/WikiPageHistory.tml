@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	
+	<div id="wWikiHistory" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+		<t:if test="pnWikiPage">
+			<table cellspacing="10" align="center" class="wWikiHistoryContent">
+				<tr>
+					<th><b><t:message value="prm.wiki.historypage.column.version"/></b></th>
+					<th><b><t:message value="prm.wiki.historypage.column.author"/></b></th>
+					<th><b><t:message value="prm.wiki.historypage.column.comment"/></b></th>
+					<th><b><t:message value="prm.wiki.historypage.column.date"/></b></th>
+					<th><b><t:message value="prm.wiki.historypage.wikidiff.difflink"/></b></th>
+				</tr>
+				<t:if test="currentPageContentEdit">
+					<tr  class="currentVersionBackground">
+						<td>*</td>
+						<td>${pnWikiPage.editedBy.displayName}</td>
+						<t:if test="pnWikiPage.commentText">
+							<td>${pnWikiPage.commentText}</td>
+							<t:parameter name="else">
+								<td><i><t:message value="prm.wiki.historypage.latestVersionCommentTextempty"/></i></td>
+							</t:parameter>
+						</t:if>
+						<td nowrap="nowrap">
+							<a id="latestVersionLink" href="${jspRootUrl}/wiki/${pagesToCall}?op=view">${latestVersionEditDate}</a>
+							&nbsp;&nbsp;&nbsp;<b><t:message value="prm.wiki.historypage.latestversion"/></b>
+						</td>
+						<td>
+							<t:if test="previousWikiHistoryId">
+								  <a href="${jspRootUrl}/pwiki/WikiPageDiff/${previousWikiHistoryId}/${previousVersionId}?module=${moduleId}"><t:message value="prm.wiki.historypage.wikidiff.seediff"/></a>
+							   <t:parameter name="else">
+							   	  <a href="${jspRootUrl}/pwiki/WikiPageDiff/${pnWikiPage.wikiPageId}/${previousVersionId}?module=${moduleId}"><t:message value="prm.wiki.historypage.wikidiff.seediff"/></a>
+							   </t:parameter>
+							</t:if>
+						</td>
+					</tr>
+					<t:parameter name="else">
+						<tr class="currentVersionBackground">
+							<td>*</td>
+							<td>${pnWikiPage.editedBy.displayName}</td>
+							<t:if test="pnWikiPage.commentText">
+								<td>${pnWikiPage.commentText}</td>
+								<t:parameter name="else">
+									<td><i><t:message value="prm.wiki.historypage.latestVersionCommentTextempty"/></i></td>
+								</t:parameter>
+							</t:if>
+							<td nowrap="nowrap">
+								${latestVersionEditDate}&nbsp;&nbsp;&nbsp;<b><t:message value="prm.wiki.historypage.latestversion"/></b>
+							</td>
+							<td></td>
+						</tr>
+					</t:parameter>
+				</t:if>
+				<tr t:type="loop" source="historyFormatedList" value="wHistory">
+					<td>${wHistory.versionNo}</td>
+					<td>${wHistory.editedBy.displayName}</td>
+					<t:if test="wHistory.commentText">
+						<td id="pageRevision${wHistory.versionNo}CommentText">${wHistory.commentText}</td>
+						<t:parameter name="else">
+							<td id="latestVersionCommentTextEmpty"><i><t:message value="prm.wiki.historypage.latestVersionCommentTextempty"/></i></td>
+						</t:parameter>
+					</t:if>
+					<t:if test="wHistory.pageNameRename">
+						<td>${wHistory.editDate}</td>
+						<td></td>
+						<t:parameter name="else">
+							<td>
+								<a id="latestVersionLink" href="${jspRootUrl}/wiki/${pagesToCall}?op=version&amp;hid=${wHistory.wikiHistoryId}">${wHistory.editDate}</a>
+							</td>
+							<td>
+								<t:if test="wHistory.previousHistoryId">
+								    <a href="${jspRootUrl}/pwiki/WikiPageDiff/${wHistory.wikiHistoryId}/${wHistory.previousHistoryId}/${wHistory.versionNo}?module=${moduleId}"><t:message value="prm.wiki.historypage.wikidiff.seediff"/></a>
+								  <t:parameter name="else">
+									<a href="${jspRootUrl}/pwiki/WikiPageDiff/${wHistory.wikiHistoryId}/00?module=${moduleId}"><t:message value="prm.wiki.historypage.wikidiff.seediff"/></a>
+								  </t:parameter>
+								</t:if>	
+							</td>	
+						</t:parameter>
+					</t:if>
+				</tr>
+			</table>
+		</t:if>
+	</div>
+	

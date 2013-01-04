@@ -1,0 +1,94 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 1 1102367694 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Process\forLoginProcess> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 1 1102367694 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Process\forLoginProcess> 15 1102367723 0
+23 18 <CREATING PHASES...> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 27 1102367729 0
+39 1 <web_frame_text_exists- Phase1 > <createPhase> 16 1102367734 0
+39 1 <web_frame_text_exists- Phase2 > <createPhase> 16 1102367740 0
+39 1 <web_frame_text_exists- Phase3 > <createPhase> 16 1102367745 0
+39 1 <web_frame_text_exists- Phase4 > <createPhase> 16 1102367755 0
+23 24 <FINISHED CREATING PHASES> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 32 1102367755 0
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 33 1102367755 0
+23 17 <CREATING GATES...> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 36 1102367755 0
+23 23 <FINISHED CREATING GATES> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 41 1102367788 0
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 42 1102367788 0
+23 23 <VERIFYING GATES CREATED> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 63 1102367788 0
+37 72 <Step: Gate present, Status: Pass, Description: Gate is present in Phase1> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 54 1102367794 24
+37 72 <Step: Gate present, Status: Pass, Description: Gate is present in Phase2> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 54 1102367807 24
+37 72 <Step: Gate present, Status: Pass, Description: Gate is present in Phase3> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 54 1102367819 24
+37 72 <Step: Gate present, Status: Pass, Description: Gate is present in Phase4> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 54 1102367832 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 68 1102367838 0
+23 24 <CREATING DELIVERABLES...> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 71 1102367838 0
+37 108 <Step: Verify deliverable status, Status: Pass, Description: Deliverable status for Deliverable Test1 present> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 20 1102367846 24
+37 113 <Step: Deliverable created, Status: Pass, Description: Deliverable "Deliverable Test1" for Phase1 has been created> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 30 1102367849 24
+37 108 <Step: Verify deliverable status, Status: Pass, Description: Deliverable status for Deliverable Test2 present> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 20 1102367858 24
+37 113 <Step: Deliverable created, Status: Pass, Description: Deliverable "Deliverable Test2" for Phase1 has been created> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 30 1102367861 24
+37 108 <Step: Verify deliverable status, Status: Pass, Description: Deliverable status for Deliverable Test1 present> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 20 1102367869 24
+37 113 <Step: Deliverable created, Status: Pass, Description: Deliverable "Deliverable Test1" for Phase2 has been created> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 30 1102367873 24
+37 108 <Step: Verify deliverable status, Status: Pass, Description: Deliverable status for Deliverable Test2 present> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 20 1102367881 24
+37 113 <Step: Deliverable created, Status: Pass, Description: Deliverable "Deliverable Test2" for Phase2 has been created> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 30 1102367885 24
+44 74 <win_get_info:"deliverablestatus" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 76 1102367894 0
+37 108 <Step: Verify deliverable status, Status: Pass, Description: Deliverable status for Deliverable Test1 present> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 20 1102367894 24
+37 113 <Step: Deliverable created, Status: Pass, Description: Deliverable "Deliverable Test1" for Phase3 has been created> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 30 1102367897 24
+44 74 <win_get_info:"deliverablestatus" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 77 1102367906 0
+37 108 <Step: Verify deliverable status, Status: Pass, Description: Deliverable status for Deliverable Test2 present> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 20 1102367906 24
+37 113 <Step: Deliverable created, Status: Pass, Description: Deliverable "Deliverable Test2" for Phase3 has been created> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 30 1102367910 24
+37 108 <Step: Verify deliverable status, Status: Pass, Description: Deliverable status for Deliverable Test1 present> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 20 1102367918 24
+37 113 <Step: Deliverable created, Status: Pass, Description: Deliverable "Deliverable Test1" for Phase4 has been created> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 30 1102367922 24
+37 108 <Step: Verify deliverable status, Status: Pass, Description: Deliverable status for Deliverable Test2 present> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 20 1102367930 24
+37 113 <Step: Deliverable created, Status: Pass, Description: Deliverable "Deliverable Test2" for Phase4 has been created> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 30 1102367934 24
+23 30 <FINISHED CREATING DELIVERABLES> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 80 1102367934 0
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 81 1102367934 0
+23 44 <CREATING TASKS AND MILESTONES FOR PHASE#1...> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 88 1102367935 0
+37 96 <Step: Verify task in phase main, Status: Pass, Description: The task t1 is listed on Phase1 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 19 1102367957 24
+37 106 <Step: Verify milestone in phase main, Status: Pass, Description: The milestone t4 is listed on Phase1 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 55 1102367984 24
+37 96 <Step: Verify task in phase main, Status: Pass, Description: The task t2 is listed on Phase1 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 19 1102368005 24
+37 106 <Step: Verify milestone in phase main, Status: Pass, Description: The milestone t5 is listed on Phase1 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 55 1102368032 24
+37 96 <Step: Verify task in phase main, Status: Pass, Description: The task t3 is listed on Phase1 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 19 1102368052 24
+37 106 <Step: Verify milestone in phase main, Status: Pass, Description: The milestone t6 is listed on Phase1 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 55 1102368079 24
+23 4 <DONE> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 92 1102368079 0
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 93 1102368079 0
+23 44 <CREATING TASKS AND MILESTONES FOR PHASE#2...> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 96 1102368079 0
+37 96 <Step: Verify task in phase main, Status: Pass, Description: The task t7 is listed on Phase2 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 19 1102368100 24
+37 107 <Step: Verify milestone in phase main, Status: Pass, Description: The milestone t10 is listed on Phase2 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 55 1102368127 24
+37 96 <Step: Verify task in phase main, Status: Pass, Description: The task t8 is listed on Phase2 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 19 1102368149 24
+37 107 <Step: Verify milestone in phase main, Status: Pass, Description: The milestone t11 is listed on Phase2 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 55 1102368177 24
+37 96 <Step: Verify task in phase main, Status: Pass, Description: The task t9 is listed on Phase2 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 19 1102368199 24
+37 107 <Step: Verify milestone in phase main, Status: Pass, Description: The milestone t12 is listed on Phase2 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 55 1102368226 24
+23 4 <DONE> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 100 1102368226 0
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 101 1102368226 0
+23 44 <CREATING TASKS AND MILESTONES FOR PHASE#3...> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 104 1102368226 0
+37 97 <Step: Verify task in phase main, Status: Pass, Description: The task t13 is listed on Phase3 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 19 1102368247 24
+37 107 <Step: Verify milestone in phase main, Status: Pass, Description: The milestone t16 is listed on Phase3 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 55 1102368274 24
+37 97 <Step: Verify task in phase main, Status: Pass, Description: The task t14 is listed on Phase3 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 19 1102368294 24
+37 107 <Step: Verify milestone in phase main, Status: Pass, Description: The milestone t17 is listed on Phase3 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 55 1102368321 24
+37 97 <Step: Verify task in phase main, Status: Pass, Description: The task t15 is listed on Phase3 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 19 1102368342 24
+37 107 <Step: Verify milestone in phase main, Status: Pass, Description: The milestone t18 is listed on Phase3 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 55 1102368369 24
+23 4 <DONE> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 108 1102368369 0
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 109 1102368369 0
+23 44 <CREATING TASKS AND MILESTONES FOR PHASE#4...> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 112 1102368369 0
+37 97 <Step: Verify task in phase main, Status: Pass, Description: The task t19 is listed on Phase4 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 19 1102368389 24
+37 107 <Step: Verify milestone in phase main, Status: Pass, Description: The milestone t22 is listed on Phase4 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 55 1102368417 24
+37 97 <Step: Verify task in phase main, Status: Pass, Description: The task t20 is listed on Phase4 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 19 1102368438 24
+37 107 <Step: Verify milestone in phase main, Status: Pass, Description: The milestone t23 is listed on Phase4 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 55 1102368465 24
+37 97 <Step: Verify task in phase main, Status: Pass, Description: The task t21 is listed on Phase4 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 19 1102368486 24
+37 107 <Step: Verify milestone in phase main, Status: Pass, Description: The milestone t24 is listed on Phase4 main> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 55 1102368513 24
+23 4 <DONE> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 116 1102368513 0
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 117 1102368513 0
+23 37 <LIST OF TASKS NOT PRESENT IN SCHEDULE> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 125 1102368517 0
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 131 1102368518 0
+23 38 <FILTERING TASKS/MILESTONES BY PHASE...> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 136 1102368519 0
+23 7 <PHASE#1> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 137 1102368519 0
+37 119 <Step: Verify Phase1 filter for schedule list, Status: Pass, Description: All tasks assigned to Phase1 show up correctly> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 22 1102368526 24
+23 7 <PHASE#2> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 139 1102368526 0
+37 119 <Step: Verify Phase2 filter for schedule list, Status: Pass, Description: All tasks assigned to Phase2 show up correctly> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 40 1102368533 24
+23 7 <PHASE#3> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 141 1102368533 0
+37 119 <Step: Verify Phase3 filter for schedule list, Status: Pass, Description: All tasks assigned to Phase3 show up correctly> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 58 1102368540 24
+23 7 <PHASE#4> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 143 1102368540 0
+37 119 <Step: Verify Phase4 filter for schedule list, Status: Pass, Description: All tasks assigned to Phase4 show up correctly> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 76 1102368547 24
+37 108 <Step: Deleting Phase having two or more deliverables, Status: Fail, Description: Phase1 could not be deleted> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 171 1102368553 25
+32 0 <gui1> <batchProcess> 189 1102368562 0
+33 1 <gui1> <batchProcess> 189 1102368562 0
+32 0 <gui1> <batchProcess> 207 1102368570 0
+33 1 <gui1> <batchProcess> 207 1102368570 0
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\Process\batchProcess> 210 1102368570 0

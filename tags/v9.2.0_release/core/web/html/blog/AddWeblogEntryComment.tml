@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<head> <title> <t:Message value="prm.global.application.title"/> </title>
+</head>
+<body background="#FFFFFF">	
+	<div id="blog-it_errorMsg" style="margin: 5px; font-family: Arial,Helvetica,Sans-Serif;f ont-size: 12px; font-weight: bold; color: red; left: 15px; width: 600px;">${message}</div>
+	<div id="entry-description"><span class="blogDate"><t:Message value="prm.blog.addweblogentrycomment.date.label"/> ${date}</span></div>
+	<table width="620px" style="padding-top:5px; padding-left: 10px;">
+		<tr>
+			<td nowrap="nowrap" valign="top" align="right" style="padding-left: 5px;" class="message-subject"><t:Message value="prm.blog.addweblogentrycomment.content.label"/></td>
+			<td width="600px"> <div id="contentTextareaPositionForComment"></div> </td>
+		</tr>
+		<tr>
+			<td colspan="2" align="right" style="padding-right: 50px;">
+				<input type="button" id="blog-it"  value="${addCommentButtonCaption}" onclick="saveComment();"></input>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="button" id="cancel-blog-it" value="${cancelButtonCaption}" onclick="hidePopup();"></input>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

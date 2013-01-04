@@ -1,0 +1,207 @@
+# wait(1);
+# call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Workflow\\forLoginWorkflow"();
+GUI_close_all();
+wait(3);
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Workflow\\workflow.gui");
+wait(1);
+set_window("menu",2);
+web_link_click("Workflow");
+wait(1);
+set_window("main");
+
+#compiled modules for workflow
+reload("createWorkflow",0,1);
+reload("createStep");
+reload("createTransition",0,1);
+
+public m = 0;
+public i = 1;
+# workflow = "Workflow5";
+report_msg("CREATING WORKFLOW...");
+createWorkflow("Workflow","Relaxed");
+
+#creating and verifying steps for the workflow
+createStep("Step1","New");
+# pause(m);
+if(obj_exists("Step1")==E_OK)
+	tl_step("Verify Step Creation",0,"Step1 has been successfully created");
+else
+	tl_step("Verify Step Creation",1,"Step1 COULD NOT be successfully created");
+createStep("Step2","In Progress");
+# pause(m);
+if(obj_exists("Step2")==E_OK)
+	tl_step("Verify Step Creation",0,"Step2 has been successfully created");
+else
+	tl_step("Verify Step Creation",1,"Step2 COULD NOT be successfully created");
+createStep("Step3","In Progress");
+# pause(m);
+if(obj_exists("Step3")==E_OK)
+	tl_step("Verify Step Creation",0,"Step3 has been successfully created");
+else
+	tl_step("Verify Step Creation",1,"Step3 COULD NOT be successfully created");
+createStep("Step41","Completed (Closed)");
+# pause(m);
+if(obj_exists("Step41")==E_OK)
+	tl_step("Verify Step Creation",0,"Step41 has been successfully created");
+else
+	tl_step("Verify Step Creation",1,"Step41 COULD NOT be successfully created");
+createStep("Step42","Cancelled (Closed)");
+# pause(m);
+if(obj_exists("Step42")==E_OK)
+	tl_step("Verify Step Creation",0,"Step42 has been successfully created");
+else
+	tl_step("Verify Step Creation",1,"Step42 COULD NOT be successfully created");
+m = 0;
+# pause(m);
+
+#creating and verifying transitions between the steps 
+createTransition("transition1","Step1","Step2");
+if(obj_exists("transition1")==E_OK)
+	tl_step("Verify Transition Creation",0,"transition1 has been successfully created");
+else
+	tl_step("Verify Transition Creation",1,"transition1 COULD NOT be successfully created");
+createTransition("transition2","Step2","Step3");
+if(obj_exists("transition2")==E_OK)
+	tl_step("Verify Transition Creation",0,"transition2 has been successfully created");
+else
+	tl_step("Verify Transition Creation",1,"transition2 COULD NOT be successfully created");
+createTransition("transition3","Step3","Step41");
+if(obj_exists("transition3")==E_OK)
+	tl_step("Verify Transition Creation",0,"transition3 has been successfully created");
+else
+	tl_step("Verify Transition Creation",1,"transition3 COULD NOT be successfully created");
+createTransition("transition4","Step3","Step42");
+if(obj_exists("transition4")==E_OK)
+	tl_step("Verify Transition Creation",0,"transition4 has been successfully created");
+else
+	tl_step("Verify Transition Creation",1,"transition4 COULD NOT be successfully created");
+m = 0;
+
+# Publishing the workflow and verifying that it was published successfully
+wait(1);
+set_window("main",1);
+web_link_click("Publish");
+wait(1);
+set_window("main",1);
+web_link_click("Publish Workflow");
+wait(1);
+set_window("main",2);
+wait(1);
+if(obj_exists("Change to NOT published")==E_OK)
+	tl_step("Publishing workflow",0,"Workflow could be published");
+else
+	tl_step("Publishing workflow",1,"Workflow could NOT be published");
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Workflow\\workflow.gui");
+report_msg("WORKFLOW CREATION COMPLETE");
+
+# Importing a document, creating a document workflow envelope and sending it through the workflow
+report_msg("");
+report_msg("ADDING DOCUMENT TO WORKFLOW...");
+reload("importFile",0,1);
+reload("createDocumentEnvelope",0,1);
+
+wait(1);
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+set_window("menu",3);
+web_link_click("Documents");
+wait(1);
+set_window("main",3);
+importFile("","","WRfile.txt","Not Started");
+wait(2);
+createDocumentEnvelope("WRfile.txt","Workflow","Envelope");
+wait(1);
+GUI_close_all();
+wait(1);
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Workflow\\workflow.gui");
+wait(1);
+set_window("menu",1);
+web_link_click("Workflow");
+wait(1);
+set_window("main",1);
+if(web_link_click("Workflow")==E_OK)
+	tl_step("Workflow creation",0,"Workflow link present in list");
+else
+	tl_step("Workflow creation",1,"Workflow link NOT present in list");
+wait(1);
+set_window("main",1);
+web_link_click("Envelopes");
+wait(1);
+set_window("main",1);
+if(web_link_click("Envelope")==E_OK)
+	tl_step("Envelope for workflow",0,"Created envelope present in list");
+else
+	tl_step("Envelope for workflow",1,"Created envelope NOT present in list");	
+wait(1);
+
+# Performing the transitions between the steps for the document and verification
+set_window("main",1);
+edit_set("comments","comments for transition1");
+if(web_link_click("transition1")==E_OK)
+	tl_step("Verify that transition was done",0,"Transition 1 for documents was completed");
+else
+	tl_step("Verify that transition was done",1,"Transition 1 for documents COULD NOT be completed");
+set_window("main",1);
+edit_set("comments","comments for transition2");
+if(web_link_click("transition2")==E_OK)
+	tl_step("Verify that transition was done",0,"Transition 2 for documents was completed");
+else
+	tl_step("Verify that transition was done",1,"Transition 2 for documents COULD NOT be completed");
+set_window("main",1);
+edit_set("comments","comments for transition3");
+if(web_link_click("transition3")==E_OK)
+	tl_step("Verify that transition was done",0,"Transition 3 for documents was completed");
+else
+	tl_step("Verify that transition was done",1,"Transition 3 for documents COULD NOT be completed");
+set_window("main",1);
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Workflow\\workflow.gui");#end of document workflow testing
+report_msg("FINISHED TESTING DOCUMENT WORKFLOW");
+
+#creating a form , adding it to workflow and adding form data to it
+report_msg("");
+report_msg("ADDING FORM DATA TO WORKFLOW...");
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Workflow\\createFormEnvelope"();
+GUI_close_all();
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Workflow\\workflow.gui");
+wait(1);
+set_window("menu",1);
+web_link_click("Workflow");
+wait(1);
+set_window("main",1);
+if(web_link_click("Workflow")==E_OK)
+	tl_step("Workflow creation",0,"Workflow link present in list");
+else
+	tl_step("Workflow creation",1,"Workflow link NOT present in list");
+wait(1);
+set_window("main",1);
+web_link_click("Envelopes");
+wait(1);
+set_window("main",1);
+if(web_link_click("Form WF-1")==E_OK)
+	tl_step("Envelope for workflow",0,"Created envelope present in list");
+else
+	tl_step("Envelope for workflow",1,"Created envelope NOT present in list");	
+wait(1);
+#performing the transitions for form data in the workflow and verification
+set_window("main",1);
+edit_set("comments","comments for transition1");
+if(web_link_click("transition1")==E_OK)
+	tl_step("Verify that transition was done",0,"Transition 1 for Form Data was completed");
+else
+	tl_step("Verify that transition was done",1,"Transition 1 for Form Data COULD NOT be completed");
+set_window("main",1);
+edit_set("comments","comments for transition2");
+if(web_link_click("transition2")==E_OK)
+	tl_step("Verify that transition was done",0,"Transition 2 for Form Data was completed");
+else
+	tl_step("Verify that transition was done",1,"Transition 2 for Form Data COULD NOT be completed");
+set_window("main",1);
+edit_set("comments","comments for transition3");
+if(web_link_click("transition3")==E_OK)
+	tl_step("Verify that transition was done",0,"Transition 3 for Form Data was completed");
+else
+	tl_step("Verify that transition was done",1,"Transition 3 for Form Data COULD NOT be completed");
+report_msg("FINISHED TESTING FORM DATA FOR WORKFLOW");
+GUI_close_all();
+

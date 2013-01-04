@@ -1,0 +1,25 @@
+function setDependencyEdit(in task1, in task2){
+	auto outText;
+	reload("getTaskID",0,1);
+	
+	set_window("main",1);
+	web_link_click(task2);
+	set_window("main",1);
+	web_link_click("Modify");
+	set_window("main",1);
+	list_select_item("dependency_1_task_id",task1);
+	web_link_click("Submit");
+	
+	set_window("main",1);
+	web_link_click(task2);
+	set_window("main",1);
+	web_link_click("Dependencies");
+	wait(3);
+	win_get_text("main",outText,144,367,168,383);
+	report_msg(outText);
+	if((outText==task1)||(outText=="t"&task1&""))
+		tl_step("Dependency verification",0,"Dependency for "&task2&" has been set");
+	else
+		tl_step("Dependency verification",1,"Dependency for "&task2&" has NOT been set");	
+	web_link_click("Return to Task List");
+}

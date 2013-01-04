@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<head>
+</head>
+<body>
+	<div style="position: relative;left:0;top:0;background-color:#FFEA87;">
+		<table width="100%" cellpadding="0" cellspacing="0"> 
+			<tr>
+				<td height="20" align="left" class="blogPopupTitle" id="blogPopupTitle" style="font-size:14px;color: black;">Personalize Page</td>
+				<td align="right" style="padding-right:2px;">
+					<a href="javascript:hideUploadPopup();"><img src="${asset:context:/images/menu/close.gif}"></img></a>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<t:form target="_top" id="form">
+		<table width="100%" height="100" cellpadding="0" cellspacing="5">
+			<tr style="height: 10px;">
+				<td colspan="2" style="font-weight: bold;color: blue; font-size: 13px;">Show / Hide Columns :</td>
+			</tr>
+			<tr style="padding-bottom: 2px;">
+				<td align="right" width="30%">
+					<t:checkbox t:id="isWeeklyTotal"/> 
+				</td>
+				<td>
+					<label style="font-family:Arial; font-weight:bold; font-size:12px;padding-left: 5px;">
+						<t:Message value="prm.resource.timesheet.weeklytotal.label" /> </label>
+				</td>
+			</tr>
+
+			<tr style="padding-bottom: 2px;">
+				<td align="right">
+					<t:checkbox t:id="isProjectTotal" />
+				</td>
+				<td nowrap="nowrap">
+					<label style="font-family:Arial; font-weight:bold; font-size:12px;padding-left: 5px;">
+					<t:Message value="prm.resource.timesheet.projecttotal.label" /></label>
+				</td>
+			</tr>
+			<tr style="padding-bottom: 2px;">
+				<td align="right">
+					<t:checkbox t:id="isPercentComplete"/>
+				</td>
+				<td nowrap="nowrap"> 
+					<label style="font-family:Arial; font-weight:bold; font-size:12px;padding-left: 5px;">
+						<t:Message value="prm.resource.assignments.update.columns.percentcomplete" /> </label>
+				</td>
+			</tr>
+
+			<tr>
+				<td align="right">
+					<t:checkbox t:id="isActualWork" />
+				</td>
+				<td>
+					<label style="font-family:Arial; font-weight:bold; font-size:12px;padding-left: 5px;">
+						<t:Message value="prm.resource.timesheet.actualwork.label" /></label>
+				</td>
+			</tr>
+			<tr style="height: 5px;">
+				<td colspan="4" style="font-weight: bold; color: blue; font-size: 13px;">Set Blog Position :</td>
+			</tr>
+			<tr>
+				<td align="right" colspan="4">
+					<table width="100%" style="font-size: 12px; font-weight: bold; height: 100%" cellpadding="0" cellspacing="5">
+						<t:radiogroup t:id="position">
+							<tr style="padding-bottom: 2px;">
+								<td align="right" width="21%">
+									<input type="radio" id="position" t:type="radio" t:id="isBlogOnRight"/> 
+								</td>
+								<td style="padding-left:5px;">
+										<t:Message value="Right" />
+								</td>
+								<td align="right">
+									<input type="radio" id="position" t:type="radio" t:id="isBlogInBottom"/> 
+								</td>
+								<td style="padding-left:5px;">
+										<t:Message value="Bottom" />
+								</td>
+							</tr>
+						</t:radiogroup>
+					</table>	
+				</td> 
+			</tr>
+			
+			<tr align="center">
+				<td align="right" width="50%" colspan="2">
+					<input type="submit" value="Submit" />
+				</td>
+				<td align="left" width="50%" colspan="2">
+					<input type="button" value="Cancel" onclick="hideUploadPopup();" />
+				</td>
+			</tr>
+		</table> 
+	</t:form>
+</body>
+</html>

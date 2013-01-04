@@ -1,0 +1,24 @@
+# call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\forLoginProject"();
+wait(3);
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\insertDocument\\insertDocument.gui");
+
+reload("createFolder",0,1);
+reload("importFile",0,1);
+
+wait(2);
+set_window("main",2);
+web_link_click("WRProject");
+wait(1);
+set_window("menu",2);
+wait(2);
+web_link_click("Documents");
+
+createFolder("","Smoke Folder");
+importFile("","","WRfile.txt","Not Started");
+	
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\insertDocument\\insertDocument.gui");
+
+
+
+

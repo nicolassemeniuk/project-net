@@ -1,0 +1,14 @@
+<div id="viewingWiki" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+	<table width="100%" bgcolor="RGB(249, 249, 249)">
+		<tr valign="top">
+			<td align="left" width="90%" class="wPageInfo">
+				<t:if test="validPageName">
+					<h1>${wikiPageTitle} ${wikiPageName}</h1>
+					<t:parameter name="else">
+						<t:message value="prm.wiki.invalidwikipagetitle.message"/>
+					</t:parameter>
+				</t:if>
+			</td>
+		</tr>
+	</table>
+</div>

@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnWfRuleAuthHasGroup" 
+    table="PN_WF_RULE_AUTH_HAS_GROUP"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnWfRuleAuthHasGroupPK">
+        <key-property 
+            name="ruleId" 
+            column="RULE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="workflowId" 
+            column="WORKFLOW_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="transitionId" 
+            column="TRANSITION_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="groupId" 
+            column="GROUP_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="stepId" 
+            column="STEP_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnWorkflowStepHasGroup -->
+    <many-to-one
+        name="pnWorkflowStepHasGroup"
+	    class="net.project.hibernate.model.PnWorkflowStepHasGroup"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="WORKFLOW_ID" />
+    	<column name="GROUP_ID" />
+    	<column name="STEP_ID" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to PnWfRuleAuth -->
+    <many-to-one
+        name="pnWfRuleAuth"
+	    class="net.project.hibernate.model.PnWfRuleAuth"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="RULE_ID" />
+    	<column name="WORKFLOW_ID" />
+    	<column name="TRANSITION_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

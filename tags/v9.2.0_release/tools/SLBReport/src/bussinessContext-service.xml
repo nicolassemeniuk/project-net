@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!-- PnObject Service -->
+	<bean id="pnObjectService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnObjectServiceImpl">
+				<property name="pnObjectDAO" ref="pnObjectDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnPerson Service -->
+	<bean id="pnPersonService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnPersonServiceImpl">
+				<property name="pnPersonDAO" ref="pnPersonDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnPortfolio Service -->
+	<bean id="pnPortfolioService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnPortfolioServiceImpl">
+				<property name="pnPortfolioDAO" ref="pnPortfolioDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnSpaceHasPerson Service -->
+	<bean id="pnSpaceHasPersonService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnSpaceHasPersonServiceImpl">
+				<property name="pnSpaceHasPersonDAO" ref="pnSpaceHasPersonDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnSpaceHasPortfolio Service -->
+	<bean id="pnSpaceHasPortfolioService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnSpaceHasPortfolioServiceImpl">
+				<property name="pnSpaceHasPortfolioDAO" ref="pnSpaceHasPortfolioDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnAddress Service -->
+	<bean id="pnAddressService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnAddressServiceImpl">
+				<property name="pnAddressDAO" ref="pnAddressDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- Profile Service -->
+	<bean id="profileService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.ProfileServiceImpl">
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnPersonProfile Service -->
+	<bean id="pnPersonProfileService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnPersonProfileServiceImpl">
+				<property name="pnPersonProfileDAO" ref="pnPersonProfileDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnDirectoryHasPerson Service -->
+	<bean id="pnDirectoryHasPersonService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnDirectoryHasPersonServiceImpl">
+				<property name="pnDirectoryHasPersonDAO" ref="pnDirectoryHasPersonDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnPersonNotificationAddress Service -->
+	<bean id="pnPersonNotificationAddressService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnPersonNotificationAddressServiceImpl">
+				<property name="pnPersonNotificationAddressDAO" ref="pnPersonNotificationAddressDAO"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- PnModule Service -->
+	<bean id="pnModuleService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnModuleServiceImpl">
+				<property name="pnModuleDAO" ref="pnModuleDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnSpaceHasModule Service -->
+	<bean id="pnSpaceHasModuleService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnSpaceHasModuleServiceImpl">
+				<property name="pnSpaceHasModuleDAO" ref="pnSpaceHasModuleDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnGroup Service -->
+	<bean id="pnGroupService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnGroupServiceImpl">
+				<property name="pnGroupDAO" ref="pnGroupDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnGroupHasPerson Service -->
+	<bean id="pnGroupHasPersonService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnGroupHasPersonServiceImpl">
+				<property name="pnGroupHasPersonDAO" ref="pnGroupHasPersonDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- Security Service -->
+	<bean id="securityService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.SecurityServiceImpl">
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnSpaceHasGroup Service -->
+	<bean id="pnSpaceHasGroupService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnSpaceHasGroupServiceImpl">
+				<property name="pnSpaceHasGroupDAO" ref="pnSpaceHasGroupDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnObjectPermission Service -->
+	<bean id="pnObjectPermissionService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnObjectPermissionServiceImpl">
+				<property name="pnObjectPermissionDAO" ref="pnObjectPermissionDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnObjectType Service -->
+	<bean id="pnObjectTypeService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnObjectTypeServiceImpl">
+				<property name="pnObjectTypeDAO" ref="pnObjectTypeDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnDefaultObjectPermission Service -->
+	<bean id="pnDefaultObjectPermissionService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnDefaultObjectPermissionServiceImpl">
+				<property name="pnDefaultObjectPermissionDAO" ref="pnDefaultObjectPermissionDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnModulePermission Service -->
+	<bean id="pnModulePermissionService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnModulePermissionServiceImpl">
+				<property name="pnModulePermissionDAO" ref="pnModulePermissionDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnDirectory Service -->
+	<bean id="pnDirectoryService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnDirectoryServiceImpl">
+				<property name="pnDirectoryDAO" ref="pnDirectoryDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnDocSpace Service -->
+	<bean id="pnDocSpaceService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnDocSpaceServiceImpl">
+				<property name="pnDocSpaceDAO" ref="pnDocSpaceDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- Document Service -->
+	<bean id="documentService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.DocumentServiceImpl">
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnDocProviderHasDocSpace Service -->
+	<bean id="pnDocProviderHasDocSpaceService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnDocProviderHasDocSpaceServiceImpl">
+				<property name="pnDocProviderHasDocSpaceDAO" ref="pnDocProviderHasDocSpaceDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnSpaceHasDocSpace Service -->
+	<bean id="pnSpaceHasDocSpaceService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnSpaceHasDocSpaceServiceImpl">
+				<property name="pnSpaceHasDocSpaceDAO" ref="pnSpaceHasDocSpaceDAO"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- PnDocProvider Service -->
+	<bean id="pnDocProviderService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnDocProviderServiceImpl">
+				<property name="pnDocProviderDAO" ref="pnDocProviderDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnDocContainer Service -->
+	<bean id="pnDocContainerService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnDocContainerServiceImpl">
+				<property name="pnDocContainerDAO" ref="pnDocContainerDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnDocSpaceHasContainer Service -->
+	<bean id="pnDocSpaceHasContainerService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnDocSpaceHasContainerServiceImpl">
+				<property name="pnDocSpaceHasContainerDAO" ref="pnDocSpaceHasContainerDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnCalendar Service -->
+	<bean id="pnCalendarService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnCalendarServiceImpl">
+				<property name="pnCalendarDAO" ref="pnCalendarDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnSpaceHasCalendar Service -->
+	<bean id="pnSpaceHasCalendarService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnSpaceHasCalendarServiceImpl">
+				<property name="pnSpaceHasCalendarDAO" ref="pnSpaceHasCalendarDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- PnProjectSpaceMetaProp Service -->
+	<bean id="pnProjectSpaceMetaPropService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnProjectSpaceMetaPropServiceImpl">
+				<property name="pnProjectSpaceMetaPropDAO" ref="pnProjectSpaceMetaPropDAO"/>
+			</bean>
+		</property>
+	</bean>
+	
+	<!-- PnProjectSpaceMetaValue Service -->
+	<bean id="pnProjectSpaceMetaValueService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.PnProjectSpaceMetaValueServiceImpl">
+				<property name="pnProjectSpaceMetaValueDAO" ref="pnProjectSpaceMetaValueDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+	<!-- report Service -->
+	<bean id="reportService" parent="transactionProxyTemplate">
+		<property name="target">
+			<bean class="net.project.hibernate.service.impl.ReportServiceImpl">
+				<property name="reportDAO" ref="reportDAO"/>
+			</bean>
+		</property>
+	</bean>
+
+
+</beans>

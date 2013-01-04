@@ -1,0 +1,62 @@
+call "C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\forLoginProject"();
+wait(5);
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createForms\\createForms.gui");
+
+public function create_Form(in iform)
+{
+	set_window("main",3);
+	web_link_click("TestProject1");
+	web_sync(6);
+	set_window("menu",3);
+	web_link_click("Forms");
+	web_sync(5);
+	set_window("main",3);
+	web_link_click("Form Designer");
+	set_window("main",3);
+	web_link_click("Create New Form");
+	edit_set("name","Form"&iform&"");
+	edit_set("abbreviation","FR"&iform&"");
+	web_link_click("Submit");
+	set_window("main");
+	web_obj_click("Create",8,8);
+	web_obj_click("Create",8,8);
+	# list_select_item("ElementID","Text Field");
+	edit_set("field_label","TF");
+	edit_set("row_num","0");
+	edit_set("size","5");
+	list_select_item("column_id","Left");
+	edit_set("data_column_size",10);
+	web_link_click("Submit");
+	set_window("main",3);
+	web_link_click("Lists");
+	set_window("main",3);
+	web_obj_click("Create",8,8);
+	web_obj_click("Create",8,8);
+	edit_set("name","TestList"&iform&"");
+	button_set("field_checked__8197",ON);
+	edit_set("column_num__8197","0");
+	edit_set("field_width__8197","25");
+	web_link_click("Submit");
+	set_window("main");
+	web_link_click("Activate");
+	list_select_item("formStatus","Activated");
+	set_window("main");
+	web_link_click("Submit");	
+}
+
+create_Form(1);
+set_window("menu",3);
+web_link_click("Forms");
+set_window("main",1);
+web_obj_text_exists("channelbar-maximized_2","#3","#2","FR1","","");
+#set_window("main",1);
+web_obj_text_exists("channelbar-maximized_2","#3","#3","Form1","","");
+
+set_window("toolbar_main",3);
+web_link_click("Log Out");
+web_sync(3);
+
+win_close("Browser Main Window");
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createForms\\createForms.gui");	
+	

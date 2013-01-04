@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDiscussionHistory" 
+    table="PN_DISCUSSION_HISTORY"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnDiscussionHistoryPK">
+        <key-property 
+            name="discussionGroupId" 
+            column="DISCUSSION_GROUP_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="discussionGroupHistoryId" 
+            column="DISCUSSION_GROUP_HISTORY_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="actionComment"
+        type="java.lang.String"
+        column="ACTION_COMMENT"
+        length="255"
+    />
+    <property
+        name="actionDate"
+        type="java.sql.Date"
+        column="ACTION_DATE"
+        length="7"
+    />
+    <property
+        name="actionName"
+        type="java.lang.String"
+        column="ACTION_NAME"
+        length="80"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnDiscussionGroup -->
+    <many-to-one
+        name="pnDiscussionGroup"
+	    class="net.project.hibernate.model.PnDiscussionGroup"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="DISCUSSION_GROUP_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPerson"
+        class="net.project.hibernate.model.PnPerson"
+        not-null="true"
+    >
+        <column name="ACTION_BY_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PnDiscussionActionLookup -->
+    <many-to-one
+        name="pnDiscussionActionLookup"
+        class="net.project.hibernate.model.PnDiscussionActionLookup"
+        not-null="true"
+    >
+        <column name="ACTION" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

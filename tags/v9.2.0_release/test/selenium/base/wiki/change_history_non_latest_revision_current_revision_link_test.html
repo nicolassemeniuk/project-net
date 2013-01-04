@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>change_history_non_latest_revision_current_revision_link_test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">change_history_non_latest_revision_current_revision_link_test</td></tr>
+</thead><tbody>
+
+<!-- Navigation to 'Change History' Page -->
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Wiki</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>changeHistoryLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>History For Wiki Page</td>
+	<td></td>
+</tr>
+<!-- Asserting 'Change History' non latest version (first revision) existence -->
+<tr>
+	<td>assertElementPresent</td>
+	<td>pageRevision1</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>pageRevision1</td>
+	<td></td>
+</tr>
+
+<!-- Testing 'Current Version' Change History option when previewing 'Some Revision' (non Latest) -->
+<tr>
+	<td>clickAndWait</td>
+	<td>currentRevisionLink</td>
+	<td></td>
+</tr>
+<!-- Asserting custom selenium wiki test content (set in editing_existing_wiki_page_test) -->
+<tr>
+	<td>assertTextPresent</td>
+	<td>${rootPageEdit1Content}</td>
+	<td></td>
+</tr>
+<!--tr>
+	<td>assertTextPresent</td>
+	<td>Selenium wiki content edit test </td>
+	<td></td>
+</tr-->
+<tr>
+	<td>assertElementPresent</td>
+	<td>editThisPageLink</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Wiki Page</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

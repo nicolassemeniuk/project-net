@@ -1,0 +1,12 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\cleanUp> 1 1085002632 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\forLoginPersonal> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\cleanUp> 1 1085002632 0
+11 1 <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\cleanUp> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\forLoginPersonal> 15 1085002642 0
+44 49 <button_set:"selected" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\cleanUp> 18 1085002672 0
+44 49 <button_set:"selected" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\cleanUp> 19 1085002692 0
+23 18 <Cannot be selected> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\cleanUp> 21 1085002692 0
+44 68 <set_window:"Microsoft Internet Explorer" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\cleanUp> 23 1085002704 0
+44 47 <obj_get_info:"OK" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\cleanUp> 24 1085002704 0
+44 47 <button_press:"OK" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\cleanUp> 24 1085002704 0
+44 60 <win_close:"Browser Main Window" Error: Object is not unique.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\cleanUp> 88 1085002772 0
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\cleanUp> 90 1085002772 0

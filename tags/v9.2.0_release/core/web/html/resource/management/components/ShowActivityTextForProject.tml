@@ -1,0 +1,26 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<tr xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+	<t:if test="pnActivityLog.description">
+		<td width="100%" class="border_gray" colspan="2">
+			<div class ="padding_activity_text_table">
+				<table width="100%">
+					<tr>
+						<td class="activityIcontd">
+							<img src="${asset:context:/images/activitylog/document.gif}" title="${objectToken}" alt="${objectToken}" class="activityIcon" />
+						</td>
+						<td colspan="2" align="left"> 
+							<t:OutputRaw value="pnActivityLog.description" />
+							<span id="showLoading_${pnActivityLog.activityLogId}"></span>
+						</td>
+						<td class="markedIcontd">
+							<a title="${unMarkedToken}" id="marked_${pnActivityLog.activityLogId}" href="javascript:marked(${pnActivityLog.activityLogId},1);">
+								<img src="${asset:context:/images/activitylog/blank_checkmark.gif}" class="markedIcon" />
+							</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</td>
+	</t:if>
+</tr>

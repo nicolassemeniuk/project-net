@@ -1,0 +1,9 @@
+#Checklist for window "lower_frame"
+V 7.5
+lower_frame: "WEB.GVF" 0 0 1
+{
+}0
+"From:": "WEB.GVF" 1 1 1
+{
+ TableContent: "" $WEB.GVF, *1132,
+}0

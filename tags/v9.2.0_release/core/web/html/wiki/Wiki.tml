@@ -1,0 +1,305 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:WikiLayout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<!--  MarkItUp Wiki Editor Files -->
+<script type="text/javascript" src="${asset:context:/src/wikieditor/jquery.pack.js}"></script>
+<script type="text/javascript" src="${asset:context:/src/wikieditor/markitup/jquery.markitup.js}"></script>
+<script type="text/javascript" src="${asset:context:/src/wikieditor/markitup/sets/wiki/set.js}"></script>
+<!--  MarkItUp Wiki Editor Files -->
+<script language="javascript">
+var accessIsExternal = ${accessIsExternal};
+var spaceId = ${spaceId};
+var moduleId = ${moduleId};
+var blogItFor = 'wiki'+spaceForNavbar;
+var wikiPageId = '${wikiManager.pnWikiPage.wikiPageId}';
+var submitButtonCaption = '<t:Message value="prm.wiki.editpage.wikidiff.overwrtebutton.caption"/>';
+var hideDiffMsg = '<t:Message value="prm.wiki.editpage.wikidiff.hidediff.message"/>';
+var showDiffMsg = '<t:Message value="prm.wiki.editpage.wikidiff.showdiff.message"/>';
+
+</script>
+<t:if test="accessIsExternal">
+	<t:WikiInfo action="wikiManager.action" wikiPage="wikiManager.pnWikiPage" />
+	<div id="wContent" class="wContent" style="display: block;" >
+		<!-- Displaying page Content -->
+		<t:if test="wikiManager.pnWikiPage.content">
+			<table width="100%" style="margin:0px;">
+				<tr>
+					<td>
+						<t:OutputRaw id="wikiPageViewContent" value="wikiManager.wikiPageViewContent" />
+					</td>
+				</tr>
+			</table>
+		</t:if>
+	</div>
+	<t:parameter name="else"> <!-- Access is not external  -->
+	<input type="hidden" id="spaceId" value="${wikiManager.pnWikiPage.ownerObjectId.objectId}" />
+	<input type="hidden" id="userId" value="${userId}" />
+	<input type="hidden" id="rootPage" value="${currentPageName}" />
+	<input type="hidden" id="wikiPageId" value="${wikiManager.pnWikiPage.wikiPageId}" />
+	<input type="hidden" id="wikiPageName" value="${currentPageName}" />
+	<input type="hidden" id="parentPageName" value="${parentPageName}" />
+
+	<t:WikiMenu action="wikiManager.action" wikiPage="wikiManager.pnWikiPage"/>
+	
+	<t:WikiInfo action="wikiManager.action" wikiPage="wikiManager.pnWikiPage" />
+
+	<div id="wContent" class="wContent">
+		<!-- if page does not exist massage to create it -->
+		<t:if test="wikiManager.pageNotExist">
+			<div id="pageNotExistMsg">
+				 <t:Message value="prm.wiki.pagenotexist.message"/>&nbsp;
+				 <a id="editThisPageLink" href="${jspRootUrl}/wiki/${wikiManager.pagesToCall}?op=edit"><t:Message value="prm.wiki.createit.link"/></a>
+			</div>
+		</t:if>
+		<t:if test="wikiManager.pageDeleted">
+			<div id="pageNotExistMsg">
+				<t:Message value="prm.wiki.deletedsamepagename.message" /> <t:actionlink t:id="undelete"> <t:Message value="prm.wiki.undelete.link" /> </t:actionlink>
+				<t:Message value="prm.wiki.or.lable" /> <t:actionlink t:id="createNew" > <t:Message value="prm.wiki.createnew.link" /> </t:actionlink>
+			</div>
+		</t:if>
+		<t:if test="wikiManager.undefinedAction">
+			<div id="pageNotExistMsg">
+				<div style="border: 1px solid black; margin: 20px; padding: 5px; background: rgb(224, 224, 224) none repeat scroll 0% 0%; color: red;">	
+					<t:Message value="prm.wiki.undefinedoperation.message"/>
+				</div>
+			</div>
+		</t:if>
+	<!-- main wiki functions-->
+	<t:if test="wikiManager.wiki">
+		<!-- Displaying page Content	-->
+		<t:if test="wikiManager.pnWikiPage.content">
+			<table width="100%">
+				<tr>
+					<td>
+						<t:OutputRaw id="wikiPageViewContent" value="wikiManager.wikiPageViewContent" />
+					</td>
+				</tr>	
+			</table>
+			<t:if test="wikiManager.view">
+				<div id="wiki-page">
+					<table class="ending" style="width: 100%;">
+						<tr>
+							<td>
+								<a id="editThisPageLink" href="javascript:editPageName();">
+									<t:Message value="prm.wiki.bottom.renamepagename.link" /></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+								<a id="editThisPageLink" href="${jspRootUrl}/wiki/${wikiManager.pagesTocall}?op=edit">
+									<t:Message value="prm.wiki.bottom.editpage.link" /></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+								<a id="editingHelpLink" href="javascript:editHelp();" class="popup">
+									<t:Message value="prm.wiki.bottom.editinghelp.link" /></a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</t:if>
+		</t:if>
+
+		<!-- form to edit wiki page	-->
+		<t:if test="wikiManager.editPage">
+			<t:if test="wikiManager.userPageString">
+				<table width="100%">
+					<tr>
+						<td colspan="2">
+							<!-- punch-761: styling header msg -->
+							<div id="hideDiffHeaderMsg" style="background: #FBFBC5 none repeat scroll 0%; border: 1px solid #CCCCCC; float: left; margin-right: 15px; padding: 4px; text-align: left; width: 60%; font-size: 13px; font-weight: bold;">
+								${wikiManager.beforeEditedUserName} 
+								<t:message value="prm.wiki.editpage.wikidiff.contentchanged.message"/>( <a href="javascript:showWikiPageDiff();"> 
+								<span id="diffLink" class="bold"><t:message value='prm.wiki.editpage.wikidiff.showdiff.message' /></span></a> )
+							</div>
+						</td>
+					</tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr>
+						<td>
+							<table id="pageDiff" width="98%" style="margin:0px; display:none" cellspacing="0" cellpadding="0">
+								<!-- tr> 		punch-761: eliminating second instance of 'edited by' information
+									<td colspan="3" align="center" style="border: 1px solid #B0C1F9;height:20px;"><b>${wikiManager.beforeEditedUserName} <t:message value="prm.wiki.editpage.wikidiff.contentchanged.message"/> </b></td>
+								</tr -->
+								<tr>
+									<td style="border: 1px solid #B0C1F9;height:20px;"> <t:message value="prm.wiki.editpage.wikidiff.contentedited.message"/> ${wikiManager.beforeEditedUserName}</td>
+									<td width="2%" style="height:20px;">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+									<td style="border: 1px solid #B0C1F9;height:20px;"> <t:message value="prm.wiki.editpage.wikidiff.contenteditedbyyou"/></td>
+								</tr>
+								<tr>
+									<td>
+										<t:Diff leftString="wikiManager.otherUserPageString" rightString="wikiManager.userPageString" isCancelled="false" isIgnoreLeadSpace="false"/>	
+									</td>
+								</tr>	
+							</table>
+						</td>
+					</tr>	
+					<tr><td colspan="2">&nbsp;</td></tr>
+				</table>
+			</t:if>	
+			<t:form t:id="wikiSaveAndPreview" autofocus="false" clientValidation="false" onsubmit="return validateWikiContent();">
+				<t:textField t:id="submitFor" value="submitFor" style="display: none;"/>
+				<table width="100%">
+					<!--t:if test="wikiPageExist">
+						<tr id="editWikiPageNameRow">
+							<td colspan="2">
+								<label class="describeMessage"><t:message value="prm.wiki.edit.wikipagename.label"/><br/></label>
+								<input t:type="textfield" value="wikiManager.wikiPageNameField" clientId="wikiPageName" size="100" />
+							</td>
+						</tr>
+					</t:if-->
+					
+					<tr>
+						<td colspan="2">
+							<textarea t:type="textArea" value="wikiManager.pnWikiPage.content" clientId="wikiPageBasicContent" rows="20" cols="80" />
+						</td>
+					</tr>
+					<tr><td colspan="2">&nbsp;</td></tr>
+					<tr>
+						<td colspan="2">
+							<label class="describeMessage"><t:message value="prm.wiki.edit.describe.label"/><br/></label>
+							<t:if test="wikiManager.previewPage">
+								<input t:type="textfield" value="wikiManager.pnWikiPage.commentText" clientId="commentText" size="100" maxlength="1000"/>
+								<t:parameter name="else">
+									<input t:type="textfield" value="wikiManager.pnWikiPage.blankCommentText" clientId="commentText" size="100" maxlength="1000" onkeydown="setSubmitFor(event);"/>
+								</t:parameter>
+							</t:if>
+						</td>
+					</tr>
+					<t:if test="setAccessPermissions">
+						<tr>
+							<td nowrap="nowrap" width="30%">
+								<t:message value="prm.wiki.editpage.accesspermission"/>&nbsp;&nbsp;&nbsp;&nbsp;
+								<span id="permission"><t:message value="prm.wiki.editpage.allprojectmembers"/></span>
+							</td>
+							<td>
+								<span id="changePermission">
+								<a href="javascript:showAccessPermissionOptions(true);"><t:message value="prm.wiki.editpage.changepermission"/></a></span>
+								<span id="hidePermission" style="display: none">
+								<a href="javascript:showAccessPermissionOptions(false);"><t:message value="prm.wiki.editpage.hidepermission"/></a></span>
+							</td>
+						</tr>
+						<tr id="accessPermissions" style="display: none;">
+							<td colspan="2" align="left">  <br/>
+								<input name="permissionValue" type="radio" value="0" checked="checked" onclick="javascript:setPermission('allprojectmembers');" />
+								<span id="allprojectmembers"><t:message value="prm.wiki.editpage.allprojectmembers"/></span><br/>
+								<input name="permissionValue" type="radio" value="1" onclick="javascript:setPermission('allauthenticatedusers');" />
+								<span id="allauthenticatedusers"><t:message value="prm.wiki.editpage.allauthenticatedusers"/></span><br/>
+								<input name="permissionValue" type="radio" value="2" onclick="javascript:setPermission('allunauthenticated');" />
+								<span id="allunauthenticated"><t:message value="prm.wiki.editpage.allunauthenticated"/></span><br/>
+							</td>
+						</tr>
+					</t:if>
+					<tr>
+						<td colspan="2" align="left">
+							<input t:type="submit" value="${submitButtonCaption}" t:id="save" id="save"/> &nbsp;&nbsp;
+							<input t:type="submit" value="${previewButtonCaption}" t:id="preview" />
+						</td>
+					</tr>
+				</table>
+				<div id="wiki-page">
+					<table class="ending" style="width: 100%;">
+						<tr>
+							<td>
+								<a id="editingHelpLink" href="javascript:editHelp();" class="popup">
+									<t:Message value="prm.wiki.bottom.editinghelp.link" /></a>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</t:form>
+		</t:if>
+	</t:if>
+	
+	<!-- page index and recent changes -->
+	<t:if test="wikiManager.index">
+		<t:WikiPageIndex />
+	</t:if>
+	
+	<!-- history of page -->
+	<t:if test="wikiManager.history">
+		<t:WikiPageHistory wikiPage="wikiManager.pnWikiPage" />
+	</t:if>
+	
+	<!-- history of page revision -->
+	<t:if test="wikiManager.version">		
+		<t:if test="wikiManager.pnWikiHistory">
+			<table width="100%">
+				<tr>
+					<td>
+						<div id="oldRevisionFound" align="center">
+							${wikiManager.oldRevisionFoundMsg}
+							<a id="currentRevisionLink" href="${jspRootUrl}/wiki/${wikiManager.pnWikiPage.pageName}?op=view">
+								<t:message value="prm.wiki.revisionpage.currentversion.link"/>
+							</a>.<br />
+							<t:message value="prm.wiki.revisionpage.makethisrevisionactive.message"/>
+							<t:actionlink t:id="activate" context="wikiManager.activateRevision">
+								<t:message value="prm.wiki.revisionpage.activeRevision.link"/>
+							</t:actionlink>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<t:OutputRaw id="wikiPageViewContent" value="wikiManager.htmlContentOfHistoryRevision" />
+					</td>
+				</tr>
+			</table>
+			<div id="wiki-page">
+				<table class="ending" style="width:100%;">
+					<tr>
+						<td>
+							<t:actionlink t:id="activateRevisionMenuLink" context="wikiManager.activateRevision">
+								<t:message value="prm.wiki.revisionpage.activerevision.bottomlink"/>
+							</t:actionlink>&nbsp;&nbsp;|&nbsp;&nbsp;
+							<a id="currentRevisionMenuLink" href="${jspRootUrl}/wiki/${wikiManager.pnWikiPage.pageName}?op=view">
+								<t:message value="prm.wiki.revisionpage.currentversion.bottomlink"/>
+							</a>
+						</td>
+					</tr>
+				</table>
+			</div>
+			<t:parameter name="else">
+				<div id="oldRevisionNotFound" align="center">
+					<t:message value="prm.wiki.oldrevisionnotfound.message"/>
+					<a id="currentRevisionLink" href="${jspRootUrl}/wiki/${wikiManager.pnWikiPage.pageName}?op=view">
+						<t:message value="prm.wiki.revisionpage.currentversion.link"/>
+					</a>
+				</div>
+			</t:parameter>
+		</t:if>
+	</t:if>
+	
+	</div>
+	
+	</t:parameter> <!-- Access is not external  -->
+</t:if>
+<script language="javascript">
+	$('#wikiPageBasicContent').markItUp(mySettings);
+	
+	var wikiAction = '${wikiManager.action}';
+	Ext.onReady(function(){
+		// Form ToolTip
+		if(Ext.get('pnetFormGo')) {
+			new Ext.ToolTip({
+		        target: 'pnetFormGo',
+		        html: 'Link to forms module!'
+		    });
+		}	
+		Ext.QuickTips.init();
+	});
+	if(document.getElementById('leftPageDiv') != null){
+		diffForEditPage();
+	}	
+
+	window.onload = function() { 
+		if('${wikiManager.action}' == 'preview'){
+		 	setWindowTop();
+		} 
+	}
+	
+	window.onresize = function() { 
+		if(document.getElementById('leftPageDiv') != null){
+			diffForEditPage();
+		}	
+	}
+
+// Function to set scoll on top while preview the page
+function setWindowTop(){
+	window.scrollTo(0, 80);
+}
+</script>
+</t:WikiLayout>

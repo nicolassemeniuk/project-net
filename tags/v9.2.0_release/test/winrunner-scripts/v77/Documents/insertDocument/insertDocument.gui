@@ -1,0 +1,1303 @@
+"Browser Main Window":
+{
+ class: window,
+ MSW_class: browser_main_window,
+ NSTitle: "Browser Main Window"
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+"Browser Main Window".MainToolBar_0:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 0
+}
+"Browser Main Window".MainToolBar_1:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 1
+}
+"Browser Main Window".MainToolBar_2:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 2
+}
+"Browser Main Window".MainToolBar_3:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 3
+}
+"Browser Main Window".MainToolBar_4:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 4
+}
+"Browser Main Window".ReBarWindow32:
+{
+ class: object,
+ MSW_class: ReBarWindow32
+}
+"Browser Main Window".WorkerW:
+{
+ class: object,
+ MSW_id: 40965,
+ MSW_class: WorkerW
+}
+"Browser Main Window".WorkerW_1:
+{
+ class: object,
+ MSW_id: 0,
+ MSW_class: WorkerW
+}
+"Browser Main Window".browser_main_combo_location_0:
+{
+ class: list,
+ MSW_class: browser_main_combo_location,
+ location: 0
+}
+"Browser Main Window".browser_main_combo_location_1:
+{
+ class: list,
+ MSW_class: browser_main_combo_location,
+ location: 1
+}
+"Browser Main Window".browser_main_comboex_location:
+{
+ class: object,
+ MSW_id: 2,
+ MSW_class: browser_main_comboex_location
+}
+"Browser Main Window".browser_main_comboex_location_1:
+{
+ class: object,
+ MSW_id: 41477,
+ MSW_class: browser_main_comboex_location
+}
+"Browser Main Window".browser_main_edit_location_0:
+{
+ class: edit,
+ MSW_class: browser_main_edit_location,
+ location: 0
+}
+"Browser Main Window".browser_main_edit_location_1:
+{
+ class: edit,
+ MSW_class: browser_main_edit_location,
+ location: 1
+}
+"Browser Main Window"."sys_Close Alt+F4":
+{
+ class: menu_item,
+ label: "Close Alt+F4",
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Maximize:
+{
+ class: menu_item,
+ label: Maximize,
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Minimize:
+{
+ class: menu_item,
+ label: Minimize,
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Move:
+{
+ class: menu_item,
+ label: Move,
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Restore:
+{
+ class: menu_item,
+ label: Restore,
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Size:
+{
+ class: menu_item,
+ label: Size,
+ sysmenu: 1,
+ parent: none
+}
+"Choose file":
+{
+ class: window,
+ label: "Choose file",
+ MSW_class: Dialog
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+"Choose file".Desktop:
+{
+ class: push_button,
+ virtual: TRUE,
+ x: 7,
+ y: 102,
+ width: 85,
+ height: 63,
+ rows: 1,
+ columns: 1
+}
+"Choose file"."Look in":
+{
+ class: list,
+ attached_text: "Look in:",
+ MSW_id: 1
+}
+"Choose file"."My Documents":
+{
+ class: push_button,
+ virtual: TRUE,
+ x: 6,
+ y: 166,
+ width: 83,
+ height: 62,
+ rows: 1,
+ columns: 1
+}
+"Choose file".Open:
+{
+ class: push_button,
+ label: Open
+}
+"Choose file".WRfile:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "WRfile.txt"
+}
+"Choose file".browser_main_combo_location_0:
+{
+ class: list,
+ MSW_class: browser_main_combo_location,
+ location: 0
+}
+"Choose file"."¢ð¥¨§¶ÆÐþT?":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "¢ð¥¨§¶ÆÐþT?.txt"
+}
+"Choose file"."¤¾¹¿¬??‰€‡":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "¤¾¹¿¬??‰€‡.txt"
+}
+"Create New Folder":
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: "Create New Folder"
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+"Create New Folder"."2000-2003 Project.net, Inc.":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "2000-2003 Project.net, Inc."
+}
+"Create New Folder".Cancel:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Cancel
+}
+"Create New Folder".Cancel_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Cancel
+}
+"Create New Folder"."New Folder":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "New Folder"
+}
+"Create New Folder"."New Folder In:":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 1
+}
+"Create New Folder"."New Folder_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "New Folder"
+}
+"Create New Folder"."actionbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 2
+}
+"Create New Folder"."actionbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-left_end.gif"
+}
+"Create New Folder"."actionbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-right_end.gif"
+}
+"Create New Folder"."channelbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 0
+}
+"Create New Folder"."channelbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-left_end.gif"
+}
+"Create New Folder"."channelbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif"
+}
+"Create New Folder".description:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: description
+}
+"Create New Folder".name:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: name
+}
+"Document Check In":
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: "Document Check In"
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+"Document Check In"."Browse...":
+{
+ class: push_button,
+ virtual: TRUE,
+ x: 384,
+ y: 47,
+ width: 64,
+ height: 18,
+ rows: 1,
+ columns: 1
+}
+"Document Check In".Cancel:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Cancel
+}
+"Document Check In".Cancel_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Cancel
+}
+"Document Check In"."Check In":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Check In"
+}
+"Document Check In"."Check In_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Check In"
+}
+"Document Check In"."Document Name:":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 1
+}
+"Document Check In"."actionbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 2
+}
+"Document Check In"."actionbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-left_end.gif"
+}
+"Document Check In"."actionbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-right_end.gif"
+}
+"Document Check In"."channelbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 0
+}
+"Document Check In"."channelbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-left_end.gif"
+}
+"Document Check In"."channelbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif"
+}
+"Document Check In".edit:
+{
+ class: object,
+ MSW_class: html_file,
+ html_name: edit
+}
+"Document Check In".html_combobox:
+{
+ class: list,
+ MSW_class: html_combobox
+}
+"Document Check In".notes:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: notes
+}
+"Document Check Out":
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: "Document Check Out"
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+"Document Check Out"."2000-2003 Project.net, Inc.":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "2000-2003 Project.net, Inc."
+}
+"Document Check Out".Cancel:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Cancel
+}
+"Document Check Out".Cancel_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Cancel
+}
+"Document Check Out"."Check Out":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Check Out"
+}
+"Document Check Out"."Check Out_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Check Out"
+}
+"Document Check Out"."Document Name:":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 1
+}
+"Document Check Out"."actionbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 2
+}
+"Document Check Out"."actionbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-left_end.gif"
+}
+"Document Check Out"."actionbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-right_end.gif"
+}
+"Document Check Out".calendar:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "calendar.gif"
+}
+"Document Check Out"."channelbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 0
+}
+"Document Check Out"."channelbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-left_end.gif"
+}
+"Document Check Out"."channelbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif"
+}
+"Document Check Out".ckoReturn:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: ckoReturn
+}
+"Document Check Out".notes:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: notes
+}
+"Document Undo Checkout":
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: "Document Undo Checkout"
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+"Document Undo Checkout".No:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: No
+}
+"Document Undo Checkout".No_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: No
+}
+"Document Undo Checkout".Yes:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Yes
+}
+"Document Undo Checkout".Yes_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Yes
+}
+"Document Undo Checkout"."actionbar-left_end":
+{
+ class: object,
+ MSW_class: html_table
+}
+"Document Undo Checkout"."actionbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-left_end.gif"
+}
+"Document Undo Checkout"."actionbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-right_end.gif"
+}
+"Microsoft Internet Explorer":
+{
+ class: window,
+ label: "Microsoft Internet Explorer",
+ MSW_class: Dialog
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+"Microsoft Internet Explorer"."(static)":
+{
+ class: static_text,
+ MSW_id: 20
+}
+"Microsoft Internet Explorer"."Are you sure you want to delete this object?(static)":
+{
+ class: static_text,
+ MSW_id: 65535
+}
+"Microsoft Internet Explorer".Cancel:
+{
+ class: push_button,
+ label: Cancel
+}
+"Microsoft Internet Explorer".OK:
+{
+ class: push_button,
+ label: OK
+}
+"Microsoft Internet Explorer"."sys_Close Alt+F4":
+{
+ class: menu_item,
+ label: "Close Alt+F4",
+ sysmenu: 1,
+ parent: none
+}
+"Microsoft Internet Explorer".sys_Move:
+{
+ class: menu_item,
+ label: Move,
+ sysmenu: 1,
+ parent: none
+}
+"Start Workflow Wizard":
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: "Start Workflow Wizard"
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+"Start Workflow Wizard".Finish:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Finish
+}
+"Start Workflow Wizard".Next:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Next
+}
+"Start Workflow Wizard".Next_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Next
+}
+"Start Workflow Wizard"."Start Workflow Envelope":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 0
+}
+"Start Workflow Wizard"."Start Workflow Envelope_1":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 1
+}
+"Start Workflow Wizard"."Workflow:":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 2
+}
+"Start Workflow Wizard"."actionbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 4
+}
+"Start Workflow Wizard"."actionbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-left_end.gif"
+}
+"Start Workflow Wizard"."actionbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-right_end.gif"
+}
+"Start Workflow Wizard".comments:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: comments
+}
+"Start Workflow Wizard".description:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: description
+}
+"Start Workflow Wizard".html_combobox:
+{
+ class: list,
+ MSW_class: html_combobox
+}
+"Start Workflow Wizard"."http://trout/images/icons/actionbar-left_end.gif Cancel Next http://tr":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 3
+}
+"Start Workflow Wizard".name:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: name
+}
+"Start Workflow Wizard".priorityID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: priorityID
+}
+"Start Workflow Wizard".statusID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: statusID
+}
+"Start Workflow Wizard".strictnessID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: strictnessID
+}
+"Start Workflow Wizard".workflowID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: workflowID
+}
+main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: main
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+main."Add to Workflow":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Add to Workflow"
+}
+main."Browse...":
+{
+ class: push_button,
+ virtual: TRUE,
+ x: 659,
+ y: 220,
+ width: 65,
+ height: 16,
+ rows: 1,
+ columns: 1
+}
+main."Check In":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Check In"
+}
+main."Check Out":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Check Out"
+}
+main."Create New Folder":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Create New Folder"
+}
+main."Import Document":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Import Document"
+}
+main.Link:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Link
+}
+main."Modify Properties":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Modify Properties"
+}
+main.Move:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Move
+}
+main.Notify:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Notify
+}
+main.Refresh:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Refresh
+}
+main.Remove:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Remove
+}
+main."Search all Documents":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Search all Documents"
+}
+main.Security:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Security
+}
+main.Submit:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Submit
+}
+main.TestProject1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: TestProject1
+}
+main."Top folder":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Top folder"
+}
+main."Undo Check Out":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Undo Check Out"
+}
+main.View:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: View
+}
+main."View Properties":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "View Properties"
+}
+main."WR.txt":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "WR.txt"
+}
+main."WRfile.txt":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "WRfile.txt"
+}
+main."WRfile1.txt":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "WRfile1.txt"
+}
+main.WRfolder:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: WRfolder
+}
+main.docName:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: docName
+}
+main.selected:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: selected,
+ part_value: 5802
+}
+main.statusID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: statusID
+}
+menu:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: menu
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+menu.Documents:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Documents
+}
+moveBrowser:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: moveBrowser
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+moveBrowser.Cancel:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Cancel
+}
+moveBrowser.Cancel_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Cancel
+}
+moveBrowser.Move:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Move
+}
+moveBrowser."Move To:":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 1
+}
+moveBrowser."Move To: asdf":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 0
+}
+moveBrowser.Move_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Move
+}
+moveBrowser.WRfolder:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: WRfolder
+}
+moveBrowser."actionbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 2
+}
+moveBrowser."actionbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-left_end.gif"
+}
+moveBrowser."actionbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-right_end.gif"
+}
+moveBrowser.asdf:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: asdf,
+ location: 0
+}
+moveBrowser.asdf_1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: asdf,
+ location: 1
+}
+moveBrowser.folder:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "folder.gif",
+ location: 0
+}
+moveBrowser.folder_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "folder.gif",
+ location: 1
+}
+moveBrowser.trans:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 0
+}
+moveBrowser.trans_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 1
+}
+moveBrowser.trans_2:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 2
+}
+property_main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: property_main
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+property_main.MODIFY:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: MODIFY
+}
+property_main.WRfile:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "WRfile.txt"
+}
+property_tabs:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: property_tabs
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+property_tabs."Activity Log":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Activity Log"
+}
+property_tabs."Add to Workflow":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Add to Workflow"
+}
+property_tabs."Capture Work":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Capture Work"
+}
+property_tabs."Check In":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Check In"
+}
+property_tabs."Check Out":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Check Out"
+}
+property_tabs.Copy:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Copy
+}
+property_tabs."Create New Folder":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Create New Folder"
+}
+property_tabs.Discuss:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Discuss
+}
+property_tabs."Document Vault":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Document Vault"
+}
+property_tabs.Help:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Help
+}
+property_tabs."Import Document":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Import Document"
+}
+property_tabs.Link:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Link
+}
+property_tabs."Modify Properties":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Modify Properties"
+}
+property_tabs.Move:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Move
+}
+property_tabs.Notify:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Notify
+}
+property_tabs.Refresh:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Refresh
+}
+property_tabs.Remove:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Remove
+}
+property_tabs.Search:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Search
+}
+property_tabs.Security:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Security
+}
+property_tabs.TestProject2:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: TestProject2
+}
+property_tabs."Undo Check Out":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Undo Check Out"
+}
+property_tabs.Versions:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Versions
+}
+property_tabs.View:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: View
+}
+property_tabs."View Properties":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "View Properties"
+}
+property_tabs."channelbar-maximized":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 2
+}
+property_tabs."channelbar-maximized_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-maximized.gif"
+}
+property_tabs."channelbar-minimized":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-minimized.gif",
+ location: 0
+}
+property_tabs."channelbar-minimized_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-minimized.gif",
+ location: 1
+}
+property_tabs."channelbar-minimized_2":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-minimized.gif",
+ location: 2
+}
+property_tabs."channelbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif",
+ location: 0
+}
+property_tabs."channelbar-right_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif",
+ location: 1
+}
+property_tabs."channelbar-right_end_2":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif",
+ location: 2
+}
+property_tabs."channelbar-right_end_3":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif",
+ location: 3
+}
+property_tabs.html_combobox:
+{
+ class: list,
+ MSW_class: html_combobox
+}
+property_tabs.trans:
+{
+ class: object,
+ MSW_class: html_table,
+ location: 1
+}
+property_tabs.trans_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 0
+}
+property_tabs.trans_2:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 1
+}
+toolbar_main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: toolbar_main
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+toolbar_main."Log Out":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Log Out"
+}

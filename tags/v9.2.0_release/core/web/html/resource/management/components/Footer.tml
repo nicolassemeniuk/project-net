@@ -1,0 +1,8 @@
+<div id="fixedBottomFooter">
+	<div align="center"
+		xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+		<a href="${footerHrefUrl}"> <t:Message value="prm.global.footer.copyright" /> </a> 
+		<br />
+		<a  href="${footerHrefUrl}"> <t:Message value="prm.global.footer.copyright.line2" /></a>               
+	</div>
+</div>

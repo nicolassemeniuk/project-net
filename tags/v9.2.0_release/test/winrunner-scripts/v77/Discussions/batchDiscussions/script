@@ -1,0 +1,24 @@
+GUI_close_all();
+wait(3);
+
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Discussions\\discussions.gui");
+wait(2);
+set_window("menu",3);
+web_link_click("Discussions");
+wait(2);
+set_window("main",2);
+
+reload("createDiscussionGroup",0,1);
+reload("createPost",0,1);
+reload("createReply",0,1);
+reload("deletePost");
+
+
+createDiscussionGroup("Discussion Group Test");
+createPost("Post test");
+createReply("Post test");
+deletePost("Re: Post test");
+
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Discussions\\discussions.gui");
+wait(1);

@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPhaseHasTask" 
+    table="PN_PHASE_HAS_TASK"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnPhaseHasTaskPK">
+        <key-property 
+            name="phaseId" 
+            column="PHASE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="taskId" 
+            column="TASK_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnPhase -->
+    <many-to-one
+        name="pnPhase"
+	    class="net.project.hibernate.model.PnPhase"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="PHASE_ID" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to PnTask -->
+    <many-to-one
+        name="pnTask"
+	    class="net.project.hibernate.model.PnTask"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="TASK_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

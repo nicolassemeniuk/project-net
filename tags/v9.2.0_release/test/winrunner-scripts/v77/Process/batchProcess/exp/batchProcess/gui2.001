@@ -1,0 +1,8 @@
+Col #1	Col #2	Col #3	Col #4	Col #5
+http://trout/images/icons/channelbar-left_end.gif	Report Summary		http://trout/images/icons/channelbar-right_end.gif	
+	Total Number of Tasks:	24	http://trout/servlet/ChartingServlet?objectID=102484&30=t.task_name&output=html&20order=asc&20=t.task_name&reportScope=10&reportType=ltr&10order=asc&showReportParameters=true&10=t.task_name&30order=asc&grouping=30&filter10=20&module=310&height=100&width=400&chartType=ltr	
+	Total Number of Completed Tasks:	0		
+	Total Number of Overdue Tasks:	12		
+	Total Number of Overdue Milestones:	0		
+	Completed in Last 7 Days:	0		
+	Tasks Due in Next 7 Days:	12		
