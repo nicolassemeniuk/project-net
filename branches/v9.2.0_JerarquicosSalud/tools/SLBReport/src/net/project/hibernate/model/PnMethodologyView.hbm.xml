@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping  auto-import="true" default-access="property" default-cascade="none">
+	<!-- 
+		Created by the Middlegen Hibernate plugin 2.2
+		
+		http://boss.bekk.no/boss/middlegen/
+		http://www.hibernate.org/
+	-->
+
+	<class name="net.project.hibernate.model.PnMethodologyView"
+		table="PN_METHODOLOGY_VIEW" lazy="false">
+
+		<composite-id class="net.project.hibernate.model.PnMethodologyViewPK">
+			<key-property name="methodologyId" column="METHODOLOGY_ID"
+				type="java.lang.Integer" length="20" />
+			<key-property name="parentSpaceId" column="PARENT_SPACE_ID"
+				type="java.lang.Integer" length="20" />
+			<key-property name="childSpaceId" column="CHILD_SPACE_ID"
+				type="java.lang.Integer" length="20" />
+		</composite-id>
+
+		<property name="methodologyName" column="METHODOLOGY_NAME"
+			type="java.lang.String" length="80" />
+		<property name="methodologyDesc" column="METHODOLOGY_DESC"
+			type="java.lang.String" length="1000" />
+		<property name="useScenarioClob" column="USE_SCENARIO_CLOB"
+			type="java.sql.Clob" length="4000" />
+		<property name="statusId" column="STATUS_ID"
+			type="java.lang.Integer" length="20" />
+		<property name="createdById" column="CREATED_BY_ID"
+			type="java.lang.Integer" length="20" />
+		<property name="createdBy" column="CREATED_BY"
+			type="java.lang.String" length="4000" />
+		<property name="createdDate" column="CREATED_DATE"
+			type="java.sql.Date" length="7" />
+		<property name="modifiedById" column="MODIFIED_BY_ID"
+			type="java.lang.Integer" length="20" />
+		<property name="modifiedDate" column="MODIFIED_DATE"
+			type="java.sql.Date" length="7" />
+		<property name="modifiedBy" column="MODIFIED_BY"
+			type="java.lang.String" length="4000" />
+		<property name="recordStatus" column="RECORD_STATUS"
+			type="java.lang.String" length="1" />
+		<property name="isGlobal" column="IS_GLOBAL" type="int"
+			length="1" />
+		<property name="crc" column="CRC" type="java.sql.Date"
+			length="7" />
+
+	</class>
+</hibernate-mapping>

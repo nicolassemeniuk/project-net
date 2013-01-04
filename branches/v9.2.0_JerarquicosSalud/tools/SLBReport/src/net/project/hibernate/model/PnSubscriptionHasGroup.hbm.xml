@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnSubscriptionHasGroup" 
+    table="PN_SUBSCRIPTION_HAS_GROUP"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnSubscriptionHasGroupPK">
+        <key-property 
+            name="subscriptionId" 
+            column="SUBSCRIPTION_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="deliveryGroupId" 
+            column="DELIVERY_GROUP_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="subscriberBatchId"
+        type="java.math.BigDecimal"
+        column="SUBSCRIBER_BATCH_ID"
+        not-null="true"
+        length="20"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnSubscription -->
+    <many-to-one
+        name="pnSubscription"
+	    class="net.project.hibernate.model.PnSubscription"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="SUBSCRIPTION_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to PnNotificationDeliveryType -->
+    <many-to-one
+        name="pnNotificationDeliveryType"
+        class="net.project.hibernate.model.PnNotificationDeliveryType"
+        not-null="true"
+    >
+        <column name="DELIVERY_TYPE_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

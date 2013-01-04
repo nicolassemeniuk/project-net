@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDocProviderType" 
+    table="PN_DOC_PROVIDER_TYPE"
+    lazy="false"
+>
+
+    <id
+        name="docProviderTypeId"
+        type="java.math.BigDecimal"
+        column="DOC_PROVIDER_TYPE_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="docProviderTypeName"
+        type="java.lang.String"
+        column="DOC_PROVIDER_TYPE_NAME"
+        length="80"
+    />
+    <property
+        name="docProviderTypeDesc"
+        type="java.lang.String"
+        column="DOC_PROVIDER_TYPE_DESC"
+        length="500"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnDocProvider -->
+
+    <set
+        name="pnDocProviders"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DOC_PROVIDER_TYPE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDocProvider"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

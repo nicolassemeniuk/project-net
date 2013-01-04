@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnNotification" 
+    table="PN_NOTIFICATION"
+    lazy="false"
+>
+
+    <id
+        name="notificationId"
+        type="java.math.BigDecimal"
+        column="NOTIFICATION_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="deliveryAddress"
+        type="java.lang.String"
+        column="DELIVERY_ADDRESS"
+        not-null="true"
+        length="240"
+    />
+    <property
+        name="createdDate"
+        type="java.sql.Date"
+        column="CREATED_DATE"
+        length="7"
+    />
+    <property
+        name="createdById"
+        type="java.lang.String"
+        column="CREATED_BY_ID"
+        length="80"
+    />
+    <property
+        name="modifiedDate"
+        type="java.sql.Date"
+        column="MODIFIED_DATE"
+        length="7"
+    />
+    <property
+        name="modifiedById"
+        type="java.math.BigDecimal"
+        column="MODIFIED_BY_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        length="1"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        length="7"
+    />
+    <property
+        name="deliveryFromAddress"
+        type="java.lang.String"
+        column="DELIVERY_FROM_ADDRESS"
+        length="80"
+    />
+    <property
+        name="customizationUserId"
+        type="java.math.BigDecimal"
+        column="CUSTOMIZATION_USER_ID"
+        length="20"
+    />
+    <property
+        name="senderId"
+        type="java.math.BigDecimal"
+        column="SENDER_ID"
+        length="20"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnNotificationLog -->
+
+    <set
+        name="pnNotificationLogs"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="NOTIFICATION_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnNotificationLog"
+        />
+    </set>
+    <!-- bi-directional one-to-one association to PnNotificationQueue -->
+    <one-to-one
+        name="pnNotificationQueue"
+        class="net.project.hibernate.model.PnNotificationQueue"
+        outer-join="auto"
+    />
+    <!-- bi-directional many-to-one association to PnNotificationDeliveryType -->
+    <many-to-one
+        name="pnNotificationDeliveryType"
+        class="net.project.hibernate.model.PnNotificationDeliveryType"
+        not-null="true"
+    >
+        <column name="DELIVERY_TYPE_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PnNotificationClob -->
+    <many-to-one
+        name="pnNotificationClob"
+        class="net.project.hibernate.model.PnNotificationClob"
+        not-null="true"
+    >
+        <column name="NOTIFICATION_CLOB_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

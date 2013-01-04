@@ -1,0 +1,759 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:DashboardLayout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<t:ProjectMenu />
+<div style="margin-top: 80px;">
+    <form name="reportParameters" id="reportParameters" method="post" action="${jspRootURL}/servlet/ShowReportServlet">
+        <input type="hidden" name="reportType" id="reportType" />
+        <input type="hidden" name="module" id="module" value="${moduleReport}" />
+        <input type="hidden" name="objectID" id="objectID" value="${projectId}" />
+        <input type="hidden" name="reportScope" id="reportScope" value="10" />
+        <input type="hidden" name="filter10" id="filter10" value="20" />
+        <input type="hidden" name="filter20" id="filter20" />
+        <input type="hidden" name="grouping" id="grouping" value="10" />
+        <input type="hidden" name="output" id="output" value="html" />
+        <input type="hidden" name="checkbox30" id="checkbox30" />
+        <input type="hidden" name="checkbox10" id="checkbox10" />
+        <input type="hidden" name="filter40" id="filter40" />
+        <input type="hidden" name="filter40Start" id="filter40Start" />
+        <input type="hidden" name="filter40Finish" id="filter40Finish" />
+        <input type="hidden" name="filter40comparator" id="filter40comparator" />
+        <input type="hidden" name="showReportParameters" id="showReportParameters" value="false" />
+        <input type="hidden" name="assignmentType" id="assignmentType" value="task" />
+        <input type="hidden" name="assignmentTypeCheck" id="assignmentTypeCheck" value="checkType" />
+        <input type="hidden" name="checkbox70" id="checkbox70" />
+        <input type="hidden" name="filter80Finish" id="filter80Finish" />
+    </form>
+    <form method="post" action="${jspRootURL}/project/MainProcessing.jsp">   
+    <input type="hidden" name="theAction"/>
+    
+    <table border="0" cellpadding="0" cellspacing="0"> <tr> <td valign="top"> <!-- Start of left navbar column -->
+    
+	<div id="left-navbar">
+		<div id="leftheading-project" style="position: relative; margin-top: 15px;"><t:Message value="prm.project.dashboard.title"/></div>
+		<div class="project-title">${projectName}</div> <br />
+		<t:if test="projectLogo">
+			<div class="project-logo"><img src="${logoUrl}" alt="project-photo" width="110" /></div>
+			<br clear="all"/>
+		</t:if>
+
+		<t:if test="projectManager">
+			<div class="project-description">
+				<strong><t:Message value="prm.project.dashboard.projectmanager.label"/></strong><br />${projectManager}
+			</div>
+		</t:if>
+		<t:if test="projectStatus">
+			<div class="project-description"><strong><t:Message value="prm.project.dashboard.status.label"/></strong>${projectStatus}</div>
+		</t:if>
+		<t:if test="percent">
+			<div class="project-description"><strong><t:Message value="prm.project.dashboard.completion.label"/></strong>${percent}%</div>
+		</t:if>
+		
+		<t:if test="projectDescription">
+			<div class="project-description"><strong><t:Message value="prm.project.dashboard.description.label"/></strong><br />${projectDescription}</div>
+		</t:if>
+		
+		<t:if test="subProjectName">
+			<div class="project-description"><t:Message value="prm.project.dashboard.subprojectof.label"/><br /><a class="project" href="${parentURL}">${subProjectName}</a></div>
+		</t:if>
+		<div class="spacer-for-toolbox"></div>
+		
+		<!-- Tool Box -->
+		<div class='toolbox-heading'><t:Message value="prm.project.dashboard.toolbox.title"/></div>
+		<div id="toolbox-item" class="toolbox-item">
+			<t:if test="actionsIconEnabled">
+				<t:if test="blogEnabled">
+					<span id="blog-ItEnabled">
+						<a onmouseover=" document.imgblogit.src = '${jspRootURL}/images/icons/toolbar-gen-blogit_over.gif'" onmouseout=" document.imgblogit.src = '${jspRootURL}/images/icons/toolbar-gen-blogit_on.gif'" href="javascript:blogit();">
+							<img hspace="0" border="0" name="imgblogit" src="${jspRootURL}/images/icons/toolbar-gen-blogit_on.gif" title="${blogitTooltip}" alt="${blogitTooltip}"/>
+							<t:Message value="all.global.toolbar.standard.blogit" />
+						</a>
+					</span><br />
+				</t:if>
+				<span>
+					<a onmouseover=" document.imgmodify.src = '${jspRootURL}/images/icons/toolbar-rollover-modify.gif'" onmouseout=" document.imgmodify.src = '${jspRootURL}/images/icons/toolbar-gen-modify_on.gif'" href="javascript:modify();">
+						<img hspace="0" border="0" name="imgmodify" src="${jspRootURL}/images/icons/toolbar-gen-modify_on.gif" title="${editProjectTooltip}" alt="${editProjectTooltip}"/>
+						<t:Message value="prm.project.main.modify.button.tooltip" />
+					</a>
+				</span><br />
+				<span>
+					<a onmouseover=" document.imgproperties.src = '${jspRootURL}/images/icons/toolbar-rollover-properties.gif'" onmouseout=" document.imgproperties.src = '${jspRootURL}/images/icons/toolbar-gen-properties_on.gif'" href="javascript:properties();">
+						<img hspace="0" border="0" name="imgproperties" src="${jspRootURL}/images/icons/toolbar-gen-properties_on.gif" title="${viewPropertiesTooltip}" alt="${viewPropertiesTooltip}"/>
+						<t:Message value="prm.project.main.properties.button.tooltip" />
+					</a>
+				</span><br />
+	            <span>
+					<a onmouseover=" document.personalizepage.src = '${jspRootURL}/images/icons/project-personalize-page_over.gif'" onmouseout=" document.personalizepage.src = '${jspRootURL}/images/icons/project-personalize-page_on.gif'" href="javascript:personalizePage('${personalizeLink}');">
+						<img hspace="0" border="0" name="personalizepage" src="${jspRootURL}/images/icons/project-personalize-page_on.gif" title="${personalizePageTooltip}" alt="${personalizePageTooltip}"/>
+						<t:Message value="prm.project.main.personalize.button.tooltip" />
+					</a>
+				</span><br />
+	            <t:parameter name="else">
+					<t:if test="blogEnabled">
+						<span id="blog-ItEnabled">
+							<a href="javascript:blogit();">
+								<t:Message value="all.global.toolbar.standard.blogit" />
+							</a>
+						</span><br />
+					</t:if>
+				<span>
+					<a href="javascript:modify();">
+						<t:Message value="prm.project.main.modify.button.tooltip" />
+					</a>
+				</span><br />
+				<span>
+					<a href="javascript:properties();">
+						<t:Message value="prm.project.main.properties.button.tooltip" />
+					</a>
+				</span><br />
+	            <span>
+	            	<a href="javascript:personalizePage('${personalizeLink}');">
+	            		<t:Message value="prm.project.main.personalize.button.tooltip" />
+	            	</a>
+	            </span><br />
+	            </t:parameter>
+            </t:if>
+		</div>
+		<div id="toolbox-heading" class="toolbox-heading"><t:Message value="prm.project.dashboard.goto.title" /></div>
+		<div id="toolbox-item" class="toolbox-item">
+			<span><a href="${jspRootURL}${subprojectsUrl}"><t:Message value="prm.project.dashboard.goto.subprojects.label" /></a></span><br/>
+			<span><a href="${jspRootURL}${reportsUrl}"><t:Message value="prm.project.dashboard.goto.reports.label" /></a></span><br/>
+			<span><a href="${jspRootURL}${newsUrl}"><t:Message value="prm.project.dashboard.goto.news.label" /></a></span>
+		</div>
+	</div>
+		
+	</td> <!-- End of left navbar -->
+	<td valign="top" width="100%"> <!-- Start of Content column --> <br />
+	<div id="content">
+		<table width="100%"> <tr> <td  valign="top"> <!-- Start of left column -->
+			<t:if test="pieChartCloseState">
+				<t:parameter name="else">
+				<!--PORTAL BLOCK-->		
+				<div id="PieChartWidget" class="portal-project-flex-block">
+					<div class="block-heading">
+						<div class="block-heading-end">
+							<table cellspacing="0" cellpadding="0" width="100%">
+								<tr>
+									<td width="92%">
+										<div class="heading"><t:Message value="prm.project.dashboard.taskcompletion.channel.title" /></div>
+									</td>
+									<td class="channel-heading-end-project">
+										<span><a id="PieChartLink"><img id="PieChartImg" src="${jspRootURL}/images/project/dashboard_arrow-up.gif" title="${upTitle}" border="0" /></a>&nbsp;</span>
+										<span><a id="PieChartCloseLink" href="javascript:saveState('ProjectSpace_PieChart_','2');"><img id="PieChartCloseImg" src="${jspRootURL}/images/project/dashboard_close.gif" title="${closeTitle}" border="0" /></a></span>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				
+					<!--block-heading end -->
+					<div id="PieChartContent" class="block-content row-content">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content">
+			  				<tr>
+							    <td width="305">
+									<img src="${pieChartUrl}" alt="graph" />
+								</td>
+							    <td valign="middle">
+							    	<img src="${jspRootURL}/images/project/late.gif" title="${lateTasksLink}" />&nbsp;
+							        	<t:if test="numberLateTasks">
+								        	<a href="javascript:showReport('ltr')">${numberLateTasks} <t:Message value="prm.project.viewproject.latetasks.link" /></a><br />
+								        	<t:parameter name="else">
+								        		${numberLateTasks} <t:Message value="prm.project.viewproject.latetasks.link" /><br />
+								        	</t:parameter>
+							        	</t:if>
+							    	
+							    	<img src="${jspRootURL}/images/project/unassigned.gif" width="10" height="10" title="${taskComingDueThisWeekLink}" />&nbsp;
+							    		<t:if test="numberComingDueTasks">
+								    		<a href="javascript:showReport('tcdr')">${numberComingDueTasks} <t:Message value="prm.project.viewproject.taskcomingduethisweek.link" /></a><br />
+								    		<t:parameter name="else">
+									    		${numberComingDueTasks} <t:Message value="prm.project.viewproject.taskcomingduethisweek.link" /> <br />
+								    		</t:parameter>
+							    		</t:if>
+							        
+							        <img src="${jspRootURL}/images/project/completed.gif" title="${tasksCompletedLink}" />&nbsp;
+							        	<t:if test="numberCompletedTasks">
+							        		<a href="javascript:showReport('wcr')">${numberCompletedTasks} <t:Message value="prm.project.viewproject.taskscompleted.link" /></a><br />
+							        		<t:parameter name="else">
+							        			${numberCompletedTasks} <t:Message value="prm.project.viewproject.taskscompleted.link" /> <br />
+							        		</t:parameter>
+							        	</t:if>
+							        
+							        <img src="${jspRootURL}/images/project/coming.gif" title="${unassignedTasksLink}" />&nbsp;
+										<t:if test="numberUnassignedTasks">
+								        	<a href="javascript:showReport('unassigned')">${numberUnassignedTasks} <t:Message value="prm.project.viewproject.unassignedtasks.link" /></a><br />
+								        	<t:parameter name="else">
+								        		${numberUnassignedTasks} <t:Message value="prm.project.viewproject.unassignedtasks.link" />
+								        	</t:parameter>
+								        </t:if>
+							    </td>
+							</tr>
+						</table>
+					</div> <!--block-content end -->
+				</div> <!--portal-project-flex-block class end -->
+				<!--END of PORTAL BLOCK -->
+			</t:parameter>
+		</t:if>
+		<t:if test="projectCompletionCloseState">
+			<t:parameter name="else">
+				<!-- PORTAL BLOCK -->
+				<div id="ProjectCompletionWidget" class="portal-project-flex-block">
+					<div class="block-heading">
+						<div class="block-heading-end">
+							<table cellspacing="0" cellpadding="0" width="100%">
+								<tr>
+									<td width="92%">
+										<div class="heading"><t:Message value="prm.project.dashboard.projectcompletion.channel.title" /></div>
+									</td>
+									<td class="channel-heading-end-project">
+										<span><a id="ProjectCompletionLink"><img id="ProjectCompletionImg" src="${jspRootURL}/images/project/dashboard_arrow-up.gif" title="${upTitle}" border="0" /></a>&nbsp;</span>
+										<span><a id="ProjectCompletionCloseLink" href="javascript:saveState('ProjectSpace_ProjectCompletion_','2');"><img id="ProjectCompletionCloseImg" src="${jspRootURL}/images/project/dashboard_close.gif" title="${closeTitle}" border="0" /></a></span>
+									</td>
+								</tr>
+							</table>
+						</div>
+					</div><!--block-heading end -->
+				<div id="ProjectCompletionContent" class="block-content">
+					<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content" name="tableWithEvenRows">
+					  <tr class="table-header">
+					    <td width="60" class="cell-right-border">&nbsp;</td>
+					    <td width="90" class="cell-right-border"><t:Message value="prm.project.dashboard.projectcompletion.start.label" /></td>
+					    <td class="cell-right-border"><t:Message value="prm.project.dashboard.projectcompletion.finish.label" /></td>
+					    <td class="cell-right-border"><t:Message value="prm.project.dashboard.projectcompletion.completion.label" /></td>
+					    <td width="15"><t:Message value="prm.project.dashboard.overallstatus.label" /></td>
+					    <td width="15"><t:Message value="prm.project.dashboard.financialstatus.label" /></td>
+					    <td width="15"><t:Message value="prm.project.dashboard.schedulestatus.label" /></td>
+					    <td width="15"><t:Message value="prm.project.dashboard.resourcestatus.label" /></td>
+					  </tr>
+					  <tr>
+					    <td width="60" class="over-table"><t:Message value="prm.project.dashboard.projectcompletion.planned.label" /></td>
+					    <td width="90">${startDate}</td>
+					    <td>${finishDate}</td>
+					    <td>&nbsp;</td>
+					    <td width="15">&nbsp;</td>
+					    <td width="15">&nbsp;</td>
+					    <td width="15">&nbsp;</td>
+					    <td width="15">&nbsp;</td>
+					  </tr>
+					  <tr class="dashboard-even">
+					    <td width="60" class="over-table"><t:Message value="prm.project.dashboard.projectcompletion.actual.label" /></td>
+					    <td width="90">${startActualDate}</td>
+					    <td>${finishActualDate}</td>
+					    <td>
+					    	<div class="progress-bar-container">
+					    		<div class="progress-line" style="width:${percent}%;" title="${percent}%" >${percent}%</div>
+					    	</div>
+					    </td>
+					    <td width="15">
+					    	<t:if test="improvementCode">
+						    	<img src="${jspRootURL}${improvementCodeUrl}" title="${improvementTitle}" alt="green" width="12" height="13" />
+						    </t:if>
+					    </td>
+					    <td width="15">
+					    	<t:if test="financialStatusCode">
+						    	<img src="${jspRootURL}${financialStatusCodeUrl}" title="${financialStatusTitle}" alt="red" width="12" height="13" />
+						    </t:if>
+					    </td>
+					    <td width="15">
+					    	<t:if test="scheduleStatusCode">
+					    		<img src="${jspRootURL}${scheduleStatusCodeUrl}" title="${scheduleStatusTitle}" alt="green" width="12" height="13" />
+					    	</t:if>
+					    </td>
+					    <td width="15">
+					    	<t:if test="resourceStatusCode">
+					    		<img src="${jspRootURL}${resourceStatusCodeUrl}" title="${resourceStatusTitle}" alt="yellow" width="12" height="13" />
+					    	</t:if>
+					    </td>
+					  </tr>
+					</table>
+				</div><!--block-content end -->
+				</div><!--portal-project-flex-block class end -->
+				<!--END of PORTAL BLOCK -->
+			</t:parameter>
+		</t:if>
+		<t:if test="phasesCloseState">
+			<t:parameter name="else">
+				<!--PORTAL BLOCK -->
+				<div id="PhaseWidget" class="portal-project-flex-block">
+					<div class="block-heading">
+						<div class="block-heading-end">
+								<table cellspacing="0" cellpadding="0" width="100%">
+									<tr>
+										<td width="92%">
+											<div class="heading"><t:message value="prm.project.dashboard.phasesandmilestone.channel.title" /></div>
+										</td>
+										<td class="channel-heading-end-project">
+											<span><a id="PhasesLink"><img id="PhasesImg" src="${jspRootURL}/images/project/dashboard_arrow-up.gif" title="${upTitle}" border="0" /></a>&nbsp;</span>
+											<span><a id="PhaseCloseLink" href="javascript:saveState('ProjectSpace_phases_','2');"><img id="PhaseCloseImg" src="${jspRootURL}/images/project/dashboard_close.gif" title="${closeTitle}" border="0" /></a></span>
+										</td>
+									</tr>
+								</table>
+						</div>
+				</div><!--block-heading end -->
+				
+				
+				<div id="PhasesContent" class="block-content">
+					<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content" name="tableWithEvenRows">
+					  <tr class="table-header">
+					    <td class="cell-right-border"><t:message value="prm.project.dashboard.phasesandmilestone.name.label" /></td>
+					    <td width="90" class="cell-right-border"><t:message value="prm.project.dashboard.phasesandmilestone.enddate.label" /></td>
+					    <td width="100" class="cell-right-border"><t:message value="prm.project.dashboard.phasesandmilestone.status.label" /></td>
+					    <td width="100"><t:message value="prm.project.dashboard.phasesandmilestone.progress.label" /></td>
+					  </tr>
+					  <t:if test="phases">
+							<t:loop source="phases" value="phase">
+							  <tr>
+							    <td><a href="${jspRootURL}${phase.url}">${phase.name}</a></td>
+							    <td width="90">${phase.endDate}</td>
+							    <td width="100">${phase.status}</td>
+							    <td><div class="progress-bar-container"><div class="progress-line" style="width:${phase.percentComplete}%;" title="${phase.percentComplete}%">${phase.percentComplete}%</div></div></td>
+					  		  </tr>
+					  		</t:loop>
+				  		<t:parameter name="else">
+				  			<tr>
+				 				<td><a href="${jspRootURL}${phaseUrl}"><t:Message value="prm.project.dashboard.phase.link.title" /></a></td>
+				  			</tr>
+				  		</t:parameter>
+					</t:if>
+					<t:if test="hasMilestones">
+                     <t:loop source="milestones" value="milestone">
+                         <tr>
+                             <td><img src="${jspRootURL}/images/milestone.gif" /> <a href="${jspRootURL}${milestone.milestoneUrl}">${milestone.name}</a>&nbsp;</td>
+                             <td width="90">&nbsp;${milestone.date}</td>
+                             <td width="100"></td>
+                             <td><div class="progress-bar-container"><div class="progress-line" style="width:${milestone.percentComplete}%;" title="${milestone.percentComplete}%">${milestone.percentComplete}%</div></div></td>
+                         </tr>
+                     </t:loop>
+                    </t:if>
+				</table>
+				</div><!--block-content end -->
+				</div><!--portal-project-flex-block class end -->
+				<!--END of PORTAL BLOCK -->
+			</t:parameter>
+		</t:if>
+		<t:if test="subProjectCloseState">
+			<t:parameter name="else">
+				<!--PORTAL BLOCK -->
+				<div id="SubProjectWidget" class="portal-project-flex-block">
+					<div class="block-heading">
+						<div class="block-heading-end">
+							<table cellspacing="0" cellpadding="0" width="100%">
+								<tr>
+									<td width="92%">
+										<div class="heading"><t:message value="prm.project.dashboard.subprojects.channel.title" /></div>
+									</td>
+									<td class="channel-heading-end-project">
+										<span><a id="SubprojectLink"><img id="SubprojectImg" src="${jspRootURL}/images/project/dashboard_arrow-up.gif" title="${upTitle}" border="0" /></a>&nbsp;</span>
+										<span><a id="SubProjectCloseLink" href="javascript:saveState('ProjectSpace_subprojects_','2');"><img id="SubProjectCloseImg" src="${jspRootURL}/images/project/dashboard_close.gif" title="${closeTitle}" border="0" /></a></span>
+									</td>
+								</tr>
+							</table>
+						</div>
+				</div><!--block-heading end -->
+				<div id="SubprojectContent" class="block-content">
+					<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content" name="tableWithEvenRows">
+					  <tr class="table-header">
+					    <td class="cell-right-border"><t:message value="prm.project.dashboard.subprojects.name.label" /></td>
+					    <td width="90" class="cell-right-border"><t:message value="prm.project.dashboard.subprojects.completion.label" /></td>
+					    <td width="15"><t:Message value="prm.project.dashboard.overallstatus.label" /></td>
+					    <td width="15"><t:Message value="prm.project.dashboard.financialstatus.label" /></td>
+					    <td width="15"><t:Message value="prm.project.dashboard.schedulestatus.label" /></td>
+					    <td width="15"><t:Message value="prm.project.dashboard.resourcestatus.label" /></td>
+					    </tr>
+					    <t:if test="subprojects">
+							<t:loop source="subprojects" value="subproject">
+							  <tr>
+							    <td><a class="subproject" href="${jspRootURL}${subproject.url}" >${subproject.name}</a></td>
+							    <td width="90">
+								    <div class="progress-bar-container">
+							    		<div class="progress-line" style="width:${subproject.percentComplete}%;" title="${subproject.percentComplete}%">${subproject.percentComplete}%</div>
+							    	</div>
+							    </td>
+							    <td width="15">
+								    <t:if test="subproject.improvementCode">
+									    <img src="${jspRootURL}${subproject.improvementCodeUrl}" title="${subproject.improvementTitle}" alt="green" width="12" height="13" />
+								    </t:if>
+							    </td>
+							    <td width="15">
+							    	<t:if test="subproject.financialStatusCode">
+								    	<img src="${jspRootURL}${subproject.financialStatusCodeUrl}" title="${subproject.financialStatusTitle}" alt="yellow" width="12" height="13" />
+									</t:if>
+							    </td>
+							    <td width="15">
+							    	<t:if test="subproject.scheduleStatusCode">
+							    		<img src="${jspRootURL}${subproject.scheduleStatusCodeUrl}"  title="${subproject.scheduleStatusTitle}" alt="green" width="12" height="13" />
+							    	</t:if>	
+							    </td>
+							    <td width="15">
+							    	 <t:if test="subproject.resourceStatusCode">
+								    	<img src="${jspRootURL}${subproject.resourceStatusCodeUrl}" title="${subproject.resourceStatusTitle}" alt="red" width="12" height="13" />
+								     </t:if>
+								</td>
+							  </tr>
+						    </t:loop>
+						    <t:parameter name="else">
+								<tr>
+									<td>
+										<a href="${jspRootURL}${subProjectUrl}"><t:Message value="prm.project.dashboard.subproject.link.title" /> </a>
+		                            </td>
+			                        </tr>
+							</t:parameter>
+						</t:if>					
+					  </table>
+				</div><!--block-content end -->
+				</div><!--portal-project-flex-block class end -->
+				<!--END of PORTAL BLOCK -->
+			</t:parameter>
+		</t:if>
+		<t:if test="meetingsCloseState">
+		   <t:parameter name="else">
+				<!--PORTAL BLOCK -->
+				<div id="MeetingWidget" class="portal-project-flex-block">
+					<div class="block-heading">
+						<div class="block-heading-end">
+							<table cellspacing="0" cellpadding="0" width="100%">
+								<tr>
+									<td width="92%">
+										<div class="heading"><t:Message value="prm.project.dashboard.upcomingmeetings.channel.title" /></div>
+									</td>
+									<td class="channel-heading-end-project">
+										<span><a id="MeetingsLink"><img id="MeetingsImg" src="${jspRootURL}/images/project/dashboard_arrow-up.gif" title="${upTitle}" border="0" /></a>&nbsp;</span>
+										<span><a id="MeetingCloseLink" href="javascript:saveState('ProjectSpace_Meetings_','2');"><img id="MeetingCloseImg" src="${jspRootURL}/images/project/dashboard_close.gif" title="${closeTitle}" border="0" /></a></span>
+									</td>
+								</tr>
+							</table>
+						</div>
+				</div><!--block-heading end -->
+				<div id="MeetingContent" class="block-content row-content">
+			    	<t:if test="hasMeetings">
+				    	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content" name="tableWithEvenRows">
+			    			<tr class="table-header">
+								<td class="cell-right-border"><t:Message value="prm.project.dashboard.upcomingmeetings.meetingname.label" /></td>
+								<td width="90" align="center" class="cell-right-border"><t:Message value="prm.project.dashboard.upcomingmeetings.date.label" /></td>							
+							</tr>
+							<t:loop source="meetings" value="meeting">
+								<tr>
+									<td colspan="1" width="65%">
+										<a href="${jspRootURL}${meeting.url}">${meeting.name}</a><br /><br /><p />
+									</td>
+									<td width="100%">${meeting.date}</td>
+								</tr>
+							</t:loop>
+						</table>
+						<t:parameter name="else">
+					    	<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content">
+								<tr>
+									<td>
+										<a href="${jspRootURL}${createMeetingUrl}"><t:message value="prm.project.dashboard.setupmeeting.link.title" />  </a>
+									</td>
+								</tr>	
+							</table>
+						</t:parameter>
+					</t:if>
+				</div><!--block-content end -->
+				</div><!--portal-project-flex-block class end -->
+				<!--END of PORTAL BLOCK -->
+			</t:parameter>
+		</t:if>
+	</td>  <!-- End of left column -->
+	
+	<td width="1%"></td> <!-- Space in between two columns -->
+	
+	<td valign="top" width="35%"> <!-- Start of right Column -->
+	<t:if test="newsCloseState">
+		<t:parameter name="else">
+			<!--PORTAL BLOCK -->
+			<div id="NewsWidget" class="portal-project-flex-block">
+			<div class="block-heading">
+			<div class="block-heading-end">
+				<table cellspacing="0" cellpadding="0" width="100%">
+					<tr>
+						<td width="86%">
+							<div class="heading"><t:message value="prm.project.dashboard.projectnews.channel.title" /></div>
+						</td>
+						<td class="channel-heading-end-project">
+							<span><a id="NewsLink"><img id="NewsImg" src="${jspRootURL}/images/project/dashboard_arrow-up.gif" title="${upTitle}" border="0" /></a>&nbsp;</span>
+							<span><a id="NewsCloseLink" href="javascript:saveState('ProjectSpace_News_','2');" ><img id="NewsCloseImg" src="${jspRootURL}/images/project/dashboard_close.gif" title="${closeTitle}" border="0" /></a></span>
+						</td>
+					</tr>
+				</table>
+			</div>
+			</div><!--block-heading end -->
+			<div id="NewsContent" class="block-content row-content">
+				<t:if test="hasNews">
+					<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content" name="tableWithEvenRowsWOH">
+					 <t:loop source="newsList" value="news">	
+						<tr>
+							<td>
+								<a href="${jspRootURL}${news.url}">${news.topic}</a>
+								<br />
+								<i>${news.message}</i>
+								<t:if test="moreMessage">
+									<a href="${jspRootURL}${news.url}"><t:message value="prm.news.newschannel.readmore.label" /></a>
+								</t:if>
+								<br />
+								<div style="text-align:right"><t:Message value="prm.project.dashboard.news.postedby" /> ${news.postedBy} <t:message value="prm.project.dashboard.projectnews.newsondate.message" /> ${news.date}</div>
+							</td>
+						</tr>
+					 </t:loop>
+					</table>
+					<t:parameter name="else">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content">
+							<tr>
+						   		<td><a href="${jspRootURL}${createNewsUrl}"><t:Message value="prm.project.dashboard.news.link.title" /></a></td>
+							</tr>
+						</table>
+					</t:parameter>
+				</t:if>
+			</div><!--block-content end -->
+			</div><!--portal-project-flex-block class end -->
+			<!--END of PORTAL BLOCK -->
+		</t:parameter>
+	</t:if>
+	<t:if test="teamatesCloseState">
+		<t:parameter name="else">
+			<!--PORTAL BLOCK -->
+			<div id="TeammateWidget" class="portal-project-flex-block">
+				<div class="block-heading">
+					<div class="block-heading-end">
+						<table cellspacing="0" cellpadding="0" width="100%">
+							<tr>
+								<td width="86%">
+									<div class="heading">${projectTeamChannel}</div>
+								</td>
+								<td class="channel-heading-end-project">
+									<span><a id="TeammateLink"><img id="TeammateImg" src="${jspRootURL}/images/project/dashboard_arrow-up.gif" title="${upTitle}" border="0" /></a>&nbsp;</span>
+									<span><a id="TeammateCloseLink" href="javascript:saveState('ProjectSpace_TeamMembers_','2');"><img id="TeammateCloseImg" src="${jspRootURL}/images/project/dashboard_close.gif" title="${closeTitle}" border="0" /></a></span>
+								</td>
+							</tr>
+						</table>
+					</div>
+			</div><!--block-heading end -->
+			<div id="TeammateContent" class="block-content">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content" name="tableWithEvenRows">
+					<tr class="table-header">
+						<t:if test="showSkypeStatus">
+							<td></td>
+						</t:if>
+					    <td class="cell-right-border"><t:Message value="prm.project.dashboard.projectTeam.name.label" /></td>
+					    <td align="center" class="cell-right-border"><img src="${jspRootURL}/images/schedule/constraint.gif" width="18" height="14" title="${projectTeamAssignmentTooltip}" /></td>
+					    <td width="75" align="center"><t:Message value="prm.project.dashboard.projectTeam.lastblogit.label" /></td>
+				  	</tr>
+				  	   <t:if test="teammates">
+						<t:loop source="teammates" value="teammate">
+							<t:if test="teammate.registered">
+									<tr>
+										<t:if test="showSkypeStatus">
+								    		<td></td>
+								    	</t:if>
+								    	<td>
+									    	<i>${teammate.name}</i>
+									    </td>
+									    <td align="right">
+									    	<t:if test="teammate.assignedTasks">
+									    	<a href="javascript:showTeammateTasksReport('${teammate.personId}')">${teammate.assignedTasks}</a>
+									    		<t:parameter name="else">
+									    			${teammate.assignedTasks}
+									    		</t:parameter>
+									    	</t:if>
+									    	<span class="assigned-icon">
+										    	<t:if test="teammate.overAssigned">
+										    		<a href="javascript:showResourceAllocation(${teammate.personId})">
+										    			<img src="${jspRootURL}/images/schedule/overassignment.GIF" width="18" height="14" title="${overAssignedTitle}" />
+										    		</a>
+										    		<t:parameter name="else">
+										    			<a href="javascript:showResourceAllocation(${teammate.personId})">
+										    				<img src="${jspRootURL}/images/schedule/constraint.gif" width="18" height="14" title="${assignedTitle}" />
+										    			</a>
+										    		</t:parameter>
+										    	</t:if>
+									    	</span>
+									    </td>
+									    <td width="75" align="center" id="teammate_${teammate.personId}" name="lastBlogEntryLink">
+									    </td>
+									</tr>
+								<t:parameter name="else">
+								    <tr>
+								    	<t:if test="showSkypeStatus">
+								    		<td>
+									    		<t:if test="teammate.skype">
+													<a href="skype:${teammate.skype}?chat">
+														<t:if test="secureConnection">
+															<img src="${asset:context:/images/skype/SkypeBlue_16X16.png}" style="border: none;" width="16" height="16" title="${skypeStatusTooltip}" />
+															<t:parameter name="else">
+																<img src="http://mystatus.skype.com/smallicon/${teammate.skype}" style="border: none;" width="16" height="16" title="${skypeStatusTooltip}" />
+															</t:parameter>
+														</t:if>
+													</a>
+												</t:if>
+											</td>
+								    	</t:if>
+									    <td>
+									    	<t:if test="teammate.online">
+									    		<a class="user-online" href='${jspRootURL}/blog/view/${teammate.personId}/${teammate.personId}/${personalSpaceType}/${personalModuleId}?module=${personalModuleId}' title="${teammate.teammateName}">${teammate.name}</a>
+										    	<t:parameter name="else">
+												<a class="user" href='${jspRootURL}/blog/view/${teammate.personId}/${teammate.personId}/${personalSpaceType}/${personalModuleId}?module=${personalModuleId}' title="${teammate.teammateName}">${teammate.name}</a>						    		
+										    	</t:parameter>
+										    </t:if>
+									    </td>
+									    <td align="right">
+									    	<t:if test="teammate.assignedTasks">
+									    	<a href="javascript:showTeammateTasksReport('${teammate.personId}')">${teammate.assignedTasks}</a>
+									    		<t:parameter name="else">
+									    			${teammate.assignedTasks}
+									    		</t:parameter>
+									    	</t:if>
+									    	<span class="assigned-icon">
+										    	<t:if test="teammate.overAssigned">
+										    		<a href="javascript:showResourceAllocation(${teammate.personId})">
+										    			<img src="${jspRootURL}/images/schedule/overassignment.GIF" width="18" height="14" title="${overAssignedTitle}" />
+										    		</a>
+										    		<t:parameter name="else">
+										    			<a href="javascript:showResourceAllocation(${teammate.personId})">
+										    				<img src="${jspRootURL}/images/schedule/constraint.gif" width="18" height="14" title="${assignedTitle}" />
+										    			</a>
+										    		</t:parameter>
+										    	</t:if>
+									    	</span>
+									    </td>
+									    <td width="75" align="center" id="teammate_${teammate.personId}" name="lastBlogEntryLink">
+									    </td>
+									</tr>
+								</t:parameter>
+							</t:if>
+						</t:loop>
+					   </t:if>
+				</table>
+			</div><!--block-content end -->
+			</div><!--portal-project-flex-block class end -->
+			<!--END of PORTAL BLOCK -->
+		</t:parameter>
+	</t:if>
+	<script language="javascript" type="text/javascript">getLastBlogIts(${projectId});</script>
+	<t:if test="lastChangesCloseState">
+		<t:parameter name="else">
+			<!--PORTAL BLOCK -->
+			<div id="LastChangesWidget" class="portal-project-flex-block">
+				<div class="block-heading">
+					<div class="block-heading-end">
+							<table cellspacing="0" cellpadding="0" width="100%">
+								<tr>
+									<td width="86%">
+										<div class="heading"><t:message value="prm.project.dashboard.changeswithindays.channel.title" /></div>
+									</td>
+									<td class="channel-heading-end-project">
+										<span><a id="ChangesLink"><img id="ChangesImg" src="${jspRootURL}/images/project/dashboard_arrow-up.gif" title="${upTitle}" border="0" /></a>&nbsp;</span>
+										<span><a id="LastChangesCloseLink" href="javascript:saveState('ProjectSpace_LastChanges_','2');"><img id="LastChangesCloseImg" src="${jspRootURL}/images/project/dashboard_close.gif" title="${closeTitle}" border="0" /></a></span>
+									</td>
+								</tr>
+							</table>
+						</div>
+				</div><!--block-heading end -->
+			<div id="ChangesContent" class="block-content row-content">
+				<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content" name="tableWithEvenRowsWOH">
+				  <tr>
+				    <td colspan="6"><strong><t:message value="prm.project.dashboard.changeswithindays.blogs.label" /></strong>&nbsp;&mdash;&nbsp;
+				    	<t:if test="totalEntriesCount">
+					    	<a href="${jspRootURL}${blogUrl}">${blogCountMessage}</a>
+					    	<t:parameter name="else">
+					    		<t:message value="prm.project.dashboard.changeswithindays.noentries.message" />
+					    	</t:parameter>
+					    </t:if>
+				    </td>
+				  </tr>
+				  <tr class="dashboard-even">
+				    <td colspan="6"><strong><t:message value="prm.project.dashboard.changeswithindays.wiki.label" /></strong>&nbsp;&mdash;&nbsp;
+					     <t:if test="wikiEntryCount">
+					    	<a href="${jspRootURL}${wikiLink}">${wikiCountMessage}</a>
+					    	<t:parameter name="else">
+					    		<t:message value="prm.project.dashboard.changeswithindays.noentries.message" />
+					    	</t:parameter>
+					     </t:if>
+				    </td>
+				  </tr>
+				  <tr>
+				    <td colspan="6"><strong><t:message value="prm.project.dashboard.changeswithindays.forms.label" /></strong>&nbsp;&mdash;&nbsp;
+				    	 <t:if test="hasFormChanges">
+					    	 <a href="${jspRootURL}${formUrl}">${formsCountMessage}</a>
+						     <t:parameter name="else">
+						     	<t:message value="prm.project.dashboard.changeswithindays.noentries.message" />
+						     </t:parameter>
+					     </t:if>
+				    </td>
+				  </tr>
+				  <tr class="dashboard-even">
+				    <td colspan="6"><strong><t:message value="prm.project.dashboard.changeswithindays.documents.label" /></strong>&nbsp;&mdash;&nbsp;
+					    <t:if test="hasDocumentsChanges">
+					    	<a href="${jspRootURL}${docuemntUrl}">${documentsCountMessage}</a>
+					    	<t:parameter name="else">
+					    		<t:message value="prm.project.dashboard.changeswithindays.noentries.message" />
+					    	</t:parameter>
+					    </t:if>
+				    </td>
+				  </tr>
+				  <tr>
+				  	<td colspan="6"><strong><t:message value="prm.project.dashboard.changeswithindays.discussion.label" /></strong>&nbsp;&mdash;&nbsp;
+			  		 	<t:if test="hasDiscussionsChanges">
+				  			<a href="${jspRootURL}${discussionUrl}">${discussionsCountMessage}</a>
+				  			<t:parameter name="else">
+				  				<t:message value="prm.project.dashboard.changeswithindays.noentries.message" />
+				  			</t:parameter>
+				  		</t:if>
+				  	</td>
+				  </tr>
+				</table>
+			</div><!--block-content end -->
+			</div><!--portal-project-flex-block class end -->
+			<!--END of PORTAL BLOCK -->
+		</t:parameter>
+	</t:if>
+	</td> </tr> </table> <!-- End of Inner Table with left and right column -->
+</div> <!-- content div end -->	
+</td> </tr> </table> <!-- End of Table with left navbar and content div -->
+</form>
+</div>
+<t:SpaceMainMenu /> 
+  <script language="javascript" type="text/javascript">
+	
+	var blogItFor='project';
+	var spaceId='${projectId}';
+	var moduleId='${moduleId}';
+	var downTitle = '${downTitle}';
+	var upTitle = '${upTitle}';
+	var closeTitle = '${closeTitle}';
+	showWindowForPopup=true;
+	
+	//Getting Channel State
+	var projectNewsState = ${projectNewsState};
+	var projectLastChangesState = ${projectLastChangesState};	
+	var meetingsState = ${meetingsState};
+	var phasesState = ${phasesState};
+	var subprojectsState = ${subprojectsState};
+	var teammatesState = ${teammatesState};
+	var projectPieChartState = ${projectPieChartState};
+	var projectCompletionState = ${projectCompletionState};
+	
+	var newsCloseState = ${newsCloseState};
+	var teamatesCloseState = ${teamatesCloseState};
+	var meetingsCloseState = ${meetingsCloseState};
+	var lastChangesCloseState = ${lastChangesCloseState};
+	var subProjectCloseState = ${subProjectCloseState};
+	var projectCompletionCloseState = ${projectCompletionCloseState};
+	var phasesCloseState = ${phasesCloseState};
+	var pieChartCloseState = ${pieChartCloseState};
+
+	<!-- //
+
+	function personalizePage(customizePageLink){
+		window.document.location.href =  customizePageLink;
+	}
+	
+	// Method to display balloon pop up for last blog entry
+	function showBalloon(event,webLogEntryId,personId){
+		balloon.showTooltip(event,'url:'+JSPRootURL+'/blog/entry/SHOW_LAST_BLOG_ENTRY?module=150&weblogEntryId='+webLogEntryId+'&personId='+personId,1);
+	}
+	
+	// 	-->
+	
+  </script>
+  <script language="javascript" src = "${jSPRootURL}/src/Dashboardchannels.js" />
+</t:DashboardLayout>

@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<body>
+	<div style="position: relative;left:0;top:0;background-color:#CCD8FE;">
+		<table width="100%" cellpadding="0" cellspacing="0"> 
+			<tr>
+				<td class="top_left"></td>
+				<td height="30" align="left" id="customizeColumns" class="top_m"><b class="heading"><t:Message value="prm.project.portfolio.saveview.page.title"/> </b></td>
+				<td align="right" class="top_m"><a href="javascript:hideUploadPopup();"><img border="0" alt="x" src="${JSPRootURL}/images/menu/close.gif"/></a></td>
+				<td class="top_right"></td>
+			</tr>
+		</table>
+	</div>
+	<t:form name="saveViewForm">
+        <div class="pp-saveview-column-div" id="saveViewMainDiv">
+	      <table cellpadding="0" cellspacing="0" width="100%">
+	        	<tr><td class="m_left"></td>
+	        		<td class="pp-saveview-innertd">
+				        <table border="0" cellspacing="0" width="97%" style="margin-top:15px">
+							<tr>
+								<td>
+									<table width="100%">
+										<tr>
+											<td width="30%" ><span class="category-heading"><t:Message value="prm.project.portfolio.saveview.page.viewname.lable"/></span></td>
+											<td width="70%">
+												<t:if test="isCreatedByUser">
+													<input type="text" name="name" value="${viewName}" id="name" size="45"/>
+								           	        <t:parameter name="else">
+														<input type="text" name="name" id="name" size="45"/>
+						 		           	        </t:parameter>
+						 		           	     </t:if>
+			 									<input type ="hidden" value="${viewName}" name="currentviewname" id="currentviewname"/>
+					 		           	   </td>
+										</tr>
+										<tr>
+											<td width="30%" colspan="1"></td>
+											<td width="70%" rowspan="3">
+												<t:if test="isSharedView">
+													<input type="checkbox" id="makeShared" name="makeShared" onclick="loadSharedHtmlContent(this)" checked="checked"/>
+								           	        <t:parameter name="else">
+														<input type="checkbox" id="makeShared" name="makeShared" onclick="loadSharedHtmlContent(this)" />
+						 		           	        </t:parameter>
+						 		           	     </t:if>
+						 		           	     <input type="hidden" id="makeSharedHidden" value="${isSharedView}" />
+												<span class="category-heading">
+													&nbsp;<t:Message value="prm.project.portfolio.saveview.page.makeviewshared.lable"/>
+												</span>		
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<div id="sharedViewContent" style="display:none">
+										<table width="100%">
+											<tr rowspan="3">
+												<td colspan="2">
+												<table width="100%">
+													<tr>
+														<td width="30%" >
+															<span class="category-heading">
+																<t:Message value="prm.project.portfolio.saveview.page.owningbussiness.lable"/>
+															</span>
+														</td>
+														<td width="70%" rowspan="3">
+																<t:OutputRaw value="businessMultiSelectList"/>
+														</td>
+													</tr>
+												</table>
+												</td>
+											</tr>
+										
+											<tr>
+												<t:if test="viewVisibilityEnabled">
+													<td width="30%" >
+														<span class="pp-saveview-inactive-lable">
+															<t:Message value="prm.project.portfolio.saveview.page.visibleto.lable"/>
+														</span>
+													</td>
+													<td width="70%">
+														<t:if test="isVisibleToAll">
+															<input type="checkbox" name="shareAllUsers" checked="checked" />
+								 		           	        <t:parameter name="else">
+																<input type="checkbox" name="shareAllUsers" />
+								 		           	        </t:parameter>
+								 		           	    </t:if>
+														<input type="hidden" name="shareAllUsersHidden" value="${isVisibleToAll}"/>
+														<span class="category-heading">
+															&nbsp;<t:Message value="prm.project.portfolio.saveview.page.alluser.lable"/>
+														</span>		
+													</td>
+												</t:if>
+											</tr>
+										</table>
+										<br/>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td>
+									<br/>
+									<table width="100%">
+										<tr>
+											<td width="30%">
+												<span class="pp-saveview-inactive-lable">
+													<t:Message value="prm.project.portfolio.saveview.page.makedefaultview.lable"/>
+												</span>
+											</td>
+											<td width="70%">
+												<t:if test="${defaultOnPortfolio}">
+													<input type="checkbox" value="${portfolioScenarioID}" name="defaultForScenarioID" checked='checked'/>
+
+						 		           	        <t:parameter name="else">
+														<input type="checkbox" value="${portfolioScenarioID}" name="defaultForScenarioID"/>
+			                    	    			</t:parameter>
+			                    				</t:if>
+												<span class="category-heading">
+													&nbsp;<t:Message value="prm.project.portfolio.saveview.page.onmyprojectportfolio.lable"/>
+												</span>
+											</td>
+										</tr>
+									
+										<tr>
+											<td width="30%" ></td>
+											<td width="70%">
+												<t:if test="${defaultOnPersonalDashboard}">
+													<input type="checkbox" value="${personalDashboardScenarioID}" name="defaultForScenarioID" checked='checked'/>
+
+						 		           	        <t:parameter name="else">
+														<input type="checkbox" value="${personalDashboardScenarioID}" name="defaultForScenarioID" />
+			                    	    			</t:parameter>
+			                    				</t:if>
+												<span class="category-heading">
+													&nbsp;<t:Message value="prm.project.portfolio.saveview.page.onmypersonaldashboard.lable"/>
+												</span>		
+											</td>
+										</tr>
+									</table>
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td class="m_right"></td>
+				</tr>
+			</table>
+		</div>
+	</t:form>
+	<table cellpadding="0" cellspacing="0">
+		<tr>
+			<td class="bottom_left" width="1%"></td>
+			<td class="bottom_m" style="width: 80%; padding-left: 10px;"></td>
+			<td class="bottom_m" style="padding-right: 6px;"><button style="width: 100px;" onclick="javascript:saveCustomview();"><t:Message value="prm.project.portfolio.popup.button.submit.caption"/></button></td>
+			<td class="bottom_m" style="padding-right: 4px;"><button style="width: 100px;" onclick="javascript:hideUploadPopup();" ><t:Message value="prm.project.portfolio.popup.button.cancle.caption"/></button></td>
+			<td class="bottom_right" width="1%"></td>
+		</tr>
+	</table>
+</body>
+</html>

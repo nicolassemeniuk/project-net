@@ -1,0 +1,11 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Documents\batchDocuments> 3 1115920967 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Documents\forLoginDocument> <C:\Documents and Settings\QA\Desktop\v77\Documents\batchDocuments> 4 1115920969 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\forLoginProject> <C:\Documents and Settings\QA\Desktop\v77\Documents\forLoginDocument> 2 1115920972 0
+11 1 <C:\Documents and Settings\QA\Desktop\v77\Documents\forLoginDocument> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\forLoginProject> 19 1115921001 0
+11 1 <C:\Documents and Settings\QA\Desktop\v77\Documents\batchDocuments> <C:\Documents and Settings\QA\Desktop\v77\Documents\forLoginDocument> 15 1115921014 0
+37 65 <Step: Creating a folder, Status: Pass, Description: Folder exists> <C:\Documents and Settings\QA\Desktop\v77\Documents\batchDocuments> 28 1115921032 24
+37 79 <Step: Importing file, Status: Pass, Description: File was successfully imported> <C:\Documents and Settings\QA\Desktop\v77\Documents\batchDocuments> 38 1115921048 24
+37 79 <Step: Importing file, Status: Pass, Description: File was successfully imported> <C:\Documents and Settings\QA\Desktop\v77\Documents\batchDocuments> 38 1115921061 24
+37 74 <Step: Verify file delete, Status: Pass, Description: File has been deleted> <C:\Documents and Settings\QA\Desktop\v77\Documents\batchDocuments> 25 1115921126 24
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\Documents\batchDocuments> 35 1115921126 0

@@ -1,0 +1,7 @@
+<mappings>
+  <mapping>
+    <property name="allSpaces" ignore="true"/>
+    <property name="availableTimes" ignore="true"/>
+    <property name="nonAvailableDays" ignore="true"/> 
+  </mapping>
+</mappings>

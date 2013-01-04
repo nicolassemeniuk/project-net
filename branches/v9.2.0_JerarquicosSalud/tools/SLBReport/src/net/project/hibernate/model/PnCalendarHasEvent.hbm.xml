@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnCalendarHasEvent" 
+    table="PN_CALENDAR_HAS_EVENT"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnCalendarHasEventPK">
+        <key-property 
+            name="calendarId" 
+            column="CALENDAR_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="calendarEventId" 
+            column="CALENDAR_EVENT_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnCalendar -->
+    <many-to-one
+        name="pnCalendar"
+	    class="net.project.hibernate.model.PnCalendar"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="CALENDAR_ID" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to PnCalendarEvent -->
+    <many-to-one
+        name="pnCalendarEvent"
+	    class="net.project.hibernate.model.PnCalendarEvent"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="CALENDAR_EVENT_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

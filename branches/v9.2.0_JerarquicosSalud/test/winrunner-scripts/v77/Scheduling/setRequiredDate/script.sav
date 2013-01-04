@@ -1,0 +1,129 @@
+function setRequiredDate(in tense){
+	auto seconds, date, day, month, year, newDate;
+	seconds = get_time();
+	day = substr(time_str(seconds),1,3);
+	
+	switch(day){
+		case "Mon":
+			if(tense=="past")
+				seconds=seconds-(86400*3);
+			if(tense=="future")
+				seconds=seconds+(86400*2);
+			month = substr(time_str(seconds),5,3);
+			date = substr(time_str(seconds),9,2);
+			year = substr(time_str(seconds),23,2);
+			break;
+		case "Tue":
+			if(tense=="past")
+				seconds=seconds-(86400*4);
+			if(tense=="future")
+				seconds=seconds+(86400*2);
+			month = substr(time_str(seconds),5,3);
+			date = substr(time_str(seconds),9,2);
+			year = substr(time_str(seconds),23,2);
+			break;
+		case "Wed":
+			if(tense=="past")
+				seconds=seconds-(86400*2);
+			if(tense=="future")
+				seconds=seconds+(86400*2);
+			day = substr(time_str(seconds),1,3);
+			month = substr(time_str(seconds),5,3);
+			date = substr(time_str(seconds),9,2);
+			year = substr(time_str(seconds),23,2);
+			break;
+		case "Thu":
+			if(tense=="past")
+				seconds=seconds-(86400*2);
+			if(tense=="future")
+				seconds=seconds+(86400*4);
+			day = substr(time_str(seconds),1,3);
+			month = substr(time_str(seconds),5,3);
+			date = substr(time_str(seconds),9,2);
+			year = substr(time_str(seconds),23,2);
+			break;
+		case "Fri":
+			if(tense=="past")
+				seconds=seconds-(86400*2);
+			if(tense=="future")
+				seconds=seconds+(86400*3);
+			day = substr(time_str(seconds),1,3);
+			month = substr(time_str(seconds),5,3);
+			date = substr(time_str(seconds),9,2);
+			year = substr(time_str(seconds),23,2);
+	}
+	switch (date){
+		case "01":
+			date = "1";
+		case "02":
+			date = "2";
+		case "03":
+			date = "3";
+		case "04":
+			date = "4";
+		case "05":
+			date = "5";
+		case "06":
+			date = "6";
+		case "07":
+			date = "7";
+		case "01":
+			date = "1";
+		case "01":
+			date = "1";
+	}
+	
+	switch (month){
+		case "Jan":
+		case "January":
+			month = 1;
+			break;
+		case "Feb":
+		case "February":
+			month = 2;
+			break;		
+		case "Mar":
+		case "March":
+			month = 3;
+			break;		
+		case "Apr":
+		case "April":
+			month = 4;
+			break;		
+		case "May":
+			month = 5;
+			break;		
+		case "Jun":
+		case "June":
+			month = 6;
+			break;		
+		case "Jul":
+		case "July":
+			month = 7;
+			break;		
+		case "Aug":
+		case "August":
+			month = 8;
+			break;		
+		case "Sep":
+		case "September":
+			month = 9;
+			break;		
+		case "Oct":
+		case "October":
+			month = 10;
+			break;		
+		case "Nov":
+		case "November":
+			month = 11;
+			break;		
+		case "Dec":
+		case "December":
+			month = 12;
+			break;		
+		default:
+			month = 1;
+	}
+	newDate = ""&month&"/"&date&"/"&year&"";
+	return newDate;
+}

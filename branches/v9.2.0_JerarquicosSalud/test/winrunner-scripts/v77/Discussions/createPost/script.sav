@@ -1,0 +1,21 @@
+function createPost(in subject){
+	set_window("upper_frame");
+	web_link_click("Create New Post");
+	wait(1);
+	set_window("New Post",1);
+	edit_set("subject",subject);
+	edit_set("postbody","Creating a new post for automated testing");
+	web_link_click("Submit");
+	wait(1);
+	set_window("upper_frame",2);
+	if(obj_exists(subject)==E_OK)
+		tl_step("Posted message",0,"Discussion group "&subject&" message present");
+	else
+		tl_step("Posted message",1,"Discussion group "&subject&" message ABSENT");
+	wait(1);
+	set_window("lower_frame",2);
+		
+	
+	wait(1);
+}
+		

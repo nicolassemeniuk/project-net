@@ -1,0 +1,33 @@
+#compiled module for moving a document from a source folder to a destination folder assuming both already exist
+
+function movingDoc(in sourceFolder, in destinationFolder, in fileName){
+	auto docID, urlValue, path_array[], elements;
+	
+	reload("getDocumentID",0,1);
+	docID = getDocumentID(fileName);
+	
+	#saving the Document ID to the GUI map file so as to aid in selection
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui","main","selected","part_value",docID)!=E_OK)
+		report_msg("NOT OK1");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+	
+	set_window("main",2);
+	web_link_click(sourceFolder);
+	wait(1);
+	set_window("main",1);
+	button_set("selected",ON);
+	wait(1);
+	web_link_click("Move");#moving the document using the toolbar button
+	wait(1);
+	set_window("moveBrowser",2);
+	web_link_click(destinationFolder);
+	wait(1);
+	set_window("moveBrowser",2);
+	web_link_click("Move");
+	wait(1);
+	set_window("main",1);
+	web_link_click(sourceFolder);#assuming that the source folder is the top folder
+	wait(1);
+	set_window("main",2);
+}	

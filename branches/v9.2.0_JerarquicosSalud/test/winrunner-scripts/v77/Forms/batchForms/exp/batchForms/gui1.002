@@ -1,0 +1,27 @@
+Col #1	Col #2	Col #3	Col #4	Col #5
+http://trout.project.net/images/icons/channelbar-left_end.gif	Defined Fields	http://trout.project.net/images/icons/channelbar-right_end.gif		 
+	Field	Type	Row	Column
+http://trout.project.net/images/spacers/trans.gif		 	 	 
+	TextField	Text Field	1	Left
+http://trout.project.net/images/spacers/trans.gif		 	 	 
+	TextBox	Text Box	2	Left
+http://trout.project.net/images/spacers/trans.gif		 	 	 
+	SelectionMenu	Selection Menu	3	Left
+http://trout.project.net/images/spacers/trans.gif		 	 	 
+	DateField	Date	4	Left
+http://trout.project.net/images/spacers/trans.gif		 	 	 
+	CheckBoxField	Checkbox	5	Left
+http://trout.project.net/images/spacers/trans.gif		 	 	 
+	PersonSelectionMenu	Person Selection Menu	6	Left
+http://trout.project.net/images/spacers/trans.gif		 	 	 
+	NumberField	Number Field	7	Left
+http://trout.project.net/images/spacers/trans.gif		 	 	 
+	CurrencyField	Currency Field	8	Left
+http://trout.project.net/images/spacers/trans.gif		 	 	 
+	HorizontalSectionTitle	Horizontal Section Title	9	Left
+http://trout.project.net/images/spacers/trans.gif		 	 	 
+	UserInstructions	User Instructions	10	Left
+http://trout.project.net/images/spacers/trans.gif		 	 	 
+	CalculatedField	Calculated Field	11	Left
+http://trout.project.net/images/spacers/trans.gif		 	 	 
+		 	 	 

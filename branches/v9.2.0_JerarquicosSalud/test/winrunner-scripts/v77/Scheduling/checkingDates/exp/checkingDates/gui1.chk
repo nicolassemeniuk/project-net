@@ -1,0 +1,22 @@
+#Checklist for window "main"
+^T list1.ckl
+V 7.5
+main:
+{
+}1
+"{class: \"object\", MSW_class: \"html_table\", location: \"3\", tag: \"http://hippo/images/icons/channelbar-left_end.gif Create Properties ht\"},disp_tag:\"[html_table] http://hippo/images/\"":
+{
+}1
+"{class: \"object\", MSW_class: \"html_table\", location: \"3\", tag: \"http://hippo/images/icons/channelbar-left_end.gif Create Properties ht\",row:\"1\" ,col:\"1\"},disp_tag:\"[html_cell] (1, 1)\"":
+{
+}1
+"{class: \"object\", MSW_class: \"html_table\", location: \"4\", tag: \"channelbar-left_end\"},disp_tag:\"[html_table] channelbar-left_end\"":
+{
+}1
+"{class: \"object\", MSW_class: \"html_table\", location: \"4\", tag: \"channelbar-left_end\",row:\"2\" ,col:\"2\"},disp_tag:\"[html_cell] (2, 2)\"":
+{
+}1
+expand:
+{
+ TableContent: @gui1.001
+}0

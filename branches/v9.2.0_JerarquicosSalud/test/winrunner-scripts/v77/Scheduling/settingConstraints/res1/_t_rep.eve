@@ -1,0 +1,35 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 1 1112229110 0
+23 20 <FIXED DURATION TASKS> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 30 1112229126 0
+37 126 <Step: Verify ASAP constraint, Status: Pass, Description: The start date of t1 with ASAP constraint is correctly set to 3/30/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 43 1112229310 24
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 47 1112229333 0
+37 123 <Step: Verify ALAP constraint, Status: Pass, Description: The end date of t2 with ALAP constraint is correctly set to 4/1/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 51 1112229354 24
+37 125 <Step: Verify FNET constraint, Status: Pass, Description: The end date for t3 with FNET constraint is set correctly to 3/30/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 71 1112229361 24
+37 142 <Step: Verify FNLT constraint, Status: Fail, Description: The end date 4/1/05 set for task t4 with FNLT constraint date of 3/30/05 is INCORRECT> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 63 1112229368 25
+37 125 <Step: Verify MSO constraint, Status: Pass, Description: The start date for t5 with MSO constraint is set correctly to 3/30/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 81 1112229375 24
+37 123 <Step: Verify MFO constraint, Status: Pass, Description: The end date for t6 with MFO constraint is set correctly to 3/30/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 91 1112229382 24
+37 127 <Step: Verify SNET constraint, Status: Pass, Description: The start date for t7 with SNET constraint is set correctly to 3/30/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 101 1112229389 24
+37 127 <Step: Verify SNLT constraint, Status: Pass, Description: The start date for t8 with SNLT constraint is set correctly to 3/30/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 111 1112229396 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 55 1112229400 0
+23 16 <FIXED UNIT TASKS> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 57 1112229400 0
+37 126 <Step: Verify ASAP constraint, Status: Pass, Description: The start date of t9 with ASAP constraint is correctly set to 3/30/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 43 1112229595 24
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 74 1112229618 0
+37 124 <Step: Verify ALAP constraint, Status: Pass, Description: The end date of t10 with ALAP constraint is correctly set to 4/1/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 51 1112229628 24
+37 126 <Step: Verify FNET constraint, Status: Pass, Description: The end date for t11 with FNET constraint is set correctly to 3/30/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 71 1112229635 24
+37 143 <Step: Verify FNLT constraint, Status: Fail, Description: The end date 4/1/05 set for task t12 with FNLT constraint date of 3/30/05 is INCORRECT> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 63 1112229642 25
+37 126 <Step: Verify MSO constraint, Status: Pass, Description: The start date for t13 with MSO constraint is set correctly to 3/30/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 81 1112229649 24
+37 124 <Step: Verify MFO constraint, Status: Pass, Description: The end date for t14 with MFO constraint is set correctly to 3/30/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 91 1112229656 24
+37 128 <Step: Verify SNET constraint, Status: Pass, Description: The start date for t15 with SNET constraint is set correctly to 3/30/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 101 1112229664 24
+37 128 <Step: Verify SNLT constraint, Status: Pass, Description: The start date for t16 with SNLT constraint is set correctly to 3/30/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 111 1112229672 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 82 1112229675 0
+23 16 <FIXED WORK TASKS> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 84 1112229675 0
+37 127 <Step: Verify ASAP constraint, Status: Pass, Description: The start date of t17 with ASAP constraint is correctly set to 3/30/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 43 1112229875 24
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 101 1112229898 0
+37 124 <Step: Verify ALAP constraint, Status: Pass, Description: The end date of t18 with ALAP constraint is correctly set to 4/1/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 51 1112229908 24
+37 126 <Step: Verify FNET constraint, Status: Pass, Description: The end date for t19 with FNET constraint is set correctly to 3/30/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 71 1112229916 24
+37 143 <Step: Verify FNLT constraint, Status: Fail, Description: The end date 4/1/05 set for task t20 with FNLT constraint date of 3/30/05 is INCORRECT> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 63 1112229923 25
+37 126 <Step: Verify MSO constraint, Status: Pass, Description: The start date for t21 with MSO constraint is set correctly to 3/30/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 81 1112229930 24
+37 124 <Step: Verify MFO constraint, Status: Pass, Description: The end date for t22 with MFO constraint is set correctly to 3/30/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 91 1112229938 24
+37 128 <Step: Verify SNET constraint, Status: Pass, Description: The start date for t23 with SNET constraint is set correctly to 3/30/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 101 1112229945 24
+37 128 <Step: Verify SNLT constraint, Status: Pass, Description: The start date for t24 with SNLT constraint is set correctly to 3/30/05> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 111 1112229953 24
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 111 1112229956 0

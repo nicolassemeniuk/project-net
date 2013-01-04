@@ -1,0 +1,96 @@
+"Project.net Login":
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: "Project.net Login"
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+"Project.net Login"."Forgotten Password or Login Name":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Forgotten Password or Login Name"
+}
+"Project.net Login".Help:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Help Desk"
+}
+"Project.net Login".J_PASSWORD:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: J_PASSWORD
+}
+"Project.net Login".J_USERNAME:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: J_USERNAME
+}
+"Project.net Login".Login:
+{
+ class: push_button,
+ MSW_class: html_push_button,
+ html_name: Login
+}
+"Project.net Login".Register:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Register
+}
+"Project.net Login"."Verification Code":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Verification Code"
+}
+main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: main
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+main.WRProject:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: WRProject
+}
+toolbar_main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: toolbar_main
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+toolbar_main."Log Out":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Log Out"
+}
+toolbar_main."topnav-projects-off":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "topnav-projects-off.gif"
+}
+toolbar_main."topnav-projects-on":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "topnav-projects-on.gif"
+}

@@ -1,0 +1,15 @@
+#Checklist for window "main"
+V 7.5
+main: "WEB.GVF" 0 0 1
+{
+}1
+"{class: \"object\", MSW_class: \"html_table\", location: \"2\", tag: \"TextFieldForm (TFF)\"},disp_tag:\"[html_table] TextFieldForm (TFF)\"": "WEB.GVF" 1 1 1
+{
+}1
+"{class: \"object\", MSW_class: \"html_table\", location: \"2\", tag: \"TextFieldForm (TFF)\",row:\"5\" ,col:\"2\"},disp_tag:\"[html_cell] (5, 2)\"": "WEB.GVF" 2 2 1
+{
+}1
+"{class: \"object\", MSW_class: \"html_table\", location: \"4\", tag: \"Number\"},disp_tag:\"[html_table] Number\"": "WEB.GVF" 1 1 1
+{
+ TableContent: "" $WEB.GVF, *1132,
+}0

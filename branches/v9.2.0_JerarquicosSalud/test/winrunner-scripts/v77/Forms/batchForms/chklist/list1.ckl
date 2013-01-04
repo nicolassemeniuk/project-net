@@ -1,0 +1,15 @@
+#Checklist for window "main"
+V 7.5
+main: "WEB.GVF" 0 0 1
+{
+}1
+"{class: \"object\", MSW_class: \"html_table\", location: \"4\", tag: \"http://trout.project.net/images/icons/channelbar-left_end.gif http://t\"},disp_tag:\"[html_table] http://trout.project\"": "WEB.GVF" 1 1 1
+{
+}1
+"{class: \"object\", MSW_class: \"html_table\", location: \"4\", tag: \"http://trout.project.net/images/icons/channelbar-left_end.gif http://t\",row:\"2\" ,col:\"1\"},disp_tag:\"[html_cell] (2, 1)\"": "WEB.GVF" 2 2 1
+{
+}1
+"{class: \"object\", MSW_class: \"html_table\", location: \"5\", tag: \"channelbar-left_end\"},disp_tag:\"[html_table] channelbar-left_end\"": "WEB.GVF" 1 1 1
+{
+ TableContent: "" $WEB.GVF, *1132,
+}0

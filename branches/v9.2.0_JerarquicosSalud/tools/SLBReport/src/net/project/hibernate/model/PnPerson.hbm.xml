@@ -1,0 +1,521 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<!-- 
+		Created by the Middlegen Hibernate plugin 2.2
+		
+		http://boss.bekk.no/boss/middlegen/
+		http://www.hibernate.org/
+	-->
+
+	<class name="net.project.hibernate.model.PnPerson" table="PN_PERSON" 
+		lazy="false">
+
+		<id name="personId" type="java.math.BigDecimal"
+			column="PERSON_ID">
+
+			<generator class="assigned" />
+		</id>
+
+		<property name="email" type="java.lang.String" column="EMAIL"
+			not-null="true" length="240" />
+		<property name="firstName" type="java.lang.String"
+			column="FIRST_NAME" not-null="true" length="40" />
+		<property name="lastName" type="java.lang.String"
+			column="LAST_NAME" not-null="true" length="60" />
+		<property name="displayName" type="java.lang.String"
+			column="DISPLAY_NAME" not-null="true" length="240" />
+		<property name="userStatus" type="java.lang.String"
+			column="USER_STATUS" not-null="true" length="80" />
+		<property name="membershipPortfolioId"
+			type="java.math.BigDecimal" column="MEMBERSHIP_PORTFOLIO_ID"
+			not-null="true" length="20" />
+		<property name="recordStatus" type="java.lang.String"
+			column="RECORD_STATUS" not-null="true" length="1" />
+		<property name="createdDate" type="java.sql.Date"
+			column="CREATED_DATE" length="7" />
+
+		<!-- Associations -->
+
+		<!-- bi-directional one-to-one association to PnObject -->
+		<one-to-one name="pnObject" cascade="all" 
+			class="net.project.hibernate.model.PnObject" outer-join="auto"
+			constrained="false" />
+		<!-- bi-directional one-to-one association to PnPersonNotificationPref -->
+		<one-to-one name="pnPersonNotificationPref" cascade="all"
+			class="net.project.hibernate.model.PnPersonNotificationPref"
+			outer-join="auto" />
+		<!-- bi-directional one-to-one association to PnPersonNotificationAddress -->
+		<one-to-one name="pnPersonNotificationAddress" cascade="all"
+			class="net.project.hibernate.model.PnPersonNotificationAddress"
+			outer-join="auto" />
+		<!-- bi-directional one-to-many association to PnMeeting -->
+
+		<set name="pnMeetings" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="HOST_ID" />
+			</key>
+
+			<one-to-many class="net.project.hibernate.model.PnMeeting" />
+		</set>
+		<!-- bi-directional one-to-many association to PnGroupHasPerson -->
+
+		<set name="pnGroupHasPersons" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="PERSON_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnGroupHasPerson" />
+		</set>
+		<!-- bi-directional one-to-many association to PnPersonHasProfCert -->
+
+		<set name="pnPersonHasProfCerts" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="PERSON_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnPersonHasProfCert" />
+		</set>
+		<!-- bi-directional one-to-many association to PnInvitedUser -->
+
+		<set name="pnInvitedUsers" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="INVITOR_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnInvitedUser" />
+		</set>
+		<!-- bi-directional one-to-many association to PnPersonSkillComment -->
+
+		<set name="pnPersonSkillCommentsByAddedBy" lazy="false"
+			inverse="true" cascade="all">
+			<key>
+				<column name="ADDED_BY" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnPersonSkillComment" />
+		</set>
+		<!-- bi-directional one-to-many association to PnPersonSkillComment -->
+
+		<set name="pnPersonSkillCommentsByPersonId" lazy="false"
+			inverse="true" cascade="all">
+			<key>
+				<column name="PERSON_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnPersonSkillComment" />
+		</set>
+		<!-- bi-directional one-to-many association to PnDocContainer -->
+
+		<set name="pnDocContainers" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="MODIFIED_BY_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnDocContainer" />
+		</set>
+		<!-- bi-directional one-to-one association to PnUser -->
+		<one-to-one name="pnUser" cascade="all"
+			class="net.project.hibernate.model.PnUser" outer-join="auto" />
+		<!-- bi-directional one-to-many association to PnPostHistory -->
+
+		<set name="pnPostHistories" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="ACTION_BY_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnPostHistory" />
+		</set>
+		<!-- bi-directional one-to-many association to PnPost -->
+
+		<set name="pnPosts" lazy="false" inverse="true" cascade="all">
+			<key>
+				<column name="PERSON_ID" />
+			</key>
+
+			<one-to-many class="net.project.hibernate.model.PnPost" />
+		</set>
+		<!-- bi-directional one-to-many association to PnGroupHistory -->
+
+		<set name="pnGroupHistories" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="ACTION_BY_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnGroupHistory" />
+		</set>
+		<!-- bi-directional one-to-many association to PnAgendaItem -->
+
+		<set name="pnAgendaItems" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="OWNER_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnAgendaItem" />
+		</set>
+		<!-- bi-directional one-to-many association to PnGroup -->
+
+		<set name="pnGroups" lazy="false" inverse="true" cascade="all">
+			<key>
+				<column name="PRINCIPAL_OWNER_ID" />
+			</key>
+
+			<one-to-many class="net.project.hibernate.model.PnGroup" />
+		</set>
+		<!-- bi-directional one-to-many association to PnBookmark -->
+
+		<set name="pnBookmarksByOwnerId" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="OWNER_ID" />
+			</key>
+
+			<one-to-many class="net.project.hibernate.model.PnBookmark" />
+		</set>
+		<!-- bi-directional one-to-many association to PnBookmark -->
+
+		<set name="pnBookmarksByModifiedById" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="MODIFIED_BY_ID" />
+			</key>
+
+			<one-to-many class="net.project.hibernate.model.PnBookmark" />
+		</set>
+		<!-- bi-directional one-to-many association to PnPersonAllocation -->
+
+		<set name="pnPersonAllocations" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="PERSON_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnPersonAllocation" />
+		</set>
+		<!-- bi-directional one-to-many association to PnScheduledSubscription -->
+
+		<set name="pnScheduledSubscriptions" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="INITIATOR_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnScheduledSubscription" />
+		</set>
+		<!-- bi-directional one-to-many association to PnDirectoryHasPerson -->
+
+		<set name="pnDirectoryHasPersons" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="PERSON_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnDirectoryHasPerson" />
+		</set>
+		<!-- bi-directional one-to-many association to PnDocConfiguration -->
+
+		<set name="pnDocConfigurations" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="CREATED_BY" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnDocConfiguration" />
+		</set>
+		<!-- bi-directional one-to-many association to PnDiscussionHistory -->
+
+		<set name="pnDiscussionHistories" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="ACTION_BY_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnDiscussionHistory" />
+		</set>
+		<!-- bi-directional one-to-many association to PnObject -->
+
+		<set name="pnObjects" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="CREATED_BY" />
+			</key>
+
+			<one-to-many class="net.project.hibernate.model.PnObject" />
+		</set>
+		<!-- bi-directional one-to-many association to PnTaskHistory -->
+
+		<set name="pnTaskHistories" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="ACTION_BY_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnTaskHistory" />
+		</set>
+		<!-- bi-directional one-to-many association to PnDocVersion -->
+
+		<set name="pnDocVersionsByDocAuthorId" lazy="false"
+			inverse="true" cascade="all">
+			<key>
+				<column name="DOC_AUTHOR_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnDocVersion" />
+		</set>
+		<!-- bi-directional one-to-many association to PnDocVersion -->
+
+		<set name="pnDocVersionsByModifiedById" lazy="false"
+			inverse="true" cascade="all">
+			<key>
+				<column name="MODIFIED_BY_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnDocVersion" />
+		</set>
+		<!-- bi-directional one-to-many association to PnDocVersion -->
+
+		<set name="pnDocVersionsByCheckedOutById" lazy="false"
+			inverse="true" cascade="all">
+			<key>
+				<column name="CHECKED_OUT_BY_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnDocVersion" />
+		</set>
+		<!-- bi-directional one-to-many association to PnPersonHasStateReg -->
+
+		<set name="pnPersonHasStateRegs" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="PERSON_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnPersonHasStateReg" />
+		</set>
+		<!-- bi-directional one-to-many association to PnCalEventHasAttendee -->
+
+		<set name="pnCalEventHasAttendees" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="PERSON_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnCalEventHasAttendee" />
+		</set>
+		<!-- bi-directional one-to-many association to PnBill -->
+
+		<set name="pnBills" lazy="false" inverse="true" cascade="all">
+			<key>
+				<column name="ORIGINATING_PERSON_ID" />
+			</key>
+
+			<one-to-many class="net.project.hibernate.model.PnBill" />
+		</set>
+		<!-- bi-directional one-to-many association to PnPersonProperty -->
+
+		<set name="pnPersonProperties" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="PERSON_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnPersonProperty" />
+		</set>
+		<!-- bi-directional one-to-many association to PnProjectSpace -->
+
+		<set name="pnProjectSpaces" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="MODIFIED_BY_ID" />
+			</key>
+
+			<one-to-many 
+				class="net.project.hibernate.model.PnProjectSpace" />
+		</set>
+		<!-- bi-directional one-to-many association to PnFormsHistory -->
+
+		<set name="pnFormsHistories" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="ACTION_BY_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnFormsHistory" />
+		</set>
+		<!-- bi-directional one-to-many association to PnLicense -->
+
+		<set name="pnLicenses" lazy="false" inverse="true">
+			<key>
+				<column name="RESPONSIBLE_USER_ID" />
+			</key>
+
+			<one-to-many class="net.project.hibernate.model.PnLicense" />
+		</set>
+		<!-- bi-directional one-to-many association to PnNewsHistory -->
+
+		<set name="pnNewsHistories" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="ACTION_BY_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnNewsHistory" />
+		</set>
+		<!-- bi-directional one-to-many association to HelpFeedback -->
+
+		<set name="helpFeedbacks" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="PERSON_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.HelpFeedback" />
+		</set>
+		<!-- bi-directional one-to-one association to PnPersonHasLicense -->
+		<one-to-one name="pnPersonHasLicense"
+			class="net.project.hibernate.model.PnPersonHasLicense"
+			outer-join="auto" />
+		<!-- bi-directional one-to-many association to PnLoginHistory -->
+
+		<set name="pnLoginHistories" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="PERSON_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnLoginHistory" />
+		</set>
+		<!-- bi-directional one-to-many association to PnWorkingtimeCalendar -->
+
+		<set name="pnWorkingtimeCalendars" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="RESOURCE_PERSON_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnWorkingtimeCalendar" />
+		</set>
+		<!-- bi-directional one-to-many association to PnPostReader -->
+
+		<set name="pnPostReaders" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="PERSON_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnPostReader" />
+		</set>
+		<!-- bi-directional one-to-many association to PnLicensePurchaser -->
+
+		<set name="pnLicensePurchasers" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="PERSON_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnLicensePurchaser" />
+		</set>
+		<!-- bi-directional one-to-many association to PnPersonHasDiscipline -->
+
+		<set name="pnPersonHasDisciplines" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="PERSON_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnPersonHasDiscipline" />
+		</set>
+		<!-- bi-directional one-to-many association to PnDocHistory -->
+
+		<set name="pnDocHistories" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="ACTION_BY_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnDocHistory" />
+		</set>
+		<!-- bi-directional one-to-one association to PnPersonSurvey -->
+		<one-to-one name="pnPersonSurvey" cascade="all"
+			class="net.project.hibernate.model.PnPersonSurvey" outer-join="auto" />
+		<!-- bi-directional one-to-one association to PnPersonProfile -->
+		<one-to-one name="pnPersonProfile" cascade="all"
+			class="net.project.hibernate.model.PnPersonProfile"
+			outer-join="auto" />
+		<!-- bi-directional one-to-many association to PnDocCheckoutLocation -->
+
+		<set name="pnDocCheckoutLocations" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="PERSON_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnDocCheckoutLocation" />
+		</set>
+		<!-- bi-directional one-to-many association to PnPersonAuthenticator -->
+
+		<set name="pnPersonAuthenticators" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="PERSON_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnPersonAuthenticator" />
+		</set>
+		<!-- bi-directional one-to-many association to PnSpaceHasPerson -->
+
+		<set name="pnSpaceHasPersons" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="PERSON_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnSpaceHasPerson" />
+		</set>
+
+	</class>
+</hibernate-mapping>

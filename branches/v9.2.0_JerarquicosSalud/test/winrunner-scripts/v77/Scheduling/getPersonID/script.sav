@@ -1,0 +1,25 @@
+function getPersonID(in personName){
+	auto urlValue, elements, path_array,  
+	wait(3);
+# 	call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject"();
+# 	GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createParticipantsDirectory\\createParticipantsDirectory.gui");
+
+	set_window("main",2);
+	web_link_click("TestProject2");
+	set_window("menu",2);
+	web_link_click("Directory");
+	wait(2);
+	set_window("main",1);
+
+	web_obj_get_info(personName,"url",urlValue);
+	# pause(urlValue);
+	elements = split(urlValue,path_array,"=");
+	# pause(elements);
+	fieldID = path_array[3];
+	# pause(fieldID);
+	wait(1);
+	set_window("menu",1);
+	web_link_click("Workplan");
+	set_window("main",2);
+	return fieldID;
+}

@@ -1,0 +1,259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:PnetLayout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+	<script type="text/javascript" src="${jSPRootURL}/src/inviteMember.js?${versionNumber}" />
+	<script language='javascript' type='text/javascript'>
+			var addToInvitedList = '';
+			var selectedBusinessId = '${directoryId}';
+			var selectedChkBoxIds = '${selectedChkBoxIds}';
+			var selectedRoleIds = '${selectedRoleIds}';
+			var countAsPerProjects = '${totalMembersSelctedAsPerProject}';
+			var businessMemberListHeight;
+			var participantsListHeight;
+			var inviteeListHeight = '';
+			var loadingBusinessMemberErrorMsg = '<t:Message value="prm.directory.invitemember.loadingbusinessmembererrormessage.label"/>';
+   			var addingProjectOrSubbusinessErrorMsg = '<t:Message value="prm.directory.bulkinvitation.addingprojectorsubbusinesserrormessage.label"/>';
+   			var searchUserErrorMsg = '<t:Message value="prm.directory.invitemember.searchusers.label "/>';
+			var processingErrorMsg = '<t:Message value="prm.directory.invitemember.showprocessing.label"/>';
+			var selectMemberToInviteErrorMsg = '<t:Message value="prm.directory.invitemember.selectmembertoinvite.label"/>';
+			var selectProjectOrSubbusinessToAdd = '<t:Message value="prm.directory.bulkinvitaion.selectprojectorsubbusinesserrormsg.label"/>';
+			var selectedProjectOrSubbusinessAlreadyAddedErrorMeg = '<t:Message value="prm.directory.bulkinvitaion.selectprojectorsubbusinessalreadyaddederrormsg.label"/>';
+			var noProjectOrSubbusinessErrorMeg = '<t:Message value="prm.directory.bulkinvitation.noprojectorsubbusinesserrormsg.label"/>';
+			var searchMsg = '<t:Message value="prm.directory.invite.memberaddition.partialfirstorlastname.defaultmessage"/>';
+			var addSpaceFailureMsg = '<t:Message value="prm.directory.invitemembers.addingspacefailure.errormessage"/>';
+			var changeDirectoryLoadMemberFailureMsg = '<t:Message value="prm.directory.invitemembers.changedirectoryloadmemberfailure.errormessage"/>';
+			var deleteSpaceFailureMsg = '<t:Message value="prm.directory.invitemembers.deletespacefailure.errormessage"/>';
+			
+			function setup() {
+				setDefaultValue();
+				applyColorToEvenRows_only();
+				resizeBulkDiv('bulkInviteList', 218, 394);
+				if(document.getElementById('subBusinessProjectDirectory') != null)
+					document.getElementById('subBusinessProjectDirectory').value = selectedBusinessId;
+				setAlreadySelectedValues();
+				readyTosendRequest = true;
+				prepareSearchTextForManageDirectories();
+			}			
+			window.onresize = function(){
+				resizeBulkDiv('bulkInviteList', 218, 394);
+			}
+			window.onload = function(){
+				setup();
+			}
+			function help()
+			{
+				var helplocation=JSPRootURL+"/help/Help.jsp?page=Manage_Directory";
+				openwin_help(helplocation);
+			}				
+			
+	</script>
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td valign="top"><!-- Start of left navbar column -->
+			<div id="left-navbar">
+			<div id="leftheading-${user.currentSpace.type}"
+				style="position:relative;"><t:Message
+				value="prm.directory.directory.title" /></div>
+			<div class="project-title">${user.currentSpace.name}</div><br/>
+			<div class="spacer-for-toolbox"/>
+			<!-- Tool Box -->
+			<div class='toolbox-heading'><t:message value="prm.global.toolbox.heading"/></div>
+			<div id="toolbox-item" class="toolbox-item"><t:if
+				test="actionsIconEnabled">
+				<t:if test="blogEnabled">
+					<span id="blog-ItEnabled"> <a
+						onmouseover=" document.imgblogit.src = '${jspRootURL}/images/icons/toolbar-gen-blogit_over.gif'"
+						onmouseout=" document.imgblogit.src = '${jspRootURL}/images/icons/toolbar-gen-blogit_on.gif'"
+						href="javascript:blogit();"> <img hspace="0" border="0"
+						name="imgblogit"
+						src="${jspRootURL}/images/icons/toolbar-gen-blogit_on.gif"
+						title="Blog-it" alt="Blog-it" />&nbsp;<t:Message
+						value="all.global.toolbar.standard.blogit" /> </a> </span>
+					<br />
+				</t:if>
+				<t:parameter name="else">
+					<t:if test="blogEnabled">
+						<span id="blog-ItEnabled"> <a href="javascript:blogit();">&nbsp;
+						<t:Message value="all.global.toolbar.standard.blogit" /> </a> </span>
+						<br />
+					</t:if>
+				</t:parameter>
+			</t:if></div>
+			</div>
+			</td>
+			<!-- End of left navbar -->
+			<td valign="top" width="100%"><!-- Start of Content column -->
+			<div id="content" 
+				style="top:110px;padding-right:10px;">
+				<div>
+					<table width="100%" border="0" cellspacing="0" cellpadding="0" vspace="0">
+						<tr>
+							<td id="leftPane" valign="top">
+							  <table border="0" cellspacing="0" cellpadding="0">
+						 	     <tr>
+								    <td width="130" class="left_tab"><a href="${jSPRootURL}/directory/BulkInvitation?module=${moduleId}" style="text-decoration: none;">
+							        	<span class="active_tab"><t:Message value="prm.directory.managedirectory.invitemember.tab" /></span></a></td>
+							        <td>&nbsp;</td>
+									<td width="130" class="right_tab"><a href="${jSPRootURL}/directory/RemoveMembers?module=${moduleId}" style="text-decoration: none;">
+										<span class="disable_tab"><t:Message value="prm.directory.managedirectory.removemember.tab" /></span></a></td>
+							     </tr>
+						   	</table>
+						</td>
+					</tr>
+				</table>
+			<table width="100%" class="UMTableBorder">
+				<tr>
+					<td class="invitePageTitle" colspan="3"><t:Message value="prm.directory.bulkinvitation.title.name" /></td>
+				</tr>
+				
+				<tr>	
+						<t:form autofocus="false">
+						<t:actionLink t:id="loadUsers"></t:actionLink>
+						</t:form>
+						<td width="48%">
+						<div>
+						 <t:form t:id="selectBusienssForm" t:clientId="selectBusienssForm" autofocus="false" clientValidation="false" onsubmit="return false;">
+						<table border="0" cellpadding="0" cellspacing="0" class="inviteMemberSearch" width="100%">
+							<tr>
+								<td width="6"><img
+									src="${jSPRootURL}/images/directory/top_left_${user.currentSpace.type}.gif"
+									width="6" height="5" /></td>
+								<td><t:textField t:id="persistanceValues" value="defaultProjectValue" style="display:none;"/></td>
+								<td width="6"><img
+									src="${jSPRootURL}/images/directory/top_right_${user.currentSpace.type}.gif"
+									width="6" height="5" /></td>
+							</tr>
+							<tr height="23">
+						       	 <td colspan="3" class="managedirectoryTitle" nowrap="nowrap"><t:Message value="prm.directory.bulkinvitation.businessmeber.title"/></td>
+					        </tr>
+							<tr height="30">
+								<td rowspan="2">&nbsp;</td>
+								<td nowrap="nowrap" class="businessSearchTitle"><t:Message value="prm.directory.invitemember.directory.label" />&nbsp; 
+								<t:select t:id="subBusinessProjectDirectory" value="business" model="directoryBeanModel" encoder="directoryBeanModel" validate="required" onChange="prepareSearchTextForManageDirectories();" blankOption="NEVER"/></td>
+								<td rowspan="2">&nbsp;</td>
+							</tr>
+							<tr height="30">
+								<td class="businessSearchTitle" nowrap="nowrap"><t:Message value="prm.directory.invitemember.name.label" />&nbsp; 
+								<t:textField t:id="searchUser" value="searchUser" size="51"	onKeyDown='if(event.keyCode==13) prepareSearchTextForManageDirectories();' style="color:gray;" onfocus="clearValue('searchUser');" onblur="setDefaultValues('searchUser');"/>&nbsp;&nbsp;&nbsp;
+								</td>
+							</tr>
+							<tr>
+								<td><img
+									src="${jSPRootURL}/images/directory/bottom_left_${user.currentSpace.type}.gif"
+									width="6" height="5" /></td>
+								<td></td>
+								<td><img
+									src="${jSPRootURL}/images/directory/bottom_right_${user.currentSpace.type}.gif"
+									width="6" height="5" /></td>
+							</tr>
+						</table>
+						</t:form>
+						</div>
+						</td>
+					<td width="2%"></td>
+						<td width="48%">
+						<div>
+						<t:form t:id="selectProjectForm" t:clientId="selectProjectForm" autofocus="false" clientValidation="false">
+						<table border="0" cellspacing="0" cellpadding="0" class="adduser" width="100%" height="70">
+							<tr>
+								<td><img src="${asset:context:/images/directory/top_left_gray.gif}"	width="6" height="5" /></td>
+								<td><t:textField t:id="addProjectName" value="defaultProjectValue" style="display:none;"/></td>
+								<td><img
+									src="${asset:context:/images/directory/top_right_gray.gif}"
+									width="6" height="5" /></td>
+							</tr>
+							<tr height="23">
+						       	 <td colspan="3" class="managedirectoryTitle" nowrap="nowrap"><t:Message value="prm.directory.bulkinvitation.chooseproject.title"/></td>
+					        </tr>
+							<tr height="60">
+								<td>&nbsp;</td>
+								<td>
+								<table border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td colspan="1" class="subTitleMessage" nowrap="nowrap">
+										<t:Message value="prm.directory.bulkinvitation.projectsubproject.headertitle" /></td>
+									</tr>
+									<tr>
+										<td style="padding-left: 10px; padding-top: 11px;" nowrap="nowrap">
+											<t:select t:id="projectDirectory" value="business" class="projectDirectory" model="projectBeanModel" encoder="projectBeanModel" validate="required" blankOption="NEVER"/>&nbsp;
+											<button type="button" onclick="javascript:addProjectOrSubbusinessColumn();">
+											<t:Message value="prm.directory.bulkinvitation.addprojectorsubbusiness.label" /></button>
+										</td>
+									</tr>
+								</table>
+								</td>
+							</tr>
+							<tr>
+								<td width="6"><img
+									src="${asset:context:/images/directory/bottom_left_gray.gif}" /></td>
+								<td></td>
+								<td width="6"><img
+									src="${asset:context:/images/directory/bottom_right_gray.gif}" /></td>
+							</tr>
+						</table>
+						</t:form>
+						</div>
+						</td>
+					</tr>
+				<tr>
+					<td width="49%" valign="top" colspan="3">
+					<table width="100%" cellspacing="0" style="margin-top: 20px;overflow-x:auto;" class="UMTopBorder">
+						<tr valign="top">
+							<td width="98%">
+							<div id="bulkInviteList" style="overflow:auto;width:100%;height:210px;">
+							</div>
+							</td>
+						</tr>
+						<tr>
+							<td>
+							<table class="UMTopBorder UMstatusStyle" width="100%">
+								<tr>
+									<td id="totalMembersCnt" align="left" width="120"><t:Message value="prm.directory.bulkinvitation.totalmember.header" />
+									<span id="totalBusinessMembers"></span></td>
+									<td id="selectedCnt" width="100" style="padding-right:10px;"></td>
+								</tr>
+							</table>
+							</td>
+						</tr>
+						<tr>
+							<td class="UMTopBorder">
+							<div id="sendMailBlockTop">
+							<div id="sendMailBlockBottom">
+							<t:form t:id="sendInvitations" t:clientId="sendInvitations">
+								<table id="sendMailContents">
+									<tr height="25" align="center">
+										<td nowrap="nowrap" class="sendEmailTitle"><t:checkbox
+											t:id="sendToAll" value="sendToAll" onclick="javascript:enableCommentLink();"/>&nbsp; <t:Message
+											value="prm.directory.invitemember.sendemail.toallinvities" />&nbsp;
+										<a id="sendMailLinkId" href="#" disabled="true"> <span
+											class="additionalCommentTitle" id="additionalcomment"><t:Message
+											value="prm.directory.invitemember.sendemail.additioncomments" /></span></a>
+										<t:textField  t:id="sendInvitationDetails"  value="sendInvitationDetails" style="display:none;"/>
+										<t:textField t:id="selectedProjectsList"  value="selectedProjectList" style="display:none;overflow:auto;"/>
+										</td>
+									</tr>
+									<tr align="center">
+										<td><t:textArea t:id="additionalMessage" cols="60" value="additionalMessage" style="display:none" /></td>
+									</tr>
+									<tr height="25">
+										<td align="center">
+											<t:submit t:id="sending"  value="${addNewInviteeCaption}" onclick="return creatJSONbject();" style="width:190px;" align="absmiddle"/> 
+										</td>
+									</tr>
+								</table>
+							</t:form>
+							</div>
+							</div>
+							</td>
+						</tr>
+					</table>
+					</td>
+				</tr>
+			</table>
+			</div>
+			</div>
+			</td>
+		</tr>
+	</table>
+	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/inviteMember.css?${versionNumber}" />
+</t:PnetLayout>

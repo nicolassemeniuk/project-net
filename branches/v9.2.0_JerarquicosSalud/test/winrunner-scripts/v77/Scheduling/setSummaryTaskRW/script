@@ -1,0 +1,66 @@
+GUI_close_all();
+wait(3);
+
+reload("getPersonID",0,1);
+id[1] = getPersonID("Avinash Padmanabhan");
+fieldID= id[1];
+
+# inviting a user to the project
+reload("inviteUser",0,1);
+inviteUser("Mickey","Mouse","mickey@project.net");
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+web_obj_get_info("Mickey Mouse","url",urlValue);
+elements = split(urlValue,path_array,"=");
+id[0] = path_array[3];
+resourceID = id[0];
+# pause(resourceID);
+
+set_window("menu",3);
+web_link_click("Workplan");
+wait(2);
+
+set_window("main",3);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer", 2);
+button_press("OK");
+wait(5);
+set_window("main", 2);
+
+public task_types[] = {"Fixed Duration","Fixed Units","Fixed Work"};
+public units[] = {"hours","days","weeks"};
+reload("createTaskRW",0,1);
+reload("setSummaryTask",0,1);
+reload("checkSummaryDates",0,1);
+
+createTaskRW("t1", 1, units[1], 8, units[0], 1, id, 0);
+createTaskRW("t2", 1, units[1], 8, units[0], 1, id, 1);
+createTaskRW("t3", 2, units[1], 16, units[0], 1, id, 1);
+setSummaryTask("t2","t3",1);
+report_msg("Level 1");
+checkSummaryDates("t1",24, 2);
+
+createTaskRW("t4", 2, units[1], 16, units[0], 2, id, 1);
+createTaskRW("t5", 2, units[1], 16, units[0], 1, id, 1);
+setSummaryTask("t4","t5",2);
+report_msg("Level 2");
+checkSummaryDates("t3",32,2);
+checkSummaryDates("t1",40,2);
+
+createTaskRW("t6", 3, units[1], 16, units[0], 2, id, 0);
+createTaskRW("t7", 2, units[1], 16, units[0], 1, id, 1);
+setSummaryTask("t6","t7",3);
+report_msg("Level 3");
+checkSummaryDates("t5",32,2);
+checkSummaryDates("t3",48,2);
+checkSummaryDates("t1",56,2);
+
+createTaskRW("t8", 2, units[1], 16, units[0], 2, id, 0);
+createTaskRW("t9", 3, units[1], 16, units[0], 1, id, 1);
+setSummaryTask("t8","t9",4);
+report_msg("Level 4");
+checkSummaryDates("t7",32,2);
+checkSummaryDates("t5",48,2);
+checkSummaryDates("t3",64,2);
+checkSummaryDates("t1",72,2);

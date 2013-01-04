@@ -1,0 +1,43 @@
+function createSelectionMenu(in name, in mulsel){
+	extern i;
+# 	auto outText;
+	
+	wait(1);
+# 	report_msg("Within Selection Menu - "&i&"");
+	set_window("main",2);
+	list_select_item("ElementID","Selection Menu");
+	wait(1);
+	set_window("main",2);
+	edit_set("field_label",name);
+	edit_set("row_num",i);
+	if(mulsel == 1)
+		button_set("is_multi_select",ON);
+	list_select_item("column_id","Left");
+	
+	# Adding selection menu items SM1, SM2, SM3 and SM4
+	edit_set("DomainValueName","SM1");
+	button_press("Add");
+	wait(1);
+	set_window("main",2);
+	edit_set("DomainValueName","SM2");
+	button_press("Add");
+	wait(1);
+	set_window("main",2);
+	edit_set("DomainValueName","SM3");
+	button_press("Add");
+	wait(1);
+	set_window("main",2);
+	edit_set("DomainValueName","SM4");
+	button_press("Add");
+	wait(1);
+	set_window("main",2);
+	web_link_click("Submit");
+	wait(1);
+	set_window("main",2);
+	
+	# Verifying the selection menu was created and exists in the field list
+	if(obj_exists(name)==E_OK)
+		tl_step("Verify selection menu exists",0,"The Selection Menu '"&name&"' created successfully");
+	else
+		tl_step("Verify selection menu exists",1,"The creation of selection menu CANNOT be verified");
+}

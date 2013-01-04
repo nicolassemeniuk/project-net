@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+<div id="errorPanel" style="display:none"><t:OutputRaw value="errorMessage"/></div>
+<div id="schedule-column-width" style="display:none">${personalSettingsString}</div>
+<div id="schedule-status" style="display:none"> {"startDate": "<t:OutputRaw value="schedule.scheduleStartDateString"/>", "endDate":"<t:OutputRaw value="schedule.scheduleEndDateString"/>", "taskCount":" <t:OutputRaw value="schedule.schedueEntrieCountString"/>", "work": "<t:OutputRaw value="schedule.SchedueWorkSummaryString"/>"}</div>
+	<div id="task-list-header" style="overflow: hidden;position: absolute;">
+		<table id="task-list-table-container-header" width="2500" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+					<table cellspacing="0" id="taskListTable-header" class="resizable draggable disableSelection" cellpadding="0">
+						<!--table header rendering-->
+						<thead>
+							<tr class="tableHeader" align="left" id="task-list-row">
+								<t:loop source="schedule.taskList.scheduleColumn.scheduleColumnList" value="col">
+								<t:if test="col.visible">
+								<th width="${col.width}" id="thd_${col.columnId}" columnId="${col.columnId}" dragable="${col.dragable}" class="workPlanHeaderTd" onmouseover="moh(this);TableKit.Resizable.initDetect(event);" onmouseout="muh(this);TableKit.Resizable.killDetect(event);">
+									<div class="div_thd_${col.columnId} ${col.style}" id="thd_${col.columnId}_divId" style="cursor: default;width:${col.width};" onmousedown="javascript:dragtable.dragStart(event)" onclick="${col.sortJSCall}">
+										&nbsp;<t:OutputRaw value="col.header"/> <img align="absmiddle" src="${jSPRootURL}/s.gif" style="visibility: hidden;" width="12" height="12" id="sort-img-${col.defaultSequence}" />
+									</div>
+								</th>
+								</t:if>
+								</t:loop>
+							</tr>
+						</thead>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div>
+	
+	<div id="task-list" class="left-tab-content" onselectstart="return false" onscroll="onScrollStart(); scrollHeader('task-list-header', 'task-list');">
+		<form name="taskList" action="${jSPRootURL}/servlet/ScheduleController" method="post" onsubmit="javascript:return verifyAction();" mehtod="post">
+		<input type="hidden" name="action"/>
+		<input type="hidden" name="module" value="60"/>
+		<input type="hidden" name="theAction"/>
+		<input type="hidden" name="id"/>
+		<table id="task-list-table-container" width="2500" cellpadding="0" cellspacing="0">
+		<tr>
+		<td>
+		<table cellspacing="0" id="taskListTable" name="tableWithEvenRows"  class="disableSelection" cellpadding="0">
+		<!--table header rendering-->
+		<tr class="tableHeader" align="left" id="task-list-inner-row">
+			<input name="changeCheckedState" style="display:none;" onclick="changeSelection();" type="checkbox"/>
+			<t:loop source="schedule.taskList.scheduleColumn.scheduleColumnList" value="col">
+				<t:if test="col.visible">
+					<th width="${col.width}" id="thd_${col.columnId}_scroll" columnId="${col.columnId}" dragable="${col.dragable}" class="workPlanHeaderTd" onmouseover="moh(this);" onmouseout="muh(this);">
+						<div class="div_thd_${col.columnId} ${col.style}" style="cursor: default;width:${col.width};" onmousedown="javascript:dragtable.dragStart(event)">
+							&nbsp;
+						</div>
+					</th>
+				</t:if>
+			</t:loop>
+		</tr>
+		<!--table row rendering-->
+		<t:loop source="schedule.taskList.sequencedTaskListRow" value="row">
+			<tr id="${row.scheduleEntry.ID}" class="tableContent ${row.scheduleEntry.rowClass} ${row.scheduleEntry.summaryTaskCss} ${row.scheduleEntry.treeVisibilityClass} ${row.scheduleEntry.evenEntryCss}" level="${row.scheduleEntry.hierarchyLevel}" kidsShown = "${row.scheduleEntry.expanded}" entryType="${row.scheduleEntry.type}"  onclick="b(this,'${row.scheduleEntry.ID}','${row.scheduleEntry.type}');" ondblclick="p(${row.scheduleEntry.ID});" onmouseover="mo(this);" onmouseout="mu(this)">
+				<!--table data rendering-->
+				<input type="checkbox" value="${row.scheduleEntry.ID}" style="display:none" name="selected" id="chk_${row.scheduleEntry.ID}"/>
+				<t:loop source="row.scheduleColumns" value="col">
+					<t:if test="col.visible">
+						<td nowrap="nowrap" id="td_${col.columnAbbr}_${col.id}">
+							<div class="div_thd_${col.columnId} ${col.style}" id="${col.columnAbbr}_${col.id}" onclick="${col.onClick}">
+							<t:if test="col.value">
+							<t:OutputRaw value="col.value"/>
+								<t:parameter name="else">
+									&nbsp;
+								</t:parameter>
+							</t:if>
+							</div>
+						</td>
+					</t:if>
+					<t:if test="col.hiddenField">
+						<t:OutputRaw value="col.hiddenField"/>
+					</t:if>
+				</t:loop>	
+			</tr>
+		</t:loop>
+		</table>
+		</td>
+		</tr>
+		</table>
+		</form>
+	</div><!--	closing of schedule task-list div-->
+</div>

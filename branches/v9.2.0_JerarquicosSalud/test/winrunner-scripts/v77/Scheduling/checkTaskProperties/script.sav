@@ -1,0 +1,21 @@
+function checkTaskProperties(in taskName,in taskType, in durationVal, in durationUnits, in workVal, in workUnits){
+#######################################
+# declare the variables as auto
+#######################################		
+	auto outItem, outNum;	
+
+#######################################
+# Verifying from the task edit page whether the task 
+#######################################	
+	set_window("main",1);
+	web_link_click(taskName);
+	set_window("main",1);
+	web_link_click("Modify");
+	set_window("main",2);
+	list_check_selected("taskCalculationTypeFixedElementID",taskType);
+	edit_check_text("duration",durationVal,FALSE);
+	list_check_selected("duration_units",durationUnits);
+	edit_check_text("work",workVal,FALSE);
+	list_check_selected("work_units",workUnits);
+	web_link_click("Cancel");
+}	

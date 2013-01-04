@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnEnvelopeHasObject" 
+    table="PN_ENVELOPE_HAS_OBJECT"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnEnvelopeHasObjectPK">
+        <key-property 
+            name="envelopeId" 
+            column="ENVELOPE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="objectId" 
+            column="OBJECT_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnObject -->
+    <many-to-one
+        name="pnObject"
+	    class="net.project.hibernate.model.PnObject"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="OBJECT_ID" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to PnWorkflowEnvelope -->
+    <many-to-one
+        name="pnWorkflowEnvelope"
+	    class="net.project.hibernate.model.PnWorkflowEnvelope"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="ENVELOPE_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional one-to-many association to PnEnvelopeVersionHasObject -->
+
+    <set
+        name="pnEnvelopeVersionHasObjects"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="OBJECT_ID" />
+            <column name="ENVELOPE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnEnvelopeVersionHasObject"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:PnetLayout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<script type="text/javascript" src="${page.jSPRootURL}/src/inviteMember.js?${page.versionNumber}" />
+<link rel="stylesheet" type="text/css" href="${page.jSPRootURL}/styles/inviteMember.css?${page.versionNumber}"/>
+<script language='javascript' type='text/javascript'>
+	javascript:window.history.forward(-1);
+	var addToInvitedList = '';
+	var removeFromInvitedList = '';
+	projectNamesList = '${bulkInvitation.projectIds}';
+	var moduleId = '${moduleId}';
+	function setup() {
+		var projects = projectNamesList.split(',');
+		document.getElementById(projects[0]).style.display = 'block';	
+		document.getElementById('tabs_'+projects[0]).className = 'projectActiveTab tab_cls';
+		document.getElementById('leftsideTab_'+projects[0]).className = 'leftsideactivetab'; 
+		document.getElementById('rightsideTab_'+projects[0]).className = 'rightsideactivetab'; 
+		allreadyCheck();
+	}
+	window.onload = function(){
+		setup();
+	}
+</script> 	
+<table border="0" cellpadding="0" cellspacing="0"> <tr> <td valign="top"> <!-- Start of left navbar column -->
+	<div id="left-navbar">
+		<div id="leftheading-${page.user.currentSpace.type}" style="position: relative; margin-top: 15px;"><t:Message value="prm.directory.directory.title"/></div>
+		<div class="project-title">${page.user.currentSpace.name}</div> <br />
+		<div class="spacer-for-toolbox"/>
+		<!-- Tool Box -->
+		<div class='toolbox-heading'><t:message value="prm.global.toolbox.heading"/></div>
+		<div id="toolbox-item" class="toolbox-item">
+			<t:if test="actionsIconEnabled">
+				<t:if test="blogEnabled">
+					<span id="blog-ItEnabled">
+						<a onmouseover="document.imgblogit.src = '${page.jSPRootURL}/images/icons/toolbar-gen-blogit_over.gif'" onmouseout=" document.imgblogit.src = '${page.jSPRootURL}/images/icons/toolbar-gen-blogit_on.gif'" href="javascript:blogit();">
+							<img hspace="0" border="0" name="imgblogit" src="${page.jSPRootURL}/images/icons/toolbar-gen-blogit_on.gif" title="Blog-it" alt="Blog-it"/>&nbsp;
+							<t:Message value="all.global.toolbar.standard.blogit" />
+						</a>
+					</span><br />
+				</t:if>
+	            <t:parameter name="else">
+					<t:if test="blogEnabled">
+						<span id="blog-ItEnabled">
+							<a href="javascript:blogit();">
+								<t:Message value="all.global.toolbar.standard.blogit" />
+							</a>
+						</span><br />
+					</t:if>
+	            </t:parameter>
+            </t:if>
+		</div>
+	</div>
+		
+	</td> <!-- End of left navbar -->
+	<td valign="top" width="99%"><!-- Start of Content column -->
+			<div id="content" style="padding-right:10px;">
+				<t:form id="addRolesAndResponsiblityForm">
+				<input type="hidden" name="userRolescheckListId" id="userRolescheckListId"/>
+				<table width="500" border="0" cellpadding="0" cellspacing="0" style="overflow-x:auto;padding-top:15px;" >
+					<tr>
+						<td class="invitePageTitle"><t:Message value="prm.directory.directorypage.newinvitee.defaultrole.title"/></td>
+					</tr>
+					<tr><td></td></tr>
+					<tr>
+						<td><t:Message value="prm.directory.directorypage.newinvitee.defaultrole.subtitle"/></td>
+					</tr>
+					<tr>
+						<td class="leftPane" valign="top">
+						<div id="headerList" style="overflow-x:auto; width:800px;padding-top:15px;">
+						<table cellpadding="o" cellspacing="0" border="0">
+							<tr>
+								<t:loop source="selectedProjects" value="projectListWrapper" volatile="true">
+									<t:if test="projectListWrapper.inviteesList">
+										<input type="hidden" name="${projectListWrapper.projectId}_userRolescheckListId" id="${projectListWrapper.projectId}_userRolescheckListId"/>
+										<td>
+										<table cellspacing="0">
+											<tr><td id="leftsideTab_${projectListWrapper.projectId}" class="leftsidedeactivetab tab_cls" width="6"></td>
+											<td id="tabs_${projectListWrapper.projectId}" class="projectDeactiveTab tab_cls" title="${projectListWrapper.projectName}" tooltip="${projectListWrapper.projectName}" width="${projectListWrapper.manageTabWidth}px" nowrap="nowrap">
+												<div style="width:${projectListWrapper.manageTabWidth}px;"><a href="javascript:checkDiv('${projectListWrapper.projectId}')" style="text-decoration: none;">
+													${projectListWrapper.projectName}
+												</a>
+												</div>
+											</td>
+											<td id="rightsideTab_${projectListWrapper.projectId}" class="rightsidedeactivetab" width="6"></td><td>&nbsp;</td></tr>
+										</table>
+										</td>
+									</t:if>
+								</t:loop>
+							</tr>
+						</table>
+						</div>
+						</td>
+					</tr>
+				</table>
+				<div class="block-content UMTableBorder" style="overflow:auto;">
+				<table width="100%" cellpadding="0" cellspacing="0" border="0">
+					<tr>
+						<td>
+							<t:loop source="selectedProjects" value="projectListWrapper" volatile="true">
+							<t:if test="projectListWrapper.inviteesList">
+							<div id="${projectListWrapper.projectId}" style="display:none;height:345px;">
+								<table width="100%" name="tableWithEvenRows" class="row-content" cellpadding="0" cellspacing="0">
+									<tr class="table-header" align="center">
+										<td class="bulkResponsibilityHeader" nowrap="nowrap" width="20%" align="center">
+										<t:Message	value="prm.directory.directorypage.roster.column.name" /></td>
+										<td width="15%" class="table-header" style="color:gray;font-weight:bold;">
+											<t:Message value="prm.directory.directorypage.roster.column.titles" />
+										</td>
+										<td width="15%" class="table-header" style="color:gray;font-weight:bold;">
+											<t:Message value="prm.directory.directorypage.roster.column.responsilities" />
+										</td>
+										<t:loop source="projectListWrapper.userRoles" value="groupWrapper" volatile="true">
+											<td width="15%" nowrap="nowrap" align="center">${groupWrapper.groupName}</td>
+										</t:loop>
+									</tr>
+									<t:loop source="projectListWrapper.inviteesList" value="invitee" volatile="true">
+										<tr class="UMBottomBorderLine" style="height:20px;">
+											<td nowrap="nowrap" class="memberName" align="left" style="padding-left:3px;">
+											<t:if test="invitee.online">
+												<img src="${asset:context:/images/user-online-icon.gif}" />
+											<t:parameter name="else">
+												<img src="${asset:context:/images/user-icon.gif}" />
+											</t:parameter>
+											</t:if>
+											<span style="padding-left:8px;overflow:hidden;">${invitee.shortDisplayName}</span>
+											</td>
+											<td><input type="text" name="${projectListWrapper.projectId}msg_${invitee.email}" size="25" maxlength="100" style="height:20px;"/></td>
+											<td><input type="text" name="${projectListWrapper.projectId}resp_${invitee.email}" size="25" maxlength="500" style="height:20px;"/></td>
+											<t:loop source="projectListWrapper.userRoles" value="groupWrapper" volatile="true">
+												<t:MatchRole uniqueId="${projectListWrapper.projectId}${groupWrapper.groupId}${invitee.email}" projectId="${projectListWrapper.projectId}" groupId="${groupWrapper.groupId}" email="${invitee.email}" inviteeRoles="invitee.roles" defaultRole="${groupWrapper.groupDefaultSelected}"></t:MatchRole>
+											</t:loop>
+											</tr>
+										</t:loop>
+									</table>
+								</div>
+							</t:if>
+							</t:loop>
+						</td>
+					</tr>
+				</table>
+				</div>
+				<table width="100%">
+					<tr>
+						<td align="center">
+							<button type="button" onclick="javascript:sendInvitationAlert();">&nbsp;<t:Message value="prm.directory.bulkresponsiblity.submitbutton.caption" /></button>&nbsp;
+							<button type="button" onclick="redirectToDirectoryPage();">&nbsp;<t:Message value="prm.directory.bulkresponsiblity.cancelbutton.caption" /></button>
+						</td>
+					</tr>
+				</table>
+			</t:form>
+		</div>
+	</td>
+</tr></table>
+</t:PnetLayout>
+

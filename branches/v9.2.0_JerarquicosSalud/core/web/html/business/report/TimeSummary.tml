@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:PnetLayout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<div id="left-navbar">
+		<div id="leftheading-business" style="position: relative;"><t:Message value="prm.business.timesubmital.report.title"/></div>
+		<div class="project-title" style="margin-top: 5px;"> ${businessName}</div>
+		<br clear="both"/><div class="spacer-for-toolbox" /> 
+		<div class='toolbox-heading'><t:Message value="prm.global.toolbox.heading"/></div>
+		<div id="toolbox-item" class="toolbox-item">
+			<span>
+				<a id="exportExcelSheet" onmouseover="document.exportExcel.src = '${asset:context:/images/icons/timesheet-export_over.gif}'" onmouseout="document.exportExcel.src = '${asset:context:/images/icons/timesheet-export_on.gif}'" href="javascript:exportExcel();">
+					<img hspace="0" border="0" name="exportExcel" src="${asset:context:/images/icons/timesheet-export_on.gif}" title="${exportToExcelTitle}" alt="${exportToExcelTitle}"/>
+					&nbsp;<t:Message value="prm.resource.timesheet.exporttoexcel.link"/>
+				</a>	
+			</span><br/>
+			<span>
+				<a onmouseover="document.exportCSV.src = '${asset:context:/images/icons/timesheet-export_over.gif}'" onmouseout="document.exportCSV.src  = '${asset:context:/images/icons/timesheet-export_on.gif}'" href="javascript:exportCSV();">
+					<img hspace="0" border="0" name="exportCSV" src="${asset:context:/images/icons/timesheet-export_on.gif}" title="${exportCSVTitle}" alt="${exportCSVTitle}"/>
+					&nbsp;<t:Message value="prm.business.timesubmital.report.exportcsv.link"/>
+				</a>
+			</span>	
+		</div>			
+</div>	
+<script type="text/javascript" src="${jSPRootURL}/src/checkDate.js?${versionNumber}"></script>	
+<script type="text/javascript" src="${JSPRootURL}/src/timeSummary.js?${versionNumber}"></script>
+<script type="text/javascript" src="${jSPRootURL}/src/dhtml/tree.js?${versionNumber}"></script>
+<style title="column-style">
+.timeSummaryContent {
+	width: ${timeSummaryDivWidth}px;
+}
+
+.assignmentDataDiv {
+	height: ${assignmentDataDivHeight}px;
+	width: ${assignmentDataDivWidth}px;
+	border-left: 1px solid #b5e79e;
+}
+
+.summaryHeader{
+	width: ${summaryHeaderFooterWidth}px;
+	border-right: 1px solid #b5e79e;
+	background:  #D7FEC4 none repeat scroll 0 0;
+	border-left: 1px solid #b5e79e;
+}
+
+.summaryFooter{
+	width: ${summaryHeaderFooterWidth}px;
+	border-right: 1px solid #b5e79e;
+	background:  #D7FEC4 none repeat scroll 0 0;
+	border-left: 1px solid #b5e79e;
+}
+
+
+.summaryHeader-div {
+	width: ${summaryHeaderFooter_DivWidth}px;
+	overflow: hidden;
+}
+
+.summaryFooter-div {
+	width: ${summaryHeaderFooter_DivWidth}px;
+	overflow: hidden;
+}
+
+</style>
+<div id="content" width="90%" >
+	<table width="100%">
+		<t:form t:id="toplink" onSubmit="return false;" clientValidation="false" autofocus="false">
+			<tr><td colspan="5"></td></tr>
+			<tr width="100%">
+				<td id="startDate"  style="width:60px;">
+			   		<t:Message value="prm.business.timesubmital.report.startdate"/> :
+			   	</td>
+			   	 	<td style="width:130px;">	
+			   		<div class="date-div">
+						<input type="text" value="${startDateString}" name="startDateValue" id="startDateValue" size="10" maxlength="10" class="datefilter-tb-style" />
+						<img src="${asset:context:/images/schedule/constraint.gif}" align="absmiddle" onclick="autoDate('startDateValue', '${JSPRootURL}', 'toplink')" class="filter-calendar-img"/>
+					</div>
+			   </td>
+			   <td style="width:60px;" id="endDate">
+			   		<t:Message value="prm.business.timesubmital.report.enddate"/> :
+			   	</td>	
+			  	<td style="width:50px;">
+			   		<div class="date-div"> 
+						<input type="text" value="${endDateString}" name="endDateValue" id="endDateValue" size="10" maxlength="10" class="datefilter-tb-style"/>
+						<img src="${asset:context:/images/schedule/constraint.gif}" align="absmiddle" onclick="autoDate('endDateValue', '${JSPRootURL}', 'toplink')" class="filter-calendar-img"/>
+					</div>
+			   </td>
+			   <td colspan="2">
+		    	 <span id="errorMessage"></span>
+		       </td>
+			</tr>
+			
+			<tr>
+				<td valign="center" style="width:100px;"><t:Message value="prm.business.timesubmital.report.teammembers"/></td>
+				<td style="width:150px;" colspan="4" >
+					<select id="businessMembers" multiple="multiple" size="3">
+						<option value="all" selected="true"><b><t:Message value="prm.business.timesubmital.report.allteammembers"/></b></option>
+						<t:OutputRaw value="optionList" />
+					</select>
+				</td> 
+			</tr>
+			
+			<tr><td colspan="3"><input id="dailyViewEnabled" type="checkbox"/>&nbsp;<t:Message value="prm.business.timesubmital.report.showdailyview"/>&nbsp;&nbsp;&nbsp;
+				<input id="assignmentEnabled" type="checkbox"/>&nbsp;<t:Message value="prm.business.timesubmital.report.showassignments"/></td>
+				<td> &nbsp;&nbsp;&nbsp;
+			     	<input type="button" value="${viewButtonLabel}" id="viewSummaryData" onclick="viewSummaryList();"/>
+		       </td>
+			</tr>
+			<tr><td colspan="5"></td></tr>
+		</t:form>	
+    </table>
+	<div id="summaryContent" class="contentDiv">
+		<table border="0" cellspacing="0" cellpadding="0">
+			<tr>		
+				<td><div id="timeSummaryContent" class="timeSummaryContent"></div></td>
+			</tr>
+		</table>
+	</div>
+</div>	
+<script language="javascript">
+	var moduleId = '${moduleId}';
+	var spaceAdminId = '${spaceAdminId}';
+	var loadingErrorMessage = '<t:Message value="prm.business.timesubmital.report.loadingerrormessage"/>';
+	var loadingMsg = '<t:Message value="prm.business.timesubmital.report.loadingmessage"/>';
+	var invalidStartDateMsg = '<t:Message value="prm.business.timesubmital.report.invalidstartdatemsg"/>';
+	var invalidEndDateMsg = '<t:Message value="prm.business.timesubmital.report.invalidenddatemsg"/>';
+	var invalidDateRangeMsg = '<t:Message value="prm.timesummary.checkdate.invaliddaterange.label"/>';
+	var userDateFormatString = '${dateFormat}';
+	var fileEmptyMessage = '<t:Message value="prm.business.timesubmital.report.noassignments.message"/>';
+	
+	window.onload = function() { 
+		//selectDefaultOption();
+		viewTimeSummary();
+	}
+	
+	// Function for resize the window
+	window.onresize = function() { 
+		summaryWinResize();
+		setInnerDiv();
+		setHeaderWidth();
+	}
+</script> 
+</t:PnetLayout>	

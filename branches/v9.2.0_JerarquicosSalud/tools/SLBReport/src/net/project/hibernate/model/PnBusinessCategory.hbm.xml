@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnBusinessCategory" 
+    table="PN_BUSINESS_CATEGORY"
+    lazy="false"
+>
+
+    <id
+        name="businessCategoryId"
+        type="java.math.BigDecimal"
+        column="BUSINESS_CATEGORY_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="categoryName"
+        type="java.lang.String"
+        column="CATEGORY_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="categoryDescription"
+        type="java.lang.String"
+        column="CATEGORY_DESCRIPTION"
+        not-null="true"
+        length="80"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

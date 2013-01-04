@@ -1,0 +1,133 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<head> <title><t:Message value="prm.global.application.title" /></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Pragma" content="no-cache" />
+<!-- Linking all css files only here. 
+	 These are used for only Resources tab developed in Tapestry 5 -->
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/global.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/fonts.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/application.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/noframes.css?${versionNumber}"/>	
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/wiki.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${JSPRootURL}/styles/blog.css?${versionNumber}"/>
+<link rel='SHORTCUT ICON' type="text/css" href="${jSPRootURL}/images/favicon.ico" />
+<script language="javascript" type="text/javascript">
+var JSPRootURL = '${jSPRootURL}';
+var VERSION_NUMBER = '${versionNumber}';
+
+var selectProject = '<t:Message value="all.global.blogit.selectproject.errormessage"/>';
+var noProjectInList = '<t:Message value="all.global.blogit.noprojectInlist.errormessage"/>';
+var blogitNotSupportedForObject = '<t:Message value="all.global.blogit.notsupported.errormessage"/>';
+var validationMessageForBlogHtmlTagEntry = '<t:Message value="prm.blog.addweblogentry.htmlvalidation.message"/>';
+var selectRowBeforePostingBlog =  '<t:Message value="all.global.blogit.selectrowbeforepostingblog.errormessage"/>';
+var selectFormRecordBeforePostingBlog =  '<t:Message value="all.global.blogit.selectformrecordbeforepostingblog.errormessage"/>';
+var canNotPostBlogForUrl = '<t:Message value="all.global.blogit.cannotpostblogforurl.errormessage"/>';
+var canNotPostBlogForFolder = '<t:Message value="all.global.blogit.cannotpostblogforfolder.errormessage"/>';
+var selectDocumentRecordBeforePostingBlog = '<t:Message value="all.global.blogit.selectdocumentbeforeblogposting.errormessage"/>';
+var selectItemBeforePostingBlog = '<t:Message value="all.global.blogit.selectitembeforeblogposting.errormessage"/>'; 
+var blogitNotSupportedToThisPage = '<t:Message value="all.global.blogit.notsupportedtopage.errormessage"/>';
+var loadingImage = '<t:Message value="prm.global.loading.message"/>';
+var validationMegForBlogComment = '<t:Message value="all.global.blogit.blogcomment.blank.validationmessage"/>';
+var savingblog = '<t:Message value="prm.global.saving.message"/>';
+var canNotEnterWorkComplete = '<t:Message value="all.global.blogit.notenterworkdone.message"/>'; 
+var blogActivationMsg ='<t:Message value="all.global.blogit.blogactivation.message"/>'; 
+var loadingBlogErrorMsg = '<t:Message value="all.global.blogit.loadingblogentry.errormessage"/>'; 
+var activationErrorMsg =  '<t:Message value="all.global.blogit.activation.errormessage"/>'; 
+var activationFailedErrorMsg = '<t:Message value="all.global.blogit.activateblogbyclickingbloglink.message"/>'; 
+var savingCommentFailedErrorMsg = '<t:Message value="all.global.blogit.savingcommentfailed.errormessage"/>'; 
+var loadingRecentBlog = '<t:Message value="all.global.blogit.loadingrecentblogentry.message"/>';
+var blogentryDeletePermission = '<t:Message value="all.global.blogit.deleteblog.unathorizeduserpermission.message"/>';
+var deleteBlogEntryFailedErrorMsg = '<t:Message value="all.global.blogit.delete.blogfailed.message"/>';
+var checkAndRedirectErrorMsg = '<t:Message value="all.global.blogit.checkingandredirect.error.message"/>'; 
+var noBlogEntryFoundForTask = '<t:Message value="all.global.blogit.noblogentryfoundfortask.message"/>';
+
+<!-- //
+if((navigator.userAgent.toLowerCase()).indexOf( "msie" ) != -1 ) {
+	document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\""+JSPRootURL+"/styles/noframesie.css?"+VERSION_NUMBER+"\"/>");
+	document.write("<style type=\"text/css\"> html { overflow: auto; } </style>");
+}
+
+// -->
+</script>
+<!-- Common Styles for the Ext widgets -->
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/src/extjs/resources/css/ext-all.css?${versionNumber}"/>
+
+<!--  MarkItUp Wiki Editor Files -->
+<link rel="stylesheet" type="text/css" href="${jspRootURL}/styles/wikitoolbar.css" />
+<link rel="stylesheet" type="text/css" href="${jspRootURL}/styles/markitup.css" />
+<!--  MarkItUp Wiki Editor Files -->
+
+<!-- Ext JS's -->
+<script language="javascript" src="${jSPRootURL}/src/util.js?${versionNumber}"></script>
+<script type="text/javascript" src="${jSPRootURL}/src/extjs/adapter/ext/ext-base.js?${versionNumber}"></script>
+<script type="text/javascript" src="${jSPRootURL}/src/extjs/ext-all.js?${versionNumber}"></script>
+<script type="text/javascript" src="${jSPRootURL}/src/menu/dropdown.js?${versionNumber}"></script>
+<script language="javascript" src="${jSPRootURL}/src/window_functions.js?${versionNumber}"></script>
+<script type="text/javascript" src="${jSPRootURL}/src/blogit.js?${versionNumber}"></script>
+<script type="text/javascript" src="${jSPRootURL}/src/sessionHook.js?${versionNumber}" />
+<script type="text/javascript" src="${JSPRootURL}/src/upload.js?${versionNumber}"></script>
+<script type="text/javascript" src="${JSPRootURL}/src/wiki.js?${versionNumber}"></script>
+<script type="text/javascript" src="${JSPRootURL}/src/notifyPopup.js?${versionNumber}"></script>
+
+<!-- Wiki Image Chooser File -->
+<script type="text/javascript" src="${JSPRootURL}/src/wikiImageChooser.js?${versionNumber}"></script>
+<!-- Wiki Image Chooser File -->
+
+<script language="javascript" type="text/javascript">
+var errotAlertTitle = '${errotAlertTitle}';
+var personAndSpaceId = '${userId}${currentSpaceId}';
+var spaceForNavbar = '${spaceForNavbar}';
+var serverRequestFailed = '<t:Message value="prm.global.requestfailed.error.message"/>';
+<!-- //	
+	function extAlert(title, msg, icon){
+		Ext.MessageBox.show({
+			title: title,
+			msg: msg,
+			buttons: Ext.MessageBox.OK,
+			icon: icon
+		});
+	}
+	
+	function help(){
+		var helplocation = JSPRootURL+"/help/Help.jsp?page=wiki";
+		openwin_help(helplocation);	
+	}
+	
+	function editHelp(){
+		var helplocation = JSPRootURL+"/help/Help.jsp?page=Wiki Edit Reference";
+		openwin_help(helplocation);
+	}
+
+ 	var spaceMenuURL, navbarURL;
+	if(spaceForNavbar == 'project'){
+		spaceMenuURL = JSPRootURL+"/toolbar/include/Main.jsp?s=project&amp;i="+personAndSpaceId;
+		navbarURL = JSPRootURL+"/project/include/NavBar.jsp?s=project&amp;i="+personAndSpaceId;
+	} else if(spaceForNavbar == 'person'){
+		spaceMenuURL = JSPRootURL+"/toolbar/include/Main.jsp?s=personal&amp;i="+personAndSpaceId;
+		navbarURL = JSPRootURL+"/personal/include/NavBar.jsp?s=personal&amp;i="+personAndSpaceId;
+	} else if(spaceForNavbar == 'business'){
+		spaceMenuURL = JSPRootURL+"/toolbar/include/Main.jsp?s=business&amp;i="+personAndSpaceId;
+		navbarURL = JSPRootURL+"/business/include/NavBar.jsp?s=personal&amp;i="+personAndSpaceId;
+	}
+	
+	document.write("<script type='text/javascript' src="+spaceMenuURL+"><\/script>");
+	document.write("<script type='text/javascript' src="+navbarURL+"><\/script>");
+	
+	// added css for notify popup
+	if(spaceForNavbar == 'person'){
+		document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\""+JSPRootURL+"/styles/personal.css?"+VERSION_NUMBER+"\"/>");
+	} else if(spaceForNavbar == 'project'){
+		document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\""+JSPRootURL+"/styles/project.css?"+VERSION_NUMBER+"\"/>");
+	} else if(spaceForNavbar == 'business'){
+		document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\""+JSPRootURL+"/styles/business.css?"+VERSION_NUMBER+"\"/>");
+	}
+// -->
+</script>
+</head>
+<body class="main" id="tBodyWithFixedAreasSupport" >
+ 	<t:body />
+	<script language="javascript" type="text/javascript"> if(!accessIsExternal){ writeSpaceMenu();	writeSpaceNavBarMenu(); }</script>
+</body>
+</html>

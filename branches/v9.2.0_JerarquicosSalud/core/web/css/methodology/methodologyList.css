@@ -1,0 +1,36 @@
+.hidden { display: none; }
+.show { display: block; }
+.expand { background:transparent url(/images/plus.png) no-repeat scroll left center; }
+.collapse { background:transparent url(/images/minus.png) no-repeat scroll left center; }
+
+/* headings */
+h2 { margin: 5px 0 10px 0; color: #000000; font-weight: bold; font-size: 14px; }
+#loadIndicator { margin-left: 20px; color: #AAAAAA; }
+#loadIndicator strong { margin-left: 5px; }
+h3.projectTmpls { margin: 0; color: #0066DE; font-weight: bold; font-size: 14px; margin-bottom:5px; margin-top: 25px; }
+h3.businessTmpls { margin: 0; color: #37B700; font-weight: bold; font-size: 14px; margin-bottom:5px; margin-top: 25px; }
+.spaceTemplatesCnt { width: 98%;}
+/* template list items */
+.tmplList { border-top: 1px solid #AAAAAA; }
+.tmplList li { magin: 0; padding: 2px 4px; height: 20px; border-bottom: 1px solid #AAAAAA; }
+.tmplList li a.cntTrigger { display: block; float:left;  width: 15px; height:10px; padding-top: 5px; }
+.tmplList li h4 { font-weight: none; display: inline; padding-right: 20px; padding-left: 0px;  }
+.tmplList li span.by { padding-right: 20px; color: #AAAAAA; }
+.tmplList li span.by a { margin-left: 5px; padding-right: 20px; padding-left: 13px; color: #3A00AD; background:transparent url(/images/user-icon.gif) no-repeat scroll left center; }
+.tmplList li span.titleDescription { color: #AAAAAA; }
+/* expanded list */
+.tmplItemContent { border-bottom: 1px solid #AAAAAA; /*padding-top: 5px;*/ padding-bottom: 10px; height:130px; }
+.tmplItemContent ul li { line-height: 12px; float: left; border-bottom: none; }
+.tmplItemContent ul li.general { width: 50%; }
+.tmplItemContent ul li.modules { width: 40%; }
+.tmplItemContent ul li p { /*padding-top: 1px;*/ line-height: 10px; }
+div.label { width: 130px; float: left; color: #AAAAAA; font-size: 12px; padding-left: 30px; }
+div.value { overflow: auto; font-size: 12px; max-height: 90px; line-height: 14px;}
+div.useScenario { max-height: 50px; overflow: auto; }
+.modules .value { max-height: 150px; overflow: auto; }
+
+/* styling load indicator */
+#content h2 { float:left; margin-bottom: 20px;}
+#content form { clear: both; } 
+.loadIndicator { margin-left: 30px; color: #AAAAAA; display: inline; }
+.loadIndicator strong { margin-left: 10px; }

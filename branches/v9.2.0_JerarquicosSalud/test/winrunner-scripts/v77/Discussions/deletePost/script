@@ -1,0 +1,25 @@
+function deletePost(in postname){
+	auto urlValue, elements, postID, path_array[];
+
+	wait(1);
+	set_window("upper_frame",2);
+	web_obj_get_info(postname,"url",urlValue);
+	elements = split(urlValue,path_array,"=");
+	postID = path_array[5];
+	
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Discussions\\discussions.gui","upper_frame","selected","part_value",postID)!=E_OK)
+		report_msg("NOT OK1");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Discussions\\discussions.gui");	
+	
+	button_set("selected",ON);
+	wait(1);
+	set_window("upper_frame", 3);
+	web_link_click("Remove");
+	set_window("upper_frame", 3);
+	
+	if(obj_exists(postname)!=E_OK)
+		tl_step("Deleting a post", 0, "Post was successfully deleted");
+	else
+		tl_step("Deleting a post", 1, "Post COULD NOT be deleted successfully");
+}	

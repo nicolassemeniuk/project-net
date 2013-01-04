@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnModuleHasObjectType" 
+    table="PN_MODULE_HAS_OBJECT_TYPE"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnModuleHasObjectTypePK">
+        <key-property 
+            name="moduleId" 
+            column="MODULE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="objectType" 
+            column="OBJECT_TYPE" 
+            type="java.lang.String"
+            length="80"
+        />
+    </composite-id>    
+
+    <property
+        name="isOwner"
+        type="int"
+        column="IS_OWNER"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnModule -->
+    <many-to-one
+        name="pnModule"
+	    class="net.project.hibernate.model.PnModule"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="MODULE_ID" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to PnObjectType -->
+    <many-to-one
+        name="pnObjectType"
+	    class="net.project.hibernate.model.PnObjectType"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="OBJECT_TYPE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

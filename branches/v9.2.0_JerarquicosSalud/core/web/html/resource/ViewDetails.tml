@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:Layout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<style type="text/css">
+.rowColorForResource{
+	background-color:#CCCCFF;
+}
+.rowColorForTotals{
+	background-color:#EBEBEB;
+}
+</style>
+
+<script type="text/javascript">
+var gridTitle = '${gridTitle}';
+var taskAssignmentColumnHeader = '${taskAssignmentColumnLabel}';
+var workspaceColumnHeader = '${workspaceColumnLabel}';
+var plannedStartColumnHeader = '${plannedStartColumnLabel}';
+var plannedFinishColumnHeader = '${plannedFinishColumnLabel}';
+var actualStartColumnHeader = '${actualStartColumnLabel}';
+var actualFinishColumnHeader = '${actualFinishColumnLabel}';
+var totalWorkColumnHeader = '${totalWorkColumnLabel}';
+var workCompleteColumnHeader = '${workCompleteColumnLabel}';
+var workRemainingColumnHeader = '${workRemainingColumnLabel}';
+var workPercentCompleteColumnHeader = '${workPercentCompleteColumnLabel}';		
+var extAlertTitle = '${extAlertTitle}';
+var serverRequestFailedMessage = '${serverRequestFailedMessage}';
+var fromDateInvalidMessage = '${fromDateInvalidMessage}';
+var toDateInvalidMessage = '${toDateInvalidMessage}';
+var dateFieldBlankMessage = '${dateFieldBlankMessage}';
+var InvalidDateRangeMessage = '${InvalidDateRangeMessage}';
+var gridTotalRowLabel = '${gridTotalRowLabel}';
+var gridData = ${gridData};
+var searchMessage = '${searchMessage}';
+var jspRootUrl = '${jSPRootURL}';
+var inputDateFieldProperMessage = '${inputDateFieldProperMessage}';
+var resourceColumnHeader = '<t:Message value="prm.resource.viewdetails.column.resource.label" />';
+
+<!-- //
+
+function displayCalendarDiv(objDate, strFromat, objThis){
+	if(objDate.value != '' && !checkDate(objDate)){
+		extAlert(extAlertTitle, inputDateFieldProperMessage, Ext.MessageBox.ERROR);
+		objDate.focus();
+		return false;
+	}else{
+		displayCalendar(objDate, strFromat, objThis);
+	}
+}
+
+function validateForm(arg){	
+	//Close calendar if it is open
+	if(calendarDiv && calendarDiv.style.display == 'block' ){
+		closeCalendar();
+	}
+	if(document.getElementById('from').value == '' || document.getElementById('to').value == ''){
+		extAlert(extAlertTitle, dateFieldBlankMessage, Ext.MessageBox.ERROR);
+		return false;
+	} else if(!checkDate(document.getElementById('from'))){
+		extAlert(extAlertTitle, fromDateInvalidMessage, Ext.MessageBox.ERROR);
+		return false;
+	} else if(!checkDate(document.getElementById('to'))){
+    	extAlert(extAlertTitle, toDateInvalidMessage, Ext.MessageBox.ERROR);
+    	return false;
+    } else if(Date.parse(document.getElementById('from').value) > Date.parse(document.getElementById('to').value)){
+		extAlert(extAlertTitle, InvalidDateRangeMessage, Ext.MessageBox.ERROR);
+		return false;
+	}	
+	fetchGridData(arg);
+}
+// -->
+</script>
+<script type="text/javascript" src="${jSPRootURL}/src/viewDetails-grid.js?${versionNumber}"></script>
+<t:SpaceMainMenu />
+<t:NavBar />
+<div id="tcontent">
+	<table width="98%" border="0" cellpadding="0" cellspacing="0">
+		<tr class="channelHeader">
+			<td class="channelHeader" width="1%"><img
+				src="${jSPRootURL}/images/icons/channelbar-left_end.gif" width="8"
+				height="15" border="0" hspace="0" vspace="0" /></td>
+			<td nowrap="nowrap" class="channelHeader"><t:Message value="prm.resource.viewdetails.pagetitle" /></td>
+			<td align="right" nowrap="nowrap" class="channelHeader">&nbsp;</td>
+			<td align="right" class="channelHeader" width="5%"><img
+				src="${jSPRootURL}/images/icons/channelbar-right_end.gif" width="8"
+				height="15" border="0" hspace="0" vspace="0" /></td>
+		</tr>
+	</table>
+	<br />
+	<t:form t:id="viewForm" autofocus="false" clientValidation="false">
+		<table align="center" cellpadding="0" cellspacing="0" style="z-index: 1px;">
+			<tr align="center" class="fieldNonRequired">
+				<td><t:Message value="prm.resource.viewdetails.business.label" />:</td>
+				<td><t:select model="businessesModel" encoder="businessesModel"
+					value="resourceList" clientId="resourceList" blankOption="NEVER" /></td>
+				<td colspan="2">&nbsp;&nbsp;&nbsp;</td>
+			</tr>
+			<tr height="5">
+				<td colspan="4"></td>
+			</tr>
+			<tr align="center" class="fieldNonRequired">
+				<td><t:Message value="prm.resource.viewdetails.fromtasksassignedfrom.label" />:</td>
+				<td>&nbsp;&nbsp; <input t:type="TextField" clientId="from"
+					name="from" size="8" value="fromDate" />&nbsp;&nbsp;&nbsp; <img
+					src="${jSPRootURL}/images/calendar/cal.gif"
+					onclick="displayCalendarDiv(document.getElementById('from'),'${calendarDateFormat}',this);" />
+				</td>
+				<td>&nbsp;&nbsp;&nbsp;&nbsp;<t:Message value="prm.resource.viewdetails.to.label" /> : <input
+					t:type="TextField" name="to" size="8" value="toDate" clientId="to" />
+				&nbsp;&nbsp;&nbsp; <img src="${jSPRootURL}/images/calendar/cal.gif"
+					onclick="displayCalendarDiv(document.getElementById('to'),'${calendarDateFormat}',this);" />
+				</td>
+				<td>&nbsp;&nbsp;<input type="button" id="viewBtn"
+					value="${viewButtonLabel}" onclick="return validateForm(0);" /></td>
+			</tr>
+			<tr height="5">
+				<td align="center" colspan="4"><font size="1" color="brown">e.g.
+				01/31/2008 (mm/dd/yyyy)</font></td>
+			</tr>
+			<tr>
+				<td colspan="4" align="center">
+					<div id="searchMessage" style="top: 40px;"><label
+						style="color:red; font-weight:bold;">${message}</label></div>
+				</td>
+			</tr>
+		</table>
+	</t:form>
+	<table width="93%">
+		<tr>
+			<td align="right">&nbsp;&nbsp;&nbsp;&nbsp; <img
+				src="${jSPRootURL}/images/icons/actionbar-previouspost_off.gif"
+				id="preThreeMonthImage" onclick="validateForm(-3);"
+				title="${goThreeMonthsBackwardImageTooltip}" /> &nbsp;&nbsp;&nbsp;&nbsp; <img
+				src="${jSPRootURL}/images/icons/actionbar-back_off.gif"
+				id="preOneMonthImage" onclick="validateForm(-1);"
+				title="${goOneMonthBackwardImageTooltip}" /> &nbsp;&nbsp;&nbsp;&nbsp; <img
+				src="${jSPRootURL}/images/icons/actionbar-next_off.gif"
+				id="nextOneMonthImage" onclick="validateForm(1);"
+				title="${goOneMonthForwardImageTooltip}" /> &nbsp;&nbsp;&nbsp;&nbsp; <img
+				src="${jSPRootURL}/images/icons/actionbar-nextpost_off.gif"
+				id="nextThreeMonthImage" onclick="validateForm(3);"
+				title="${goThreeMonthsForwardImageTooltip}" /> &nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td>
+			<div id="gridPosition" style="margin-right: 10px;"></div>
+			</td>
+		</tr>
+		<tr>
+			<td>
+			<div style="text-align: right; margin-right: 20px;"><font
+				face="Arial" size="2" color="brown"> <b><t:Message value="prm.resource.viewdetails.doubleclicktoviewtaskdetails.notemessage" />
+			<t:Message value="prm.resource.viewdetails.allworkvaluesareinhours.notemessage" /></b></font></div>
+			</td>
+		</tr>
+	</table>
+</div>
+</t:Layout>

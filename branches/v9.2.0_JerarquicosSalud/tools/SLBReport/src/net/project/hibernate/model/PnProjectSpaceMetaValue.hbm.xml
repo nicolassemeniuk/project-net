@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping  auto-import="true" default-access="property" default-cascade="none">
+
+<class 
+    name="net.project.hibernate.model.PnProjectSpaceMetaValue"
+    table="PN_PROJECT_SPACE_META_VALUE"
+    lazy="false"
+    >
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnProjectSpaceMetaValuePK">
+        <key-property
+            name="projectId"
+            column="PROJECT_ID"
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property
+            name="propertyId"
+            column="PROPERTY_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>
+
+    <property
+        name="propertyValue"
+        type="java.lang.String"
+        column="PROPERTY_VALUE"
+        length="1000"
+    />
+
+    <!-- Associations -->
+    <many-to-one
+        name="pnProjectSpace"
+	    class="net.project.hibernate.model.PnProjectSpace"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="PROJECT_ID" />
+	</many-to-one>
+
+    <many-to-one
+        name="pnProjectSpaceMetaProp"
+	    class="net.project.hibernate.model.PnProjectSpaceMetaProp"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="PROPERTY_ID" />
+	</many-to-one>
+  
+</class>
+</hibernate-mapping>

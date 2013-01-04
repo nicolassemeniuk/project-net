@@ -1,0 +1,14 @@
+function extractDocumentID(in containerID,in fileName){
+	static val; 
+	auto record_number, rc1, rc2;
+	
+	rc1 = db_connect("query1","DSN=v80stage;UID=pnet;PWD=pnet;DRIVER={Oracle in OraHome92};");
+ 	if (rc1!=E_OK)
+ 		report_msg("Cannot connect to database");
+	else (rc1 == E_OK)
+		rc2 = db_execute_query ("query1","select o.object_id from pn_doc_container_has_object dcho, pn_object o, pn_object_name oname where dcho.doc_container_id = "&containerID&" and dcho.object_id = o.object_id and o.record_status = 'A' and o.object_id = oname.object_id and oname.name = '"&fileName&"'", record_number);
+	val = db_get_field_value ("query1", "#0", "OBJECT_ID");
+	db_disconnect("query1");
+	return val;
+}
+

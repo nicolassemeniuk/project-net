@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnWorkflow" 
+    table="PN_WORKFLOW"
+    lazy="false"
+>
+
+    <id
+        name="workflowId"
+        type="java.math.BigDecimal"
+        column="WORKFLOW_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="workflowName"
+        type="java.lang.String"
+        column="WORKFLOW_NAME"
+        length="80"
+    />
+    <property
+        name="workflowDescription"
+        type="java.lang.String"
+        column="WORKFLOW_DESCRIPTION"
+        length="500"
+    />
+    <property
+        name="createdById"
+        type="java.math.BigDecimal"
+        column="CREATED_BY_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="notes"
+        type="java.lang.String"
+        column="NOTES"
+        length="4000"
+    />
+    <property
+        name="createdDatetime"
+        type="java.sql.Date"
+        column="CREATED_DATETIME"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="modifiedById"
+        type="java.math.BigDecimal"
+        column="MODIFIED_BY_ID"
+        length="20"
+    />
+    <property
+        name="ownerId"
+        type="java.math.BigDecimal"
+        column="OWNER_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="modifiedDatetime"
+        type="java.sql.Date"
+        column="MODIFIED_DATETIME"
+        length="7"
+    />
+    <property
+        name="isPublished"
+        type="int"
+        column="IS_PUBLISHED"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isGeneric"
+        type="int"
+        column="IS_GENERIC"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnWorkflowEnvelope -->
+
+    <set
+        name="pnWorkflowEnvelopes"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="WORKFLOW_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnWorkflowEnvelope"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnWorkflowTransition -->
+
+    <set
+        name="pnWorkflowTransitions"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="WORKFLOW_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnWorkflowTransition"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnWorkflowHasObjectType -->
+
+    <set
+        name="pnWorkflowHasObjectTypes"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="WORKFLOW_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnWorkflowHasObjectType"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnSpaceHasWorkflow -->
+
+    <set
+        name="pnSpaceHasWorkflows"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="WORKFLOW_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasWorkflow"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnWorkflowStep -->
+
+    <set
+        name="pnWorkflowSteps"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="WORKFLOW_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnWorkflowStep"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to PnWorkflowStrictness -->
+    <many-to-one
+        name="pnWorkflowStrictness"
+        class="net.project.hibernate.model.PnWorkflowStrictness"
+        not-null="true"
+    >
+        <column name="STRICTNESS_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

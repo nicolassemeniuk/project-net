@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.QrtzFiredTrigger" 
+    table="QRTZ_FIRED_TRIGGERS"
+    lazy="false"
+>
+
+    <id
+        name="entryId"
+        type="java.lang.String"
+        column="ENTRY_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="triggerName"
+        type="java.lang.String"
+        column="TRIGGER_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="triggerGroup"
+        type="java.lang.String"
+        column="TRIGGER_GROUP"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="isVolatile"
+        type="java.lang.String"
+        column="IS_VOLATILE"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="instanceName"
+        type="java.lang.String"
+        column="INSTANCE_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="firedTime"
+        type="long"
+        column="FIRED_TIME"
+        not-null="true"
+        length="13"
+    />
+    <property
+        name="state"
+        type="java.lang.String"
+        column="STATE"
+        not-null="true"
+        length="16"
+    />
+    <property
+        name="jobName"
+        type="java.lang.String"
+        column="JOB_NAME"
+        length="80"
+    />
+    <property
+        name="jobGroup"
+        type="java.lang.String"
+        column="JOB_GROUP"
+        length="80"
+    />
+    <property
+        name="isStateful"
+        type="java.lang.String"
+        column="IS_STATEFUL"
+        length="1"
+    />
+    <property
+        name="requestsRecovery"
+        type="java.lang.String"
+        column="REQUESTS_RECOVERY"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

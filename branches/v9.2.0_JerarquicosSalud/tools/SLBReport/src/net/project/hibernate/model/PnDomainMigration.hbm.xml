@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDomainMigration" 
+    table="PN_DOMAIN_MIGRATION"
+    lazy="false"
+>
+
+    <id
+        name="domainMigrationId"
+        type="java.math.BigDecimal"
+        column="DOMAIN_MIGRATION_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="adminMessageClob"
+        type="java.sql.Clob"
+        column="ADMIN_MESSAGE_CLOB"
+        length="4000"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PnUserDomain -->
+    <many-to-one
+        name="pnUserDomainByToDomain"
+        class="net.project.hibernate.model.PnUserDomain"
+        not-null="true"
+    >
+        <column name="TO_DOMAIN" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PnUserDomain -->
+    <many-to-one
+        name="pnUserDomainByFromDomain"
+        class="net.project.hibernate.model.PnUserDomain"
+        not-null="true"
+    >
+        <column name="FROM_DOMAIN" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnUserDomainMigration -->
+
+    <set
+        name="pnUserDomainMigrations"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DOMAIN_MIGRATION_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnUserDomainMigration"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<span xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<t:if test="isLoadMember">
+	<t:if test="personWrappers">
+		<t:form t:id="removeProject" name="removeProject" t:clientId="removeProject" clientValidation="false" autoFocus="false">
+			<t:textField t:id="persistanceValue" value="defaultProjectValue" style="display: none;"/>
+			<t:textField t:id="removeProjectName" clientId="removeProjectName" value="removeProjectId" style="display: none;"/>
+		</t:form>
+		<table id="userlist" width="100%" cellspacing="0" class="t-data-grid" name="tableWithEvenRows">
+			<tr class="table-header memberName">
+					<td width="20%" style="padding-left:5px;" class="over-table" nowrap="nowrap"><t:Message	value="prm.directory.directory.invitemember.usergridtitle.name" /></td>
+						<t:if test="selectedProjects">
+							<t:loop source="selectedProjects" value="projectListWrapper">
+								<td width="20%" nowrap="nowrap" style="border-left: 1px solid #D7D7D7;" >
+									<t:if test="projectListWrapper.spaceNameBusiness">
+										<img src="${asset:context:/images/sub_businessIcon.gif}" />
+										<t:parameter name="else">
+											<img src="${asset:context:/images/project-icon.gif}" />
+										</t:parameter>
+									</t:if>
+									${projectListWrapper.projectName}
+									<input type="hidden" id="${projectListWrapper.projectId}"/>
+									<input type="hidden" id="members_${projectListWrapper.projectId}"/>
+									<span style="padding-left:8px;padding-right:28px;color:#3399ff;">
+									<a href="javascript:enableAllMembers('${projectListWrapper.projectId}','invitemembers')" id="${projectListWrapper.projectId}" style="color:#3399ff;padding-left:8px;"><t:Message value="prm.directory.bulkinvitation.selectallcheck.title" /></a>
+									</span>
+									<a href="javascript:removeProjectNameFromList('${projectListWrapper.projectId}');">
+										<t:if test="projectListWrapper.spaceNameBusiness">
+											<img src="${jSPRootURL}/images/directory/close-icon.png" align="absmiddle" title="${deleteBusinessTooltip}"/>
+											<t:parameter name="else">
+												<img src="${jSPRootURL}/images/directory/close-icon.png"  align="absmiddle" title="${deleteProjectTooltip}"/>
+											</t:parameter>
+										</t:if>
+									</a>
+								</td>
+							</t:loop>
+						</t:if>
+			</tr>
+			<t:loop source="personWrappers" value="personWrapper">
+				<tr onclick="hl(this);" onmouseover="ov(this);" onmouseout="ou(this);">
+					<td class="memberName" nowrap="nowrap" style="padding-left:2px;">
+						<t:if test="personWrapper.online">
+								<img src="${asset:context:/images/user-online-icon.gif}" /><span class="memberName">${personWrapper.searchedDisplayName}</span>
+							<t:parameter name="else">
+								<img src="${asset:context:/images/user-icon.gif}" /><span class="memberName">${personWrapper.searchedDisplayName}</span>
+							</t:parameter>
+						</t:if>
+					</td>
+					<t:if test="selectedProjects">
+					<t:loop source="selectedProjects" value="projectListWrapper">
+						<t:MatchMember memberId="personWrapper.email" participantList="projectListWrapper.participantList" projectName="projectListWrapper.projectId" roleOptionList="projectListWrapper.roleOptionList" cntProject="projectListWrapper.cntforprojectAndSubbusinesses"></t:MatchMember>
+					</t:loop>
+					</t:if>
+				</tr>
+			</t:loop>
+			<tr>
+				<td></td>
+				<t:loop source="selectedProjects" value="projectListWrapper">
+				<td><span id="selected_${projectListWrapper.projectId}">0</span><span id="invited_${projectListWrapper.projectId}">(${projectListWrapper.participantListCount})</span></td>
+				</t:loop>
+			</tr>
+	</table>
+<t:parameter name="else">
+	<t:Message value="prm.directory.directory.invitemember.nomember.message"/>
+	</t:parameter>
+</t:if>
+<script type="text/javascript"> 
+	projectIds = '${projectIds}';
+	memberIds = '${memberIds}';	
+	inviteMemberEmailIds = '${inviteMemberEmailIds}';
+	selectedChkBoxIds = '${selectedChkBoxIds}';
+	selectedRoleIds = '${selectedRoleIds}';
+	countAsPerProjects = '${totalMembersSelctedAsPerProject}';
+	businessMembers = '${businessMembersCount}';
+	setSelectedRecords();
+	if(document.getElementById('totalBusinessMembers') != null){
+		document.getElementById('totalBusinessMembers').innerHTML = '${businessMembersCount}';
+	}
+</script> 
+</t:if>
+</span>
+

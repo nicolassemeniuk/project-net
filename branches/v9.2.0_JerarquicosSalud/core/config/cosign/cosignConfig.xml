@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CosignConfig>
+  <!--Certificate path-->
+  <KeyStorePath>E:\tomcat6\conf\psustore</KeyStorePath>
+  <!--<KeyStorePassword>javacosign</KeyStorePassword> -->
+  <KeyStorePassword>avibha</KeyStorePassword>
+  <ServiceName>estest.ais.psu.edu</ServiceName>
+  <CosignServerHost>webaccess.psu.edu</CosignServerHost>
+  <!--<CosignServerHost>weblogin.umich.edu</CosignServerHost> -->
+  <CosignServerPort>6663</CosignServerPort>
+  <ConnectionPoolSize>30</ConnectionPoolSize>
+  <CookieExpireSecs>120</CookieExpireSecs>
+  <CookieCacheExpireSecs>30</CookieCacheExpireSecs>
+  <LoginRedirectUrl>https://webaccess.psu.edu/</LoginRedirectUrl>
+  <!-- <LoginRedirectUrl>https://weblogin.umich.edu/</LoginRedirectUrl>-->
+  <LoginPostErrorUrl>https://estest.ais.psu.edu/</LoginPostErrorUrl>
+  <LoginSiteEntryUrl>https://estest.ais.psu.edu/</LoginSiteEntryUrl>
+  <CheckClientIP>false</CheckClientIP>
+  <HttpsOnly>false</HttpsOnly>
+  <HttpsPort>8443</HttpsPort>
+  <ClearSessionOnLogin>true</ClearSessionOnLogin>
+  <ConfigFileMonitoringIntervalSecs>5</ConfigFileMonitoringIntervalSecs>
+  <LocationHandlerRef>/cosign/valid</LocationHandlerRef>
+   <!--<RedirectRegex>http://patkm-xp</RedirectRegex> -->
+   <RedirectRegex>https://.*\.edu/.*</RedirectRegex>
+  <!-- how long - in minutes - before a cosign host DNS ip refresh is to occure -->
+  <CosignServerHostIpCheck>2</CosignServerHostIpCheck>
+   <services>
+   <service name="cosign-estest.ais.psu.edu" getproxies="false">
+      <protected allowpublicaccess="false">/*</protected>
+    </service>
+  </services>
+</CosignConfig>
+
+

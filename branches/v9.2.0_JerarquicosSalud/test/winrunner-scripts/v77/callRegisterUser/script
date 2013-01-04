@@ -1,0 +1,12 @@
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\registerNewUser\\registerNewUser.gui");
+if (invoke_application ("C:\\Program Files\\Internet Explorer\\iexplore.exe"," ", "C:\\Program Files\\Internet Explorer", SW_SHOWMAXIMIZED)!=0)
+	report_msg("AUT is not found. exiting.");
+
+reload("registerUser",0,1);
+wait(2);
+public iUser = 0;
+registerUser("testUser1");
+# registerUser("testUser2");
+# registerUser("testUser3");
+iUser = 0;
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\registerNewUser\\registerNewUser.gui");

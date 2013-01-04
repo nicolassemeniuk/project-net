@@ -1,0 +1,41 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 3 1115666649 0
+23 20 <CREATING WORKFLOW...> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 19 1115666655 0
+37 90 <Step: Verify Step Creation, Status: Pass, Description: Step1 has been successfully created> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 26 1115666672 24
+37 90 <Step: Verify Step Creation, Status: Pass, Description: Step2 has been successfully created> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 32 1115666684 24
+37 90 <Step: Verify Step Creation, Status: Pass, Description: Step3 has been successfully created> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 38 1115666695 24
+37 91 <Step: Verify Step Creation, Status: Pass, Description: Step41 has been successfully created> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 44 1115666706 24
+37 91 <Step: Verify Step Creation, Status: Pass, Description: Step42 has been successfully created> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 50 1115666715 24
+37 102 <Step: Verify Transition Creation, Status: Pass, Description: transition1 has been successfully created> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 59 1115666725 24
+37 102 <Step: Verify Transition Creation, Status: Pass, Description: transition2 has been successfully created> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 64 1115666731 24
+37 102 <Step: Verify Transition Creation, Status: Pass, Description: transition3 has been successfully created> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 69 1115666740 24
+37 102 <Step: Verify Transition Creation, Status: Pass, Description: transition4 has been successfully created> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 74 1115666749 24
+37 81 <Step: Publishing workflow, Status: Pass, Description: Workflow could be published> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 90 1115666754 24
+23 26 <WORKFLOW CREATION COMPLETE> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 94 1115666754 0
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 97 1115666754 0
+23 30 <ADDING DOCUMENT TO WORKFLOW...> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 98 1115666754 0
+37 79 <Step: Importing file, Status: Pass, Description: File was successfully imported> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 38 1115666771 24
+37 81 <Step: Workflow creation, Status: Pass, Description: Workflow link present in list> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 123 1115666785 24
+37 88 <Step: Envelope for workflow, Status: Pass, Description: Created envelope present in list> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 132 1115666788 24
+37 106 <Step: Verify that transition was done, Status: Pass, Description: Transition 1 for documents was completed> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 141 1115666790 24
+37 106 <Step: Verify that transition was done, Status: Pass, Description: Transition 2 for documents was completed> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 147 1115666793 24
+37 106 <Step: Verify that transition was done, Status: Pass, Description: Transition 3 for documents was completed> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 153 1115666796 24
+23 34 <FINISHED TESTING DOCUMENT WORKFLOW> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 158 1115666798 0
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 161 1115666798 0
+23 31 <ADDING FORM DATA TO WORKFLOW...> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 162 1115666798 0
+37 93 <Step: Verify form exists, Status: Pass, Description: The form created exists in Form Designer> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 26 1115666814 24
+23 9 <Field - 1> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 4 1115666818 0
+23 21 <Within Text Field - 1> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 5 1115666824 0
+37 105 <Step: Verify text field exists, Status: Pass, Description: The Text Field 'TextField'created successfully> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 23 1115666826 24
+23 54 <The form name 'WorkflowForm' appears in the tools menu> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 22 1115666854 0
+23 64 <The form name 'WorkflowForm' appears in the list of active forms> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 32 1115666856 0
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 36 1115666856 0
+25 7 <3323423> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 56 1115666858 0
+37 81 <Step: Workflow creation, Status: Pass, Description: Workflow link present in list> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 172 1115666868 24
+37 88 <Step: Envelope for workflow, Status: Pass, Description: Created envelope present in list> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 181 1115666871 24
+37 106 <Step: Verify that transition was done, Status: Pass, Description: Transition 1 for Form Data was completed> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 190 1115666873 24
+37 106 <Step: Verify that transition was done, Status: Pass, Description: Transition 2 for Form Data was completed> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 196 1115666876 24
+37 106 <Step: Verify that transition was done, Status: Pass, Description: Transition 3 for Form Data was completed> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 202 1115666879 24
+23 39 <FINISHED TESTING FORM DATA FOR WORKFLOW> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 205 1115666879 0
+23 13 <1 - LAST LAST> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 206 1115666879 0
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\Workflow\batchWorkflow> 208 1115666879 0

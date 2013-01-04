@@ -1,0 +1,35 @@
+function activateForm(in formName){
+	wait(1);
+	set_window("main",2);
+	web_link_click("Form Designer");
+	wait(1);
+	set_window("main",2);
+	web_link_click(formName);
+	wait(1);
+	set_window("main",2);
+	web_link_click("Activate");
+	wait(1);
+	set_window("main",2);
+	list_select_item("formStatus","Activated");
+	web_link_click("Submit");
+	wait(2);
+	set_window("main",2);
+	wait(1);
+		
+	set_window("menu",2);
+	pause("a1");
+	if(obj_exists(formName,0)==E_OK)
+		report_msg("The form name '"&formName&"' appears in the tools menu");
+	else
+		report_msg("The form name '"&formName&"' DOES NOT appear in the tools menu");
+	pau
+	set_window("menu",2);
+	web_link_click("Forms");
+	wait(1);
+	set_window("main",2);
+	if(obj_exists(formName,0)==E_OK)
+		report_msg("The form name '"&formName&"' appears in the list of active forms");
+	else
+		report_msg("The form name '"&formName&"' DOES NOT appear in the list of active forms");
+	report_msg("");
+}	

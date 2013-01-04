@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+
+    <!-- Define appenders -->
+
+
+    <!--
+    =========================================================
+       STDOUT
+       Logs messages to Console
+    =========================================================
+    -->
+    <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="%d %-5p [%t] %c - %m%n"/>
+        </layout>
+    </appender>
+
+
+    <!--
+    =========================================================
+       FILE
+       Logs messages to a file, rolling at 4MB 
+    =========================================================
+    -->
+    <appender name="FILE" class="org.apache.log4j.RollingFileAppender">
+        <!-- The name of the log file to write to -->
+        <param name="file" value="pnet-log4j-.log"/>
+	<!-- The maximum size of the log file; for example 1048576, 1024KB, 1MB, 1GB -->
+        <param name="maxFileSize" value="4MB"/>
+        <!-- The maximum number of backup files to create -->
+        <param name="maxBackupIndex" value="15"/>
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern"
+                value="%d %-5p [%t] %c - %m%n"/>
+        </layout>
+    </appender>
+
+
+    <!--
+    =========================================================
+       Logging Settings 
+    =========================================================
+    -->
+
+    <!-- Database logging, including printing of SQL statements. -->
+    <category name="net.project.database">
+        <priority value="debug"/>
+    </category>
+    
+    
+    <!-- All Project.net logging except for categories listed above. -->
+    <category name="net.project">
+        <priority value="debug"/>
+    </category>
+
+
+    <!-- Quartz scheduler logging. -->
+    <category name="org.quartz">
+        <priority value="error"/>
+    </category>
+
+    <!-- Default logging configuration for Spring Framework -->
+    <category name="org.springframework">
+        <priority value="warn"/>
+    </category>
+
+    <!-- Default logging configuration for SAX digester -->
+    <category name="org.apache.commons.digester.Digester.sax">
+        <priority value="warn"/>
+    </category>
+
+
+    <!--
+        Default logging level and target This logging level will be used by all categories,
+        except for categories listed explicitly above.
+        This includes 3rd party libraries that use log4j
+    -->
+    <root>
+        <priority value="debug"/>
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+    </root>
+
+</log4j:configuration>

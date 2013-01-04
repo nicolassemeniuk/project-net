@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPersonHasSkill" 
+    table="PN_PERSON_HAS_SKILL"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnPersonHasSkillPK">
+        <key-property 
+            name="personId" 
+            column="PERSON_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="skillId" 
+            column="SKILL_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="proficiencyCode"
+        type="java.math.BigDecimal"
+        column="PROFICIENCY_CODE"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="monthsExperience"
+        type="java.lang.Integer"
+        column="MONTHS_EXPERIENCE"
+        length="8"
+    />
+    <property
+        name="mostRecentUse"
+        type="java.sql.Date"
+        column="MOST_RECENT_USE"
+        length="7"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnSkill -->
+    <many-to-one
+        name="pnSkill"
+	    class="net.project.hibernate.model.PnSkill"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="SKILL_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional one-to-many association to PnPersonUsedSkill -->
+
+    <set
+        name="pnPersonUsedSkills"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PERSON_ID" />
+            <column name="SKILL_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPersonUsedSkill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnPersonSkillComment -->
+
+    <set
+        name="pnPersonSkillComments"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PERSON_ID" />
+            <column name="SKILL_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPersonSkillComment"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,86 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDocHistory" 
+    table="PN_DOC_HISTORY"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnDocHistoryPK">
+        <key-property 
+            name="docId" 
+            column="DOC_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="docHistoryId" 
+            column="DOC_HISTORY_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="actionComment"
+        type="java.lang.String"
+        column="ACTION_COMMENT"
+        length="255"
+    />
+    <property
+        name="actionDate"
+        type="java.sql.Date"
+        column="ACTION_DATE"
+        length="7"
+    />
+    <property
+        name="actionName"
+        type="java.lang.String"
+        column="ACTION_NAME"
+        length="80"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnDocument -->
+    <many-to-one
+        name="pnDocument"
+	    class="net.project.hibernate.model.PnDocument"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="DOC_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPerson"
+        class="net.project.hibernate.model.PnPerson"
+        not-null="true"
+    >
+        <column name="ACTION_BY_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PnDocActionLookup -->
+    <many-to-one
+        name="pnDocActionLookup"
+        class="net.project.hibernate.model.PnDocActionLookup"
+        not-null="true"
+    >
+        <column name="ACTION" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

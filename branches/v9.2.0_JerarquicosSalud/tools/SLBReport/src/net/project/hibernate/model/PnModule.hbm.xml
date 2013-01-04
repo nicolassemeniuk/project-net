@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnModule" 
+    table="PN_MODULE"
+    lazy="false"
+>
+
+    <id
+        name="moduleId"
+        type="java.math.BigDecimal"
+        column="MODULE_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="name"
+        type="java.lang.String"
+        column="NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        length="500"
+    />
+    <property
+        name="defaultPermissionActions"
+        type="long"
+        column="DEFAULT_PERMISSION_ACTIONS"
+        not-null="true"
+        length="10"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnModuleHasObjectType -->
+
+    <set
+        name="pnModuleHasObjectTypes"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="MODULE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnModuleHasObjectType"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnSpaceHasModule -->
+
+    <set
+        name="pnSpaceHasModules"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="MODULE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasModule"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

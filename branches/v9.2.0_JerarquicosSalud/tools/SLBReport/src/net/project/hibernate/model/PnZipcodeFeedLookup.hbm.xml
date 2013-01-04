@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnZipcodeFeedLookup" 
+    table="PN_ZIPCODE_FEED_LOOKUP"
+    lazy="false"
+>
+
+    <id
+        name="zipcode"
+        type="java.lang.String"
+        column="ZIPCODE"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="feed"
+        type="java.lang.String"
+        column="FEED"
+        not-null="true"
+        length="120"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnSpaceHasWeather -->
+
+    <set
+        name="pnSpaceHasWeathers"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="POSTAL_CODE" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasWeather"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

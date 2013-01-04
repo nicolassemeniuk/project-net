@@ -1,0 +1,8 @@
+#Checklist for window "main"
+V 7.5
+main: "WEB.GVF" 0 0 1
+{
+}0
+"channelbar-left_end_1": "WEB.GVF" 1 1 1
+{
+}0

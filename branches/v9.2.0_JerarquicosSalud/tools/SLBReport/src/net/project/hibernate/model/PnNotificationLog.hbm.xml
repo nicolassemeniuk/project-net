@@ -1,0 +1,73 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnNotificationLog" 
+    table="PN_NOTIFICATION_LOG"
+    lazy="false"
+>
+
+    <id
+        name="notificationLogId"
+        type="java.math.BigDecimal"
+        column="NOTIFICATION_LOG_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="numberOfAttempts"
+        type="java.math.BigDecimal"
+        column="NUMBER_OF_ATTEMPTS"
+        length="22"
+    />
+    <property
+        name="deliveryStatus"
+        type="java.math.BigDecimal"
+        column="DELIVERY_STATUS"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="deliveryTime"
+        type="java.sql.Date"
+        column="DELIVERY_TIME"
+        length="7"
+    />
+    <property
+        name="deliveryNotes"
+        type="java.lang.String"
+        column="DELIVERY_NOTES"
+        length="255"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PnNotification -->
+    <many-to-one
+        name="pnNotification"
+        class="net.project.hibernate.model.PnNotification"
+        not-null="true"
+    >
+        <column name="NOTIFICATION_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

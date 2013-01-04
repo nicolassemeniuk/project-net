@@ -1,0 +1,401 @@
+<table border="0" width="100%" cellpadding="0" cellspacing="0">
+
+<tr class="channelHeader">
+    <td width="1%"><img src="${token.getContext()}/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border="0"></td>
+    <td nowrap class="channelHeader" colspan="2"><nobr>${token.get("prm.project.properties.channel.description.title")}</nobr></td>
+    <td align=right width="1%"><img src="${token.getContext()}/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border="0"></td>
+</tr>
+<!-- Support Code -->
+<tr align="left" >
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.supportcode.label")}</td>
+    <td class="tableContent">
+        ${theObject.getID()}
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Project Name -->
+<tr align="left" >
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.projectname.label")}</td>
+    <td class="tableContent">
+         ${htmlUtils.escape(theObject.getName())}
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Brief Description -->
+<tr align="left" >
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.description.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getDescription()??>
+		${theObject.getDescription()}
+	<#else>
+		&nbsp;
+	</#if> 
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Meta: Project ID -->
+<tr align="left" >
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.meta.projectid.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getMetaData().getProperty("ExternalProjectID")??>
+		${theObject.getMetaData().getProperty("ExternalProjectID")}
+	<#else>
+		&nbsp;
+	</#if> 
+    </td>
+    <td>&nbsp;</td>
+</tr>
+
+<!-- Project Visibility -->
+<tr align="left">
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.visibility.label" )}</td>
+    <td class="tableContent"> 
+    <#if theObject.getVisibility().getName()??>
+		${theObject.getVisibility().getName()}
+	<#else>
+		&nbsp;
+	</#if> 
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Project Sponsor -->
+<tr align="left">
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.sponsor.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getSponsor()??>
+		${theObject.getSponsor()}
+	<#else>
+		&nbsp;
+	</#if> 
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Meta: Project Manager -->
+<tr align="left" >
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.meta.projectmanager.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getMetaData().getProperty("ProjectManager")??>
+		${theObject.getMetaData().getProperty("ProjectManager")}
+	<#else>
+		&nbsp;
+	</#if> 
+    </td>
+    <td>&nbsp;</td>
+</tr>
+
+<!-- Meta: Program Manager -->
+<tr align="left" >
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.meta.programmanager.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getMetaData().getProperty("ProgramManager")??>
+		${theObject.getMetaData().getProperty("ProgramManager")}
+	<#else>
+		&nbsp;
+	</#if> 
+    </td>
+    <td>&nbsp;</td>
+</tr>
+
+
+<!-- Meta: Initiative -->
+<tr align="left" >
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.meta.initiative.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getMetaData().getProperty("Initiative")??>
+		${theObject.getMetaData().getProperty("Initiative")}
+	<#else>
+		&nbsp;
+	</#if> 
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Meta: Functional Area -->
+<tr align="left" >
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.meta.functionalarea.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getMetaData().getProperty("FunctionalArea")??>
+		${theObject.getMetaData().getProperty("FunctionalArea")}
+	<#else>
+		&nbsp;
+	</#if> 
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Priority -->
+<tr align="left">
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.priority.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getPriorityCode()??>
+		${theObject.getPriorityCode().getName()}
+	<#else>
+		&nbsp;
+	</#if> 
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Risk Rating -->
+<tr align="left">
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.risk.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getRiskRatingCode()??>
+		${theObject.getRiskRatingCode().getName()}
+	<#else>
+		&nbsp;
+	</#if> 
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Meta: Project Charter -->
+<tr align="left" >
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.meta.projectcharter.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getMetaData().getProperty("ProjectCharter")??>
+		${theObject.getMetaData().getProperty("ProjectCharter")}
+	<#else>
+		&nbsp;
+	</#if> 
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<tr align="left"><td colspan="4" nowrap class="tableHeader">&nbsp;</td></tr>
+
+<!-- Project Status-->
+<tr class="channelHeader">
+    <td width="1%"><img src="${token.getContext()}/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border="0"></td>
+    <td nowrap class="channelHeader" colspan="2"><nobr>${token.get("prm.project.properties.channel.status.title" )}</nobr></td>
+    <td align=right width="1%"><img src="${token.getContext()}/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border="0"></td>
+</tr>
+<!-- Start Date -->
+<tr align="left" >
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.startdate.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getStartDateString()??>
+		${theObject.getStartDateString()}
+	<#else>
+		&nbsp;
+	</#if> 
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- End Date -->
+<tr align="left" >
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.enddate.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getEndDateString()??>
+		${theObject.getEndDateString()}
+	<#else>
+		&nbsp;
+	</#if> 
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Overall Completion -->
+<tr align="left" >
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.overallcompletion.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getPercentComplete()??>
+		${theObject.getPercentComplete()}
+	<#else>
+		&nbsp;
+	</#if> 
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Overall Status -->
+<tr align="left" >
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.status.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getStatus()??>
+		${theObject.getStatus()}
+	<#else>
+		&nbsp;
+	</#if> 
+    </td>
+    <td>&nbsp;</td>
+</tr>
+
+<!-- Overall Improvement -->
+<tr align="left">
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.statusdisplay.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getColorCode() ??>
+    	<#assign color = theObject.getColorCode()> 
+		${theObject.getFinancialStatusImprovementCode().getHtmlImagePresentation(color)}</td>
+	<#else>
+		&nbsp;
+	</#if> 
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Schedule Status -->
+<tr align="left">
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.schedulestatus.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getScheduleStatusColorCode()??>
+		<#assign scheduleColor = theObject.getScheduleStatusColorCode()> 
+		${theObject.getScheduleStatusImprovementCode().getHtmlImagePresentation(scheduleColor)}
+	<#else>
+		&nbsp;
+	</#if>   
+         
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Resource Status -->
+<tr align="left">
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.resourcestatus.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getResourceStatusColorCode()??>
+    	  <#assign resourceColor = theObject.getResourceStatusColorCode()> 
+		  ${theObject.getResourceStatusImprovementCode().getHtmlImagePresentation(resourceColor)}
+	<#else>
+		&nbsp;
+	</#if>   
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Current Status Description -->
+<tr align="left">
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader" colspan="2">${token.get("prm.project.properties.currentstatusdescription.label" )}</td>
+    <td>&nbsp;</td>
+</tr>
+<tr align="left">
+    <td>&nbsp;</td>
+    <td class="tableContent" colspan="2">
+    <#if theObject.getCurrentStatusDescription()??>
+		${theObject.getCurrentStatusDescription()}
+	<#else>
+		&nbsp;
+	</#if>   
+    </td>
+    <td>&nbsp;</td>
+</tr>
+
+<tr align="left"><td colspan="4" nowrap class="tableHeader">&nbsp;</td></tr>
+
+<!------------------------------------------------------------------------------
+  Financial
+------------------------------------------------------------------------------>
+<tr class="channelHeader">
+    <td width="1%"><img src="${token.getContext()}/images/icons/channelbar-left_end.gif" width="8" height="15" alt="" border="0"></td>
+    <td class="channelHeader" colspan="2"><nobr>${token.get("prm.project.properties.channel.financialstatus.title" )}</nobr></td>
+    <td align="right" width="1%"><img src="${token.getContext()}/images/icons/channelbar-right_end.gif" width="8" height="15" alt="" border="0"></td>
+</tr>
+<!-- Default Currency -->
+<tr align="left">
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.defaultcurrency.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getDefaultCurrency()??>
+		${theObject.getDefaultCurrency()}
+	<#else>
+		&nbsp;
+	</#if>   
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Meta: Type of Expense -->
+<tr align="left" >
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.meta.typeofexpense.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getMetaData()??>
+		 ${theObject.getMetaData().getProperty("TypeOfExpense")}
+	<#else>
+		&nbsp;
+	</#if>   
+       
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Budgeted Total Cost -->
+<tr align="left">
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.budgetedtotalcost.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getBudgetedTotalCost()??>
+		  ${theObject.getBudgetedTotalCost().formatValue(token.getUser())}&nbsp; ${theObject.getDefaultCurrency()}
+	<#else>
+		&nbsp;
+	</#if>   
+      
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Current Estimated Total Cost -->
+<tr align="left">
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader" width="5%">${token.get("prm.project.properties.currentestimatedtotalcost.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getCurrentEstimatedTotalCost()??>
+		${theObject.getCurrentEstimatedTotalCost().formatValue(token.getUser())} &nbsp; ${theObject.getDefaultCurrency()}
+	<#else>
+		&nbsp;
+	</#if>   
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Actual Cost To Date -->
+<tr align="left">
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.actualcosttodate.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getActualCostToDate()??>
+		${theObject.getActualCostToDate().formatValue(token.getUser())}&nbsp; ${theObject.getDefaultCurrency()}
+	<#else>
+		&nbsp;
+	</#if>   
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Estimated ROI -->
+<tr align="left">
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.estimatedroi.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getEstimatedROI()??>
+		${theObject.getEstimatedROI().getValue()}
+	<#else>
+		&nbsp;
+	</#if>   
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<!-- Cost Center -->
+<tr align="left">
+    <td>&nbsp;</td>
+    <td nowrap class="tableHeader">${token.get("prm.project.properties.costcenter.label" )}</td>
+    <td class="tableContent">
+    <#if theObject.getCostCenter()??>
+		${theObject.getCostCenter()}
+	<#else>
+		&nbsp;
+	</#if>   
+    </td>
+    <td>&nbsp;</td>
+</tr>
+<tr align="left"><td colspan="4" nowrap class="tableHeader">&nbsp;</td></tr>
+
+
+</table>

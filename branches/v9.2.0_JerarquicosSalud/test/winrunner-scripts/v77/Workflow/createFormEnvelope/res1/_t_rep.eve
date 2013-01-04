@@ -1,0 +1,8 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Workflow\createFormEnvelope> 1 1114797741 0
+37 93 <Step: Verify form exists, Status: Pass, Description: The form created exists in Form Designer> <C:\Documents and Settings\QA\Desktop\v77\Workflow\createFormEnvelope> 26 1114797759 24
+37 105 <Step: Verify text field exists, Status: Pass, Description: The Text Field 'TextField'created successfully> <C:\Documents and Settings\QA\Desktop\v77\Workflow\createFormEnvelope> 21 1114797776 24
+23 54 <The form name 'WorkflowForm' appears in the tools menu> <C:\Documents and Settings\QA\Desktop\v77\Workflow\createFormEnvelope> 22 1114797804 0
+23 64 <The form name 'WorkflowForm' appears in the list of active forms> <C:\Documents and Settings\QA\Desktop\v77\Workflow\createFormEnvelope> 32 1114797805 0
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Workflow\createFormEnvelope> 36 1114797805 0
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\Workflow\createFormEnvelope> 72 1114797810 0

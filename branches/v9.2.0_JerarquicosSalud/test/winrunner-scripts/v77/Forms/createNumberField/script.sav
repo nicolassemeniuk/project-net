@@ -1,0 +1,27 @@
+function createNumberField(in name, in sel1, in sel2){
+	extern i;
+	auto outText;
+	set_window("main",1);
+	list_select_item("ElementID","Number Field");
+	wait(1);
+	set_window("main",1);
+	edit_set("field_label",name);
+	edit_set("row_num",i);
+	list_select_item("column_id","Left");
+	edit_set("size",20);
+	edit_set("data_column_size",5);
+	edit_set("data_column_scale",2);
+	web_link_click("Submit");
+	wait(1);
+	set_window("main",1);
+	if(obj_exists(name)==E_OK)
+		report_msg("The Number Field '"&name&"'created successfully");
+	else
+		report_msg("The Number Field CANNOT be verified");
+	i = i + 1;
+	set_window("main",1);
+	win_get_text("main",outText,631,351,711,367);
+	if(outText == "Number Field
+	web_obj_text_exists("channelbar-left_end","#16","#3","Number Field","","");
+}
+		

@@ -1,0 +1,13 @@
+function editPercentageComplete(in taskName, in percentCompleteValue){
+	set_window("main",2);
+	web_link_click(taskName);
+	set_window("main",2);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",2);
+	wait(1);
+	edit_set("work_percent_complete","");
+	wait(1);	
+	obj_type("work_percent_complete",percentCompleteValue);
+	wait(0.5);
+	obj

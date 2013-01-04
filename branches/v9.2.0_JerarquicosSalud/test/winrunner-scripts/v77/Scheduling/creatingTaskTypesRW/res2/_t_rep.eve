@@ -1,0 +1,177 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 1 1115420617 0
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 50 1115420643 0
+23 2 <T1> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 51 1115420643 0
+58 71 <taskCalculationTypeFixedElementIDselectionlistFixed WorkFixed Work> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 15 1115420692 24
+58 47 <durationtextedit0.50.5(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 16 1115420692 24
+58 40 <duration_unitsselectionlistdaysdays> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 17 1115420692 24
+58 39 <worktextedit88(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 18 1115420692 24
+58 38 <work_unitsselectionlisthourshours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 19 1115420692 24
+58 46 <percenttextedit100100(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 56 1115420698 24
+37 110 <Step: Assignment work, Status: Pass, Description: Assignment percentage for resource 0 is correctly set as 100> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 57 1115420698 24
+58 50 <assignment_worktextedit44(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 61 1115420698 24
+37 102 <Step: Assignment work, Status: Pass, Description: Assignment work for resource 0 is correctly set as 4> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 62 1115420698 24
+37 118 <Step: Assignment work units, Status: Pass, Description: Assignment work units for resource 0 is correctly set as hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 68 1115420698 24
+58 46 <percenttextedit100100(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 56 1115420699 24
+37 110 <Step: Assignment work, Status: Pass, Description: Assignment percentage for resource 1 is correctly set as 100> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 57 1115420699 24
+58 50 <assignment_worktextedit44(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 61 1115420700 24
+37 102 <Step: Assignment work, Status: Pass, Description: Assignment work for resource 1 is correctly set as 4> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 62 1115420700 24
+37 118 <Step: Assignment work units, Status: Pass, Description: Assignment work units for resource 1 is correctly set as hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 68 1115420700 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 56 1115420700 0
+23 26 <T6(Quick Adding Resources)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 57 1115420700 0
+58 71 <taskCalculationTypeFixedElementIDselectionlistFixed WorkFixed Work> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 15 1115420751 24
+58 47 <durationtextedit0.50.5(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 16 1115420751 24
+58 40 <duration_unitsselectionlistdaysdays> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 17 1115420751 24
+58 39 <worktextedit88(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 18 1115420751 24
+58 38 <work_unitsselectionlisthourshours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 19 1115420751 24
+58 46 <percenttextedit100100(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 56 1115420758 24
+37 110 <Step: Assignment work, Status: Pass, Description: Assignment percentage for resource 0 is correctly set as 100> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 57 1115420758 24
+58 50 <assignment_worktextedit44(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 61 1115420758 24
+37 102 <Step: Assignment work, Status: Pass, Description: Assignment work for resource 0 is correctly set as 4> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 62 1115420758 24
+37 118 <Step: Assignment work units, Status: Pass, Description: Assignment work units for resource 0 is correctly set as hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 68 1115420758 24
+58 46 <percenttextedit100100(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 56 1115420759 24
+37 110 <Step: Assignment work, Status: Pass, Description: Assignment percentage for resource 1 is correctly set as 100> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 57 1115420759 24
+58 50 <assignment_worktextedit44(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 61 1115420759 24
+37 102 <Step: Assignment work, Status: Pass, Description: Assignment work for resource 1 is correctly set as 4> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 62 1115420759 24
+37 118 <Step: Assignment work units, Status: Pass, Description: Assignment work units for resource 1 is correctly set as hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 68 1115420759 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 62 1115420759 0
+23 2 <T2> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 63 1115420759 0
+58 71 <taskCalculationTypeFixedElementIDselectionlistFixed WorkFixed Work> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 15 1115420841 24
+58 43 <durationtextedit11(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 16 1115420841 24
+58 40 <duration_unitsselectionlistdaysdays> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 17 1115420841 24
+58 41 <worktextedit1616(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 18 1115420841 24
+58 38 <work_unitsselectionlisthourshours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 19 1115420841 24
+58 46 <percenttextedit100100(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 56 1115420848 24
+37 110 <Step: Assignment work, Status: Pass, Description: Assignment percentage for resource 0 is correctly set as 100> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 57 1115420848 24
+58 50 <assignment_worktextedit88(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 61 1115420848 24
+37 102 <Step: Assignment work, Status: Pass, Description: Assignment work for resource 0 is correctly set as 8> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 62 1115420848 24
+37 118 <Step: Assignment work units, Status: Pass, Description: Assignment work units for resource 0 is correctly set as hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 68 1115420848 24
+58 46 <percenttextedit100100(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 56 1115420849 24
+37 110 <Step: Assignment work, Status: Pass, Description: Assignment percentage for resource 1 is correctly set as 100> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 57 1115420849 24
+58 50 <assignment_worktextedit88(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 61 1115420849 24
+37 102 <Step: Assignment work, Status: Pass, Description: Assignment work for resource 1 is correctly set as 8> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 62 1115420849 24
+37 118 <Step: Assignment work units, Status: Pass, Description: Assignment work units for resource 1 is correctly set as hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 68 1115420849 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 68 1115420849 0
+23 26 <T7(Quick Adding Resources)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 69 1115420849 0
+58 71 <taskCalculationTypeFixedElementIDselectionlistFixed WorkFixed Work> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 15 1115420900 24
+58 43 <durationtextedit11(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 16 1115420900 24
+58 40 <duration_unitsselectionlistdaysdays> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 17 1115420900 24
+58 41 <worktextedit1616(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 18 1115420900 24
+58 38 <work_unitsselectionlisthourshours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 19 1115420900 24
+58 46 <percenttextedit100100(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 56 1115420907 24
+37 110 <Step: Assignment work, Status: Pass, Description: Assignment percentage for resource 0 is correctly set as 100> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 57 1115420907 24
+58 50 <assignment_worktextedit88(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 61 1115420907 24
+37 102 <Step: Assignment work, Status: Pass, Description: Assignment work for resource 0 is correctly set as 8> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 62 1115420907 24
+37 118 <Step: Assignment work units, Status: Pass, Description: Assignment work units for resource 0 is correctly set as hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 68 1115420907 24
+58 46 <percenttextedit100100(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 56 1115420908 24
+37 110 <Step: Assignment work, Status: Pass, Description: Assignment percentage for resource 1 is correctly set as 100> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 57 1115420908 24
+58 50 <assignment_worktextedit88(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 61 1115420908 24
+37 102 <Step: Assignment work, Status: Pass, Description: Assignment work for resource 1 is correctly set as 8> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 62 1115420908 24
+37 118 <Step: Assignment work units, Status: Pass, Description: Assignment work units for resource 1 is correctly set as hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 68 1115420908 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 74 1115420909 0
+23 2 <T3> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 75 1115420909 0
+58 71 <taskCalculationTypeFixedElementIDselectionlistFixed WorkFixed Work> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 15 1115420947 24
+58 43 <durationtextedit22(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 16 1115420947 24
+58 40 <duration_unitsselectionlistdaysdays> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 17 1115420947 24
+58 41 <worktextedit1616(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 18 1115420947 24
+58 38 <work_unitsselectionlisthourshours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 19 1115420947 24
+58 46 <percenttextedit100100(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 56 1115420953 24
+37 110 <Step: Assignment work, Status: Pass, Description: Assignment percentage for resource 0 is correctly set as 100> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 57 1115420953 24
+58 52 <assignment_worktextedit1616(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 61 1115420953 24
+37 103 <Step: Assignment work, Status: Pass, Description: Assignment work for resource 0 is correctly set as 16> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 62 1115420953 24
+37 118 <Step: Assignment work units, Status: Pass, Description: Assignment work units for resource 0 is correctly set as hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 68 1115420953 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 80 1115420954 0
+23 26 <T8(Quick Adding Resources)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 81 1115420954 0
+58 71 <taskCalculationTypeFixedElementIDselectionlistFixed WorkFixed Work> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 15 1115421004 24
+58 43 <durationtextedit22(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 16 1115421004 24
+58 40 <duration_unitsselectionlistdaysdays> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 17 1115421004 24
+58 41 <worktextedit1616(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 18 1115421004 24
+58 38 <work_unitsselectionlisthourshours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 19 1115421004 24
+58 46 <percenttextedit100100(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 56 1115421011 24
+37 110 <Step: Assignment work, Status: Pass, Description: Assignment percentage for resource 0 is correctly set as 100> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 57 1115421011 24
+58 52 <assignment_worktextedit1616(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 61 1115421011 24
+37 103 <Step: Assignment work, Status: Pass, Description: Assignment work for resource 0 is correctly set as 16> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 62 1115421011 24
+37 118 <Step: Assignment work units, Status: Pass, Description: Assignment work units for resource 0 is correctly set as hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 68 1115421011 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 86 1115421012 0
+23 2 <T4> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 87 1115421012 0
+58 71 <taskCalculationTypeFixedElementIDselectionlistFixed WorkFixed Work> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 15 1115421064 24
+58 47 <durationtextedit1.51.5(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 16 1115421064 24
+58 40 <duration_unitsselectionlistdaysdays> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 17 1115421064 24
+58 41 <worktextedit2424(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 18 1115421064 24
+58 38 <work_unitsselectionlisthourshours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 19 1115421064 24
+58 46 <percenttextedit100100(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 56 1115421071 24
+37 110 <Step: Assignment work, Status: Pass, Description: Assignment percentage for resource 0 is correctly set as 100> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 57 1115421071 24
+58 52 <assignment_worktextedit1212(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 61 1115421071 24
+37 103 <Step: Assignment work, Status: Pass, Description: Assignment work for resource 0 is correctly set as 12> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 62 1115421071 24
+37 118 <Step: Assignment work units, Status: Pass, Description: Assignment work units for resource 0 is correctly set as hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 68 1115421071 24
+58 46 <percenttextedit100100(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 56 1115421072 24
+37 110 <Step: Assignment work, Status: Pass, Description: Assignment percentage for resource 1 is correctly set as 100> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 57 1115421072 24
+58 52 <assignment_worktextedit1212(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 61 1115421072 24
+37 103 <Step: Assignment work, Status: Pass, Description: Assignment work for resource 1 is correctly set as 12> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 62 1115421072 24
+37 118 <Step: Assignment work units, Status: Pass, Description: Assignment work units for resource 1 is correctly set as hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 68 1115421072 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 92 1115421072 0
+23 26 <T9(Quick Adding Resources)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 93 1115421072 0
+58 71 <taskCalculationTypeFixedElementIDselectionlistFixed WorkFixed Work> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 15 1115421124 24
+58 47 <durationtextedit1.51.5(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 16 1115421124 24
+58 40 <duration_unitsselectionlistdaysdays> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 17 1115421124 24
+58 41 <worktextedit2424(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 18 1115421124 24
+58 38 <work_unitsselectionlisthourshours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 19 1115421124 24
+58 46 <percenttextedit100100(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 56 1115421131 24
+37 110 <Step: Assignment work, Status: Pass, Description: Assignment percentage for resource 0 is correctly set as 100> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 57 1115421131 24
+58 52 <assignment_worktextedit1212(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 61 1115421131 24
+37 103 <Step: Assignment work, Status: Pass, Description: Assignment work for resource 0 is correctly set as 12> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 62 1115421131 24
+37 118 <Step: Assignment work units, Status: Pass, Description: Assignment work units for resource 0 is correctly set as hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 68 1115421131 24
+58 46 <percenttextedit100100(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 56 1115421132 24
+37 110 <Step: Assignment work, Status: Pass, Description: Assignment percentage for resource 1 is correctly set as 100> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 57 1115421132 24
+58 52 <assignment_worktextedit1212(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 61 1115421132 24
+37 103 <Step: Assignment work, Status: Pass, Description: Assignment work for resource 1 is correctly set as 12> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 62 1115421132 24
+37 118 <Step: Assignment work units, Status: Pass, Description: Assignment work units for resource 1 is correctly set as hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 68 1115421132 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 98 1115421132 0
+23 2 <T5> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 99 1115421132 0
+58 71 <taskCalculationTypeFixedElementIDselectionlistFixed WorkFixed Work> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 15 1115421171 24
+58 43 <durationtextedit88(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 16 1115421171 24
+58 40 <duration_unitsselectionlistdaysdays> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 17 1115421172 24
+58 39 <worktextedit88(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 18 1115421172 24
+58 36 <work_unitsselectionlistdaysdays> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 19 1115421172 24
+58 46 <percenttextedit100100(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 56 1115421178 24
+37 110 <Step: Assignment work, Status: Pass, Description: Assignment percentage for resource 0 is correctly set as 100> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 57 1115421178 24
+58 52 <assignment_worktextedit6464(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 61 1115421178 24
+37 103 <Step: Assignment work, Status: Pass, Description: Assignment work for resource 0 is correctly set as 64> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 62 1115421178 24
+37 118 <Step: Assignment work units, Status: Pass, Description: Assignment work units for resource 0 is correctly set as hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 68 1115421178 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 104 1115421179 0
+23 27 <T10(Quick Adding Resources)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 105 1115421179 0
+58 71 <taskCalculationTypeFixedElementIDselectionlistFixed WorkFixed Work> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 15 1115421230 24
+58 43 <durationtextedit88(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 16 1115421230 24
+58 40 <duration_unitsselectionlistdaysdays> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 17 1115421230 24
+58 39 <worktextedit88(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 18 1115421230 24
+58 36 <work_unitsselectionlistdaysdays> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 19 1115421230 24
+58 46 <percenttextedit100100(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 56 1115421237 24
+37 110 <Step: Assignment work, Status: Pass, Description: Assignment percentage for resource 0 is correctly set as 100> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 57 1115421237 24
+58 52 <assignment_worktextedit6464(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 61 1115421237 24
+37 103 <Step: Assignment work, Status: Pass, Description: Assignment work for resource 0 is correctly set as 64> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 62 1115421237 24
+37 118 <Step: Assignment work units, Status: Pass, Description: Assignment work units for resource 0 is correctly set as hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 68 1115421237 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 110 1115421238 0
+23 3 <T11> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 111 1115421238 0
+58 71 <taskCalculationTypeFixedElementIDselectionlistFixed WorkFixed Work> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 15 1115421276 24
+58 47 <durationtextedit1.51.5(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 16 1115421277 24
+58 40 <duration_unitsselectionlistdaysdays> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 17 1115421277 24
+58 41 <worktextedit1212(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 18 1115421277 24
+58 38 <work_unitsselectionlisthourshours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 19 1115421277 24
+58 46 <percenttextedit100100(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 56 1115421283 24
+37 110 <Step: Assignment work, Status: Pass, Description: Assignment percentage for resource 0 is correctly set as 100> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 57 1115421283 24
+58 52 <assignment_worktextedit1212(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 61 1115421283 24
+37 103 <Step: Assignment work, Status: Pass, Description: Assignment work for resource 0 is correctly set as 12> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 62 1115421283 24
+37 118 <Step: Assignment work units, Status: Pass, Description: Assignment work units for resource 0 is correctly set as hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 68 1115421283 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 116 1115421284 0
+23 27 <T12(Quick Adding Resources)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 117 1115421284 0
+58 71 <taskCalculationTypeFixedElementIDselectionlistFixed WorkFixed Work> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 15 1115421335 24
+58 47 <durationtextedit1.51.5(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 16 1115421335 24
+58 40 <duration_unitsselectionlistdaysdays> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 17 1115421335 24
+58 41 <worktextedit1212(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 18 1115421335 24
+58 38 <work_unitsselectionlisthourshours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 19 1115421335 24
+58 46 <percenttextedit100100(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 56 1115421341 24
+37 110 <Step: Assignment work, Status: Pass, Description: Assignment percentage for resource 0 is correctly set as 100> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 57 1115421341 24
+58 52 <assignment_worktextedit1212(not case-sensitive)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 61 1115421342 24
+37 103 <Step: Assignment work, Status: Pass, Description: Assignment work for resource 0 is correctly set as 12> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 62 1115421342 24
+37 118 <Step: Assignment work units, Status: Pass, Description: Assignment work units for resource 0 is correctly set as hours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 68 1115421342 24
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypesRW> 120 1115421342 0

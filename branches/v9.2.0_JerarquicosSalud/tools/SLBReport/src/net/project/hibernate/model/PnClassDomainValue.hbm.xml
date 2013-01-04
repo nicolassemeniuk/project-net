@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnClassDomainValue" 
+    table="PN_CLASS_DOMAIN_VALUES"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnClassDomainValuePK">
+        <key-property 
+            name="domainId" 
+            column="DOMAIN_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="domainValueId" 
+            column="DOMAIN_VALUE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="domainValueName"
+        type="java.lang.String"
+        column="DOMAIN_VALUE_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="domainValueSeq"
+        type="java.lang.Integer"
+        column="DOMAIN_VALUE_SEQ"
+        length="8"
+    />
+    <property
+        name="domainValueDesc"
+        type="java.lang.String"
+        column="DOMAIN_VALUE_DESC"
+        length="500"
+    />
+    <property
+        name="isDefault"
+        type="int"
+        column="IS_DEFAULT"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="sourceValueId"
+        type="java.math.BigDecimal"
+        column="SOURCE_VALUE_ID"
+        length="20"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnObject -->
+    <many-to-one
+        name="pnObject"
+	    class="net.project.hibernate.model.PnObject"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="DOMAIN_VALUE_ID" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to PnClassDomain -->
+    <many-to-one
+        name="pnClassDomain"
+	    class="net.project.hibernate.model.PnClassDomain"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="DOMAIN_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnBookmark" 
+    table="PN_BOOKMARK"
+    lazy="false"
+>
+
+    <id
+        name="bookmarkId"
+        type="java.math.BigDecimal"
+        column="BOOKMARK_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="name"
+        type="java.lang.String"
+        column="NAME"
+        not-null="true"
+        length="240"
+    />
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        length="500"
+    />
+    <property
+        name="url"
+        type="java.lang.String"
+        column="URL"
+        not-null="true"
+        length="500"
+    />
+    <property
+        name="statusId"
+        type="java.math.BigDecimal"
+        column="STATUS_ID"
+        length="20"
+    />
+    <property
+        name="comments"
+        type="java.lang.String"
+        column="COMMENTS"
+        length="500"
+    />
+    <property
+        name="modifiedDate"
+        type="java.sql.Date"
+        column="MODIFIED_DATE"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        not-null="true"
+        length="7"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPersonByOwnerId"
+        class="net.project.hibernate.model.PnPerson"
+        not-null="true"
+    >
+        <column name="OWNER_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPersonByModifiedById"
+        class="net.project.hibernate.model.PnPerson"
+        not-null="true"
+    >
+        <column name="MODIFIED_BY_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

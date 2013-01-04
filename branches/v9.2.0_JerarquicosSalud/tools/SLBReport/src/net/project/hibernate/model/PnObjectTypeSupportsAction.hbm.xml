@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnObjectTypeSupportsAction" 
+    table="PN_OBJECT_TYPE_SUPPORTS_ACTION"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnObjectTypeSupportsActionPK">
+        <key-property 
+            name="objectType" 
+            column="OBJECT_TYPE" 
+            type="java.lang.String"
+            length="80"
+        />
+        <key-property 
+            name="actionId" 
+            column="ACTION_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="presentationSeq"
+        type="java.lang.Integer"
+        column="PRESENTATION_SEQ"
+        length="3"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnSecurityAction -->
+    <many-to-one
+        name="pnSecurityAction"
+	    class="net.project.hibernate.model.PnSecurityAction"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="ACTION_ID" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to PnObjectType -->
+    <many-to-one
+        name="pnObjectType"
+	    class="net.project.hibernate.model.PnObjectType"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="OBJECT_TYPE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

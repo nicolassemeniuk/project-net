@@ -1,0 +1,342 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:BlogLayout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<script type="text/javascript"> var blogEntryIds = '${blogEntryIds}'; </script>	
+	<span id="left">
+		<t:if test="linkToPersonSpace">			
+			<div id="${blogHeaderStyle}" style="left: 0px;"> <t:Message value="prm.global.nav.blog.title" /> </div>
+			<div class="profile-name"> ${blogName} </div> <br />			
+			<div style="clear: both"></div>
+			<div class="project-description">
+			<div class="blog-personImage"> <img width="110px" src="${imagePath}" /> </div> <br />
+				<div id="personDetailsDiv">
+					<t:if test="userWeblog">					
+						<t:if test="userWeblog.pnPerson">
+							<t:if test="userWeblog.pnPerson.email">
+								<strong><t:Message value="prm.blog.viewblog.email.label" /></strong>
+								<t:if test="userEmail">
+									<a href="mailto:${userWeblog.pnPerson.email}" title="${userWeblog.pnPerson.email}">${userEmail}</a> <br />
+									<t:parameter name="else">
+										<a href="mailto:${userWeblog.pnPerson.email}" title="${userWeblog.pnPerson.email}">${userWeblog.pnPerson.email}</a> <br />
+									</t:parameter>
+								</t:if>
+							</t:if>
+						</t:if>
+						<t:if test="userWeblog.pnPerson.pnPersonProfile">
+							<t:if test="userWeblog.pnPerson.pnPersonProfile.skype">
+								<strong><t:Message value="prm.blog.viewblog.skype.label" /></strong>
+									<t:if test="showSkypeStatus">
+										<a href="skype:${userWeblog.pnPerson.pnPersonProfile.skype}?chat">
+											<t:if test="secureConnection">
+												<img src="${asset:context:/images/skype/SkypeBlue_16X16.png}" style="border: none;" width="16" height="16" alt="My status" />
+												<t:parameter name="else">
+													<img src="http://mystatus.skype.com/smallicon/${userWeblog.pnPerson.pnPersonProfile.skype}" style="border: none;" width="16" height="16" alt="My status" />
+												</t:parameter>
+											</t:if>
+										</a>										
+									</t:if>
+									${userWeblog.pnPerson.pnPersonProfile.skype}
+								<br />
+							</t:if>
+						</t:if>
+					</t:if>
+					<t:if test="pnAddress">
+						<t:if test="pnAddress.officePhone">
+							<strong><t:Message value="prm.blog.viewblog.phone.label" /> </strong>${pnAddress.officePhone} <br />
+						</t:if>
+						<t:if test="pnAddress.mobilePhone">
+							<strong><t:Message value="prm.blog.viewblog.mobile.label" /></strong>${pnAddress.mobilePhone}
+						</t:if>
+					</t:if>
+				</div>
+			</div>
+			<t:parameter name="else">
+				<div id="${blogHeaderStyle}" style="left: 0px;"><t:Message value="prm.blog.viewblog.projectblog.header" /> </div>
+				<t:OutputRaw value="project.projectSpaceDetails"/>
+				<!--
+					<strong><t:Message value="prm.blog.viewblog.email.label" /><br /> </strong>
+					<a href="mailto:${userWeblog.emailAddress}">${userWeblog.emailAddress}</a>
+				-->
+			</t:parameter>
+		</t:if>	
+	<div class='spacer-for-toolbox'></div>
+	<div class='toolbox-heading'>Toolbox</div>
+		<div id="toolbox-item" class="toolbox-item">
+		<t:if test="actionsIconEnabled">
+			<t:if test="blogEnabled">
+				<t:if test="isSpaceAdmin">
+					<span id="blog-ItEnabled">
+						<a onmouseover=" document.imgblogit.src = '${JSPRootURL}${blogItImageOver}'" onmouseout=" document.imgblogit.src = '${JSPRootURL}${blogItImageOn}'"	href="javascript:blogit();">
+						<img hspace="0" border="0" name="imgblogit"	src="${JSPRootURL}${blogItImageOn}"	title="Blog-it" /> 
+						<t:Message value="all.global.toolbar.standard.blogit" /> </a>
+					</span><br />
+				</t:if>
+			</t:if>
+			<span id="entryViewLink">
+				<a onmouseover=" document.imgshowtitle.src = '${JSPRootURL}${showTitlesOnlyImageOver}'" onmouseout=" document.imgshowtitle.src = '${JSPRootURL}${showTitlesOnlyImageOn}'" href="javascript:showHideEntryText(false);">
+					<img hspace="0"	border="0" name="imgshowtitle" src="${JSPRootURL}${showTitlesOnlyImageOn}" title="Show titles only"/>
+					<t:Message value="prm.blog.viewblog.showtitlesonly.link" />
+				</a>
+			</span>&nbsp;<br />
+			<t:if test="linkToPersonSpace">
+					<span>
+						<a onmouseover=" document.imgmyprofile.src = '${JSPRootURL}${myProfileImageOver}'" onmouseout=" document.imgmyprofile.src = '${JSPRootURL}${myProfileImageOn}'" href="${JSPRootURL}/personal/profile/${userId}?module=${moduleId}">
+							<img hspace="0" border="0" name="imgmyprofile" src="${JSPRootURL}${myProfileImageOn}" title="My Profile"/>
+							<t:if test="isSpaceAdmin">
+								<t:Message value="prm.blog.viewblog.myprofile.link" />
+								<t:parameter name="else">
+									<t:Message value="prm.blog.viewblog.profile.link" />
+								</t:parameter>
+							</t:if>	
+						</a>
+					</span>&nbsp;<br />
+				<t:parameter name="else">
+						<span id="hidePictureLink">
+							<a onmouseover=" document.imgshowpicture.src = '${JSPRootURL}${showPictureOver}'" onmouseout="document.imgshowpicture.src = '${JSPRootURL}${showPictureOn}'" href="javascript:showHidePictures(true);">
+								<img hspace="0" border="0" name="imgshowpicture" src="${JSPRootURL}${showPictureOn}" title="My Picture"/>
+								<t:Message value="prm.blog.viewblog.hidepictures.link" />
+							</a>
+						</span>&nbsp;<br />
+				</t:parameter>
+			</t:if>
+			<span>
+				<a id="blog-notify" onmouseover="document.imgnotify.src = '${JSPRootURL}/images/icons/toolbar-rollover-notify.gif'" onmouseout="document.imgnotify.src = '${JSPRootURL}/images/icons/toolbar-gen-notify_on.gif'" href="javascript:openNotifyPopup(${userWeblog.weblogId}, null);">
+					<img hspace="0" border="0" name="imgnotify" src="${JSPRootURL}/images/icons/toolbar-gen-notify_on.gif" title="Notify" alt="Notify"/>
+					<t:Message value="all.global.toolbar.standard.notify" />
+				</a>
+			</span>
+		<t:parameter name="else">
+				<t:if test="blogEnabled">
+					<t:if test="isSpaceAdmin">
+						<span id="blog-ItEnabled">
+							<a href="javascript:blogit();">
+								<t:Message value="all.global.toolbar.standard.blogit" />
+							</a>
+						</span> <br />
+					</t:if>
+				</t:if>
+				<span id="entryViewLink">
+					<a href="javascript:showHideEntryText(false);">
+						<t:Message value="prm.blog.viewblog.showtitlesonly.link" />
+					</a>
+				</span>&nbsp;<br />
+				<t:if test="linkToPersonSpace">
+						<span>
+							<a href="${JSPRootURL}/personal/profile/${userId}?module=${moduleId}">
+								<t:if test="isSpaceAdmin">
+									<t:Message value="prm.blog.viewblog.myprofile.link" />
+									<t:parameter name="else">
+										<t:Message value="prm.blog.viewblog.profile.link" />
+									</t:parameter>
+								</t:if>	
+							</a>
+						</span>&nbsp;<br />
+					<t:parameter name="else">
+							<span id="hidePictureLink">
+								<a href="javascript:showHidePictures(true);">
+									<t:Message value="prm.blog.viewblog.hidepictures.link" />
+								</a>
+							</span>&nbsp;<br />
+					</t:parameter>
+				</t:if>&nbsp;
+				<span id="blog-notify">
+					<a href="javascript:openNotifyPopup(${userWeblog.weblogId}, null);">
+						<t:Message value="all.global.toolbar.standard.notify" />
+					</a>
+				</span>
+		</t:parameter>
+		</t:if>
+		</div>
+	</span>	
+	
+	<!--New Filter UI  -->
+	<div id="_top_location" class="filter-assistant">
+	<div class="filter">
+	<table valign="middle">
+	<t:form t:id="myForm1" clientValidation="false">
+	<table valign="middle">
+			<tr>
+				<td width="110px" rowspan="0" colspan="0" id="startDateId" style="white-space:nowrap;margin-right:3px;"></td>
+				<td width="110px" rowspan="0" colspan="0" id="endDateId" style="white-space:nowrap;margin-right:3px;"></td>
+				<!--	 Filter for Item Type-->
+				<td rowspan="0" colspan="0">
+					<t:select class="fixed-width-form" model="itemTypeList" value="literal:0=All" clientId="itemTypeFilter" onchange="setTask();" blankOption="NEVER" />
+				</td>
+				<!--  Task  -->
+				<td rowspan="0" colspan="0">
+					<t:if test="linkToPersonSpace">
+						<t:parameter name="else">
+							<t:BlogTask />
+						</t:parameter>
+					</t:if>
+				</td>
+				<!--  Team -->
+				<td rowspan="0" colspan="0">
+					<t:if test="linkToPersonSpace">
+						<t:parameter name="else">
+							<t:BlogTeam />
+						</t:parameter>
+					</t:if>
+				</td>
+				<!-- 	 Filter for Projects  -->
+				<td rowspan="0" colspan="0"> 
+					<t:if test="linkToPersonSpace">
+						<t:select model="visibleProjectsModel"
+							encoder="visibleProjectsModel" value="visibleProjectSpace"
+							clientId="projectFilter" class="fixed-width-form" blankOption="NEVER" />
+					</t:if>
+				</td>
+				<td rowspan="0" colspan="0">
+					<input class="apply" name="Apply" value="Apply" type="button" onclick="javascript:applyFilters('apply');" />
+				</td>
+				<td rowspan="0" colspan="0">&nbsp;</td>
+				<td rowspan="0" colspan="0" class="filter-down-button" style="padding-left: 20px">
+					<a href="javascript:openCloseFilter();">
+						<img src="${JSPRootURL}/images/filter-down.gif" id="imageId" title="down" border="0" width="15" height="15"/>
+					</a>
+				</td>
+			</tr>
+			</table>
+			<table>
+			<tr>
+				<td colspan="9">
+				<div id="openFilter" style="display: none;">
+					<label><input name="only-important" id="importantBlogEntryId" type="checkbox" /> 
+					 Only Show Entries Marked Important</label>
+					 &nbsp;&nbsp;&nbsp;
+						<t:if test="linkToPersonSpace">
+							<t:parameter name="else">
+								<label><input name="only-time" id="timeReportedId" type="checkbox" />
+		 						      Only Show Entries With Worked Time Reported</label>
+		 					 </t:parameter>
+						</t:if>
+				</div>
+				</td>
+			</tr>
+			</table>
+	</t:form>
+	</table>
+	</div>
+	</div>
+
+
+	<!-- Left Side Div Starts -->
+	<div style="left: 5px; top: 86px; position: absolute; width: 25%; height: 100%; display: none;">
+	<!-- Filter for Archive   <t:BlogArchives /> -->
+
+	</div>
+	<!-- Left Side Div Ends -->
+
+	<!-- Blog content starts here -->
+	<div id="blog-content">
+
+	<!-- Middle content Div Starts -->
+
+	<div id="blog" style="height: 100%; width: 100%; position: absolute; top: 15px;">
+	<table width="100%" height="100%" align="left">
+		<!-- Main table in middle div -->
+		<tr height="100%">
+			<td valign="top" width="100%" style="padding-left:10px;"><!-- TD for all blog entries starts -->
+			<table width="100%">
+				<tr>
+					<td id="loadBlogEntries_Body">
+						<div id="loadBlogEntries"><font color="gray" style="font-weight: normal; size: 12px; padding-left:20px;">Loading	blog entries...&nbsp;</font>
+						 	<img src="${JSPRootURL}/images/default/grid/loading.gif" align="absmiddle" />
+						</div>
+					</td>
+				</tr>
+			</table>
+			</td>
+			<!-- TD for all blog entries ends -->
+		</tr>
+	</table>
+	<!-- End of Main table in middle div --></div>
+	<!-- End of Middle content Div --></div>
+	<!-- Blog content ends here -->
+	
+<script type="text/javascript">
+var JSPRootURL = '${JSPRootURL}';
+var userId = '${userId}';
+var spaceType = '${spaceType}';
+var spaceId = '${spaceId}';
+var otherUsersSpaceId = '${otherUsersSpaceId}';
+var moduleId = '${moduleId}';
+var commentPopupTitle = '${commentPopupTitle}';
+var entryPopupTitle = '${entryPopupTitle}';
+var editEntryPopupTitle = '${editEntryPopupTitle}';
+var fullEntriesView = false;
+var showImage = false;
+var contentPanel;
+var entryContents;
+var validationMessageForBlogEntry = '${validationMessageForBlogEntry}';
+var validationMessageForBlogHtmlTagEntry ='${validationMessageForBlogHtmlTagEntry}';
+var validationMessageForBlogComment = '${validationMessageForBlogComment}';
+var blogEntriesLoadedForObject = '${blogEntriesLoadedForObject}';
+var openBlogEntries = blogEntryIds.split(',').length-1;
+var startDate, endDate,posts;
+var teamMemberId = '${teamMemberId}';
+var confirmDeleteBlogEntryMessage = '${confirmDeleteBlogEntryMessage}';
+var confirmDeleteBlogEntryWithWrkChEstMessage = '<t:Message value="prm.blog.deleteweblogentrywithtimeentry.confirm.message" />';
+var openFor = 'blogPage';
+var blogPopupUserDate = '${blogPopupUserDate}';
+var actionsIconEnabled = ${actionsIconEnabled};
+var showFullEntriesLink = '<t:Message value="prm.blog.viewblog.showfullentries.link" />';
+var showTitlesOnlyLink = '<t:Message value="prm.blog.viewblog.showtitlesonly.link" />';
+var showPicturesLink = '<t:Message value="prm.blog.viewblog.showpictures.link" />';
+var hidePicturesLink = '<t:Message value="prm.blog.viewblog.hidepictures.link" />';
+var showTitlesOnlyImageOn = JSPRootURL + '<t:Message value="all.global.toolbar.standard.showtitles.image.on" />';
+var showTitlesOnlyImageOver = JSPRootURL + '<t:Message value="all.global.toolbar.standard.showtitles.image.over" />';
+var showHidePictureOn = JSPRootURL + '<t:Message value="all.global.toolbar.standard.showpicture.image.on" />';
+var showHidePictureOver = JSPRootURL + '<t:Message value="all.global.toolbar.standard.showpicture.image.over" />';
+var hidePictureImageOff = JSPRootURL + '<t:Message value="all.global.toolbar.standard.hidepictures.image.off" />';
+var showTitlesOnlyImageOff = JSPRootURL + '<t:Message value="all.global.toolbar.standard.showtitlesonly.image.off" />';
+var accessDeniedError = '<t:Message value="prm.project.errorpage.accessdeniedmessage" />';
+var weblogEntryId = '${weblogEntryId}';
+var taskID='${taskID}';
+var typeID='${objectType}';
+
+// variables used for managing message while deleting blog entry
+var blogEntriesOnPageCnt;
+var totalNoOfBlogEntry;
+var rangeForDisplay;
+var offsetForDisplay;
+var nextEntriesCount;
+
+<!-- //
+// initializing content panel with html editor
+function initializeContentPanel(){
+    Ext.QuickTips.init();
+	contentPanel = new Ext.FormPanel({
+		border: false,
+        width: 640,
+        items: [{        	
+            xtype: 'htmleditor',
+            id: 'content',
+            fieldLabel: 'Content',
+			width: 640,
+            height: 200,
+            anchor: '95%',
+            enableFontSize: false,
+            style: 'border: thin; border-color: #33BDFF;',
+            listeners: {'render': function(component){focusContent(); removeLoadingDiv();}}
+        }]
+    });
+}
+
+function setup(){	
+	posts = '20';
+	startDate = null;
+	endDate = null;
+	if(typeID == 'task') { // To set the filter for task when loaded for showing blog entries of task
+		applyFilters('task');
+	} else {
+		applyFilters('clearFilter');
+	}
+	filterSetup();
+}
+
+// -->
+window.onload = setup;
+</script>
+
+</t:BlogLayout>

@@ -1,0 +1,53 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 1 1112230690 0
+37 111 <Step: Verify summary task work, Status: Pass, Description: The work of the summary task changes correctly to 48> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 98 1112230943 24
+37 117 <Step: Verify summary task duration, Status: Pass, Description: The duration of the summary task is set correctly to 5> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 103 1112230943 24
+37 106 <Step: Verify summary start date, Status: Pass, Description: The start date 3/30/05 is set correctly for t6> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 108 1112230943 24
+37 101 <Step: Verify summary end date, Status: Pass, Description: The end date 4/5/05 is set correctly for t6> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 113 1112230943 24
+37 111 <Step: Verify summary task work, Status: Pass, Description: The work of the summary task changes correctly to 88> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 98 1112230958 24
+37 112 <Step: Verify summary task duration, Status: Pass, Description: The duration of the summary task is set correctly> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 137 1112230958 24
+37 106 <Step: Verify summary start date, Status: Pass, Description: The start date 3/30/05 is set correctly for t4> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 145 1112230958 24
+37 103 <Step: Verify summary end date, Status: Pass, Description: The start date 4/5/05 is set correctly for t4> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 154 1112230958 24
+37 112 <Step: Verify summary task work, Status: Pass, Description: The work of the summary task changes correctly to 128> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 98 1112230974 24
+37 112 <Step: Verify summary task duration, Status: Pass, Description: The duration of the summary task is set correctly> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 137 1112230974 24
+37 106 <Step: Verify summary start date, Status: Pass, Description: The start date 3/30/05 is set correctly for t2> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 145 1112230974 24
+37 103 <Step: Verify summary end date, Status: Pass, Description: The start date 4/5/05 is set correctly for t2> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 154 1112230974 24
+37 112 <Step: Verify summary task work, Status: Pass, Description: The work of the summary task changes correctly to 168> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 98 1112230990 24
+37 112 <Step: Verify summary task duration, Status: Pass, Description: The duration of the summary task is set correctly> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 137 1112230990 24
+37 106 <Step: Verify summary start date, Status: Pass, Description: The start date 3/30/05 is set correctly for t0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 145 1112230990 24
+37 103 <Step: Verify summary end date, Status: Pass, Description: The start date 4/5/05 is set correctly for t0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 154 1112230990 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 197 1112230990 0
+37 111 <Step: Verify summary task work, Status: Pass, Description: The work of the summary task changes correctly to 48> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 98 1112231238 24
+37 117 <Step: Verify summary task duration, Status: Pass, Description: The duration of the summary task is set correctly to 5> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 103 1112231238 24
+37 107 <Step: Verify summary start date, Status: Pass, Description: The start date 3/30/05 is set correctly for t15> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 108 1112231238 24
+37 102 <Step: Verify summary end date, Status: Pass, Description: The end date 4/5/05 is set correctly for t15> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 113 1112231238 24
+37 111 <Step: Verify summary task work, Status: Pass, Description: The work of the summary task changes correctly to 88> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 98 1112231254 24
+37 112 <Step: Verify summary task duration, Status: Pass, Description: The duration of the summary task is set correctly> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 137 1112231254 24
+37 107 <Step: Verify summary start date, Status: Pass, Description: The start date 3/30/05 is set correctly for t13> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 145 1112231254 24
+37 104 <Step: Verify summary end date, Status: Pass, Description: The start date 4/5/05 is set correctly for t13> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 154 1112231254 24
+37 112 <Step: Verify summary task work, Status: Pass, Description: The work of the summary task changes correctly to 128> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 98 1112231270 24
+37 112 <Step: Verify summary task duration, Status: Pass, Description: The duration of the summary task is set correctly> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 137 1112231270 24
+37 107 <Step: Verify summary start date, Status: Pass, Description: The start date 3/30/05 is set correctly for t11> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 145 1112231270 24
+37 104 <Step: Verify summary end date, Status: Pass, Description: The start date 4/5/05 is set correctly for t11> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 154 1112231270 24
+37 112 <Step: Verify summary task work, Status: Pass, Description: The work of the summary task changes correctly to 168> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 98 1112231286 24
+37 112 <Step: Verify summary task duration, Status: Pass, Description: The duration of the summary task is set correctly> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 137 1112231286 24
+37 106 <Step: Verify summary start date, Status: Pass, Description: The start date 3/30/05 is set correctly for t9> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 145 1112231286 24
+37 103 <Step: Verify summary end date, Status: Pass, Description: The start date 4/5/05 is set correctly for t9> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 154 1112231286 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 216 1112231286 0
+37 111 <Step: Verify summary task work, Status: Pass, Description: The work of the summary task changes correctly to 48> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 98 1112231537 24
+37 117 <Step: Verify summary task duration, Status: Pass, Description: The duration of the summary task is set correctly to 5> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 103 1112231537 24
+37 107 <Step: Verify summary start date, Status: Pass, Description: The start date 3/30/05 is set correctly for t24> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 108 1112231537 24
+37 102 <Step: Verify summary end date, Status: Pass, Description: The end date 4/5/05 is set correctly for t24> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 113 1112231537 24
+37 111 <Step: Verify summary task work, Status: Pass, Description: The work of the summary task changes correctly to 88> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 98 1112231554 24
+37 112 <Step: Verify summary task duration, Status: Pass, Description: The duration of the summary task is set correctly> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 137 1112231554 24
+37 107 <Step: Verify summary start date, Status: Pass, Description: The start date 3/30/05 is set correctly for t22> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 145 1112231554 24
+37 104 <Step: Verify summary end date, Status: Pass, Description: The start date 4/5/05 is set correctly for t22> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 154 1112231555 24
+37 112 <Step: Verify summary task work, Status: Pass, Description: The work of the summary task changes correctly to 128> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 98 1112231572 24
+37 112 <Step: Verify summary task duration, Status: Pass, Description: The duration of the summary task is set correctly> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 137 1112231572 24
+37 107 <Step: Verify summary start date, Status: Pass, Description: The start date 3/30/05 is set correctly for t20> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 145 1112231572 24
+37 104 <Step: Verify summary end date, Status: Pass, Description: The start date 4/5/05 is set correctly for t20> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 154 1112231572 24
+37 112 <Step: Verify summary task work, Status: Pass, Description: The work of the summary task changes correctly to 168> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 98 1112231589 24
+37 112 <Step: Verify summary task duration, Status: Pass, Description: The duration of the summary task is set correctly> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 137 1112231589 24
+37 107 <Step: Verify summary start date, Status: Pass, Description: The start date 3/30/05 is set correctly for t18> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 145 1112231589 24
+37 104 <Step: Verify summary end date, Status: Pass, Description: The start date 4/5/05 is set correctly for t18> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 154 1112231589 24
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 239 1112231593 0

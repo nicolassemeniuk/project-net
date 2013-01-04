@@ -1,0 +1,9 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\effortDrivenTest> 1 1106600563 0
+44 54 <web_link_click:"WRProject" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\effortDrivenTest> 21 1106600604 0
+23 19 <Fixed Duration Task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\effortDrivenTest> 93 1106600630 0
+37 142 <Step: Verify effort driven, Status: Pass, Description: Effort driven condition for t1 task satisfied - Work remains same when resource 1 added> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\effortDrivenTest> 33 1106600651 24
+37 142 <Step: Verify effort driven, Status: Pass, Description: Effort driven condition for t1 task satisfied - Work remains same when resource 2 added> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\effortDrivenTest> 57 1106600659 24
+37 144 <Step: Verify effort driven, Status: Pass, Description: Effort driven condition for t1 task satisfied - Work remains same when resource 1 removed> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\effortDrivenTest> 79 1106600667 24
+37 144 <Step: Verify effort driven, Status: Pass, Description: Effort driven condition for t1 task satisfied - Work remains same when resource 2 removed> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\effortDrivenTest> 97 1106600675 24
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\effortDrivenTest> 95 1106600675 0

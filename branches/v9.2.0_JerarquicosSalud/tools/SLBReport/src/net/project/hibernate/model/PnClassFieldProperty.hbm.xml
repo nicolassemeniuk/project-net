@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnClassFieldProperty" 
+    table="PN_CLASS_FIELD_PROPERTY"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnClassFieldPropertyPK">
+        <key-property 
+            name="classId" 
+            column="CLASS_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="fieldId" 
+            column="FIELD_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="property" 
+            column="PROPERTY" 
+            type="java.lang.String"
+            length="80"
+        />
+        <key-property 
+            name="clientTypeId" 
+            column="CLIENT_TYPE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="propertyType"
+        type="java.lang.String"
+        column="PROPERTY_TYPE"
+        length="80"
+    />
+    <property
+        name="value"
+        type="java.lang.String"
+        column="VALUE"
+        length="80"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnClientType -->
+    <many-to-one
+        name="pnClientType"
+	    class="net.project.hibernate.model.PnClientType"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="CLIENT_TYPE_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

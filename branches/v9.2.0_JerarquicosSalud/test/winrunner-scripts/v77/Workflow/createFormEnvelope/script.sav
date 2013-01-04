@@ -1,0 +1,79 @@
+function createFormEnvelope(){
+	auto id, urlValue, elements, workflowID, count;
+	auto path_array[],selectID;
+	
+	GUI_close_all();
+	wait(3);
+
+	GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");
+	wait(1);
+	
+	
+	reload("createForm",0,1);
+	reload("createField",0,1);
+	reload("createList",0,1);
+	reload("activateForm",0,1);
+	
+	wait(2);
+	set_window("menu",2);
+	web_link_click("Forms");
+	wait(2);
+	set_window("main",3);
+# 	public i=1;
+	
+# 	report_msg(""&i&"one");
+	createForm("WorkflowForm","WF");
+# 	report_msg(""&i&"two");
+	wait(3);
+	createField("WorkflowForm","TF","TextField");
+# 	report_msg(""&i&"three");
+	wait(3);
+	id = createList("WorkflowList","TextField");
+# 	report_msg(""&i&"four");
+	wait(2);
+	set_window("main",2);
+	web_link_click("Workflows");
+	wait(2);
+	set_window("main",3);
+	
+	web_obj_get_info("Workflow","url",urlValue);
+	elements = split(urlValue,path_array,"=");
+	urlValue = path_array[2];
+	elements = split(urlValue,path_array,"&");
+	workflowID = path_array[1];
+	for(count=0;count<=6;count++){
+		if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui","main","Select","location",""&count&"")!=E_OK)
+			report_msg("Select COULD NOT be selected");
+		else{
+			GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");
+			web_obj_get_info("Select","url",urlValue);
+			elements = split(urlValue,path_array,"\'");
+			selectID = path_array[2];
+			if(selectID==workflowID){
+				web_link_click("Select");
+				break;
+			}
+		}
+	}
+	
+	activateForm("WorkflowForm");
+	pause(id);
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui","main","field","html_name","field"&id&"")!=E_OK)
+		report_msg("Form field not set in GUI map");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");
+	set_window("menu",3);
+	web_link_click("WorkflowForm");
+	wait(2);
+	set_window("main",3);
+	web_link_click("Create")
+	wait(2);
+	set_window("main",2);
+	edit_set("field","creating a form text field");
+	wait(1);
+	web_link_click("Submit_2");
+# 	i=1;	
+	
+	report_msg(""&i&" - Last");
+	GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");
+}

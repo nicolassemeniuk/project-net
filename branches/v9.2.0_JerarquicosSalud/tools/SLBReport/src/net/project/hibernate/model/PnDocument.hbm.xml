@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDocument" 
+    table="PN_DOCUMENT"
+    lazy="false"
+>
+
+    <id
+        name="docId"
+        type="java.math.BigDecimal"
+        column="DOC_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="docName"
+        type="java.lang.String"
+        column="DOC_NAME"
+        length="240"
+    />
+    <property
+        name="docDescription"
+        type="java.lang.String"
+        column="DOC_DESCRIPTION"
+        length="500"
+    />
+    <property
+        name="currentVersionId"
+        type="java.math.BigDecimal"
+        column="CURRENT_VERSION_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="docStatusId"
+        type="java.math.BigDecimal"
+        column="DOC_STATUS_ID"
+        length="20"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="oldStorageId"
+        type="java.math.BigDecimal"
+        column="OLD_STORAGE_ID"
+        length="20"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnObject -->
+    <one-to-one
+        name="pnObject"
+        class="net.project.hibernate.model.PnObject"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional one-to-many association to PnProjectSpace -->
+
+    <set
+        name="pnProjectSpaces"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PROJECT_LOGO_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnProjectSpace"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnDocHistory -->
+
+    <set
+        name="pnDocHistories"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DOC_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDocHistory"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnDocCheckoutLocation -->
+
+    <set
+        name="pnDocCheckoutLocations"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DOC_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDocCheckoutLocation"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnDocVersion -->
+
+    <set
+        name="pnDocVersions"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DOC_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDocVersion"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to PnDocType -->
+    <many-to-one
+        name="pnDocType"
+        class="net.project.hibernate.model.PnDocType"
+        not-null="true"
+    >
+        <column name="DOC_TYPE_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,29 @@
+function setSummaryTask(in childTask1, in childTask2,in level){#, in childTask3, in childTask4, in childTask5, in childTask6, in childTask7, in childTask8){
+	auto val1,val2,i;
+	
+	set_window("main",2);
+	val1 = getTaskID(childTask1);
+	val2 = getTaskID(childTask2);
+	
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","t1_button","part_value",val1)!=E_OK)
+		report_msg("NOT OK");
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","t2_button","part_value",val2)!=E_OK)
+		report_msg("NOT OK");
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+	
+	wait(1);
+	set_window("main",2);
+	for(i=1;i<=level;i++){
+		wait(2);
+		button_set("t1_button",ON);
+		button_set("t2_button",ON);
+		web_link_click("Indent Task(s)");
+		wait(4);
+		button_set("t1_button",OFF);
+		button_set("t2_button",OFF);
+	}
+	wait(3);
+	set_window("main",1);
+	
+}

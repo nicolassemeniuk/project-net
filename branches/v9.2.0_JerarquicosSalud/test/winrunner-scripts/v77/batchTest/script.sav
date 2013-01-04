@@ -1,0 +1,13 @@
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\batchDocuments"();
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Discussions\\batchDiscussions"();
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\batchForms"();
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\News\\batchNews"();
+wait(2);
+# call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Process\\batchProcess"();
+# wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Workflow\\batchWorkflow"();
+wait(2);

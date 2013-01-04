@@ -1,0 +1,162 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnBill" 
+    table="PN_BILL"
+    lazy="false"
+>
+
+    <id
+        name="billId"
+        type="java.math.BigDecimal"
+        column="BILL_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="unitPriceValue"
+        type="java.math.BigDecimal"
+        column="UNIT_PRICE_VALUE"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="quantityAmount"
+        type="java.math.BigDecimal"
+        column="QUANTITY_AMOUNT"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="quantityUomId"
+        type="java.math.BigDecimal"
+        column="QUANTITY_UOM_ID"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="categoryId"
+        type="java.math.BigDecimal"
+        column="CATEGORY_ID"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="partDetailsPartNumber"
+        type="java.lang.String"
+        column="PART_DETAILS_PART_NUMBER"
+        not-null="true"
+        length="500"
+    />
+    <property
+        name="partDetailsPartDescription"
+        type="java.lang.String"
+        column="PART_DETAILS_PART_DESCRIPTION"
+        length="1000"
+    />
+    <property
+        name="groupTypeId"
+        type="java.math.BigDecimal"
+        column="GROUP_TYPE_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="groupValue"
+        type="java.lang.String"
+        column="GROUP_VALUE"
+        length="500"
+    />
+    <property
+        name="groupDescription"
+        type="java.lang.String"
+        column="GROUP_DESCRIPTION"
+        length="1000"
+    />
+    <property
+        name="billStatusId"
+        type="java.math.BigDecimal"
+        column="BILL_STATUS_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        length="1"
+    />
+    <property
+        name="creationDatetime"
+        type="java.sql.Date"
+        column="CREATION_DATETIME"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="dueDatetime"
+        type="java.sql.Date"
+        column="DUE_DATETIME"
+        not-null="true"
+        length="7"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPerson"
+        class="net.project.hibernate.model.PnPerson"
+        not-null="true"
+    >
+        <column name="ORIGINATING_PERSON_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnLedger -->
+
+    <set
+        name="pnLedgers"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="BILL_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnLedger"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to PnLicense -->
+    <many-to-one
+        name="pnLicense"
+        class="net.project.hibernate.model.PnLicense"
+        not-null="true"
+    >
+        <column name="ORIGINATING_LICENSE_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PnPaymentInformation -->
+    <many-to-one
+        name="pnPaymentInformation"
+        class="net.project.hibernate.model.PnPaymentInformation"
+        not-null="true"
+    >
+        <column name="ORIGINATING_PAYMENT_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,237 @@
+<!DOCTYPE etl SYSTEM "http://scriptella.javaforge.com/dtd/etl.dtd">
+<etl>
+    <description>Database creation script</description>
+    <properties>
+        <include href="dbinit.properties"/>
+    </properties>
+    <connection driver="${driver}" url="${url}" user="${PNET_BUILD_USER_NAME}" password="${PNET_BUILD_USER_PASSWORD}">
+    plsql=true
+    </connection>
+	
+	<script>
+    	<include href="${ADMINPATH}packages/application.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/base.spc"/>
+    </script>
+    
+	<script>
+    	<include href="${ADMINPATH}packages/business.spc"/>
+    </script>
+
+    <script>
+    	<include href="${ADMINPATH}packages/calendar.spc"/>
+    </script>
+    
+	<script>
+    	<include href="${ADMINPATH}packages/configuration.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/discussion.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/document.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/forms.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/help.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/message.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/methodology.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/news.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/notification.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/process.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/product.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/profile.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/project.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/schedule.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/security.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/sharing.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/space.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/task.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/timesheet.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/user_domain.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/util.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/vote.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/workflow.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/workflow_rule.spc"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/application.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/base.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/business.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/calendar.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/configuration.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/discussion.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/document.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/forms.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/help.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/message.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/methodology.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/news.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/notification.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/process.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/product.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/profile.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/project.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/schedule.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/security.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/sharing.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/space.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/task.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/timesheet.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/user_domain.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/util.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/vote.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/workflow.bdy"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}packages/workflow_rule.bdy"/>
+		commit
+		/
+    </script>
+
+</etl>

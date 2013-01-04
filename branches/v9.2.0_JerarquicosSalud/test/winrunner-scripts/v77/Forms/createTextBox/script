@@ -1,0 +1,25 @@
+function createTextBox(in name){
+	extern i;
+	auto rc;
+	
+	wait(1);
+# 	report_msg("Within Text Box - "&i&"");
+# 	auto outText;
+	set_window("main",1);
+	list_select_item("ElementID","Text Box");
+	wait(2);
+	set_window("main",2);
+	edit_set("field_label",name);
+	edit_set("row_num",i);
+	list_select_item("column_id","Left");
+	edit_set("cols",80);
+	edit_set("rows",10);
+	web_link_click("Submit");
+	set_window("main",2);
+	
+	# Verifying the text box was created and exists in the field list
+	if(obj_exists(name)==E_OK)
+		tl_step("Verify text box exists",0,"The Text Box '"&name&"'created successfully");
+	else
+		tl_step("Verify text box exists",1,"The creation of text box CANNOT be verified");	
+}

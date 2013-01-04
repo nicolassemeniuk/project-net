@@ -1,0 +1,159 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>create_business_test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">create_business_test</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Business</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Create Business</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Delete Business</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Create Business</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Create New Business</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Business Name:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Business Type:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Sub-business of: </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Business Description:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Apply Template: </td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>selenium test business</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>flavor</td>
+	<td>test business type</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>test business description</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Next']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Business Name:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>selenium test business </td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>address1</td>
+	<td>address - line 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>address2</td>
+	<td>address line -2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>address3</td>
+	<td>address line 3</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>city</td>
+	<td>test city</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>postalCode</td>
+	<td>411025</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>countryCode</td>
+	<td>label=India</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>phone</td>
+	<td>0987654321</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>fax</td>
+	<td>0123456789</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>website</td>
+	<td>www.project.net</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Finish']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>selenium test business</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>test business type</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>Project.net</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

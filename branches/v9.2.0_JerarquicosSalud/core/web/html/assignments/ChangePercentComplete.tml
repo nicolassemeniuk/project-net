@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<table width="100%" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+	<tr height="23px">
+		<td bgcolor="#CCCCFF" style="padding-left:5px;" align="left" class="setTitle"><t:Message value="prm.personal.assignments.changepercentcomplete.changeofestimatedtimetofinish.header" /></td>
+	</tr>	
+	<tr><td align="left" style="padding-left: 15px;" nowrap="nowrap" class="blogEntryTitle">Topic: ${selectedTask}</td></tr>	
+	<tr><td><div id="percentErrorLocationID" class="errorMessage"></div></td></tr>	
+	<tr>
+		<td>
+			<table cellspacing="6px">
+				<tr>
+					<td></td>
+					<td align="center" class="setPrecentSubTitle">		
+						<t:Message value="prm.personal.assignments.changepercentcomplete.baselineplan.header" />
+					</td>
+					<td class="blogbar" width="1px" rowspan="4"></td>
+					<td align="center" class="setPrecentSubTitle">			
+						<t:Message value="prm.personal.assignments.changepercentcomplete.adjustment.header" />	
+					</td>
+				</tr>
+				<tr><td class="blogbar" colspan="4" /></tr>
+				<tr>
+					<td style="padding-left: 5px;" align="left" class="setPrecentsimpleTitle">			
+						<t:Message value="prm.personal.assignments.changepercentcomplete.percentcomplete.label" />
+					</td>
+					<td align="center" class="setPrecentsimpleTitle"><span id="pc${objectId}">${percentComplete}</span></td>
+					<td align="center" class="setPrecentsimpleTitle">
+						<span id="pc1">${percentComplete}</span>
+					</td>
+				</tr>
+				<tr>
+					<td style="padding-left: 5px;" align="left" class="setPrecentsimpleTitle" nowrap="nowrap">			
+						<t:Message value="prm.personal.assignments.changepercentcomplete.estimatedremaining.label" />
+					</td>
+					<td align="center" class="setPrecentsimpleTitle"><span id="pc2">${workRemainedToDays}</span></td>
+					<td align="center" class="setPrecentsimpleTitle">
+						<input type="text" size="5" maxlength="5" name="pc${objectId}" value='${workRemained}' onchange="percentChanged('${objectId}','update');"/>hrs
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+
+	<tr>
+		<td style="padding: 8px;">
+			<div style="border: thin; color: #81F6F6;">
+				<table border="1" style="border: thin; color: #81F6F6;" cellpadding="0" cellspacing="0" width="100%">
+					<tr height="22px">
+						<td style="padding-left:5px; border:none;" bgcolor="#81F6F6" nowrap="nowrap" align="left" width="100%" class="comments">
+							<t:Message value="prm.personal.assignments.changepercentcomplete.reasonforchange.header" />
+						</td>
+					</tr>
+					<tr>
+						<td nowrap="nowrap" align="center" width="100%">
+							<textarea id="comments" style="border-style: none; width: 99%; height: 150px;" col="40" row="35"></textarea>
+						</td>
+					</tr>
+				</table>
+			</div>
+		</td>
+	</tr>
+	
+	<tr>
+		<td width="70%" align="right" nowrap="nowrap" class="blogEntryTitle">
+			<a class="buttonLink" href="javascript:percentChanged('${objectId}','submit');"><t:Message value="prm.personal.assignments.changepercentcomplete.submitbutton.caption" /></a>&nbsp;&nbsp;&nbsp;&nbsp;
+			<a class="buttonLink" href="javascript:hidePercentPopup();"><t:Message value="prm.personal.assignments.changepercentcomplete.cancelbutton.caption" /></a>
+		</td>
+	</tr>
+</table>

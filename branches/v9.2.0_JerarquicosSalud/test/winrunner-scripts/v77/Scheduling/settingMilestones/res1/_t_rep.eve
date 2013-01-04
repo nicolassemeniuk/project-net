@@ -1,0 +1,125 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 4 1100053724 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\forLoginProject> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 5 1100053727 0
+44 53 <set_window:"toolbar_main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\forLoginProject> 13 1100053763 0
+44 67 <web_image_click:"topnav-projects-off" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\forLoginProject> 15 1100053763 0
+11 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\forLoginProject> 19 1100053763 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 15 1100053777 0
+44 59 <web_link_click:"TestProject2" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 16 1100053777 0
+44 45 <set_window:"menu" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 17 1100053789 0
+44 55 <web_link_click:"Workplan" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 18 1100053789 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 20 1100053803 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 51 1100053814 0
+44 63 <obj_get_info:"changeCheckedState" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 52 1100053814 0
+44 61 <button_set:"changeCheckedState" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 52 1100053814 0
+44 58 <web_link_click:"Delete Task" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 54 1100053815 0
+44 68 <set_window:"Microsoft Internet Explorer" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 55 1100053824 0
+44 47 <obj_get_info:"OK" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 56 1100053824 0
+44 47 <button_press:"OK" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 56 1100053824 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 58 1100053841 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053853 0
+44 62 <web_link_click:"Create New Task" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053853 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053866 0
+44 62 <win_get_info:"Project.net Login" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053866 0
+44 49 <obj_get_info:"name" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053866 0
+44 49 <obj_get_info:"name" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053866 0
+44 49 <win_get_info:"name" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053866 0
+44 62 <win_get_info:"Project.net Login" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053867 0
+44 78 <obj_get_info:"taskCalculationTypeFixedElementID" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053867 0
+44 78 <obj_get_info:"taskCalculationTypeFixedElementID" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053867 0
+44 78 <win_get_info:"taskCalculationTypeFixedElementID" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053867 0
+44 78 <win_get_info:"taskCalculationTypeFixedElementID" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053867 0
+44 62 <win_get_info:"Project.net Login" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053868 0
+44 49 <obj_get_info:"work" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053868 0
+44 49 <obj_get_info:"work" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053868 0
+44 49 <win_get_info:"work" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053868 0
+44 62 <win_get_info:"Project.net Login" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053869 0
+44 53 <obj_get_info:"duration" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053869 0
+44 53 <obj_get_info:"duration" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053869 0
+44 53 <win_get_info:"duration" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053869 0
+44 62 <obj_get_info:"milestoneCheckbox" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053869 0
+44 60 <button_set:"milestoneCheckbox" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053869 0
+44 53 <web_link_click:"Submit" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053869 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053883 0
+44 66 <web_link_click:"Return to Task List" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 60 1100053883 0
+5 11 <Img1:4> <settingMilestones> 29 1100053904 0
+44 51 <win_check_bitmap:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 29 1100053904 0
+44 49 <web_link_click:"t1" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 30 1100053904 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 32 1100053916 0
+44 53 <web_link_click:"Modify" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 33 1100053916 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 35 1100053927 0
+44 68 <button_check_state:"milestoneCheckbox" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 37 1100053928 0
+44 68 <button_check_state:"milestoneCheckbox" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 37 1100053928 0
+37 86 <Step: CHeck milestones, Status: Pass, Description: The milestone button is NOT checked> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 38 1100053928 24
+44 53 <web_link_click:"Cancel" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 39 1100053928 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053943 0
+44 62 <web_link_click:"Create New Task" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053943 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053955 0
+44 62 <win_get_info:"Project.net Login" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053955 0
+44 49 <obj_get_info:"name" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053955 0
+44 49 <obj_get_info:"name" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053955 0
+44 49 <win_get_info:"name" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053955 0
+44 62 <win_get_info:"Project.net Login" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053956 0
+44 78 <obj_get_info:"taskCalculationTypeFixedElementID" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053956 0
+44 78 <obj_get_info:"taskCalculationTypeFixedElementID" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053956 0
+44 78 <win_get_info:"taskCalculationTypeFixedElementID" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053956 0
+44 78 <win_get_info:"taskCalculationTypeFixedElementID" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053956 0
+44 62 <win_get_info:"Project.net Login" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053958 0
+44 49 <obj_get_info:"work" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053958 0
+44 49 <obj_get_info:"work" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053958 0
+44 49 <win_get_info:"work" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053958 0
+44 62 <win_get_info:"Project.net Login" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053959 0
+44 53 <obj_get_info:"duration" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053959 0
+44 53 <obj_get_info:"duration" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053959 0
+44 53 <win_get_info:"duration" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053959 0
+44 62 <obj_get_info:"milestoneCheckbox" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053959 0
+44 60 <button_set:"milestoneCheckbox" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053959 0
+44 53 <web_link_click:"Submit" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053959 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053972 0
+44 66 <web_link_click:"Return to Task List" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 63 1100053972 0
+5 11 <Img:1> <settingMilestones> 29 1100053994 0
+44 51 <win_check_bitmap:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 29 1100053994 0
+44 49 <web_link_click:"t2" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 30 1100053994 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 32 1100054005 0
+44 53 <web_link_click:"Modify" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 33 1100054005 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 35 1100054017 0
+44 68 <button_check_state:"milestoneCheckbox" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 37 1100054018 0
+44 68 <button_check_state:"milestoneCheckbox" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 37 1100054018 0
+37 86 <Step: CHeck milestones, Status: Pass, Description: The milestone button is NOT checked> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 38 1100054018 24
+44 53 <web_link_click:"Cancel" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 39 1100054018 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054032 0
+44 62 <web_link_click:"Create New Task" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054032 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054045 0
+44 62 <win_get_info:"Project.net Login" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054045 0
+44 49 <obj_get_info:"name" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054045 0
+44 49 <obj_get_info:"name" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054045 0
+44 49 <win_get_info:"name" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054045 0
+44 62 <win_get_info:"Project.net Login" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054046 0
+44 78 <obj_get_info:"taskCalculationTypeFixedElementID" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054046 0
+44 78 <obj_get_info:"taskCalculationTypeFixedElementID" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054046 0
+44 78 <win_get_info:"taskCalculationTypeFixedElementID" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054046 0
+44 78 <win_get_info:"taskCalculationTypeFixedElementID" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054046 0
+44 62 <win_get_info:"Project.net Login" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054047 0
+44 49 <obj_get_info:"work" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054047 0
+44 49 <obj_get_info:"work" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054047 0
+44 49 <win_get_info:"work" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054047 0
+44 62 <win_get_info:"Project.net Login" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054048 0
+44 53 <obj_get_info:"duration" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054048 0
+44 53 <obj_get_info:"duration" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054048 0
+44 53 <win_get_info:"duration" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054048 0
+44 62 <obj_get_info:"milestoneCheckbox" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054048 0
+44 60 <button_set:"milestoneCheckbox" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054048 0
+44 53 <web_link_click:"Submit" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054048 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054062 0
+44 66 <web_link_click:"Return to Task List" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 66 1100054062 0
+5 11 <Img:1> <settingMilestones> 29 1100054083 0
+44 51 <win_check_bitmap:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 29 1100054083 0
+44 49 <web_link_click:"t3" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 30 1100054083 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 32 1100054095 0
+44 53 <web_link_click:"Modify" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 33 1100054095 0
+44 45 <set_window:"main" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 35 1100054106 0
+44 68 <button_check_state:"milestoneCheckbox" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 37 1100054107 0
+44 68 <button_check_state:"milestoneCheckbox" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 37 1100054107 0
+37 86 <Step: CHeck milestones, Status: Pass, Description: The milestone button is NOT checked> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 38 1100054107 24
+44 53 <web_link_click:"Cancel" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 39 1100054107 0
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 70 1100054109 0

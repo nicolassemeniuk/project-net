@@ -1,0 +1,18 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProjects> 1 1112227169 0
+37 117 <Step: Verify Schedule Linked Project present, Status: Fail, Description: Schedule linked project HAS NOT BEEN created> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProjects> 121 1112227224 25
+37 99 <Step: Verify Manual Project present, Status: Pass, Description: Manual project successfully created> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProjects> 124 1112227224 24
+37 97 <Step: Verify subWRProject1 present, Status: Pass, Description: subWRProject1 successfully created> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProjects> 129 1112227224 24
+37 97 <Step: Verify subWRProject2 present, Status: Pass, Description: subWRProject2 successfully created> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProjects> 134 1112227224 24
+37 97 <Step: Verify subWRProject3 present, Status: Pass, Description: subWRProject3 successfully created> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProjects> 139 1112227224 24
+37 97 <Step: Verify subWRProject4 present, Status: Pass, Description: subWRProject4 successfully created> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProjects> 144 1112227224 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProjects> 149 1112227224 0
+44 54 <web_link_click:"WRProject" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProjects> 170 1112227254 0
+37 146 <Step: Verify redundancy, Status: Fail, Description: Sub projects of WRProject are BEING SHOWN is being shown in Sub Business Of list of its parent> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProjects> 180 1112227256 25
+37 138 <Step: Verify Schedule Linked Project present, Status: Fail, Description: Schedule linked project NOT present in Personal Workspace channel> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProjects> 191 1112227262 25
+37 107 <Step: Verify Manual Project present, Status: Pass, Description: Manual project exists on Personal Workspace> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProjects> 194 1112227262 24
+37 105 <Step: Verify subWRProject1 present, Status: Pass, Description: subWRProject1 exists on Personal Workspace> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProjects> 199 1112227262 24
+37 105 <Step: Verify subWRProject2 present, Status: Pass, Description: subWRProject2 exists on Personal Workspace> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProjects> 204 1112227262 24
+37 105 <Step: Verify subWRProject3 present, Status: Pass, Description: subWRProject3 exists on Personal Workspace> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProjects> 209 1112227262 24
+37 105 <Step: Verify subWRProject4 present, Status: Pass, Description: subWRProject4 exists on Personal Workspace> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProjects> 214 1112227262 24
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createProjects> 219 1112227262 0

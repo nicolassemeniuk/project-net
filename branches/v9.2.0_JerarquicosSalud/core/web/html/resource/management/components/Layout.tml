@@ -1,0 +1,169 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<head> <title><t:Message value="prm.global.application.title" /></title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+
+<!-- Linking all css files only here. 
+	 These are used for only Resources tab developed in Tapestry 5 -->
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/global.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/fonts.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/application.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/noframes.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/resources.css?${versionNumber}"/>
+<link rel='SHORTCUT ICON' type="text/css" href="${jSPRootURL}/images/favicon.ico" />
+<script language="javascript" type="text/javascript">
+var JSPRootURL = '${jSPRootURL}';
+var VERSION_NUMBER = '${versionNumber}';
+var loadingMsg = '<t:Message value="prm.global.loading.message" />';
+var savingMsg = '<t:Message value="prm.global.saving.message" />';
+
+<!-- //
+if((navigator.userAgent.toLowerCase()).indexOf( "msie" ) != -1 ) {
+	document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\""+JSPRootURL+"/styles/noframesie.css?"+VERSION_NUMBER+"\"/>");
+}
+	
+//To read the cookie value by name
+function readCookie(name) {
+	var nameEQ = name + "=";
+	var ca = document.cookie.split(';');
+	for(var i=0;i < ca.length;i++) {
+		var c = ca[i];
+		while (c.charAt(0)==' ') c = c.substring(1,c.length);
+		if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+	}
+	return '';
+}
+	
+// -->
+</script>
+<!-- Calendar Style -->
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/calendar.css?${versionNumber}" />
+<!-- Common Styles for the Ext widgets -->
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/src/extjs/resources/css/ext-all.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/lib.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/summary.css?${versionNumber}"/>
+<!-- Calendar JS -->
+<script type="text/javascript" src="${jSPRootURL}/src/calendar.js?${versionNumber}"></script>
+<!-- Ext JS's -->
+<script language="javascript" src="${jSPRootURL}/src/util.js?${versionNumber}"></script>
+<script language="javascript" src="${jSPRootURL}/src/window_functions.js?${versionNumber}"></script>
+<script type="text/javascript" src="${jSPRootURL}/src/extjs/adapter/ext/ext-base.js?${versionNumber}"></script>
+<script type="text/javascript" src="${jSPRootURL}/src/extjs/ext-all.js?${versionNumber}"></script>
+<script type="text/javascript" src="${jSPRootURL}/src/RowExpander.js?${versionNumber}"></script>
+<script type="text/javascript" src="${jSPRootURL}/src/GroupSummary.js?${versionNumber}"></script>
+<script type="text/javascript" src="${jSPRootURL}/src/menu/dropdown.js?${versionNumber}"></script>
+<script type="text/javascript" src="${JSPRootURL}/src/sessionHook.js?${versionNumber}" />
+<script language="javascript" src="${jSPRootURL}/toolbar/include/Main.jsp?s=resources&amp;i=${userId}${currentSpaceId}" />
+<script language="javascript" type="text/javascript">
+var dataNotFoundAlertMessage = '${dataNotFoundAlertMessage}';
+var errotAlertTitle = '${errotAlertTitle}';
+
+var rollOvers = new Array();
+	
+<!-- //	
+	function help() {
+		var helplocation=JSPRootURL+"/help/Help.jsp?page=Resource_Management";
+		openwin_help(helplocation);
+	}
+
+	function navTo(whichSpace) {
+		if(whichSpace =="business")
+			self.location=JSPRootURL+"/business/BusinessPortfolio.jsp?module=160&portfolio=true";
+		else if(whichSpace=="project")
+			self.location=JSPRootURL+"/portfolio/PersonalPortfolio.jsp?module=160&portfolio=true";
+		else if (whichSpace == "enterprise")
+			self.location=JSPRootURL+"/enterprise/Main.jsp?module=320";
+		else if (whichSpace == "resource")
+			self.location=JSPRootURL+"/personal/Main.jsp?page="+JSPRootURL+"/resource/management/viewsummary?module=360";
+		else
+			self.location=JSPRootURL+"/personal/Main.jsp";
+	}
+
+	function main_toolbar_logout() {
+		if((navigator.userAgent.toLowerCase()).indexOf( "msie" ) != -1 ){
+			isGridEdited = false;
+		}
+		self.location=JSPRootURL+"/Logout.jsp";
+		
+	}
+	
+	function extAlert(title, msg, icon){
+		Ext.MessageBox.show({
+			title: title,
+			msg: msg,
+			buttons: Ext.MessageBox.OK,
+			icon: icon
+		});
+	}
+	
+	function enableNextPreviousMonthImageButtons(){
+		document.getElementById('preThreeMonthImage').src = JSPRootURL+"/images/icons/actionbar-previouspost_off.gif";
+		document.getElementById('preOneMonthImage').src = JSPRootURL+"/images/icons/actionbar-back_off.gif";
+		document.getElementById('nextOneMonthImage').src = JSPRootURL+"/images/icons/actionbar-next_off.gif";
+		document.getElementById('nextThreeMonthImage').src = JSPRootURL+"/images/icons/actionbar-nextpost_off.gif";
+	}
+	
+	function disableNextPreviousMonthImageButtons(){
+		document.getElementById('preThreeMonthImage').src = JSPRootURL+"/images/icons/actionbar-previouspost_disabled.gif";
+		document.getElementById('preOneMonthImage').src = JSPRootURL+"/images/icons/actionbar-back_disabled.gif";
+		document.getElementById('nextOneMonthImage').src = JSPRootURL+"/images/icons/actionbar-next_disabled.gif";
+		document.getElementById('nextThreeMonthImage').src = JSPRootURL+"/images/icons/actionbar-nextpost_disabled.gif";
+	}
+	
+	function isNextPreviousMonthImageButtonsDisabled(){
+		if((document.getElementById('preThreeMonthImage').src.indexOf("disabled") >= 0) ||
+			(document.getElementById('preOneMonthImage').src.indexOf("disabled") >= 0) ||	
+			(document.getElementById('nextOneMonthImage').src.indexOf("disabled") >= 0) ||
+			(document.getElementById('nextThreeMonthImage').src.indexOf("disabled") >= 0)){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	var windowWidth = 0;
+	var windowHeight = 0;	
+	function getWindowHeightWidth(){
+		if((navigator.userAgent.toLowerCase()).indexOf( "msie" ) != -1 ) {
+			//IF IE
+			if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+			//IE 6+ in 'standards compliant mode'
+				windowWidth = document.documentElement.clientWidth;
+				windowHeight = document.documentElement.clientHeight;
+			} else {
+			//IE 4 compatible
+				windowWidth = document.body.clientWidth;
+				windowHeight = document.body.clientHeight;
+			}
+		}else{
+			//Non-IE
+			windowWidth = window.innerWidth;
+			windowHeight = window.innerHeight;
+		}
+	}
+	
+	function isNotValidDateRange(arg){
+		monthObj = document.getElementById('monthsId');
+		yearObj = document.getElementById('yearsId');
+		yearLength = yearObj.length;
+		var tempMonthindex = months.indexOf(monthObj.value) + arg;
+		
+		if((tempMonthindex > 11  &&  yearObj.value == yearObj.options[yearLength-1].value )
+			||(tempMonthindex < 0 &&  yearObj.value == yearObj.options[0].value )){
+			
+			extAlert(errotAlertTitle, dataNotFoundAlertMessage, Ext.MessageBox.ERROR);
+			return true;
+		}
+		return false; 
+	}
+
+// -->
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body id="bodyWithFixedAreasSupport" class="main" onload="${callOnLoad}">
+ 	<t:body />
+ 	<script language='javascript' type='text/javascript'>writeSpaceMenu();</script>	
+</body>
+</html>

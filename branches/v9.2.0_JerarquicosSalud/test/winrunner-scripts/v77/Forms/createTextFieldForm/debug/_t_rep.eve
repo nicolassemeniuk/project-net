@@ -1,0 +1,13 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 1 1108506442 0
+24 137 <C:\Documents and Settings\QA\Desktop\v77\Forms\createField (3):	Error: Statement is not legal in context of compiled  module
+			pause(i);> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 1 1108506442 0
+25 135 <C:\Documents and Settings\QA\Desktop\v77\Forms\createField (3):
+Error: Statement is not legal in context of compiled  module
+	pause(i);> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 1 1108506442 0
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 1 1108506445 0
+24 137 <C:\Documents and Settings\QA\Desktop\v77\Forms\createField (3):	Error: Statement is not legal in context of compiled  module
+			pause(i);> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 1 1108506445 0
+25 135 <C:\Documents and Settings\QA\Desktop\v77\Forms\createField (3):
+Error: Statement is not legal in context of compiled  module
+	pause(i);> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 1 1108506445 0

@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnBrandSupportsLanguage" 
+    table="PN_BRAND_SUPPORTS_LANGUAGE"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnBrandSupportsLanguagePK">
+        <key-property 
+            name="brandId" 
+            column="BRAND_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="languageCode" 
+            column="LANGUAGE_CODE" 
+            type="java.lang.String"
+            length="2"
+        />
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnLanguage -->
+    <many-to-one
+        name="pnLanguage"
+	    class="net.project.hibernate.model.PnLanguage"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="LANGUAGE_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

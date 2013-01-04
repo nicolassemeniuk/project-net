@@ -1,0 +1,763 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1 1100045033 0
+23 34 <IMPORTING TASKS WITH WORK COMPLETE> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 126 1100045094 0
+44 52 <set_window:"Choose file" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 127 1100045205 0
+44 74 <obj_get_info:"browser_main_combo_location_0" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 127 1100045205 0
+44 74 <obj_get_info:"browser_main_combo_location_0" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 127 1100045205 0
+44 74 <win_get_info:"browser_main_combo_location_0" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 127 1100045205 0
+44 74 <win_get_info:"browser_main_combo_location_0" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 127 1100045205 0
+44 53 <obj_get_info:"Look in:" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 127 1100045206 0
+44 53 <obj_get_info:"Look in:" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 127 1100045206 0
+44 53 <win_get_info:"Look in:" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 127 1100045206 0
+44 53 <win_get_info:"Look in:" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 127 1100045206 0
+44 49 <obj_get_info:"Open" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 127 1100045206 0
+44 49 <button_press:"Open" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 127 1100045206 0
+44 49 <web_link_click:"Next" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 127 1100045288 0
+44 49 <web_link_click:"Next" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 127 1100045311 0
+44 49 <web_link_click:"Next" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 127 1100045335 0
+44 51 <web_link_click:"Import" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 127 1100045358 0
+25 1 <9> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 18 1100045366 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100045368 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100045371 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100045484 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100045506 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100045526 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100045547 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100045567 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100045577 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100045597 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100045617 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100045637 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100045647 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100045667 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100045687 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100045687 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100045698 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100045719 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100045739 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100045739 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100045739 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100045739 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100045739 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100045739 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100045739 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100045739 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100045749 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100045769 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100045789 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100045789 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100045809 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100045809 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100045811 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100045831 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100045834 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100045836 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100045859 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100045881 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100045901 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100045921 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100045941 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100045951 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100045971 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100045992 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100046012 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100046022 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100046042 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100046062 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100046062 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100046072 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100046092 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100046112 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100046112 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100046112 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100046112 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100046112 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100046112 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100046112 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100046112 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100046123 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100046143 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100046163 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100046163 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100046183 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100046183 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100046185 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100046205 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100046207 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100046209 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100046232 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100046254 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100046275 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100046295 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100046315 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100046325 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100046345 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100046365 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100046385 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100046395 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100046415 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100046435 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100046435 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100046446 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100046466 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100046486 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100046486 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100046486 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100046486 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100046486 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100046486 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100046486 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100046486 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100046496 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100046516 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100046536 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100046536 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100046556 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100046556 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100046558 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100046578 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100046581 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100046583 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100046605 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100046628 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100046648 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100046668 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100046688 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100046698 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100046718 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100046738 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100046758 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100046768 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100046788 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100046809 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100046809 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100046819 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100046839 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100046859 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100046859 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100046859 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100046859 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100046859 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100046859 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100046859 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100046859 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100046870 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100046890 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100046910 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100046910 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100046930 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100046930 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100046932 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100046952 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100046955 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100046957 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100046979 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100047002 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100047022 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100047042 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100047062 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100047072 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100047092 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100047112 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100047132 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100047143 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100047163 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100047183 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100047183 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100047193 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100047213 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100047233 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100047233 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100047233 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100047233 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100047233 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100047233 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100047233 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100047233 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100047243 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100047263 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100047284 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100047284 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100047304 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100047304 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100047306 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100047326 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100047328 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100047330 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100047353 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100047375 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100047395 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100047415 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100047436 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100047446 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100047466 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100047486 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100047506 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100047516 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100047536 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100047556 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100047556 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100047566 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100047586 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100047606 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100047606 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100047606 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100047606 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100047606 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100047606 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100047607 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100047607 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100047617 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100047637 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100047657 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100047657 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100047677 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100047677 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100047679 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100047699 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100047701 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100047703 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100047726 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100047748 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100047769 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100047789 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100047809 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100047819 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100047839 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100047859 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100047879 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100047889 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100047909 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100047929 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100047929 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100047940 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100047960 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100047980 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100047980 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100047980 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100047980 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100047980 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100047980 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100047980 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100047980 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100047990 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100048010 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100048030 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100048030 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100048050 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100048050 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100048052 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100048072 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100048075 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100048077 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100048099 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100048122 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100048142 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100048162 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100048182 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100048192 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100048212 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100048232 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100048252 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100048262 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100048283 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100048303 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100048303 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100048313 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100048333 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100048353 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100048353 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100048353 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100048353 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100048353 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100048353 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100048353 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100048353 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100048363 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100048383 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100048403 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100048403 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100048424 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100048424 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100048426 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100048446 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100048448 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100048450 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100048473 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100048495 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100048515 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100048535 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100048555 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100048566 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100048586 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100048606 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100048626 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100048636 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100048656 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100048676 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100048676 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100048686 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100048706 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100048726 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100048726 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100048726 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100048726 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100048726 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100048726 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100048726 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100048727 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100048737 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100048757 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100048777 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100048777 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100048797 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100048797 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100048799 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100048819 0
+44 59 <button_set:"changeCheckedState" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 131 1100048839 0
+44 56 <web_link_click:"Delete Task" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 133 1100048860 0
+44 68 <set_window:"Microsoft Internet Explorer" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 134 1100048870 0
+44 47 <obj_get_info:"OK" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 135 1100048871 0
+44 47 <button_press:"OK" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 135 1100048871 0
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 139 1100048877 0
+23 30 <IMPORTING DIFFERENT TASK TYPES> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 140 1100048877 0
+44 71 <web_link_click:"Import MS Project Database" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 141 1100048897 0
+44 52 <set_window:"Choose file" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 141 1100048912 0
+44 74 <obj_get_info:"browser_main_combo_location_0" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 141 1100048912 0
+44 74 <obj_get_info:"browser_main_combo_location_0" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 141 1100048912 0
+44 74 <win_get_info:"browser_main_combo_location_0" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 141 1100048912 0
+44 74 <win_get_info:"browser_main_combo_location_0" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 141 1100048912 0
+44 53 <obj_get_info:"Look in:" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 141 1100048912 0
+44 53 <obj_get_info:"Look in:" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 141 1100048912 0
+44 53 <win_get_info:"Look in:" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 141 1100048912 0
+44 53 <win_get_info:"Look in:" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 141 1100048912 0
+44 49 <obj_get_info:"Open" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 141 1100048912 0
+44 49 <button_press:"Open" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 141 1100048912 0
+44 49 <web_link_click:"Next" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 141 1100048935 0
+44 49 <web_link_click:"Next" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 141 1100048958 0
+44 49 <web_link_click:"Next" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 141 1100048981 0
+44 51 <web_link_click:"Import" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 141 1100049003 0
+25 1 <3> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 18 1100049009 0
+25 2 <t1> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100049012 0
+25 2 <t1> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100049014 0
+44 47 <web_link_click:"t1" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 36 1100049034 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100049056 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100049079 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100049099 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100049119 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100049139 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100049149 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100049169 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100049189 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100049209 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100049219 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100049239 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100049260 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100049260 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100049270 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100049290 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100049310 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100049310 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100049310 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100049310 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100049310 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100049310 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100049310 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100049310 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100049320 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100049340 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100049360 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100049360 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100049380 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100049380 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100049382 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100049403 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100049405 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100049407 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100049430 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100049452 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100049472 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100049492 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100049512 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100049522 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100049542 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100049562 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100049583 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100049593 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100049613 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100049633 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100049633 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100049643 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100049663 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100049683 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100049683 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100049683 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100049683 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100049683 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100049683 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100049683 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100049683 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100049693 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100049713 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100049734 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100049734 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100049754 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100049754 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100049756 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100049776 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100049778 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100049780 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100049803 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100049825 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100049845 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100049865 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100049885 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100049896 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100049916 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100049937 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100049957 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100049967 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100049987 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100050007 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100050007 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100050017 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100050037 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100050057 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100050057 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100050057 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100050057 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100050057 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100050057 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100050057 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100050057 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100050067 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100050087 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100050108 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100050108 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100050128 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100050128 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100050130 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100050150 0
+44 59 <button_set:"changeCheckedState" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 145 1100050170 0
+44 56 <web_link_click:"Delete Task" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 147 1100050191 0
+44 68 <set_window:"Microsoft Internet Explorer" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 148 1100050200 0
+44 47 <obj_get_info:"OK" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 149 1100050200 0
+44 47 <button_press:"OK" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 149 1100050200 0
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 153 1100050207 0
+23 27 <IMPORTING CONSTRAINED TASKS> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 154 1100050207 0
+44 71 <web_link_click:"Import MS Project Database" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 155 1100050227 0
+44 52 <set_window:"Choose file" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 155 1100050242 0
+44 74 <obj_get_info:"browser_main_combo_location_0" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 155 1100050242 0
+44 74 <obj_get_info:"browser_main_combo_location_0" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 155 1100050242 0
+44 74 <win_get_info:"browser_main_combo_location_0" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 155 1100050242 0
+44 74 <win_get_info:"browser_main_combo_location_0" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 155 1100050242 0
+44 53 <obj_get_info:"Look in:" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 155 1100050242 0
+44 53 <obj_get_info:"Look in:" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 155 1100050242 0
+44 53 <win_get_info:"Look in:" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 155 1100050242 0
+44 53 <win_get_info:"Look in:" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 155 1100050242 0
+44 49 <obj_get_info:"Open" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 155 1100050242 0
+44 49 <button_press:"Open" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 155 1100050242 0
+44 49 <web_link_click:"Next" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 155 1100050265 0
+44 49 <web_link_click:"Next" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 155 1100050288 0
+44 49 <web_link_click:"Next" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 155 1100050311 0
+44 51 <web_link_click:"Import" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 155 1100050333 0
+25 1 <9> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 18 1100050339 0
+25 2 <t1> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100050342 0
+25 2 <t1> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100050344 0
+44 47 <web_link_click:"t1" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 36 1100050364 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100050386 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100050409 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100050429 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100050449 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100050469 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100050479 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100050499 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100050519 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100050540 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100050550 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100050570 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100050590 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100050590 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100050600 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100050620 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100050640 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100050640 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100050640 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100050640 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100050640 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100050640 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100050640 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100050640 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100050650 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100050670 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100050690 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100050690 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100050711 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100050711 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100050713 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100050733 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100050735 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100050737 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100050760 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100050782 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100050802 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100050822 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100050842 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100050852 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100050873 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100050893 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100050913 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100050923 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100050943 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100050963 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100050963 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100050973 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100050993 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100051013 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100051013 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100051013 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100051013 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100051013 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100051014 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100051014 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100051014 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100051024 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100051044 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100051064 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100051064 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100051084 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100051084 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100051086 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100051106 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100051108 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100051110 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100051133 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100051155 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100051176 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100051196 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100051216 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100051226 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100051246 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100051266 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100051286 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100051296 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100051316 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100051336 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100051336 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100051346 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100051367 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100051387 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100051387 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100051387 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100051387 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100051387 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100051387 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100051387 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100051387 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100051397 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100051417 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100051437 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100051437 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100051457 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100051457 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100051459 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100051479 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100051482 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100051484 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100051506 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100051529 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100051549 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100051569 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100051589 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100051600 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100051620 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100051640 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100051660 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100051671 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100051691 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100051711 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100051711 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100051721 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100051741 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100051761 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100051761 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100051761 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100051761 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100051761 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100051761 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100051761 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100051761 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100051771 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100051791 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100051811 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100051811 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100051832 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100051832 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100051834 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100051854 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100051856 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100051858 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100051881 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100051903 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100051923 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100051943 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100051963 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100051974 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100051995 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100052015 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100052035 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100052045 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100052065 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100052085 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100052085 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100052095 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100052115 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100052135 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100052135 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100052135 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100052135 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100052135 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100052135 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100052135 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100052135 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100052145 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100052166 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100052186 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100052186 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100052206 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100052206 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100052208 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100052228 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100052230 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100052232 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100052255 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100052277 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100052297 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100052318 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100052338 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100052348 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100052368 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100052388 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100052408 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100052418 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100052438 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100052458 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100052458 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100052469 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100052490 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100052510 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100052510 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100052510 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100052510 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100052510 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100052510 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100052510 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100052510 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100052520 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100052540 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100052560 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100052560 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100052580 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100052580 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100052582 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100052602 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100052604 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100052606 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100052629 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100052652 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100052672 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100052692 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100052712 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100052722 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100052742 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100052762 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100052782 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100052792 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100052812 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100052832 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100052832 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100052842 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100052862 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100052883 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100052883 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100052883 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100052883 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100052883 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100052883 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100052883 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100052883 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100052893 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100052913 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100052933 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100052933 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100052953 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100052953 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100052955 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100052975 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100052978 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100052980 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100053002 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100053025 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100053045 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100053065 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100053085 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100053095 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100053115 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100053135 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100053155 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100053165 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100053185 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100053206 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100053206 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100053216 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100053236 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100053256 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100053256 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100053256 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100053256 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100053256 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100053256 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100053256 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100053256 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100053266 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100053286 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100053306 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100053306 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100053326 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100053326 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100053328 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100053348 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 11 1100053351 0
+25 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 33 1100053353 0
+44 51 <web_link_click:"Modify" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 39 1100053375 0
+44 48 <edit_get_text:"name" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 43 1100053398 0
+44 66 <edit_get_text:"startTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 44 1100053418 0
+44 64 <edit_get_text:"endTime_NotSubmitted" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 45 1100053438 0
+44 52 <edit_get_text:"duration" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 46 1100053458 0
+44 76 <list_get_selected:"duration_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100053468 0
+44 58 <list_get_item:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100053488 0
+44 57 <win_get_info:"duration_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 47 1100053508 0
+44 48 <edit_get_text:"work" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 48 1100053528 0
+44 72 <list_get_selected:"work_units" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100053538 0
+44 54 <list_get_item:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100053558 0
+44 53 <win_get_info:"work_units" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 49 1100053579 0
+37 105 <Step: Verify Task Name, Status: Fail, Description: Taskname '' DOES NOT match with the imported task name> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 54 1100053579 25
+44 95 <list_get_selected:"taskCalculationTypeFixedElementID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100053589 0
+44 77 <list_get_item:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100053609 0
+44 76 <win_get_info:"taskCalculationTypeFixedElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 55 1100053629 0
+23 27 <The task type selected is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 56 1100053629 0
+37 111 <Step: Verify Start Date, Status: Fail, Description: Start Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 61 1100053629 25
+37 107 <Step: Verify End Date, Status: Fail, Description: End Date  of '' DOES NOT match with that of imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 66 1100053629 25
+37 117 <Step: Verify Duration, Status: Fail, Description: Duration value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 72 1100053629 25
+37 123 <Step: Verify duration units, Status: Fail, Description: Duration units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 79 1100053629 25
+37 109 <Step: Verify work, Status: Fail, Description: Work value of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 85 1100053629 25
+37 115 <Step: Verify work units, Status: Fail, Description: Work units of  '' DOES NOT match with that of the imported task> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 92 1100053629 25
+44 78 <list_get_selected:"constraintTypeID" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100053639 0
+44 60 <list_get_item:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100053659 0
+44 59 <win_get_info:"constraintTypeID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 93 1100053679 0
+23 28 <The constraint type set is 0> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 94 1100053679 0
+44 64 <edit_get_text:"constraintDateString" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 95 1100053699 0
+23 27 <The constraint date set is > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 1004 1100053699 0
+25 1 < > <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 98 1100053701 0
+44 51 <web_link_click:"Cancel" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 99 1100053722 0
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 159 1100053722 0

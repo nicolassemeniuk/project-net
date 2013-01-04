@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<head> <title><t:Message value="prm.global.application.title" /></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/personal.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/global.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/fonts.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/noframes.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/src/extjs/resources/css/ext-all.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/blog.css?${versionNumber}"/>
+<link rel='SHORTCUT ICON' type="text/css" href="${jSPRootURL}/images/favicon.ico" />
+
+<script language="javascript" type="text/javascript">
+var JSPRootURL = '${jSPRootURL}';
+var VERSION_NUMBER = '${versionNumber}';
+var selectProject = '<t:Message value="all.global.blogit.selectproject.errormessage"/>';
+var noProjectInList = '<t:Message value="all.global.blogit.noprojectInlist.errormessage"/>';
+var blogitNotSupportedForObject = '<t:Message value="all.global.blogit.notsupported.errormessage"/>';
+var validationMessageForBlogHtmlTagEntry = '<t:Message value="prm.blog.addweblogentry.htmlvalidation.message"/>';
+var selectRowBeforePostingBlog =  '<t:Message value="all.global.blogit.selectrowbeforepostingblog.errormessage"/>';
+var selectFormRecordBeforePostingBlog =  '<t:Message value="all.global.blogit.selectformrecordbeforepostingblog.errormessage"/>';
+var canNotPostBlogForUrl = '<t:Message value="all.global.blogit.cannotpostblogforurl.errormessage"/>';
+var canNotPostBlogForFolder = '<t:Message value="all.global.blogit.cannotpostblogforfolder.errormessage"/>';
+var selectDocumentRecordBeforePostingBlog = '<t:Message value="all.global.blogit.selectdocumentbeforeblogposting.errormessage"/>';
+var selectItemBeforePostingBlog = '<t:Message value="all.global.blogit.selectitembeforeblogposting.errormessage"/>'; 
+var blogitNotSupportedToThisPage = '<t:Message value="all.global.blogit.notsupportedtopage.errormessage"/>';
+var loadingImage = '<t:Message value="prm.global.loading.message"/>';
+var validationMegForBlogComment = '<t:Message value="all.global.blogit.blogcomment.blank.validationmessage"/>';
+var savingblog = '<t:Message value="prm.global.saving.message"/>';
+var canNotEnterWorkComplete = '<t:Message value="all.global.blogit.notenterworkdone.message"/>'; 
+var blogActivationMsg ='<t:Message value="all.global.blogit.blogactivation.message"/>'; 
+var loadingBlogErrorMsg = '<t:Message value="all.global.blogit.loadingblogentry.errormessage"/>'; 
+var activationErrorMsg =  '<t:Message value="all.global.blogit.activation.errormessage"/>'; 
+var activationFailedErrorMsg = '<t:Message value="all.global.blogit.activateblogbyclickingbloglink.message"/>'; 
+var savingCommentFailedErrorMsg = '<t:Message value="all.global.blogit.savingcommentfailed.errormessage"/>'; 
+var loadingRecentBlog = '<t:Message value="all.global.blogit.loadingrecentblogentry.message"/>';
+var blogentryDeletePermission = '<t:Message value="all.global.blogit.deleteblog.unathorizeduserpermission.message"/>';
+var deleteBlogEntryFailedErrorMsg = '<t:Message value="all.global.blogit.delete.blogfailed.message"/>';
+var checkAndRedirectErrorMsg = '<t:Message value="all.global.blogit.checkingandredirect.error.message"/>'; 
+var noBlogEntryFoundForTask = '<t:Message value="all.global.blogit.noblogentryfoundfortask.message"/>';
+var goToHeadingLbl = '<t:Message value="prm.global.goto.heading"/>';
+<!-- //
+if((navigator.userAgent.toLowerCase()).indexOf( "msie" ) != -1 ) {
+	document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\""+JSPRootURL+"/styles/noframesie.css?"+VERSION_NUMBER+"\"/>");
+}
+// -->
+</script>
+<script language="javascript" src="${jSPRootURL}/src/util.js?${versionNumber}"></script>
+<script language="javascript" src="${jSPRootURL}/src/window_functions.js?${versionNumber}"></script>
+<script type="text/javascript" src="${jSPRootURL}/src/extjs/adapter/ext/ext-base.js?${versionNumber}"></script>
+<script type="text/javascript" src="${jSPRootURL}/src/extjs/ext-all.js?${versionNumber}"></script>
+<script type="text/javascript" src="${JSPRootURL}/src/menu/dropdown.js?${versionNumber}"></script>
+<script type="text/javascript" src="${JSPRootURL}/src/blogit.js?${versionNumber}" />
+<script type="text/javascript" src="${JSPRootURL}/src/sessionHook.js?${versionNumber}" />
+<script language="javascript" src="${JSPRootURL}/toolbar/include/Main.jsp?s=personal&amp;i=${userId}${currentSpaceId}" />
+<script language="javascript" src="${JSPRootURL}/personal/include/NavBar.jsp?s=personal&amp;i=${userId}${currentSpaceId}" />
+<script language="javascript" type="text/javascript">
+var errorTitle = '<t:Message value="prm.resource.global.exterroralert.title" />';
+var errorAlertTitle = '<t:Message value="prm.resource.global.exterroralert.title"/>';
+var serverRequestFailed = '<t:Message value="prm.global.requestfailed.error.message"/>';
+function extAlert(title, msg, icon){
+		Ext.MessageBox.show({
+			title: title,
+			msg: msg,
+			buttons: Ext.MessageBox.OK,
+			icon: icon
+		});
+	}
+	
+</script>	
+</head>
+<body class="main" id="bodyWithFixedAreasSupport" onload="setup();">
+	<script language='javascript' type='text/javascript'>
+		writeSpaceMenu(); writeSpaceNavBarMenu();
+	</script> 
+ 	<t:body />
+</body>
+</html>

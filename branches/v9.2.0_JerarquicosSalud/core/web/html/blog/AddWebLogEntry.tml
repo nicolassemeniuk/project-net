@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<head> <title> <t:Message value="prm.global.application.title"/> </title>
+<!-- Common Styles for the Ext widgets -->
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/src/extjs/resources/css/ext-all.css"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/blog.css"/>
+</head>
+<body background="#FFFFFF">
+	<div id="blog-it_errorMsg" style="margin: 5px; font-family: Arial,Helvetica,Sans-Serif; font-size: 12px; font-weight: bold; color: red; left: 15px; width: 600px; display: none;"></div>
+	<!-- div id="entry-description"><span class="blogDate"><t:Message value="prm.blog.addweblogentry.date.label"/> ${date}</span></div -->
+	<t:form clientId="entryForm" clientValidation="false" autofocus="false">
+		<table style="padding-top:5px;">
+			<tr>
+				<td nowrap="nowrap" align="right" style="padding-left: 10px;" class="message-subject"><t:Message value="prm.blog.addweblogentry.title.label"/></td> 
+				<td> <t:textField value="title" size="40" clientId="blog-it_title" maxlength="240" /> </td> 
+			</tr>
+			<tr>
+				<td nowrap="nowrap" valign="top" align="right" style="padding-left: 5px;" class="message-subject"><t:Message value="prm.blog.addweblogentry.content.label"/></td>
+				<td width="600px"> <div id="contentTextareaPosition"></div> </td>
+			</tr>
+			<tr>
+				<td/>
+				<td align="left">
+					<table width="100%">
+						<tr>
+							<td nowrap="nowrap" class="table-content-done" width="10%"> 
+								<t:checkbox value="isImportant" clientId="isImportant" onclick="setImpFlag();" />
+								<t:Message value="prm.blog.addweblogentry.important.label"/>
+							</td>
+							<td nowrap="nowrap" style="display: none;" class="show-message" id="importantMsg"> 
+								<t:message value="prm.blog.addweblogentry.explainwhyimportant.message"/>
+							</td>
+							<td nowrap="nowrap" align="right" style="padding-left: 5px;"> 
+								<t:if test="weblogEntryId">
+									<input type="button" id="blog-it" value="${submitEntryButtonCaption}" onclick="saveUpdatedBlogEntry('${weblogEntryId}');"></input>
+									<t:parameter name="else">
+										<input type="button" id="new-blog-it" value="${submitEntryButtonCaption}" onclick="saveEntry();"></input>
+									</t:parameter>
+								</t:if> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+								<input type="button" id="cancel-blog-it" value="${cancelButtonCaption}" onclick="hidePopup();"></input>
+							</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+		<input type="hidden" t:type="textArea" clientId="blogEntryContent" value="content" style="visibility: hidden; height: 0px;" />
+	</t:form>
+</body>
+</html>

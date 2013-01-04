@@ -1,0 +1,145 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnCalendarEvent" 
+    table="PN_CALENDAR_EVENT"
+    lazy="false"
+>
+
+    <id
+        name="calendarEventId"
+        type="java.math.BigDecimal"
+        column="CALENDAR_EVENT_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="eventName"
+        type="java.lang.String"
+        column="EVENT_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="eventTypeId"
+        type="java.math.BigDecimal"
+        column="EVENT_TYPE_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="frequencyTypeId"
+        type="java.math.BigDecimal"
+        column="FREQUENCY_TYPE_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="startDate"
+        type="java.sql.Date"
+        column="START_DATE"
+        length="7"
+    />
+    <property
+        name="endDate"
+        type="java.sql.Date"
+        column="END_DATE"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="eventDescClob"
+        type="java.sql.Clob"
+        column="EVENT_DESC_CLOB"
+        length="4000"
+    />
+    <property
+        name="eventPurposeClob"
+        type="java.sql.Clob"
+        column="EVENT_PURPOSE_CLOB"
+        length="4000"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PnFacility -->
+    <many-to-one
+        name="pnFacility"
+        class="net.project.hibernate.model.PnFacility"
+        not-null="true"
+    >
+        <column name="FACILITY_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnMeeting -->
+
+    <set
+        name="pnMeetings"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="CALENDAR_EVENT_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnMeeting"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnCalEventHasAttendee -->
+
+    <set
+        name="pnCalEventHasAttendees"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="CALENDAR_EVENT_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnCalEventHasAttendee"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnCalendarHasEvent -->
+
+    <set
+        name="pnCalendarHasEvents"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="CALENDAR_EVENT_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnCalendarHasEvent"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

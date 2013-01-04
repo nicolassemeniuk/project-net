@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPersonHasLicense" 
+    table="PN_PERSON_HAS_LICENSE"
+    lazy="false"
+>
+
+    <id
+        name="personId"
+        type="java.math.BigDecimal"
+        column="PERSON_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnPerson -->
+    <one-to-one
+        name="pnPerson"
+        class="net.project.hibernate.model.PnPerson"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional many-to-one association to PnLicense -->
+    <many-to-one
+        name="pnLicense"
+        class="net.project.hibernate.model.PnLicense"
+        not-null="true"
+    >
+        <column name="LICENSE_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

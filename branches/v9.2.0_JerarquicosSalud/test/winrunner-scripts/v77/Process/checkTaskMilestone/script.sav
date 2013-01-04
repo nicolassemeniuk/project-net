@@ -1,0 +1,53 @@
+function checkTaskMilestone(in processName, in phaseName, in taskName, in milestoneName, in taskType){
+
+	reload("createTask",0,1);
+	reload("createMilestone",0,1);
+
+	set_window("main",2);
+	web_link_click(processName);
+	wait(1);
+	set_window("main",1);
+	web_link_click(phaseName);
+	wait(1);
+	set_window("main",2);
+	web_link_click("Add Task");
+	set_window("main",1);
+	createTask(taskName, taskType, 1, "days", 8, "hours");
+	wait(1);
+	set_window("main",1);
+	if(obj_exists(taskName)==E_OK)
+		tl_step("Verify task in phase main",0,"The task "&taskName&" is listed on "&phaseName&" main");
+	else
+		tl_step("Verify task in phase main",1,"The task "&taskName&" is NOT listed on "&phaseName&" main");
+	#back dating the task so it appears in the late task report
+	web_link_click(taskName);
+	wait(1);
+	set_window("main",2);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",2);
+	web_link_click("calendar");
+	wait(1);
+	set_window("Calendar",2);
+	web_link_click("back");
+	wait(1);
+	set_window("Calendar",2);
+	web_link_click("15");
+	wait(1);
+	set_window("main",2);
+	web_link_click("Submit");
+	wait(1);
+	set_window("menu",
+	
+	set_window("main",1);
+	web_link_click("Add Task");
+	set_window("main",2);
+	createMilestone(milestoneName, taskType, 1, 8);
+	wait(1);
+	set_window("main",1);
+	if(obj_exists(milestoneName)==E_OK)
+		tl_step("Verify milestone in phase main",0,"The milestone "&milestoneName&" is listed on "&phaseName&" main");
+	else
+		tl_step("Verify milestone in phase main",1,"The milestone "&milestoneName&" is NOT listed on "&phaseName&" main");
+
+}

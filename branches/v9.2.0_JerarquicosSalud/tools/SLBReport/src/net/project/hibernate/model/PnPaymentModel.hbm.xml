@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPaymentModel" 
+    table="PN_PAYMENT_MODEL"
+    lazy="false"
+>
+
+    <id
+        name="paymentModelId"
+        type="java.math.BigDecimal"
+        column="PAYMENT_MODEL_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PnPaymentModelType -->
+    <many-to-one
+        name="pnPaymentModelType"
+        class="net.project.hibernate.model.PnPaymentModelType"
+        not-null="true"
+    >
+        <column name="MODEL_TYPE_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-one association to PnPaymentModelCharge -->
+    <one-to-one
+        name="pnPaymentModelCharge"
+        class="net.project.hibernate.model.PnPaymentModelCharge"
+        outer-join="auto"
+    />
+    <!-- bi-directional one-to-many association to PnPaymentInformation -->
+
+    <set
+        name="pnPaymentInformations"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PAYMENT_MODEL_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPaymentInformation"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

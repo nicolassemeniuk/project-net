@@ -1,0 +1,10 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Forms\createTextFieldForm> 1 1108511764 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Forms\forLoginForms> <C:\Documents and Settings\QA\Desktop\v77\Forms\createTextFieldForm> 2 1108511767 0
+11 25 <---> <C:\Documents and Settings\QA\Desktop\v77\Forms\forLoginForms> 16 1108511809 0
+37 93 <Step: Verify form exists, Status: Pass, Description: The form created exists in Form Designer> <C:\Documents and Settings\QA\Desktop\v77\Forms\createTextFieldForm> 26 1108511825 24
+37 105 <Step: Verify text field exists, Status: Pass, Description: The Text Field 'TextField'created successfully> <C:\Documents and Settings\QA\Desktop\v77\Forms\createTextFieldForm> 21 1108511831 24
+23 63 <The form name 'TextFieldForm' DOES NOT appear in the tools menu> <C:\Documents and Settings\QA\Desktop\v77\Forms\createTextFieldForm> 24 1108511849 0
+23 65 <The form name 'TextFieldForm' appears in the list of active forms> <C:\Documents and Settings\QA\Desktop\v77\Forms\createTextFieldForm> 32 1108511853 0
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Forms\createTextFieldForm> 36 1108511853 0
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\Forms\createTextFieldForm> 43 1108511856 0

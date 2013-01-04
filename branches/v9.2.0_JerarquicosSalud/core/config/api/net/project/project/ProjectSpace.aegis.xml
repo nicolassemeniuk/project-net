@@ -1,0 +1,10 @@
+<mappings>
+  <mapping>
+    <property name="availableGroups" ignore="true"/>
+    <property name="ownedGroups" ignore="true"/>
+    <property name="roster" ignore="true"/>
+    <property name="xMLDocument" ignore="true"/>
+    <property name="defaultCurrency" ignore="true"/>
+	<property name="metaData" ignore="true"/>
+  </mapping>
+</mappings>

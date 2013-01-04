@@ -1,0 +1,27 @@
+function createForm(in name, in abr){
+
+	set_window("main",2);
+	web_link_click("Create");
+	set_window("main",2);
+	edit_set("name",name);
+	edit_set("abbreviation",abr);
+	button_set("displayedInToolsMenu",ON);
+	button_set("supportsDiscussionGroup",ON);
+	button_set("supportsDocumentVault",ON);
+	edit_set("description","Creating a form so as to do automated testing");
+	web_link_click("Submit");
+	wait(1);
+	set_window("main",2);
+	web_link_click("Forms");
+	wait(1);
+	set_window("main",2);
+	web_link_click("Form Designer");
+	wait(1);
+	set_window("main",2);
+	wait(1);
+	if(obj_exists(formName)==E_OK)
+		tl_step("Verify form exists",0,"The form created exists in Form Designer");
+	else
+		tl_step("Verify form exists",1,"The form created DOES NOT exist in Form Designer");
+	set_window("main",2);
+}	

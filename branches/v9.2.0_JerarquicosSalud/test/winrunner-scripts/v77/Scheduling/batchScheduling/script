@@ -1,0 +1,25 @@
+#If any of these scripts need to run independently then you will need to uncomment the project work space login part
+#in the script otherwise it wont work
+
+# wait(2);#commented for now since using existing WRProject 
+# call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates"();
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\creatingTaskTypes"();
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\testingWorkComplete"();
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\settingDependencies"();
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\testingDependencies"();
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\unlinkingTasks"();
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\settingConstraints"();
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\summaryTasks"();
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\testingImport"();
+wait(2);
+#if anything has changed in the script below then it has to be run in update mode before being run in verify mode
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\settingMilestones"();
+

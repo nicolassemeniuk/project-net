@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnAssignmentWork" 
+    table="PN_ASSIGNMENT_WORK"
+    lazy="false"
+>
+    <meta attribute="class-description" inherit="false">
+       Contains history of all work that users have logged against a task.
+    </meta>
+
+    <id
+        name="assignmentWorkId"
+        type="java.math.BigDecimal"
+        column="ASSIGNMENT_WORK_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="objectId"
+        type="java.math.BigDecimal"
+        column="OBJECT_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="personId"
+        type="java.math.BigDecimal"
+        column="PERSON_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="workStart"
+        type="java.sql.Date"
+        column="WORK_START"
+        length="7"
+    />
+    <property
+        name="workEnd"
+        type="java.sql.Date"
+        column="WORK_END"
+        length="7"
+    />
+    <property
+        name="work"
+        type="java.math.BigDecimal"
+        column="WORK"
+        length="22"
+    />
+    <property
+        name="workUnits"
+        type="java.math.BigDecimal"
+        column="WORK_UNITS"
+        length="22"
+    />
+    <property
+        name="workRemaining"
+        type="java.math.BigDecimal"
+        column="WORK_REMAINING"
+        length="22"
+    />
+    <property
+        name="workRemainingUnits"
+        type="java.math.BigDecimal"
+        column="WORK_REMAINING_UNITS"
+        length="22"
+    />
+    <property
+        name="percentComplete"
+        type="java.math.BigDecimal"
+        column="PERCENT_COMPLETE"
+        length="22"
+    />
+    <property
+        name="logDate"
+        type="java.sql.Date"
+        column="LOG_DATE"
+        length="7"
+    />
+    <property
+        name="modifiedBy"
+        type="java.math.BigDecimal"
+        column="MODIFIED_BY"
+        length="22"
+    />
+    <property
+        name="scheduledWork"
+        type="java.math.BigDecimal"
+        column="SCHEDULED_WORK"
+        length="22"
+    />
+    <property
+        name="scheduledWorkUnits"
+        type="java.math.BigDecimal"
+        column="SCHEDULED_WORK_UNITS"
+        length="22"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

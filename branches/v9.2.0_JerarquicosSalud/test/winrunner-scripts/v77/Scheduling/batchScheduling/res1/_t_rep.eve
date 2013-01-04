@@ -1,0 +1,21 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchScheduling> 6 1100041580 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchScheduling> 7 1100041582 0
+11 13 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 144 1100042054 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchScheduling> 9 1100042056 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingWorkComplete> 192 1100042230 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchScheduling> 11 1100042233 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 133 1100042511 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchScheduling> 13 1100042514 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 182 1100042996 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\unlinkingTasks> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchScheduling> 15 1100042999 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\unlinkingTasks> 98 1100043105 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchScheduling> 17 1100043107 0
+11 25 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingConstraints> 259 1100044198 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchScheduling> 19 1100044201 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\summaryTasks> 265 1100045030 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchScheduling> 21 1100045032 0
+11 25 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingImport> 159 1100053722 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchScheduling> 24 1100053724 0
+11 13 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingMilestones> 70 1100054109 0
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\batchScheduling> 32 1100054109 0

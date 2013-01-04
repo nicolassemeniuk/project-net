@@ -1,0 +1,14 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Discussions\batchDiscussions> 1 1101854675 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Discussions\forLoginDiscussions> <C:\Documents and Settings\QA\Desktop\v77\Discussions\batchDiscussions> 2 1101854677 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Discussions\forLoginDiscussions> 16 1101854710 0
+37 108 <Step: Verify discussion group creation, Status: Pass, Description: Discussion group was successfully created> <C:\Documents and Settings\QA\Desktop\v77\Discussions\batchDiscussions> 11 1101854715 24
+37 90 <Step: Welcome message, Status: Pass, Description: Discussion group welcome message present> <C:\Documents and Settings\QA\Desktop\v77\Discussions\batchDiscussions> 19 1101854717 24
+37 91 <Step: Posted message, Status: Pass, Description: Discussion group Post test message present> <C:\Documents and Settings\QA\Desktop\v77\Discussions\batchDiscussions> 12 1101854721 24
+37 66 <Step: Reply button, Status: Pass, Description: Reply button exists> <C:\Documents and Settings\QA\Desktop\v77\Discussions\batchDiscussions> 18 1101854722 24
+37 64 <Step: Next button, Status: Pass, Description: Next button exists> <C:\Documents and Settings\QA\Desktop\v77\Discussions\batchDiscussions> 22 1101854722 24
+37 72 <Step: Previous button, Status: Pass, Description: Previous button exists> <C:\Documents and Settings\QA\Desktop\v77\Discussions\batchDiscussions> 26 1101854722 24
+37 64 <Step: Info button, Status: Pass, Description: Info button exists> <C:\Documents and Settings\QA\Desktop\v77\Discussions\batchDiscussions> 30 1101854722 24
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Discussions\createReply> <C:\Documents and Settings\QA\Desktop\v77\Discussions\batchDiscussions> 18 1101854722 0
+11 15 <---> <C:\Documents and Settings\QA\Desktop\v77\Discussions\createReply> 34 1101854727 0
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\Discussions\batchDiscussions> 21 1101854727 0

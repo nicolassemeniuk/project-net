@@ -1,0 +1,14 @@
+wait(3);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject"();
+wait(1);
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+wait(2);
+set_window("main",2);
+web_link_click("WRProject");
+wait(1);
+set_window("menu",2);
+wait(2);
+web_link_click("News");
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+wait(3);

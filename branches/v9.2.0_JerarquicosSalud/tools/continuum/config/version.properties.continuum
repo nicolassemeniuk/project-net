@@ -1,0 +1,28 @@
+################################################################################
+# This file is used for specifying the product version.
+# It is read at runtime by net.project.util.Version.java.  
+# See net.project.util.Version for methods getter methods for these properties.
+################################################################################
+
+# product.version
+# Defines the current version of the product.  
+#
+# WARNING:  this version property must contain only a numerical version.   
+# No whitespace or special characters allowed.  Versioned resources such as
+# javascript and CSS include files use this version number as part of their URI.
+# Example: "8.4" without the quotes
+
+product.version=9.0b1
+
+# product.version.codename
+# Defines the longer human-readable name for the product version.
+# Note: subversion automatically updates Rev on commit.
+
+product.version.codename=@branch@/@revision@/@buildDAY@
+
+product.version.builddate=@buildDAY@
+
+# Customized version of the product specific to a client (if any).
+#product.version.codename=
+#client.name=
+

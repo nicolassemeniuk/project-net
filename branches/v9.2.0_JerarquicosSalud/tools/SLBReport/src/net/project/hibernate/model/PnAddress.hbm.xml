@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnAddress" 
+    table="PN_ADDRESS"
+    lazy="false"
+>
+
+    <id
+        name="addressId"
+        type="java.math.BigDecimal"
+        column="ADDRESS_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="address1"
+        type="java.lang.String"
+        column="ADDRESS1"
+        length="80"
+    />
+    <property
+        name="address2"
+        type="java.lang.String"
+        column="ADDRESS2"
+        length="80"
+    />
+    <property
+        name="address3"
+        type="java.lang.String"
+        column="ADDRESS3"
+        length="80"
+    />
+    <property
+        name="address4"
+        type="java.lang.String"
+        column="ADDRESS4"
+        length="80"
+    />
+    <property
+        name="address5"
+        type="java.lang.String"
+        column="ADDRESS5"
+        length="80"
+    />
+    <property
+        name="address6"
+        type="java.lang.String"
+        column="ADDRESS6"
+        length="80"
+    />
+    <property
+        name="address7"
+        type="java.lang.String"
+        column="ADDRESS7"
+        length="80"
+    />
+    <property
+        name="city"
+        type="java.lang.String"
+        column="CITY"
+        length="320"
+    />
+    <property
+        name="cityDistrict"
+        type="java.lang.String"
+        column="CITY_DISTRICT"
+        length="50"
+    />
+    <property
+        name="region"
+        type="java.lang.String"
+        column="REGION"
+        length="50"
+    />
+    <property
+        name="stateProvence"
+        type="java.lang.String"
+        column="STATE_PROVENCE"
+        length="80"
+    />
+    <property
+        name="zipcode"
+        type="java.lang.String"
+        column="ZIPCODE"
+        length="20"
+    />
+    <property
+        name="officePhone"
+        type="java.lang.String"
+        column="OFFICE_PHONE"
+        length="20"
+    />
+    <property
+        name="faxPhone"
+        type="java.lang.String"
+        column="FAX_PHONE"
+        length="20"
+    />
+    <property
+        name="homePhone"
+        type="java.lang.String"
+        column="HOME_PHONE"
+        length="20"
+    />
+    <property
+        name="mobilePhone"
+        type="java.lang.String"
+        column="MOBILE_PHONE"
+        length="20"
+    />
+    <property
+        name="pagerPhone"
+        type="java.lang.String"
+        column="PAGER_PHONE"
+        length="20"
+    />
+    <property
+        name="pagerEmail"
+        type="java.lang.String"
+        column="PAGER_EMAIL"
+        length="240"
+    />
+    <property
+        name="websiteUrl"
+        type="java.lang.String"
+        column="WEBSITE_URL"
+        length="240"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnObject -->
+    <one-to-one
+        name="pnObject"
+        class="net.project.hibernate.model.PnObject"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional one-to-many association to PnFacility -->
+
+    <set
+        name="pnFacilities"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="ADDRESS_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnFacility"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnBusiness -->
+
+    <set
+        name="pnBusinesses"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="ADDRESS_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnBusiness"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to PnCountryLookup -->
+    <many-to-one
+        name="pnCountryLookup"
+        class="net.project.hibernate.model.PnCountryLookup"
+        not-null="true"
+    >
+        <column name="COUNTRY_CODE" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

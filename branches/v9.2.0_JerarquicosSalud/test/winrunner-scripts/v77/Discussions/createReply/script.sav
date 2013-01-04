@@ -1,0 +1,34 @@
+function createReply(in postName){
+	auto urlValue, postID, path_array[], elements, outString;
+
+	wait(1);
+	set_window("upper_frame",2);
+	web_obj_get_info(postName,"url",urlValue);
+	elements = split(urlValue,path_array,"=");
+	postID = path_array[5];
+	
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Discussions\\discussions.gui","upper_frame","selected","part_value",""&postID&"")!=E_OK)
+		report_msg("NOT OK1");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Discussions\\discussions.gui");	
+	
+	button_set("selected",ON);
+	set_window("lower_frame",2);
+	web_link_click("Reply");
+	wait(1);
+	set_window("New Post");
+	if(edit_check_text("subject","Re: "&postName&"",FALSE)==E_OK)	
+		tl_step("Verify reply post subject",0,"The subject for reply is correct");
+	else
+		tl_step("Verify reply post subject",1,"The subject for reply is INCORRECT");
+	edit_set("postbody","Posting a reply to a message already posted");
+	web_link_click("Submit");
+	wait(1);
+	set_window("upper_frame",2);
+	if(obj_exists("Re: "&postName&"")==E_OK)
+		tl_step("Post reply",0,"Reply to the post "&postName&" exists");
+	else
+		tl_step("Post reply",1,"Reply to the post "&postName&" NOT created");
+	
+	
+}

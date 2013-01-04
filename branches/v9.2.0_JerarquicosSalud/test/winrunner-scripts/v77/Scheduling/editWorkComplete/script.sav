@@ -1,0 +1,13 @@
+function setWorkComplete(in taskName, in workCompleteValue, in workCompleteUnits){
+	set_window("main",1);
+	web_link_click(taskName);
+	set_window("main",1);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",1);
+	edit_set("work_complete","");
+	obj_type("work_complete",workCompleteValue);
+	list_select_item("work_complete_units"
+	obj_type("work_complete","<kTab>");
+	web_link_click("Submit");
+}	

@@ -1,0 +1,160 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnWorkflowEnvelope" 
+    table="PN_WORKFLOW_ENVELOPE"
+    lazy="false"
+>
+
+    <id
+        name="envelopeId"
+        type="java.math.BigDecimal"
+        column="ENVELOPE_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="currentVersionId"
+        type="java.math.BigDecimal"
+        column="CURRENT_VERSION_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="envelopeName"
+        type="java.lang.String"
+        column="ENVELOPE_NAME"
+        length="80"
+    />
+    <property
+        name="envelopeDescription"
+        type="java.lang.String"
+        column="ENVELOPE_DESCRIPTION"
+        length="500"
+    />
+    <property
+        name="createdById"
+        type="java.math.BigDecimal"
+        column="CREATED_BY_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="createdDatetime"
+        type="java.sql.Date"
+        column="CREATED_DATETIME"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="modifiedById"
+        type="java.math.BigDecimal"
+        column="MODIFIED_BY_ID"
+        length="20"
+    />
+    <property
+        name="modifiedDatetime"
+        type="java.sql.Date"
+        column="MODIFIED_DATETIME"
+        length="7"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PnWorkflow -->
+    <many-to-one
+        name="pnWorkflow"
+        class="net.project.hibernate.model.PnWorkflow"
+        not-null="true"
+    >
+        <column name="WORKFLOW_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PnWorkflowStrictness -->
+    <many-to-one
+        name="pnWorkflowStrictness"
+        class="net.project.hibernate.model.PnWorkflowStrictness"
+        not-null="true"
+    >
+        <column name="STRICTNESS_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnEnvelopeHasObject -->
+
+    <set
+        name="pnEnvelopeHasObjects"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="ENVELOPE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnEnvelopeHasObject"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnEnvelopeHistory -->
+
+    <set
+        name="pnEnvelopeHistories"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="ENVELOPE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnEnvelopeHistory"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnEnvelopeVersion -->
+
+    <set
+        name="pnEnvelopeVersions"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="ENVELOPE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnEnvelopeVersion"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

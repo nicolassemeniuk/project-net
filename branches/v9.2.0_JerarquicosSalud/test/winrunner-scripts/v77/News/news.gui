@@ -1,0 +1,86 @@
+main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: main
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+main.Create:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Create
+}
+main.NewsItemTest1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: NewsItemTest1
+}
+main.NewsItemTest2:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: NewsItemTest2
+}
+main.NewsItemTest3:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: NewsItemTest3
+}
+main.Submit:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Submit
+}
+main.message:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: message
+}
+main.priorityID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: priorityID
+}
+main.topic:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: topic
+}
+menu:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: menu
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+menu.Dashboard:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Dashboard
+}
+menu.News:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: News
+}
+menu.Workflow:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Workflow
+}

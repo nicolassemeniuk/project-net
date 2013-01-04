@@ -1,0 +1,264 @@
+<html xmlns:o="urn:schemas-microsoft-com:office:office"
+xmlns:w="urn:schemas-microsoft-com:office:word"
+xmlns="http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=ProgId content=Word.Document>
+<meta name=Generator content="Microsoft Word 10">
+<meta name=Originator content="Microsoft Word 10">
+<link rel=File-List href="uploadservlet-usage_files/filelist.xml">
+<title>How to use the UploadServlet</title>
+<!--[if gte mso 9]><xml>
+ <o:DocumentProperties>
+  <o:Author>Project.net, Inc</o:Author>
+  <o:LastAuthor>Tim Morrow</o:LastAuthor>
+  <o:Revision>18</o:Revision>
+  <o:TotalTime>82</o:TotalTime>
+  <o:Created>2001-09-10T23:48:00Z</o:Created>
+  <o:LastSaved>2002-09-04T21:42:00Z</o:LastSaved>
+  <o:Pages>1</o:Pages>
+  <o:Words>277</o:Words>
+  <o:Characters>1513</o:Characters>
+  <o:Company>Project.net, Inc</o:Company>
+  <o:Lines>75</o:Lines>
+  <o:Paragraphs>54</o:Paragraphs>
+  <o:CharactersWithSpaces>1736</o:CharactersWithSpaces>
+  <o:Version>10.4219</o:Version>
+ </o:DocumentProperties>
+</xml><![endif]--><!--[if gte mso 9]><xml>
+ <w:WordDocument>
+  <w:SpellingState>Clean</w:SpellingState>
+  <w:GrammarState>Clean</w:GrammarState>
+  <w:Compatibility>
+   <w:UseFELayout/>
+  </w:Compatibility>
+  <w:BrowserLevel>MicrosoftInternetExplorer4</w:BrowserLevel>
+ </w:WordDocument>
+</xml><![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:PMingLiU;
+	panose-1:2 2 3 0 0 0 0 0 0 0;
+	mso-font-alt:\65B0\7D30\660E\9AD4;
+	mso-font-charset:136;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:3 137232384 22 0 1048577 0;}
+@font-face
+	{font-family:Verdana;
+	panose-1:2 11 6 4 3 5 4 4 2 4;
+	mso-font-charset:0;
+	mso-generic-font-family:swiss;
+	mso-font-pitch:variable;
+	mso-font-signature:536871559 0 0 0 415 0;}
+@font-face
+	{font-family:"\@PMingLiU";
+	panose-1:2 2 3 0 0 0 0 0 0 0;
+	mso-font-charset:136;
+	mso-generic-font-family:roman;
+	mso-font-pitch:variable;
+	mso-font-signature:3 137232384 22 0 1048577 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{mso-style-parent:"";
+	margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+h3
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:3;
+	font-size:13.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:PMingLiU;
+	font-weight:bold;}
+h4
+	{mso-style-next:Normal;
+	margin-top:12.0pt;
+	margin-right:0in;
+	margin-bottom:3.0pt;
+	margin-left:0in;
+	mso-pagination:widow-orphan;
+	page-break-after:avoid;
+	mso-outline-level:4;
+	font-size:10.0pt;
+	font-family:Arial;
+	mso-fareast-font-family:PMingLiU;
+	mso-bidi-font-family:"Times New Roman";
+	font-weight:bold;}
+p
+	{margin:0in;
+	margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	mso-bidi-font-size:12.0pt;
+	font-family:Verdana;
+	mso-fareast-font-family:"Times New Roman";
+	mso-bidi-font-family:"Times New Roman";}
+span.SpellE
+	{mso-style-name:"";
+	mso-spl-e:yes;}
+span.GramE
+	{mso-style-name:"";
+	mso-gram-e:yes;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;
+	mso-header-margin:.5in;
+	mso-footer-margin:.5in;
+	mso-paper-source:0;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+<!--[if gte mso 10]>
+<style>
+ /* Style Definitions */
+ table.MsoNormalTable
+	{mso-style-name:"Table Normal";
+	mso-tstyle-rowband-size:0;
+	mso-tstyle-colband-size:0;
+	mso-style-noshow:yes;
+	mso-style-parent:"";
+	mso-padding-alt:0in 5.4pt 0in 5.4pt;
+	mso-para-margin:0in;
+	mso-para-margin-bottom:.0001pt;
+	mso-pagination:widow-orphan;
+	font-size:10.0pt;
+	font-family:"Times New Roman";}
+</style>
+<![endif]-->
+</head>
+
+<body lang=EN-US style='tab-interval:.5in'>
+
+<div class=Section1>
+
+<h3>How to use the <span class=SpellE>UploadServlet</span></h3>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h4>Description<o:p></o:p></h4>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>The <span class=SpellE>UploadServlet</span> provides
+automatic processing of parameters and files from an HTML form using an
+encoding type of <span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>multipart/form-data</span>.<span style='mso-spacerun:yes'> 
+</span>It builds a parameter map and writes all uploaded files to a temporary
+location.<span style='mso-spacerun:yes'>  </span>The parameter map is then made
+available to sub-classes for handling.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h4>Usage</h4>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Create a sub-class of <span class=SpellE>UploadServlet</span>
+that implements the <span class=SpellE><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>handleParameters</span></span> method.<span
+style='mso-spacerun:yes'>  </span>The passed-in <span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>parameters</span> object is a map where
+each key is a string that corresponds to the name of a part from the
+multipart/form-data stream.<span style='mso-spacerun:yes'>  </span>This is
+usually the name of an HTML &lt;input&gt; form field.<span
+style='mso-spacerun:yes'>  </span>The value is either a String or an <span
+class=SpellE>UploadServlet.FileParameter</span> object.<span
+style='mso-spacerun:yes'>  </span>When it is a String, the value is usually the
+value of the HTML &lt;input&gt; form field.<span style='mso-spacerun:yes'> 
+</span>The <span class=SpellE>UploadServlet.FileParameter</span> object
+maintains information about a file that was uploaded, corresponding to an HTML
+&lt;input type=”file” … /&gt; form field.<span style='mso-spacerun:yes'> 
+</span>The JSP page that provides the &lt;input type=”file” … /&gt; field must
+submit to the <span class=SpellE>servlet</span>.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Bluestone requires Servlets to be mapped in the sajava.ini
+file.<span style='mso-spacerun:yes'>  </span>See the existing file for examples
+of mapping Servlets.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal>Any uploaded file should be renamed or read – after <span
+class=SpellE>handleParameters</span> is called, the <span class=SpellE>UploadServlet</span>
+deletes the temporary file.</p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<h4>Example</h4>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><u>JSP Page:<o:p></o:p></u></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;form METHOD=&quot;post&quot; ACTION=&quot;&lt;%=<span
+class=SpellE><span class=GramE>SessionManager.getJSPRootURL</span></span><span
+class=GramE>(</span>)%&gt;/<span class=SpellE>servlet/mypackage/MyUpload</span>&quot;
+<span class=SpellE>enctype</span>=&quot;MULTIPART/FORM-DATA&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><span style='mso-spacerun:yes'>    </span>&lt;input type=”text”
+name=”description”&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'><span style='mso-spacerun:yes'>    </span>&lt;input
+type=&quot;file&quot; name=&quot;File&quot;&gt;<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>&lt;/form&gt;</span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><u>Servlet </u><span class=SpellE><u><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>handleParameters</span></u></span><u>:<o:p></o:p></u></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>String description = (String) <span class=SpellE><span
+class=GramE>parameters.get</span></span><span class=GramE>(</span>“description”);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span style='font-family:"Courier New";
+mso-bidi-font-family:"Times New Roman"'>UploadServlet.FileParameter</span></span><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'> <span
+class=SpellE>fileParam</span> = (<span class=SpellE>UploadServlet.FileParameter</span>)
+<span class=SpellE><span class=GramE>parameters.get</span></span><span
+class=GramE>(</span>&quot;File&quot;);<o:p></o:p></span></p>
+
+<p class=MsoNormal><span class=SpellE><span class=GramE><span style='font-family:
+"Courier New";mso-bidi-font-family:"Times New Roman"'>java.io.File</span></span></span><span
+style='font-family:"Courier New";mso-bidi-font-family:"Times New Roman"'> <span
+class=SpellE>uploadedFile</span> = new <span class=SpellE>java.io.File</span>(<span
+class=SpellE>fileParam.getWrittenFilePath</span>());<o:p></o:p></span></p>
+
+<p class=MsoNormal><span style='font-family:"Courier New";mso-bidi-font-family:
+"Times New Roman"'>// process the file<o:p></o:p></span></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+<p class=MsoNormal><o:p>&nbsp;</o:p></p>
+
+</div>
+
+</body>
+
+</html>

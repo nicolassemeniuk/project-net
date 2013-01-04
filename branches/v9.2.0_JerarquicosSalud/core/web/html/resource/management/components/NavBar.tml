@@ -1,0 +1,293 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" id="left-navbar">
+
+<div id="leftheading-resources"><t:Message value="prm.resource.nav.resource_management.title" /></div>
+<div style="clear: both;"></div>
+<div class='spacer-for-toolbox'></div>
+		<t:if test="directoryEnabled">
+		<div class='toolbox-heading'><t:Message value="prm.global.toolbox.heading" /></div>
+		<div id="toolbox-item" class="toolbox-item">
+			<span><a href="${jSPRootURL}/resource/management/Directory?module=310"><t:Message value="prm.directory.module.description" /></a>&nbsp;</span><br />
+		</div>
+		</t:if>
+		
+		<t:if test="allocationsEnabled">
+			<div id="toolbox-heading" class="toolbox-heading"><t:Message value="prm.resource.nav.reservations" /></div>
+			<div id="toolbox-item" class="toolbox-item">
+				<span><a href="${jSPRootURL}/resource/management/allocateBy?module=310"><t:Message value="prm.resource.nav.reserve_by_resource" /></a></span><br />
+				<span><a href="${jSPRootURL}/resource/management/allocateByProject?module=310"><t:Message value="prm.resource.nav.reserve_by_project" /></a></span><br />
+				<span><a href="${jSPRootURL}/resource/management/allocationSummary?module=310"><t:Message value="prm.resource.nav.view_by_resource" /></a></span><br />
+				<span><a href="${jSPRootURL}/resource/management/viewVsAssignments?module=310"><t:Message value="prm.resource.nav.reserved_vs_assigned" /></a></span>
+			</div>
+		</t:if>
+		
+		<div id="toolbox-heading" class="toolbox-heading"><t:Message value="prm.resource.nav.assignments" /></div>
+		<div id="toolbox-item" class="toolbox-item">
+			<span><a href="${jSPRootURL}/resource/management/viewdetails?module=310"><t:Message value="prm.resource.nav.tasks_assigned" /></a></span><br />
+			<span><a href="${jSPRootURL}/resource/management/viewsummary?module=310"><t:Message value="prm.resource.nav.summary" /></a></span><br />
+			<span><a href="${jSPRootURL}/resource/management/assignmentsummary?module=310"><t:Message value="prm.resource.nav.project_summary" /></a></span>
+		</div>&nbsp;
+</div>
+
+<!-- 
+<div id="tLeftframe"
+	xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd"
+	align="left">
+<table width="155" cellpadding="0" cellspacing="0" border="0">
+	<tr valign="top">
+		<td colspan="4"><img src="${jSPRootURL}/images/spacers/trans.gif" width="11"
+			height="9" alt="" border="0" hspace="0" vspace="0" /></td>
+	</tr>
+	<tr valign="top">
+		<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+			height="18" alt="" border="0" /></td>  -->
+		<!-- td class="vertNoLine"><img src="${jSPRootURL}/images/common/leftnav-ball.gif"
+			width="13" height="15" alt="" border="0" hspace="0" vspace="0" /></td -->
+	<!-- 	<td class="leftNavHeader" colspan="2">${resource_management_title}</td>
+	</tr>
+	
+	<tr valign="top">
+		<td colspan="4"><img src="${jSPRootURL}/images/spacers/trans.gif" width="11"
+			height="9" alt="" border="0" hspace="0" vspace="0" /></td>
+	</tr>
+	
+	<tr valign="top">
+		<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+			height="18" alt="" border="0" /></td>
+		<td class="vertNoLine"><img src="${jSPRootURL}/images/common/leftnav-ball.gif"
+			width="13" height="15" alt="" border="0" hspace="0" vspace="0" /></td>
+		<td class="leftNavHeader">
+			<a href="${jSPRootURL}/resource/management/Directory?module=310" class="leftNavHeader">
+				Directory</a>
+		</td>
+	</tr> -->
+
+	<!--tr valign="top">
+		<td colspan="4"><img src="${jSPRootURL}/images/spacers/trans.gif" width="11"
+			height="9" alt="" border="0" hspace="0" vspace="0" /></td>
+	</tr>
+	<tr>
+		<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+			height="18" alt="" border="0" /></td>
+		< td class="vertNoLine"><img src="${jSPRootURL}/images/common/leftnav-ball.gif"
+			width="13" height="15" alt="" border="0" hspace="0" vspace="0" /></td>
+		<td class="leftNavHeader" colspan="2"> <a
+			href="${jSPRootURL}/resource/dashboard?module=310" class="leftNavHeader">
+			${dashboard_link}</a>
+		</td>
+	</tr -->
+	
+	<!-- t:if test="allocationsEnabled">
+		<tr valign="top">
+			<td colspan="4"><img src="${jSPRootURL}/images/spacers/trans.gif" width="11"
+				height="9" alt="" border="0" hspace="0" vspace="0" /></td>
+		</tr>
+		<tr valign="top">
+			<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+				height="18" alt="" border="0" /></td>
+			<td class="vertNoLine"><img src="${jSPRootURL}/images/common/leftnav-ball.gif"
+				width="13" height="15" alt="" border="0" hspace="0" vspace="0" /></td>
+			<td class="leftNavHeader">${allocation_title}</td>
+		</tr>
+	
+		<tr valign="top">
+			<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+				height="18" alt="" border="0" /></td>
+			<td class="vertNoLine"></td>
+			<td class="leftNavLink"><img
+				src="${jSPRootURL}/images/common/leftnav-sm_ball.gif" width="9" height="15" alt=""
+				border="0" hspace="0" vspace="0" align="middle" />  <a
+				href="${jSPRootURL}/resource/management/allocateBy?module=310" class="leftNavLink">
+			${allocate_by_resource_link}</a></td>
+		</tr>
+	
+		<tr valign="top">
+			<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+				height="18" alt="" border="0" /></td>
+			<td class="vertNoLine"></td>
+			<td class="leftNavLink"><img
+				src="${jSPRootURL}/images/common/leftnav-sm_ball.gif" width="9" height="15" alt=""
+				border="0" hspace="0" vspace="0" align="middle" />  <a
+				href="${jSPRootURL}/resource/management/allocateByProject?module=310" class="leftNavLink">
+			${allocate_by_project_link}</a></td>
+		</tr>
+	
+		<tr valign="top">
+			<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+				height="18" alt="" border="0" /></td>
+			<td class="vertNoLine"></td>
+			<td class="leftNavLink"><img
+				src="${jSPRootURL}/images/common/leftnav-sm_ball.gif" width="9" height="15" alt=""
+				border="0" hspace="0" vspace="0" align="middle" />  <a
+				href="${jSPRootURL}/resource/management/allocationSummary?module=310" class="leftNavLink">
+			${view_by_resource_link}</a></td>
+		</tr -->
+	
+		<!-- tr valign="top">
+			<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+				height="18" alt="" border="0" /></td>
+			<td class="vertNoLine"></td>
+			<td class="leftNavLink"><img
+				src="${jSPRootURL}/images/common/leftnav-sm_ball.gif" width="9" height="15" alt=""
+				border="0" hspace="0" vspace="0" align="middle" /> <a
+				href="/resource/management/remaining?module=310" class="leftNavLink">
+			${view_by_project_link}</a></td>
+		</tr -->	
+		
+		<!-- tr valign="top">
+			<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+				height="18" alt="" border="0" /></td>
+			<td class="vertNoLine"></td>
+			<td class="leftNavLink"><img
+				src="${jSPRootURL}/images/common/leftnav-sm_ball.gif" width="9" height="15" alt=""
+				border="0" hspace="0" vspace="0" align="middle" />  <a
+				href="${jSPRootURL}/resource/management/viewVsAssignments?module=310" class="leftNavLink">
+			${allocation_vs_assignment_link}</a></td>
+		</tr>		
+    </t:if>
+    
+	<tr valign="top">
+		<td colspan="4"><img src="${jSPRootURL}/images/spacers/trans.gif" width="11"
+			height="9" alt="" border="0" hspace="0" vspace="0" /></td>
+	</tr>
+	<tr valign="top">
+		<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+			height="18" alt="" border="0" /></td>
+		<td class="vertNoLine"><img src="${jSPRootURL}/images/common/leftnav-ball.gif"
+			width="13" height="15" alt="" border="0" hspace="0" vspace="0" /></td>
+		<td class="leftNavHeader">${assignments_title}</td>
+	</tr>
+
+	<tr valign="top">
+		<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+			height="18" alt="" border="0" /></td>
+		<td class="vertNoLine"></td>
+		<td class="leftNavLink"><img
+			src="${jSPRootURL}/images/common/leftnav-sm_ball.gif" width="9" height="15" alt=""
+			border="0" hspace="0" vspace="0" align="middle" /> <a
+			href="${jSPRootURL}/resource/management/viewdetails?module=310" class="leftNavLink">
+		${view_details_link}</a> </td>
+	</tr -->
+
+	<!-- tr valign="top">
+		<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+			height="18" alt="" border="0" /></td>
+		<td class="vertNoLine"></td>
+		<td class="leftNavLink"><img
+			src="${jSPRootURL}/images/common/leftnav-sm_ball.gif" width="9" height="15" alt=""
+			border="0" hspace="0" vspace="0" align="middle" /> <a
+			href="/resource/management/viewdetails_V8_5?module=310" class="leftNavLink">
+		View Details</a> </td>
+	</tr -->
+
+	<!-- tr valign="top">
+		<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+			height="18" alt="" border="0" /></td>
+		<td class="vertNoLine"></td>
+		<td class="leftNavLink"><img
+			src="${jSPRootURL}/images/common/leftnav-sm_ball.gif" width="9" height="15" alt=""
+			border="0" hspace="0" vspace="0" align="middle" /> <a
+			href="${jSPRootURL}/resource/management/viewsummary?module=310" class="leftNavLink">
+		${view_summary_link}</a> </td>
+	</tr>
+	
+	<tr valign="top">
+		<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+			height="18" alt="" border="0" /></td>
+		<td class="vertNoLine"></td>
+		<td class="leftNavLink"><img
+			src="${jSPRootURL}/images/common/leftnav-sm_ball.gif" width="9" height="15" alt=""
+			border="0" hspace="0" vspace="0" align="middle" /> <a
+			href="${jSPRootURL}/resource/management/assignmentsummary?module=310" class="leftNavLink">
+		${project_summary_link}</a> </td>
+	</tr -->
+	<!-- tr valign="top">
+		<td colspan="4"><img src="${jSPRootURL}/images/spacers/trans.gif" width="11"
+			height="9" alt="" border="0" hspace="0" vspace="0" /></td>
+	</tr>
+	<tr valign="top">
+		<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+			height="18" alt="" border="0" /></td>
+		<td class="vertNoLine"><img src="${jSPRootURL}/images/common/leftnav-ball.gif"
+			width="13" height="15" alt="" border="0" hspace="0" vspace="0" /></td>
+		<td class="leftNavHeader">${people_title}</td>
+	</tr>
+
+	<tr valign="top">
+		<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+			height="18" alt="" border="0" /></td>
+		<td class="vertNoLine"></td>
+		<td class="leftNavLink"><img
+			src="${jSPRootURL}/images/common/leftnav-sm_ball.gif" width="9" height="15" alt=""
+			border="0" hspace="0" vspace="0" align="middle" />  <a
+			href="/resource/management/remaining?module=310" class="leftNavLink">
+		${list_link}</a></td>
+	</tr>
+
+	<tr valign="top">
+		<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+			height="18" alt="" border="0" /></td>
+		<td class="vertNoLine"></td>
+		<td class="leftNavLink"><img
+			src="${jSPRootURL}/images/common/leftnav-sm_ball.gif" width="9" height="15" alt=""
+			border="0" hspace="0" vspace="0" align="middle" />  <a
+			href="/resource/management/remaining?module=310" class="leftNavLink">
+		${pools_link}</a></td>
+	</tr>
+
+	<tr valign="top">
+		<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+			height="18" alt="" border="0" /></td>
+		<td class="vertNoLine"></td>
+		<td class="leftNavLink"><img
+			src="${jSPRootURL}/images/common/leftnav-sm_ball.gif" width="9" height="15" alt=""
+			border="0" hspace="0" vspace="0" align="middle" />  <a
+			href="/resource/remaining?module=310" class="leftNavLink">
+		${skills_link}</a></td>
+	</tr>
+	<tr valign="top">
+		<td colspan="4"><img src="${jSPRootURL}/images/spacers/trans.gif" width="11"
+			height="9" alt="" border="0" hspace="0" vspace="0" /></td>
+	</tr>
+	<tr valign="top">
+		<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+			height="18" alt="" border="0" /></td>
+		<td class="vertNoLine"><img src="${jSPRootURL}/images/common/leftnav-ball.gif"
+			width="13" height="15" alt="" border="0" hspace="0" vspace="0" /></td>
+		<td class="leftNavHeader"><strong> <a
+			href="/resource/management/remaining?module=310" class="leftNavLink">
+		${equipment_link}</a></strong></td>
+	</tr>
+	<tr valign="top">
+		<td colspan="4"><img src="${jSPRootURL}/images/spacers/trans.gif" width="11"
+			height="9" alt="" border="0" hspace="0" vspace="0" /></td>
+	</tr>
+	<tr valign="top">
+		<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+			height="18" alt="" border="0" /></td>
+		<td class="vertNoLine"><img src="${jSPRootURL}/images/common/leftnav-ball.gif"
+			width="13" height="15" alt="" border="0" hspace="0" vspace="0" /></td>
+		<td class="leftNavHeader"> <a
+			href="/resource/management/remaining?module=310" class="leftNavLink">
+		${resource_requests_link}</a></td>
+	</tr>
+	<tr valign="top">
+		<td colspan="4"><img src="${jSPRootURL}/images/spacers/trans.gif" width="11"
+			height="9" alt="" border="0" hspace="0" vspace="0" /></td>
+	</tr>
+	<tr valign="top">
+		<td width="15"><img src="${jSPRootURL}/images/spacers/trans.gif" width="12"
+			height="18" alt="" border="0" /></td>
+		<td class="vertNoLine"><img src="${jSPRootURL}/images/common/leftnav-ball.gif"
+			width="13" height="15" alt="" border="0" hspace="0" vspace="0" /></td>
+		<td class="leftNavHeader"> <a
+			href="/resource/management/remaining?module=310" class="leftNavLink">
+		${setup_link}</a></td>
+	</tr>
+	<tr valign="top">
+		<td colspan="4"><img src="${jSPRootURL}/images/spacers/trans.gif" width="11"
+			height="9" alt="" border="0" hspace="0" vspace="0" /></td>
+	</tr -->
+<!-- /table>
+</div -->

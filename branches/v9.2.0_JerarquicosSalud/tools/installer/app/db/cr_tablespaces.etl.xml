@@ -1,0 +1,46 @@
+<!DOCTYPE etl SYSTEM "http://scriptella.javaforge.com/dtd/etl.dtd">
+<etl>
+    <description>Database creation script</description>
+    <properties>
+        <include href="dbinit.properties"/>
+    </properties>
+    <connection driver="${driver}" url="${url}" user="${PNET_BUILD_SYSTEM_ACCOUNT}" password="${PNET_BUILD_SYSTEM_PASSWORD}"/>
+    
+    <script>
+    	/* Create tablespace data01 */
+		CREATE TABLESPACE data01 
+			DATAFILE '${PNET_BUILD_DB_DATAFILE_PATH}data01.dbf' SIZE 300M
+			AUTOEXTEND ON MAXSIZE UNLIMITED
+		    EXTENT MANAGEMENT LOCAL AUTOALLOCATE;
+		    
+		/* Create index tablespace */
+		
+		CREATE tablespace index01
+		       DATAFILE '${PNET_BUILD_DB_DATAFILE_PATH}index01.dbf' SIZE 300M
+		       AUTOEXTEND ON MAXSIZE UNLIMITED
+		       EXTENT MANAGEMENT LOCAL AUTOALLOCATE;
+		
+		
+		/* 
+		 * The forms (tracking databases) features of project.net dynamically create tables and
+		 * indices in the PNET_USER schema at runtime.  You may want to have these tables and
+		 * indices in separate tablespaces.
+		 */
+		
+		/* Create forms data tablespace */
+		
+		CREATE TABLESPACE forms_data
+		       DATAFILE '${PNET_BUILD_DB_DATAFILE_PATH}forms_data_01.dbf' SIZE 100M
+		       AUTOEXTEND ON MAXSIZE UNLIMITED
+		       EXTENT MANAGEMENT LOCAL AUTOALLOCATE;
+		
+		
+		/* Create forms index tablespace */
+		
+		CREATE TABLESPACE forms_index
+		       DATAFILE '${PNET_BUILD_DB_DATAFILE_PATH}forms_index_01.dbf' SIZE 100M 
+		       AUTOEXTEND ON MAXSIZE UNLIMITED
+		       EXTENT MANAGEMENT LOCAL AUTOALLOCATE;
+    </script>
+    
+</etl>

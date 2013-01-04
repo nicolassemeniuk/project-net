@@ -1,0 +1,562 @@
+<projects Name="Projects" ProjectId="root">
+<Project Name=" QIP- InTouch Standards, Guidelines, Processes, and Audit" Level="1" Folder="/ QIP- InTouch Standards Guidelines Processes and Audit" selected="false" ProjectId="6855097">
+	</Project>
+<Project Name="* TROUBLESHOOTING / FEEDBACK / INCIDENTS" Level="1" Folder="/ TROUBLESHOOTING   FEEDBACK   INCIDENTS" selected="false" ProjectId="7164865">
+	</Project>
+<Project Name="--SIS QHSE , Training and Business Process Group" Level="1" Folder="/--SIS QHSE  Training and Business Process Group" selected="false" ProjectId="864333">
+	</Project>
+<Project Name="00 Central" Level="1" Folder="/00 Central" selected="false" ProjectId="5788840">
+<Project Name="Carto &amp; GIS Project" Level="2" Folder="/00 Central/Carto  GIS Project" selected="false" ProjectId="5676418">
+<Project Name="Estandares Gis" Level="3" Folder="/00 Central/Carto  GIS Project/Estandares Gis" selected="false" ProjectId="5945401">
+	</Project>
+<Project Name="Integracion Informacion Espacial" Level="3" Folder="/00 Central/Carto  GIS Project/Integracion Informacion Espacial" selected="false" ProjectId="5945450">
+	</Project>
+<Project Name="Inventario de Informacion Espacial" Level="3" Folder="/00 Central/Carto  GIS Project/Inventario de Informacion Espacial" selected="false" ProjectId="5945380">
+	</Project>
+	</Project>
+<Project Name="Decision Portal" Level="2" Folder="/00 Central/Decision Portal" selected="false" ProjectId="5676589">
+	</Project>
+<Project Name="Normativity" Level="2" Folder="/00 Central/Normativity" selected="false" ProjectId="5676324">
+<Project Name="Codes Unification" Level="3" Folder="/00 Central/Normativity/Codes Unification" selected="false" ProjectId="5676393">
+	</Project>
+<Project Name="Common Data Model" Level="3" Folder="/00 Central/Normativity/Common Data Model" selected="false" ProjectId="5270033">
+	</Project>
+	</Project>
+<Project Name="Web Explotation Tool" Level="2" Folder="/00 Central/Web Explotation Tool" selected="false" ProjectId="5676439">
+	</Project>
+	</Project>
+<Project Name="000 - SADAT" Level="1" Folder="/000 - SADAT" selected="false" ProjectId="2137271">
+	</Project>
+<Project Name="001 - RS-P" Level="1" Folder="/001 - RS-P" selected="false" ProjectId="2139155">
+	</Project>
+<Project Name="002 - McCullough" Level="1" Folder="/002 - McCullough" selected="false" ProjectId="2141096">
+	</Project>
+<Project Name="003 - Sylmar" Level="1" Folder="/003 - Sylmar" selected="false" ProjectId="2149046">
+	</Project>
+<Project Name="004 - DS-9" Level="1" Folder="/004 - DS-9" selected="false" ProjectId="2150915">
+	</Project>
+<Project Name="006 - DS-75" Level="1" Folder="/006 - DS-75" selected="false" ProjectId="2333370">
+	</Project>
+<Project Name="007 - DS-16" Level="1" Folder="/007 - DS-16" selected="false" ProjectId="2333565">
+	</Project>
+<Project Name="008 - DS-12" Level="1" Folder="/008 - DS-12" selected="false" ProjectId="2333632">
+	</Project>
+<Project Name="009 - DS-42" Level="1" Folder="/009 - DS-42" selected="false" ProjectId="2333675">
+	</Project>
+<Project Name="01 Region North" Level="1" Folder="/01 Region North" selected="false" ProjectId="5759604">
+	</Project>
+<Project Name="02 Region Sur" Level="1" Folder="/02 Region Sur" selected="false" ProjectId="5788556">
+	</Project>
+<Project Name="03 Region Marina Noreste" Level="1" Folder="/03 Region Marina Noreste" selected="false" ProjectId="5788608">
+	</Project>
+<Project Name="04 Region Marina Suroeste" Level="1" Folder="/04 Region Marina Suroeste" selected="false" ProjectId="5788638">
+	</Project>
+<Project Name="06-1045 - ADCO - IC Tender" Level="1" Folder="/06-1045 - ADCO - IC Tender" selected="false" ProjectId="14526833">
+	</Project>
+<Project Name="1 Statoil Norne D3 MLT NORWAY" Level="1" Folder="/1 Statoil Norne D3 MLT NORWAY" selected="false" ProjectId="7735304">
+	</Project>
+<Project Name="1.  CPS Ops Projects : Wellbore Dwg &amp; Executive Summary" Level="1" Folder="/1.  CPS Ops Projects : Wellbore Dwg  Executive Summary" selected="false" ProjectId="759214">
+	</Project>
+<Project Name="1. Subsea Business Plan" Level="1" Folder="/1. Subsea Business Plan" selected="false" ProjectId="356848">
+<Project Name="1.1 Subsea Well Servicing" Level="2" Folder="/1. Subsea Business Plan/1.1 Subsea Well Servicing" selected="false" ProjectId="900706">
+<Project Name="1.1.1. SenTREE Systems" Level="3" Folder="/1. Subsea Business Plan/1.1 Subsea Well Servicing/1.1.1. SenTREE Systems" selected="false" ProjectId="900679">
+<Project Name="1.1.1.1. SenTREE3" Level="4" Folder="/1. Subsea Business Plan/1.1 Subsea Well Servicing/1.1.1. SenTREE Systems/1.1.1.1. SenTREE3" selected="false" ProjectId="902705">
+	</Project>
+<Project Name="1.1.1.2. SenTREE7" Level="4" Folder="/1. Subsea Business Plan/1.1 Subsea Well Servicing/1.1.1. SenTREE Systems/1.1.1.2. SenTREE7" selected="false" ProjectId="901176">
+	</Project>
+	</Project>
+<Project Name="1.1.2. Open Water Intervention" Level="3" Folder="/1. Subsea Business Plan/1.1 Subsea Well Servicing/1.1.2. Open Water Intervention" selected="false" ProjectId="486377">
+<Project Name="1.1.2.1 OWI Field Operations" Level="4" Folder="/1. Subsea Business Plan/1.1 Subsea Well Servicing/1.1.2. Open Water Intervention/1.1.2.1 OWI Field Operations" selected="false" ProjectId="2482677">
+	</Project>
+	</Project>
+<Project Name="1.1.3. Seabed Wireline System" Level="3" Folder="/1. Subsea Business Plan/1.1 Subsea Well Servicing/1.1.3. Seabed Wireline System" selected="false" ProjectId="460760">
+<Project Name="Seabed Wireline System (Framo Eng)" Level="4" Folder="/1. Subsea Business Plan/1.1 Subsea Well Servicing/1.1.3. Seabed Wireline System/Seabed Wireline System Framo Eng" selected="false" ProjectId="12320361">
+	</Project>
+	</Project>
+	</Project>
+<Project Name="1.2. Subsea Distributive Systems" Level="2" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems" selected="false" ProjectId="360860">
+<Project Name="1.2.1. Subsea Monitoring and Control" Level="3" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control" selected="false" ProjectId="900727">
+<Project Name="SMC Development Project" Level="4" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC Development Project" selected="false" ProjectId="2709502">
+<Project Name="2007 NPD - Gen 2 FO Modem " Level="5" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC Development Project/2007 NPD - Gen 2 FO Modem " selected="false" ProjectId="14483440">
+	</Project>
+<Project Name="2007 NPD - Gen 2 PSU" Level="5" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC Development Project/2007 NPD - Gen 2 PSU" selected="false" ProjectId="14232758">
+	</Project>
+<Project Name="2007 NPD - Processor Board" Level="5" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC Development Project/2007 NPD - Processor Board" selected="false" ProjectId="14232776">
+	</Project>
+<Project Name="2007 NPD - Reliability Analysis" Level="5" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC Development Project/2007 NPD - Reliability Analysis" selected="false" ProjectId="14231625">
+	</Project>
+<Project Name="Framo SPCS NPD" Level="5" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC Development Project/Framo SPCS NPD" selected="false" ProjectId="6272281">
+<Project Name="SMC SPCS Development" Level="6" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC Development Project/Framo SPCS NPD/SMC SPCS Development" selected="false" ProjectId="8800496">
+	</Project>
+	</Project>
+<Project Name="SMC EXP Engineering" Level="5" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC Development Project/SMC EXP Engineering" selected="false" ProjectId="10306882">
+	</Project>
+<Project Name="SMC subC-pilot - Hydraulic Control Module" Level="5" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC Development Project/SMC subC-pilot - Hydraulic Control Module" selected="false" ProjectId="6272395">
+	</Project>
+	</Project>
+<Project Name="SMC External Study" Level="4" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC External Study" selected="false" ProjectId="11951629">
+	</Project>
+<Project Name="SPCS Projects" Level="4" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SPCS Projects" selected="false" ProjectId="14074547">
+<Project Name="1. Framo SPCS CNR Columba E Project" Level="5" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SPCS Projects/1. Framo SPCS CNR Columba E Project" selected="false" ProjectId="10823809">
+<Project Name="CNR Columba E - Shared documentation" Level="6" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SPCS Projects/1. Framo SPCS CNR Columba E Project/CNR Columba E - Shared documentation" selected="false" ProjectId="10855597">
+	</Project>
+	</Project>
+<Project Name="2. Framo SPCS OilExco Brenda Project" Level="5" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SPCS Projects/2. Framo SPCS OilExco Brenda Project" selected="false" ProjectId="11827263">
+<Project Name="Oilexco Brenda - Shared Documentation" Level="6" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SPCS Projects/2. Framo SPCS OilExco Brenda Project/Oilexco Brenda - Shared Documentation" selected="false" ProjectId="11844001">
+	</Project>
+<Project Name="Oilexco Brenda II" Level="6" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SPCS Projects/2. Framo SPCS OilExco Brenda Project/Oilexco Brenda II" selected="false" ProjectId="14031164">
+	</Project>
+	</Project>
+<Project Name="3. Framo SPCS Woodside Vincent" Level="5" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SPCS Projects/3. Framo SPCS Woodside Vincent" selected="false" ProjectId="12961330">
+	</Project>
+<Project Name="5. Framo SPCS Oilexco III - Ptarmigan" Level="5" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SPCS Projects/5. Framo SPCS Oilexco III - Ptarmigan" selected="false" ProjectId="14496563">
+	</Project>
+	</Project>
+<Project Name="Subsea Real-Time Software" Level="4" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/Subsea Real-Time Software" selected="false" ProjectId="10397660">
+<Project Name="3DS - Subsea DTS Software Development" Level="5" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/Subsea Real-Time Software/3DS - Subsea DTS Software Development" selected="false" ProjectId="10339725">
+	</Project>
+<Project Name="ATOS RTAC Development " Level="5" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/Subsea Real-Time Software/ATOS RTAC Development " selected="false" ProjectId="8306203">
+	</Project>
+<Project Name="FADS" Level="5" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/Subsea Real-Time Software/FADS" selected="false" ProjectId="10400788">
+	</Project>
+<Project Name="SubseaBuilder" Level="5" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/Subsea Real-Time Software/SubseaBuilder" selected="false" ProjectId="14087668">
+	</Project>
+<Project Name="WSI - WellSite Interface" Level="5" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/Subsea Real-Time Software/WSI - WellSite Interface" selected="false" ProjectId="10398185">
+	</Project>
+	</Project>
+	</Project>
+<Project Name="1.2.2. Subsea Power Systems" Level="3" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.2. Subsea Power Systems" selected="false" ProjectId="901071">
+	</Project>
+<Project Name="1.2.3. Subsea Treatment Systems" Level="3" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.3. Subsea Treatment Systems" selected="false" ProjectId="901284">
+<Project Name="1.2.3.1. Flow Assurance: Fluids &amp; Deposits Analysis" Level="4" Folder="/1. Subsea Business Plan/1.2. Subsea Distributive Systems/1.2.3. Subsea Treatment Systems/1.2.3.1. Flow Assurance: Fluids  Deposits Analysis" selected="false" ProjectId="638901">
+	</Project>
+	</Project>
+	</Project>
+	</Project>
+<Project Name="1.1.3. Seabed Wireline System" Level="1" Folder="/1.1.3. Seabed Wireline System" selected="false" ProjectId="460760">
+<Project Name="Seabed Wireline System (Framo Eng)" Level="2" Folder="/1.1.3. Seabed Wireline System/Seabed Wireline System Framo Eng" selected="false" ProjectId="12320361">
+	</Project>
+	</Project>
+<Project Name="1.2. Subsea Distributive Systems" Level="1" Folder="/1.2. Subsea Distributive Systems" selected="false" ProjectId="360860">
+<Project Name="1.2.1. Subsea Monitoring and Control" Level="2" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control" selected="false" ProjectId="900727">
+<Project Name="SMC Development Project" Level="3" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC Development Project" selected="false" ProjectId="2709502">
+<Project Name="2007 NPD - Gen 2 FO Modem " Level="4" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC Development Project/2007 NPD - Gen 2 FO Modem " selected="false" ProjectId="14483440">
+	</Project>
+<Project Name="2007 NPD - Gen 2 PSU" Level="4" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC Development Project/2007 NPD - Gen 2 PSU" selected="false" ProjectId="14232758">
+	</Project>
+<Project Name="2007 NPD - Processor Board" Level="4" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC Development Project/2007 NPD - Processor Board" selected="false" ProjectId="14232776">
+	</Project>
+<Project Name="2007 NPD - Reliability Analysis" Level="4" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC Development Project/2007 NPD - Reliability Analysis" selected="false" ProjectId="14231625">
+	</Project>
+<Project Name="Framo SPCS NPD" Level="4" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC Development Project/Framo SPCS NPD" selected="false" ProjectId="6272281">
+<Project Name="SMC SPCS Development" Level="5" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC Development Project/Framo SPCS NPD/SMC SPCS Development" selected="false" ProjectId="8800496">
+	</Project>
+	</Project>
+<Project Name="SMC EXP Engineering" Level="4" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC Development Project/SMC EXP Engineering" selected="false" ProjectId="10306882">
+	</Project>
+<Project Name="SMC subC-pilot - Hydraulic Control Module" Level="4" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC Development Project/SMC subC-pilot - Hydraulic Control Module" selected="false" ProjectId="6272395">
+	</Project>
+	</Project>
+<Project Name="SMC External Study" Level="3" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SMC External Study" selected="false" ProjectId="11951629">
+	</Project>
+<Project Name="SPCS Projects" Level="3" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SPCS Projects" selected="false" ProjectId="14074547">
+<Project Name="1. Framo SPCS CNR Columba E Project" Level="4" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SPCS Projects/1. Framo SPCS CNR Columba E Project" selected="false" ProjectId="10823809">
+<Project Name="CNR Columba E - Shared documentation" Level="5" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SPCS Projects/1. Framo SPCS CNR Columba E Project/CNR Columba E - Shared documentation" selected="false" ProjectId="10855597">
+	</Project>
+	</Project>
+<Project Name="2. Framo SPCS OilExco Brenda Project" Level="4" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SPCS Projects/2. Framo SPCS OilExco Brenda Project" selected="false" ProjectId="11827263">
+<Project Name="Oilexco Brenda - Shared Documentation" Level="5" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SPCS Projects/2. Framo SPCS OilExco Brenda Project/Oilexco Brenda - Shared Documentation" selected="false" ProjectId="11844001">
+	</Project>
+<Project Name="Oilexco Brenda II" Level="5" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SPCS Projects/2. Framo SPCS OilExco Brenda Project/Oilexco Brenda II" selected="false" ProjectId="14031164">
+	</Project>
+	</Project>
+<Project Name="3. Framo SPCS Woodside Vincent" Level="4" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SPCS Projects/3. Framo SPCS Woodside Vincent" selected="false" ProjectId="12961330">
+	</Project>
+<Project Name="5. Framo SPCS Oilexco III - Ptarmigan" Level="4" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/SPCS Projects/5. Framo SPCS Oilexco III - Ptarmigan" selected="false" ProjectId="14496563">
+	</Project>
+	</Project>
+<Project Name="Subsea Real-Time Software" Level="3" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/Subsea Real-Time Software" selected="false" ProjectId="10397660">
+<Project Name="3DS - Subsea DTS Software Development" Level="4" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/Subsea Real-Time Software/3DS - Subsea DTS Software Development" selected="false" ProjectId="10339725">
+	</Project>
+<Project Name="ATOS RTAC Development " Level="4" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/Subsea Real-Time Software/ATOS RTAC Development " selected="false" ProjectId="8306203">
+	</Project>
+<Project Name="FADS" Level="4" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/Subsea Real-Time Software/FADS" selected="false" ProjectId="10400788">
+	</Project>
+<Project Name="SubseaBuilder" Level="4" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/Subsea Real-Time Software/SubseaBuilder" selected="false" ProjectId="14087668">
+	</Project>
+<Project Name="WSI - WellSite Interface" Level="4" Folder="/1.2. Subsea Distributive Systems/1.2.1. Subsea Monitoring and Control/Subsea Real-Time Software/WSI - WellSite Interface" selected="false" ProjectId="10398185">
+	</Project>
+	</Project>
+	</Project>
+<Project Name="1.2.2. Subsea Power Systems" Level="2" Folder="/1.2. Subsea Distributive Systems/1.2.2. Subsea Power Systems" selected="false" ProjectId="901071">
+	</Project>
+<Project Name="1.2.3. Subsea Treatment Systems" Level="2" Folder="/1.2. Subsea Distributive Systems/1.2.3. Subsea Treatment Systems" selected="false" ProjectId="901284">
+<Project Name="1.2.3.1. Flow Assurance: Fluids &amp; Deposits Analysis" Level="3" Folder="/1.2. Subsea Distributive Systems/1.2.3. Subsea Treatment Systems/1.2.3.1. Flow Assurance: Fluids  Deposits Analysis" selected="false" ProjectId="638901">
+	</Project>
+	</Project>
+	</Project>
+<Project Name="10986 - OSS (Organic Solids System)" Level="1" Folder="/10986 - OSS Organic Solids System" selected="false" ProjectId="6764904">
+<Project Name="10987 - HP/CPM Cell" Level="2" Folder="/10986 - OSS Organic Solids System/10987 - HP CPM Cell" selected="false" ProjectId="6766127">
+	</Project>
+<Project Name="10988 - Mixer / SDS Cylinder" Level="2" Folder="/10986 - OSS Organic Solids System/10988 - Mixer   SDS Cylinder" selected="false" ProjectId="6765972">
+	</Project>
+<Project Name="10989 - HP Filter" Level="2" Folder="/10986 - OSS Organic Solids System/10989 - HP Filter" selected="false" ProjectId="6765816">
+	</Project>
+<Project Name="10990 - PSA System (Particle Size Analysis)" Level="2" Folder="/10986 - OSS Organic Solids System/10990 - PSA System Particle Size Analysis" selected="false" ProjectId="6765664">
+	</Project>
+<Project Name="12829 - OSS Control Software" Level="2" Folder="/10986 - OSS Organic Solids System/12829 - OSS Control Software" selected="false" ProjectId="7442046">
+	</Project>
+	</Project>
+<Project Name="11092 - OSDC (Organic Solids Deposition Control)" Level="1" Folder="/11092 - OSDC Organic Solids Deposition Control" selected="false" ProjectId="6764600">
+	</Project>
+<Project Name="11099 - Waxy Crude Rheology" Level="1" Folder="/11099 - Waxy Crude Rheology" selected="false" ProjectId="6656291">
+	</Project>
+<Project Name="11165 - Web-Enabled PVT Data Management System" Level="1" Folder="/11165 - Web-Enabled PVT Data Management System" selected="false" ProjectId="7141605">
+	</Project>
+<Project Name="11169 - DBR SOLIDS - Thermodynamic Model" Level="1" Folder="/11169 - DBR SOLIDS - Thermodynamic Model" selected="false" ProjectId="6656076">
+	</Project>
+<Project Name="11245 - DBR Equipment Audit" Level="1" Folder="/11245 - DBR Equipment Audit" selected="false" ProjectId="5425064">
+<Project Name="11524 - 039 Series Pump Audit" Level="2" Folder="/11245 - DBR Equipment Audit/11524 - 039 Series Pump Audit" selected="false" ProjectId="5495391">
+	</Project>
+<Project Name="11525 - 042 Series Pump Audit" Level="2" Folder="/11245 - DBR Equipment Audit/11525 - 042 Series Pump Audit" selected="false" ProjectId="5495406">
+	</Project>
+<Project Name="11526 - 217 Series Pump Audit" Level="2" Folder="/11245 - DBR Equipment Audit/11526 - 217 Series Pump Audit" selected="false" ProjectId="5495421">
+	</Project>
+<Project Name="11527 - 287 Series Pump Audit" Level="2" Folder="/11245 - DBR Equipment Audit/11527 - 287 Series Pump Audit" selected="false" ProjectId="5495436">
+	</Project>
+<Project Name="11528 - 045 Series Pump Audit" Level="2" Folder="/11245 - DBR Equipment Audit/11528 - 045 Series Pump Audit" selected="false" ProjectId="5495451">
+	</Project>
+<Project Name="11529 - 224 Series Core Holder Audit" Level="2" Folder="/11245 - DBR Equipment Audit/11529 - 224 Series Core Holder Audit" selected="false" ProjectId="5495466">
+	</Project>
+<Project Name="11604 - 044 Series Pump Audit" Level="2" Folder="/11245 - DBR Equipment Audit/11604 - 044 Series Pump Audit" selected="false" ProjectId="5425335">
+	</Project>
+<Project Name="11608 - Sapphire Cell Audit" Level="2" Folder="/11245 - DBR Equipment Audit/11608 - Sapphire Cell Audit" selected="false" ProjectId="5499222">
+	</Project>
+<Project Name="11609 - 180 Series BPR Audit" Level="2" Folder="/11245 - DBR Equipment Audit/11609 - 180 Series BPR Audit" selected="false" ProjectId="5500088">
+	</Project>
+<Project Name="11610 - 304 Series HPM Cell Audit" Level="2" Folder="/11245 - DBR Equipment Audit/11610 - 304 Series HPM Cell Audit" selected="false" ProjectId="5500134">
+	</Project>
+<Project Name="11614 - 001 Series PVT Cell" Level="2" Folder="/11245 - DBR Equipment Audit/11614 - 001 Series PVT Cell" selected="false" ProjectId="5506894">
+	</Project>
+<Project Name="11615 - 025 Series Cylinders" Level="2" Folder="/11245 - DBR Equipment Audit/11615 - 025 Series Cylinders" selected="false" ProjectId="5506973">
+	</Project>
+<Project Name="11616 - 054 Series Sight Glass Cell Audit" Level="2" Folder="/11245 - DBR Equipment Audit/11616 - 054 Series Sight Glass Cell Audit" selected="false" ProjectId="5510471">
+	</Project>
+<Project Name="11617 - 132 Series Recombination Cell" Level="2" Folder="/11245 - DBR Equipment Audit/11617 - 132 Series Recombination Cell" selected="false" ProjectId="5507177">
+	</Project>
+<Project Name="11618 - 184 Series IFT Cell" Level="2" Folder="/11245 - DBR Equipment Audit/11618 - 184 Series IFT Cell" selected="false" ProjectId="5510590">
+	</Project>
+<Project Name="13104 - PVT Cell, 15 ksi Audit" Level="2" Folder="/11245 - DBR Equipment Audit/13104 - PVT Cell 15 ksi Audit" selected="false" ProjectId="8477622">
+	</Project>
+<Project Name="PVT End Cap Review, 15ksi" Level="2" Folder="/11245 - DBR Equipment Audit/PVT End Cap Review 15ksi" selected="false" ProjectId="6844068">
+	</Project>
+	</Project>
+<Project Name="11329 - 75 cc Pycnometer Assembly" Level="1" Folder="/11329 - 75 cc Pycnometer Assembly" selected="false" ProjectId="5513231">
+	</Project>
+<Project Name="11330 - Sample Piston Port Assembly" Level="1" Folder="/11330 - Sample Piston Port Assembly" selected="false" ProjectId="5513278">
+	</Project>
+<Project Name="11536 GeMS Implementation" Level="1" Folder="/11536 GeMS Implementation" selected="false" ProjectId="5830806">
+	</Project>
+<Project Name="11590 - Project.net Implementation" Level="1" Folder="/11590 - Project.net Implementation" selected="false" ProjectId="5439418">
+<Project Name="LPS Project Template" Level="2" Folder="/11590 - Project.net Implementation/LPS Project Template" selected="false" ProjectId="5708076">
+	</Project>
+<Project Name="LRR Project Template" Level="2" Folder="/11590 - Project.net Implementation/LRR Project Template" selected="false" ProjectId="6679277">
+	</Project>
+<Project Name="SPS Project Template" Level="2" Folder="/11590 - Project.net Implementation/SPS Project Template" selected="false" ProjectId="6679258">
+	</Project>
+<Project Name="SRR Project Template" Level="2" Folder="/11590 - Project.net Implementation/SRR Project Template" selected="false" ProjectId="6679292">
+	</Project>
+	</Project>
+<Project Name="11614 - 001 Series PVT Cell" Level="1" Folder="/11614 - 001 Series PVT Cell" selected="false" ProjectId="5506894">
+	</Project>
+<Project Name="12510 - DFA Circulation Pump" Level="1" Folder="/12510 - DFA Circulation Pump" selected="false" ProjectId="5970492">
+	</Project>
+<Project Name="12711 - Image Capture System" Level="1" Folder="/12711 - Image Capture System" selected="false" ProjectId="7058463">
+	</Project>
+<Project Name="12731 - Continuous Gasometer -  Correct Noise Problems" Level="1" Folder="/12731 - Continuous Gasometer -  Correct Noise Problems" selected="false" ProjectId="7082955">
+	</Project>
+<Project Name="12773 - Model Pipeline Test" Level="1" Folder="/12773 - Model Pipeline Test" selected="false" ProjectId="7255632">
+	</Project>
+<Project Name="2001 PKI Deployment" Level="1" Folder="/2001 PKI Deployment" selected="false" ProjectId="276325">
+	</Project>
+<Project Name="2002 Bali Merak User Forum" Level="1" Folder="/2002 Bali Merak User Forum" selected="false" ProjectId="1346291">
+	</Project>
+<Project Name="2002 PKI Deployment" Level="1" Folder="/2002 PKI Deployment" selected="false" ProjectId="277326">
+	</Project>
+<Project Name="2003 OFS IT Plan" Level="1" Folder="/2003 OFS IT Plan" selected="false" ProjectId="1656731">
+	</Project>
+<Project Name="2003 Projects" Level="1" Folder="/2003 Projects" selected="false" ProjectId="3547437">
+<Project Name="ChevronTexaco Gas Hydrates" Level="2" Folder="/2003 Projects/ChevronTexaco Gas Hydrates" selected="false" ProjectId="3547600">
+	</Project>
+<Project Name="Lankahuasa" Level="2" Folder="/2003 Projects/Lankahuasa" selected="false" ProjectId="3547967">
+	</Project>
+<Project Name="Multiclient Depth Migration" Level="2" Folder="/2003 Projects/Multiclient Depth Migration" selected="false" ProjectId="3548072">
+	</Project>
+<Project Name="Multiclient Q Diana" Level="2" Folder="/2003 Projects/Multiclient Q Diana" selected="false" ProjectId="3547784">
+<Project Name="Multiclient Q Diana SWF" Level="3" Folder="/2003 Projects/Multiclient Q Diana/Multiclient Q Diana SWF" selected="false" ProjectId="3548047">
+	</Project>
+	</Project>
+<Project Name="Multicomponent 2003" Level="2" Folder="/2003 Projects/Multicomponent 2003" selected="false" ProjectId="3547928">
+	</Project>
+	</Project>
+<Project Name="2003 TCC Implementation Program" Level="1" Folder="/2003 TCC Implementation Program" selected="false" ProjectId="4535537">
+	</Project>
+<Project Name="2003 Trade Shows (Reservoir, Merak, BJA, others)" Level="1" Folder="/2003 Trade Shows Reservoir Merak BJA others" selected="false" ProjectId="2512359">
+	</Project>
+<Project Name="2004 Editorial Calendar" Level="1" Folder="/2004 Editorial Calendar" selected="false" ProjectId="6073093">
+	</Project>
+<Project Name="2004 Pemex Lankahuasa" Level="1" Folder="/2004 Pemex Lankahuasa" selected="false" ProjectId="5801186">
+	</Project>
+<Project Name="2006 Improvement Plan" Level="1" Folder="/2006 Improvement Plan" selected="false" ProjectId="12398018">
+	</Project>
+<Project Name="2006 Revenue Program" Level="1" Folder="/2006 Revenue Program" selected="false" ProjectId="11486396">
+	</Project>
+<Project Name="2008 DCS PET Strategy workshop" Level="1" Folder="/2008 DCS PET Strategy workshop" selected="false" ProjectId="15021800">
+	</Project>
+<Project Name="2012 XOM Hawkes Field" Level="1" Folder="/2012 XOM Hawkes Field" selected="false" ProjectId="5801359">
+	</Project>
+<Project Name="2014 Battelle" Level="1" Folder="/2014 Battelle" selected="false" ProjectId="5801382">
+	</Project>
+<Project Name="2017 Pemex Lobina" Level="1" Folder="/2017 Pemex Lobina" selected="false" ProjectId="5801235">
+	</Project>
+<Project Name="2018 Pemex Nautla" Level="1" Folder="/2018 Pemex Nautla" selected="false" ProjectId="6261859">
+	</Project>
+<Project Name="2025 Mayne&amp;Mertz Fanny Church" Level="1" Folder="/2025 MayneMertz Fanny Church" selected="false" ProjectId="6835061">
+	</Project>
+<Project Name="2030 Cabot" Level="1" Folder="/2030 Cabot" selected="false" ProjectId="7204934">
+	</Project>
+<Project Name="2031 Gulf Keystone Algeria" Level="1" Folder="/2031 Gulf Keystone Algeria" selected="false" ProjectId="7707768">
+	</Project>
+<Project Name="2033 Apache Bohai" Level="1" Folder="/2033 Apache Bohai" selected="false" ProjectId="7738003">
+	</Project>
+<Project Name="2037 PetroBras Marlim" Level="1" Folder="/2037 PetroBras Marlim" selected="false" ProjectId="8049756">
+	</Project>
+<Project Name="2046 BP WestCam 3D" Level="1" Folder="/2046 BP WestCam 3D" selected="false" ProjectId="9250058">
+	</Project>
+<Project Name="21st Century Rig Project" Level="1" Folder="/21st Century Rig Project" selected="false" ProjectId="15109293">
+	</Project>
+<Project Name="24396 - DAQ System Upgrade" Level="1" Folder="/24396 - DAQ System Upgrade" selected="false" ProjectId="8487951">
+	</Project>
+<Project Name="2NET Contract DB Update" Level="1" Folder="/2NET Contract DB Update" selected="false" ProjectId="4105637">
+	</Project>
+<Project Name="2NET NAM Leveraged LAN Team" Level="1" Folder="/2NET NAM Leveraged LAN Team" selected="false" ProjectId="7377529">
+	</Project>
+<Project Name="2NET Program Office" Level="1" Folder="/2NET Program Office" selected="false" ProjectId="1106694">
+<Project Name="Global Service Desk" Level="2" Folder="/2NET Program Office/Global Service Desk" selected="false" ProjectId="1192440">
+	</Project>
+	</Project>
+<Project Name="2NET Tranistion Archive" Level="1" Folder="/2NET Tranistion Archive" selected="false" ProjectId="1780894">
+	</Project>
+<Project Name="2NET TransitionPlus" Level="1" Folder="/2NET TransitionPlus" selected="false" ProjectId="3307615">
+	</Project>
+<Project Name="2Net Asset tagging - Stage1" Level="1" Folder="/2Net Asset tagging - Stage1" selected="false" ProjectId="2262907">
+	</Project>
+<Project Name="2Net Skill Gap Analysis" Level="1" Folder="/2Net Skill Gap Analysis" selected="false" ProjectId="2262817">
+	</Project>
+<Project Name="3. Framo SPCS Woodside Vincent" Level="1" Folder="/3. Framo SPCS Woodside Vincent" selected="false" ProjectId="12961330">
+	</Project>
+<Project Name="3001 Hydro Grane" Level="1" Folder="/3001 Hydro Grane" selected="false" ProjectId="5703982">
+	</Project>
+<Project Name="3002 Statoil Falk" Level="1" Folder="/3002 Statoil Falk" selected="false" ProjectId="5704014">
+	</Project>
+<Project Name="3004 MC Barents Sea" Level="1" Folder="/3004 MC Barents Sea" selected="false" ProjectId="5704048">
+	</Project>
+<Project Name="3005 Statoil Norne Q-Q" Level="1" Folder="/3005 Statoil Norne Q-Q" selected="false" ProjectId="5704160">
+	</Project>
+<Project Name="3005: Norne" Level="1" Folder="/3005: Norne" selected="false" ProjectId="4121801">
+	</Project>
+<Project Name="3006 MC Halten Terrace South" Level="1" Folder="/3006 MC Halten Terrace South" selected="false" ProjectId="5704204">
+	</Project>
+<Project Name="3007 MC Gjallar" Level="1" Folder="/3007 MC Gjallar" selected="false" ProjectId="5704235">
+	</Project>
+<Project Name="3009 Statoil Block 6505" Level="1" Folder="/3009 Statoil Block 6505" selected="false" ProjectId="5704286">
+	</Project>
+<Project Name="3012 XOM Balder Q" Level="1" Folder="/3012 XOM Balder Q" selected="false" ProjectId="5704327">
+	</Project>
+<Project Name="3013 Conoco Embla" Level="1" Folder="/3013 Conoco Embla" selected="false" ProjectId="5704354">
+	</Project>
+<Project Name="3014 Statoil Plataforma Deltana" Level="1" Folder="/3014 Statoil Plataforma Deltana" selected="false" ProjectId="5869403">
+	</Project>
+<Project Name="3021 Statoil Ellida WDS" Level="1" Folder="/3021 Statoil Ellida WDS" selected="false" ProjectId="7158025">
+	</Project>
+<Project Name="3024 Agip Goliath" Level="1" Folder="/3024 Agip Goliath" selected="false" ProjectId="8328196">
+	</Project>
+<Project Name="3025 Statoil Gjallar" Level="1" Folder="/3025 Statoil Gjallar" selected="false" ProjectId="9770102">
+	</Project>
+<Project Name="3DVSP Validation using SCR Synthetic Data" Level="1" Folder="/3DVSP Validation using SCR Synthetic Data" selected="false" ProjectId="4012423">
+	</Project>
+<Project Name="3M Schlumberger Joint Development Project" Level="1" Folder="/3M Schlumberger Joint Development Project" selected="false" ProjectId="12316072">
+	</Project>
+<Project Name="4&quot; Treating Tee with 3&quot; Male Branch" Level="1" Folder="/4 Treating Tee with 3 Male Branch" selected="false" ProjectId="2353095">
+	</Project>
+<Project Name="4000 CNR Block 16" Level="1" Folder="/4000 CNR Block 16" selected="false" ProjectId="5950159">
+	</Project>
+<Project Name="4003 Total Erema West" Level="1" Folder="/4003 Total Erema West" selected="false" ProjectId="5950211">
+	</Project>
+<Project Name="4007 Total Ibewa" Level="1" Folder="/4007 Total Ibewa" selected="false" ProjectId="6767333">
+	</Project>
+<Project Name="4th Middle East Upstream Conference 20-21 March 2007" Level="1" Folder="/4th Middle East Upstream Conference 20-21 March 2007" selected="false" ProjectId="14240811">
+	</Project>
+<Project Name="50 cc Cylinder, 10 ksi" Level="1" Folder="/50 cc Cylinder 10 ksi" selected="false" ProjectId="5518938">
+	</Project>
+<Project Name="5000 Irish Sea" Level="1" Folder="/5000 Irish Sea" selected="false" ProjectId="5950256">
+	</Project>
+<Project Name="54321 Test UKN Networks project" Level="1" Folder="/54321 Test UKN Networks project" selected="false" ProjectId="4378943">
+	</Project>
+<Project Name="554433 - another test" Level="1" Folder="/554433 - another test" selected="false" ProjectId="4380796">
+	</Project>
+<Project Name="5800 / RFID / GPSeismic" Level="1" Folder="/5800   RFID   GPSeismic" selected="false" ProjectId="2023618">
+	</Project>
+<Project Name="59.0051 Hubeli" Level="1" Folder="/59.0051 Hubeli" selected="false" ProjectId="337023">
+	</Project>
+<Project Name="6 Sigma Test Project" Level="1" Folder="/6 Sigma Test Project" selected="false" ProjectId="12634258">
+	</Project>
+<Project Name="6000 TGL Akta / Chek / Korpe" Level="1" Folder="/6000 TGL Akta   Chek   Korpe" selected="false" ProjectId="5801842">
+	</Project>
+<Project Name="6433 Petronas Carigali EWT Block 1" Level="1" Folder="/6433 Petronas Carigali EWT Block 1" selected="false" ProjectId="14451881">
+	</Project>
+<Project Name="6702-000" Level="1" Folder="/6702-000" selected="false" ProjectId="657998">
+	</Project>
+<Project Name="6703-001" Level="1" Folder="/6703-001" selected="false" ProjectId="553296">
+	</Project>
+<Project Name="6703-003" Level="1" Folder="/6703-003" selected="false" ProjectId="553361">
+	</Project>
+<Project Name="684 KOC Minagish" Level="1" Folder="/684 KOC Minagish" selected="false" ProjectId="7310931">
+	</Project>
+<Project Name="686 KMG Murchison Q" Level="1" Folder="/686 KMG Murchison Q" selected="false" ProjectId="5564238">
+	</Project>
+<Project Name="688 Sonatrach Hassi Messaoud" Level="1" Folder="/688 Sonatrach Hassi Messaoud" selected="false" ProjectId="5801446">
+	</Project>
+<Project Name="690 KMG Leadon Q" Level="1" Folder="/690 KMG Leadon Q" selected="false" ProjectId="5703313">
+	</Project>
+<Project Name="690 Leadon " Level="1" Folder="/690 Leadon " selected="false" ProjectId="4118058">
+	</Project>
+<Project Name="696 BP Magnus Q" Level="1" Folder="/696 BP Magnus Q" selected="false" ProjectId="5703355">
+	</Project>
+<Project Name="7000 Sibneft Anadyr Basin" Level="1" Folder="/7000 Sibneft Anadyr Basin" selected="false" ProjectId="5950299">
+	</Project>
+<Project Name="703 Statoil Norne Q" Level="1" Folder="/703 Statoil Norne Q" selected="false" ProjectId="5703398">
+	</Project>
+<Project Name="703: Norne" Level="1" Folder="/703: Norne" selected="false" ProjectId="4121184">
+	</Project>
+<Project Name="704 COPAL Absheron" Level="1" Folder="/704 COPAL Absheron" selected="false" ProjectId="5801001">
+	</Project>
+<Project Name="705 EnCana Buzzard" Level="1" Folder="/705 EnCana Buzzard" selected="false" ProjectId="5703467">
+	</Project>
+<Project Name="706 Amerada South Timbalier" Level="1" Folder="/706 Amerada South Timbalier" selected="false" ProjectId="7310901">
+	</Project>
+<Project Name="707 Amerada Hess Ceiba" Level="1" Folder="/707 Amerada Hess Ceiba" selected="false" ProjectId="5452513">
+	</Project>
+<Project Name="709 Shell Nelson" Level="1" Folder="/709 Shell Nelson" selected="false" ProjectId="5703506">
+	</Project>
+<Project Name="710 DONG Nini and Siri" Level="1" Folder="/710 DONG Nini and Siri" selected="false" ProjectId="5703525">
+	</Project>
+<Project Name="712 KMG Skene" Level="1" Folder="/712 KMG Skene" selected="false" ProjectId="5703545">
+	</Project>
+<Project Name="713 Statoil Norne Q Proof" Level="1" Folder="/713 Statoil Norne Q Proof" selected="false" ProjectId="5703563">
+	</Project>
+<Project Name="713: Norne" Level="1" Folder="/713: Norne" selected="false" ProjectId="4121297">
+	</Project>
+<Project Name="714 CTX Agbami IPD" Level="1" Folder="/714 CTX Agbami IPD" selected="false" ProjectId="5919514">
+	</Project>
+<Project Name="715 BGS UAE" Level="1" Folder="/715 BGS UAE" selected="false" ProjectId="5802647">
+	</Project>
+<Project Name="716 Statoil N. Norne" Level="1" Folder="/716 Statoil N. Norne" selected="false" ProjectId="5703690">
+	</Project>
+<Project Name="717 N. Shell Penguins" Level="1" Folder="/717 N. Shell Penguins" selected="false" ProjectId="5703721">
+	</Project>
+<Project Name="719 KMG Tullich" Level="1" Folder="/719 KMG Tullich" selected="false" ProjectId="5703750">
+	</Project>
+<Project Name="720 CTX Benguela" Level="1" Folder="/720 CTX Benguela" selected="false" ProjectId="5452641">
+	</Project>
+<Project Name="721 CTX Captain Q" Level="1" Folder="/721 CTX Captain Q" selected="false" ProjectId="5703800">
+	</Project>
+<Project Name="722 Repsol Block 401d" Level="1" Folder="/722 Repsol Block 401d" selected="false" ProjectId="5801509">
+	</Project>
+<Project Name="723 RWE Quad 42" Level="1" Folder="/723 RWE Quad 42" selected="false" ProjectId="5703866">
+	</Project>
+<Project Name="724 Maersk Lulita Area" Level="1" Folder="/724 Maersk Lulita Area" selected="false" ProjectId="5563912">
+	</Project>
+<Project Name="725 Total Akpo Area IPD" Level="1" Folder="/725 Total Akpo Area IPD" selected="false" ProjectId="5942693">
+	</Project>
+<Project Name="726 CNR Block 16" Level="1" Folder="/726 CNR Block 16" selected="false" ProjectId="5801574">
+	</Project>
+<Project Name="727 Statoil Linerle Q-seabed" Level="1" Folder="/727 Statoil Linerle Q-seabed" selected="false" ProjectId="5713439">
+	</Project>
+<Project Name="728 Marathon Brae" Level="1" Folder="/728 Marathon Brae" selected="false" ProjectId="5845939">
+	</Project>
+<Project Name="729 GdF Touat" Level="1" Folder="/729 GdF Touat" selected="false" ProjectId="5801485">
+	</Project>
+<Project Name="730 INA Jihar and Al Mahr" Level="1" Folder="/730 INA Jihar and Al Mahr" selected="false" ProjectId="5704420">
+	</Project>
+<Project Name="731 MC Quad 48" Level="1" Folder="/731 MC Quad 48" selected="false" ProjectId="6173854">
+	</Project>
+<Project Name="732 Wintershall Block L5" Level="1" Folder="/732 Wintershall Block L5" selected="false" ProjectId="6509973">
+	</Project>
+<Project Name="733 Sibneft Sugmut" Level="1" Folder="/733 Sibneft Sugmut" selected="false" ProjectId="6602016">
+	</Project>
+<Project Name="734 MC Block 19" Level="1" Folder="/734 MC Block 19" selected="false" ProjectId="6634926">
+	</Project>
+<Project Name="735 TC Test" Level="1" Folder="/735 TC Test" selected="false" ProjectId="6661905">
+	</Project>
+<Project Name="737 Nexen OML115 PPP" Level="1" Folder="/737 Nexen OML115 PPP" selected="false" ProjectId="6850532">
+	</Project>
+<Project Name="738 Total Amenam" Level="1" Folder="/738 Total Amenam" selected="false" ProjectId="6895592">
+	</Project>
+<Project Name="739 Q-Land Hassi Messaoud" Level="1" Folder="/739 Q-Land Hassi Messaoud" selected="false" ProjectId="6899698">
+	</Project>
+<Project Name="740 4D Research" Level="1" Folder="/740 4D Research" selected="false" ProjectId="6980982">
+	</Project>
+<Project Name="741 Hydro Oseberg" Level="1" Folder="/741 Hydro Oseberg" selected="false" ProjectId="7253765">
+	</Project>
+<Project Name="742 DONG Siri" Level="1" Folder="/742 DONG Siri" selected="false" ProjectId="7579071">
+	</Project>
+<Project Name="743 Statoil Visund" Level="1" Folder="/743 Statoil Visund" selected="false" ProjectId="7579132">
+	</Project>
+<Project Name="744 PetroCanada Gladstone" Level="1" Folder="/744 PetroCanada Gladstone" selected="false" ProjectId="7724957">
+	</Project>
+<Project Name="745 DCS Hassi Ghetta" Level="1" Folder="/745 DCS Hassi Ghetta" selected="false" ProjectId="7739306">
+	</Project>
+<Project Name="746 BG Karachaganak" Level="1" Folder="/746 BG Karachaganak" selected="false" ProjectId="7739396">
+	</Project>
+<Project Name="747 Lundin Oil Merisier" Level="1" Folder="/747 Lundin Oil Merisier" selected="false" ProjectId="7757118">
+	</Project>
+<Project Name="748 Hydro Ormen Lange" Level="1" Folder="/748 Hydro Ormen Lange" selected="false" ProjectId="8229832">
+	</Project>
+<Project Name="749 Statoil Heidrun" Level="1" Folder="/749 Statoil Heidrun" selected="false" ProjectId="8238794">
+	</Project>
+<Project Name="750 Total Pau PPP" Level="1" Folder="/750 Total Pau PPP" selected="false" ProjectId="8084482">
+	</Project>
+<Project Name="751 Reliance NEC25 PPP" Level="1" Folder="/751 Reliance NEC25 PPP" selected="false" ProjectId="8274258">
+	</Project>
+<Project Name="752 CTX North Malongo" Level="1" Folder="/752 CTX North Malongo" selected="false" ProjectId="8658627">
+	</Project>
+<Project Name="753 CTX Block 0" Level="1" Folder="/753 CTX Block 0" selected="false" ProjectId="8658765">
+<Project Name="752 CTX North Malongo" Level="2" Folder="/753 CTX Block 0/752 CTX North Malongo" selected="false" ProjectId="8658627">
+	</Project>
+	</Project>
+<Project Name="755 Sonatrach Erg Chouiref" Level="1" Folder="/755 Sonatrach Erg Chouiref" selected="false" ProjectId="8883270">
+	</Project>
+<Project Name="756 Total Girassol" Level="1" Folder="/756 Total Girassol" selected="false" ProjectId="9059027">
+	</Project>
+<Project Name="757 Amerada South Arne" Level="1" Folder="/757 Amerada South Arne" selected="false" ProjectId="9059057">
+	</Project>
+<Project Name="758 Woodside Mauritania" Level="1" Folder="/758 Woodside Mauritania" selected="false" ProjectId="9059076">
+	</Project>
+<Project Name="759 Total Block 3" Level="1" Folder="/759 Total Block 3" selected="false" ProjectId="9129426">
+	</Project>
+<Project Name="760 DONG PL289" Level="1" Folder="/760 DONG PL289" selected="false" ProjectId="9163782">
+	</Project>
+<Project Name="761 Toreador Toplam 3D" Level="1" Folder="/761 Toreador Toplam 3D" selected="false" ProjectId="9163878">
+	</Project>
+<Project Name="762 CNR Ninian Reprocessing" Level="1" Folder="/762 CNR Ninian Reprocessing" selected="false" ProjectId="9354929">
+	</Project>
+<Project Name="763 PetroCanada Quad 13" Level="1" Folder="/763 PetroCanada Quad 13" selected="false" ProjectId="9354965">
+	</Project>
+<Project Name="764 BP Tenders" Level="1" Folder="/764 BP Tenders" selected="false" ProjectId="9354997">
+	</Project>
+<Project Name="765 Total Usan" Level="1" Folder="/765 Total Usan" selected="false" ProjectId="9614819">
+	</Project>
+<Project Name="8000 Anadarko Block 406b" Level="1" Folder="/8000 Anadarko Block 406b" selected="false" ProjectId="3720991">
+	</Project>
+</projects>

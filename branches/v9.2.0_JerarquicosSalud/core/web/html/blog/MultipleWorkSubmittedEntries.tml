@@ -1,0 +1,18 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div id="multipleWork" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+	<table border="1" class="assignmentBlogComment">
+		<tr class="rowSep">
+			<th nowrap="nowrap"><b>Assignment Name</b></th>
+			<th nowrap="nowrap"><b>Comment</b></th>
+			<th nowrap="nowrap"><b>Work Reported</b></th>
+			<th nowrap="nowrap"><b>Date</b></th>
+		</tr>	
+		<tr t:type="loop" source="multipleWorkSubmited" value="pnAssignmentWork">
+			<td>${pnAssignmentWork.objectName}</td>
+			<td>${pnAssignmentWork.comments}</td>
+			<td>${pnAssignmentWork.work} &nbsp; Hrs</td>
+			<td>${pnAssignmentWork.workStartDate}</td>
+		</tr>
+	</table>
+</div>
