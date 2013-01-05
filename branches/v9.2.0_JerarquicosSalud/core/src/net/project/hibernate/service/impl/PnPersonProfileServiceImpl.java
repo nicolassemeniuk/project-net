@@ -171,11 +171,10 @@ public class PnPersonProfileServiceImpl implements IPnPersonProfileService {
 			log.error("Error occured while encoding image : "+pnetEx.getMessage());
 		}
 		// Unreachable catch
-		/*
-		catch (IOException pnetEx) {
+		catch (IOException pnetEx)
+		{
 			log.error("Error occured while encoding image : "+pnetEx.getMessage());
 		}
-		*/
 		return resized;
 	}
 	
