@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project name="pnet-core-tomcat" default="build" basedir=".">
+<project name="pnet-core-tomcat-jerarquicos" default="build" basedir=".">
 <!--
  * Copyright 2000-2009 Project.net Inc.
  *
@@ -64,10 +64,17 @@ Quick Help:
     <taskdef name="stop" classpathref="tomcat.ant.classpath" classname="org.apache.catalina.ant.StopTask"/>
     <taskdef name="undeploy" classpathref="tomcat.ant.classpath" classname="org.apache.catalina.ant.UndeployTask"/>
 
+	<!-- @ramiro agregada la opcion update="true" en vez de llamar a undeploy -->
     <target name="deploy" description="Install the web application" depends="build">
         <deploy url="${tomcat.url}" username="${tomcat.username}" password="${tomcat.password}" path="${tomcat.path}"
-                localWar="${build.dir}" config="${build.metainf.dir}/context.xml"/>
+                localWar="${build.dir}" config="${build.metainf.dir}/context.xml" update="true" />
     </target>
+	
+	<!-- @ramiro nueva tarea -->
+    <target name="deployWAR" description="Install the web application as a WAR file" depends="generic-package-war">
+        <deploy url="${tomcat.url}" username="${tomcat.username}" password="${tomcat.password}" path="${tomcat.path}"
+                war="${package.tomcat.war.name}" update="true" />
+    </target>	
 
     <target name="reload" depends="build">
 		<condition property="app.path" value="/ROOT" else="${tomcat.path}">
@@ -633,7 +640,13 @@ Quick Help:
 				<exclude name="activation.jar"/>
 				<exclude name="yuicompressor-2.3.5.jar"/>
 				<exclude name="yui-compressor-ant-task-0.3.jar"/>
-                <include name="*.jar"/>
+				<!--
+               	<include name="*.jar"/>
+               	-->
+                <!-- Excluir para optimizar espacio y agregar los libs a /usr/share/tomcat6/lib -->
+            	
+			   	<exclude name="*.jar"/>
+			   	
                 <include name="*.zip"/>
             </fileset>
         </copy>
