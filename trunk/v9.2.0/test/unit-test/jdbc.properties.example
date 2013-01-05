@@ -1,0 +1,16 @@
+# Jdbc properties file used only for junit unit tests
+# Copy this file jdbc.properties.example file to jdbc.properties and configure all properties for your workstation.
+
+
+# Database connection settings
+# driver
+driver=oracle.jdbc.OracleDriver
+
+# url
+url=jdbc:oracle:thin:@localhost:1521:pnetdb
+
+# database username 
+username=pnet_user
+
+# database password
+password=pnet_user

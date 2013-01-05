@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnSpaceHasModule" 
+    table="PN_SPACE_HAS_MODULE"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnSpaceHasModulePK">
+        <key-property 
+            name="spaceId" 
+            column="SPACE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="moduleId" 
+            column="MODULE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="isActive"
+        type="int"
+        column="IS_ACTIVE"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnModule -->
+    <many-to-one
+        name="pnModule"
+	    class="net.project.hibernate.model.PnModule"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="MODULE_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional one-to-many association to PnModulePermission -->
+
+    <set
+        name="pnModulePermissions"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="SPACE_ID" />
+            <column name="MODULE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnModulePermission"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

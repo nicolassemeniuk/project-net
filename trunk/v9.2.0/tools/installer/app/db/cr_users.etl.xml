@@ -1,0 +1,84 @@
+<!DOCTYPE etl SYSTEM "http://scriptella.javaforge.com/dtd/etl.dtd">
+<etl>
+    <description>Database creation script</description>
+    <properties>
+        <include href="dbinit.properties"/>
+    </properties>
+    <connection driver="${driver}" url="${url}" user="${PNET_BUILD_SYSTEM_ACCOUNT}" password="${PNET_BUILD_SYSTEM_PASSWORD}"/>
+    
+    <script>
+    	/*
+		* CREATE ROLE pnet_role */
+		create role pnet_role;
+		
+		/*
+		* CREATE USER PNET */
+		
+		create user ${PNET_BUILD_USER_NAME} identified by "${PNET_BUILD_USER_PASSWORD}"
+		   default tablespace data01
+		   temporary tablespace temp;
+		   grant create session to ${PNET_BUILD_USER_NAME};
+		   GRANT ALTER session TO ${PNET_BUILD_USER_NAME};
+		   grant create table to ${PNET_BUILD_USER_NAME};
+		   grant create view to ${PNET_BUILD_USER_NAME};
+		   grant create sequence to ${PNET_BUILD_USER_NAME};
+		   grant create procedure to ${PNET_BUILD_USER_NAME};
+		   grant create public synonym to ${PNET_BUILD_USER_NAME};
+		   grant select_catalog_role to ${PNET_BUILD_USER_NAME};
+		   grant create snapshot to ${PNET_BUILD_USER_NAME};
+		   grant create database link to ${PNET_BUILD_USER_NAME};
+		   grant create trigger to ${PNET_BUILD_USER_NAME};
+		   grant create type to ${PNET_BUILD_USER_NAME};
+		   grant drop public synonym to ${PNET_BUILD_USER_NAME};
+		
+		/*
+		* ALTER USER ${PNET_BUILD_USER_NAME}  */
+		ALTER USER ${PNET_BUILD_USER_NAME} 
+		QUOTA UNLIMITED ON data01
+		QUOTA UNLIMITED ON index01;
+		ALTER USER ${PNET_BUILD_USER_NAME} 
+		QUOTA UNLIMITED ON FORMS_DATA
+		QUOTA UNLIMITED ON FORMS_INDEX;
+		
+		
+		/*
+		* CREATE USER PNET_USER */
+		create user ${PNET_BUILD_APP_USER_NAME} identified by "${PNET_BUILD_APP_USER_PASSWORD}"
+		   default tablespace data01
+		   temporary tablespace temp;
+		   grant create session to ${PNET_BUILD_APP_USER_NAME};
+		   grant pnet_role to ${PNET_BUILD_APP_USER_NAME};
+		
+		ALTER USER ${PNET_BUILD_APP_USER_NAME}
+		   QUOTA UNLIMITED ON FORMS_DATA
+		   QUOTA UNLIMITED ON FORMS_INDEX;
+		
+		
+		/*
+		* APPLY GRANTS */
+		-- pnet_role -- temporarily, until tables are set
+		
+		grant create table to pnet_role;
+		grant create any synonym to pnet_role;
+		grant select any table to pnet_role;
+		grant insert any table to pnet_role;
+		grant delete any table to pnet_role;
+		grant update any table to pnet_role;
+		-- needed for forms
+		grant create any table to pnet_role;
+		grant execute any procedure to pnet_role;
+		grant select any sequence to pnet_role;
+		grant select_catalog_role to pnet_role;
+		-- needed for forms
+		grant alter any table to pnet_role;
+		grant create trigger to pnet_role;
+		-- Needed for scheduling
+		grant execute any type TO pnet_role;
+		grant pnet_role to ${PNET_BUILD_USER_NAME};
+    </script>
+    
+    <script>
+    	alter system set open_cursors=2000;
+    </script>
+    
+</etl>

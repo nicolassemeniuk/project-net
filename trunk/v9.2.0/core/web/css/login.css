@@ -1,0 +1,199 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+ /* MAIN */
+
+body		{
+		margin: 10px;
+		}
+/*
+.loginForm	{font-size: 10px;
+			 font-family: Arial,Helvetica,Geneva,Sans;
+			 width: 100px;
+			 height: 20px;}
+*/
+.loginError	{font-family: Arial,Helvetica,Geneva,Sans;
+			 font-size: 12px;
+			 color:#FF0000;
+			 font-weight: bold;
+			 padding: 5px;}
+
+.channelHeader	{background-color: #666666;
+				 color: #FFFFFF;}
+
+
+body.main			{background-color: #FFFFFF;
+			 		 background-image: url('../images/1px.gif');
+					}
+a					{
+					}
+.instructions		{background-color: #FFFFFF;
+					 color: #000000;
+					}
+a.channelNoUnderline	{
+					}
+					
+a.bannerLink1		{color: #000000;
+					}
+a.bannerLink2		{color: #FFFFFF;
+					}
+.channelHeaderDarker	{	background-color: #FFCC33;
+					 color: #000000;
+					}
+.channelContent		{background-color: #FFFFFF;
+					 color: #000000;
+					}
+.white			{
+					}
+.calendar		{color: #000000;
+					}
+.calToday		{color: #FF0000;
+				background-color: #ffffcc;
+				border: 1px solid #FFCC33;
+					}
+.pageTitle			{color: #996633;
+					}
+.label				{color: #996633;
+					}
+.actionBar			{color: #000000;
+					 background-image: url('../images/personal/actionbar-background.gif');
+					 background-repeat: repeat-x;
+					}
+.actionContentReq	{color: #000000;
+					}
+.actionContentNotReq	{color: #999999;
+					}
+.data			{
+					}
+
+.bannerLink1		{color: #000000;
+					}
+.bannerLink2		{color: #FFFFFF;
+					}
+.userId			{color: #FFFFFF;
+					}
+
+.tableHeader		{background-color: #FFFFFF;
+					 color: #000000;
+					}
+.tableLine		{background-color: #FFCC33;
+					}
+.tableContent		{background-color: #FFFFFF;
+					 color: #000000;
+					}
+.rowSep             {background-color: #FFCC33;
+                     padding: 0px;
+                     height: 1px;
+                     border-collapse: collapse;
+                    }
+.headerSep          {background-color: #FFCC33;
+                     padding: 0px;
+                     height: 2px;
+                     border-collapse: collapse;
+                    }
+
+/* FORMS */
+
+.fieldRequired		{color: #000000;
+					}
+.fieldNonRequired	{color: #999999;
+					}
+.fieldWithError		{color: #FF0000;
+					}
+.warningTextRed     {color: #FF0000;
+                    }
+.errorMessage       {color: #FF0000;
+                    }                    
+.successMessage     {color: #FF0000;  
+                    }					
+                    
+/* LOGIN PAGE */
+#logo-login {
+	float: left;
+	padding-top: 10px;
+	width: 100%;
+	text-align: center;
+}
+#loginform {
+	width: 250px;
+	height: 280px;
+	margin: auto auto;
+	padding-top: 3%;
+}
+
+.center_column_top {
+	background: #eceef6 url(../images/centercolumn_top.png) no-repeat top;
+	width: 250px;
+	margin-top: 23px;
+	padding-top: 10px;
+	
+}
+.center_column_bottom {
+	background: url(../images/centercolumn_bottom.png) no-repeat bottom;
+	width: 250px;
+	padding-bottom: 10px;
+	float: left;
+}
+
+#loginform div.actionbox-item {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	background: #eceef6;
+	color: #3399ff;
+	font-weight: bold;
+	line-height: 22px;
+	padding-left: 0px;
+	text-align: center;
+}
+#loginform div.actionbox-item .title {
+	color: Black;
+	font-size: 14px;
+	line-height: 30px;
+}
+#loginform div.actionbox-item .title-small {
+	color: Gray;
+	font-size: 12px;
+}
+#loginform div.actionbox-item form {
+	display: inline;
+}
+#loginform div.actionbox-item form input {
+	font-size: 18px;
+	font-weight: bold;
+	font-family: Trebuchet MS;
+	text-align: center;
+	color: Gray;
+	width: 200px;
+	margin-bottom: 5px;
+}
+#loginform div.actionbox-item form input.login-button {
+	width: 80px;
+	color: Black;
+	font-size: 14px;
+	margin-top: 10px;
+}
+#loginform div.actionbox-item span a, .group_heading span a  {
+	text-decoration: none;
+	/*border-bottom: 1px dashed;*/
+	color: #3399ff;
+}
+#loginform div.actionbox-item span a.disabled, .group_heading span a.disabled  {
+	text-decoration: none;
+	color: Silver;
+	/*border-bottom: 1px solid #E4E4E4;*/
+	cursor: help;
+}
+#loginform div.actionbox-item span a:hover, .group_heading span a:hover {
+	color: #3366CC;
+}

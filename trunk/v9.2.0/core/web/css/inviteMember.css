@@ -1,0 +1,468 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+
+/* css for search block */
+
+
+/* css for invite member block */
+
+
+#inviteMemberContents {
+	padding: 7px;
+	color: Black;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 13px;
+}
+
+.inviteByTitle {
+	font-family: Arial,Helvetica,sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	padding-left: 14px;
+}
+
+.inviteByMessage {
+	font-family: Arial,Helvetica,sans-serif;
+	color: gray;
+	padding-left: 15px;
+}
+
+#totalParticipantsCnt {
+	font-family: Arial,Helvetica,sans-serif;
+	padding-left:3px;
+}
+
+#totalInvitedCnt {
+	font-family: Arial,Helvetica,sans-serif;
+	color : gray;
+	padding-left:3px;
+}
+
+/*css for Send E-mail block*/
+
+
+#sendMailContents {
+	padding-left: 8px;
+	color: Black;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 13px;
+	width:100%;
+}
+
+TABLE.t-data-grid THEAD TR TH {
+    text-align: left;
+    padding: 1px 3px;
+    white-space: nowrap;
+    border-right: none;
+    border-bottom: none;
+    display:none;
+}
+
+table.t-data-grid tbody tr {
+	height: 21px;
+}
+
+.sendMailNote {
+	color : #a1a1a1;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 11px;
+}
+
+.t-data-grid{
+	width:100%;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+}
+
+
+DIV.t-data-grid-pager {
+    margin: 8px 0px;
+}
+
+DIV.t-data-grid-pager A, DIV.t-data-grid-pager SPAN.current {
+    text-decoration: none;
+    color: black;
+    padding: 2px 5px;
+    font-size: 14px;
+    border: 1px solid silver;
+    margin-right: 5px;
+}
+
+DIV.t-data-grid-pager A:hover {
+    border: 1px solid black;
+}
+
+div#scroll{
+  padding: 0px;
+  padding-left: 199px;
+  padding-top: 0px;
+}
+.userlisttype{
+	border-bottom:0px solid #000000;
+	border-top:0px solid #000000;
+}
+p {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	color: #515151;
+}
+.adduser {
+	font-family:Arial,Helvetica,sans-serif;
+	background: #F3F3FA;
+	float: left;
+}
+
+
+.businessSearchTitle {
+	font-family: Arial,Helvetica,sans-serif;
+	font-weight: bold;
+	padding-left:10px;
+}
+
+.t-data-grid {
+	border-left: none;
+}
+
+.noMembersFound {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	padding-left:5px;
+}
+
+.invitePageTitle {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	color:black;
+}
+
+.participantsChannel {
+	font-weight: bold;
+	font-size: 12px;
+}
+
+.sendEmailTitle {
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	color:black;
+}
+
+.additionalCommentTitle{
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	color:threedshadow;
+	font-weight: bold;
+	text-decoration: none;
+}
+.additionalCommentTitle:hover {
+	text-decoration: none !important;
+}
+.memberName{
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	color:black;
+	/* padding-left: 8px; */
+}
+.disabledMemberName{
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	color:#9a9a9a;	
+}
+table.t-data-grid {
+	border-collapse: inherit;
+	padding: 0;
+	border-left:0 none;
+}
+.membersListStyle {
+	color: #5269ba;
+	font-size: 12px;
+	font-family: Arial,Helvetica,sans-serif;
+}
+
+#businessDirectory, #subBusinessProjectDirectory{
+	width:220px !important;
+}
+
+.project-title {
+	font-family: Tahoma;
+	font-size: 14px;
+	font-weight: normal;
+	padding-left: 14px;
+	margin-top: 4px;
+	margin-bottom: 2px;
+	width: 180px;
+	color: Navy;
+}
+
+.UMstatusStyle {
+	background-color: #F6F6F6;
+}
+
+#totalMembersCnt {
+	font-family: Arial,Helvetica,sans-serif;
+	padding-left:3px;
+	font-size: 12px;
+}
+
+#selectedCnt {
+	font-family: Arial,Helvetica,sans-serif;
+	color : gray;
+}
+
+.lastAndFirstName {
+	font-family: Arial,Helvetica,sans-serif;
+}
+
+.inviteeLastAndFirstName {
+	font-family: Arial,Helvetica,sans-serif;
+	font-weight: bold;
+	color: #449d31;
+}
+
+.linkArrow a, a:hover{
+	text-decoration: none;
+}
+
+td#directoryTabs a {
+	text-decoration: none;
+	color: black;
+}
+
+td#directoryTabs a:hover {
+	text-decoration: none;
+	
+}
+.member-photo {
+	padding-left: 14px;
+	float: left;
+	height: 140px;
+	width: 105px;
+	text-align: left;
+}
+
+.email{
+	font-family: Arial,Helvetica,sans-serif;
+	color: #cccccc;
+	font-size: 12px;
+	font-weight: normal;
+}
+.disabledEmail{
+	font-family: Arial,Helvetica,sans-serif;
+	color: #cccccc;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.moveMembersButton {
+	padding-top: 60px;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.shadowForTextField{
+	border-color:#cccccc;
+}
+
+html{
+	overflow-y: auto;
+	overflow-x: auto;
+}
+.displayNameWithEmail{
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	color:black;
+	font-weight: bold;
+}
+.projectDirectory{
+	width:250px;
+}
+.projectandsubbusinessname{
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	color:black;
+	font-weight: bold;	
+}
+.subBusinessProjectDirectory{
+	width:220px !important;
+}
+.rolesSelect{
+	width:110px;
+}
+.table-header td {
+	border-right:1px solid #D7D7D7;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Black !important;
+	font-weight: bold;
+	padding-left: 3px;
+}
+
+.inactive_tab {
+	background: url(../images/directory/deactive_business.gif) left no-repeat;
+	height: 20px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+table.t-data-grid tbody tr td { 
+	border-bottom:1px solid #e8eaee;
+	border-right:medium none;
+	/* padding:2px; */
+}
+table.t-data-grid tbody tr td img {
+	margin-right: 6px;
+}
+.businessMembersTitle {
+	color:#000000;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 14px;
+	padding-left:5px;
+}
+
+.project {
+	background:transparent url(../images/project-icon.gif) no-repeat scroll left center;
+	padding-left:14px;
+	color:#111188;
+}
+
+.bulkResponsibilityHeader{
+	color:gray;
+	font-weight:bold;
+	padding-left:26px
+}
+
+.table-header {
+	height: 26px !important;
+}
+
+.textAlignment {
+    padding-top: 3px;
+}
+
+.projectActiveTab{
+	font-family:Arial,Helvetica,sans-serif;
+	background:RGB(196,241,174) url(../images/active_business_color.gif) no-repeat scroll left center;
+	text-align:center;
+	height:20px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight:bold;
+}
+
+.projectDeactiveTab{
+	font-family:Arial,Helvetica,sans-serif;
+	background:#F0FDEB url(../images/deactive_business_color.gif) no-repeat scroll left center;
+	text-align:center;
+	height:20px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+
+.leftsideactivetab{
+	background: #F0FDEB url(../images/directory/active_left_business.gif) left no-repeat;
+}
+
+.rightsideactivetab{
+	background: #F0FDEB url(../images/directory/active_right_business.gif) left no-repeat;
+}
+
+.leftsidedeactivetab{
+	background: #C5F9AF url(../images/directory/deactive_left_business.GIF) left no-repeat;
+}
+
+.rightsidedeactivetab{
+	background: #C5F9AF url(../images/directory/deactive_right_business.gif) left no-repeat;
+}
+
+.enableCommentTitle{
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	color: #3399ff;
+	font-weight: bold;
+	text-decoration: none !important;
+}
+
+.enableCommentTitle:hover {
+	color: #3366cc;
+	text-decoration: none !important;
+}
+#sendMailLinkId:hover {
+	text-decoration: none !important;
+}
+.moveMembers{
+	verticle-align: middle;
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 1px;
+	padding-right: 1px;
+}
+
+#bodyWithFixedAreasSupport{
+	overflow-x: hidden;
+}
+
+.spacer-for-toolbox{
+	height: 0px;
+}
+
+.managedirectoryTitle{
+	font-family: Arial,Helvetica,sans-serif;
+	font-weight: bold;
+	font-size: 12px;
+	padding-left: 14px;
+}
+
+.subTitleMessage {
+	font-family: Arial,Helvetica,sans-serif;
+	padding-left: 10px;
+	font-weight: bold;
+}
+
+.projectNameTitle{
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.orlabel{
+	padding-top: 10px;
+	font-family: Arial,Helvetica,sans-serif;
+	font-weight: bold;
+	font-size: 14px;
+	vertical-align: top;
+}
+
+.leftPadding{
+	padding-left: 10px; 
+}
+
+.submitBtn{
+	width: 210px;
+	height: 22px;
+	align : absmiddle;
+}
+div#content { 
+	position: inherit; 
+	padding-left: 10px; 
+	left: 196px;	
+}
+
+#inviteeList {
+	width : 100%;  
+	height: 75px; 
+	overflow-x: hidden; 
+	overflow-y: auto;
+}

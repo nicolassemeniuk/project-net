@@ -1,0 +1,271 @@
+"Choose file":
+{
+ class: window,
+ label: "Choose file",
+ MSW_class: Dialog
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+"Choose file".Desktop:
+{
+ class: push_button,
+ virtual: TRUE,
+ x: 7,
+ y: 102,
+ width: 85,
+ height: 63,
+ rows: 1,
+ columns: 1
+}
+"Choose file"."Look in":
+{
+ class: list,
+ attached_text: "Look in:",
+ MSW_id: 1
+}
+"Choose file"."My Documents":
+{
+ class: push_button,
+ virtual: TRUE,
+ x: 6,
+ y: 166,
+ width: 83,
+ height: 62,
+ rows: 1,
+ columns: 1
+}
+"Choose file".Open:
+{
+ class: push_button,
+ label: Open
+}
+"Choose file".browser_main_combo_location_0:
+{
+ class: list,
+ MSW_class: browser_main_combo_location,
+ location: 0
+}
+"Create New Folder":
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: "Create New Folder"
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+"Create New Folder".Cancel:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Cancel
+}
+"Create New Folder".Cancel_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Cancel
+}
+"Create New Folder"."New Folder":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "New Folder"
+}
+"Create New Folder"."New Folder In:":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 1
+}
+"Create New Folder"."New Folder_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "New Folder"
+}
+"Create New Folder".description:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: description
+}
+"Create New Folder".name:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: name
+}
+main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: main
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+main."Add to Workflow":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Add to Workflow"
+}
+main."Browse...":
+{
+ class: push_button,
+ virtual: TRUE,
+ x: 659,
+ y: 221,
+ width: 65,
+ height: 16,
+ rows: 1,
+ columns: 1
+}
+main."Check In":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Check In"
+}
+main."Check Out":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Check Out"
+}
+main."Create New Folder":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Create New Folder"
+}
+main."Import Document":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Import Document"
+}
+main.Link:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Link
+}
+main."Modify Properties":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Modify Properties"
+}
+main.Move:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Move
+}
+main.Notify:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Notify
+}
+main.Refresh:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Refresh
+}
+main.Remove:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Remove
+}
+main."Search all Documents":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Search all Documents"
+}
+main."Smoke Folder":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Smoke Folder"
+}
+main.Submit:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Submit
+}
+main."Undo Check Out":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Undo Check Out"
+}
+main.View:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: View
+}
+main."View Properties":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "View Properties"
+}
+main.WRProject:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: WRProject
+}
+main.WRfile:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "WRfile.txt"
+}
+main.docName:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: docName
+}
+main.selected:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: selected,
+ part_value: "!.*"
+}
+main.statusID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: statusID
+}
+menu:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: menu
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+menu.Documents:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Documents
+}

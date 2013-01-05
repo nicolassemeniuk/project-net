@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPersonSurvey" 
+    table="PN_PERSON_SURVEY"
+    lazy="false"
+>
+
+    <id
+        name="personId"
+        type="java.math.BigDecimal"
+        column="PERSON_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="spamAllowed"
+        type="java.lang.String"
+        column="SPAM_ALLOWED"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="spamMethod"
+        type="java.lang.String"
+        column="SPAM_METHOD"
+        length="20"
+    />
+    <property
+        name="modelvistaSource"
+        type="java.lang.String"
+        column="MODELVISTA_SOURCE"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="previousBentleyExp"
+        type="java.lang.String"
+        column="PREVIOUS_BENTLEY_EXP"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="referralPage"
+        type="java.lang.String"
+        column="REFERRAL_PAGE"
+        not-null="true"
+        length="240"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnPerson -->
+    <one-to-one
+        name="pnPerson"
+        class="net.project.hibernate.model.PnPerson"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional one-to-many association to PnPersonPicksSpam -->
+
+    <set
+        name="pnPersonPicksSpams"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PERSON_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPersonPicksSpam"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

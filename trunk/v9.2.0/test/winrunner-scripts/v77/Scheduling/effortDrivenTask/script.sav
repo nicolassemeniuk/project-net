@@ -1,0 +1,85 @@
+# Modifies an effort driven task
+# Adds a resource and verifies that work remains the same
+# Add a second resource and does the same
+# Finally removes the resource one by one to see if the conditions still hold
+
+function effortDrivenTask(in taskName,in work_value,in work_units){
+	# declaring the auto variables
+	auto outWork, outNum, outUnits;
+	
+###################################################################
+# Initially assigning 1 resource to a task Verifying that work remains 
+# same when resource is added to a effort driven task
+###################################################################
+	set_window("main",1);
+	web_link_click(taskName);
+	set_window("main",1);
+	web_link_click("Resources");
+	set_window("main",1);
+	wait(1);
+	button_set("personCheckBox",ON);
+	wait(1);
+	web_link_click("Submit");
+
+	set_window("main",1);
+	web_link_click(taskName);
+	set_window("main",1);
+	web_link_click("Modify");
+	set_window("main",1);
+	edit_get_text("work",outWork);
+	list_get_selected("work_units",outUnits,outNum);
+	web_link_click("Cancel");
+	if((outWork==work_value)&&(outUnits==work_units))
+		tl_step("Verify effort driven",0,"Effort driven condition for "&taskName&" task satisfied - Work remains same when resource added");
+	else
+		tl_step("Verify effort driven",1,"Effort driven condition for "&taskName&" task NOT SATISFIED - Work changes when resource added");
+
+###################################################################
+# Assigning the second resource and verifying effort driven condition holds
+###################################################################
+	set_window("main",1);
+	web_link_click(taskName);
+	set_window("main");
+	web_link_click("Resources");
+	set_window("main",1);
+	button_set("personCheckBox1",ON);
+	web_link_click("Submit");
+
+	set_window("main",1);
+	web_link_click(taskName);
+	set_window("main",1);
+	web_link_click("Modify");
+	set_window("main",1);
+	edit_get_text("work",outWork);
+	list_get_selected("work_units",outUnits,outNum);
+	web_link_click("Cancel");
+	if((outWork==work_value)&&(outUnits==work_units))
+		tl_step("Verify effort driven",0,"Effort driven condition for "&taskName&" task satisfied - Work remains same when resource added");
+	else
+		tl_step("Verify effort driven",1,"Effort driven condition for "&taskName&" task NOT SATISFIED - Work changes when resource added");
+
+###################################################################
+# Finally removing each resource and confirming that the work remains the same when resources are added 
+# or removed for a fixed duration task
+###################################################################	
+	# Removing resource 1
+	web_link_click(taskName);
+	set_window("main",1);
+	web_link_click("Resources");
+	button_set("personCheckBox",OFF);
+	web_link_click("Submit");
+	set_window("main",1);
+	web_link_click(taskName);
+	set_window("main",1);
+	web_link_click("Modify");
+	edit_get_text("work",outWork);
+	list_get_selected("work_units",outUnits,outNum);
+	web_link_click("Cancel");
+	if((outWork==work_value)&&(outUnits==work_units))
+		tl_step("Verify effort driven",0,"Effort driven condition for "&taskName&" task satisfied - Work remains same when resource removed");
+	else
+		tl_step("Verify effort driven",1,"Effort driven condition for "&taskName&" task NOT SATISFIED - Work changes when resource removed");
+
+		
+		
+}

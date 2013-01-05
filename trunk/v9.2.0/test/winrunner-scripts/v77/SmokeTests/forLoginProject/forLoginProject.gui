@@ -1,0 +1,261 @@
+"Project.net Login":
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: "Project.net Login"
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+"Project.net Login"."2000-2003 Project.net, Inc.":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "2000-2003 Project.net, Inc."
+}
+"Project.net Login"."Forgotten Password or Login Name":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Forgotten Password or Login Name"
+}
+"Project.net Login"."Help Desk":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Help Desk"
+}
+"Project.net Login".J_PASSWORD:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: J_PASSWORD
+}
+"Project.net Login".J_USERNAME:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: J_USERNAME
+}
+"Project.net Login"."Language:":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 2
+}
+"Project.net Login".Login:
+{
+ class: push_button,
+ MSW_class: html_push_button,
+ html_name: Login
+}
+"Project.net Login".Register:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Register
+}
+"Project.net Login"."Verification Code":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Verification Code"
+}
+"Project.net Login"."channelbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 4
+}
+"Project.net Login"."channelbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-left_end.gif",
+ location: 0
+}
+"Project.net Login"."channelbar-left_end_2":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 5
+}
+"Project.net Login"."channelbar-left_end_3":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-left_end.gif",
+ location: 1
+}
+"Project.net Login"."channelbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif",
+ location: 0
+}
+"Project.net Login"."channelbar-right_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif",
+ location: 1
+}
+"Project.net Login"."http://hippo/images/channelbar-left_end.gif http://hippo/images/channe":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 3
+}
+"Project.net Login"."http://hippo/images/logo/pnet_logo.gif http://hippo/images/channelbar-":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 0
+}
+"Project.net Login".pnet_logo:
+{
+ class: object,
+ MSW_class: html_table,
+ location: 1
+}
+"Project.net Login".pnet_logo_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "pnet_logo.gif"
+}
+"Project.net Login".trans:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 0
+}
+"Project.net Login".trans_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 1
+}
+"Project.net Login".trans_10:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 10
+}
+"Project.net Login".trans_11:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 11
+}
+"Project.net Login".trans_12:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 12
+}
+"Project.net Login".trans_13:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 13
+}
+"Project.net Login".trans_14:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 14
+}
+"Project.net Login".trans_2:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 2
+}
+"Project.net Login".trans_3:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 3
+}
+"Project.net Login".trans_4:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 4
+}
+"Project.net Login".trans_5:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 5
+}
+"Project.net Login".trans_6:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 6
+}
+"Project.net Login".trans_7:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 7
+}
+"Project.net Login".trans_8:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 8
+}
+"Project.net Login".trans_9:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 9
+}
+toolbar_main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: toolbar_main
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+toolbar_main."Log Out":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Log Out"
+}
+toolbar_main."topnav-projects-off":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "topnav-projects-off.gif"
+}
+toolbar_main."topnav-projects-on":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "topnav-projects-on.gif"
+}

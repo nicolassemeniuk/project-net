@@ -1,0 +1,271 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:PnetLayout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" callOnLoad="setup();" >
+	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/two_pane_view.css?${versionNumber}"/>
+
+<style title="column-style">
+
+.main-div{
+	top: 80px;
+	left: 197px;
+}
+
+.view-content-main-div {
+	top: 250px;
+	bottom: 10px;
+	width: 80%;
+}
+
+.view-content {
+	clear: left;
+	border: 1px solid #B5E79E;
+	padding: 0px;
+	width: 99%;
+}
+
+.viewTableUpperdiv {
+	-moz-background-inline-policy: continuous;
+	-moz-background-origin: padding;
+	background: #D7FEC4 none repeat scroll 0 0;
+	border-bottom: 1px solid #B5E79E;
+	height: 30px;
+}
+
+.viewTableLowerdiv {
+	border-top: 1px solid #B5E79E;
+	height: 20px;
+	background: #F9FFF6 none repeat scroll 0 0;
+	font-family: Trebuchet MS;
+	font-size: 14px;	
+	
+}
+
+.viewTableHeading{
+	top: 80px;
+	color: Black;
+	font-family: Trebuchet MS;
+	font-size: 17px;	
+}
+
+.mysharedListTabletd {
+	border-bottom: 1px solid #EDEDED;
+	border-color: #FFFFFF #EDEDED #EDEDED;
+	height: 15px;
+}
+
+</style>
+
+<script language="javascript">
+var selectedViewId = '';
+var selectedViewName = '';
+var confirmViewDeleteMsg = '<t:Message value="prm.project.portfolio.deleteview.confirmprompt.message"/>';
+var confirmViewDeleteTitle = '<t:Message value="prm.project.portfolio.deleteview.confirmprompt.title"/>';
+var selectProjectErrorMsg = '<t:message value="prm.global.javascript.verifyselection.noselection.error.message"/>';
+var viewDeleteNotAllowedMsg = '<t:message value="prm.project.portfolio.manageview.deletionnotallowed.message"/>';
+var totalViewLabel = '<t:message value="prm.project.portfolio.manageview.viewtable.bottom.totalview.label"/>';
+var noneAvailableLable = '<t:message value="prm.project.portfolio.manageview.viewtable.bottom.totalview.nonesharedviewavailable.label"/>';
+var noViewsToRemove = '<t:message value="prm.project.portfolio.manageview.error.viewnotavailabletodelete.message"/>';
+var totalViews = ${totalViews};
+var createdById ='';
+<!--//
+
+function setup(){
+	if(totalViews == 0){
+		document.getElementById('total-view-div').innerHTML = totalViewLabel + ' : ' + noneAvailableLable;
+	} else {
+		document.getElementById('total-view-div').innerHTML = totalViewLabel + ' : ' + totalViews;
+	}
+	resizePanel();
+}
+
+// Apply mouse over style for all rows other than header
+function mo(forTr) {
+	forTr.className += ' wMouseOverColor';
+}
+
+// Apply mouse out style for all rows other than header
+function mu(forTr) {
+	forTr.className = replaceAll(forTr.className, 'wMouseOverColor', '');
+}
+
+function deleteView(){
+}
+
+//load blog entries in blog tab for selected row
+function selectRow(obj, forId, viewName, createdBy) {
+	selectedViewId = forId; 
+	selectedViewName = viewName;
+	createdById = createdBy;
+	setSelecteRowStyleFor(obj, forId);
+}
+
+// set color to selected row and remove for previously selected
+function setSelecteRowStyleFor(forTr, trId) {
+	if(forTr.className.indexOf('wSelectedRow')== -1){
+		forTr.className += 'wSelectedRow';
+	}
+	if(typeof(prevSelectedRow) != 'undefined' && document.getElementById(prevSelectedRow) != null) {
+		document.getElementById(prevSelectedRow).className = document.getElementById(prevSelectedRow).className.replace('wSelectedRow', '');
+	}
+	prevSelectedRow = trId;
+}
+
+// To confirm shared view delete operation.
+function deleteView(){
+	if(totalViews == 0){
+			extAlert(errorTitle, noViewsToRemove , Ext.MessageBox.ERROR);
+	} else {
+	    if(selectedViewId == ''){
+			extAlert(errorTitle, selectProjectErrorMsg , Ext.MessageBox.ERROR);
+	    } else {
+			Ext.MessageBox.confirm(confirmViewDeleteTitle, 
+				msgFormat.format(confirmViewDeleteMsg, selectedViewName), 
+				function(btn){
+					if(btn == 'yes'){
+					deleteCustomview(selectedViewId);
+				}
+			});
+	    }
+	}
+}	
+
+// To delete shared customized view.
+function deleteCustomview(selectedViewId){	
+	Ext.Ajax.request({
+		url: JSPRootURL + '/portfolio/manage/deleteView',
+		params: {viewId: selectedViewId, createdBy: createdById},
+		method: 'POST',
+		timeout: 180000,
+		success: function(result, request){
+			var response = result.responseText;
+			if(response == 'success'){
+				removeDeletedViewFromTable(selectedViewId);
+				updateTotalViewCount();
+			} else {
+				extAlert(errorTitle, viewDeleteNotAllowedMsg , Ext.MessageBox.ERROR);
+			}
+		}
+	});
+}
+
+// To remove deleted view row from table
+function removeDeletedViewFromTable(selectedViewId){
+	var rowObj = document.getElementById(selectedViewId);
+	var tableObj = document.getElementById('shared-view-table');
+	tableObj.deleteRow(rowObj.rowIndex); 
+	selectedViewId = '';
+	selectedViewName = '';
+	createdById ='';
+	totalViews = totalViews - 1;
+}
+
+// To update total view count diplayed at table bottom when a view is deleted
+function updateTotalViewCount(){
+	if(totalViews == 0){
+		document.getElementById('total-view-div').innerHTML = totalViewLabel + ' : ' + noneAvailableLable;
+	} else {
+		document.getElementById('total-view-div').innerHTML = totalViewLabel + ' : ' + totalViews;
+	}
+}
+
+// To resize panel on window resize
+function resizePanel(){
+	document.getElementById('content').style.width = (getWindowWidth() - 210) + 'px';
+}
+//--> 
+window.onresize = resizePanel;
+</script> 
+<div id="left-navbar">
+		<div id="leftheading-business" style="position: relative;"><t:Message value="prm.business.setup.portfolio.link"/></div>
+		<div class="project-title" style="margin-top: 5px;"> ${businessName}</div>
+		<br clear="both"/><div class="spacer-for-toolbox" /> 
+		<div class='toolbox-heading'><t:Message value="prm.global.toolbox.heading"/></div>
+		<div id="toolbox-item" class="toolbox-item">
+			<span id="blog-ItEnabled">
+				<a onmouseover=" document.imgblogit.src = '${jspRootURL}/images/icons/toolbar-gen-blogit_over.gif'" onmouseout=" document.imgblogit.src = '${jspRootURL}/images/icons/toolbar-gen-blogit_on.gif'" href="javascript:blogit();">
+					<img hspace="0" border="0" name="imgblogit" src="${jspRootURL}/images/icons/toolbar-gen-blogit_on.gif" title="" alt=""/>
+					<t:Message value="all.global.toolbar.standard.blogit" />
+				</a>
+			</span><br />
+			<span>
+				<a onmouseover=" document.imgremove.src = '${jspRootURL}/images/icons/toolbar-rollover-remove.gif'" onmouseout=" document.imgremove.src = '${jspRootURL}/images/icons/toolbar-gen-remove_on.gif'" href="javascript:deleteView();">
+					<img hspace="0" border="0" name="imgremove" src="${jspRootURL}/images/icons/toolbar-gen-remove_on.gif" title="" alt=""/>
+					<t:Message value="prm.project.portfolio.manageview.deleteview.label" />
+				</a>
+			</span><br />
+		</div>			
+</div>	
+
+<div id="content" class="main-div">
+	<div id="historyDiv">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+	        <tr>
+				<td>
+	            	<a href="${businessPageLink}" class="historyText">
+	                	<span>${businessName}</span>
+	                </a>
+	                <span class="bc-arrows"> &#187; </span>
+	            	<a href="${setupPageLink}" class="historyText">
+	                	<span><t:Message value="prm.business.nav.setup"/></span>
+	                </a>
+	                <span class="bc-arrows"> &#187; </span>
+	                <span class="historyText"><t:Message value="prm.business.setup.portfolio.link"/></span>
+	            </td>
+			</tr>
+		</table>
+	</div><br />
+	
+	<div id="view-table-heading" class="viewTableHeading">
+		<t:Message value="prm.project.portfolio.manageview.viewtable.heading"/>
+	</div>
+	<div class="view-content" id="view-content-main-div">
+		<div class="viewTableUpperdiv" id="slidingpanel" />
+			<div id="shared-view-list" class="shared-view-list">
+				<table id="shared-view-table-container" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td>
+							<table cellspacing="0" id="shared-view-table" cellpadding="0" width="100%">
+								<!--table header rendering-->
+								<tr height="22px" align="left" id="shared-view-table-header" class="tableHeader">
+										<th width="" id="viewName" class="twoPaneTableHeaderTd">
+											<div class="">
+												<span >
+													&nbsp;<t:Message value="prm.project.portfolio.manageview.viewtable.header.viewname.label" />
+												</span>
+											</div>
+										</th>
+										<th width="" id="createdBy" class="twoPaneTableHeaderTd">
+											<div class="">
+												<span >
+													&nbsp;<t:Message value="prm.project.portfolio.manageview.viewtable.header.createdby.label" />
+												</span>
+											</div>
+										</th>
+										<th width="" id="lastModified" class="twoPaneTableHeaderTd">
+											<div class="">
+												<span >
+													&nbsp;<t:Message value="prm.project.portfolio.manageview.viewtable.header.datelastmodified.label" />
+												</span>
+											</div>
+										</th>
+								</tr>
+							<!--table row rendering-->
+								<t:loop source="viewList" value="businessHasView">
+									<tr id="${businessHasView.pnview.viewId}" onclick="selectRow(this,'${businessHasView.pnview.viewId}','${businessHasView.pnview.name}','${businessHasView.pnview.createdById}');" title="${businessHasView.pnview.name}" onmouseover="mo(this);" onmouseout="mu(this)" >
+										<!--table data rendering-->
+										<td nowrap="nowrap" class="mysharedListTabletd"><t:OutputRaw value="businessHasView.pnview.name" /></td>
+										<td nowrap="nowrap" class="mysharedListTabletd"><a href="${jSPRootURL}/blog/view/${businessHasView.pnview.createdById}/${businessHasView.pnview.createdById}/person/160?module=160" class="user-online"><t:OutputRaw value="businessHasView.pnview.createdByName" /></a></td>
+										<td nowrap="nowrap" class="mysharedListTabletd"><t:OutputRaw value="businessHasView.pnview.modifiedDatetime" /></td>
+									</tr>
+								</t:loop>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</div><!--	closing of shared-view-list div-->
+		<div id="total-view-div" class="viewTableLowerdiv"></div>	
+	</div>
+</div>	
+</t:PnetLayout>	
+
+

@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPaymentInformation" 
+    table="PN_PAYMENT_INFORMATION"
+    lazy="false"
+>
+
+    <id
+        name="paymentId"
+        type="java.math.BigDecimal"
+        column="PAYMENT_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="partyId"
+        type="java.math.BigDecimal"
+        column="PARTY_ID"
+        length="20"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnBill -->
+
+    <set
+        name="pnBills"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="ORIGINATING_PAYMENT_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnBill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnCcTransactionPayment -->
+
+    <set
+        name="pnCcTransactionPayments"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PAYMENT_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnCcTransactionPayment"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnLicense -->
+
+    <set
+        name="pnLicenses"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PAYMENT_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnLicense"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnLedger -->
+
+    <set
+        name="pnLedgers"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="ORIGINATING_PAYMENT_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnLedger"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to PnPaymentModel -->
+    <many-to-one
+        name="pnPaymentModel"
+        class="net.project.hibernate.model.PnPaymentModel"
+        not-null="true"
+    >
+        <column name="PAYMENT_MODEL_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,139 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnWorkflowRule" 
+    table="PN_WORKFLOW_RULE"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnWorkflowRulePK">
+        <key-property 
+            name="ruleId" 
+            column="RULE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="transitionId" 
+            column="TRANSITION_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="workflowId" 
+            column="WORKFLOW_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="ruleName"
+        type="java.lang.String"
+        column="RULE_NAME"
+        length="80"
+    />
+    <property
+        name="ruleDescription"
+        type="java.lang.String"
+        column="RULE_DESCRIPTION"
+        length="500"
+    />
+    <property
+        name="notes"
+        type="java.lang.String"
+        column="NOTES"
+        length="4000"
+    />
+    <property
+        name="createdById"
+        type="java.math.BigDecimal"
+        column="CREATED_BY_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="createdDatetime"
+        type="java.sql.Date"
+        column="CREATED_DATETIME"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="modifiedById"
+        type="java.math.BigDecimal"
+        column="MODIFIED_BY_ID"
+        length="20"
+    />
+    <property
+        name="modifiedDatetime"
+        type="java.sql.Date"
+        column="MODIFIED_DATETIME"
+        length="7"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnWorkflowTransition -->
+    <many-to-one
+        name="pnWorkflowTransition"
+	    class="net.project.hibernate.model.PnWorkflowTransition"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="TRANSITION_ID" />
+    	<column name="WORKFLOW_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to PnWorkflowRuleType -->
+    <many-to-one
+        name="pnWorkflowRuleType"
+        class="net.project.hibernate.model.PnWorkflowRuleType"
+        not-null="true"
+    >
+        <column name="RULE_TYPE_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-one association to PnWfRuleAuth -->
+    <one-to-one
+        name="pnWfRuleAuth"
+        class="net.project.hibernate.model.PnWfRuleAuth"
+        outer-join="auto"
+    />
+    <!-- bi-directional many-to-one association to PnWorkflowRuleStatus -->
+    <many-to-one
+        name="pnWorkflowRuleStatus"
+        class="net.project.hibernate.model.PnWorkflowRuleStatus"
+        not-null="true"
+    >
+        <column name="RULE_STATUS_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

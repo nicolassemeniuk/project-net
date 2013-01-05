@@ -1,0 +1,10 @@
+<mappings>
+  <mapping>
+    <property name="abbreviation" ignore="true"/>
+    <property name="name" ignore="true"/>
+    <property name="pluralName" ignore="true"/>
+    <property name="pluralAbbreviation" ignore="true"/>
+    <property name="htmlOptionDisplay" ignore="true"/>
+    <property name="htmlOptionValue" ignore="true"/>
+  </mapping>
+</mappings>

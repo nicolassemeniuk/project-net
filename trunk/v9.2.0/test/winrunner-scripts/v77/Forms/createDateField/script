@@ -1,0 +1,26 @@
+function createDateField(in name){
+	extern i;
+# 	auto outText;
+	
+	wait(1);
+# 	report_msg("Within Date Field - "&i&"");
+	set_window("main",2);
+	list_select_item("ElementID","Date");
+	wait(1);
+	set_window("main",2);
+	edit_set("field_label",name);
+	edit_set("row_num",i);
+	list_select_item("column_id","Left");
+	button_set("100",ON);
+	web_link_click("Submit");
+	wait(1);
+	set_window("main",2);
+
+	# Verifying the date field was created and exists in the fields list
+	if(obj_exists(name)==E_OK)
+		tl_step("Verify date field exists",0,"The Date Field '"&name&"'created successfully");
+	else
+		tl_step("Verify date field exists",1,"The creation of date field CANNOT be verified");
+}
+	
+	

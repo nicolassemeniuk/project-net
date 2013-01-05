@@ -1,0 +1,95 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 1 1100042514 0
+23 24 <FOR FIXED DURATION TASKS> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 146 1100042526 0
+23 14 <For Task t1...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 59 1100042608 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 61 1100042609 0
+23 24 <The end date is 11/10/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 67 1100042609 0
+23 14 <For Task t2...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 82 1100042615 0
+23 26 <The start date is 11/11/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 84 1100042616 0
+23 24 <The end date is 11/11/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 90 1100042616 0
+25 1 <2> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 102 1100042619 0
+37 96 <Step: Verify FS dependency type, Status: Pass, Description: FS dependency verified for t2 and t1> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 104 1100042619 24
+23 14 <For Task t1...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 59 1100042631 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 61 1100042631 0
+23 24 <The end date is 11/10/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 67 1100042631 0
+23 14 <For Task t3...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 82 1100042638 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 84 1100042638 0
+23 24 <The end date is 11/10/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 90 1100042638 0
+37 124 <Step: Verify SS dependency, Status: Pass, Description: SS dependency verified with tasks t1 and t3 starting on the same date> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 111 1100042639 24
+23 14 <For Task t1...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 59 1100042651 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 61 1100042651 0
+23 24 <The end date is 11/10/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 67 1100042651 0
+23 14 <For Task t4...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 82 1100042658 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 84 1100042658 0
+23 24 <The end date is 11/10/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 90 1100042658 0
+37 122 <Step: Verify FF dependency, Status: Pass, Description: FF dependency verified with tasks t1 and t4 ending on the same date> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 118 1100042660 24
+23 14 <For Task t1...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 59 1100042671 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 61 1100042672 0
+23 24 <The end date is 11/10/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 67 1100042672 0
+23 14 <For Task t5...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 82 1100042678 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 84 1100042679 0
+23 23 <The end date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 90 1100042679 0
+37 127 <Step: Verify SF dependency, Status: Pass, Description: SF dependency verified with task t5 NOT finishing before the start of t1> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 127 1100042680 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 157 1100042680 0
+23 20 <FOR FIXED UNIT TASKS> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 158 1100042680 0
+23 14 <For Task t6...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 59 1100042764 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 61 1100042764 0
+23 24 <The end date is 11/10/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 67 1100042764 0
+23 14 <For Task t7...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 82 1100042771 0
+23 26 <The start date is 11/11/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 84 1100042771 0
+23 24 <The end date is 11/11/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 90 1100042771 0
+25 1 <2> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 102 1100042774 0
+37 96 <Step: Verify FS dependency type, Status: Pass, Description: FS dependency verified for t7 and t6> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 104 1100042774 24
+23 14 <For Task t6...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 59 1100042787 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 61 1100042787 0
+23 24 <The end date is 11/10/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 67 1100042787 0
+23 14 <For Task t8...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 82 1100042794 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 84 1100042794 0
+23 24 <The end date is 11/10/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 90 1100042794 0
+37 124 <Step: Verify SS dependency, Status: Pass, Description: SS dependency verified with tasks t6 and t8 starting on the same date> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 111 1100042796 24
+23 14 <For Task t6...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 59 1100042808 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 61 1100042808 0
+23 24 <The end date is 11/10/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 67 1100042808 0
+23 14 <For Task t9...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 82 1100042815 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 84 1100042815 0
+23 24 <The end date is 11/10/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 90 1100042815 0
+37 122 <Step: Verify FF dependency, Status: Pass, Description: FF dependency verified with tasks t6 and t9 ending on the same date> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 118 1100042817 24
+23 14 <For Task t6...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 59 1100042829 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 61 1100042829 0
+23 24 <The end date is 11/10/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 67 1100042830 0
+23 15 <For Task t10...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 82 1100042836 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 84 1100042836 0
+23 24 <The end date is 11/11/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 90 1100042837 0
+37 128 <Step: Verify SF dependency, Status: Pass, Description: SF dependency verified with task t10 NOT finishing before the start of t6> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 127 1100042838 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 169 1100042838 0
+23 20 <FOR FIXED WORK TASKS> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 170 1100042838 0
+23 15 <For Task t11...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 59 1100042921 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 61 1100042922 0
+23 24 <The end date is 11/10/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 67 1100042922 0
+23 15 <For Task t12...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 82 1100042928 0
+23 26 <The start date is 11/11/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 84 1100042929 0
+23 24 <The end date is 11/11/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 90 1100042929 0
+25 1 <2> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 102 1100042932 0
+37 98 <Step: Verify FS dependency type, Status: Pass, Description: FS dependency verified for t12 and t11> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 104 1100042932 24
+23 15 <For Task t11...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 59 1100042945 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 61 1100042945 0
+23 24 <The end date is 11/10/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 67 1100042945 0
+23 15 <For Task t13...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 82 1100042952 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 84 1100042952 0
+23 24 <The end date is 11/10/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 90 1100042952 0
+37 126 <Step: Verify SS dependency, Status: Pass, Description: SS dependency verified with tasks t11 and t13 starting on the same date> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 111 1100042954 24
+23 15 <For Task t11...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 59 1100042966 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 61 1100042967 0
+23 24 <The end date is 11/10/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 67 1100042967 0
+23 15 <For Task t14...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 82 1100042973 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 84 1100042974 0
+23 24 <The end date is 11/10/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 90 1100042974 0
+37 124 <Step: Verify FF dependency, Status: Pass, Description: FF dependency verified with tasks t11 and t14 ending on the same date> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 118 1100042975 24
+23 15 <For Task t11...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 59 1100042988 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 61 1100042988 0
+23 24 <The end date is 11/10/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 67 1100042988 0
+23 15 <For Task t15...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 82 1100042995 0
+23 25 <The start date is 11/9/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 84 1100042995 0
+23 24 <The end date is 11/11/04> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 90 1100042995 0
+37 129 <Step: Verify SF dependency, Status: Pass, Description: SF dependency verified with task t15 NOT finishing before the start of t11> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 127 1100042996 24
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testingDependencies> 182 1100042996 0

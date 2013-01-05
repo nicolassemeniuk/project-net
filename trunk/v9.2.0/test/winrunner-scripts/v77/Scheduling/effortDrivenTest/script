@@ -1,0 +1,116 @@
+GUI_close_all();
+wait(3);
+
+###################################################################
+# Inviting users to the project and getting the resource ID for each of them
+###################################################################
+reload("getPersonID",0,1);
+id[0] = getPersonID("Avinash Padmanabhan");
+fieldID= id[0];
+
+reload("inviteUser",0,1);
+inviteUser("Winnie","ThePooh","winnie@project.net");
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+web_obj_get_info("Winnie ThePooh","url",urlValue);
+elements = split(urlValue,path_array,"=");
+id[1] = path_array[3];
+resourceID = id[1];
+
+###################################################################
+# Deleting existing tasks and setting the effort driven tasks option in Schedule Properties 
+###################################################################	
+set_window("menu",2);
+web_link_click("Workplan");
+set_window("main",2);
+web_link_click("Schedule Properties");
+set_window("main",2);
+button_set("newTaskEffortDriven",ON);
+web_link_click("Submit");
+set_window("main",2);
+
+set_window("main",2);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer", 2);
+button_press("OK");
+wait(5);
+set_window("main",2);
+
+###################################################################
+# Loading compiled modules and adding the resource ID's to the GUI map
+###################################################################
+public task_types[] = {"Fixed Duration","Fixed Units","Fixed Work"};
+public units[] = {"hours","days","weeks"};
+reload("createTask",0,1);
+reload("effortDrivenTask",0,1);
+
+if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","personCheckBox","part_value",fieldID)!=E_OK)
+	report_msg("Not OK3");
+else
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","personCheckBox1","part_value",resourceID)!=E_OK)
+	report_msg("Not OK3");
+else
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","percent","html_name","percent_"&fieldID&"")!=E_OK)
+	report_msg("Not OK3");
+else
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","percent1","html_name","percent_"&resourceID&"")!=E_OK)
+	report_msg("Not OK3");
+else
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");		
+
+###################################################################
+# Testing effort driven condition for the three types of tasks
+###################################################################
+
+# Verifying that work for an effort driven, FD task does not change when resource is added
+report_msg("Fixed Duration Task"); 
+createTask("t1","Fixed Duration", 2, units[1], 16, units[0]);
+wait(1);
+effortDrivenTask("t1",16, units[0]);
+wait(1);
+createTask("t4","Fixed Duration", 3, units[1], 20, units[0]);
+wait(1);
+effortDrivenTask("t4",20, units[0]);
+wait(1);
+createTask("t7","Fixed Duration", 2, units[1], 24, units[0]);
+wait(1);
+effortDrivenTask("t7",24, units[0]);
+wait(1);
+
+# Verifying that work for an effort driven, FU task does not change when resource is added
+report_msg("");
+report_msg("Fixed Unit Task"); 
+createTask("t2","Fixed Units", 3, units[1], 24, units[0]);
+wait(1);
+effortDrivenTask("t2",24, units[0]);
+wait(1);
+createTask("t5","Fixed Units", 3, units[1], 20, units[0]);
+wait(1);
+effortDrivenTask("t5",20, units[0]);
+wait(1);
+createTask("t8","Fixed Units", 2, units[1], 24, units[0]);
+wait(1);
+effortDrivenTask("t8",24, units[0]);
+wait(1);
+
+# Verifying that work for an effort driven, FW task does not change when resource is added
+report_msg(""); 
+report_msg("Fixed Work Task");
+createTask("t3","Fixed Work", 3, units[1], 24, units[0]);
+wait(1);
+effortDrivenTask("t3",24, units[0]);
+wait(1);
+createTask("t6","Fixed Work", 3, units[1], 20, units[0]);
+wait(1);
+effortDrivenTask("t6",20, units[0]);
+wait(1);
+createTask("t9","Fixed Work", 2, units[1], 24, units[0]);
+wait(1);
+effortDrivenTask("t9",24, units[0]);
+wait(1);
+
+GUI_close_all();

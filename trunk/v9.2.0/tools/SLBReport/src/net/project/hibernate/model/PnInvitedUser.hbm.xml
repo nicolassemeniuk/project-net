@@ -1,0 +1,108 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnInvitedUser" 
+    table="PN_INVITED_USERS"
+    lazy="false"
+>
+
+    <id
+        name="invitationCode"
+        type="java.lang.Integer"
+        column="INVITATION_CODE"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="spaceId"
+        type="java.math.BigDecimal"
+        column="SPACE_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="inviteeEmail"
+        type="java.lang.String"
+        column="INVITEE_EMAIL"
+        not-null="true"
+        length="240"
+    />
+    <property
+        name="dateInvited"
+        type="java.sql.Date"
+        column="DATE_INVITED"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="dateResponded"
+        type="java.sql.Date"
+        column="DATE_RESPONDED"
+        length="7"
+    />
+    <property
+        name="inviteeFirstname"
+        type="java.lang.String"
+        column="INVITEE_FIRSTNAME"
+        length="40"
+    />
+    <property
+        name="inviteeLastname"
+        type="java.lang.String"
+        column="INVITEE_LASTNAME"
+        length="60"
+    />
+    <property
+        name="inviteeResponsibilities"
+        type="java.lang.String"
+        column="INVITEE_RESPONSIBILITIES"
+        length="500"
+    />
+    <property
+        name="invitedStatus"
+        type="java.lang.String"
+        column="INVITED_STATUS"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="invitationActedUpon"
+        type="int"
+        column="INVITATION_ACTED_UPON"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="personId"
+        type="java.math.BigDecimal"
+        column="PERSON_ID"
+        not-null="true"
+        length="20"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPerson"
+        class="net.project.hibernate.model.PnPerson"
+        not-null="true"
+    >
+        <column name="INVITOR_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!-- PnObject DAO -->
+	<bean id="pnObjectDAO" class="net.project.hibernate.dao.impl.PnObjectDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnPerson DAO -->
+	<bean id="pnPersonDAO" class="net.project.hibernate.dao.impl.PnPersonDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnPortfolio DAO -->
+	<bean id="pnPortfolioDAO" class="net.project.hibernate.dao.impl.PnPortfolioDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnSpaceHasPerson DAO -->
+	<bean id="pnSpaceHasPersonDAO" class="net.project.hibernate.dao.impl.PnSpaceHasPersonDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnSpaceHasPortfolio DAO -->
+	<bean id="pnSpaceHasPortfolioDAO" class="net.project.hibernate.dao.impl.PnSpaceHasPortfolioDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnAddress DAO -->
+	<bean id="pnAddressDAO" class="net.project.hibernate.dao.impl.PnAddressDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnPersonProfile DAO -->
+	<bean id="pnPersonProfileDAO" class="net.project.hibernate.dao.impl.PnPersonProfileDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnDirectoryHasPerson DAO -->
+	<bean id="pnDirectoryHasPersonDAO" class="net.project.hibernate.dao.impl.PnDirectoryHasPersonDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnPersonNotificationAddress DAO -->
+	<bean id="pnPersonNotificationAddressDAO" class="net.project.hibernate.dao.impl.PnPersonNotificationAddressDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnModule DAO -->
+	<bean id="pnModuleDAO" class="net.project.hibernate.dao.impl.PnModuleDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnSpaceHasModule DAO -->
+	<bean id="pnSpaceHasModuleDAO" class="net.project.hibernate.dao.impl.PnSpaceHasModuleDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnGroup DAO -->
+	<bean id="pnGroupDAO" class="net.project.hibernate.dao.impl.PnGroupDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnGroupHasPerson DAO -->
+	<bean id="pnGroupHasPersonDAO" class="net.project.hibernate.dao.impl.PnGroupHasPersonDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnSpaceHasGroup DAO -->
+	<bean id="pnSpaceHasGroupDAO" class="net.project.hibernate.dao.impl.PnSpaceHasGroupDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnObjectPermission DAO -->
+	<bean id="pnObjectPermissionDAO" class="net.project.hibernate.dao.impl.PnObjectPermissionDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnObjectType DAO -->
+	<bean id="pnObjectTypeDAO" class="net.project.hibernate.dao.impl.PnObjectTypeDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnDefaultObjectPermission DAO -->
+	<bean id="pnDefaultObjectPermissionDAO" class="net.project.hibernate.dao.impl.PnDefaultObjectPermissionDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnModulePermission DAO -->
+	<bean id="pnModulePermissionDAO" class="net.project.hibernate.dao.impl.PnModulePermissionDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnDirectory DAO -->
+	<bean id="pnDirectoryDAO" class="net.project.hibernate.dao.impl.PnDirectoryDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnDocSpace DAO -->
+	<bean id="pnDocSpaceDAO" class="net.project.hibernate.dao.impl.PnDocSpaceDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnDocProviderHasDocSpace DAO -->
+	<bean id="pnDocProviderHasDocSpaceDAO" class="net.project.hibernate.dao.impl.PnDocProviderHasDocSpaceDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnSpaceHasDocSpace DAO -->
+	<bean id="pnSpaceHasDocSpaceDAO" class="net.project.hibernate.dao.impl.PnSpaceHasDocSpaceDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnDocProvider DAO -->
+	<bean id="pnDocProviderDAO" class="net.project.hibernate.dao.impl.PnDocProviderDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnDocContainer DAO -->
+	<bean id="pnDocContainerDAO" class="net.project.hibernate.dao.impl.PnDocContainerDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnDocSpaceHasContainer DAO -->
+	<bean id="pnDocSpaceHasContainerDAO" class="net.project.hibernate.dao.impl.PnDocSpaceHasContainerDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnCalendar DAO -->
+	<bean id="pnCalendarDAO" class="net.project.hibernate.dao.impl.PnCalendarDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnSpaceHasCalendar DAO -->
+	<bean id="pnSpaceHasCalendarDAO" class="net.project.hibernate.dao.impl.PnSpaceHasCalendarDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnProjectSpaceMetaProp DAO -->
+	<bean id="pnProjectSpaceMetaPropDAO" class="net.project.hibernate.dao.impl.PnProjectSpaceMetaPropDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+
+	<!-- PnProjectSpaceMetaValue DAO -->
+	<bean id="pnProjectSpaceMetaValueDAO" class="net.project.hibernate.dao.impl.PnProjectSpaceMetaValueDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>
+	
+	<!-- Reports DAO -->
+	<bean id="reportDAO" class="net.project.hibernate.dao.impl.ReportsDAOImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate"/>
+	</bean>	
+
+</beans>

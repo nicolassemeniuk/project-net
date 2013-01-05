@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<html>
+<head>
+<!--
+
+  $Id: package.html 6413 2001-10-23 18:54:13Z tim $
+
+  Copyright 2001 Project.net, Inc. 3760 Convoy St., Suite 340
+  San Diego, California, 92111, U.S.A.  All Rights Reserved.
+
+-->
+</head>
+<body bgcolor="white">
+
+Provides for creating and modifying security groups.
+ 
+A <code>Group</code> is a mechanism by which <code>Person</code>s may
+be aggregated and security permissions defined for them.<br>
+A group has zero or more members.  Those members are groups themselves.  A
+group is owned by a single space.  However, a group may be available in other
+spaces, effectively allowing its members to have privileges within that other
+space.<br>
+A special kind of group, called a <code>Principal Group</code> has Persons
+as its members.  A Principal Group has a single owning Person and a Person may
+own at most one Principal Group in a space.  A Principal group may have 
+additional members.  A Principal Group's name is effectively that of its owner.
+This allows security to be defined on groups alone and to relate a single
+Person to a Group within a space.  It also allows additional Persons to share
+the permissions of the owner, by including them in the Owner's Principal Group.<br>
+Principal Groups, along with Space Administrator and Team Member groups are
+<code>System Group</code>s.  A System Group's name may not be modified.  Additionally,
+System Groups may not be removed from a space.<br>
+<code>UserDefined</code> Groups are groups created by a user in the application.
+
+
+
+
+<!-- Put @see and @since tags down here. -->
+@since gecko
+
+</body>
+</html>

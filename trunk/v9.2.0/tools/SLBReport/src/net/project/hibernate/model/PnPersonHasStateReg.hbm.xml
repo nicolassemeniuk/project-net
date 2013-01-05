@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPersonHasStateReg" 
+    table="PN_PERSON_HAS_STATE_REG"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnPersonHasStateRegPK">
+        <key-property 
+            name="personId" 
+            column="PERSON_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="stateCode" 
+            column="STATE_CODE" 
+            type="java.lang.String"
+            length="2"
+        />
+    </composite-id>    
+
+    <property
+        name="otherRegState"
+        type="java.lang.String"
+        column="OTHER_REG_STATE"
+        length="20"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPerson"
+	    class="net.project.hibernate.model.PnPerson"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="PERSON_ID" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to PnStateLookup -->
+    <many-to-one
+        name="pnStateLookup"
+	    class="net.project.hibernate.model.PnStateLookup"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="STATE_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

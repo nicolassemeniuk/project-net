@@ -1,0 +1,79 @@
+main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: main
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+main."Create New Subscription":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Create New Subscription"
+}
+main.Next:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Next
+}
+main.customMessage:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: customMessage
+}
+main.deliveryInterval:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: deliveryInterval
+}
+main.deliveryTypeID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: deliveryTypeID
+}
+main.name:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: name
+}
+main.notificationTypeID:
+{
+ class: list,
+ MSW_class: html_listbox,
+ html_name: notificationTypeID
+}
+main.objectType:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: objectType
+}
+main.teamMembers:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: teamMembers,
+ part_value: 3033493
+}
+main.teamMembers_1:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: teamMembers,
+ part_value: 3033491
+}
+main.teamMembers_2:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: teamMembers,
+ part_value: 3033492
+}

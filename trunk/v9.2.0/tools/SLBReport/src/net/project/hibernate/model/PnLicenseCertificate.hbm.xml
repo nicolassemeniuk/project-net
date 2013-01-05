@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnLicenseCertificate" 
+    table="PN_LICENSE_CERTIFICATE"
+    lazy="false"
+>
+
+    <id
+        name="certificateId"
+        type="java.math.BigDecimal"
+        column="CERTIFICATE_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnLicense -->
+
+    <set
+        name="pnLicenses"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="CERTIFICATE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnLicense"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

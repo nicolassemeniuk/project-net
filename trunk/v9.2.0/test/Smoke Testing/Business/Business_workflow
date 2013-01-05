@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>Business_workflow</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Business_workflow</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/Login.jsp</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>J_PASSWORD</td>
+	<td>cgvak1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Business</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Textile Exports Ltd</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Workflow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>New Workflow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New Workflow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>Selenium Workflow</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>ownerID</td>
+	<td>label=Karthikeyan Dharmarajan</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>strictnessID</td>
+	<td>label=Relaxed</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>exact:Owner:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rule Enforcement:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>New Step</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New Step</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>Selenium Step1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>sequence</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>stepTypeInitialStep</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Add roles</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add roles</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>sel_Karthikeyan Dharmarajan</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='content']/form/table[3]/tbody/tr[5]/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr[2]/td/a/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New Step</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>Selenium step2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>sequence</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>stepTypeFinal</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add roles</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>sel_Karthikeyan Dharmarajan</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//div[@id='content']/form/table[3]/tbody/tr[5]/td[2]/table/tbody/tr[2]/td[2]/table/tbody/tr[2]/td/a/img</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Transitions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Transitions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Create</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>New Transition</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New Transition</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>transitionVerb</td>
+	<td>selenium trans1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>beginStepID</td>
+	<td>label=Selenium Step1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>endStepID</td>
+	<td>label=Selenium step2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>imgcreate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Karthikeyan Dharmarajan</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Publish</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Publish Workflow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Publish Workflow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Workflow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Workflow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Log Out</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

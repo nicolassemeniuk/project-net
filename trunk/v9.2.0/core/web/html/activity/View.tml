@@ -1,0 +1,363 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:ActivitylogLayout title="applicationTitle" isViewPage="true" activityServletUrl="${JSPRootURL}/activity/rssFeed/${rssValue}" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<script language="javascript">
+<!-- //
+if((navigator.userAgent.toLowerCase()).indexOf( "msie" ) != -1 ) {
+	var version = parseFloat(navigator.appVersion.split("MSIE")[1]);
+	if(version == 6){
+		document.write("<style type=\"text/css\"> div#content { width: 80%; } </style>");
+	} else if(version == 8) {
+		 document.write("<style type=\"text/css\"> div#content { width: 80%; } </style>");
+	}	 
+}
+// -->
+</script>
+<link href="${asset:context:/styles/activity.css}?${versionNumber}" rel="stylesheet" type="text/css" />
+<script language="javascript">
+	var selectOneMessage = '${selectOneMessage}';
+	var loadingMessage = '${loadingMessage}';
+	var spaceId = '${spaceId}';
+	var clearAllToken = '<t:Message value="prm.project.activity.clearall"/>';
+	var userDateformat = '${dateFormat}';
+	var noActivitiesMsg = '<t:Message value="prm.project.activity.noactivityfound.message"/>';
+	var blogModuleId = '${blogModuleId}';
+	var unmarkedActivityError = '<t:Message value="prm.project.activity.unmarkedactivityerror"/>';
+	var markedActivityError = '<t:Message value="prm.project.activity.markedactivityerror"/>';
+	var markingErrorMessage = '<t:Message value="prm.project.activity.markingerrormessage"/>';
+	var selectFilterObjectMessage = '<t:Message value="prm.project.activity.selectfilterobjectmessage"/>';
+	var activitiesLoadingError = '<t:Message value="prm.project.activity.getactivitieserror"/>';
+	var blogEntryLoadingError = '<t:Message value="prm.project.activity.getblogerror"/>';
+	var commentDeletedMessage = '<t:Message value="prm.project.activity.commentdeletedmessage"/>';
+	var commentNotSavedMessage = '<t:Message value="prm.project.activity.commentnotsavedmessage"/>';
+	var contentNotBlankMessage = '<t:Message value="prm.project.activity.contentnotblankmessage"/>';
+	var invalidDateFormat = '<t:Message value="prm.project.activity.invaliddateformat"/>';
+	var invalidDateMessage = '<t:Message value="prm.resource.timesheet.invalid.jumptodate.message"/>';
+	var dateValueNotBlankMessage = '<t:Message value="prm.project.activity.datevaluenotblankmessage"/>';
+	var selectBlogEventMessage = '<t:Message value="prm.project.activity.selectblogeventmessage"/>';
+	var entriesFrom = '<t:Message value="prm.project.activity.entriesfrom.label"/>';
+	var entriesFromTo = '<t:Message value="prm.project.activity.entriesfromto.label"/>';
+	var comment = '<t:Message value="prm.project.activity.comment.label"/>';
+	var addCommentLabel = '<t:Message value="prm.project.activity.addcomment.label"/>';
+	var viewComment = '<t:Message value="prm.project.activity.viewcomment.label"/>';
+	var hideComment = '<t:Message value="prm.project.activity.hidecomment.label"/>';
+	var commentHere = '<t:Message value="prm.project.activity.commenthere.label"/>';
+	var blogEntryDeleted = '<t:Message value="prm.project.activity.blogentrydeleted.errormessage"/>';
+	var blogEntryCheck = '<t:Message value="prm.project.activity.blogentrycheck.errormessage"/>';
+	var filterCriteriaValue = '${filterCriteriaValue}';
+	var displayingExpandIconError =  '<t:Message value="prm.project.activity.todisplayexpandicon.error.message"/>';
+	var jumpedDate = '${jumpedDate}';
+	var hiddenMessage =  '<t:Message value="prm.project.errorpage.hiddenmessage"/>';
+	var objectDeletedMessage =  '<t:Message value="prm.project.errorpage.alreadydeletedmessage"/>';
+	var blogItFor = 'activity';
+	var accessDeniedMessage = '<t:Message value="prm.project.errorpage.accessdeniedmessage"/>';
+	var next = '<t:Message value="prm.activity.nextentries.title"/>';
+	var prev = '<t:Message value="prm.activity.preventries.title"/>';
+</script>
+<script type="text/javascript" src="${JSPRootURL}/src/activityLog.js?${versionNumber}"></script>
+
+<div id="left-navbar">
+		<div id="leftheading-project"><t:Message value="prm.project.activity.title"/></div>
+		<t:OutputRaw value="projectSpace.projectSpaceDetails"/>
+		<br clear="both"/><div class="spacer-for-toolbox" /> 
+		<div class='toolbox-heading'><t:Message value="prm.global.toolbox.heading"/></div>
+		<div id="toolbox-item" class="toolbox-item">
+			<t:if test="actionsIconEnabled">
+				<t:if test="blogEnabled">
+					<span id="blog-ItEnabled">
+						<a onmouseover=" document.imgblogit.src = '${asset:context:/images/icons/toolbar-gen-blogit_over.gif}'" onmouseout=" document.imgblogit.src = '${asset:context:/images/icons/toolbar-gen-blogit_on.gif}'" href="javascript:blogit();">
+							<img hspace="0" border="0" name="imgblogit" src="${asset:context:/images/icons/toolbar-gen-blogit_on.gif}" title="Blog-it" alt="Blog-it"/>
+							&nbsp;<t:Message value="all.global.toolbar.standard.blogit" />
+						</a>
+					</span><br />
+				</t:if>
+			</t:if>
+			<span>
+				<a onmouseover=" document.imgrss.src = '${rssMouseOutImagePath}'" onmouseout=" document.imgrss.src = '${rssMouseOverImagePath}'"
+				            id="rssfeedLink" href="${JSPRootURL}/activity/rssFeed/${encSpaceId}" title="${rssToolTipMessage}">
+						<img hspace="0" border="0" name="imgrss" src="${rssMouseOverImagePath}"/>
+				&nbsp;<t:Message value="prm.project.activity.rsstitle"/></a>
+			</span> 
+		</div>			
+</div>		
+<div id="content" class="activityContent">
+	<table width="97%" border="0" cellspacing="0" cellpadding="0">
+	  <tr>
+	    <td id="leftPane" width="66%" valign="top" height="50">
+		    <table class ="contentTable" width="100%" border="0" cellspacing="0" cellpadding="0">
+		      <tr>
+		      	<td colspan="3" class="left_tab"><t:Message value="prm.project.activity.recentactivity"/></td>
+		      </tr>
+		      <tr>
+		        <td colspan="3" class="search">
+		          <table width="100%" cellspacing="0" cellpadding="0">
+		            <tr>
+		            	<td height="23" width="41" nowrap="nowrap" class="filterText"><a id="LBlueColor" class="filterLink" href="javascript: filterExpandCollapse();"><b><t:Message value="prm.schedule.taskview.link.filters.label"/></b></a></td> 
+		            	<td height="23" nowrap="nowrap"><div class="filterExpandImage" id="slidingImage" onclick="filterExpandCollapse();"></div></td>
+		            	<td  height="23"><div id="showLoadingImg" class="showLoadingImg"></div></td>
+		                <td height="23"><!-- input name="textfield" type="text" class="search_box" value="Search" size="30" / --></td>
+		            </tr>
+		          </table>
+		         </td>
+		         </tr>
+		         <tr>
+		         <td id="filter_content_row" height="100%" width="100%" colspan="3" class="displayNone"> 
+		          <div id="filter_content" height="100%" class="filterContent">
+					<span>
+					    <div id="all_obj" class="all_obj">
+						    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+						      <tr>
+						    	<td width="32%" height="20%" valign="top" class="filterColumn">
+						    	  <table width="100%">
+						    		 <tr height="10">
+							    		 <td>
+								    		 <table class="filterContentPart1">
+									    		 <tr>
+									    		   <td valign="top" width="120"><span class="b filterContentPart1Column"><t:Message value="prm.project.activity.teammembers"/></span></td>
+										           <td>
+													 <t:form t:id="criteria" class="criteriaForm" clientValidation="false" autofocus="false">
+													   <t:select id="teamMember" class="teamMember" model="teamModel" encoder="teamModel" value="person" clientId="teamMember" t:id="teamMember" blankOption="NEVER" />
+														  <t:textField id="filterCriteria" t:id="filterCriteria" value="filterCriteria" class="filterCriteria" />
+													 </t:form>
+										            </td>
+											     </tr>   
+										       </table>    
+									       </td>
+						    		  </tr>
+						    		  <tr height="10">
+							    		  <td width="100%">
+							    		  	<div class="filterCriteriaPart1PaddingLeft showActivityOn"><t:Message value="prm.project.activity.showactivityon"/></div>
+							    		  </td>
+						    		  </tr>
+						    		  <tr height="10">
+				    					  <td width="100%" colspan="2">
+				    						 <span class="filterCriteriaPart1PaddingLeft"><input type="checkbox" id="Marked_chk" value="Marked" onclick="selectDeselectCheckboxes('Marked', this.checked);" /></span>&nbsp; <b><t:Message value="prm.project.activity.markedentries"/> </b>&nbsp;<a class="clearAll" id="clearAll" href="javascript:clearAllMarked();"><t:Message value="prm.project.activity.clearall"/></a><br/>
+				    					  </td>	
+				    					</tr>
+				    					<tr height="10">
+					    					<td width="100%" colspan="2" class="blogFilterViewColumn">
+						    					<div id="blogfilterView" class="filterObjectPadding">
+													<t:loop source="blogObjectList" value="activityObj">
+														<t:if test="activityObj.actions">
+															<div class="filterObjectPadding">
+																&nbsp;&nbsp; <a id="${activityObj.objectName}_link" href="javascript:openDiv('${activityObj.objectName}');">
+																	<img id="${activityObj.objectName}_img" src="${asset:context:/images/activitylog/close.gif}" class="opencloseFilterObj" /> </a> 
+																<span id="checkBoxSpanId" class="checkBoxLeftPadding">
+																	<img id="${activityObj.objectName}_ImgId" src="${asset:context:/images/uncheckedbox.gif}" onclick="changeState('${activityObj.objectName}_chk');selectDeselectCheckboxes('${activityObj.objectName}', document.getElementById('${activityObj.objectName}_chk').checked);" />
+																	<input class="displayNone" type="checkbox" id="${activityObj.objectName}_chk" value="${activityObj.objectName}" />&nbsp; <b>${activityObj.objectNameString}</b>
+																</span>
+																<br />
+															</div>
+															<div id="${activityObj.objectName}_obj" class="displayNone paddingLeftForFiltersColumn">
+																<t:loop source="activityObj.actions" value="activityType">
+																	&nbsp;&nbsp;&nbsp;&nbsp;<span class="checkBoxLeftPadding"><input type="checkbox" id="${activityObj.objectName}_${activityType.name}_chk" value="${activityObj.objectName.value}-${activityType.value}" onclick="selectDeselectCheckboxes('${activityObj.objectName}_${activityType.name}', this.checked);" />&nbsp;&nbsp;${activityType.name}</span><br/>
+																</t:loop>
+															</div>
+														</t:if>
+													</t:loop>
+												</div>
+											</td>	
+				    					</tr>
+						    		</table>
+						    	</td>
+				    			<td width="22%" valign="top" class="filterColumn">
+				    				<div id="wikiAndDocument_obj">
+										<t:loop source="wikiAndDocumentObjectList" value="activityObj">
+											<t:if test="activityObj.actions">
+												<div class="filterObjectPadding">
+													&nbsp;&nbsp; <a id="${activityObj.objectName}_link" href="javascript:openDiv('${activityObj.objectName}');">
+														<img id="${activityObj.objectName}_img" src="${asset:context:/images/activitylog/close.gif}" class="opencloseFilterObj" /> </a> 
+													<span class="checkBoxLeftPadding">
+													<img id="${activityObj.objectName}_ImgId" src="${asset:context:/images/uncheckedbox.gif}" onclick="changeState('${activityObj.objectName}_chk');selectDeselectCheckboxes('${activityObj.objectName}', document.getElementById('${activityObj.objectName}_chk').checked);" />
+													<input class="displayNone" type="checkbox" id="${activityObj.objectName}_chk" value="${activityObj.objectName}" />&nbsp; <b>${activityObj.objectNameString}</b></span><br />
+												</div>
+												<div id="${activityObj.objectName}_obj" class="displayNone paddingLeftForFiltersColumn">
+													<t:loop source="activityObj.actions" value="activityType">
+														&nbsp;&nbsp;&nbsp;&nbsp;<span class="checkBoxLeftPadding"><input type="checkbox" id="${activityObj.objectName}_${activityType.name}_chk" value="${activityObj.objectName.value}-${activityType.value}" onclick="selectDeselectCheckboxes('${activityObj.objectName}_${activityType.name}', this.checked);" />&nbsp;&nbsp;${activityType.name}</span><br/>
+													</t:loop>
+												</div>
+											</t:if>
+											<div class="filterObjectBottomPadding"/>
+										</t:loop>
+									</div>
+				    			</td>
+				    			<td width="22%" valign="top" class="filterColumn">
+				    				<div id="form_obj">
+										<t:loop source="formObjectList" value="activityObj">
+											<t:if test="activityObj.actions">
+												<div class="filterObjectPadding">
+													&nbsp;&nbsp; <a id="${activityObj.objectName}_link" href="javascript:openDiv('${activityObj.objectName}');">
+														<img id="${activityObj.objectName}_img" src="${asset:context:/images/activitylog/close.gif}" class="opencloseFilterObj" /> </a> 
+													<span class="checkBoxLeftPadding">
+													<img id="${activityObj.objectName}_ImgId" src="${asset:context:/images/uncheckedbox.gif}" onclick="changeState('${activityObj.objectName}_chk');selectDeselectCheckboxes('${activityObj.objectName}', document.getElementById('${activityObj.objectName}_chk').checked);" />
+													<input class="displayNone" type="checkbox" id="${activityObj.objectName}_chk" value="${activityObj.objectName}" />&nbsp; <b>${activityObj.objectNameString}</b></span><br />
+												</div>
+												<div id="${activityObj.objectName}_obj" class="displayNone paddingLeftForFiltersColumn">
+													<t:loop source="activityObj.actions" value="activityType">
+														&nbsp;&nbsp;&nbsp;&nbsp;<span class="checkBoxLeftPadding"><input type="checkbox" id="${activityObj.objectName}_${activityType.name}_chk" value="${activityObj.objectName.value}-${activityType.value}" onclick="selectDeselectCheckboxes('${activityObj.objectName}_${activityType.name}', this.checked);" />&nbsp;&nbsp;${activityType.name}</span><br/>
+													</t:loop>
+													<t:if test="activityObj.isForm">
+														<t:loop source="formListObjects" value="activityObj">
+															<t:if test="activityObj.actions">
+																<div class="filterObjectPadding">
+																	&nbsp;&nbsp; <a id="${activityObj.id}_link" href="javascript:openDiv('${activityObj.id}');">
+																		<img id="${activityObj.id}_img" src="${asset:context:/images/activitylog/close.gif}" class="opencloseFilterObj" /> </a> 
+																	<span class="checkBoxLeftPadding">
+																	<img id="${activityObj.id}_ImgId" src="${asset:context:/images/uncheckedbox.gif}" onclick="changeState('${activityObj.id}_chk');selectDeselectCheckboxes('${activityObj.id}', document.getElementById('${activityObj.id}_chk').checked);" />
+																	<input class="displayNone" type="checkbox" id="${activityObj.id}_chk" onclick="selectDeselectCheckboxes('${activityObj.id}', this.checked);" />&nbsp;${activityObj.name} </span><br />
+																</div>
+																<div id="${activityObj.id}_obj" class="displayNone paddingLeftForFiltersColumn">
+																	<t:loop source="activityObj.actions" value="activityType">
+																		&nbsp;&nbsp;&nbsp;&nbsp;<span class="checkBoxLeftPadding"><input type="checkbox" id="${activityObj.id}_${activityType.name}_chk" value="form_data_${activityObj.id}-${activityType.value}" onclick="selectDeselectCheckboxes('${activityObj.id}_${activityType.name}', this.checked);" />&nbsp;&nbsp;${activityType.name} </span><br />
+																	</t:loop>
+																</div>
+																<t:parameter name="else">
+																	&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="${activityObj.id}_chk" value="${activityObj.id}" onclick="selectDeselectCheckboxes('${activityObj.id}', this.checked);" />&nbsp;${activityObj.name} <br />
+																</t:parameter>
+															</t:if>
+														</t:loop> 
+													</t:if>
+												</div>
+											</t:if>
+										</t:loop>
+									</div>
+				    			</td>
+				    			<td width="24%" valign="top" >
+				    				<table height="100%" width="100%">
+				    					<tr>
+				    						<td valign="top">
+							    				<div id="workplanAndNews_obj">
+													<t:loop source="workplanAndNewsObjectList" value="activityObj">
+														<t:if test="activityObj.actions">
+															<div class="filterObjectPadding">
+																&nbsp;&nbsp; <a id="${activityObj.objectName}_link" href="javascript:openDiv('${activityObj.objectName}');">
+																	<img id="${activityObj.objectName}_img" src="${asset:context:/images/activitylog/close.gif}" class="opencloseFilterObj" /> </a> 
+																<span class="checkBoxLeftPadding">
+																<img id="${activityObj.objectName}_ImgId" src="${asset:context:/images/uncheckedbox.gif}" onclick="changeState('${activityObj.objectName}_chk');selectDeselectCheckboxes('${activityObj.objectName}', document.getElementById('${activityObj.objectName}_chk').checked);" />
+																<input class="displayNone" type="checkbox" id="${activityObj.objectName}_chk" value="${activityObj.objectName}" />&nbsp; <b>${activityObj.objectNameString}</b></span><br />
+															</div>
+															<div id="${activityObj.objectName}_obj" class="displayNone paddingLeftForFiltersColumn">
+																<t:loop source="activityObj.actions" value="activityType">
+																	&nbsp;&nbsp;&nbsp;&nbsp;<span class="checkBoxLeftPadding"><input type="checkbox" id="${activityObj.objectName}_${activityType.name}_chk" value="${activityObj.objectName.value}-${activityType.value}" onclick="selectDeselectCheckboxes('${activityObj.objectName}_${activityType.name}', this.checked);" />&nbsp;&nbsp;${activityType.name}</span><br/>
+																</t:loop>
+															</div>
+														</t:if>
+														<div class="filterObjectBottomPadding"/>
+													</t:loop>
+												</div>
+											</td>
+										</tr>
+							           </table>
+							         </td>
+							     </tr>
+							     <tr valign="bottom">
+									<td width="22%" valign="top" class="filterColumn"/>
+									<td width="22%" valign="top" class="filterColumn"/>
+									<td width="22%" valign="top" class="filterColumn"/>
+									<td valign="top" align="center" class="filterColumn">		
+										<table id="formFilter" valign="top" align="cnter">
+											<tr>
+												<td align="right"><a id="LBlueColor" href="javascript:selectDeselectCheckboxes('all', 'true');"><t:Message value="prm.activity.selectall.message"/></a></td>
+												<td class="selectallAndClearAllDivider">&nbsp;|&nbsp;</td>	
+												<td align="left"><a id="LBlueColor" href="javascript:clearFilterCheckBobex();"><t:Message value="prm.activity.clearall.message"/></a></td>
+				    						</tr>
+											<tr align="center">
+				            				    <td colspan="3">
+				            	                  <t:form t:id="filterForm" clientValidation="false" autofocus="false">
+				            		                 <input class="applyButton" id="apply" type="button" value="${applyButton}" onclick="applyFilter('apply');"/> 
+				            	                  </t:form>
+				                               </td>
+					                        </tr>
+					                    </table>
+					                </td>
+					            </tr>
+				    	</table>
+					</div>
+				</span>
+			 </div>
+	        </td>
+	      </tr>
+		  <tr>
+			 <td id="activity_content_row" valign="top" colspan="3">
+		    <table width="100%" border="0" cellpadding="5" cellspacing="0" class="border">
+		      <tr>
+		        <td>
+		        	 <t:form t:id="toplink" onSubmit="return false;" clientValidation="false" autofocus="false">
+				        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+				          <tr>
+				            
+				            <td width="50%" class="jumpedDateLeftPadding">
+				             <table>
+								<tr>
+								   <td><b><t:Message value="prm.project.activity.jumptodate"/></b></td>
+								   <td id="jumptodate"  class="jumpedDateLeftPadding">
+								   		<div class="date-div">
+											<input type="text" name="jumpedDateValue" id="jumpedDateValue" size="10" maxlength="10" class="datefilter-tb-style" value="${dateFormat}"
+											onblur="javascript:changeJumpedDateText();" onfocus="javascript:setJumpedDateFrom();"/>
+											<img src="${asset:context:/images/schedule/constraint.gif}" align="absmiddle" onclick="autoDate('jumpedDateValue', '${JSPRootURL}', 'toplink')" class="filter-calendar-img"/>
+										</div>
+								   </td>
+								</tr>
+							 </table>
+							</td> 
+							<!-- <t:select t:id="dateNumber" value="dateValue" model="dateNumList" blankOption="NEVER"   t:mixins="t5components/OnEvent" event="change"  oncompletecallback="submit" onclick="setBottomValue();"/> -->
+				            <td width="50%" class="b NextPrevLink" align="right" nowrap="nowrap">
+				            	<table>
+				            		<tr>
+										<td>
+											<span id="topPreviousLink" class="blue"></span>
+										</td>
+										<td>
+											<span id="topShowDate" class="ShowDate"></span>
+										</td>
+										<td>
+											<span class="blue" id="topNextLink"></span><!-- <img src="${asset:context:/images/activitylog/next_page.gif}" width="12" height="5" /> -->
+										</td>
+									</tr>
+								</table>
+			           		</td>
+				          </tr>
+				        </table>
+			         </t:form>
+			    </td>
+	 		</tr>
+	 		<tr>
+		 		<td id="tableContent" colspan="5" class="blue_top activityLogtableContent">
+		 		<div id="activityLog">
+		 				<!-- code in activityLog.tml -->
+				</div>
+				</td>
+			</tr>
+	     	<tr height="25">
+		        <td class="blue_top">
+			        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+			          <tr>
+			            <td id="continuedDate" width="50%" align="left" class="b continuedDate"></td>
+			            <td width="50%" class="b NextPrevLink" align="right" nowrap="nowrap">
+				            <table>
+				            		<tr>
+										<td>
+											<span id="bottomPreviousLink" class="blue"></span>
+										</td>
+										<td>
+											<span id="bottomShowDate" class="ShowDate"></span>
+										</td>
+										<td>
+											<span class="blue" id="bottomNextLink"></span><!-- <img src="${asset:context:/images/activitylog/next_page.gif}" width="12" height="5" /> -->
+										</td>
+									</tr>
+							</table>
+			            </td>
+			          </tr>
+			        </table>
+		        </td>
+	      	</tr>
+	    </table>
+	    </td>
+	    </tr>
+       </table>
+	    </td>
+	  </tr>
+	</table>
+</div>
+</t:ActivitylogLayout>

@@ -1,0 +1,31 @@
+function createPersonSelectionMenu(in name, in sel1, in sel2){
+# 	auto outText;
+	extern i;
+	
+	wait(1);
+# 	report_msg("Within Person Selection Menu - "&i&"");
+	set_window("main",3);
+	list_select_item("ElementID","Person Selection Menu");
+	wait(1);
+	set_window("main",3);
+	edit_set("field_label",name);
+	edit_set("row_num",i);
+	list_select_item("column_id","Left");
+	if(sel1==1){
+		button_set("is_multi_select",ON);
+	}
+	if(sel2==1){
+		button_set("use_default");
+	}
+	web_link_click("Submit");
+	wait(1);
+	set_window("main",3);
+	
+	# Verifying the person selection menu was created and exists in the fields list
+	if(obj_exists(name)==E_OK)
+		tl_step("Verify person selection menu exists",0,"The Person Selection Menu '"&name&"'created successfully");
+	else
+		tl_step("Verify person selection menu exists",1,"The creation of Person Selection Menu CANNOT be verified");
+	set_window("main",1);
+}
+		

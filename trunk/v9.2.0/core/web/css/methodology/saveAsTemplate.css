@@ -1,0 +1,23 @@
+html, body, div, span, p { margin: 0; padding: 0; }
+.hidden 	{ display: none; }
+.visible 	{ display: block; }
+.required 	{
+	font-weight: bold;
+	font-family: Arial, Helvetica, sans-serif !important;
+}
+.non-required { color: #808080; }
+
+form p { width:100%; margin-top: 5px; margin-bottom: 5px; }
+form p textarea { height:80px; }
+
+#templateDetails { text-align: left; }
+#templateDetails p input, #templateDetails p textarea, #templateDetails p select { margin-left: 20px; }
+#templateDetails p input[type=text], #templateDetails p textarea { width: 350px; }
+#templateDetails p input[type=checkbox] { margin-left: 20px; }
+
+.left { margin: 3px 10px 3px 25px/*3px 10px*/; /*padding-left: 25px;*/ padding-right: 0; float: left; display: inline; width: 120px; }
+.right ul { margin: 5px 0 10px 20px; padding: 0; float: left; display: inline; width: 150px; margin-bottom: 10px; }
+p { clear: both; }
+
+/* fixed layout for hader and footer*/
+/*#saveAsTemplContentWrapper{ position: relative; top: -5px; margin-top: 0; width:100%; /* if window is 600 wide */ }*/

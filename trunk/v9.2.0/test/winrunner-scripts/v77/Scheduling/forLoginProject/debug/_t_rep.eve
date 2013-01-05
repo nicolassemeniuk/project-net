@@ -1,0 +1,7 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Forms\roughWork2> 1 1094834336 0
+24 134 <C:\Documents and Settings\QA\Desktop\v77\Forms\roughWork2 (1):	Error: Statement is not legal in context of compiled  module
+		wait(2);> <C:\Documents and Settings\QA\Desktop\v77\Forms\roughWork2> 1 1094834336 0
+25 132 <C:\Documents and Settings\QA\Desktop\v77\Forms\roughWork2 (1):
+Error: Statement is not legal in context of compiled  module
+wait(2);> <C:\Documents and Settings\QA\Desktop\v77\Forms\roughWork2> 1 1094834336 0

@@ -1,0 +1,42 @@
+#compiled module for checking in a document
+
+function checkInDoc(in projectName,in folderName,in fileName){	
+	auto val1, val2, val3, outText, text;
+	extern i;
+	
+	reload("extractProjectID",0,1);
+	reload("extractContainerID",0,1);
+	reload("extractDocumentID",0,1);
+	GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+	
+	val1 = extractProjectID(projectName);#extracting the project ID from the database
+	val2 = extractContainerID(val1,folderName);#extracting the Container ID for the document
+	val3 = extractDocumentID(val2,fileName);#extracting the Document ID 
+	
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui","main","selected","part_value",""&val3&"")!=E_OK)
+		report_msg("NOT OK1");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+	
+	set_window("main",2);
+	web_link_click(folderName);
+	wait(1);
+	button_set("selected",ON);
+	wait(1);
+	web_link_click("Check In");
+	wait(2);
+	set_window("Document Check In");
+	button_press("Browse...");
+	wait(2);
+	set_window ("Choose file", 2);
+	list_select_item ("browser_main_combo_location_0", "Desktop");
+	list_select_item ("Look in","WRfile.txt");#checking in the same file aready whcih was checked out.
+	button_press ("Open");
+	wait(2);
+	set_window("Document Check In",2);
+	edit_set("notes","Testing checking in a file after checking out");
+	web_link_click("Check In");
+	set_window("main",2);
+# 	i = i+1;
+	GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+}

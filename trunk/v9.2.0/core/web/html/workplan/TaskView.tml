@@ -1,0 +1,1183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:PnetLayout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" callOnLoad="setup();">
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/schedule.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/colors.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/wiki.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/two_pane_view.css?${versionNumber}"/>
+
+<script type="text/javascript" src="${jSPRootURL}/src/dragtable.js?${versionNumber}"/>
+<script type="text/javascript" src="${jSPRootURL}/src/tablekit.js?${versionNumber}"/>
+<script type="text/javascript" src="${jSPRootURL}/src/workplanColumn.js?${versionNumber}"/>
+<script type="text/javascript" src="${jSPRootURL}/src/dhtml/tree.js?${versionNumber}"/>
+<script type="text/javascript" src="${jSPRootURL}/src/PopupTooltip.js?${versionNumber}"/>
+<script type="text/javascript" src="${jSPRootURL}/src/dhtml/PopupWindow.js?${versionNumber}"/>
+<script type="text/javascript" src="${jSPRootURL}/src/dhtml/xmlrequest.js?${versionNumber}"/>
+<script type="text/javascript" src="${jSPRootURL}/src/workCapture.js?${versionNumber}"/>
+<script type="text/javascript" src="${jSPRootURL}/src/errorHandler.js?${versionNumber}"/>
+<script type="text/javascript" src="${jSPRootURL}/src/checkRange.js?${versionNumber}"/>
+<script type="text/javascript" src="${jSPRootURL}/src/checkDate.js?${versionNumber}"/>
+<script type="text/javascript" src="${jSPRootURL}/src/wiki.js?${versionNumber}"/>
+<script type="text/javascript" src="${jSPRootURL}/src/TwoPaneView.js?${versionNumber}"/>
+<script type="text/javascript" src="${jSPRootURL}/src/notifyPopup.js?${versionNumber}"/>
+<style title="column-style">
+.tableFilterHeader {
+	background-color: #CCD8FE !important;
+	color: #333399;
+	text-overflow:ellpsis;
+}
+.x-window-mc{
+	margin-left: 0px;
+}
+</style>
+<style title="column-style">
+<t:loop source="schedule.taskList.scheduleColumn.scheduleColumnList" value="col">
+.div_thd_${col.columnId}{
+	width:${col.width}px;
+	overflow:hidden;
+}
+</t:loop>
+
+.tabContentWidth{
+	width: ${slidingPanelContentWidth}px;
+}
+
+.tabContentHeight{
+	height: ${tabContentHeight}px;
+}
+
+#task-list{
+	height: ${tabContentHeight}px;
+	width: ${slidingPanelContentWidth}px;
+	overflow:auto;
+}
+
+#pnettabset{
+	height:${pnetTabSetHeight}px;
+	width:${pnetTabSetWidth}px;
+}
+#task-list-header{
+	width:${taskListHeaderWidth}px;
+	z-index:10;
+} 
+
+.splitterHeight{
+	height:${splitterBarHeight}px;
+}
+</style>
+<script language="javascript">
+var loadingMessage = '<t:Message value="prm.schedule.loading.message"/>';
+showLoadingDiv(loadingMessage);
+var theForm;
+var filterForm;
+var moduleId = '${scheduleModule}';
+var spaceId = '${user.currentSpace.ID}';
+var spaceName = '${spaceName}';
+var blogItFor = 'workPlanProject';
+var wikiItFor  = 'workPlanProject';
+var scheduleStatusBar;
+var lastSelectedIds = '';
+var workPlanLoaded = false;
+var isAutoEndPointCalculateSchedule = ${taskListPage.schedule.autocalculateTaskEndpoints};
+var warningEnable = ${taskListPage.schedule.editingWarning};
+var userDateFormatString = '${user.dateFormatter.dateFormatExample}';
+var isBlogEnabled = <t:Message value="prm.blog.isenabled"/>;
+var taskNameLabel = '<t:Message value="prm.schedule.taskedit.name.label"/>';
+var taskDescLabel = '<t:Message value="prm.schedule.taskedit.description.label"/>';
+var workLabel = '<t:Message value="prm.schedule.taskedit.status.work.label"/>';
+var startDateLabel = '<t:Message value="prm.schedule.taskedit.status.startdate.label"/>';
+var endDateLabel = '<t:Message value="prm.schedule.taskedit.status.finishdate.label"/>';
+var dateFormatMessage = '<t:Message value="prm.schedule.dateformat.message"/>';
+var noSelectionErrorMessage = '<t:Message value="prm.global.javascript.verifyselection.noselection.error.message"/>';
+var oneOrZeroMessage = '<t:Message value="prm.schedule.main.verifyselection.oneorzero.message"/>';
+var multipleSelectionRequiredMessage = '<t:Message value="prm.global.javascript.verifyselection.multipleselectionrequired.error.message"/>';
+var verifyadJoiningSelectionMessage = '<t:Message value="prm.global.javascript.verifyadjoiningselection.error.message"/>';
+var notAllowedForImportedTask = '<t:Message value="prm.schedule.taskview.resource.notallowedforimportedtask.message"/>';
+var taskAtBottomOfListMessage = '<t:Message value="prm.schedule.main.taskatbottomoflist.error.message"/>';
+var taskAtTopOfListMessage = '<t:Message value="prm.schedule.main.taskattopoflist.error.message"/>';
+var multiSelectionMessage = '<t:Message value="prm.schedule.main.multiselection.error.message"/>';
+var noNodesToCollapseMessage = '<t:Message value="prm.global.javascript.nonodestocollapse.error"/>';
+var noNodesToexpandMessage = '<t:Message value="prm.global.javascript.nonodestoexpand.error"/>';
+var canNotIndentFirstTaskMessage = '<t:Message value="prm.schedule.main.cannotindentfirsttask.error.message"/>';
+var canNotEditSummaryTaskMessage = '<t:Message value="prm.schedule.taskedit.summarytask.readonly.message"/>';
+var canNotEditShareTask = '<t:Message value="prm.schedule.main.indenttasks.warning.sharingreadonly"/>';
+var noModifiedTasksMsg = '<t:Message value="prm.schedule.modified.norecords.message"/>';
+var noModifiedRevertTasksMsg = '<t:Message value="prm.schedule.modified.norecords.revert.message"/>';
+var modifiedMessage = '<t:Message value="prm.schedule.main.modified.confirm.message"/>';
+var taskNameRequiredMessage= '<t:Message value="prm.schedule.quickadd.taskname.requiredfield.message"/>';
+var taskWorkRequiredMessage= '<t:Message value="prm.schedule.quickadd.work.required.message"/>';
+var taskWorkInvalidMessage= '<t:Message value="prm.schedule.quickadd.work.validnumber.message"/>';
+var percentCompleteInvalidMessage = '<t:Message value="prm.schedule.taskview.resources.percentagerange.integer.message"/>';
+var moreWorkPercentCompleteMessage = '<t:Message value="prm.schedule.taskedit.error.moreworkcomplete.message"/>';
+var notAllowedForImportedMessage = '<t:Message value="prm.schedule.taskview.resource.notallowedforimportedtask.message"/>';
+var invalidDurationMsg = '<t:Message value="prm.schedule.taskedit.error.invaliddurationamount.message"/>';
+var invalidDurationUnitMsg = '<t:Message value="prm.schedule.taskedit.error.invaliddurationunit.message"/>';
+var durationRequiredMsg = '<t:Message value="prm.schedule.taskedit.error.duration.required.message"/>';
+var invalidWorkAmountMsg = '<t:Message value="prm.schedule.taskedit.error.invalidworkamount.message"/>';
+var invalidWorkUnitMsg = '<t:Message value="prm.schedule.taskedit.error.invalidworkunit.message"/>';
+var workRequiredMsg = '<t:Message value="prm.schedule.taskedit.error.work.required.message"/>';
+var invalidWorkCompleteAmountMsg = '<t:Message value="prm.schedule.taskedit.error.invalidworkcomplete.message"/>';
+var invalidWorkCompleteUnitAmountMsg = '<t:Message value="prm.schedule.taskedit.error.invalidworkcompleteunit.message"/>';
+var workCompleteRequiredMsg = '<t:Message value="prm.schedule.taskedit.error.workcomplete.required.message"/>';
+var criticalPathTitle = '<t:Message value="prm.schedule.list.criticalpath.message"/>';
+var persistingColumnMessage = '<t:Message value="prm.schedule.taskview.persistingcolumn.message"/>';
+var nextTabMessage = '<t:Message value="prm.schedule.taskview.nexttab.message"/>';
+var previousTabMessage = '<t:Message value="prm.schedule.taskview.previoustab.message"/>';
+var _tScrollPosName = '_tsp${user.ID}${user.currentSpace.ID}';
+var decimalSeparator = '${nf.decimalSeparator}';
+var pageInitialized = false;
+var selectedRows = new Array();
+var errorMessage = '${taskListPage.errorMessage}';
+var liveGrid;
+var criticalPathTitle = '<t:Message value="prm.schedule.list.criticalpath.message"/>';
+var activeTab = 'panel_Schedule';
+var personalSettingsString = "${personalSettingsString}";
+var assigningLoadMessage = '<t:Message value="prm.schedule.tab.wiki.assignpagetotask.loading.message"/>';
+var errorColumnSettingPopUp = '<t:Message value="prm.schdule.columnsetting.error.message"/>';
+var loadingMessageColSetting = '<t:Message value="prm.schdule.columnsetting.loadingpopup.message"/>';
+var quickAddErrorMessage = '<t:Message value="prm.schedule.taskview.quickadd.message"/>';
+var workColumnMustVisibleMessage = '<t:Message value="prm.schedule.taskview.workcolumnmustvisible.message"/>';
+var resizerDiv = 'task-list';
+var listTable = 'taskListTable';
+var listContainer = 'task-list-table-container';
+var headerContainer = 'task-list-table-container-header';
+var selectTaskForBlogEntryMsg = '<t:Message value="prm.schedule.blog.selecttask.message"/>';
+var selectTaskForWikiMsg = '<t:Message value="prm.schedule.wiki.selecttask.message"/>';
+var selectTaskForDetailMsg = '<t:Message value="prm.twopaneview.detail.selecttask.message"/>';
+var canNotUnindentTaskMsg = '<t:Message value="prm.schedule.unindent.error.message"/>';
+var taskDownFailedMessage = '<t:Message value="prm.schedule.main.taskdownfailed.error.message"/>';
+var rightTebSetArray = new Array('blog-tab','wiki-tab','detail-tab');
+var noPhaseDefinedMessage = '<t:Message value="prm.schedule.no.phase.error.message"/>';
+var noHtmlContentsMessage = '<t:Message value="prm.schedule.main.verifyname.nohtmlcontent.message"/>';
+var invalidFilterDateMessage = '<t:Message value="prm.schedule.filter.invaliddate.message"/>';
+var invalidFilterDateRangeMessage ='<t:Message value="prm.schedule.filter.invaliddaterange.message"/>';
+var phaseSavingMessage = '<t:Message value="prm.schedule.taskview.savingphase.message"/>';
+var phaseComboData  = ${filterManager.extJSPhaseModel};
+var priorityComboData = ${filterManager.extJSPriorityModel};  
+var assingPageWikiMenuItem = '<t:Message value="prm.wiki.tab.assignpagetotask.menu.caption" />';
+var unassignPageWikiMenuItem = '<t:Message value="prm.personal.wiki.menu.unassignbutton.message" />';
+var scheduleLinks;
+var wikiPagesFoundMessage = '<t:Message value="prm.wiki.tab.header.message" />';
+var taskListInnerRow = 'task-list-inner-row';
+var taskListRow = 'task-list-row';
+var blogNotFoundMsg = '<t:Message value="prm.blog.tab.noblogsfound.message" />';
+var blogNotFoundForTaskMsg = '<t:Message value="prm.schedule.noblogsfortask.message" />';
+var loadingMsg = '<t:Message value="prm.global.loading.message" />';
+var backToProject = '<t:Message value="prm.global.loading.message" />';
+var unableMoveTaskUp = '<t:Message value="prm.schedule.indentedtaskmoveup.error.message" />';
+var entriesMessage = '<t:Message value="prm.twopaneview.blog.paging.entries.label" />';
+var nextBlogPageTitle = '<t:Message value="prm.twopaneview.blog.paging.next.label" />';
+var prevBlogPageTitle = '<t:Message value="prm.twopaneview.blog.paging.prevoius.label" />';
+var noTaskMsg = '<t:Message value="prm.schedule.taskview.notask.message"/>';
+var scheduleDateChangeWarningMsg = '<t:Message value="prm.schedule.taskedit.warning.scheduledatechagne.message"/>';
+var workCompleteEditingWarningMsg = '<t:Message value="prm.schedule.taskedit.warning.workcompleteediting.message"/>';
+var nonWorkingDayWarningMsg = '<t:Message value="prm.schedule.taskedit.warning.nonworkingday.message"/>';
+var nextWorkingDayMsg = '<t:Message value="prm.schedule.taskedit.warning.nextworkingday.message"/>';
+var makeWorkingDayMsg = '<t:Message value="prm.schedule.taskedit.warning.makeworkingday.message"/>';
+var workPlanWarningTitle = '<t:Message value="prm.schedule.taskedit.warning.warning.title"/>';
+var submitBtnCaption = '<t:Message value="prm.schedule.taskview.button.submit.caption"/>';
+var cancelBtnCaption = '<t:Message value="prm.schedule.taskview.button.cancel.caption"/>';
+var wikiPagesNotFoundMessage = 	'<t:Message value="prm.twopaneview.tab.wiki.header.wikipagenotfound.message" />';
+
+<!--//
+function setup() {
+    theForm = self.document.taskList;
+    filterForm = self.document.fForm;
+    removeLoadingDiv();
+    hiLiteLastSelected();
+   
+    //Init Column Drag Drop 
+    dragtable.init();
+	alignColumns('thd_name');
+	
+    // Initialize its only once on page load.
+    if(!pageInitialized){
+    	if(errorMessage != '') showActionMessageDiv(errorMessage);
+    	scheduleLinks = document.getElementById('left-navbar').getElementsByTagName('a');
+	    applyPersonalSettings();
+	    setTaskListScrollPostion();
+	    pageInitialized = true;
+    }
+}
+
+// apply mouse over style for work plan header td for sorting intutiveness
+function moh(forTd) {
+	//document.getElementById('cwc'+orederid).style.display = ''; 
+	forTd.className = 'workPlanHeaderTdOver';
+}
+
+function muh(forTd) {
+	//document.getElementById('cwc'+orederid).style.display = 'none'; 
+	forTd.className = 'workPlanHeaderTd';	
+}
+
+// apply mouse over style for all rows other than header
+function mo(forTr) {
+	forTr.className += ' wMouseOverColor';
+}
+
+function mu(forTr) {
+	forTr.className = replaceAll(forTr.className, 'wMouseOverColor', '');
+}
+
+function toggleTree(id) {
+    //Run the normal toggle
+    toggle(id);
+    //Now store the value of this node in the database
+    var expanded = document.getElementById(id).getAttribute("kidsShown");
+    notifyToggleTree("node"+id+"expanded", expanded);
+}
+
+function notifyToggleTree(id, expanded) {
+    var xml = new XMLRemoteRequest();
+    xml.asyncRequest(JSPRootURL + "/servlet/ScheduleController/Main/StoreTreeViewSettings?"+
+        "module="+moduleId+"&name="+id+"&value="+expanded);
+}
+
+function exportPDF() {
+	var link = JSPRootURL+"/servlet/GanttPDF?module="+moduleId;
+    self.location = link;
+}
+
+function dPopup(dependencies) {
+    var newHTML = "";
+    newHTML = newHTML + "<table class='popup' cellpadding='0' cellspacing='0'>";
+    newHTML = newHTML + "  <tr><td>";
+    newHTML = newHTML + "    <table class='popupTitle' width='100%'>";
+	newHTML = newHTML + "      <tr><td><b>";
+	//-->
+	newHTML = newHTML + "      		<t:Message value='prm.schedule.main.dependencies'/>";
+	<!--//
+	newHTML = newHTML + "      </b></td></tr>";
+    newHTML = newHTML + "    </table>";
+    newHTML = newHTML + "  </td></tr>";
+    newHTML = newHTML + "  <tr><td>";
+    newHTML = newHTML + "    <table class='popupBody' width='100%' id='depContent' cellpadding='2' cellspacing='2'>";
+    newHTML = newHTML + "      <tr class='tableHeader'><td>";
+    //-->
+    newHTML = newHTML + "      		<t:Message value='prm.schedule.list.sequence.column'/>";
+    <!--//
+    newHTML = newHTML + "      </td><td>";
+    //-->
+    newHTML = newHTML + "      		<t:Message value='prm.schedule.taskview.dependencies.name.column'/>";
+    <!--//
+    newHTML = newHTML + "      </td><td>";
+    //-->
+    newHTML = newHTML + "      		<t:Message value='prm.schedule.taskview.dependencies.type.column'/>";
+    <!--//
+    newHTML = newHTML + "      </td><td>";
+    //-->
+    newHTML = newHTML + "      		<t:Message value='prm.schedule.taskview.dependencies.lagtime.column'/>";
+    <!--//
+    newHTML = newHTML + "      </td></tr>";
+    newHTML = newHTML + "      <tr class='headerSep'><td colspan='4'></td></tr>";
+	
+    var rows = dependencies.split("|");
+    var rowInfo;
+    for (var i = 0; i < rows.length; i++) {
+      rowInfo = rows[i].split("@");
+      newHTML = newHTML + "      <tr><td>"+rowInfo[0]+"</td><td>"+rowInfo[1]+"</td><td>"+rowInfo[2]+"</td><td>"+rowInfo[3]+"</td></tr>";
+      newHTML = newHTML + "      <tr><td colspan='4' class='rowSep'></td></tr>";
+    }
+    newHTML = newHTML + "    </table>";
+    newHTML = newHTML + "  </td></tr>";
+    newHTML = newHTML + "</table>";
+
+    document.getElementById("depPopup").innerHTML = newHTML;
+
+    pup("depPopup");
+}
+
+function dClose() {
+    phide("depPopup");
+}
+
+function aPopup(assignments) {
+    var newHTML = "";
+    newHTML = newHTML + "<table class='popup' cellpadding='0' cellspacing='0'>";
+    newHTML = newHTML + "  <tr><td>";
+    newHTML = newHTML + "    <table class='popupTitle' width='100%'>";
+    newHTML = newHTML + "      <tr><td><b>";
+    //--> 
+    newHTML = newHTML + "      		<t:Message value='prm.schedule.main.assignments'/>";
+    <!--//
+    newHTML = newHTML + "      </b></td></tr>";
+    newHTML = newHTML + "    </table>";
+    newHTML = newHTML + "  </td></tr>";
+    newHTML = newHTML + "  <tr><td>";
+    newHTML = newHTML + "    <table class='popupBody' width='100%' id='depContent'>";
+    newHTML = newHTML + "      <tr class='tableHeader'><td>";
+    //-->
+    newHTML = newHTML + "      		<t:Message value='prm.schedule.taskview.resources.assign.person.column'/>";
+    <!--//
+    newHTML = newHTML + "      </td><td>";
+    //-->
+    newHTML = newHTML + "      		<t:Message value='prm.schedule.taskview.resources.assign.assigned.column'/>";
+    <!--//
+    newHTML = newHTML + "      </td><td>";
+    //-->
+    newHTML = newHTML + "      		<t:Message value='prm.schedule.taskview.resources.assign.work.column'/>";
+    <!--//
+    newHTML = newHTML + "      </td><td>";
+    //-->
+    newHTML = newHTML + "      		<t:Message value='prm.schedule.taskview.resources.assign.workcomplete.column'/>";
+    <!--//
+    newHTML = newHTML + "      </td></tr>";
+    newHTML = newHTML + "      <tr class='headerSep'><td colspan='4'></td></tr>";
+    var rows = assignments.split("|");
+    var rowInfo;
+    for (var i = 0; i < rows.length; i++) {
+      rowInfo = rows[i].split("@");
+      newHTML = newHTML + "      <tr><td>"+rowInfo[0]+"</td><td>"+rowInfo[1]+"</td><td>"+rowInfo[2]+"</td><td>"+rowInfo[3]+"</td></tr>";
+      newHTML = newHTML + "      <tr><td colspan='4' class='rowSep'></td></tr>";
+    }
+    newHTML = newHTML + "    </table>";
+    newHTML = newHTML + "  </td></tr>";
+    newHTML = newHTML + "</table>";
+
+    document.getElementById("resPopup").innerHTML = newHTML;
+    pup("resPopup");
+}
+
+function aClose() {
+    phide("resPopup");
+}
+
+function changeSelection() {
+    changeCheckedState(theForm.selected, theForm.changeCheckedState.checked);
+}
+//Toggle Selection
+function toggleSelection(object) {
+    toggleCheckedState(theForm.selected, theForm.changeCheckedState);
+}
+
+//For assigning rsource to tasks
+function resources() {
+    if ((theForm.selected) && (verifySelection(theForm, 'multiple', noSelectionErrorMessage ))) {
+		var alertMessage = notAllowedForImportedTask;
+		var showAlertMessage = false;
+        if (theForm.selected.length) {
+            for (var i = 0; i < theForm.selected.length; i++) {
+                if (theForm.selected[i].checked == true) {
+					if(true == isExternalTask(theForm.selected[i].value) ){
+						alertMessage = alertMessage + document.getElementById( 'tn_'+theForm.selected[i].value ).innerHTML + "\n";
+						showAlertMessage = true;
+					}
+                }
+            }
+        } else {
+			if(true == isExternalTask(theForm.selected.value)){
+				alertMessage = alertMessage + document.getElementById('tn_'+theForm.selected.value ).innerHTML + "\n";
+				showAlertMessage = true;
+			}
+        }
+		if(true == showAlertMessage){
+			extAlert(errorAlertTitle, alertMessage , Ext.MessageBox.ERROR);
+			return;
+		}
+
+        //Open the dialog box with the required information
+        resourcesWindow = openwin_dialog('resource_dialog', 'about:blank', 350, 450, 'yes');
+        theForm.theAction.value = "/TaskList/AssignResourcesDialog";
+        theForm.action.value = "2";
+        theForm.target = 'resource_dialog';
+        theForm.submit();
+        theForm.target = '_self';
+    }
+}
+
+//after resource assignment complete
+function resourcesComplete() {
+    resourcesWindow.close();
+    lastSelectedIds = getSelections(theForm, ",");
+    reloadTaskList();
+}
+
+function isExternalTask(p_taskid) {
+	try{
+		var tid = document.getElementById('ex_'+p_taskid);
+		if(tid != null)
+			return true;
+		else
+			return false;
+	}catch(notAnExternalTask){
+		return false;
+	}
+}
+
+function create() {
+    if (verifySelectionForField(theForm.selected, 'oneorzero', oneOrZeroMessage)) {
+		var theLocation = JSPRootURL + "/servlet/ScheduleController/TaskCreate?action=4&module=60";
+        var val = getSelectedValue(theForm.selected);
+        if (val != undefined) {
+        	if(typeof(getSelection(theForm)) != 'undefined'){
+            	theLocation += "&createAfter="+getSelection(theForm);
+            }
+        }
+        self.location = theLocation;
+    }
+}
+
+function modify() {
+   if (verifySelection(theForm, 'single', noSelectionErrorMessage)) {
+	  // Task Edit security handled within TaskEdit page
+      var link = JSPRootURL + "/servlet/ScheduleController/TaskEdit?action=1"
+                 +"&id="+getSelection(theForm)
+                 +"&module=60";
+      self.location = link;
+  }
+}
+
+function remove() {
+   if (theForm.selected) {
+		if(document.getElementById('new_added_thd_name') && newRowPosition){
+			isRecalculateComplete = true;
+			document.getElementById('taskListTable').deleteRow(newRowPosition);
+			newRowPosition = null;
+			removeEditor();
+			hideButtons();
+		}
+   		if (verifySelection(theForm, "multiple", noSelectionErrorMessage)) {
+         var idval = theForm.selected.value;
+         for (var i = 0; i < theForm.selected.length; i++){
+            if (theForm.selected[i].checked == true) {
+               		idval = theForm.selected[i].value;
+               		break;
+            }
+         }  
+         
+		 resourcesWindow = openwin_dialog('deletetask_dialog'+spaceId, 'about:blank', 350, 450, 'yes');
+         theForm.theAction.value = "/TaskList/DeleteTaskDialog";
+         theForm.action.value = "8";//Action.DELETE
+         theForm.id.value = idval;
+         theForm.target = "deletetask_dialog"+spaceId;
+
+         theForm.submit();
+         theForm.target = '_self';
+         executed = false;
+	   } else {
+	   		extAlert(errorAlertTitle, noSelectionErrorMessage , Ext.MessageBox.ERROR);
+	   }
+   }
+}
+
+function help() {
+	var helplocation = JSPRootURL + "/help/Help.jsp?page=schedule_main";
+	openwin_help(helplocation);
+}
+
+function notify(){
+	if(!theForm.selected){
+		extAlert(errorAlertTitle, noTaskMsg , Ext.MessageBox.ERROR);
+	} else if (verifySelection(theForm, 'single', noSelectionErrorMessage)) {
+    	  var targetObjectID = getSelection(theForm);
+		  var m_url = (JSPRootURL + "/notification/CreateSubscription2.jsp?targetObjectID="+ targetObjectID + "&action=2&module=10");
+		  openNotifyPopup(targetObjectID,m_url);
+		  executed = false;
+	} 
+}
+
+function security(){
+   if (verifySelection(theForm, 'single', noSelectionErrorMessage)) {
+      if (!security)
+         var security = openwin_security("security");
+
+      if (security) {
+         var idval = getSelection(theForm);
+         theForm.theAction.value = "/MainProcessing/ModifyPermissions";
+         theForm.target = "security";
+         theForm.action.value = "64";//Action.MODIFY
+         theForm.id.value = idval;
+         theForm.submit();
+		 theForm.target = '_self';
+		 executed = false;
+      }
+   }
+}
+
+function addExternal() {
+	if (verifySelectionForField(theForm.selected, 'oneorzero', oneOrZeroMessage)) {
+		theForm.theAction.value = "/Sharing/CreateFromExternal";
+		theForm.action.value = "4";//Action.CREATE
+		theForm.submit();
+	}
+}
+
+function share() {
+    if (verifySelection(theForm, 'multi', noSelectionErrorMessage)) {
+        theForm.theAction.value = "/MainProcessing/Share";
+        theForm.action.value = "128"; //Action.SHARE;
+        theForm.submit();
+    }
+}
+
+//Expand all tree nodes
+function expand_all() {
+//-->
+    var firstID = '${taskListPage.schedule.firstEntryId}';
+<!--//
+	var row = document.getElementById(firstID);
+    if (firstID != '' && row != null) {
+        showAll(firstID, notifyToggleTree);
+    } else {
+    	extAlert(errorAlertTitle, noNodesToexpandMessage , Ext.MessageBox.ERROR);
+    }
+}
+
+//Collapse all tree nodes
+function collapse_all() {
+//-->
+    var firstID = '${taskListPage.schedule.firstEntryId}';
+<!-- //   
+	var row = document.getElementById(firstID);
+    if (firstID != '' && row != null) {
+        hideAll(firstID, notifyToggleTree);
+    } else {
+    	extAlert(errorAlertTitle, noNodesToCollapseMessage , Ext.MessageBox.ERROR);
+    }
+}
+
+
+function phase() {
+    if (theForm.selected) { 
+    	if(verifySelection(theForm, "multiple", noSelectionErrorMessage)) {
+    		var phaseCount = 0;
+    		Ext.Ajax.request({
+				url: JSPRootURL +'/workplan/taskview/getPhaseCount',
+				params: {module : moduleId},
+				method: 'POST',
+				success: function(result, request){
+					phaseCount = result.responseText;
+					if(phaseCount > 0){
+        				phaseWindow = openwin_dialog('phase', JSPRootURL+"/schedule/SelectPhase.jsp?module=60&action=2", 175, 450);
+        			}else{
+        				extAlert(errorAlertTitle, noPhaseDefinedMessage , Ext.MessageBox.ERROR);
+        			}
+				},
+				failure: function(result, response){
+				}
+			});	
+        }
+    }
+}
+
+function phaseComplete(phase) {
+    phaseWindow.close();
+    submitParameter('{"action":"setPhase", "phaseId": "'+phase+'","taskId":"'+ getSelections(theForm, ',')+'"}');
+}
+
+function taskup() {
+    if (!theForm.selected || !theForm.selected[0]) {
+        return;
+    }
+    // To check id task is indented task or not
+    var currentRow = document.getElementById(getSelection(theForm));
+    //if(currentRow.getAttribute('level') != 1) {
+    	//extAlert(errorAlertTitle, unableMoveTaskUp, Ext.MessageBox.ERROR);
+    	//return;
+    //}
+    
+	var checkedNumber = 0;
+	var selectedNumber = theForm.selected.length;
+	if (selectedNumber) {
+            for (var i = 0; i < selectedNumber; i++) {
+                if (theForm.selected[i].checked) {
+                	checkedNumber++;
+                }
+            }
+	}
+	if (checkedNumber == selectedNumber) {
+   	    var errorMessage = multiSelectionMessage;
+		extAlert(errorAlertTitle, errorMessage , Ext.MessageBox.ERROR);
+		return;
+	}
+	
+    if (theForm.selected[0].checked == true) {
+   	    var errorMessage = taskAtTopOfListMessage;
+		extAlert(errorAlertTitle, errorMessage , Ext.MessageBox.ERROR);
+        return;
+    }
+
+    // Ensure only one item selected
+    if (verifySelection(theForm, 'single', noSelectionErrorMessage)) {
+    	submitParameter('{"action":"taskUp", "taskId":"'+ getSelection(theForm)+'"}');
+    }
+}
+
+function taskdown() {
+    if (!theForm.selected || !theForm.selected[0]) {
+        return;
+    }
+	
+	if (theForm.selected[theForm.selected.length-1].checked == true) {
+	extAlert(errorAlertTitle, taskAtBottomOfListMessage , Ext.MessageBox.ERROR);
+	return;
+	}
+	// Ensure only one item selected
+	if (verifySelection(theForm, 'single', noSelectionErrorMessage)) {
+		var currentRow = document.getElementById(getSelection(theForm));
+		var row = currentRow.nextSibling;
+		var nextNodePresent = false;
+		while(row != null){
+			if(currentRow.getAttribute('level') == row.getAttribute('level')){
+				nextNodePresent = true;
+				break;
+			}
+			if(row.nextSibling == null){
+				currentRow = row;
+			}
+				row = row.nextSibling;
+		}
+		if(nextNodePresent){
+			submitParameter('{"action":"taskDown", "taskId":"'+ getSelection(theForm)+'"}');
+		} else {
+			extAlert(errorAlertTitle, taskDownFailedMessage , Ext.MessageBox.ERROR);
+		}
+	}
+
+}
+
+function indent() {
+    if (!theForm.selected || !theForm.selected[0]) {
+        return;
+    }
+
+    // Ensure one or more items selected and they are adjacent items
+    if (verifySelection(theForm, 'multi', noSelectionErrorMessage) && verifyAdjoiningSelection(theForm, verifyadJoiningSelectionMessage)) {
+        var firstIndex;
+   	    firstIndex = adjoiningSelectionFirstIndex(theForm);
+
+       	if (firstIndex == 0) {
+       		extAlert(errorAlertTitle, canNotIndentFirstTaskMessage , Ext.MessageBox.ERROR);
+            return;
+   	    }
+    	submitParameter('{"action":"indent", "taskId":"'+ getSelections(theForm, ',')+'","parentTask":"'+theForm.selected[firstIndex-1].value+'"}');
+	}
+}
+
+function unindent(){
+    if (!theForm.selected || !theForm.selected[0]) {
+        return;
+    }
+    // Ensure one or more tiems selected
+	    if (verifySelection(theForm, 'multi', noSelectionErrorMessage)) {
+	    	var selectedTaskIds = getSelections(theForm, ',');
+        	selectedTaskIds = selectedTaskIds.substring(0,selectedTaskIds.lastIndexOf(',')).split(',');
+       		var isOk = true;
+	        for(var index = 0; index < selectedTaskIds.length; index++){
+	        	if( document.getElementById(selectedTaskIds[index]).getAttribute('level') == '1'){
+	        		extAlert(errorAlertTitle, canNotUnindentTaskMsg , Ext.MessageBox.ERROR);
+	        		isOk = false;
+	        	}
+	        }
+	        if(isOk){
+		    	submitParameter('{"action":"unindent", "taskId":"'+ getSelections(theForm, ',')+'"}');
+		    }		
+	    }
+}
+
+function linkTasks() {
+    if (!theForm.selected) {
+        return;
+    }
+
+    if (verifySelection(theForm, 'multionly', '', '', multipleSelectionRequiredMessage)) {
+    	submitParameter('{"action":"linktask", "taskId":"'+ getSelections(theForm, ',')+'"}');
+    }
+}
+
+function unlinkTasks() {
+    if (!theForm.selected) {
+        return;
+    }
+    if (verifySelection(theForm, 'multionly', '', '', multipleSelectionRequiredMessage)) {
+    	submitParameter('{"action":"unlinktask", "taskId":"'+ getSelections(theForm, ',')+'"}');
+    }
+}
+
+function importMSP() {
+    var theLocation = JSPRootURL + "/servlet/ImportController/ChooseFile?module=60&action=2";
+    self.location = theLocation;
+}
+
+function exportMSP() {
+    var theLocation = JSPRootURL + "/servlet/ImportController/ExportXml?module=60&action=2";
+    self.location = theLocation;
+}
+
+function recalculate(){
+   	submitParameter('{"action":"recalculate"}');
+}
+
+// check or uncheck all Task checkbox
+function allTasksChecked(checkbox) {
+	if (checkbox.checked) {
+		if (checkbox.checked) {
+		filterForm.showLateTasks.checked = false;
+	    filterForm.showComingDue.checked = false;
+	    filterForm.showUnassigned.checked = false;
+	    filterForm.showAssignedToUser.checked = false;
+	    filterForm.showOnCriticalPath.checked = false;
+	    filterForm.showShouldHaveStarted.checked = false;
+	    filterForm.showStartedAfterPlannedStart.checked = false;
+	}
+	}
+}
+
+function unCheckAllTask(checkbox) {
+	if (checkbox.checked) {
+		filterForm.showAllTasks.checked = false;
+	}
+}
+
+function showUserList(checkbox) {
+	if (checkbox.checked) {
+	   	document.getElementById("user-list").style.display = '';
+	} else {
+		document.getElementById("user-list").style.display = 'none';
+	}
+}
+      
+function scheduleProperty(){
+    self.location = JSPRootURL+"/schedule/properties/ScheduleProperties.jsp?action=2&module=60";
+}  
+
+// Hide wiki sub menu if opened
+document.onclick = function(e) {
+	var type = e ? e.target : window.event.srcElement;
+	if(document.getElementById('wikiSubMenu') && type != document.getElementById('wikiMenuLink') && document.getElementById('wikiSubMenu').style.display == ''){
+		document.getElementById('wikiSubMenu').style.display = 'none';
+		document.getElementById('wikiMenuLink').onclick = new Function('showWikiSubMenu(true)');
+		document.getElementById('wikiMenuImg').onclick = new Function('showWikiSubMenu(true)');
+	}
+	return true;
+}
+
+//-->   
+</script>
+<script type="text/javascript" src="${jSPRootURL}/src/ScheduleMain.js?${versionNumber}"/>
+<!-- left action bar -->
+<t:ActionBox groupTitle="prm.project.nav.schedule" subTitle="${user.currentSpace.name}"
+			 buttons="import,export,create,modify,remove,notify,add_external,share,security"
+			 caption="	prm.schedule.main.importxml,         
+					  	prm.schedule.main.exportxml,         
+					  	prm.schedule.main.create.tooltip,  
+						prm.schedule.main.modify.tooltip,   
+						prm.schedule.main.delete.tooltip,    
+						prm.schedule.main.notify.tooltip, , , " 
+			type="schedule" typeTitle="${scheduleDecorator.scheduleToolBoxHeading}"/>
+
+<!-- Drop Zone indicator -->
+<div id="dropIndicator">
+	<img src="${asset:context:/images/default/grid/col-move-top.gif}" align="absmiddle"/>
+</div>
+
+<!-- Dependencies Popup -->
+<div id="depPopup" class="schedule-popup"></div>
+
+<!-- Resources Popup -->
+<div id="resPopup" class="schedule-popup"></div>
+
+<div id="pnettabset" class="tap5c_tab-set">
+<div onselectstart="return false" class="tap5c_tab-set-panel activated disableSelection" id="panel_Schedule" onclick="activate_tab('panel_Schedule');"><div class="tab-text"><t:Message value="prm.schedule.taskview.tab.schedule.caption"/></div></div>
+<div onselectstart="return false" class="tap5c_tab-set-panel deactivated disableSelection" id="panel_Gantt View" onclick="activate_tab('panel_Gantt View');"><div class="tab-text"><t:Message value="prm.schedule.taskview.tab.ganttview.caption"/></div></div>
+<div onselectstart="return false" class="tap5c_tab-set-panel deactivated disableSelection hidden" id="panel_Flat View" onclick="activate_tab('panel_Flat View');"><div class="tab-text"><t:Message value="prm.schedule.taskview.tab.flatview.caption"/></div></div>
+<div class="tap5c_tab-set-content">
+	<div class="tap5c_slidingpanel tabContentWidth" id="slidingpanel">
+	<div class="tap5c_slidingPanelSubject" id="slidingpanel_subject"> 
+		<div id="slidingpanel-toolbar" class="right-tabs-bg">
+			<table width="100%">
+				<tr>
+					<td nowrap="nowrap" class="twopane-toolbar-data"><a class="wlink" href="javascript: toggleSlidingPanel();"><t:Message value="prm.schedule.taskview.link.filters.label"/></a></td> 
+					<td nowrap="nowrap" class="twopane-toolbar-data" style="width: 15px"><div class="tap5c_slidingPanelSubject-toggler" id="slidingpanel_toggler" onclick="toggleSlidingPanel();"></div></td>
+					<td nowrap="nowrap" class="twopane-toolbar-data" id="spacer"></td> 
+					<td nowrap="nowrap" class="twopane-toolbar-data" id="epandall_all_link"><div class="expand_allicon" onclick="expand_all()" title="${scheduleDecorator.expandAllTitle}"></div></td> 
+					<td nowrap="nowrap" class="twopane-toolbar-data" id="collaspe_all_link"><div class="collapse_allicon" onclick="collapse_all()" title="${scheduleDecorator.collapseAllTitle}"></div></td> 
+					<td nowrap="nowrap" class="twopane-toolbar-data" id="quick_add_link"><div class="quick_addicon" onclick="quick_add()" title="${scheduleDecorator.quickAddTitle}"></div></td> 
+					<td nowrap="nowrap" class="twopane-toolbar-data" id="column_settings_link"><div class="column_settingicon" onclick="openCustomizeColumnPopup()" title="${scheduleDecorator.columnSettingsTitle}"></div></td>
+					<td width="100%"></td>
+				</tr>
+			</table>
+		</div>
+		<div id="rightTabSet" class="right-tabs-bg" style="display:none;">	
+			<div class="right-tab active-right-tab" id="blog-tab" onclick="activate_rightTab('blog-tab')">	
+				<t:Message value="prm.schedule.taskview.tab.blogs.caption"/>
+			</div>
+			<div class="right-tab deactive-right-tab" id="wiki-tab" onclick="activate_rightTab('wiki-tab')">	
+				<t:Message value="prm.schedule.taskview.tab.wiki.caption"/>
+			</div>
+			<div class="right-tab deactive-right-tab" id="detail-tab" onclick="activate_rightTab('detail-tab')">
+				<t:Message value="prm.twopaneview.tab.detail.caption"/>
+			</div>
+			<div id="right-tab-scroll" class="right-tabs-bg disableSelection" onselectstart="return false" style="float: right;">
+				<div id="right-tab-scroll-previous" onclick="scrollRightTabSet('pre');"></div>
+				<div id="right-tab-scroll-next" onclick="scrollRightTabSet('next');"></div>
+			</div>
+		</div>
+	</div>
+	<div class="tap5c_slidingPanelContent tabContentWidth" id="slidingpanel_content" style="display: none;">
+	<span>
+	    <div id="workplan-filter">
+			<form name="fForm" >
+				<!-- schedule filters -->
+				<table width="100%" cellpadding="0" cellspacing="0" border="0" style="padding-top:5px;">
+					<tr>
+						<!-- Left Side Content -->
+						<td width="50%" class="filtermain-left-cell">
+							<table cellpadding="0" cellspacing="0" border="0" width="100%">
+								<!-- Start Date Range -->
+								<tr>
+									<td class="label-cell top-padding-cell"><t:Message value="prm.schedule.main.startdatefilter.label"/></td>
+									<td class="top-padding-cell" width="37%" style="padding-left:1px;">
+										<div class="date-div">
+										<input type="text" name="startDateFilterStart" id="startDateFilterStart" size="10" maxlength="10" class="datefilter-tb-style" value="${user.dateFormatter.dateFormatExample}" 
+										onblur="javascript:changeStartDateText();" onfocus="javascript:setStartDateFrom();"/>
+										<img src="${asset:context:/images/schedule/constraint.gif}" align="absmiddle" onclick="autoDate('startDateFilterStart', '${jSPRootURL}')" class="filter-calendar-img"/>
+										</div>
+									</td>
+									<td class="filter-date-separator" width="1%"><hr class="date-separator-line" /> </td>
+									<td style="padding-right:5px;" width="37%">
+									<div class="date-div">
+										<input type="text" name="startDateFilterEnd" id="startDateFilterEnd" size="10" maxlength="10" class="datefilter-tb-style" value="${user.dateFormatter.dateFormatExample}" 
+										onblur="javascript:changeStartDateText();" onfocus="javascript:setStartDateTo();"/>
+										<img src="${asset:context:/images/schedule/constraint.gif}" align="absmiddle" onclick="autoDate('startDateFilterEnd', '${jSPRootURL}')" class="filter-calendar-img"/>
+									</div>	
+									</td>
+								</tr>
+								<!-- End Date Range -->
+								<tr>
+									<td class="label-cell top-padding-innercell"><t:Message value="prm.schedule.main.enddatefilter.label"/></td>
+									<td class="top-padding-innercell" width="37%" style="padding-left:1px;">
+										<div class="date-div">
+											<input type="text" name="endDateFilterStart" id="endDateFilterStart" size="10" maxlength="10" class="datefilter-tb-style" value="${user.dateFormatter.dateFormatExample}"
+											onblur="javascript:changeEndDateText();" onfocus="javascript:setEndDateFrom();"/>
+											<img src="${asset:context:/images/schedule/constraint.gif}" align="absmiddle" onclick="autoDate('endDateFilterStart', '${jSPRootURL}')" class="filter-calendar-img"/>
+										</div>
+									</td>
+									<td class="filter-date-separator" width="1%"><hr class="date-separator-line" /></td>
+									<td style="padding-right:5px;" width="37%">
+										<div class="date-div">
+											<input type="text" name="endDateFilterEnd" id="endDateFilterEnd" size="10" maxlength="10" class="datefilter-tb-style" value="${user.dateFormatter.dateFormatExample}"
+											onblur="javascript:changeEndDateText();" onfocus="javascript:setEndDateTo();"/>
+											<img src="${asset:context:/images/schedule/constraint.gif}" align="absmiddle" onclick="autoDate('endDateFilterEnd', '${jSPRootURL}')" class="filter-calendar-img"/>
+										</div>
+									</td>
+								</tr>
+								<!-- Task Name -->
+								<tr>
+									<td class="label-cell top-padding-innercell"><t:Message value="prm.schedule.main.taskname.label"/></td>
+									<td class="top-padding-innercell" width="20%">
+										<select name="taskNameComparator" class="compact-combo">
+											<t:OutputRaw value="filterManager.taskNameComparatorModel"/>
+										</select>
+									</td>
+									<td colspan="2" class="top-padding-innercell" style="padding-left:5px;" width="53%">
+										<input type="text"  name="taskName" size="20" maxlength="20"  class="filter-tb-style"/>
+									</td>
+								</tr>
+								<!-- Work Percent Complete -->
+								<tr>
+										<td class="label-cell top-padding-innercell"><t:Message value="prm.schedule.main.workpercentcomplete.label"/></td>
+										<td class="top-padding-innercell">
+											<select name="workPercentCompleteComparator" class="compact-combo">
+								               	<t:OutputRaw value="filterManager.workPercentCompleteComparatorModel"/>
+								            </select>
+										</td>
+										<td colspan="2" class="top-padding-innercell" style="padding-left:5px;">
+											 <input type="text" name="workPercentComplete" size="20" maxlength="5" class="filter-tb-style"/>
+										</td>
+								</tr>
+								<!-- Task Type -->	
+								<tr>
+									<td class="label-cell top-padding-innercell"><t:Message value="prm.schedule.main.type.label"/></td>
+									<td class="top-padding-innercell" colspan="3">
+										<select name="taskType" class="large-combo">
+							               <option value="all"><t:Message value="prm.schedule.main.type.option.all.name"/></option>
+					    	               <option value="milestone"><t:Message value="prm.schedule.main.type.option.milestone.name"/></option>
+					        	           <option value="task"><t:Message value="prm.schedule.main.type.option.task.name"/></option>
+						               </select>
+									</td>
+								</tr>
+								<!-- Phase -->								
+								<tr>
+									<td class="label-cell top-padding-innercell"><t:Message value="prm.schedule.main.phase.label"/></td>
+									<td class="top-padding-innercell" colspan="3">
+										<select name="selectedPhaseId" blankOption="never" class="large-combo">
+											<t:OutputRaw value="filterManager.phaseModel"/>
+										</select>
+									</td>
+								</tr>
+							</table>
+						</td>
+						
+						<!-- Right Side Content -->
+						<td width="50%" class="right-filtercell">
+							<table cellpadding="0" cellspacing="0" border="0" width="100%">
+								<!-- Show Task Label -->
+								<tr>
+									<td colspan="2" class="label-cell"><t:Message value="prm.schedule.main.filtercheckboxes.header.label"/></td>
+								</tr>
+								<!-- All and Critical Path CheckBox -->								
+								<tr>
+									<td width="40%" class="right-label-cell">
+										<input type="checkbox" name="showAllTasks" checked="checked" onclick="allTasksChecked(this);" />&nbsp;<t:Message value="prm.schedule.main.alltasks.label"/>
+									</td>
+									<td width="60%" class="right-label-cell">
+										<input type="checkbox" name="showOnCriticalPath" onclick="unCheckAllTask(this);"/>&nbsp;<t:Message value="prm.schedule.main.tasksonthecriticalpath.label"/>
+									</td>
+								</tr>
+								<!-- Late and Should Have Started CheckBox -->
+								<tr>
+									<td width="40%" class="right-label-cell">
+										<input type="checkbox" name="showLateTasks"  onclick="unCheckAllTask(this);" />&nbsp;<t:Message value="prm.schedule.main.latetasks.label"/>
+									</td>
+									<td width="60%" class="right-label-cell">
+										<input type="checkbox" name="showShouldHaveStarted" onclick="unCheckAllTask(this);" />&nbsp;<t:Message value="prm.schedule.main.tasksshouldhavestarted.label"/>
+									</td>
+								</tr>
+								<!-- Coming Due and Started After Planned Start CheckBox -->								
+								<tr>
+									<td width="40%" class="right-label-cell">
+										<input type="checkbox" name="showComingDue"  onclick="unCheckAllTask(this);" />&nbsp;<t:Message value="prm.schedule.main.taskscomingdue.label"/>
+									</td>
+									<td width="60%" class="right-label-cell">
+										<input type="checkbox" name="showStartedAfterPlannedStart" onclick="unCheckAllTask(this);" />&nbsp;<t:Message value="prm.schedule.main.tasksstartedafterplannedstart.label"/>
+									</td>
+								</tr>
+								<!-- Unassigned CheckBox -->
+								<tr>
+									<td width="40%" class="right-label-cell">
+										<input type="checkbox" name="showUnassigned" onclick="unCheckAllTask(this);" />&nbsp;<t:Message value="prm.schedule.main.unassignedtasks.label"/>
+									</td>
+									<td width="60%" class="right-label-cell">
+									</td>
+								</tr>
+								<!-- Assigned User CheckBox and User list -->								
+								<tr>
+									<td colspan="2">
+										<table cellpadding="0" cellspacing="0" border="0" width="100%">
+										<tr>
+											<td width="30%" class="right-label-cell">
+												 <input type="checkbox" name="showAssignedToUser" onclick="showUserList(this);unCheckAllTask(this);" />&nbsp;<t:Message value="prm.schedule.main.showtasksassignedtouser.label"/>
+											</td>
+											<td class="right-label-cell" style="padding-left: 5px;">
+												<div id="user-list" style="display:none;">
+									               <select name="assignedUser" class="large-combo">
+									               		<t:OutputRaw value="filterManager.assignedUserModel"/>
+									               </select>
+												</div>
+											</td>
+										</tr>
+										</table>
+									</td>
+								</tr>
+								<!-- Clear All and Apply Button -->
+								<tr>
+									<td width="40%" class="right-label-cell right-top-padding" align="right">
+										<input type="button" class="filter-button" value="${scheduleDecorator.clearFiltersLabel}" onclick="clearFilter();"/>
+									</td>
+									<td width="60%" class="right-label-cell left-top-padding">
+										<input type="button" class="filter-button" value="${scheduleDecorator.applyFilterLabel}" onclick="applyFilter();"/> 
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</form>
+		</div>
+	</span>
+	</div>
+	</div>
+<!--Schedule tab-->
+	<div id="Schedule" class="tabContentHeight two-pane-tabs" onmousemove="getPos(event)" >
+		<table width="100%" cellpadding="0" cellspacing="0" id="schedule-table">
+			<tr>
+			<td id="taskList" valign="top" height="80%" width="90%">
+			<div id="task-list-container">
+				<div id="task-list-header" class="task-header-div">
+					<table id="task-list-table-container-header" width="${taskLstTableContainerWidth}" cellpadding="0" cellspacing="0">
+						<tr>
+							<td>
+								<table cellspacing="0" id="taskListTable-header" class="resizable draggable disableSelection" cellpadding="0">
+									<!--table header rendering-->
+									<thead>
+										<tr class="tableHeader" align="left" id="task-list-row">
+											<t:loop source="schedule.taskList.scheduleColumn.scheduleColumnList" value="col">
+											<t:if test="col.visible">
+											<th width="${col.width}" id="thd_${col.columnId}" columnId="${col.columnId}" dragable="${col.dragable}" class="workPlanHeaderTd" onmouseover="moh(this);TableKit.Resizable.initDetect(event);" onmouseout="muh(this);TableKit.Resizable.killDetect(event);">
+												<div class="div_thd_${col.columnId} ${col.style}" id="thd_${col.columnId}_divId" style="cursor: default;" onmousedown="javascript:dragtable.dragStart(event)" onclick="${col.sortJSCall}">
+													&nbsp;<t:OutputRaw value="col.header"/> <img align="absmiddle" src="${jSPRootURL}/s.gif" class="invisible" width="12" height="12" id="sort-img-${col.defaultSequence}" />
+												</div>
+											</th>
+											</t:if>
+											</t:loop>
+										</tr>
+									</thead>
+								</table>
+							</td>
+						</tr>
+					</table>
+				</div>
+				
+				<div id="task-list" onselectstart="return false" onscroll="onScrollStart();scrollHeader('task-list-header', 'task-list')">
+					<form name="taskList" action="${jSPRootURL}/servlet/ScheduleController" method="post" onsubmit="javascript:return verifyAction();" mehtod="post">
+					<input type="hidden" name="action"/>
+					<input type="hidden" name="module" value="${scheduleModule}"/>
+					<input type="hidden" name="theAction"/>
+					<input type="hidden" name="id"/>
+					<table id="task-list-table-container" width="${taskLstTableContainerWidth}" cellpadding="0" cellspacing="0">
+					<tr>
+					<td>
+					<table cellspacing="0" id="taskListTable" name="tableWithEvenRows"  class="disableSelection" cellpadding="0">
+					<!--table header rendering-->
+					<tr class="tableHeader" align="left" id="task-list-inner-row">
+						<input name="changeCheckedState" style="display:none;" onclick="changeSelection();" type="checkbox"/>
+						<t:loop source="schedule.taskList.scheduleColumn.scheduleColumnList" value="col">
+							<t:if test="col.visible">
+								<th width="${col.width}" id="thd_${col.columnId}_scroll" columnId="${col.columnId}" dragable="${col.dragable}" class="workPlanHeaderTd">
+									<div class="div_thd_${col.columnId} ${col.style}" id="thd_${col.columnId}_scroll_divId" style="cursor: default;">
+										&nbsp;
+									</div>
+								</th>
+							</t:if>
+						</t:loop>
+					</tr>
+					<!--table row rendering-->
+					<t:loop source="schedule.taskList.sequencedTaskListRow" value="row">
+						<tr id="${row.scheduleEntry.ID}" class="tableContent ${row.scheduleEntry.rowClass} ${row.scheduleEntry.summaryTaskCss} ${row.scheduleEntry.treeVisibilityClass} ${row.scheduleEntry.evenEntryCss}" level="${row.scheduleEntry.hierarchyLevel}" kidsShown = "${row.scheduleEntry.expanded}" entryType="${row.scheduleEntry.type}" onclick="b(this,'${row.scheduleEntry.ID}','${row.scheduleEntry.type}');" ondblclick="p(${row.scheduleEntry.ID});" onmouseover="mo(this);" onmouseout="mu(this)">
+							<!--table data rendering-->
+							<input type="checkbox" value="${row.scheduleEntry.ID}" style="display:none" name="selected" id="chk_${row.scheduleEntry.ID}"/>
+							<t:loop source="row.scheduleColumns" value="col">
+								<t:if test="col.visible">
+									<td nowrap="nowrap" id="td_${col.columnAbbr}_${col.id}">
+										<div class="div_thd_${col.columnId} ${col.style}" id="${col.columnAbbr}_${col.id}" onclick="${col.onClick}">
+											<t:if test="col.value">
+												<t:OutputRaw value="col.value"/>
+												<t:parameter name="else">
+													&nbsp;
+												</t:parameter>
+											</t:if>
+										</div>
+									</td>
+								</t:if>
+								<t:if test="col.hiddenField">
+									<t:OutputRaw value="col.hiddenField"/>
+								</t:if>
+							</t:loop>	
+						</tr>
+					</t:loop>
+					</table>
+					</td>
+					</tr>
+					</table>
+					</form>
+				</div><!--	closing of schedule task-list div-->
+				</div>
+				<div onmousedown="setPos(event)" id="splitterBar" class="splitter-bar splitterHeight" style="display:none;">
+					<table height="100%" cellspacing="0" cellpadding="0" valign="middle">
+						<tr><td><img onclick="toggleRightPanel(true);" style="cursor:pointer;" title="${scheduleDecorator.splitterCloseTooltip}" src="${jSPRootURL}/images/project/close.gif"/></td></tr>
+					</table>
+				</div>
+				<div id="splitterBarShadow" class="splitter-bar splitterHeight" style="display:none;"></div>
+				<div id="button-bar" class="button-bar-workplan" style="display:none;">
+					<table align="center">
+						<tr>
+							<td nowrap="nowrap" width="1"><button id="saveButton" class="button" onclick="saveScheduleChanges();"><t:Message value="prm.schedule.taskview.button.submit.caption"/></button></td>
+							<td nowrap="nowrap" width="1"><button id="quickButton" class="button" style="display:none;" onclick="saveNewTask();"><t:Message value="prm.schedule.taskview.button.add.caption"/></button></td>
+							<td nowrap="nowrap" width="1"><button id="revertButton" class="button"  onclick="revert();"><t:Message value="prm.schedule.taskview.button.cancel.caption"/></button></td>
+							<td nowrap="nowrap" width="1"><button id="recalculateButton" class="button"  onclick="recalculateModified();"><t:Message value="prm.schedule.taskview.button.recalculate.caption"/></button></td>
+						</tr>
+					</table>
+				</div>
+			</td><!--	closing of schedule tasklist td-->
+	
+			<td width="10%" id="blogsDiv" valign="top" height="80%">
+		    	<table id="blogsExpanded" width="100%" height="100%" cellpadding="0" cellspacing="0" style="display: none;">
+			        <tr>
+			        	<td valign="top" align="right" id="tabsColumn">
+							<div id="taskBlogDivRight" class="disableSelection tabContentHeight" style="overflow: hidden;" onselectstart="return false;">			        		
+			        			<div class="two-pane-right-top" id="blogDivTop">
+			        				<t:Message value="prm.schedule.blog.selecttask.message"/>
+			        			</div>
+			        			<div id="blog-tab-paging" style="display: none;"></div>
+			        			<div id="blogDivBody" class="two-pane-mini-tab-content"></div>
+			        		
+			        		</div>
+			        		<div id="taskWikiDivRight" class="disableSelection tabContentHeight" style="display: none;overflow: auto" onselectstart="return false;">
+			        			<div class="two-pane-right-top" id="wikiDivTop"><t:Message value="prm.schedule.wiki.selecttask.message"/></div>
+			        			<div id="wikiDivBody" class="two-pane-mini-tab-content"></div>
+			        		</div>
+			        		<div id="wikiMenu" style="display: none;">
+			        			<a class="wlink" id="wikiMenuLink" onclick="showWikiSubMenu(true)">
+			        				<t:Message value="prm.wiki.tab.menu.caption" />&nbsp;<img src="${asset:context:/images/default/grid/sort_asc.gif}" id="wikiMenuImg" onclick="showWikiSubMenu(true)"/>
+			        			</a>
+			        		</div>
+			        		<div id="taskDetailsDivRight" class="disableSelection TabContentHeight two-pane-mini-tab-content" style="display: none;overflow: auto" onselectstart="return false;">
+			        			<div class="two-pane-right-top"><t:Message value="prm.twopaneview.detail.selecttask.message"/></div>
+			        		</div>
+				        </td>
+					</tr>
+		        </table>
+		        <table id="blogsCollapsed" height="450" cellspacing="0" cellpadding="0" valign="middle">
+					<tr><td valign="middle" class="right-pane-closed" height="100%"><img onclick="toggleRightPanel(false);" style="cursor:pointer;" title="${scheduleDecorator.splitterOpenTooltip}" src="${jSPRootURL}/images/project/open.gif"/></td></tr>
+				</table>
+			</td><!--	closing of schedule blog td-->
+			</tr><!--	closing of schedule tr-->
+		</table><!--	closing of schedule table-->
+	</div><!--	closing of schedule div-->
+
+	<!--	Gantt View tab-->
+	<div id="Gantt View" class="TabContentHeight two-pane-tabs" style="display:none;">
+    </div>
+    
+    <!--	Flat View tab-->
+	<div id="Flat View" class="TabContentHeight two-pane-tabs" style="display:none;">
+    </div>
+    
+    <div id="bottom-bar" class="tabContentWidth">
+		<div id="schedule_info_div">
+	   		<table id="schedule_info_table"> 
+				<tr>
+					<td nowrap="nowrap"><t:Message value="prm.schedule.main.schedulestartdate.label"/>&nbsp;<b><span id="startDateStatus"><t:OutputRaw value="taskListPage.schedule.scheduleStartDateString"/></span></b></td>
+					<td nowrap="nowrap"><t:Message value="prm.schedule.main.scheduleenddate.label"/>&nbsp;<b><span id="endDateStatus"><t:OutputRaw value="taskListPage.schedule.scheduleEndDateString"/></span></b></td>
+					<td nowrap="nowrap"><t:Message value="prm.schedule.main.taskcount.label"/>&nbsp;<b><span id="taskCountStatus"><t:OutputRaw value="taskListPage.schedule.schedueEntrieCountString"/></span></b></td>
+					<td nowrap="nowrap"><t:Message value="prm.schedule.main.work.label"/>&nbsp;<b><span id="workStatus"><t:OutputRaw value="taskListPage.schedule.SchedueWorkSummaryString"/></span></b></td>
+					<t:if test="defaultBaseline">
+						<td nowrap="nowrap"><t:Message value="prm.schedule.properties.baseline"/>:&nbsp;<b><span id="workStatus"><t:OutputRaw value="defaultBaseline"/></span></b></td>
+					</t:if>
+					<td nowrap="nowrap">&nbsp;</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+</div>
+</div>
+<div id="wikiSubMenu" style="display: none;">
+	<table cellpadding="0" cellspacing="5" width="100%" id="wikiMenuTable">
+		<tr onmouseover="this.className='wikiMenuHover'" onmouseout="this.className='wikiMenuOut'" onclick="javascript:function disable(){}" id="backPageIndex">
+			<td><t:Message value="prm.wiki.tab.backtopage.menu.caption" /></td>
+		</tr>
+		<tr class="row_separator">
+			<td></td>
+		</tr>
+		<tr onmouseover="this.className='wikiMenuHover'" onmouseout="this.className='wikiMenuOut'" onclick="javascript:function disable(){}" id="editWikiPage">
+			<td><t:Message value="prm.wiki.tab.edit.menu.caption" /></td>
+		</tr>
+		<tr class="row_separator">
+			<td></td>
+		</tr>
+		<tr onmouseover="this.className='wikiMenuHover'" onmouseout="this.className='wikiMenuOut'" onclick="javascript:function disable(){}" id="cancelWikiPage">
+			<td><t:Message value="prm.wiki.tab.cancel.menu.caption" /></td>
+		</tr>
+		<tr class="row_separator">
+			<td></td>
+		</tr>
+		<tr onmouseover="this.className='wikiMenuHover'" onmouseout="this.className='wikiMenuOut'" onclick="javascript:function disable(){}" id="assignSelected">
+			<td><t:Message value="prm.wiki.tab.assignpagetotask.menu.caption" /></td>
+		</tr>
+	</table>
+</div>
+
+<script type="text/javascript" src="${jSPRootURL}/src/workplanResizer.js?${versionNumber}"/>
+</t:PnetLayout>

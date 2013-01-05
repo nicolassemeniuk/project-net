@@ -1,0 +1,25 @@
+#canceling a checkout after a check out has been made
+function undoCheckOut(in folderName,in fileName){
+	auto docID, urlValue, path_array[], elements;
+
+	reload("getDocumentID",0,1);
+	docID = getDocumentID(fileName);
+	
+	#saving the Document ID to the GUI map
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui","main","selected","part_value",docID)!=E_OK)
+		report_msg("NOT OK1");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+	
+	set_window("main",2);
+	web_link_click(folderName);
+	wait(1);
+	button_set("selected",ON);
+	wait(1);
+	web_link_click("Undo Check Out");#undoing the checkout from the toolbar button
+	wait(1);
+	set_window("Document Undo Checkout",2);
+	web_link_click("Yes");
+	wait(1);
+	set_window("main",1);
+}

@@ -1,0 +1,197 @@
+<!DOCTYPE etl SYSTEM "http://scriptella.javaforge.com/dtd/etl.dtd">
+<etl>
+    <description>Database creation script</description>
+    <properties>
+        <include href="dbinit.properties"/>
+    </properties>
+    <connection driver="${driver}" url="${url}" user="${PNET_BUILD_USER_NAME}" password="${PNET_BUILD_USER_PASSWORD}">
+    plsql=true
+    </connection>
+	
+	<script>
+    	<include href="${ADMINPATH}views/pn_baseline_task.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_bookmark_view.vw"/>
+    </script>
+    
+	<script>
+    	<include href="${ADMINPATH}views/pn_business_view.vw"/>
+    </script>
+
+    <script>
+    	<include href="${ADMINPATH}views/pn_business_space_view.vw"/>
+    </script>
+    
+	<script>
+    	<include href="${ADMINPATH}views/pn_class_inst_active_cnt_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_current_task_version.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_doc_by_space_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_doc_container_objects_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_doc_container_list_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_doc_content_elements_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_doc_deleted_by_space_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_doc_del_container_list_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_doc_del_history_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_doc_del_version_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_doc_history_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_doc_version_view.vw"/>
+    </script>
+	
+	<script>
+    	<include href="${ADMINPATH}views/pn_envelope_active_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_envelope_version_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_workflow_envelope_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_envelope_has_object_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_envelope_stepperson_x1_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_envelope_step_person_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_envelope_has_person_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_envelope_history_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_forms_history_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_group_member_count_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_group_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_methodology_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_methodology_by_user_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_methodology_by_user_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_news_history_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_news_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_person_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_phase_has_task_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_portfolio_has_projects_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_portfolio_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_project_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_space_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_task_history_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_user_domain_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_user_view.vw"/>
+    </script>
+	
+	<script>
+    	<include href="${ADMINPATH}views/pn_wf_step_has_group_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_workflow_rule_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_workflow_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_workflow_step_view.vw"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}views/pn_workflow_transition_view.vw"/>
+		COMMIT
+		/
+    </script>
+
+</etl>

@@ -1,0 +1,402 @@
+<projects Name="Projects" ProjectId="root">
+<Project Name="RMS Master Server" Level="1" Folder="/RMS Master Server" selected="false" ProjectId="5803836">
+	</Project>
+<Project Name="RMS NAM Sherpa Move" Level="1" Folder="/RMS NAM Sherpa Move" selected="false" ProjectId="4943632">
+	</Project>
+<Project Name="ROI/LiveMeeting" Level="1" Folder="/ROI LiveMeeting" selected="false" ProjectId="11092362">
+	</Project>
+<Project Name="ROMGAZ FILITELNIC FIELD EXPANSION" Level="1" Folder="/ROMGAZ FILITELNIC FIELD EXPANSION" selected="false" ProjectId="10405857">
+	</Project>
+<Project Name="ROMTELECOM ROMANIA" Level="1" Folder="/ROMTELECOM ROMANIA" selected="false" ProjectId="2244206">
+	</Project>
+<Project Name="ROSNEFT - North Komosomolskaya pre-tender inquiry" Level="1" Folder="/ROSNEFT - North Komosomolskaya pre-tender inquiry" selected="false" ProjectId="574761">
+	</Project>
+<Project Name="RPM (Swordfish) - Field Testing and Deployment" Level="1" Folder="/RPM Swordfish - Field Testing and Deployment" selected="false" ProjectId="3589704">
+	</Project>
+<Project Name="RPS Implementation Saudi" Level="1" Folder="/RPS Implementation Saudi" selected="false" ProjectId="2078008">
+	</Project>
+<Project Name="RS - Casabe" Level="1" Folder="/RS - Casabe" selected="false" ProjectId="8144870">
+	</Project>
+<Project Name="RS Dubai Internal Action List" Level="1" Folder="/RS Dubai Internal Action List" selected="false" ProjectId="1772960">
+<Project Name="Data &amp; Consulting Services  " Level="2" Folder="/RS Dubai Internal Action List/Data  Consulting Services  " selected="false" ProjectId="2491269">
+	</Project>
+<Project Name="Petrel Workflow Tools" Level="2" Folder="/RS Dubai Internal Action List/Petrel Workflow Tools" selected="false" ProjectId="2492809">
+	</Project>
+	</Project>
+<Project Name="RS pnet training" Level="1" Folder="/RS pnet training" selected="false" ProjectId="6342766">
+	</Project>
+<Project Name="RS1" Level="1" Folder="/RS1" selected="false" ProjectId="3530622">
+	</Project>
+<Project Name="RSG CBM PromGas" Level="1" Folder="/RSG CBM PromGas" selected="false" ProjectId="3887300">
+	</Project>
+<Project Name="RSG CS Group Management" Level="1" Folder="/RSG CS Group Management" selected="false" ProjectId="4311645">
+	</Project>
+<Project Name="RSG Chukotka Andandyr Basin Study" Level="1" Folder="/RSG Chukotka Andandyr Basin Study" selected="false" ProjectId="6070270">
+	</Project>
+<Project Name="RSG IM &amp; Project Management" Level="1" Folder="/RSG IM  Project Management" selected="false" ProjectId="1062508">
+	</Project>
+<Project Name="RSG Sidanco Chetyro K" Level="1" Folder="/RSG Sidanco Chetyro K" selected="false" ProjectId="3887272">
+	</Project>
+<Project Name="RSG Sidanco Samatlor" Level="1" Folder="/RSG Sidanco Samatlor" selected="false" ProjectId="3887222">
+	</Project>
+<Project Name="RSG Sidanco Thermal" Level="1" Folder="/RSG Sidanco Thermal" selected="false" ProjectId="3887175">
+	</Project>
+<Project Name="RSG Stimul" Level="1" Folder="/RSG Stimul" selected="false" ProjectId="3886010">
+	</Project>
+<Project Name="RSG Yamal" Level="1" Folder="/RSG Yamal" selected="false" ProjectId="3887159">
+	</Project>
+<Project Name="RSG-Rosneft-Val Gamburtzeva field study" Level="1" Folder="/RSG-Rosneft-Val Gamburtzeva field study" selected="false" ProjectId="5714159">
+	</Project>
+<Project Name="RSG-RussNeft-Valyuninskoe FDP" Level="1" Folder="/RSG-RussNeft-Valyuninskoe FDP" selected="false" ProjectId="6005233">
+	</Project>
+<Project Name="RSH Internal Review" Level="1" Folder="/RSH Internal Review" selected="false" ProjectId="2209647">
+	</Project>
+<Project Name="RTC Common Data Base" Level="1" Folder="/RTC Common Data Base" selected="false" ProjectId="14275280">
+	</Project>
+<Project Name="RTC Common Presentation Database" Level="1" Folder="/RTC Common Presentation Database" selected="false" ProjectId="14820435">
+	</Project>
+<Project Name="RTD IPM Engineers quarterly report" Level="1" Folder="/RTD IPM Engineers quarterly report" selected="false" ProjectId="12457395">
+	</Project>
+<Project Name="RTDS Team" Level="1" Folder="/RTDS Team" selected="false" ProjectId="10620081">
+	</Project>
+<Project Name="RTEMS Network Audit" Level="1" Folder="/RTEMS Network Audit" selected="false" ProjectId="1367458">
+	</Project>
+<Project Name="RTP FS CVX Alba" Level="1" Folder="/RTP FS CVX Alba" selected="false" ProjectId="6350080">
+	</Project>
+<Project Name="RTP FS El Paso Holly" Level="1" Folder="/RTP FS El Paso Holly" selected="false" ProjectId="6349831">
+	</Project>
+<Project Name="RTP FS El Paso Samano" Level="1" Folder="/RTP FS El Paso Samano" selected="false" ProjectId="6349886">
+	</Project>
+<Project Name="RTP FS KMG S.Texas JVE" Level="1" Folder="/RTP FS KMG S.Texas JVE" selected="false" ProjectId="6350041">
+	</Project>
+<Project Name="RTP FS Pemex Burgos" Level="1" Folder="/RTP FS Pemex Burgos" selected="false" ProjectId="6350004">
+	</Project>
+<Project Name="RTP Infrastructure (PRTI)" Level="1" Folder="/RTP Infrastructure PRTI" selected="false" ProjectId="3507041">
+<Project Name="RTP ProductionWatcher WF" Level="2" Folder="/RTP Infrastructure PRTI/RTP ProductionWatcher WF" selected="false" ProjectId="3738636">
+	</Project>
+<Project Name="RTP espWatcher WF" Level="2" Folder="/RTP Infrastructure PRTI/RTP espWatcher WF" selected="false" ProjectId="5125224">
+	</Project>
+	</Project>
+<Project Name="RTP WW KMG Gunnison" Level="1" Folder="/RTP WW KMG Gunnison" selected="false" ProjectId="6349328">
+	</Project>
+<Project Name="RTP WW Total CE" Level="1" Folder="/RTP WW Total CE" selected="false" ProjectId="6349454">
+	</Project>
+<Project Name="RTP WW Westport STIM 316" Level="1" Folder="/RTP WW Westport STIM 316" selected="false" ProjectId="6335403">
+	</Project>
+<Project Name="RTP eW Hyperion" Level="1" Folder="/RTP eW Hyperion" selected="false" ProjectId="6922562">
+	</Project>
+<Project Name="RTR well site reference manual" Level="1" Folder="/RTR well site reference manual" selected="false" ProjectId="13505922">
+	</Project>
+<Project Name="RUP/PLMP template" Level="1" Folder="/RUP PLMP template" selected="false" ProjectId="739928">
+	</Project>
+<Project Name="RUP Template" Level="1" Folder="/RUP Template" selected="false" ProjectId="1657667">
+	</Project>
+<Project Name="RWE MP 15/16" Level="1" Folder="/RWE MP 15 16" selected="false" ProjectId="3650219">
+	</Project>
+<Project Name="RYB-IT-30/03" Level="1" Folder="/RYB-IT-30 03" selected="false" ProjectId="3764711">
+	</Project>
+<Project Name="RYPF Drill 150 - PO Contract Renegotiation" Level="1" Folder="/RYPF Drill 150 - PO Contract Renegotiation" selected="false" ProjectId="11941897">
+	</Project>
+<Project Name="Radia Server Support" Level="1" Folder="/Radia Server Support" selected="false" ProjectId="4943651">
+	</Project>
+<Project Name="Ralf's Test Project" Level="1" Folder="/Ralf's Test Project" selected="false" ProjectId="1476339">
+	</Project>
+<Project Name="Ramco Oil / Montenegro" Level="1" Folder="/Ramco Oil   Montenegro" selected="false" ProjectId="830727">
+	</Project>
+<Project Name="Ramco Seven Heads " Level="1" Folder="/Ramco Seven Heads " selected="false" ProjectId="332523">
+<Project Name="RSH Risk Review" Level="2" Folder="/Ramco Seven Heads /RSH Risk Review" selected="false" ProjectId="679717">
+	</Project>
+<Project Name="SHARE" Level="2" Folder="/Ramco Seven Heads /SHARE" selected="false" ProjectId="904871">
+	</Project>
+<Project Name="Seven Heads Project Team" Level="2" Folder="/Ramco Seven Heads /Seven Heads Project Team" selected="false" ProjectId="1304761">
+	</Project>
+	</Project>
+<Project Name="Rapid Response Projects" Level="1" Folder="/Rapid Response Projects" selected="false" ProjectId="6140578">
+	</Project>
+<Project Name="Rapid X Pampo " Level="1" Folder="/Rapid X Pampo " selected="false" ProjectId="7127644">
+	</Project>
+<Project Name="Ras Fanar Drilling Study" Level="1" Folder="/Ras Fanar Drilling Study" selected="false" ProjectId="1923116">
+	</Project>
+<Project Name="Ras Gharib Integrated Reservoir Study (Dynamic Phase)" Level="1" Folder="/Ras Gharib Integrated Reservoir Study Dynamic Phase" selected="false" ProjectId="11053696">
+	</Project>
+<Project Name="Rave replacement project" Level="1" Folder="/Rave replacement project" selected="false" ProjectId="10813427">
+	</Project>
+<Project Name="Ravenna Bluecoat" Level="1" Folder="/Ravenna Bluecoat" selected="false" ProjectId="11092402">
+	</Project>
+<Project Name="Real Time Integrated Operations - Statoil International" Level="1" Folder="/Real Time Integrated Operations - Statoil International" selected="false" ProjectId="9013424">
+	</Project>
+<Project Name="Real-Time Information" Level="1" Folder="/Real-Time Information" selected="false" ProjectId="5046313">
+	</Project>
+<Project Name="Reception Information System" Level="1" Folder="/Reception Information System" selected="false" ProjectId="10579962">
+	</Project>
+<Project Name="RedaCoil - Cable CT development" Level="1" Folder="/RedaCoil - Cable CT development" selected="false" ProjectId="4868419">
+	</Project>
+<Project Name="Redwood" Level="1" Folder="/Redwood" selected="false" ProjectId="5763219">
+	</Project>
+<Project Name="Reed-Hycalog separation" Level="1" Folder="/Reed-Hycalog separation" selected="false" ProjectId="2340561">
+	</Project>
+<Project Name="Reed-Hycalog separation (EMC)" Level="1" Folder="/Reed-Hycalog separation EMC" selected="false" ProjectId="3077641">
+	</Project>
+<Project Name="Regal" Level="1" Folder="/Regal" selected="false" ProjectId="1833009">
+	</Project>
+<Project Name="Region Norte" Level="1" Folder="/Region Norte" selected="false" ProjectId="9207931">
+	</Project>
+<Project Name="Region Sur" Level="1" Folder="/Region Sur" selected="false" ProjectId="9207911">
+<Project Name="SIOP Database Quality Control" Level="2" Folder="/Region Sur/SIOP Database Quality Control" selected="false" ProjectId="10012969">
+	</Project>
+<Project Name="Wellview- Finder Data Migration" Level="2" Folder="/Region Sur/Wellview- Finder Data Migration" selected="false" ProjectId="9575077">
+	</Project>
+	</Project>
+<Project Name="Regional Geologic site assessment Portfolio" Level="1" Folder="/Regional Geologic site assessment Portfolio" selected="false" ProjectId="15141656">
+	</Project>
+<Project Name="Regulatory Issues" Level="1" Folder="/Regulatory Issues" selected="false" ProjectId="6834655">
+<Project Name="Over-Pressure Protection" Level="2" Folder="/Regulatory Issues/Over-Pressure Protection" selected="false" ProjectId="8335701">
+	</Project>
+	</Project>
+<Project Name="Reliance DM project" Level="1" Folder="/Reliance DM project" selected="false" ProjectId="3428324">
+	</Project>
+<Project Name="Reliance India Temperature Array (Pandora)" Level="1" Folder="/Reliance India Temperature Array Pandora" selected="false" ProjectId="13278810">
+	</Project>
+<Project Name="Reliance Industries Limited, D6 Field - FEED" Level="1" Folder="/Reliance Industries Limited D6 Field - FEED" selected="false" ProjectId="12884817">
+	</Project>
+<Project Name="Reliance Krishna Godavari" Level="1" Folder="/Reliance Krishna Godavari" selected="false" ProjectId="5350876">
+<Project Name="Reliance Industries Limited, D6 Field - FEED" Level="2" Folder="/Reliance Krishna Godavari/Reliance Industries Limited D6 Field - FEED" selected="false" ProjectId="12884817">
+	</Project>
+<Project Name="Reliance Industries Limited, D6 Field - ITT Safety Valves" Level="2" Folder="/Reliance Krishna Godavari/Reliance Industries Limited D6 Field - ITT Safety Valves" selected="false" ProjectId="13251053">
+	</Project>
+<Project Name="Reliance Industries Limited, D6 Field - ITT Upper &amp; Lower Completion" Level="2" Folder="/Reliance Krishna Godavari/Reliance Industries Limited D6 Field - ITT Upper  Lower Completion" selected="false" ProjectId="13524500">
+	</Project>
+<Project Name="Reliance Industries Limited, D6 Field - Pumping Services" Level="2" Folder="/Reliance Krishna Godavari/Reliance Industries Limited D6 Field - Pumping Services" selected="false" ProjectId="13524728">
+	</Project>
+	</Project>
+<Project Name="Remedy Upgrade" Level="1" Folder="/Remedy Upgrade" selected="false" ProjectId="2877047">
+	</Project>
+<Project Name="Remedy Upgrade Project" Level="1" Folder="/Remedy Upgrade Project" selected="false" ProjectId="11927734">
+	</Project>
+<Project Name="Remedy Upgrade project" Level="1" Folder="/Remedy Upgrade project" selected="false" ProjectId="12189813">
+	</Project>
+<Project Name="Remote Access Teleworker Project" Level="1" Folder="/Remote Access Teleworker Project" selected="false" ProjectId="386044">
+	</Project>
+<Project Name="Remote Server Management " Level="1" Folder="/Remote Server Management " selected="false" ProjectId="12076354">
+	</Project>
+<Project Name="Remote Sites - Re-numbering" Level="1" Folder="/Remote Sites - Re-numbering" selected="false" ProjectId="3863277">
+	</Project>
+<Project Name="Removal of Shiva VPN" Level="1" Folder="/Removal of Shiva VPN" selected="false" ProjectId="3545102">
+	</Project>
+<Project Name="Renault e-Invoicing" Level="1" Folder="/Renault e-Invoicing" selected="false" ProjectId="4481078">
+	</Project>
+<Project Name="Renew Desktop Support Contract" Level="1" Folder="/Renew Desktop Support Contract" selected="false" ProjectId="3108932">
+	</Project>
+<Project Name="Replacement Member Server" Level="1" Folder="/Replacement Member Server" selected="false" ProjectId="13126529">
+<Project Name="Robotic Tape drive." Level="2" Folder="/Replacement Member Server/Robotic Tape drive." selected="false" ProjectId="13126549">
+	</Project>
+	</Project>
+<Project Name="Reporting Tool" Level="1" Folder="/Reporting Tool" selected="false" ProjectId="3722124">
+	</Project>
+<Project Name="Repsol - Sipororo 2X Intelligent Completion Well" Level="1" Folder="/Repsol - Sipororo 2X Intelligent Completion Well" selected="false" ProjectId="8243099">
+	</Project>
+<Project Name="Repsol Casablanca-16 ESP" Level="1" Folder="/Repsol Casablanca-16 ESP" selected="false" ProjectId="884306">
+	</Project>
+<Project Name="Repsol IT Bid" Level="1" Folder="/Repsol IT Bid" selected="false" ProjectId="1062159">
+	</Project>
+<Project Name="Repsol YPF - REPSOL YPF" Level="1" Folder="/Repsol YPF - REPSOL YPF" selected="false" ProjectId="4608164">
+<Project Name="Repsol YPF Capture Team" Level="2" Folder="/Repsol YPF - REPSOL YPF/Repsol YPF Capture Team" selected="false" ProjectId="4608199">
+	</Project>
+	</Project>
+<Project Name="Repsol YPF Ecuador" Level="1" Folder="/Repsol YPF Ecuador" selected="false" ProjectId="2102723">
+	</Project>
+<Project Name="Repsol YPF-Geosciences Outsourcing" Level="1" Folder="/Repsol YPF-Geosciences Outsourcing" selected="false" ProjectId="8104592">
+	</Project>
+<Project Name="Repsol espWatcher Initiative" Level="1" Folder="/Repsol espWatcher Initiative" selected="false" ProjectId="10964917">
+	</Project>
+<Project Name="Repsol-YPF Drill 150 " Level="1" Folder="/Repsol-YPF Drill 150 " selected="false" ProjectId="6450920">
+	</Project>
+<Project Name="RetroFit Kit Project" Level="1" Folder="/RetroFit Kit Project" selected="false" ProjectId="590483">
+	</Project>
+<Project Name="Review Devices per Staff Ratios on 2Net Portal" Level="1" Folder="/Review Devices per Staff Ratios on 2Net Portal" selected="false" ProjectId="6770695">
+	</Project>
+<Project Name="Review SAR miniNOCs" Level="1" Folder="/Review SAR miniNOCs" selected="false" ProjectId="11092721">
+	</Project>
+<Project Name="Ricky Backup" Level="1" Folder="/Ricky Backup" selected="false" ProjectId="4801471">
+	</Project>
+<Project Name="Ridgefield Proxy Cache" Level="1" Folder="/Ridgefield Proxy Cache" selected="false" ProjectId="2856760">
+	</Project>
+<Project Name="Rig Operations" Level="1" Folder="/Rig Operations" selected="false" ProjectId="5563347">
+	</Project>
+<Project Name="RigOffice Upgrade" Level="1" Folder="/RigOffice Upgrade" selected="false" ProjectId="15222025">
+<Project Name="W2K to XP" Level="2" Folder="/RigOffice Upgrade/W2K to XP" selected="false" ProjectId="15223823">
+	</Project>
+<Project Name="Web Service Stub" Level="2" Folder="/RigOffice Upgrade/Web Service Stub" selected="false" ProjectId="15222040">
+	</Project>
+	</Project>
+<Project Name="RigPULSE" Level="1" Folder="/RigPULSE" selected="false" ProjectId="15066879">
+<Project Name="Infrastructure" Level="2" Folder="/RigPULSE/Infrastructure" selected="false" ProjectId="15067033">
+<Project Name="Documentation" Level="3" Folder="/RigPULSE/Infrastructure/Documentation" selected="false" ProjectId="15067117">
+	</Project>
+<Project Name="Hardware" Level="3" Folder="/RigPULSE/Infrastructure/Hardware" selected="false" ProjectId="15067087">
+	</Project>
+<Project Name="Instrumentation Connection Kits" Level="3" Folder="/RigPULSE/Infrastructure/Instrumentation Connection Kits" selected="false" ProjectId="15067102">
+	</Project>
+<Project Name="Networking Infrastructure" Level="3" Folder="/RigPULSE/Infrastructure/Networking Infrastructure" selected="false" ProjectId="15067048">
+	</Project>
+<Project Name="System Infrastructure" Level="3" Folder="/RigPULSE/Infrastructure/System Infrastructure" selected="false" ProjectId="15067063">
+	</Project>
+	</Project>
+<Project Name="Integration &amp; Implementation" Level="2" Folder="/RigPULSE/Integration  Implementation" selected="false" ProjectId="15067135">
+<Project Name="Algeria 1500HP Rigs" Level="3" Folder="/RigPULSE/Integration  Implementation/Algeria 1500HP Rigs" selected="false" ProjectId="15067224">
+	</Project>
+<Project Name="Drilling Console Interface" Level="3" Folder="/RigPULSE/Integration  Implementation/Drilling Console Interface" selected="false" ProjectId="15067155">
+	</Project>
+<Project Name="Implementation on Pilot/Test Rig" Level="3" Folder="/RigPULSE/Integration  Implementation/Implementation on Pilot Test Rig" selected="false" ProjectId="15067185">
+	</Project>
+<Project Name="Integration Test" Level="3" Folder="/RigPULSE/Integration  Implementation/Integration Test" selected="false" ProjectId="15067170">
+	</Project>
+<Project Name="Mexico R&amp;P Rigs" Level="3" Folder="/RigPULSE/Integration  Implementation/Mexico RP Rigs" selected="false" ProjectId="15067209">
+	</Project>
+	</Project>
+<Project Name="SCADA Framework" Level="2" Folder="/RigPULSE/SCADA Framework" selected="false" ProjectId="15066894">
+<Project Name="Data Connection" Level="3" Folder="/RigPULSE/SCADA Framework/Data Connection" selected="false" ProjectId="15067003">
+	</Project>
+<Project Name="Data Model" Level="3" Folder="/RigPULSE/SCADA Framework/Data Model" selected="false" ProjectId="15066988">
+	</Project>
+<Project Name="Deployment" Level="3" Folder="/RigPULSE/SCADA Framework/Deployment" selected="false" ProjectId="15066958">
+	</Project>
+<Project Name="Documentation" Level="3" Folder="/RigPULSE/SCADA Framework/Documentation" selected="false" ProjectId="15067018">
+	</Project>
+<Project Name="Inter-SCADA Communication" Level="3" Folder="/RigPULSE/SCADA Framework/Inter-SCADA Communication" selected="false" ProjectId="15066973">
+	</Project>
+<Project Name="Modules" Level="3" Folder="/RigPULSE/SCADA Framework/Modules" selected="false" ProjectId="15066943">
+	</Project>
+<Project Name="SCADA Core" Level="3" Folder="/RigPULSE/SCADA Framework/SCADA Core" selected="false" ProjectId="15066919">
+	</Project>
+	</Project>
+	</Project>
+<Project Name="Rio de Janeiro SCC Management" Level="1" Folder="/Rio de Janeiro SCC Management" selected="false" ProjectId="2888734">
+	</Project>
+<Project Name="Rise Southern Wall" Level="1" Folder="/Rise Southern Wall" selected="false" ProjectId="12673144">
+	</Project>
+<Project Name="Riser Instrumentation Project" Level="1" Folder="/Riser Instrumentation Project" selected="false" ProjectId="15028634">
+	</Project>
+<Project Name="Risk Management" Level="1" Folder="/Risk Management" selected="false" ProjectId="273560">
+	</Project>
+<Project Name="RockSolid" Level="1" Folder="/RockSolid" selected="false" ProjectId="1611985">
+	</Project>
+<Project Name="Roger's test project (from template)" Level="1" Folder="/Roger's test project from template" selected="false" ProjectId="659744">
+	</Project>
+<Project Name="Roissy Hub AMO" Level="1" Folder="/Roissy Hub AMO" selected="false" ProjectId="1565836">
+	</Project>
+<Project Name="Roles &amp; Responsibilites" Level="1" Folder="/Roles  Responsibilites" selected="false" ProjectId="848562">
+	</Project>
+<Project Name="Rollout IPMS" Level="1" Folder="/Rollout IPMS" selected="false" ProjectId="4996796">
+	</Project>
+<Project Name="Rome Sema Integration" Level="1" Folder="/Rome Sema Integration" selected="false" ProjectId="107688">
+	</Project>
+<Project Name="Romgaz Phase 2" Level="1" Folder="/Romgaz Phase 2" selected="false" ProjectId="10634792">
+<Project Name="Filitelnic" Level="2" Folder="/Romgaz Phase 2/Filitelnic" selected="false" ProjectId="10634972">
+	</Project>
+<Project Name="Targu Mares" Level="2" Folder="/Romgaz Phase 2/Targu Mares" selected="false" ProjectId="10634996">
+	</Project>
+	</Project>
+<Project Name="Romgaz Targu Mures" Level="1" Folder="/Romgaz Targu Mures" selected="false" ProjectId="9579021">
+	</Project>
+<Project Name="Rosharon Diaster Recovery" Level="1" Folder="/Rosharon Diaster Recovery" selected="false" ProjectId="1177391">
+	</Project>
+<Project Name="Rosneft Stroytransgaz 2 Algeria (3 wells plus 2 optional)" Level="1" Folder="/Rosneft Stroytransgaz 2 Algeria 3 wells plus 2 optional" selected="false" ProjectId="11220488">
+	</Project>
+<Project Name="Rosneft-StroyTransgaz Project Algeria" Level="1" Folder="/Rosneft-StroyTransgaz Project Algeria" selected="false" ProjectId="4576978">
+<Project Name="Well Operations TAKE-1" Level="2" Folder="/Rosneft-StroyTransgaz Project Algeria/Well Operations TAKE-1" selected="false" ProjectId="5514667">
+	</Project>
+<Project Name="Well Operations TAKW-1" Level="2" Folder="/Rosneft-StroyTransgaz Project Algeria/Well Operations TAKW-1" selected="false" ProjectId="6669448">
+	</Project>
+	</Project>
+<Project Name="Router Policies " Level="1" Folder="/Router Policies " selected="false" ProjectId="1699327">
+	</Project>
+<Project Name="Royal Mail Employee Health Services, IT Transformation" Level="1" Folder="/Royal Mail Employee Health Services IT Transformation" selected="false" ProjectId="1837957">
+	</Project>
+<Project Name="Russia Catalog of Oil and Gas Provinces" Level="1" Folder="/Russia Catalog of Oil and Gas Provinces" selected="false" ProjectId="12117845">
+	</Project>
+<Project Name="S-ELC Main" Level="1" Folder="/S-ELC Main" selected="false" ProjectId="269711">
+<Project Name="S-ELC Building" Level="2" Folder="/S-ELC Main/S-ELC Building" selected="false" ProjectId="339102">
+	</Project>
+<Project Name="S-ELC Management" Level="2" Folder="/S-ELC Main/S-ELC Management" selected="false" ProjectId="339228">
+	</Project>
+<Project Name="S-ELC Wells and Rig" Level="2" Folder="/S-ELC Main/S-ELC Wells and Rig" selected="false" ProjectId="339117">
+	</Project>
+	</Project>
+<Project Name="S-ELC Network Design" Level="1" Folder="/S-ELC Network Design" selected="false" ProjectId="618613">
+	</Project>
+<Project Name="S-ELC Wells and Rig" Level="1" Folder="/S-ELC Wells and Rig" selected="false" ProjectId="339117">
+	</Project>
+<Project Name="S2" Level="1" Folder="/S2" selected="false" ProjectId="15180194">
+	</Project>
+<Project Name="S2 DNS Integration" Level="1" Folder="/S2 DNS Integration" selected="false" ProjectId="395944">
+<Project Name="Phase I - S2 DNS Integration" Level="2" Folder="/S2 DNS Integration/Phase I - S2 DNS Integration" selected="false" ProjectId="402969">
+	</Project>
+	</Project>
+<Project Name="S2 external sites" Level="1" Folder="/S2 external sites" selected="false" ProjectId="3767523">
+<Project Name="Templates" Level="2" Folder="/S2 external sites/Templates" selected="false" ProjectId="3767556">
+	</Project>
+	</Project>
+<Project Name="S2 phase2 test" Level="1" Folder="/S2 phase2 test" selected="false" ProjectId="287699">
+<Project Name="Team Lead: Rodrigo Espinosa" Level="2" Folder="/S2 phase2 test/Team Lead: Rodrigo Espinosa" selected="false" ProjectId="812646">
+	</Project>
+	</Project>
+<Project Name="S2 prequalification" Level="1" Folder="/S2 prequalification" selected="false" ProjectId="5111740">
+<Project Name="Phase 1 - Strategic Context" Level="2" Folder="/S2/Phase 1 - Strategic Context" selected="false" ProjectId="15180211">
+	</Project>
+<Project Name="Phase 2 - Situation Review" Level="2" Folder="/S2/Phase 2 - Situation Review" selected="false" ProjectId="15185185">
+<Project Name="Competition Analysis" Level="3" Folder="/S2/Phase 2 - Situation Review/Competition Analysis" selected="false" ProjectId="15185388">
+	</Project>
+<Project Name="Critical Success Factors" Level="3" Folder="/S2/Phase 2 - Situation Review/Critical Success Factors" selected="false" ProjectId="15185358">
+	</Project>
+<Project Name="Key Assumptions" Level="3" Folder="/S2/Phase 2 - Situation Review/Key Assumptions" selected="false" ProjectId="15185373">
+	</Project>
+<Project Name="Market Audit" Level="3" Folder="/S2/Phase 2 - Situation Review/Market Audit" selected="false" ProjectId="15185279">
+	</Project>
+<Project Name="Pre Strategy Data Collection" Level="3" Folder="/S2/Phase 2 - Situation Review/Pre Strategy Data Collection" selected="false" ProjectId="15185509">
+	</Project>
+<Project Name="SWOT Analysis" Level="3" Folder="/S2/Phase 2 - Situation Review/SWOT Analysis" selected="false" ProjectId="15185343">
+	</Project>
+	</Project>
+<Project Name="Phase 3 - Strategy Formulation" Level="2" Folder="/S2/Phase 3 - Strategy Formulation" selected="false" ProjectId="15185200">
+<Project Name="Ansoff Matrix Analysis" Level="3" Folder="/S2/Phase 3 - Strategy Formulation/Ansoff Matrix Analysis" selected="false" ProjectId="15185403">
+	</Project>
+<Project Name="GAP Analysis" Level="3" Folder="/S2/Phase 3 - Strategy Formulation/GAP Analysis" selected="false" ProjectId="15185418">
+	</Project>
+<Project Name="Portfolio Management" Level="3" Folder="/S2/Phase 3 - Strategy Formulation/Portfolio Management" selected="false" ProjectId="15185447">
+	</Project>
+	</Project>
+<Project Name="Phase 4 - Convergence" Level="2" Folder="/S2/Phase 4 - Convergence" selected="false" ProjectId="15185215">
+<Project Name="Multi Level Portfolio Analysis" Level="3" Folder="/S2/Phase 4 - Convergence/Multi Level Portfolio Analysis" selected="false" ProjectId="15185462">
+	</Project>
+<Project Name="SLR High Level Objective Priority Review" Level="3" Folder="/S2/Phase 4 - Convergence/SLR High Level Objective Priority Review" selected="false" ProjectId="15185494">
+	</Project>
+<Project Name="Strategy &amp; Plans" Level="3" Folder="/S2/Phase 4 - Convergence/Strategy  Plans" selected="false" ProjectId="15185477">
+	</Project>
+	</Project>
+	</Project>
+<Project Name="S7" Level="1" Folder="/S7" selected="false" ProjectId="13386672">
+	</Project>
+<Project Name="SABL Migration" Level="1" Folder="/SABL Migration" selected="false" ProjectId="5803519">
+	</Project>
+<Project Name="SABL Support Transition" Level="1" Folder="/SABL Support Transition" selected="false" ProjectId="2856790">
+	</Project>
+<Project Name="SACROC-TX-KinderMorgan-GCCC" Level="1" Folder="/SACROC-TX-KinderMorgan-GCCC" selected="false" ProjectId="15174857">
+	</Project>
+<Project Name="SAP" Level="1" Folder="/SAP" selected="false" ProjectId="5777037">
+	</Project>
+<Project Name="SAP Outsourcing OFS" Level="1" Folder="/SAP Outsourcing OFS" selected="false" ProjectId="5480024">
+<Project Name="Resite Server Memory Upgrade" Level="2" Folder="/SAP/Resite Server Memory Upgrade" selected="false" ProjectId="5803734">
+	</Project>
+<Project Name="SAP Hosting Scenario" Level="2" Folder="/SAP/SAP Hosting Scenario" selected="false" ProjectId="5966821">
+	</Project>
+<Project Name="Test Director Application" Level="2" Folder="/SAP/Test Director Application" selected="false" ProjectId="4943496">
+	</Project>
+	</Project>
+<Project Name="SAS" Level="1" Folder="/SAS" selected="false" ProjectId="5024356">
+<Project Name="SAS 1.5" Level="2" Folder="/SAS/SAS 1.5" selected="false" ProjectId="5024734">
+	</Project>
+	</Project>
+<Project Name="SAVE" Level="1" Folder="/SAVE" selected="false" ProjectId="1834025">
+	</Project>
+</projects>

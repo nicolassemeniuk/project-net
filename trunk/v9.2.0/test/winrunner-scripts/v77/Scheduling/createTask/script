@@ -1,0 +1,46 @@
+function createTask(in task_name,in task_type,in duration_value,in duration_units,in work_value,in work_units){
+	auto rc;
+	
+	wait(1);
+	set_window("main",2);
+	
+####################################################################	
+# When we create a task through "Add Task" in a phase it directly takes us to the task create/edit page
+# So if "Create New Task" not present on page then skip the if statement body
+####################################################################	
+	if(obj_exists("Create New Task")==E_OK)
+		web_link_click("Create New Task");
+	wait(1);
+	set_window("main",2);
+		
+####################################################################		
+# <kTab> is being used for all the fields where a value entry causes a round trip to occur. 
+# Simply using edit_set does not allow the round trip to occur and thus sets the values erroneously.
+####################################################################		
+	edit_set("name",task_name);
+	list_select_item("taskCalculationTypeFixedElementID",task_type);
+	edit_set("duration","");
+	obj_type("duration",duration_value);
+	obj_type("duration","<kTab>");
+	list_select_item("duration_units",duration_units);
+	obj_type("duration_units","<kTab>");
+	wait(1);
+	edit_set("work","");
+	obj_type("work",work_value);
+	obj_type("work","<kTab>");
+	list_select_item("work_units",work_units);
+	obj_type("work_units","<kTab>");
+	wait(1);
+	web_link_click("Submit");
+	wait(4);
+	set_window("main",2);
+	wait(2);
+# Return to Schedule List main
+	web_link_click("Return to Task List");
+	wait(1);
+	if(obj_exists("Return to Task List")==E_OK)
+		web_link_click("Return to Task List");
+# 	pause(rc);
+	wait(1);
+}
+

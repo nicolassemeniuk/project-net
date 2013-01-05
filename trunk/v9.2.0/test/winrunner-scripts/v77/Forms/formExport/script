@@ -1,0 +1,42 @@
+
+rc = file_open("C:\\Documents and Settings\\QA\\Desktop\\FormList.csv",FO_MODE_READ);
+table = "C:\\Documents and Settings\\QA\\Desktop\\formData.xls";
+ddt_open(table);
+rc = file_getline("C:\\Documents and Settings\\QA\\Desktop\\FormList.csv",line);
+j = 1;  
+
+while(file_getline("C:\\Documents and Settings\\QA\\Desktop\\FormList.csv",line)==E_OK){
+	
+	field[1] = ddt_val_by_row(table,j,"TextField");
+	field[2] = ddt_val_by_row(table,j,"TextBox");
+	field[3] = ddt_val_by_row(table,j,"SelectionMenu");
+	field[4] = ddt_val_by_row(table,j,"DateField");
+	field[5] = ddt_val_by_row(table,j,"CheckBoxField");
+	field[6] = ddt_val_by_row(table,j,"PersonSelectionMenu");
+	field[7] = ddt_val_by_row(table,j,"NumberField");
+	field[8] = ddt_val_by_row(table,j,"CurrencyField");
+	
+	text = substr(line,1);
+	elements = split(text,array,",");
+	for(i = 1;i <= 8;i++){
+		k = i+1; 
+		var[i] = array[k];
+		num = length(var[i]);
+		z = index(var[i],"\"");
+		if(z!=0)
+			var[i] = substr(var[i],2,num-2);
+		if(field[i]==1){
+			field[i]="yes";
+		}
+		if(field[i]==0){
+			field[i]="no";
+		}
+# 		report_msg(field[i]);
+		if(var[i] != field[i]){
+			tl_step("Verifying imported field",1,"Element "&j&" "&i&" \""&field[i]&"\" DID NOT match");
+		}
+	}	 
+	j++;
+}
+ddt_close_all_tables();
+file_close("C:\\Documents and Settings\\QA\\Desktop\\FormList.csv");

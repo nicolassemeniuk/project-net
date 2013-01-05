@@ -1,0 +1,54 @@
+<!DOCTYPE etl SYSTEM "http://scriptella.javaforge.com/dtd/etl.dtd">
+<etl>
+    <description>Database creation script</description>
+    <properties>
+        <include href="dbinit.properties"/>
+    </properties>
+    <connection driver="${driver}" url="${url}" user="${PNET_BUILD_USER_NAME}" password="${PNET_BUILD_USER_PASSWORD}">
+    plsql=true
+    </connection>
+	
+	
+	<script>
+    	<include href="${ADMINPATH}tables/tables.sql"/>
+		COMMIT
+		/
+    </script>
+	
+	<script>
+    	<include href="${ADMINPATH}tables/disable_constraints.sql"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}tables/data.sql"/>
+		COMMIT
+		/
+    </script>
+    
+	<script>
+    	<include href="${ADMINPATH}tables/add_new_module.sql"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}tables/add_wiki_module_permission.sql"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}tables/enable_constraints.sql"/>
+		COMMIT
+		/
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}tables/insert_system_properties.sql"/>
+		COMMIT
+		/
+    </script>
+
+    <script>
+    	<include href="${ADMINPATH}tables/insert_opensource_tokens.sql"/>
+		COMMIT
+		/
+    </script>
+    
+</etl>

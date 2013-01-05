@@ -1,0 +1,715 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+ 
+#wContent, .wContent
+ul, ol { 
+	
+}
+#wContent, .wContent ul{
+	list-style-image: url(../images/wiki/wiki-bullet.png);
+	list-style-position: inside;
+	line-height: 25px;
+	margin-left: 15px; 
+	azimuth: center-left;
+}
+
+#wContent, .wContent ol{
+	list-style-image: inherit;
+	list-style-position: inside;
+	list-style-type: decimal;
+	line-height: 25px;
+	margin-left: 15px;
+
+}
+#wContent, x-window-mc, .wContent li, dl dt {
+	/* padding: 3px; */
+}
+#wContent {
+	top: 150px;
+	left: 188px;
+	position: absolute;
+	width: 80%;
+	font-size: 13px;
+	margin-left: 12px;
+	line-height: 20px;
+}
+#wContent blockquote {
+	border-left: 2px solid #EBEBD5;
+	margin-left: 20px;
+	padding-left: 10px;
+	margin-top: 5px;
+}
+
+#wContent, x-window-mc, .wContent
+table{
+	border: none;
+}
+.wContent
+table{
+
+}
+#toc th {
+	text-align:center;
+	font-weight:bold;
+}
+#toctitle h2 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border: none !important;
+	text-align: center;
+	font-weight: bold;
+}
+
+#toc, .toc {
+	background-color: #f3f3fa;
+	border: 1px solid #c0c0c0;
+	font-size: 13px;
+	line-height: 13px;
+	padding-bottom: 10px;
+	margin-top: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+	margin-bottom: 20px;
+}
+#toc ul, .toc ul {
+	list-style-image: none;
+	list-style-type: none;
+	text-align: left;
+	margin-bottom: 5px;
+	margin-left: 10px;
+	margin-right: 5px;
+	line-height: 18px;
+}
+
+#content h1, h2, h3, h4, h5, h6 {
+	background:transparent none repeat scroll 0%;
+	/*	border-bottom:1px solid #DDDDDD; */
+	line-height: 1.2em;
+	color:black;
+	font-family:arial,helvetica;
+	font-weight:bold;
+	margin:0pt;
+	padding-bottom:0.17em;
+	padding-top:1.5em;
+}
+#content h1, .wContent h1 {
+font-family: Arial,Helvetica,sans-serif;
+font-size: 24px !important;
+font-weight: normal;
+margin-right: 15px;
+margin-bottom: 5px;
+margin-top: 15px;
+padding-bottom: 4px;
+border-bottom-width: 1px;
+border-bottom-style: solid;
+border-bottom-color: Silver;
+font-style: normal;
+}
+
+#content h2, .wContent h2 {
+font-family: Arial,Helvetica,sans-serif;
+font-size: 20px;
+font-weight: normal;
+margin-right: 15px;
+margin-bottom: 5px;
+margin-top: 15px;
+padding-bottom: 2px;
+border-bottom-width: 1px;
+border-bottom-style: solid;
+border-bottom-color: Silver;
+font-style: normal;
+}
+#content h3, .wContent h3 {
+font-family: Arial,Helvetica,sans-serif;
+font-size: 17px;
+margin-right: 15px;
+margin-bottom: 5px;
+margin-top: 15px;
+}
+#content h4, .wContent h4 {
+font-family: Arial,Helvetica,sans-serif;
+font-size: 14px;
+margin-right: 15px;
+margin-bottom: 5px;
+margin-top: 15px;
+}
+
+#content h5, .wContent h5 {
+font-family: Arial,Helvetica,sans-serif;
+font-size: 12px;
+margin-right: 15px;
+margin-bottom: 5px;
+margin-top: 15px;
+}
+#content h6, .wContent h6 {
+font-family: Arial,Helvetica,sans-serif;
+font-size: 11px;
+margin-right: 15px;
+margin-bottom: 5px;
+margin-top: 15px;
+}
+
+#wContent p {
+	margin-bottom: 5px;
+	margin-top: 5px;
+	font-size: 13px;
+}
+
+body {
+	color:#000000;
+	font-family:arial,helvetica;
+	font-size:x-small;
+	font-size-adjust:none;
+	font-style:normal;
+	font-variant:normal;
+	font-weight:normal;
+	line-height:normal;
+}
+
+#content a, .wContent a {
+	/* color:#567893; */
+	color: Navy;
+	text-decoration:none;
+}
+#content a:hover, .wContent a:hover {
+	text-decoration:underline;
+}
+#content a:visited, .wContent a:visited {
+	color: Navy;
+}
+
+#content {
+	overflow-y: hidden;
+}
+
+.menu {
+	color:#114477;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+
+strong {
+	color: #336699;
+	font-family: sans-serif;
+}
+
+.date {
+	border:1px solid #CCCCCC;
+	color:#446688;
+	float:left;
+	font-family:"Lucida Sans","Trebuchet MS",Verdana,Arial,Serif;
+	font-size:0.7em;
+	font-weight:bold;
+	margin:5px 0pt 0pt 5px;
+	padding:0pt 15px;
+	text-align:center;
+}
+.date span {
+	display: block;
+}
+
+.date .day {
+color:#334455;
+font-size:1.6em;
+}
+
+/*//////////////////////////////////////////////////// new UI*/
+
+/* CSS Document */
+
+body {
+	padding: 0;
+	margin: 0;
+	background: url(../images/back.jpg) repeat-x top ! IMPORTANT;
+}
+
+* a:hover {
+	text-decoration: none;
+}
+
+#left {
+	float: left;
+	width: 196px;
+	height: auto;
+}
+
+#wleftheading-project, #wleftheading-business, #wleftheading-person {
+	width: 160px;
+	height: 23px;
+	padding-left: 14px;
+	margin-top: 23px;
+	float: left;
+	font-family: Tahoma, Trebuchet;
+	font-size: 18px;
+}
+
+#wleftheading-project{
+	background: url(../images/menu/projects/leftheading_projects.png);
+}
+
+#wleftheading-business{
+	background: url(../images/menu/business/leftheading_business.png);
+}
+
+#wleftheading-person{
+	background: url(../images/menu/personal/leftheading_personal.png);
+} 
+
+.left_column_top {
+/*	background: #eceef6 url(../images/leftcolumn_top.png) no-repeat top;	*/
+	width: 174px;
+	margin-top: 23px;
+	padding-top: 10px;
+	
+}
+
+.group_heading {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	padding-left: 14px;
+	margin-top: 10px;
+	background: #eceef6;
+	font-weight: bold;
+}
+.group_heading span {
+	padding-left: 10px;
+	font-size: 11px;
+	line-height: 20px;
+}
+
+#content a:hover {
+	text-decoration: underline;
+}
+
+/* Wiki page */
+.project-title, .business-title, .person-title {
+	font-family: Tahoma;
+	font-size: 14px;
+	padding-left: 14px;
+	margin-top: 4px;
+	margin-bottom: 2px;
+	float: left;
+	width: 160px;
+	color: Navy;
+}
+#search-wiki {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	padding-left: 14px;
+	margin-top: 0px;
+	margin-bottom: 4px;
+	float: left;
+}
+
+#wiki-page {
+	width:100%; 
+	padding-top:20px;
+}
+
+#wiki-page .ending {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	height: 10px;
+	background: #f3f3fa url(../images/wiki/h1corner-bottom.png) no-repeat bottom left;
+	padding-top: 4px;
+	padding-left: 12px;
+	border-top: 2px solid Silver;
+}
+
+#wiki-page .ending a, .ending a:visited {
+	text-decoration: none;
+/*	border-bottom: 1px dashed; */
+	color: #3399ff;
+}
+
+/* Wiki Upload page */
+
+
+/* Wiki Edit page */
+
+.popup {
+	background: url(../images/popup.png) no-repeat right;
+	padding-right: 15px;
+	margin-right: 5px;
+}
+a.popup {
+	border: 0px;
+}
+
+img {
+	max-width: 650px;
+}
+
+hr {
+	width: 70%;
+	border: 0px;
+}
+
+/* Styling textarea */
+#wikiPageBasicContent {	
+	width: 97%;
+}
+
+.wPageNotExist {
+	padding : 70px 20px 20px; 
+}
+
+#wWikiHistory .wWikiHistoryContent {
+	width: 100%;
+}
+
+.wPageInfo {
+	color : #000000; 
+}
+
+#oldRevisionFound {
+	font-size : medium;
+	font-family : Arial;
+	font-weight : bolder;
+}
+
+#oldRevisionFound a {
+	color: Navy;
+	text-decoration: none;
+}
+
+#oldRevisionFound a:hover {
+	text-decoration: none;
+}
+
+#viewingWiki {
+	overflow: hidden;
+	height: 20px;
+	width: 80%;
+	padding-top: 10px;
+	padding-bottom: 15px;
+	padding-left: 12px;
+	position: absolute;
+	left: 190px;
+	top: 108px;
+	background: #f3f3fa url(../images/wiki/h1corner-top.png) no-repeat scroll left top;
+	border-bottom: 2px solid Silver;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 22px;
+	vertical-align: middle;
+	overflow: hidden;
+	white-space: nowrap;
+	float: left;
+}
+.wPageInfo {
+
+}
+.wPageInfo h1, .wPageInfo {
+	background-color: #f3f3fa !important;
+	border: none !important;
+}
+
+#attachedImages{
+	background-color: #FFFFFF; 
+	border: 1px solid #AAAAAA; 
+	clear: both; 
+	margin-top: 3em; 
+	padding: 20px; 
+	padding-top: 0px
+}
+
+.describeMessage {
+	font-family : Arial;
+	font-size : 12px;
+}
+
+#bottomViewlinks {
+	overflow: hidden;
+	width: 80%;
+	height: 20px;
+	position: absolute;
+	left: 196px;
+	background: RGB(249, 249, 249);
+	border-bottom: 2px solid Silver;
+}
+
+#wWikiPageIndex {
+	width : 90%; 
+}
+
+ #wWikiPageIndex .wWikiPageIndexContent {
+	width : 100%;
+}
+
+#wWikiPageIndex .wPageIndexInfo {
+ 	border : 1px solid rgb(204, 204, 204); 
+ 	padding : 4px; 
+ 	background : rgb(238, 238, 238); 
+ 	text-align : left;
+ 	width : 100%; 
+}
+
+#indexHeaderMsg {
+	background-color: #f3f3fa;
+	border: 1px solid #c0c0c0;
+	float: left;
+	margin-right: 15px;
+	margin-top: 15px;
+	padding: 4px;
+	text-align: left;
+	width: 400px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+}
+
+#pageNotExistMsg {
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+	font-style: italic;
+	margin-left: 12px;
+	margin-top: 20px;
+}
+
+#pageNotExistMsg a {
+	color : navy;
+	text-decoration: none;
+}
+
+#pageNotExistMsg a:hover {
+	color : navy;
+	text-decoration: underline;
+}
+
+#attachedImages h3 {
+	padding-top: 20px;
+	font-family: Arial;
+}
+
+/*************************	
+ *Wiki Image Chooser css 
+ *************************/
+#img-chooser-dlg .details{ 
+    padding: 10px; 
+    text-align: center; 
+} 
+#img-chooser-dlg .details-info{ 
+    border-top: 1px solid #cccccc; 
+    font: 11px Arial, Helvetica, sans-serif; 
+    margin-top: 5px; 
+    padding-top: 5px; 
+    text-align: left; 
+} 
+#img-chooser-dlg .details-info b{ 
+    color: #555555; 
+    display: block; 
+    margin-bottom: 4px; 
+} 
+#img-chooser-dlg .details-info span{ 
+    display: block; 
+    margin-bottom: 5px; 
+    margin-left: 5px; 
+} 
+
+#img-chooser-view{ 
+    background: white; 
+    font: 11px Arial, Helvetica, sans-serif;
+} 
+#img-chooser-view .thumb{ 
+    background: #dddddd; 
+    padding: 3px; 
+} 
+#img-chooser-view .thumb img{
+	width: 80px; 
+    /**height: 60px;*/  
+} 
+#img-chooser-view .thumb-wrap{ 
+    float: left; 
+    margin: 4px; 
+    margin-right: 0; 
+    padding: 5px;
+} 
+#img-chooser-view .thumb-wrap span{ 
+    display: block; 
+    overflow: hidden; 
+    text-align: center; 
+} 
+#img-chooser-view .x-view-over{
+    border:1px solid #dddddd; 
+    background: #efefef url(../../resources/images/default/grid/row-over.gif) repeat-x left top; 
+    padding: 4px; 
+}
+#img-chooser-view .x-view-selected{ 
+    background: #DFEDFF; 
+    border: 1px solid #6593cf; 
+    padding: 4px; 
+} 
+#img-chooser-view .x-view-selected .thumb{ 
+    background:transparent; 
+}
+#img-chooser-view .x-view-selected span{ 
+    color:#1A4D8F;
+}
+#img-chooser-view .loading-indicator { 
+    font-size:11px; 
+    background-image:url('../../resources/images/grid/loading.gif'); 
+    background-repeat: no-repeat; 
+    background-position: left; 
+    padding-left:20px; 
+    margin:10px; 
+} 
+/** Wiki Image Chooser css */ 
+
+/* Wiki links */
+.linkToNonExistingPage {
+	color: gray;
+}
+
+/* Infobox template */
+.infobox {
+	background-color:#F9F9F9;
+	border:1px solid #AAAAAA;
+	color:black;
+	clear:right;
+	float:right;
+	margin:0.5em 0 0.5em 1em;
+	padding:0.2em;
+}
+
+.summary {
+	font-size: 125%; 
+	font-weight: bold; 	
+}
+
+#infoboxTbl img {
+	max-width: 250px;	
+}
+
+#infoboxTbl th {
+	font-weight: bold;
+}
+
+div#wikiMenu {
+	text-align: left;
+	padding-left: 7px;
+	background: #EEF4FE;
+	height: 22px;
+	color: #3399FF;
+	font-weight: bold;
+	padding-top: 5px;
+	border-top: 1px solid #B0C1F9;
+	border-bottom: 1px solid #B0C1F9;
+}
+
+div#wikiSubMenu {
+	position: absolute;
+	background:#EEF4FE;
+	border: 2px solid #CCD8FE;
+	width: 190px;
+}
+
+#wikiMenuTable tr{
+	cursor: help;
+	color: gray;
+}
+
+.wikiMenuHover {
+	background: #CCD8FE;
+}
+
+.wikiMenuOut {
+	background: #EEF4FE;
+}
+
+.wikiMenuEnable {
+	color: black;
+	cursor: pointer;
+}
+
+table.wikitable tr td {
+	border: 1px solid Silver !important;
+	padding: 3px;
+	margin: 0px !important;
+}
+
+.row_separator {
+	background: #CCD8FE;
+	height: 2px;
+}
+
+div.toolbox-item span a.disabled {
+  	color: silver;
+}
+
+#diffContent {
+	top: 109px;
+	left: 196px;
+	position: absolute;
+	width: 80%;
+}
+
+.diffRow {
+	border: 1px solid #B0C1F9;
+	text-align: left; 
+	padding-left: 
+	20px;height:15px; 
+}
+
+#search-wiki input {
+	background: url('../images/icons/wiki-search.gif') no-repeat;
+	padding-left: 18px;
+	border:1px solid #cdcdcd
+}
+
+.diffDiv {
+	height: 480px; 
+	overflow: auto;
+}
+
+.diffDiv
+table{
+	margin: 0px;
+}
+
+.currentVersionBackground {
+	background: #F3F3FA;
+}
+
+/** Sytling image not deletable div */
+#whatLinkHereList{
+	padding-left:20px;
+	padding-right:20px;
+	font-style:italic;
+	color:red;
+}
+#whatLinkHereList .model_sec_row {
+	padding-top:20px;
+	color: gray;
+}
+#imgNotDeletable{
+	padding-top: 20px;
+	color:red;
+	font-weight:normal;
+}
+#imgNotDeletable strong{
+	color:red;
+	font-weight:bold;
+}
+#imgDeleteable{
+	padding:20px;font-style:italic;
+	color:blue;
+}
+#imgDeleteable strong{color:blue;
+	font-weight:bold;
+}
+#imgDeleteable h1,#whatLinkHereList h1{
+	color:#000;
+	font-style:normal;
+	font-size:12px;
+}

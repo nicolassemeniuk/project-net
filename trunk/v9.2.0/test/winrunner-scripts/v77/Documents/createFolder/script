@@ -1,0 +1,31 @@
+#compiled module for creating a folder in the top folder
+
+function createFolder(in topFolderName, in folderName){
+	wait(2);
+	set_window("main",2);
+	wait(2);
+	
+	if(topFolderName != ""){#go to the folder where you require the new folder to be created
+		web_link_click(topFolderName);
+		wait(2);
+		set_window("main",3);
+	}
+	web_link_click("Create New Folder");#creating a new folder using the toolbar button
+	
+	wait(2);
+	set_window("Create New Folder");
+	wait(1);
+	edit_set("name",folderName);
+	wait(1);
+	edit_set("description","Testing whether folder creation is successful");
+	wait(1);
+	web_link_click("New Folder");
+	wait(2);
+	
+	set_window("main", 2);
+	wait(2);
+	if(obj_exists(folderName)==E_OK)#checking if the folder is created
+		tl_step("Creating a folder",0,"Folder exists");
+	else
+		tl_step("Creating a folder",1,"Folder DOES NOT exist");
+}

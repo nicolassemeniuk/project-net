@@ -1,0 +1,12 @@
+<mappings>
+  <mapping>
+	<method name="getAssignedAssignments">
+            <return-type componentType="net.project.resource.Assignment"/>
+        </method>
+        <property name="configurationCollection" ignore="true"/>
+        <property name="newlyAddedConfigurationCollection" ignore="true"/>
+        <property name="searchableDirectories" ignore="true"/>
+        <property name="directoryProviderType" ignore="true"/>
+        <property name="directoryConfiguration" ignore="true"/>
+  </mapping>
+</mappings>

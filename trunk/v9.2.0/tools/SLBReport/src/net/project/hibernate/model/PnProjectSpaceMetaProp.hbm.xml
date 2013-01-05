@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping  auto-import="true" default-access="property" default-cascade="none">
+
+<class 
+    name="net.project.hibernate.model.PnProjectSpaceMetaProp"
+    table="PN_PROJECT_SPACE_META_PROP"
+    lazy="false"
+    >
+
+    <id
+        name="propertyId"
+        type="java.math.BigDecimal"
+        column="PROPERTY_ID"
+        length="20"
+    >
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="propertyName"
+        type="java.lang.String"
+        column="PROPERTY_NAME"
+        length="1000"
+    />
+    <property
+        name="propertyType"
+        type="java.lang.Integer"
+        column="PROPERTY_TYPE"
+        length="5"
+    />
+
+    <!-- Associations -->
+</class>
+</hibernate-mapping>

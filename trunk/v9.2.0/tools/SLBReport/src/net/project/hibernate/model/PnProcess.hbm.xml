@@ -1,0 +1,111 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnProcess" 
+    table="PN_PROCESS"
+    lazy="false"
+>
+
+    <id
+        name="processId"
+        type="java.math.BigDecimal"
+        column="PROCESS_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="processName"
+        type="java.lang.String"
+        column="PROCESS_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="processDesc"
+        type="java.lang.String"
+        column="PROCESS_DESC"
+        length="500"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnObject -->
+    <one-to-one
+        name="pnObject"
+        class="net.project.hibernate.model.PnObject"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional one-to-many association to PnSpaceHasProcess -->
+
+    <set
+        name="pnSpaceHasProcesses"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PROCESS_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasProcess"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnPhase -->
+
+    <set
+        name="pnPhases"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PROCESS_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPhase"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to PnPhase -->
+    <many-to-one
+        name="pnPhase"
+        class="net.project.hibernate.model.PnPhase"
+        not-null="true"
+    >
+        <column name="CURRENT_PHASE_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PnGate -->
+    <many-to-one
+        name="pnGate"
+        class="net.project.hibernate.model.PnGate"
+        not-null="true"
+    >
+        <column name="LAST_GATE_PASSED_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

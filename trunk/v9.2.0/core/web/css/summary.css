@@ -1,0 +1,35 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+ 
+.x-grid3-summary-row {
+    border-left:1px solid #fff;
+    border-right:1px solid #fff;
+    color:#333;
+    background: #f1f2f4;
+}
+.x-grid3-summary-row .x-grid3-cell-inner {
+    font-weight:bold;
+    padding-bottom:4px;
+}
+.x-grid3-cell-first .x-grid3-cell-inner {
+    padding-left:16px;
+}
+.x-grid-hide-summary .x-grid3-summary-row {
+    display:none;
+}
+.x-grid3-summary-msg {
+    padding:4px 16px;
+    font-weight:bold;
+}

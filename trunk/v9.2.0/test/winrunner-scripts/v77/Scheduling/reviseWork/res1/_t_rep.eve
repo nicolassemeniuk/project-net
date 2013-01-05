@@ -1,0 +1,15 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 1 1115930751 0
+23 28 <FIXED DURATION - REVISE WORK> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 42 1115930773 0
+37 83 <Step: Verify assignment %, Status: Pass, Description: Assignment % is set correctly> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 70 1115930827 24
+37 97 <Step: Verify duration, Status: Pass, Description: The duration being shown for FD task is correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 87 1115930836 24
+37 89 <Step: Verify work, Status: Pass, Description: The work being shown for FD task is correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 94 1115930836 24
+23 25 <FIXED UNITS - REVISE WORK> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 102 1115930840 0
+37 83 <Step: Verify assignment %, Status: Pass, Description: Assignment % is set correctly> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 132 1115930887 24
+37 97 <Step: Verify duration, Status: Pass, Description: The duration being shown for FD task is correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 148 1115930895 24
+37 89 <Step: Verify work, Status: Pass, Description: The work being shown for FD task is correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 155 1115930895 24
+23 24 <FIXED WORK - REVISE WORK> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 163 1115930897 0
+37 83 <Step: Verify assignment %, Status: Pass, Description: Assignment % is set correctly> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 192 1115930950 24
+37 97 <Step: Verify duration, Status: Pass, Description: The duration being shown for FD task is correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 207 1115930957 24
+37 89 <Step: Verify work, Status: Pass, Description: The work being shown for FD task is correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 214 1115930957 24
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 219 1115930959 0

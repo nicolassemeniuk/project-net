@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.QrtzCalendar" 
+    table="QRTZ_CALENDARS"
+    lazy="false"
+>
+
+    <id
+        name="calendarName"
+        type="java.lang.String"
+        column="CALENDAR_NAME"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="calendar"
+        type="java.sql.Blob"
+        column="CALENDAR"
+        not-null="true"
+        length="4000"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:PersonalLayout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+<style type="text/css">
+.divHeader{
+	font-family: Arial,Helvetica; 
+	font-weight: bold; 
+	font-size: 16px;
+}
+
+body {
+	height: 100%;
+}
+</style>
+<script language="javascript" type="text/javascript">
+var JSPRootURL = '${jSPRootURL}';
+var moduleId = '${moduleId}';
+var individualDatesLbl = '<t:Message value="prm.workcalendar.individualdates.link" />';
+<!--//
+var theForm;
+
+function setup() {
+    theForm = self.document.forms[0];
+    document.getElementById('left-navbar').innerHTML += '<div id="toolbox-heading" class="toolbox-heading"> '+ goToHeadingLbl +' </div>';
+    document.getElementById('left-navbar').innerHTML += '<div id="toolbox-item" class="toolbox-item"><span><a href="'+JSPRootURL+'/personal/workcalendar/WorkDate?module='+moduleId+'"> '+individualDatesLbl+'</a></span></div>';
+}
+
+function modify(){
+	theForm.action.value = "modify";
+    theForm.submit();
+}
+
+function reset(){
+	theForm.action.value = "preset";
+    theForm.presetType.value = "standard";
+    theForm.submit();
+}
+
+function helpMe() {
+  	var helplocation = JSPRootURL + "/help/HelpDesk.jsp?page=personal_setup-work_calendar";
+ 	openwin_help(helplocation);
+}
+
+//-->
+</script>
+
+	<t:if test="defaultCalendar">
+		<t:ActionBox groupTitle="${groupHeadingWorkCalendar}" buttons="blogit,modify" 
+			caption = "all.global.toolbar.standard.blogit,prm.workcalendar.workweekmodify.defineworkweek.link" />	
+		<t:parameter name="else">
+			<t:ActionBox groupTitle="${groupHeadingWorkCalendar}" buttons="blogit,modify,refresh" 
+				caption = "all.global.toolbar.standard.blogit,prm.workcalendar.workweekmodify.modifyworkweek.link,prm.workcalendar.workweekmodify.usedefaultweek.link" />
+		</t:parameter>
+	</t:if>
+	
+	<div>
+		<div style="width: 80%; position: absolute; top: 104px; left: 196px;">
+			<div>
+				<t:OutputRaw value="pageTitle"/>
+			</div>
+			<br/>
+			<label class="divHeader"> <t:Message value="prm.workcalendar.workweekmodify.workweek.link" />
+				<t:if test="defaultCalendar">
+					 <t:Message value="prm.workcalendar.workweekmodify.basedondefaultcalendar.label" />
+				</t:if>
+			</label> <br />
+			<hr width="100%" style="color: gray;" />
+			<t:form t:id="workDayForm" clientValidation="false" autofocus="false">
+				<input type="hidden" name="action"/>
+				<input type="hidden" name="presetType"/>
+			</t:form>	
+			<table  width="100%">
+				<tr class="tableHeader">
+                    <td colspan="3">
+                    	<t:Message value="prm.schedule.workingtime.view.dayofweek.title" />
+                    </td>
+                </tr>
+                
+				<tr t:type="loop" elementName="tr" source="dayEntries" value="nextDayEntry" class="tableContent"> 
+					<td>${nextDayEntry.dayOfWeekFormatted}</td>
+					<td colspan="2">
+					<t:if test="nextDayEntry.workingDay">
+							<t:Message value="prm.schedule.workingtime.editdate.workingtime.label" />
+						<t:parameter name="else">
+							 <t:Message value="prm.schedule.workingtime.editdate.nonworkingtime.label" />
+				        </t:parameter>
+					</t:if>
+					</td>
+				</tr>
+				<tr> <td colspan="4"> &nbsp;</td> </tr>
+			</table>
+		</div>	
+	</div>
+</t:PersonalLayout>

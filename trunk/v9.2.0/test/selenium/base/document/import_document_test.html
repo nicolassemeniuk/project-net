@@ -1,0 +1,59 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>import_document_test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">import_document_test</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Documents</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Import Document</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>file</td>
+	<td>C:\selenium-test-docs\text-document.txt</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>document description</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>notes</td>
+	<td>some testing comments</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>text-document.txt</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Text</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Not Started</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

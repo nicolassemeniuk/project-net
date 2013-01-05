@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<span xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+	<t:form t:id="removeProject" name="removeProject" t:clientId="removeProject" clientValidation="false" autoFocus="false">
+		<t:textField t:id="persistanceValue" value="defaultProjectValue" style="display: none;"/>
+		<t:textField t:id="removeProjectName" clientId="removeProjectName" value="removeProjectId" style="display: none;"/>
+	</t:form>
+	<table id="userlist" width="100%" cellspacing="0" cellpadding="0" border="0">
+		<t:if test="errorMessage">
+			<tr>
+				<td style="UMBottomBorder" colspan="4"> 
+					<label style="font-size:12;color:red">${errorMessage}</label>
+				</td>
+			</tr>
+		</t:if>
+		<tr valign="top">
+			<t:if test="isSearchMemberFound">
+				<t:loop source="selectedProjects" value="projectListWrapper">
+				<td nowrap="nowrap">
+					<table cellpadding="0" cellspacing="0" width="100%" class="t-data-grid">
+					<tr class="table-header memberName" style="color:Black;margin">
+						<td width="1%" nowrap="nowrap" style="border-left: 1px solid #D7D7D7;" class="projectNameTitle UMTopBorder">
+							<t:if test="projectListWrapper.spaceNameBusiness">
+								<img src="${asset:context:/images/sub_businessIcon.gif}" />
+								<t:parameter name="else">
+									<img src="${asset:context:/images/project-icon.gif}" />
+								</t:parameter>
+							</t:if>
+							<span id="projectName_${projectListWrapper.projectId}" style="padding-left:2px;">${projectListWrapper.projectName}</span>
+							<input type="hidden" id="${projectListWrapper.projectId}"/>
+							<input type="hidden" id="members_${projectListWrapper.projectId}"/>
+							<span style="padding-left:8px;padding-right:28px;"><a href="javascript:enableAllMembers('${projectListWrapper.projectId}','removemembers')" id="${projectListWrapper.projectId}" style="color:#3399ff;">
+							<t:Message value="prm.directory.bulkinvitation.selectallcheck.title" /></a></span>
+							<t:if test="projectListWrapper.spaceNameBusiness">
+								<img src="${jSPRootURL}/images/directory/close-icon.png" align="absmiddle" title="${deleteBusinessTooltip}" onclick="removeProjectNameFromRemoveMemberList('${projectListWrapper.projectId}')"/>
+								<t:parameter name="else">
+									<img src="${jSPRootURL}/images/directory/close-icon.png" align="absmiddle" title="${deleteProjectTooltip}" onclick="removeProjectNameFromRemoveMemberList('${projectListWrapper.projectId}')"/>
+								</t:parameter>
+							</t:if>
+						</td>
+					</tr>
+					<t:if test="projectListWrapper.projectMemberLists">
+						<t:loop source="projectListWrapper.projectMemberLists" value="memberWrapper">
+							<tr>
+								<td><div style="height:19px;">
+									<t:if test="memberWrapper.displayName">
+										<span id="img_${projectListWrapper.projectId}_${memberWrapper.personId}" style="visibility:hidden;">
+										<img src="${asset:context:/images/directory/right_arrow.gif}" />
+										</span>&nbsp;
+										<input type="checkbox" id="chk_${projectListWrapper.projectId}_${memberWrapper.personId}" 
+											name="chk_${projectListWrapper.projectId}_${memberWrapper.personId}" checked="checked" 
+											onclick="enableMemberToRemove('${projectListWrapper.projectId}','${memberWrapper.personId}');" align="middle"/>
+										<span id="memberName_${projectListWrapper.projectId}_${memberWrapper.personId}" style="align:middle;padding-left:2px;">${memberWrapper.searchedDisplayName}</span>
+									</t:if>
+									</div>
+								</td>
+							</tr>	
+						</t:loop>
+					</t:if>
+					<tr>
+						<td>&nbsp;<span id="removed_${projectListWrapper.projectId}" style="visibility:hidden;padding-left:10px;">0</span></td>
+					</tr>
+				</table>
+				</td>
+				</t:loop>
+			<t:parameter name="else">
+				<td class="UMTopBorder" colspan="3"><t:Message value="prm.directory.removemembers.nomemberfound.searchmsg"/></td>
+			</t:parameter>
+			</t:if>
+			</tr>
+	</table>
+	<script type='text/javascript'>
+		projectIds = '${projectIds}';
+		memberIds = '${memberIds}';
+		memberIdList = '${memberIdList}';
+		highlightMembers = '${projectAndMembersToHighlight}';
+		selectedChkBoxIds = '${selectedChkBoxIds}';
+	</script>
+</span>

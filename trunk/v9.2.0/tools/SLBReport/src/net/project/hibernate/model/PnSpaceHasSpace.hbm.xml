@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnSpaceHasSpace" 
+    table="PN_SPACE_HAS_SPACE"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnSpaceHasSpacePK">
+        <key-property 
+            name="parentSpaceId" 
+            column="PARENT_SPACE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="childSpaceId" 
+            column="CHILD_SPACE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="createdBy"
+        type="java.math.BigDecimal"
+        column="CREATED_BY"
+        length="20"
+    />
+    <property
+        name="dateCreated"
+        type="java.sql.Date"
+        column="DATE_CREATED"
+        length="7"
+    />
+    <property
+        name="relationshipParentToChild"
+        type="java.lang.String"
+        column="RELATIONSHIP_PARENT_TO_CHILD"
+        length="80"
+    />
+    <property
+        name="relationshipChildToParent"
+        type="java.lang.String"
+        column="RELATIONSHIP_CHILD_TO_PARENT"
+        length="80"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="parentSpaceType"
+        type="java.lang.String"
+        column="PARENT_SPACE_TYPE"
+        length="40"
+    />
+    <property
+        name="childSpaceType"
+        type="java.lang.String"
+        column="CHILD_SPACE_TYPE"
+        length="40"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

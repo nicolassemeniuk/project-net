@@ -1,0 +1,7 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Forms\batchForms> 2 1115921181 0
+37 93 <Step: Verify form exists, Status: Pass, Description: The form created exists in Form Designer> <C:\Documents and Settings\QA\Desktop\v77\Forms\createForm> 26 1115921199 24
+37 105 <Step: Verify text field exists, Status: Pass, Description: The Text Field 'TextField'created successfully> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 26 1115921206 24
+37 99 <Step: Verify text box exists, Status: Pass, Description: The Text Box 'TextBox'created successfully> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 22 1115921225 24
+37 118 <Step: Verify selection menu exists, Status: Pass, Description: The Selection Menu 'SelectionMenu' created successfully> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 40 1115921252 24
+2 10 <---> <C:\Documents and Settings\QA\Desktop\v77\Forms\batchForms> 4 1115921253 0

@@ -1,0 +1,83 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+ 
+.x-column-tree .x-tree-node {
+    zoom:1;
+}
+.x-column-tree .x-tree-node-el {
+    /*border-bottom:1px solid #eee; borders? */
+    zoom:1;
+}
+.x-column-tree .x-tree-selected {
+    background: #d9e8fb;
+}
+.x-column-tree  .x-tree-node a {
+    line-height:18px;
+    vertical-align:middle;
+}
+.x-column-tree  .x-tree-node a span{
+	
+}
+.x-column-tree  .x-tree-node .x-tree-selected a span{
+	background:transparent;
+	color:#000;
+}
+.x-tree-col {
+    float:left;
+    overflow:hidden;
+    padding:0 1px;
+    zoom:1;
+}
+
+.x-tree-col-text, .x-tree-hd-text {
+    overflow:hidden;
+    -o-text-overflow: ellipsis;
+	text-overflow: ellipsis;
+    padding:3px 3px 3px 5px;
+    white-space: nowrap;
+    font:normal 11px arial, tahoma, helvetica, sans-serif;
+}
+
+.x-tree-headers {
+    background: #f9f9f9 url(../images/default/grid/grid3-hrow.gif) repeat-x 0 bottom;
+	cursor:default;
+    zoom:1;
+}
+
+.x-tree-hd {
+    float:left;
+    overflow:hidden;
+    border-left:1px solid #eee;
+    border-right:1px solid #d0d0d0;
+}
+
+.business {
+    background-image:url(../images/default/tree/business.gif) !important;
+}
+.project {
+    background-image:url(../images/default/tree/project.gif) !important;
+}
+.expandall-icon {
+    background-image:url(../images/default/tree/expand-icon.gif) !important;
+}
+.collapseall-icon{
+	background-image:url(../images/default/tree/collapse-icon.gif) !important;
+}
+.save{
+	background-image:url(../images/default/save.gif) !important;
+}
+.tree-icon{
+	background-image:url(../images/default/tree/tree-icon.gif) !important;
+}

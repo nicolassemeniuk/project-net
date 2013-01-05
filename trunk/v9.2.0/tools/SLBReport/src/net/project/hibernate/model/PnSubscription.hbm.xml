@@ -1,0 +1,211 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnSubscription" 
+    table="PN_SUBSCRIPTION"
+    lazy="false"
+>
+
+    <id
+        name="subscriptionId"
+        type="java.math.BigDecimal"
+        column="SUBSCRIPTION_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="name"
+        type="java.lang.String"
+        column="NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        length="500"
+    />
+    <property
+        name="subscriptionTypeId"
+        type="java.math.BigDecimal"
+        column="SUBSCRIPTION_TYPE_ID"
+        length="20"
+    />
+    <property
+        name="createdDate"
+        type="java.sql.Date"
+        column="CREATED_DATE"
+        length="7"
+    />
+    <property
+        name="createdById"
+        type="java.math.BigDecimal"
+        column="CREATED_BY_ID"
+        length="20"
+    />
+    <property
+        name="modifiedDate"
+        type="java.sql.Date"
+        column="MODIFIED_DATE"
+        length="7"
+    />
+    <property
+        name="modifiedBy"
+        type="java.math.BigDecimal"
+        column="MODIFIED_BY"
+        length="20"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        length="7"
+    />
+    <property
+        name="deliveryInterval"
+        type="java.lang.Integer"
+        column="DELIVERY_INTERVAL"
+        length="3"
+    />
+    <property
+        name="subscriberBatchId"
+        type="java.math.BigDecimal"
+        column="SUBSCRIBER_BATCH_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="customMessageClob"
+        type="java.sql.Clob"
+        column="CUSTOM_MESSAGE_CLOB"
+        length="4000"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnObjectTypeSubscription -->
+
+    <set
+        name="pnObjectTypeSubscriptions"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="SUBSCRIPTION_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnObjectTypeSubscription"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnObjectHasSubscription -->
+
+    <set
+        name="pnObjectHasSubscriptions"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="SUBSCRIPTION_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnObjectHasSubscription"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnSpaceHasSubscription -->
+
+    <set
+        name="pnSpaceHasSubscriptions"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="SUBSCRIPTION_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasSubscription"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnSubHasNotifyType -->
+
+    <set
+        name="pnSubHasNotifyTypes"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="SUBSCRIPTION_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSubHasNotifyType"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnSubscriptionHasGroup -->
+
+    <set
+        name="pnSubscriptionHasGroups"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="SUBSCRIPTION_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSubscriptionHasGroup"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnWorkflowStep -->
+
+    <set
+        name="pnWorkflowSteps"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="SUBSCRIPTION_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnWorkflowStep"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

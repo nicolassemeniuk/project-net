@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnJobDescriptionLookup" 
+    table="PN_JOB_DESCRIPTION_LOOKUP"
+    lazy="false"
+>
+
+    <id
+        name="jobDescriptionCode"
+        type="java.lang.Integer"
+        column="JOB_DESCRIPTION_CODE"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="jobDescription"
+        type="java.lang.String"
+        column="JOB_DESCRIPTION"
+        not-null="true"
+        length="80"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

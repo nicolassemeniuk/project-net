@@ -1,0 +1,32 @@
+wait(3);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject"();
+wait(1);
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+wait(2);
+set_window("main",2);
+web_link_click("WRProject");
+wait(1);
+set_window("menu",2);
+wait(2);
+web_link_click("Documents");
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+wait(3);
+
+reload("importFile",0,1);
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+
+importFile("","WRfile.txt","Not Started");
+# importFile("","WRfile1.txt","In Progress");
+# importFile("","WRfile2.txt","Pending");
+# importFile("","WRfile3.txt","Complete");
+
+#WRfolder in documents should exist prior to the execution of these statements 
+importFile("WRfolder","WRfile.txt","Not Started");
+# importFile("WRfolder","WRfile1.txt","In Progress");
+# importFile("WRfolder","WRfile2.txt","Pending");
+# importFile("WRfolder","WRfile3.txt","Complete");
+
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+
+

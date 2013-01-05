@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+  "http://java.sun.com/j2ee/dtds/web-jsptaglib_1_1.dtd">
+<taglib>
+<tlibversion>1.0</tlibversion>
+    <jspversion>1.1</jspversion>
+	<shortname>xml</shortname>
+	<info>Pager tags for JSP</info>
+
+    <!-- pager Tag -->
+	<tag>
+		<name>pager</name>
+		<tagclass>net.project.taglibs.pager.PagerTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>Initializes IPageable bean</info>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>scope</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>pageSize</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+	</tag>
+
+	<!-- index Tag -->
+	<tag>
+		<name>index</name>
+		<tagclass>net.project.taglibs.pager.IndexTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>Renders a page index display for a pager</info>
+        <attribute>
+            <name>href</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>stylesheet</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>maxLinks</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>displayIf</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+	</tag>
+        
+</taglib>  
+

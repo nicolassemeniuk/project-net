@@ -1,0 +1,41 @@
+<mappings>
+  <mapping>
+	<property name="assignmentDuration" ignore="true"/>
+	<property name="priority" ignore="true" />
+	<property name="workTQ" ignore="true" />
+	<property name="workRemaining" ignore="true" />
+	<property name="workCompleteTQ" ignore="true" />
+	<property name="durationTQ" ignore="true" />
+	<property name="actualDuration" ignore="true" />
+	<property name="constraintType" ignore="true" />
+	<property name="selectedPhases" ignore="true" />
+	<property name="recordStatus" ignore="true" />
+	<property name="predecessors" ignore="true" />
+	<property name="predecessorsNoLazyLoad" ignore="true" />
+	<property name="dependencies" ignore="true" />
+	<property name="dependenciesNoLazyLoad" ignore="true" />
+	<property name="successors" ignore="true" />
+	<property name="successorsNoLazyLoad" ignore="true" />
+	<property name="dependentTasks" ignore="true" />
+	<property name="comments" ignore="true" />
+	<property name="dependenciesWithCycles" ignore="true" />
+	<property name="resourceCalendar" ignore="true" />
+	<property name="daysWorked" ignore="true" />
+	<property name="VCalendar" ignore="true" />
+	<property name="VCalendarEntity" ignore="true" />
+	<property name="assignments" ignore="true" />
+	<property name="assignmentList" ignore="true" />
+	<property name="startDateVariance" ignore="true" />
+	<property name="endDateVariance" ignore="true" />
+	<property name="baselineWork" ignore="true" />
+	<property name="workVariance" ignore="true" />
+	<property name="baselineDuration" ignore="true" />
+	<property name="durationVariance" ignore="true" />
+	<property name="taskCalculationType" ignore="true" />
+	<property name="unallocatedWorkComplete" ignore="true" />
+	<property name="unassociatedWorkComplete" ignore="true" />
+	<property name="unassociatedWork" ignore="true" />
+	<property name="VCalendarForUser" ignore="true" />
+	<property name="VCalendarEntityForUser" ignore="true" />
+  </mapping>
+</mappings>

@@ -1,0 +1,46 @@
+PNET PLUGIN
+-----------
+The PnetPlugin was written by Matthew Flower in his free time, but is being
+donated to Project.net because it is useful to anyone who develops.  (I might
+as well share the love.)
+
+PROJECT FILES
+-------------
+The pnetplugin.ipr file is a project file for the Aurora builds of IntelliJ.
+The pnetplugin_old.ipr file is for version 3.0.x.
+
+DEVELOPMENT
+-----------
+This directory structure is based on the "template" for plugins available
+from www.intellij.org.  This allowed me to start developing without having to
+put together my own build.xml file and directory structure.  It initially
+provided a template plugin class to work with too.
+
+There are still many things to do with this plugin.  It doesn't get a lot of
+time because it isn't an official project of Project.net.  There is a todo.txt
+list in this directory where I keep the list of what ought to be done.
+
+DEPLOYING
+---------
+To deploy, copy the build\pnetplugin-bin.jar file to the "plugins" directory of
+your IntelliJ distribution.  You will also need to copy the jar file for Oracle
+JDBC (either classes12.zip or the ojdbc.jar) to your IntelliJ\lib directory.
+
+DEBUGGING
+---------
+To debug, use the remote debug feature of IntelliJ.  This will involve modifying
+the idea.lax file that you'll find in your IntelliJ\bin directory so you can
+start IntelliJ in debug mode.  I haven't noticed any slowdown in doing this.
+
+When you are debugging IntelliJ, you can't debug with the same instance of
+IntelliJ.  (I'm assuming it causes some sort of deadlock condition.)  The
+problem is that IntelliJ only lets you open one copy of IntelliJ at a time.  To
+get around this problem, I use two versions of IntelliJ.  I'll run the plugin
+in the Aurora EAP version while I have 3.0.5 open debugging it.  This seems to
+work okay.
+
+LICENSE
+-------
+The files in this directory are (c)2003 by Matthew Flower except where noted
+otherwise.  Project.net is granted full rights to develop, use, and redistribute
+the pnetplugin.  New files need not retain the old copyright.

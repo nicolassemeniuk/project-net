@@ -1,0 +1,7 @@
+Col #1	Col #2	Col #3	Col #4	Col #5
+http://trout/images/icons/channelbar-left_end.gif	Report Summary		http://trout/images/icons/channelbar-right_end.gif	
+	Total Number of Tasks	10	http://trout/servlet/ChartingServlet?objectID=105702&filter40Start=&output=html&30=t.task_name&20order=asc&20=t.task_name&reportScope=10&reportType=tcdr&10order=asc&showReportParameters=true&10=t.task_name&30order=asc&grouping=10&filter40Finish=&module=310&height=100&width=400&chartType=tcdr	
+	Tasks Due Today	4		
+	Tasks Due Tomorrow	2		
+	Tasks Due in the Next 7 Days	10		
+	Tasks Due in the Next Month	10		

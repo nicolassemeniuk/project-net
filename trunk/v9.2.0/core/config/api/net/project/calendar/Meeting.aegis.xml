@@ -1,0 +1,15 @@
+<mappings>
+  <mapping>
+    <property name="attendees" ignore="true"/>
+    <property name="agendaItems" ignore="true"/>
+    <property name="newAttendees" ignore="true"/>
+    <property name="entries" ignore="true"/>
+    <property name="eventDuration" ignore="true"/>
+    <property name="VCalendarEntity" ignore="true"/>
+    <property name="VCalendar" ignore="true"/>
+    <property name="recordStatus" ignore="true"/>
+    <property name="facility" ignore="true"/>
+    <property name="calendar" ignore="true"/>
+    <property name="host" ignore="true"/>
+  </mapping>
+</mappings>

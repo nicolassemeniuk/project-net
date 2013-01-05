@@ -1,0 +1,14 @@
+function testWorkComplete(in taskName, in workPercentage){
+	auto workPercentageValue;
+
+	set_window("main",1);
+	web_link_click(taskName);
+	set_window("main",1);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",1);
+	edit_get_text("work_percent_complete",workPercentageValue);
+	if(workPercentageValue != ""&workPercentage&"%")
+		tl_step("Verify work complete",0,"Work complete value and units for "&taskName&" correctly specified");
+	else
+		tl_step("Verify work complete",1,"Work complete value and units for "&taskName&" correctly specified"); 	

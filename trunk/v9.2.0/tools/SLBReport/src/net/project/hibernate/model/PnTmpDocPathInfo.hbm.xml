@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnTmpDocPathInfo" 
+    table="PN_TMP_DOC_PATH_INFO"
+    lazy="false"
+>
+
+    <composite-id>
+        <key-property 
+            name="collectionId" 
+            column="COLLECTION_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="objectId" 
+            column="OBJECT_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="objectName" 
+            column="OBJECT_NAME" 
+            type="java.lang.String"
+            length="80"
+        />
+        <key-property 
+            name="parentId" 
+            column="PARENT_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="parentName" 
+            column="PARENT_NAME" 
+            type="java.lang.String"
+            length="80"
+        />
+        <key-property 
+            name="isRoot" 
+            column="IS_ROOT" 
+            type="int"
+            length="1"
+        />
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

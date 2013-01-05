@@ -1,0 +1,196 @@
+"Browser Main Window":
+{
+ class: window,
+ MSW_class: browser_main_window,
+ NSTitle: "Browser Main Window"
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+"Browser Main Window".browser_main_combo_location_0:
+{
+ class: list,
+ MSW_class: browser_main_combo_location,
+ location: 0
+}
+"Browser Main Window".browser_main_combo_location_1:
+{
+ class: list,
+ MSW_class: browser_main_combo_location,
+ location: 1
+}
+"Browser Main Window".browser_main_comboex_location:
+{
+ class: object,
+ MSW_id: 2,
+ MSW_class: browser_main_comboex_location
+}
+"Browser Main Window".browser_main_comboex_location_1:
+{
+ class: object,
+ MSW_id: 41477,
+ MSW_class: browser_main_comboex_location
+}
+"Browser Main Window".browser_main_edit_location_0:
+{
+ class: edit,
+ MSW_class: browser_main_edit_location,
+ location: 0
+}
+"Browser Main Window".browser_main_edit_location_1:
+{
+ class: edit,
+ MSW_class: browser_main_edit_location,
+ location: 1
+}
+Calendar:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: Calendar
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+Calendar.26:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: 26
+}
+Calendar.31:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: 31
+}
+main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: main
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+main."Create Phase":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Create Phase"
+}
+main.Submit:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Submit
+}
+main.WRProject:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: WRProject
+}
+main.enddate:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: enddate
+}
+main.percentcomplete:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: percentcomplete
+}
+main.phasedesc:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: phasedesc
+}
+main.phasename:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: phasename
+}
+main.phasestatus:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: phasestatus
+}
+main.processdesc:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: processdesc
+}
+main.processname:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: processname
+}
+main.progressReportingMethod:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: progressReportingMethod,
+ part_value: schedule
+}
+main.progressReportingMethod_1:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: progressReportingMethod,
+ part_value: manual
+}
+main.sequence:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: sequence
+}
+main.startdate:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: startdate
+}
+menu:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: menu
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+menu.Process:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Process
+}
+toolbar_main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: toolbar_main
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+toolbar_main."Log Out":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Log Out"
+}

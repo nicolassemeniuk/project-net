@@ -1,0 +1,304 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+ /* MAIN */
+
+body.main		{margin: 0px;
+				}
+body.mainNoBGC {margin: 0px;
+                }
+
+a			{color: blue;
+					}
+a.channelNoUnderline	{color: #000000;
+					 text-decoration: none;
+					}
+.channelHeader		{
+					}
+.channelHeaderDarker	{	
+					}
+.channelContent		{
+					}
+.white				{background-color: #FFFFFF;
+					}
+.calendar			{
+					}
+.calToday			{
+					}
+.pageTitle			{
+					}
+.historyText			{
+					}
+.historyLine			{
+					}
+.label				{	
+					}
+.actionBar			{
+					}
+.actionContentReq	{
+					}
+.actionContentNotReq	{
+					}
+
+.instructions  {	
+		}  
+.errorBanner		{text-decoration: none;
+					 color: #FFFFFF;
+					 background-image: url('../images/error/error-banner-background.gif');
+					 font-family: Arial,Helvetica,Geneva,Sans;
+					 font-size: 16pt;
+					 font-weight: bold;
+					}
+
+.errorLink			{text-decoration: none;
+					 color: #FFFFFF;
+					}
+
+.errorText			{text-decoration: none;
+					 color: #FF0000;
+					 font-size: 11pt;
+					 font-weight: bold;
+					}
+.warnText			{text-decoration: none;
+					 color: #FF0000;
+					 font-size:10pt;
+					}					
+
+.footer				{text-decoration: none;
+					 color: #000000;
+					 font-family: Arial,Helvetica,Geneva,Sans;
+					 font-size: 8pt;
+					}
+
+
+.searchButton       {width: 30px;
+                     margin: 0px;
+                    }
+.searchKeyword      {font-family : Arial,Helvetica,Geneva,Sans;
+                     font-size : 8pt;
+                     font-weight: normal;
+                     text-decoration: none;
+                    }
+.searchBox          {margin-left: 4px;
+                     margin-bottom: 4px;
+                    }
+.searchModule       {font-family: Arial,Helvetica,Geneva,Sans;
+                     font-size: 8pt;
+                     font-weight: normal;
+                     text-decoration: none;
+                     width: 80px;
+                    }
+
+
+/* BANNER */
+body.banner			{margin-top: -2px;
+					}
+.bannerLink1		{
+					}
+.bannerLink2		{
+					}
+.userId				{vertical-align: text-top;
+					}
+
+/* LEFT NAV */
+
+div#leftframe		{margin: 0px;
+					}
+.leftNavHeader		{
+					}
+.leftNavLink		{
+					}
+.vertLine			{background-image: url('../images/common/leftnav-vertline.gif');
+					}
+.vertNoLine			{background-image: url('../images/common/leftnav-spacer.gif');
+					}
+
+/* LEGACY */
+
+.tableHeader		{
+					}
+.tableLine			{
+					}
+.tableContent		{
+					}
+.tableContentNoBGC		{
+				}
+.tableContentFontOnly	{
+					}
+/* FORMS */
+
+.fieldRequired		{
+					}
+.fieldNonRequired	{
+					}
+.fieldWithError		{
+					}
+.errorMessage       {
+                    }                    
+.successMessage     {  
+                    }					                    
+
+                    
+/* session timeout alert */
+#sessionMessageBody {
+	position: relative;
+	left: 0px;
+	top: 0px;
+	padding: 0px;
+	margin: 0px;
+	margin-top: 0px;
+}
+
+#sessionMessageDialogue {
+	position: absolute;
+	overflow: hidden;
+	left: 200px;
+	top: 100px;
+	margin: 0px;
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+	padding: 0px;
+	z-index: 9900;
+}
+
+#sessionMessageScreen {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background-color: #818181;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	-moz-opacity: 0.7;
+	opacity: 0.7;
+	z-index: 9099;
+}
+
+.sessionPopupHeadingTable{
+	border-bottom: 1px dotted #043010;
+	padding-left:15px;
+}
+
+.sessionPopupHeading{
+	font-size: 26px;
+	padding-left:20px;
+	color:#045FB4;
+}
+
+.sessionPopupContentTable{
+	border-bottom: 1px dotted #043010;
+}
+
+.sessionPopupContent{
+	padding-left:15px;
+	padding-top:20px;
+	font-family: Arial,Verdana,Helvetica;
+	font-size: 12px;
+}
+
+.sessionPopupSubContent{
+	font-size: 12px;
+	padding-left:16px;
+	padding-top:5px
+}
+
+.sessionPopupLink{
+	padding-left:50px;
+	padding-top:25px;
+	color:navy;
+	font-family: Arial,Verdana,Helvetica;
+	font-size: 12px;
+}
+
+
+#notify-tablepad{
+	padding-left: 15px;
+	padding-right: 60px;
+}	
+
+.notify-edit-bottom {
+	background: url('../images/notify_edit_bottom.png') center top repeat-x;
+	height: 40px;
+	border-left: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
+	border-color: #CCCCCC; 
+}
+.notify-edit-expand{
+	background: url('../images/notify_edit_expand.png') center top no-repeat;
+	width: 30px;
+	height: 30px;
+}
+
+.notify-edit-collapse{
+	background: url('../images/notify_edit_collapse.png') center top no-repeat;
+	width: 30px;
+	height: 30px;
+}   
+
+.editTableContent{
+	color: Gray;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+	vertical-align: middle;
+} 
+
+.itemLocationLink{
+	border-bottom: 1px dotted Navy;
+	color: #0066CC;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.topPadding{
+ 	padding-top: 5px;
+}
+
+.elementBorder{
+	border: 1px solid gray;
+}
+
+.statusPadding{
+	padding-top: 10px;
+}
+
+.notifyTextbox{
+	width: 255px;
+}
+
+.notifyTextArea{
+	width: 280px;
+}
+
+.notifyFieldRequired {
+	font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+#spaceParticipantDiv, #notifyEventsDiv{
+	width:100%;
+	overflow-x:hidden; 
+	overflow-y: auto; 
+}
+
+.envelopePropertiesStepDiv {
+	width: 70%;
+	overflow-x: auto; 
+	padding: 2px;
+}

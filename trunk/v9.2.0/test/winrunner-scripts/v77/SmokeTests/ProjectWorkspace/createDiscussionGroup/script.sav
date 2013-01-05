@@ -1,0 +1,26 @@
+# wait(3);
+# call "C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\forLoginProject"();
+wait(3);
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createDiscussionGroup\\createDiscussionGroup.gui");
+
+set_window("main",3);
+web_link_click("WRProject");
+wait(3);
+set_window("menu",2);
+web_link_click("Discussions");
+
+
+set_window("main",2);
+web_link_click("Create New Discussion Group");
+set_window("main",2);
+edit_set("name","Smoke Group");
+edit_set("description","Creating a discussion group for Smoke Testing");
+edit_set("charter","Charter for the discussion group");
+web_link_click("Submit");
+set_window("main",2);
+web_link_click("Smoke Group");
+set_window("upper_frame",2);
+web_obj_text_exists("Welcome","#0","#0","Welcome","","");
+
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createDiscussionGroup\\createDiscussionGroup.gui");

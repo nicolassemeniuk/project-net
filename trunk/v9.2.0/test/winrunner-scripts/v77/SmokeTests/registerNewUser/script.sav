@@ -1,0 +1,188 @@
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\prm_project_directory\\login1.gui");
+
+if (invoke_application ("C:\\Program Files\\Internet Explorer\\iexplore.exe"," ", "C:\\Program Files\\Internet Explorer", SW_SHOWMAXIMIZED)!=0)
+	report_msg("AUT is not found. exiting.");
+
+
+public login_link[] = {"Register","Forgotten Password or Login Name","Verification","Help Desk"};
+public newuser_link[] = {"End User License Agreement","I Accept","I Decline"};
+public pages_arr[] = {"Login","New User Registration","Registration - Authorization"};
+public reg_auth_link[] = {"Back","Cancel","Next"};
+
+function check_valid(arr_var, valid, rc, pages_var){
+	if(rc == E_OK){
+	if(valid == TRUE)
+		report_msg(""&arr_var&" link on Login Page is valid");
+	else
+		report_msg(""&arr_var&" link on Login Page is not valid");
+	}
+	else {
+		report_msg("Operation in "&pages_var&" page failed");
+	}
+}
+
+function get_verification_code()
+{
+	static val1; 
+	auto record_number, rc1, rc2;
+	#rc1 = db_connect("query1","DSN=v77stage;UID=pnet;PWD=pnet");
+	rc1 = db_connect("query1","DSN=v77stage;UID=pnet;PWD=pnet;DRIVER={Oracle in OraHome92};");
+ 	if (rc1!=E_OK)
+ 		report_msg("Cannot connect to database");
+	else (rc1 == E_OK)
+		rc2 = db_execute_query ("query1","Select verification_code from pn_person_view where email = 'avinash@project.net' and user_status = 'Unconfirmed'", record_number);
+#	if(rc2 == E_OK){
+# 		db_get_headers("query1",num_fields,headers);
+# 		printf("Query rows returned = "&record_number);
+# 		printf("Query headers returned ="&headers);
+# 	}		
+	val1 = db_get
+# TSL Online Reference
+	win_move ("TSL Online Reference", 396, 246);
+	win_min ("TSL Online Reference");
+_field_value ("query1", "#0", "VERIFICATION_CODE");
+	return(val1);
+	db_disconnect("query1");
+}
+
+# function get_email_address()
+# {
+# 	static val2; 
+# 	auto record_numbers, rc1,rc2;
+# 	rc1 = db_connect("query2","DSN=v77stage;UID=pnet;PWD=pnet;DRIVER={Oracle in OraHome92}");
+# 	rc2=db_execute_query ("query2","Select email from pn_person where first_name = 'Avinash'", record_numbers);
+# 	val2=db_get_field_value ("query2", "#0", "#0");
+# 	return(val2);
+# 	db_disconnect("query2");
+# }   
+
+#checking for Register link's presence and validity
+set_window("Project.net Login",1);
+web_obj_text_exists("Register","#0","#0","Register","","");
+rc = web_link_valid("Register",reg_valid);
+check_valid(login_link[0],reg_valid,rc,pages_arr[0]);
+
+#going to the Register Page
+set_window("Project.net Login");
+web_link_click("Register");
+
+#new user registration page
+set_window("New User Registration -- Legal Information",3);
+web_obj_text_exists("Project.net LEGAL INFORMATION ; TERMS OF USETHIS IS A LEGAL AGREEMENT","#1","#1","LEGAL INFORMATION ; ","Project\.net ","TERMS OF USE");
+rc = web_link_valid("End User License Agreement",eula_valid);
+check_valid(newuser_link[0],eula_valid,rc,pages_arr[1]);
+
+web_link_click("I Decline");#testing for navigation from I decline link
+set_window("Project.net Login",3);
+web_obj_text_exists("channelbar-left_end","#3","#2","Login Name","",": ");
+web_link_click("Register");
+set_window("New User Registration -- Legal Information",3);
+web_link_click("I Accept");#go to Registration Authorization Page
+
+#checking for navigation links from the Registration - Authorization page 
+				#Back Link
+set_window("Registration - Authorization",3);
+rc = web_link_valid("Back",back_valid);
+check_valid(reg_auth_link[0],back_valid,rc,pages_arr[2]);
+web_link_click("Back");
+set_window("New User Registration -- Legal Information",3);
+web_link_click("I Accept");#go again to Registration Authorization Page
+
+				#Cancel Link
+set_window("Registration - Authorization",3);
+rc = web_link_valid("Cancel",cancel_valid);
+check_valid(reg_auth_link[1],cancel_valid,rc,pages_arr[2]);
+web_link_click("Cancel");
+set_window("Project.net Login");
+web_link_click("Register");
+set_window("New User Registration -- Legal Information",3);
+web_link_click("I Accept");
+
+#setting the values for the fields in the registration authorization page
+set_window("Registration - Authorization",3);
+web_obj_text_exists("FIELDS IN BLACK ARE REQUIRED.","#3","#2"," Login Information","Your","");
+edit_set("login","Corrs");
+edit_set("password","abracadabra");
+edit_set("password_2","abracadabra");
+edit_set("ecom_ShipTo_Online_Email","avinash@project.net");
+edit_set("ecom_ShipTo_Online_Email2","avinash@project.net");
+edit_set("clearTextHintPhrase","What is magic?");
+edit_set("clearTextHintAnswer","magic");
+
+                #Next Link
+rc = web_link_valid("Next",next_valid);
+check_valid(reg_auth_link[2],next_valid,rc,pages_arr[2]);
+web_link_click("Next");#go to Licensing Page
+
+              #navigation using Back Link
+set_window("Registration - Select License Option");
+web_link_click("Back");
+set_window("Registration - Authorization",3);
+edit_get_text("password",out_pw);
+if(out_pw == "")
+	report_msg("Password is not present in password field");
+edit_get_text("password",out_rpw);
+if(out_rpw == "")
+	report_msg("Password is not present in retype password field");
+edit_get_text("password",out_jogans);
+if(out_jogans == "")
+	report_msg("Answer is not present in jog answer field");
+	
+#setting the passwords again to go to the type of license page
+edit_set("password","abracadabra");
+edit_set("password_2","abracadabra");
+edit_set("clearTextHintAnswer","magic");
+web_link_click("Next");
+
+#selecting the type of license as cost center for now
+set_window("Registration - Select License Option");
+button_set("selectionTypeID_3",ON);
+edit_set("chargeCode","ola");
+web_link_click("Next");
+
+#entering the user registration information after setting the cost center
+set_window("Project.net User Registration",3);
+edit_set("ecom_ShipTo_Postal_Name_First","Avinash");
+edit_set("ecom_ShipTo_Postal_Name_Last","Padmanabhan");
+edit_set("ecom_ShipTo_Postal_Street_Line1","123 SD Street");
+edit_set("ecom_ShipTo_Postal_City","San Diego");
+list_select_item("ecom_ShipTo_Postal_StateProv","California");
+list_select_item("ecom_ShipTo_Postal_CountryCode","United States");
+edit_set("ecom_ShipTo_Telecom_Phone_Number","123 123 1234");
+list_select_item("languageCode","English (American)");
+list_select_item("localeCode","English (United States)");
+list_select_item("timeZoneCode","(GMT-08:00) America/Los Angeles PST/PDT");
+web_link_click("Register");
+
+set_window("Verify Registration with Project",3);
+edit_set("ecom_ShipTo_Online_Email","avinash@project.net");
+verCode = get_verification_code();
+if(edit_set("verificationCode",verCode)==E_EDIT_SET_FAILED)
+	report_msg("Edit operation failed");
+verCode = "";
+web_link_click("Verify Later");
+
+
+set_window("Project.net Login",3);
+web_link_click("Verification Code");
+set_window("Verify Registration with Project",3);
+edit_set("ecom_ShipTo_Online_Email","avinash@project.net");
+verCode = get_verification_code();
+edit_set("verificationCode",verCode)
+web_link_click("Verify Now");
+
+set_window("Microsoft Internet Explorer",3);
+button_press("OK");
+set_window("Project.net Login",3);
+
+web_link_click("Forgotten Password or Login Name");
+set_window("Forgotten Login or Password Wizard","3);
+edit_set("email","avinash@project.net");
+button_set("item_1",ON);
+web_link_click("Next");
+set_window("Forgotten Password Assistant");
+edit_set("login","Corrs");
+edit_set("hintAnswer","magic");
+
+ 	
+

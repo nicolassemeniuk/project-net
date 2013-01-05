@@ -1,0 +1,434 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+	
+	<table class="summaryTableContent" cellspacing="0" cellpadding="0" width="100%">
+	<tr>
+		<td>
+			<div id="summaryHeader" class="summaryHeader">
+				<div id="summaryHeader-div" class="summaryHeader-div">
+					<table cellspacing="0" cellpadding="0" width="100%">
+						<tr class="timeSubmitalHeader">
+							<td align="center" class="topLTd">&nbsp;</td>
+							<t:loop source="weekList" value="currentWorkHourValue">
+								<t:if test="isDailyView">				
+									<t:if test="currentWorkHourValue">
+										<t:if test="currentWorkHourValue.weekDays">
+											<td colspan="${currentWorkHourValue.weekDays}" align="center" class="hRange">
+												<div class="wRange">
+													<b>${currentWorkHourValue.dateRangeString}</b>
+												</div>
+											</td>
+										</t:if>	
+									<t:parameter name="else">
+										<td align="center" class="wh">&nbsp;</td>
+									</t:parameter>	
+									</t:if>
+								<t:parameter name="else">
+									<t:if test="currentWorkHourValue">
+										<t:if test="currentWorkHourValue.weekDays">
+											<td align="center" class="wEmptyTd">&nbsp;</td>
+										</t:if>
+									</t:if>
+								</t:parameter>		
+								</t:if>	
+							</t:loop>
+							<td align="center" class="wEmptyTd">&nbsp;</td>
+						</tr>
+						
+						<tr class="timeSubmitalHeader">
+							<td align="center" class="assignment-title">
+								<div id="assignmentTitle" class="topLeftDiv">
+									<b> <t:Message value="prm.business.timesubmital.report.teammembers"/> </b>
+								</div>
+							</td>
+							<t:loop source="weekList" value="currentWorkHourValue">
+								<t:if test="isDailyView">
+									<t:if test="currentWorkHourValue">
+										<td align="center" class="workCaptureRow">
+											<div class="timeSubmitalBottomHeightWidth">
+												${currentWorkHourValue.dateString}
+											</div>
+										</td>
+									<t:parameter name="else">
+										<td align="center" class="wText">
+											<div class="timeSubmitalBottomHeightWidth">
+												<b><t:Message value="prm.business.timesubmital.report.weeklytotal"/></b>
+											</div>
+										</td>
+									</t:parameter>	
+									</t:if>	
+								<t:parameter name="else">
+									<t:if test="currentWorkHourValue">
+									  <t:if test="currentWorkHourValue.weekDays">
+											<td align="center" class="hRange">
+												<div class="wRange">
+													<b>${currentWorkHourValue.dateRangeString}</b>
+												</div>
+											</td>
+										</t:if>
+									</t:if>	
+								</t:parameter>		
+								</t:if>	
+							</t:loop>
+							<td class="assignment-name" align="center">
+							    <div id="monthlyTotalTitle" class="timeSubmitalBottomHeightWidth">	
+									<b><t:Message value="prm.business.timesubmital.report.monthlytotalmessage"/> </b>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+			
+			<div id="assignmentDataDiv" class="assignmentDataDiv" onScroll="scrollSummaryHeader()">
+				<table cellspacing="0" cellpadding="0" width="100%" id="assignmentDataTable">
+			  		<t:if test="detailTimeSubmittal">
+			  			<t:loop source="detailTimeSubmittal" value="currentTimeSubmittal">
+			  				<t:if test="currentTimeSubmittal.memberName">
+			  					<tr id="member_${currentTimeSubmittal.memberId}" valign="middle" level="0" kidsShown="false" class="${currentTimeSubmittal.memberVisible}">
+			  						<td colspan="${columnSize}" class="projectRow" nowrap="nowrap" title="${currentTimeSubmittal.memberName}">
+			  							<div class="userName">
+			  								<a href="javascript:toggleTree('member_${currentTimeSubmittal.memberId}', 'person', 'expand');"><img src="${asset:context:/images/minus.png}" id="togglermember_${currentTimeSubmittal.memberId}"/></a>
+			  									${currentTimeSubmittal.memberName}
+			  							</div>
+			  						</td>
+			  						<td class="timeSubmitalHeader"></td>
+			  					</tr>
+			  				</t:if>
+			  			<t:if test="assignmentEnabled">
+				  			<t:if test="currentTimeSubmittal.projectName">
+				  				<tr id="project_${currentTimeSubmittal.memberId}_${currentTimeSubmittal.spaceId}" valign="middle" level="1" kidsShown="false" class="${currentTimeSubmittal.projectVisible}">
+				  					<td colspan="${columnSize}" class="projectRow" nowrap="nowrap" title="${currentTimeSubmittal.projectName}">
+				  						<div class="projectName">
+				  							<a href="javascript:toggleTree('project_${currentTimeSubmittal.memberId}_${currentTimeSubmittal.spaceId}', 'project', 'expand');"><img src="${asset:context:/images/minus.png}" id="togglerproject_${currentTimeSubmittal.memberId}_${currentTimeSubmittal.spaceId}"/></a>
+				  								${currentTimeSubmittal.projectName} 
+				  							</div>
+				  					</td>
+				  					<td class="timeSubmitalHeader"></td>
+				  				</tr>
+					  		</t:if>
+					  		<t:if test="currentTimeSubmittal.taskName">
+								<tr class="${currentTimeSubmittal.assignmentVisible}" id="assignment_${currentTimeSubmittal.memberId}_${currentTimeSubmittal.spaceId}_${currentTimeSubmittal.objectId}" valign="middle" level="2" kidsShown="false"> 
+								  	<td class="assignment-name" title="${currentTimeSubmittal.taskName}">
+								  		<div class="taskName">
+								  		<t:if test="currentTimeSubmittal.contextUrl">
+								  			<a href="${currentTimeSubmittal.contextUrl}" class="pnet-links">
+												${currentTimeSubmittal.taskName} 
+											</a>
+											<t:parameter name="else">
+												${currentTimeSubmittal.taskName} 
+											</t:parameter>
+										</t:if>
+								  		</div>
+								  	</td>
+									<t:loop source="currentTimeSubmittal.workHourList" value="currentWorkHourValue">
+										<t:if test="isDailyView">
+											<t:if test="currentWorkHourValue.work">
+												<td align="center" class="projectRow">
+													<div class="timeSubmitalBottomHeightWidth">	
+														${currentWorkHourValue.work} 
+													</div>
+												</td>	
+							   		  		<t:parameter name="else">
+												<td align="center" class="projectRow">
+													<div class="timeSubmitalBottomHeightWidth">	
+														<b>${currentWorkHourValue.weeklyTotal} </b>
+													</div>
+												</td>
+									  		</t:parameter>	
+											</t:if>
+								  		<t:parameter name="else">
+								  			<t:if test="currentWorkHourValue.endOfweek">
+												<td align="center" class="projectRow">
+													<div class="timeSubmitalBottomHeightWidth">	
+														<b>${currentWorkHourValue.weeklyTotal} </b>
+													</div>
+												</td>
+											</t:if>
+								 	 	</t:parameter>
+										</t:if>
+									</t:loop>
+									<td align="center" class="timeSubmitalHeader">
+										<div class="timeSubmitalBottomHeightWidth">	
+											<b>${currentTimeSubmittal.monthlyTotal}</b>
+										</div>
+									</td>
+							  	</tr>
+						 	</t:if>
+						  	<t:if test="currentTimeSubmittal.projectSubTotalList">
+						  		<tr id="pro_total_${currentTimeSubmittal.memberId}_${currentTimeSubmittal.spaceId}" class=" ${currentTimeSubmittal.projectVisible} allTotalColum " valign="middle" level="2" kidsShown="false">
+							  		<td class="rightBorder" title="${currentTimeSubmittal.collapsedProjectName}">
+								  		<div class="projectTotalDiv">
+								  			<b> <t:Message value="prm.business.timesubmital.report.total"/>${currentTimeSubmittal.collapsedProjectName}</b>
+								  		</div>
+								  	</td>
+								 <t:loop source="currentTimeSubmittal.projectSubTotalList" value="currentWorkHourValue">
+									<t:if test="isDailyView">
+										<t:if test="currentWorkHourValue.work">
+											<td align="center" class="rightBorder">
+												<div class="timeSubmitalBottomHeightWidth">	
+													${currentWorkHourValue.work} 
+												</div>
+											</td>	
+								   		  <t:parameter name="else">
+											<td align="center" class="rightBorder">
+												<div class="timeSubmitalBottomHeightWidth">	
+													<b>${currentWorkHourValue.weeklyTotal} </b>
+												</div>
+											</td>
+										  </t:parameter>	
+										</t:if>
+									  <t:parameter name="else">
+									    <t:if test="currentWorkHourValue.endOfweek">
+											<td align="center" class="projectRow">
+												<div class="timeSubmitalBottomHeightWidth">	
+													<b>${currentWorkHourValue.weeklyTotal} </b>
+												</div>
+											</td>
+										</t:if>	
+									  </t:parameter>
+									</t:if>
+								</t:loop>
+						  			<td align="center" class="timeSubmitalHeader">
+					  					<div class="timeSubmitalBottomHeightWidth">	
+					  						<b>${currentTimeSubmittal.monthlyProjectTotal}</b>
+					  					</div>
+					  				</td>
+							  	</tr>
+							  	<tr id="prt_${currentTimeSubmittal.memberId}_${currentTimeSubmittal.spaceId}" class="${currentTimeSubmittal.hiddenProjectVisible}" valign="middle" kidsShown="false" level="1">
+							  		<td class="rightBorder" title="${currentTimeSubmittal.collapsedProjectName}">
+								  		<div class="projectTotalDiv">
+								  		<a href="javascript:toggleTree('project_${currentTimeSubmittal.memberId}_${currentTimeSubmittal.spaceId}', 'project', 'collapse');"><img src="${asset:context:/e.gif}" id="togglerproject_${currentTimeSubmittal.memberId}_${currentTimeSubmittal.spaceId}"/></a>
+								  			<b> <t:Message value="prm.business.timesubmital.report.total"/> ${currentTimeSubmittal.collapsedProjectName}</b>
+								  		</div>
+								  	</td>
+								  	<t:loop source="currentTimeSubmittal.projectSubTotalList" value="currentWorkHourValue">
+										<t:if test="isDailyView">
+											<t:if test="currentWorkHourValue.work">
+												<td align="center" class="rightBorder">
+													<div class="timeSubmitalBottomHeightWidth">	
+														${currentWorkHourValue.work} 
+													</div>
+												</td>	
+									   		  <t:parameter name="else">
+												<td align="center" class="rightBorder">
+													<div class="timeSubmitalBottomHeightWidth">	
+														<b>${currentWorkHourValue.weeklyTotal} </b>
+													</div>
+												</td>
+											  </t:parameter>	
+											</t:if>
+										  <t:parameter name="else">
+										  <t:if test="currentWorkHourValue.endOfweek">
+											<td align="center" class="projectRow">
+												<div class="timeSubmitalBottomHeightWidth">	
+													<b>${currentWorkHourValue.weeklyTotal} </b>
+												</div>
+											</td>
+											</t:if>
+										  </t:parameter>
+										</t:if>
+									</t:loop>
+						  			<td align="center" class="timeSubmitalHeader">
+					  					<div class="timeSubmitalBottomHeightWidth">		
+					  						<b>${currentTimeSubmittal.monthlyProjectTotal}</b>
+					  					</div>
+					  				</td>
+							  	</tr>
+						 </t:if>
+			  		<t:parameter name="else">
+				  		<t:if test="currentTimeSubmittal.projectSubTotalList">
+				  			<tr class="${currentTimeSubmittal.projectVisible}" id="project_${currentTimeSubmittal.memberId}_${currentTimeSubmittal.spaceId}" valign="middle" level="1" kidsShown="true">
+				  				<td class="projectRow" title="${currentTimeSubmittal.collapsedProjectName}">
+				  					<div class="projectName" style="overflow:hidden;">
+				  						${currentTimeSubmittal.collapsedProjectName} 
+				  					</div>
+				  				</td>
+				  				<t:loop source="currentTimeSubmittal.projectSubTotalList" value="currentWorkHourValue">
+									<t:if test="isDailyView">
+										<t:if test="currentWorkHourValue.work">
+											<td align="center" class="rightBorder">
+												<div class="timeSubmitalBottomHeightWidth">	
+													${currentWorkHourValue.work} 
+												</div>
+											</td>	
+								   		  <t:parameter name="else">
+											<td align="center" class="rightBorder">
+												<div class="timeSubmitalBottomHeightWidth">	
+													<b>${currentWorkHourValue.weeklyTotal} </b>
+												</div>
+											</td>
+										  </t:parameter>	
+										</t:if>
+									  <t:parameter name="else">
+									 	<t:if test="currentWorkHourValue.endOfweek">
+											<td align="center" class="projectRow">
+												<div class="timeSubmitalBottomHeightWidth">	
+													<b>${currentWorkHourValue.weeklyTotal} </b>
+												</div>
+											</td>
+										</t:if>
+									  </t:parameter>
+									</t:if>
+								</t:loop>
+					  			<td align="center" class="timeSubmitalHeader">
+				  					<div class="timeSubmitalBottomHeightWidth">		
+				  						<b>${currentTimeSubmittal.monthlyProjectTotal}</b>
+				  					</div>
+				  				</td>
+				  			</tr>
+			  			</t:if>
+				  	</t:parameter>
+				  	</t:if>
+				  	<t:if test="currentTimeSubmittal.resourceSubTotal">
+					  	<tr id="res_total_${currentTimeSubmittal.memberId}" class=" ${currentTimeSubmittal.memberVisible}  allTotalColum " valign="middle" level="1" kidsShown="false">
+					  		<td nowrap="nowrap" class="rightBorder" title="${currentTimeSubmittal.projectResource}">
+						  		<div class="projectTotalDiv">
+						  			<b> <t:Message value="prm.business.timesubmital.report.total"/> ${currentTimeSubmittal.projectResource} </b>
+						  		</div>
+						  	</td>
+						  	<t:loop source="currentTimeSubmittal.resourceSubTotal" value="currentWorkHourValue">
+								<t:if test="isDailyView">
+									<t:if test="currentWorkHourValue.work">
+										<td align="center" class="rightBorder">
+											<div class="timeSubmitalBottomHeightWidth">	
+												${currentWorkHourValue.work} 
+											</div>
+										</td>	
+							   		  <t:parameter name="else">
+										<td align="center" class="rightBorder">
+											<div class="timeSubmitalBottomHeightWidth">	
+												<b>${currentWorkHourValue.weeklyTotal} </b>
+											</div>
+										</td>
+									  </t:parameter>	
+									</t:if>
+								  <t:parameter name="else">
+								  	<t:if test="currentWorkHourValue.endOfweek">
+										<td align="center" class="projectRow">
+											<div class="timeSubmitalBottomHeightWidth">	
+												<b>${currentWorkHourValue.weeklyTotal} </b>
+											</div>
+										</td>
+									</t:if>
+								  </t:parameter>
+								</t:if>
+							</t:loop>
+				  			<td align="center" class="timeSubmitalHeader">
+			  					<div class="timeSubmitalBottomHeightWidth">		
+			  						<b>${currentTimeSubmittal.resourceTotal}</b>
+			  					</div>
+			  				</td>
+					  	</tr>
+					  	
+					  	<tr id="resource_${currentTimeSubmittal.memberId}" class="${currentTimeSubmittal.hiddenResourceVisible} allTotalColum" valign="middle">
+					  		<td nowrap="nowrap" class="rightBorder" title="${currentTimeSubmittal.projectResource}">
+						  		<div class="memberTotalDiv">
+						  		<a href="javascript:toggleTree('member_${currentTimeSubmittal.memberId}', 'person', 'collapse');"><img src="${asset:context:/e.gif}" id="togglerresource_${currentTimeSubmittal.memberId}"/></a>
+						  			<b> ${currentTimeSubmittal.projectResource} </b>
+						  		</div>
+						  	</td>
+						  	<t:loop source="currentTimeSubmittal.resourceSubTotal" value="currentWorkHourValue">
+									<t:if test="isDailyView">
+										<t:if test="currentWorkHourValue.work">
+											<td align="center" class="rightBorder">
+												<div class="timeSubmitalBottomHeightWidth">	
+													${currentWorkHourValue.work} 
+												</div>
+											</td>	
+								   		  <t:parameter name="else">
+											<td align="center" class="rightBorder">
+												<div class="timeSubmitalBottomHeightWidth">	
+													<b>${currentWorkHourValue.weeklyTotal} </b>
+												</div>
+											</td>
+										  </t:parameter>	
+										</t:if>
+									  <t:parameter name="else">
+									  	<t:if test="currentWorkHourValue.endOfweek">
+											<td align="center" class="projectRow">
+												<div class="timeSubmitalBottomHeightWidth">	
+													<b>${currentWorkHourValue.weeklyTotal} </b>
+												</div>
+											</td>
+										</t:if>
+									  </t:parameter>
+									</t:if>
+								</t:loop>
+				  			<td align="center" class="timeSubmitalHeader">
+			  					<div class="timeSubmitalBottomHeightWidth">		
+			  						<b>${currentTimeSubmittal.resourceTotal}</b>
+			  					</div>
+			  				</td>
+					  	</tr>
+				  	</t:if>
+			  	</t:loop>
+			  	<t:parameter name="else">
+			  		<tr>
+			  			<td width="80%" colspan="2" >
+				  			<div id="blankMessage" class="blankMessage">
+								<t:Message value="prm.business.timesubmital.report.nosummaryfoundmessage"/>
+							</div>
+			  			</td>
+			  		</tr>	
+			  	</t:parameter>
+				 </t:if>		
+			</table>
+			</div>
+			<div id="summaryFooter" class="summaryFooter">
+				<div id="summaryFooter-div" class="summaryFooter-div">
+					<table cellspacing="0" cellpadding="0" width="100%">
+						<tr class="timeSubmitalHeader" valign="middle"> 
+							<td nowrap="nowrap" class="rightBorder">
+						  		<div class="projectTotalDiv">
+						  			<b><t:Message value="prm.business.timesubmital.report.dailytotalmessage"/> </b>
+						  		</div>
+						  	</td>
+						  		<t:loop source="dailyTotalListWeekyView" value="currentWorkHourValue">
+									<t:if test="isDailyView">
+											<t:if test="currentWorkHourValue.work">
+												<td align="center" class="rightBorder">
+													<div class="timeSubmitalBottomHeightWidth">	
+														${currentWorkHourValue.work} 
+													</div>
+												</td>	
+								 		  	<t:parameter name="else">
+												<td align="center" class="rightBorder">
+													<div class="timeSubmitalBottomHeightWidth">	
+														<b>${currentWorkHourValue.weeklyTotal} </b>
+													</div>
+												</td>
+										 	</t:parameter>	
+										</t:if>
+									  <t:parameter name="else">
+									  	<t:if test="currentWorkHourValue.endOfweek">
+											<td align="center" class="projectRow">
+												<div class="timeSubmitalBottomHeightWidth">	
+													<b>${currentWorkHourValue.weeklyTotal} </b>
+												</div>
+											</td>
+										</t:if>
+									  </t:parameter>
+									</t:if>
+								</t:loop>
+				  				<td align="center" class="workCaptureRow">
+									<div class="timeSubmitalBottomHeightWidth">
+			  							<b>${grantTotalString}</b>
+			  						</div>
+			  					</td>
+					  		</tr>
+						</table>
+					</div>
+				</div>
+			</td>	
+		</tr>
+	</table>
+	<script type="text/javascript"> 
+		var userName = '${userName}';
+		var currentMonthDateDtring = '${monthStartDate}';
+		memberListString = '${memberListString}';
+		assignmentEnabled = '${assignmentEnabled}';
+	</script>
+	
+</div>

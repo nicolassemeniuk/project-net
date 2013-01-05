@@ -1,0 +1,30 @@
+function createCalculatedField(in name, in field1, in field2){
+	auto outText;
+	extern i;
+	set_window("main",1);
+	list_select_item("ElementID","Calculated Field");
+	wait(1);
+	set_window("main",1);
+	edit_set("field_label",name);
+	edit_set("row_num",i);
+	list_select_item("column_id","Left");
+	edit_set("99","2");
+	list_select_item("100_3",field1);
+	list_select_item("101","+");
+	list_select_item("102",field2);
+	web_link_click("Submit");
+	wait(1);
+	set_window("main",1);
+	if(obj_exists(name)==E_OK)
+		report_msg("The Calculation Field '"&name&"'created successfully");
+	else
+		report_msg("The creation of Calculated Field CANNOT be verified");
+	i = i + 1;
+	set_window("main",1);
+# 	win_get_text("main",outText,630,434,723,442);
+# 	if(outText == "Calculated Field")
+# 		report_msg("The field created is of type User Instructions");
+		if(obj_exists("User Instructions")==E_OK)
+		report_msg("The field created is of type User Instructions");
+	report_msg("");
+}

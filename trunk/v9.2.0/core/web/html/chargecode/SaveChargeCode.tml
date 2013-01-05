@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+<body>
+	<div style="position: relative;left:0;top:0;background-color:#CCD8FE;">
+		<table width="100%" cellpadding="0" cellspacing="0"> 
+			<tr>
+				<td class="top_left"></td>
+				<td height="30" align="left" id="save-charge-code-page-heading" class="top_m"><b class="heading"><t:Message value="prm.business.chargecode.page.title"/> </b></td>
+				<td align="right" class="top_m"><a href="javascript:hideUploadPopup();"><img border="0" alt="x" src="${JSPRootURL}/images/menu/close.gif"/></a></td>
+				<td class="top_right"></td>
+			</tr>
+		</table>
+	</div>
+	<t:form name="saveViewForm">
+        <div class="pp-saveview-column-div" id="saveViewMainDiv">
+	      <table cellpadding="0" cellspacing="0" width="100%">
+	        	<tr><td class="m_left"  width="1%"></td>
+	        		<td class="pp-saveview-innertd">
+				        <table border="0" cellspacing="0" width="97%" style="margin-top:15px">
+							<tr>
+								<td>
+									<table width="100%">
+										<tr>
+											<td width="35%" ><span class="label-text"><t:Message value="prm.business.chargecode.chargecodetable.header.chargecodeno.label"/></span></td>
+											<td width="65%">
+	  											<input type="text" name="codenumber" value="${codeNo}" size="45"/>
+					 		           	   </td>
+					 		           	   <input type="hidden" name="codeId" value="${codeId}"/>
+										</tr>
+										<tr>
+											<td width="35%" ><span class="label-text"><t:Message value="prm.business.chargecode.chargecodetable.header.chargecodename.label"/></span></td>
+											<td width="65%">
+												<input type="text" name="codename" value="${codeName}" size="45"/>
+					 		           	   </td>
+										</tr>
+										<tr>
+											<td width="35%" ><span class="label-text"><div style="position: absolute"><t:Message value="prm.business.chargecode.chargecodetable.header.chargecodedescription.label"/></div></span></td>
+											<td width="65%" >
+												<textarea rows="4" cols="42" name="codedescription">${codeDesc}</textarea>
+					 		           	   </td>
+										</tr>
+									</table> 
+								</td>
+							</tr>
+						</table>
+					</td>
+					<td class="m_right" width="1%"></td>
+				</tr>
+			</table>
+		</div>
+	</t:form>
+	<table cellpadding="0" cellspacing="0">
+		<tr>
+			<td class="bottom_left" width="1%"></td>
+			<td class="bottom_m" style="width: 80%; padding-left: 10px;"></td>
+			<td class="bottom_m" style="padding-right: 6px;"><button style="width: 100px;" onclick="javascript:manageChargeCodeAjaxAction();"><t:Message value="all.global.popup.button.submit.caption"/></button></td>
+			<td class="bottom_m" style="padding-right: 4px;"><button style="width: 100px;" onclick="javascript:hideUploadPopup();" ><t:Message value="all.global.popup.button.cancle.caption"/></button></td>
+			<td class="bottom_right" width="1%"></td>
+		</tr>
+	</table>
+</body>
+</html>

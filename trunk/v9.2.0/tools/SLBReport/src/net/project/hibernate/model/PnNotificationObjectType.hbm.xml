@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnNotificationObjectType" 
+    table="PN_NOTIFICATION_OBJECT_TYPE"
+    lazy="false"
+>
+
+    <id
+        name="objectType"
+        type="java.lang.String"
+        column="OBJECT_TYPE"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="displayName"
+        type="java.lang.String"
+        column="DISPLAY_NAME"
+        length="80"
+    />
+    <property
+        name="isSubscribable"
+        type="java.lang.String"
+        column="IS_SUBSCRIBABLE"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnObjectType -->
+    <one-to-one
+        name="pnObjectType"
+        class="net.project.hibernate.model.PnObjectType"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional one-to-many association to PnNotificationType -->
+
+    <set
+        name="pnNotificationTypes"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="OBJECT_TYPE" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnNotificationType"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

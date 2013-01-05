@@ -1,0 +1,289 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<table width="100%" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">	
+	<tr>
+		<td>
+			<table width="100%">
+				<tr>
+					<td width="100%" nowrap="nowrap">
+						<t:if test="assignmentFound">
+						<div id="entry-time">
+							<span class="title" width="100%"><t:Message value="prm.blog.timesheet.timeentry.title"/></span>
+							<span class="week-date">
+								<t:if test="scrollTypeIsWeek">
+						        	<a href="javascript:changeScrollType('day');" ><t:Message value="prm.blog.timesheet.day.title"/></a>&nbsp;&nbsp;<t:Message value="prm.blog.timesheet.week.title"/>
+					       			<t:parameter name="else">
+							        	<t:Message value="prm.blog.timesheet.day.title"/> &nbsp; <a href="javascript:changeScrollType('week');" ><t:Message value="prm.blog.timesheet.week.title"/></a>																	        
+						        	</t:parameter>
+						    	</t:if>
+							</span>
+							<span id="loadingDiv" class="loadingText"></span>
+						</div>
+						<span id="notWorkingDay" class="errorMessage" style="color: red; visibility: visible;" width="100%"/>
+						<span id="blogErrorLocationID" class="errorMessage" style="color: red; visibility:visible;" width="100%">&nbsp;</span>
+						
+						<div id="timeWorkedDiv" width="100%">
+							<table align='left' id='timecard' border='0' width='100%' celpadding='0' cellspacing='0'>
+						        <tr class='calendar-table'>
+						        	<td></td>
+						        	<t:if test="scrollTypeIsWeek">
+	        			        		<td rowspan="2" align="right"><img src="${JSPRootURL}/images/icons/left-black-pointing.gif" border='0' onclick="scroll('${scrollBackStartDate}', '${scrollType}');" style="cursor:pointer;"/></td>
+        			        		</t:if>
+									<t:loop source="dateHeaders" value="dateHeader">
+							            <t:if test="dateHeader.isToday">
+							            	<td align="center" width="300" rowspan="2" class="time-entry-border">
+												<table cellspacing="6" align="center"><tr class="calendar-table">
+													<td><img src="${JSPRootURL}/images/icons/left-black-pointing.gif" border='0' onclick="scroll('${scrollBackStartDate}', '${scrollType}');" style="cursor:pointer;"/></td>
+													<td align="center">${dateHeader.dayOfWeek}<br/> ${dateHeader.date} </td>
+													<td><img src="${JSPRootURL}/images/icons/right-black-pointing.gif" border='0' align="right" onclick="scroll('${scrollForwardStartDate}','${scrollType}');" style="cursor:pointer;"/></td>
+												</tr></table>
+											</td>
+								            <t:parameter name="else">
+												<t:if test="scrollTypeIsWeek">
+													<t:if test="dateHeader.isTodaysDayInWeek">
+														<t:if test="dateHeader.isNonWorkingDay">
+															<td align="center" rowspan="2" class="todayAndNonWorkingDay">
+																${dateHeader.dayOfWeek} <br /> ${dateHeader.date} 
+															</td>
+															<t:parameter name="else">
+																<td align="center" rowspan="2" class="selected">
+																	${dateHeader.dayOfWeek} <br /> ${dateHeader.date} 
+																</td>
+															</t:parameter>
+														</t:if>
+														<t:parameter name="else">
+															<t:if test="dateHeader.isNonWorkingDay">
+																<td align="center" rowspan="2" class="nonWorkingDay">
+																	${dateHeader.dayOfWeek} <br /> ${dateHeader.date} 
+																</td>
+																<t:parameter name="else">
+																	<td align="center" rowspan="2" class="time-entry-border">
+																		${dateHeader.dayOfWeek} <br /> ${dateHeader.date} 
+																	</td>
+																</t:parameter>
+															</t:if>
+															
+														</t:parameter>
+													</t:if>
+													<t:parameter name="else">
+														<td align="center" width="300" rowspan="2">
+															<table cellspacing="6" align="center"><tr class='calendar-table'>
+																	<td><img src="${JSPRootURL}/images/icons/left-black-pointing.gif" border='0' onclick="scroll('${scrollBackStartDate}', '${scrollType}');" style="cursor:pointer;"/></td>
+																	<td align="center">${dateHeader.dayOfWeek} <br /> ${dateHeader.date} </td>
+																	<td><img src="${JSPRootURL}/images/icons/right-black-pointing.gif" border='0' align="right" onclick="scroll('${scrollForwardStartDate}','${scrollType}');" style="cursor:pointer;"/></td>
+															</tr></table>
+														</td>
+													</t:parameter>
+												</t:if>
+											</t:parameter>
+							            </t:if>
+							        </t:loop>
+							        <t:if test="scrollTypeIsWeek">
+	        			        		<td rowspan="2"><img src="${JSPRootURL}/images/icons/right-black-pointing.gif" border='0' align="right" onclick="scroll('${scrollForwardStartDate}','${scrollType}');" style="cursor:pointer;"/></td>
+        			        		</t:if>
+									<td align='left' valign='top' class='table-headers time-entry-border' nowrap='nowrap' style="padding-left:6px;"><t:Message value="prm.blog.timesheet.totalreported.title"/>
+								   		<!-- <a href='javascript:showHistory();' class='bluelink'>history</a> --> 
+								   	</td>
+								   	
+									<td align='left' valign='top' class='table-headers time-entry-border' nowrap='nowrap' style="padding-left:6px;"><t:Message value="prm.blog.timesheet.estimatedremaining.title"/>
+						   				<!-- <a href='javascript:setPercentageDiv();' class='redlink'>not accurate?</a> -->
+					   				</td>
+									<td align='left' valign='top' class='table-headers time-entry-border' nowrap='nowrap' style="padding-left:6px;"><t:Message value="prm.blog.timesheet.totalestimated.title"/></td>
+									<td align='left' valign='top' class='table-headers time-entry-border' nowrap='nowrap' style="padding-left:6px;">% <br/><t:Message value="prm.blog.timesheet.complete.title"/>
+					       				<!-- <a href='javascript:setPercentageDiv();' class='redlink'>not accurate?</a> -->
+	                				</td>
+	        						<td class='table-headers time-entry-border' rowspan="2"></td>
+	        					</tr>
+	                
+	        					<tr class='calendar-table'>
+	        						<td></td>
+	        						<td class='table-headers time-entry-border no-top-border'><a href="javascript:showHistory();" style='padding-left:6px;'><t:Message value="prm.blog.timesheet.history.title"/></a></td>
+	        			   			<td colspan='2' nowrap='nowrap' class='table-headers time-entry-border no-top-border'>
+	        			   			<t:if test="userAssigned">
+		        			   			<a href="javascript:getEstNotAccurateDiv();"><t:Message value="prm.blog.timesheet.estimatesnotaccurate.title"/></a>
+	        			   			</t:if>
+	        			   			</td>
+	        			   			<td class='table-headers time-entry-border no-top-border'></td>
+	       			   			</tr>
+								<tr>
+	     							<t:if test="scrollTypeIsWeek">
+	     								<td></td>
+										<td class="work-label"><br/><t:Message value="prm.blog.timesheet.change.title" /></td> <!--  used extra td for week type only -->
+									</t:if>
+	     							<t:loop source="dateLongNamesList" value="dateLongName">
+	     								<t:if test="scrollTypeIsWeek">
+	     									<t:if test="dateLongName.isTodaysDayInWeek">
+												<t:if test="dateLongName.isNonWorkingDay">
+													<td nowrap='nowrap' width="${strTDwidth}" id="wCF_${assignmentObjectId}X${dateLongName.name}" align="center" class='table-content-small todayAndNonWorkingDayBox' ov="${dateLongName.work}">
+									                	<!--  <a href="javascript:describeMeForCurrentDate('${dateLongName.work}','${dateLongName.date}','current');">${dateLongName.work}</a> <br/>-->
+									                	<input type='text' size='1' maxlength='5'  
+														id='${dateLongName.valueName}' value='${dateLongName.work}' 
+														onchange="blogItWorkChanged('${assignmentObjectId}', 'true','${dateLongName.name}','${moduleId}','${scrollType}');"
+														onkeypress="return numberCheck(event, this);" onfocus="javascript: document.oncontextmenu = new Function('return false');"
+															onblur="javascript: document.oncontextmenu = new Function('return true');"/><br />
+														<div id="w_${dateLongName.name}" class='oldWorkForDay'>0</div>
+									                </td>
+													<t:parameter name="else">
+														<td nowrap='nowrap' width="${strTDwidth}" id="wCF_${assignmentObjectId}X${dateLongName.name}" align="center" class='table-content-small boxSelected' ov="${dateLongName.work}">
+										                	<!--  <a href="javascript:describeMeForCurrentDate('${dateLongName.work}','${dateLongName.date}','current');">${dateLongName.work}</a> <br/>-->
+										                	<input type='text' size='1' maxlength='5' 
+															id='${dateLongName.valueName}' value='${dateLongName.work}' 
+															onchange="blogItWorkChanged('${assignmentObjectId}', 'true','${dateLongName.name}','${moduleId}','${scrollType}');"
+															onkeypress="return numberCheck(event, this);" onfocus="javascript: document.oncontextmenu = new Function('return false');"
+															onblur="javascript: document.oncontextmenu = new Function('return true');"/><br />
+															<div id="w_${dateLongName.name}" class='oldWorkForDay'>0</div>
+									                	</td>
+													</t:parameter>
+								                </t:if>
+										        <t:parameter name="else">
+										        	<t:if test="dateLongName.isNonWorkingDay">
+											        	<td nowrap='nowrap' width="${strTDwidth}" align="center" id="wCF_${assignmentObjectId}X${dateLongName.name}" class='table-content-small nonWorkingDayBox' ov="${dateLongName.work}">
+										                	<!--  <a href="javascript:describeMeForCurrentDate('${dateLongName.work}','${dateLongName.date}','current');">${dateLongName.work}</a> <br/>-->
+										                	<input type='text' size='1' maxlength='5'
+															id='${dateLongName.valueName}' value='${dateLongName.work}' 
+															onchange="blogItWorkChanged('${assignmentObjectId}', 'true','${dateLongName.name}','${moduleId}','${scrollType}');"
+															onkeypress="return numberCheck(event, this);" onfocus="javascript: document.oncontextmenu = new Function('return false');"
+															onblur="javascript: document.oncontextmenu = new Function('return true');"/><br />
+															<div id="w_${dateLongName.name}" class='oldWorkForDay'>0</div>
+								               			</td>
+								               			<t:parameter name="else">
+								               				<td nowrap='nowrap' width="${strTDwidth}" align="center" id="wCF_${assignmentObjectId}X${dateLongName.name}" class='table-content-small' ov="${dateLongName.work}">
+										                	<!--<a href="javascript:describeMeForCurrentDate('${dateLongName.work}','${dateLongName.date}','current');">${dateLongName.work}</a> <br/> -->
+										                	<input type='text' size='1' maxlength='5'  
+															id='${dateLongName.valueName}' value='${dateLongName.work}' 
+															onchange="blogItWorkChanged('${assignmentObjectId}', 'true','${dateLongName.name}','${moduleId}','${scrollType}');"
+															onkeypress="return numberCheck(event, this);" onfocus="javascript: document.oncontextmenu = new Function('return false');"
+															onblur="javascript: document.oncontextmenu = new Function('return true');"/><br />
+															<div id="w_${dateLongName.name}" class='oldWorkForDay'>0</div>
+								               			</td>
+								               			</t:parameter>
+								               		</t:if>
+									            </t:parameter>
+											</t:if>
+											<t:parameter name="else">
+												<td class="work-label"><br/><t:Message value="prm.blog.timesheet.change.title" /></td>
+												<td nowrap='nowrap' width="300" align="center" id="wCF_${assignmentObjectId}X${dateLongName.name}" class='table-content-small' ov="${dateLongName.work}">
+								                	<!-- <a href="javascript:describeMeForCurrentDate('${dateLongName.work}','${dateLongName.date}','current');">${dateLongName.work}</a> <br/> -->
+								                	<input type='text' size='1' maxlength='5'  
+													id='${dateLongName.valueName}' value='${dateLongName.work}' 
+													onchange="blogItWorkChanged('${assignmentObjectId}', 'true','${dateLongName.name}','${moduleId}','${scrollType}');"
+													onkeypress="return numberCheck(event, this);" onfocus="javascript: document.oncontextmenu = new Function('return false');"
+													onblur="javascript: document.oncontextmenu = new Function('return true');"/><br />
+													<div id="w_${dateLongName.name}" class='oldWorkForDay'>0</div>
+								               	</td>
+						                	</t:parameter>
+						                </t:if>
+										<!-- <a id='timerLink' href="javascript:showtime('timesheetbox${dateLongName.forcount}');">
+										<img src='${JSPRootURL}+ "/images/sm_clock.gif' border='0'/></a> -->
+						            </t:loop>
+						            <t:if test="scrollTypeIsWeek">
+										<td></td> <!--  used extra td for week type only -->
+									</t:if>
+									
+							        <td style='padding-left: 6px; text-align: left;' class='table-content'><span name='wkrp' id='wkrp'>${strWorkComplete}</span></td>
+							        <td style='padding-left: 6px; text-align: left;' class='table-content'><span name='wkrm' id='wkrm'>${strWorkRemaining}</span></td>
+							        <td style='padding-left: 6px; text-align: left;' class='table-content'><span name='wk' id='wk'>${strWork}</span></td>
+							        <td style='padding-left: 6px; text-align: left;' class='table-content'><span name='pc' id='pc'>${strPercentComplete}</span></td>
+									<td nowrap='nowrap' class='table-content-done'>
+										<t:if test="userAssigned">
+											<input type='checkbox' id='workDone' />&nbsp;&nbsp;<t:Message value="prm.blog.timesheet.done.option.title"/><!-- onclick='percentChanged('${objectId}','done');' --> 
+										</t:if>
+									</td>
+						        </tr>
+						         
+						        <tr class="oldWorkForDay-content">
+						        	<t:if test="scrollTypeIsWeek">
+										<td></td>  <!-- used extra td for week type only  -->
+									</t:if>
+									<td class="work-label"><t:Message value="prm.blog.timesheet.dailytotals.title" /></td>
+	     							<t:loop source="dateLongNamesList" value="dateLongName">
+	     								<td nowrap='nowrap' align="center" class='oldWorkForDay' id="oW_${dateLongName.name}" oldWorkForDay="${dateLongName.oldWorkForDay}">
+						                	<a href="javascript:describeMeForCurrentDate('${dateLongName.oldWorkForDay}','${dateLongName.date}','oldWork');" id="dW_${dateLongName.name}">${dateLongName.oldWorkForDay}</a> <br/>
+				               			</td>
+								    </t:loop>
+						            <t:if test="scrollTypeIsWeek">
+										<td class="oldWorkForDay-border"></td>  <!-- used extra td for week type only -->
+									</t:if>
+									<td colspan="5" class="oldWorkForDay-border"></td>
+						        </tr>
+						        
+						        <tr id="timesetdiv" style="display:none;">
+							        <td class="table-content-estimates-right"></td>
+							        <t:if test="scrollTypeIsWeek">
+							        	<td></td>
+	        			        		<td align="center" class="estimates-instruction" colspan="8"><p class="estimates-header"><t:Message value="prm.blog.timesheet.estimatesnotaccurate.title"/>:</p>
+											<p class="estimates-message" ><t:Message value="prm.blog.timesheet.estimatesnotaccurateexplain.message"/></p>
+										</td>
+        			        			<t:parameter name="else">
+	        			        			<td align="center" class="estimates-instruction" colspan="1"><p class="estimates-header"><t:Message value="prm.blog.timesheet.estimatesnotaccurate.title"/>:</p>
+												<p class="estimates-message" ><t:Message value="prm.blog.timesheet.estimatesnotaccurateexplain.message"/></p>
+											</td>
+        			        			</t:parameter>
+        			        		</t:if>
+							        <td id="estReported" class="table-content-estimates" nowrap="nowrap" bgcolor="#f3f3fa" style="padding-left:6px;"></td>
+									<td class="table-content-estimates" nowrap="nowrap" bgcolor="#f3f3fa" style="padding-left:6px;"><input id="estRemaining" name="pc'+objectId+'" type="text" size="2" maxlength="5" onchange="estimatedRemainingChanged();" /> <t:Message value="prm.global.timequantity.hour.name.abbreviation.plural" /></td>
+									<td class="table-content-estimates" nowrap="nowrap" bgcolor="#f3f3fa" style="padding-left:6px;"><input id="totEstimated" type="text" size="2" maxlength="5" onchange="totalEstimatesChanged();" /> <t:Message value="prm.global.timequantity.hour.name.abbreviation.plural" /></td>
+									<td id="estPctComplete" class="table-content-estimates-right" nowrap="nowrap" style="padding-left:6px;"></td>
+									<td class="table-content-estimates-right"></td>
+						        </tr>							        
+								<t:if test="ChargeCodeEnabled">							        
+						        <t:if test="chargeCodeAvailable">
+							        <tr class="oldWorkForDay-content" id="charge-code-row">
+							        	<t:if test="scrollTypeIsWeek">
+											<td></td>  <!-- used extra td for week type only  -->
+										</t:if>
+										<td class="work-label"><t:Message value="prm.business.chargecode.label" /></td>
+										<td>
+							        	<t:if test="chargeCodeAssigned">
+											<t:ComboBox id="chargeCodeList" displayField="codeName" valueField="codeId" 
+											list="chargeCodeList" value="${chargeCode.codeId}" defaultOption="true" 
+											defaultOptionText="prm.business.chargecode.dropdownlist.defaultoption.label" />
+	        			        			<t:parameter name="else">
+												<t:ComboBox id="chargeCodeList" displayField="codeName" valueField="codeId" 
+												list="chargeCodeList" defaultOption="true" 
+												defaultOptionText="prm.business.chargecode.dropdownlist.defaultoption.label" />
+											</t:parameter>												
+										</t:if>
+										</td>
+										<td colspan="5" class="oldWorkForDay-border">
+										</td>
+							        </tr>
+								</t:if>
+								</t:if>							 
+					        </table> <!-- End of table timecard -->
+				        
+				        	<!--  <font face="Arial" color="blue" size="2"><b><t:Message value="prm.personal.assignments.timesheet.viewexistingtimesheet.message" />
+							<t:Message value="prm.form.report.common.chooseformjsp.loading.message" /> </b></font>
+							<img src="${JSPRootURL}/images/default/grid/loading.gif" align="middle" /> -->
+						</div> <!-- End of timeWorkedDiv -->
+				     
+					    </t:if>    
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<!-- tr><td colspan='7' class='blogbar'></td></tr -->
+<script type="text/javascript">
+	var timesValueArray = '${timesValueArray}';
+	setDefault('${strPercentComplete}', '${strWorkRemaining}', '${strWorkComplete}', '${strWork}');
+	invalidErrorKey = '${invalidErrorKey}';
+	currentUserName = '${currentUserName}';
+	workCapturedInfoForTask = '${workCapturedInfoForTask}';
+	workNotCapturedInfoForTask = '${workNotCapturedInfoForTask}';
+	workCapturedInfoForAllassignments = '${workCapturedInfoForAllassignments}';
+	workNotCapturedInfoForAllAssignments = '${workNotCapturedInfoForAllAssignments}';
+	dec_separator = '${decimalSeparator}';
+	estimatedTotWorkErrorMessage = '${estimatedTotWorkErrorMessage}';
+	workHoursLessThanZeroErrorMessage = '${workHoursLessThanZeroErrorMessage}';
+	loadingMsg = '<t:Message value="prm.global.loading.message" />';
+	belowZeroErrMsg = '<t:Message value="prm.blog.timesheet.belowzero.error.message" />';
+	calEstimateErrMsg = '<t:Message value="prm.blog.timesheet.calculateestimate.failure.message" />';
+	endTimeErrMsg = '<t:Message value="prm.blog.timesheet.endtimeafterstarttime.error.message" />';
+	serverReqErrMsg = '<t:Message value="prm.blog.timesheet.serverrequest.failure.message" />';
+	historyDetailErrMsg = '<t:Message value="prm.blog.timesheet.historydetail.failure.message" />';
+	internalServerErrMsg = '<t:Message value="prm.blog.timesheet.internalserver.error.message" />';
+	workCompleteLbl = '<t:Message value="prm.blog.timesheet.workcomplete.label" />';
+	workRemainingLbl = '<t:Message value="prm.blog.timesheet.workremaining.label" />';
+</script>
+</table>

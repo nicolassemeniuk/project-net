@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnBusiness" 
+    table="PN_BUSINESS"
+    lazy="false"
+>
+
+    <id
+        name="businessId"
+        type="java.math.BigDecimal"
+        column="BUSINESS_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="businessName"
+        type="java.lang.String"
+        column="BUSINESS_NAME"
+        length="80"
+    />
+    <property
+        name="businessDesc"
+        type="java.lang.String"
+        column="BUSINESS_DESC"
+        length="1000"
+    />
+    <property
+        name="businessType"
+        type="java.lang.String"
+        column="BUSINESS_TYPE"
+        length="80"
+    />
+    <property
+        name="logoImageId"
+        type="java.math.BigDecimal"
+        column="LOGO_IMAGE_ID"
+        length="20"
+    />
+    <property
+        name="isLocal"
+        type="int"
+        column="IS_LOCAL"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="remoteHostId"
+        type="java.math.BigDecimal"
+        column="REMOTE_HOST_ID"
+        length="20"
+    />
+    <property
+        name="remoteBusinessId"
+        type="java.math.BigDecimal"
+        column="REMOTE_BUSINESS_ID"
+        length="20"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isMaster"
+        type="int"
+        column="IS_MASTER"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="businessCategoryId"
+        type="java.math.BigDecimal"
+        column="BUSINESS_CATEGORY_ID"
+        length="20"
+    />
+    <property
+        name="brandId"
+        type="java.math.BigDecimal"
+        column="BRAND_ID"
+        length="20"
+    />
+    <property
+        name="billingAccountId"
+        type="java.math.BigDecimal"
+        column="BILLING_ACCOUNT_ID"
+        length="20"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnObject -->
+    <one-to-one
+        name="pnObject"
+        class="net.project.hibernate.model.PnObject"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional many-to-one association to PnAddress -->
+    <many-to-one
+        name="pnAddress"
+        class="net.project.hibernate.model.PnAddress"
+        not-null="true"
+    >
+        <column name="ADDRESS_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnBusinessSpace -->
+
+    <set
+        name="pnBusinessSpaces"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="BUSINESS_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnBusinessSpace"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

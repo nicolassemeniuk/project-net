@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDocProvider" 
+    table="PN_DOC_PROVIDER"
+    lazy="false"
+>
+
+    <id
+        name="docProviderId"
+        type="java.math.BigDecimal"
+        column="DOC_PROVIDER_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="docProviderName"
+        type="java.lang.String"
+        column="DOC_PROVIDER_NAME"
+        length="240"
+    />
+    <property
+        name="docProviderDescription"
+        type="java.lang.String"
+        column="DOC_PROVIDER_DESCRIPTION"
+        length="500"
+    />
+    <property
+        name="isDefault"
+        type="int"
+        column="IS_DEFAULT"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PnDocProviderType -->
+    <many-to-one
+        name="pnDocProviderType"
+        class="net.project.hibernate.model.PnDocProviderType"
+        not-null="true"
+    >
+        <column name="DOC_PROVIDER_TYPE_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnDocProviderHasDocSpace -->
+
+    <set
+        name="pnDocProviderHasDocSpaces"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DOC_PROVIDER_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDocProviderHasDocSpace"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnSpaceHasDocProvider -->
+
+    <set
+        name="pnSpaceHasDocProviders"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DOC_PROVIDER_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasDocProvider"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

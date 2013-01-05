@@ -1,0 +1,102 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 1 1115942300 0
+23 2 <T1> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 57 1115942330 0
+37 103 <Step: Verify Actual Start Date, Status: Fail, Description: Actual start date of task t1 INCORRECTLY set> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 88 1115942385 25
+37 106 <Step: Verify Duration, Status: Pass, Description: Duration value when work is captured for task t1 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 90 1115942385 24
+37 112 <Step: Verify Duration Units, Status: Pass, Description: Duration units when work is captured for task t1 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 94 1115942385 24
+37 98 <Step: Verify Work, Status: Pass, Description: Work value when work is captured for task t1 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 98 1115942385 24
+37 104 <Step: Verify Work Units, Status: Pass, Description: Work units when work is captured for task t1 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 102 1115942385 24
+37 107 <Step: Verify Work, Status: Pass, Description: Work complete value when work is captured for task t1 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 106 1115942385 24
+37 113 <Step: Verify Work Units, Status: Pass, Description: Work complete units when work is captured for task t1 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 110 1115942385 24
+37 115 <Step: Verify Work Units, Status: Pass, Description: Work percent complete when work is captured for task t1 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 114 1115942385 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 62 1115942388 0
+23 2 <T2> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 63 1115942388 0
+37 103 <Step: Verify Actual Start Date, Status: Fail, Description: Actual start date of task t2 INCORRECTLY set> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 88 1115942443 25
+37 106 <Step: Verify Duration, Status: Pass, Description: Duration value when work is captured for task t2 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 90 1115942443 24
+37 112 <Step: Verify Duration Units, Status: Pass, Description: Duration units when work is captured for task t2 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 94 1115942443 24
+37 98 <Step: Verify Work, Status: Pass, Description: Work value when work is captured for task t2 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 98 1115942443 24
+37 104 <Step: Verify Work Units, Status: Pass, Description: Work units when work is captured for task t2 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 102 1115942443 24
+37 107 <Step: Verify Work, Status: Pass, Description: Work complete value when work is captured for task t2 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 106 1115942443 24
+37 113 <Step: Verify Work Units, Status: Pass, Description: Work complete units when work is captured for task t2 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 110 1115942443 24
+37 115 <Step: Verify Work Units, Status: Pass, Description: Work percent complete when work is captured for task t2 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 114 1115942443 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 68 1115942446 0
+23 2 <T3> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 69 1115942446 0
+37 103 <Step: Verify Actual Start Date, Status: Fail, Description: Actual start date of task t3 INCORRECTLY set> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 88 1115942513 25
+37 106 <Step: Verify Duration, Status: Pass, Description: Duration value when work is captured for task t3 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 90 1115942513 24
+37 112 <Step: Verify Duration Units, Status: Pass, Description: Duration units when work is captured for task t3 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 94 1115942513 24
+37 98 <Step: Verify Work, Status: Pass, Description: Work value when work is captured for task t3 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 98 1115942513 24
+37 104 <Step: Verify Work Units, Status: Pass, Description: Work units when work is captured for task t3 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 102 1115942513 24
+37 107 <Step: Verify Work, Status: Pass, Description: Work complete value when work is captured for task t3 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 106 1115942513 24
+37 113 <Step: Verify Work Units, Status: Pass, Description: Work complete units when work is captured for task t3 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 110 1115942513 24
+37 115 <Step: Verify Work Units, Status: Pass, Description: Work percent complete when work is captured for task t3 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 114 1115942513 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 74 1115942516 0
+23 2 <T4> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 75 1115942516 0
+37 103 <Step: Verify Actual Start Date, Status: Fail, Description: Actual start date of task t4 INCORRECTLY set> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 88 1115942582 25
+37 106 <Step: Verify Duration, Status: Pass, Description: Duration value when work is captured for task t4 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 90 1115942582 24
+37 112 <Step: Verify Duration Units, Status: Pass, Description: Duration units when work is captured for task t4 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 94 1115942582 24
+37 98 <Step: Verify Work, Status: Pass, Description: Work value when work is captured for task t4 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 98 1115942582 24
+37 104 <Step: Verify Work Units, Status: Pass, Description: Work units when work is captured for task t4 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 102 1115942582 24
+37 107 <Step: Verify Work, Status: Pass, Description: Work complete value when work is captured for task t4 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 106 1115942582 24
+37 113 <Step: Verify Work Units, Status: Pass, Description: Work complete units when work is captured for task t4 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 110 1115942582 24
+37 115 <Step: Verify Work Units, Status: Pass, Description: Work percent complete when work is captured for task t4 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 114 1115942582 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 80 1115942586 0
+23 2 <T5> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 81 1115942586 0
+37 103 <Step: Verify Actual Start Date, Status: Fail, Description: Actual start date of task t5 INCORRECTLY set> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 88 1115942655 25
+37 106 <Step: Verify Duration, Status: Pass, Description: Duration value when work is captured for task t5 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 90 1115942655 24
+37 112 <Step: Verify Duration Units, Status: Pass, Description: Duration units when work is captured for task t5 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 94 1115942655 24
+37 98 <Step: Verify Work, Status: Pass, Description: Work value when work is captured for task t5 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 98 1115942655 24
+37 104 <Step: Verify Work Units, Status: Pass, Description: Work units when work is captured for task t5 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 102 1115942655 24
+37 107 <Step: Verify Work, Status: Pass, Description: Work complete value when work is captured for task t5 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 106 1115942655 24
+37 113 <Step: Verify Work Units, Status: Pass, Description: Work complete units when work is captured for task t5 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 110 1115942655 24
+37 115 <Step: Verify Work Units, Status: Pass, Description: Work percent complete when work is captured for task t5 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 114 1115942655 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 86 1115942657 0
+23 2 <T6> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 87 1115942657 0
+37 101 <Step: Verify Actual Start Date, Status: Pass, Description: Actual start date of task t6 correctly set> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 86 1115942699 24
+37 108 <Step: Verify Duration, Status: Fail, Description: Duration value when work is captured for task t6 INCORRECT> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 92 1115942699 25
+37 112 <Step: Verify Duration Units, Status: Pass, Description: Duration units when work is captured for task t6 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 94 1115942699 24
+37 98 <Step: Verify Work, Status: Pass, Description: Work value when work is captured for task t6 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 98 1115942699 24
+37 104 <Step: Verify Work Units, Status: Pass, Description: Work units when work is captured for task t6 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 102 1115942699 24
+37 107 <Step: Verify Work, Status: Pass, Description: Work complete value when work is captured for task t6 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 106 1115942699 24
+37 113 <Step: Verify Work Units, Status: Pass, Description: Work complete units when work is captured for task t6 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 110 1115942699 24
+37 115 <Step: Verify Work Units, Status: Pass, Description: Work percent complete when work is captured for task t6 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 114 1115942699 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 92 1115942701 0
+23 2 <T7> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 93 1115942702 0
+37 101 <Step: Verify Actual Start Date, Status: Pass, Description: Actual start date of task t7 correctly set> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 86 1115942756 24
+37 106 <Step: Verify Duration, Status: Pass, Description: Duration value when work is captured for task t7 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 90 1115942756 24
+37 112 <Step: Verify Duration Units, Status: Pass, Description: Duration units when work is captured for task t7 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 94 1115942756 24
+37 98 <Step: Verify Work, Status: Pass, Description: Work value when work is captured for task t7 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 98 1115942756 24
+37 104 <Step: Verify Work Units, Status: Pass, Description: Work units when work is captured for task t7 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 102 1115942756 24
+37 107 <Step: Verify Work, Status: Pass, Description: Work complete value when work is captured for task t7 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 106 1115942757 24
+37 113 <Step: Verify Work Units, Status: Pass, Description: Work complete units when work is captured for task t7 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 110 1115942757 24
+37 115 <Step: Verify Work Units, Status: Pass, Description: Work percent complete when work is captured for task t7 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 114 1115942757 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 98 1115942759 0
+23 2 <T8> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 99 1115942759 0
+37 101 <Step: Verify Actual Start Date, Status: Pass, Description: Actual start date of task t8 correctly set> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 86 1115942827 24
+37 106 <Step: Verify Duration, Status: Pass, Description: Duration value when work is captured for task t8 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 90 1115942827 24
+37 112 <Step: Verify Duration Units, Status: Pass, Description: Duration units when work is captured for task t8 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 94 1115942827 24
+37 98 <Step: Verify Work, Status: Pass, Description: Work value when work is captured for task t8 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 98 1115942827 24
+37 104 <Step: Verify Work Units, Status: Pass, Description: Work units when work is captured for task t8 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 102 1115942827 24
+37 107 <Step: Verify Work, Status: Pass, Description: Work complete value when work is captured for task t8 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 106 1115942827 24
+37 113 <Step: Verify Work Units, Status: Pass, Description: Work complete units when work is captured for task t8 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 110 1115942827 24
+37 115 <Step: Verify Work Units, Status: Pass, Description: Work percent complete when work is captured for task t8 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 114 1115942827 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 104 1115942830 0
+23 2 <T9> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 105 1115942830 0
+37 101 <Step: Verify Actual Start Date, Status: Pass, Description: Actual start date of task t9 correctly set> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 86 1115942898 24
+37 106 <Step: Verify Duration, Status: Pass, Description: Duration value when work is captured for task t9 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 90 1115942898 24
+37 112 <Step: Verify Duration Units, Status: Pass, Description: Duration units when work is captured for task t9 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 94 1115942898 24
+37 98 <Step: Verify Work, Status: Pass, Description: Work value when work is captured for task t9 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 98 1115942898 24
+37 104 <Step: Verify Work Units, Status: Pass, Description: Work units when work is captured for task t9 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 102 1115942898 24
+37 107 <Step: Verify Work, Status: Pass, Description: Work complete value when work is captured for task t9 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 106 1115942898 24
+37 113 <Step: Verify Work Units, Status: Pass, Description: Work complete units when work is captured for task t9 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 110 1115942898 24
+37 115 <Step: Verify Work Units, Status: Pass, Description: Work percent complete when work is captured for task t9 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 114 1115942898 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 110 1115942901 0
+23 3 <T10> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 111 1115942901 0
+37 102 <Step: Verify Actual Start Date, Status: Pass, Description: Actual start date of task t10 correctly set> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 86 1115942970 24
+37 107 <Step: Verify Duration, Status: Pass, Description: Duration value when work is captured for task t10 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 90 1115942970 24
+37 113 <Step: Verify Duration Units, Status: Pass, Description: Duration units when work is captured for task t10 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 94 1115942970 24
+37 99 <Step: Verify Work, Status: Pass, Description: Work value when work is captured for task t10 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 98 1115942970 24
+37 105 <Step: Verify Work Units, Status: Pass, Description: Work units when work is captured for task t10 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 102 1115942970 24
+37 108 <Step: Verify Work, Status: Pass, Description: Work complete value when work is captured for task t10 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 106 1115942970 24
+37 114 <Step: Verify Work Units, Status: Pass, Description: Work complete units when work is captured for task t10 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 110 1115942970 24
+37 116 <Step: Verify Work Units, Status: Pass, Description: Work percent complete when work is captured for task t10 correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 114 1115942970 24
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\captureWorkRW> 115 1115942972 0

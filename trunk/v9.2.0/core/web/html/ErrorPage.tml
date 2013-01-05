@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<head>
+<link href="${asset:context:/styles/global.css}" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<link href="${asset:context:/styles/fonts.css}" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<link href="${asset:context:/styles/personal.css}" rel="stylesheet" rev="stylesheet" type="text/css"/>
+<style type="text/css">
+    #shown { position: static; visibility: visible; }
+</style>
+</head>
+<body>
+<LINK REL='SHORTCUT ICON' HREF="${asset:context:/images/favicon.ico}"/>
+<center>
+<table border="0" cellpadding="0" cellspacing="0" width="80%">
+	<tr>
+		<td width="1%"><img src="${asset:context:/images/error/error-top-left.gif}" width="41" height="41" alt="" border="0"/></td>
+		<td class="errorBanner" width="98%"><t:Message value="prm.project.errorpage.objectdeleted" /></td>
+		<td width="1%"><img src="${asset:context:/images/error/error-top-right.gif}" width="41" height="41" alt="" border="0"/></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td class="channelContent">
+			<p>
+				<b> ${errorMessage} </b>
+		    </p>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+</table>
+<table id="normalNavigation" class="shown" border="0" cellpadding="0" cellspacing="0" width="80%">
+	<tr>
+        <td><img src="${asset:context:/images/error/error-bottom-left.gif}" width="41" height="41" alt="" border="0"/></td>
+        <td class="errorBanner" width="98%" align="right"></td>
+        <td class="errorBanner" align="right"></td>
+        <td class="errorBanner" width="40">&nbsp;</td>
+        <td class="errorBanner" align="right"><a href="javascript:history.back();" class="errorLink"><t:Message value="prm.project.main.return.label" /></a></td>
+        <td><a href="javascript:history.back();" class="errorLink"><img src="${asset:context:/images/error/error-bottom-right.gif}" width="41" height="41" alt="" border="0"/></a></td>
+	</tr>
+</table>
+</center>
+</body>
+</html>

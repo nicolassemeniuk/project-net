@@ -1,0 +1,218 @@
+GUI_close_all();
+wait(3);
+
+###################################################################
+# Getting personID for each and every resource invited to the project
+###################################################################
+reload("getPersonID",0,1);
+id[0] = getPersonID("Avinash Padmanabhan");
+GUI_close_all();
+
+###################################################################
+# Defining task types and units 
+###################################################################
+wait(2);
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+public task_types[] = {"Fixed Duration","Fixed Units","Fixed Work"};
+public units[] = {"hours","days","weeks"};
+
+###################################################################
+# Loading compiled modules and deleting any tasks previously present in the schedule list
+###################################################################
+reload("createTaskRD",0,1);
+reload("createTaskRU",0,1);
+reload("createTaskRW",0,1);
+
+set_window("menu",3);
+web_link_click("Workplan");
+wait(2);
+ 
+set_window("main",2);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer", 2);
+button_press("OK");
+wait(5);
+set_window("main", 2);
+
+###################################################################
+# Creating a FD task and then verifying that modifying work changes the resource assignment%
+###################################################################
+report_msg("FIXED DURATION - REVISE WORK");
+createTaskRD("t1", 1, units[1], 8, units[0], 1, id, 0);
+wait(2);
+web_link_click("t1");
+wait(1);
+set_window("main",2);
+web_link_click("Modify");
+wait(1);
+set_window("main",2);
+edit_set("work","");
+obj_type("work","4");
+obj_type("work","<kTab>");
+web_link_click("Submit");
+wait(3);
+set_window("main",2);
+web_link_click("t1");
+wait(1);
+set_window("main",2);
+web_link_click("Resources");
+wait(2);
+
+if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","percent","html_name","percent_"&id[0]&"")!=E_OK)
+	report_msg("Not OK3");
+else
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+
+edit_get_text("percent", outText);
+if(outText == 50)
+	tl_step("Verify assignment %", 0,"Assignment % is set correctly");
+else
+	tl_step("Verify assignment %", 1,"Assignment % is set INCORRECTLY");
+
+wait(1);
+web_link_click("Return to Task List");
+wait(3);
+set_window("main",2);
+web_link_click("t1");
+wait(1);
+set_window("main",2);
+web_link_click("Modify");
+wait(2);
+set_window("main",2);
+edit_get_text("duration",outText);
+list_get_selected("duration_units",outItem,outNum);
+if((outText == 1)&&(outItem == "days"))
+	tl_step("Verify duration",0,"The duration being shown for FD task is correct");
+else
+	tl_step("Verify duration",1,"The duration being shown for FD task is INCORRECT");
+
+edit_get_text("work",outText);
+list_get_selected("work_units",outItem,outNum);
+if((outText == 4)&&(outItem == "hours"))
+	tl_step("Verify work",0,"The work being shown for FD task is correct");
+else
+	tl_step("Verify work",1,"The work being shown for FD task is INCORRECT");	
+web_link_click("Cancel");
+wait(3);	
+###################################################################	
+# Creating a FU task and then verifying that modifying work causes a recalculation in duration
+###################################################################
+report_msg("FIXED UNITS - REVISE WORK");
+createTaskRU("t2", 1, units[1], 8, units[0], 1, id, 0);
+wait(2);
+web_link_click("t2");
+wait(1);
+set_window("main",2);
+wait(1);
+web_link_click("Modify");
+wait(1);
+set_window("main",2);
+edit_set("work","");
+obj_type("work","4");
+obj_type("work","<kTab>");
+web_link_click("Submit");
+wait(2);
+set_window("main",2);
+web_link_click("t2");
+wait(1);
+set_window("main",2);
+web_link_click("Resources");
+wait(2);
+
+if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","percent","html_name","percent_"&id[0]&"")!=E_OK)
+	report_msg("Not OK3");
+else
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+
+wait(1);
+edit_get_text("percent", outText);
+if(outText == 100)
+	tl_step("Verify assignment %", 0,"Assignment % is set correctly");
+else
+	tl_step("Verify assignment %", 1,"Assignment % is set INCORRECTLY");
+
+web_link_click("Return to Task List");
+wait(3);
+set_window("main",2);
+web_link_click("t2");
+wait(1);
+set_window("main",2);
+web_link_click("Modify");
+wait(1);
+set_window("main",2);
+edit_get_text("duration",outText);
+list_get_selected("duration_units",outItem,outNum);
+if((outText == 0.5)&&(outItem == "days"))
+	tl_step("Verify duration",0,"The duration being shown for FD task is correct");
+else
+	tl_step("Verify duration",1,"The duration being shown for FD task is INCORRECT");
+
+edit_get_text("work",outText);
+list_get_selected("work_units",outItem,outNum);
+if((outText == 4)&&(outItem == "hours"))
+	tl_step("Verify work",0,"The work being shown for FD task is correct");
+else
+	tl_step("Verify work",1,"The work being shown for FD task is INCORRECT");	
+web_link_click("Cancel");
+wait(2);
+###################################################################
+# Creating a FW task and then verifying that modifying work causes a recalculation in duration
+###################################################################
+report_msg("FIXED WORK - REVISE WORK");
+createTaskRW("t3", 1, units[1], 8, units[0], 1, id, 0);
+wait(2);
+web_link_click("t3");
+wait(1);
+set_window("main",2);
+wait(1);
+web_link_click("Modify");
+wait(1);
+set_window("main",2);
+edit_set("work","");
+obj_type("work","4");
+obj_type("work","<kTab>");
+web_link_click("Submit");
+wait(2);
+set_window("main",2);
+web_link_click("t3");
+wait(2);
+set_window("main",2);
+web_link_click("Resources");
+wait(2);
+
+if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","percent","html_name","percent_"&id[0]&"")!=E_OK)
+	report_msg("Not OK3");
+else
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+
+edit_get_text("percent", outText);
+if(outText == 100)
+	tl_step("Verify assignment %", 0,"Assignment % is set correctly");
+else
+	tl_step("Verify assignment %", 1,"Assignment % is set INCORRECTLY");
+web_link_click("Return to Task List");
+wait(2);
+set_window("main",2);
+web_link_click("t3");
+wait(1);
+set_window("main",2);
+web_link_click("Modify");
+wait(1);
+set_window("main",2);
+edit_get_text("duration",outText);
+list_get_selected("duration_units",outItem,outNum);
+if((outText == 0.5)&&(outItem == "days"))
+	tl_step("Verify duration",0,"The duration being shown for FD task is correct");
+else
+	tl_step("Verify duration",1,"The duration being shown for FD task is INCORRECT");
+
+edit_get_text("work",outText);
+list_get_selected("work_units",outItem,outNum);
+if((outText == 4)&&(outItem == "hours"))
+	tl_step("Verify work",0,"The work being shown for FD task is correct");
+else
+	tl_step("Verify work",1,"The work being shown for FD task is INCORRECT");
+web_link_click("Cancel");
+wait(2);	

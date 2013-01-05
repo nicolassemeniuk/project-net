@@ -1,0 +1,780 @@
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+
+.visible {
+    visibility: visible;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.hidden {
+    display: none ! IMPORTANT;
+}
+
+.informationTable {
+    border: 1px solid #000000;
+}
+
+.detailTable {
+    margin-top: 10px;
+}
+
+.summaryTask {
+    font-weight: bold;
+    cursor: default;
+}
+
+.positiveVariance {
+    color: #FF0000 ! IMPORTANT;
+    font-weight: bold;
+}
+
+.negativeVariance {
+    color: #008000 ! IMPORTANT;
+    font-weight: bold;
+}
+
+a#filters img {
+	width: 36px;
+	height: 16px;
+	border-width: 0;
+	background: top left no-repeat;
+}
+
+a#filters {
+	padding: 0px;
+	width: 36px;
+	height: 16px;
+	background-image: url(../images/schedule/filters.gif);
+	background-repeat: no-repeat;
+}
+
+a#filters :hover {
+	padding: 0px;
+	width: 36px;
+	height: 16px;
+	background-image: url(../images/schedule/filters-pressed.gif);
+}
+
+.workPlanHeaderTd {
+	border-left:1px solid #EEEEEE;
+	border-right:1px solid #D0D0D0;
+	background:#F9F9F9 url(../images/default/grid/grid3-hrow.gif) repeat-x scroll 0 bottom;
+	line-height:14px;
+	vertical-align:middle;
+	vertical-align: middle;
+	text-align: left;
+}
+
+.workPlanHeaderSortStyle {
+	border-left:1px solid #AACCF6;
+	border-right:1px solid #AACCF6;
+}
+
+.workPlanHeaderTdOver {
+	border-left:1px solid #EEEEEE;
+	border-right:1px solid #D0D0D0;
+	background:#F9F9F9 url(../images/default/grid/grid3-hrow-over.gif) repeat-x scroll 0 bottom;
+	line-height:14px;
+	vertical-align:middle;
+	text-align: left;
+}
+
+.dashboard-even {
+	/*background:#EAEBF3 none repeat scroll 0 0;*/
+}
+
+.customizeWPColumns {
+	font-family:arial,helvetica;
+	font-size:12px;
+	color:#1264A7;
+	font-weight:bold;
+}
+
+.wp-column-div{
+	overflow:auto;
+	height:265px;
+	vertical-align: top; 
+	border-left:3px solid #CCD8FE;
+	border-right:3px solid #CCD8FE;
+	border-bottom:1px solid #CCD8FE;
+}
+.wp-column-bottom{
+	background-color: #F9F9F9;
+	padding: 3px;
+	border-left:3px solid #CCD8FE;
+	border-right:3px solid #CCD8FE;
+	border-bottom:3px solid #CCD8FE;
+}
+
+.cwc {
+	background:#C3DAF9 url(../images/default/grid/grid3-hd-btn.gif) no-repeat scroll left center;
+	cursor:pointer;
+	display:none;
+	position:absolute;
+	right:0;
+	top:0;
+	width:14px;
+	z-index:2;
+}
+.quick-add{
+	background-image:url(../images/default/plus.gif) !important;
+	width : 60px; 
+}
+
+.save{
+	background:url(../images/default/save.gif) no-repeat !important;
+}
+.revert{
+	background:url(../images/default/revert.gif) no-repeat !important;
+}
+
+.expandall-icon {
+    background:url(../src/extjs/resources/images/default/tree/expand-icon.gif) no-repeat!important;
+    height:20px;
+}
+.collapseall-icon{
+	background:url(../src/extjs/resources/images/default/tree/collapse-icon.gif) no-repeat !important;
+    height:20px;
+}
+
+#workplan-panel {
+	position: absolute;
+	top: 110px;
+	left: 196px;;
+	width: 85%;
+}
+
+.cutomize{
+	background:url(../images/icons/project-personalize-page_on.gif) no-repeat !important;
+	height:20px;
+}
+
+#errorPanelView {
+	position: absolute;
+	left: 195px;
+	top: 95px;
+}
+
+div.tap5c_tab-set-panel {
+	border:none;
+	color:black;
+	cursor:pointer;
+	float:left;
+	margin-left:0;
+	padding:0;
+	width:130px;
+	height:20px;
+	text-align:center;
+	margin-right: 3px;
+}
+
+div.tap5c_tab-set {
+	position: absolute;
+	left: 197px;
+	/*height: 100%;*/
+	width: 84%;
+	top: 110px;
+}
+
+div.tap5c_tab-set-content {
+	/*border-top:2px solid #CCD8FE;
+	border-bottom:1px solid #CCD8FE;
+	border-left:3px solid #CCD8FE;
+	border-right:3px solid #CCD8FE;*/
+	border: 1px solid #B0C1F9;
+	clear:left;
+	padding:0px;
+	width:99%;
+	/*overflow-y:scroll;*/
+}
+div.tap5c_slidingPanelSubject {
+	-moz-user-select:none;
+	background: #CCD8FE;
+	font-weight:bold;
+	/*padding-bottom:5px;*/
+	/*padding-left:5px;
+	padding-right:3px;
+	/*padding-top:5px;*/
+	text-align:left;
+}
+
+div.tap5c_slidingPanelContent {
+	background:#DFE8F6;
+	border-bottom:1px solid #B0C1F9;
+	border-top:1px solid #B0C1F9;
+	/*border-left:1px solid #B0C1F9;
+	border-right:1px solid #B0C1F9;*/
+	overflow:hidden;
+	padding-bottom:5px;
+	padding-left:5px;
+	text-align:left;
+	float: left;
+	width: 1104px;
+}
+
+.tap5c_sidepanel {
+	display:block;
+	left:800px;
+	position:absolute;
+	top:20px;
+}
+
+.statusBar{
+	font-weight:bold;
+	padding-left:6px;
+	padding-top:7px;
+	text-align:left;
+	width:80%;
+}
+
+#quickAdd{
+	border-top:1px solid gray;
+	background:#CCD8FE;
+	width:100%
+}
+
+.oEditedCell {
+	background: url(../images/default/grid/dirty.gif) no-repeat scroll 0 0;
+}
+
+.eEditedCell {
+	background: url(../images/default/grid/dirty.gif) no-repeat scroll 0 0;
+	background-color: #EAEBF3;
+}
+
+.editedCell {
+	background: url(../images/default/grid/dirty.gif) no-repeat scroll 0 0;
+}
+
+.button {
+	font-family: arial, helvetica;
+	font-size: 12px;
+	height: 25px;
+	text-align: center;
+}
+
+.disabled {
+	text-decoration: none;
+	color: Silver;
+}
+
+.enabled {
+	color: #3399FF;
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	text-decoration: none;
+}
+
+DIV.activated {
+	background: transparent url(../images/directory/active_button.gif)
+		no-repeat scroll left center;
+	font-weight: bold;
+	color: black;
+}
+
+DIV.deactivated {
+	background: transparent
+		url(../images/directory/dactivat_btn_project_no-line.gif) no-repeat
+		scroll left center;
+	font-weight: normal;
+	color: navy;
+}
+
+/*Column resizing related classes*/
+#taskListTable {
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+#taskListTable td {
+	padding: 3px 3px 3px 5px;
+	font-family: arial, tahoma, helvetica, sans-serif;
+	font-size: 12px;
+	color: black;
+	border-bottom: 1px solid;
+	border-color: #FFFFFF #EDEDED #EDEDED;
+}
+
+#taskListTable th {
+	padding-left: 1px;
+	padding-right: 9px;
+	font-family: arial, tahoma, helvetica, sans-serif;
+	font-size: 12px;
+	color: #737373;
+	font-weight: bold;
+}
+
+th.resize-handle-active {
+	cursor: e-resize;
+}
+
+div.resize-handle {
+	cursor: e-resize;
+	width: 2px;
+	border-right: 1px dashed #1E90FF;
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 200;
+}
+
+.inputCss {
+	vertical-align: middle;
+	font-family: arial, tahoma, helvetica, sans-serif;
+	font-size: 11px;
+	height: 15px;
+}
+
+.wlink {
+	color: #3399FF;
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	text-decoration: none;
+	font-size: 11px;
+	cursor: pointer;
+}
+
+/*status bar style to act as the bottom border of the div*/
+.splitter-bar {
+	cursor: e-resize;
+	position: absolute;
+	background-color: #EEF4FE;
+	top: 20px;
+	padding: 0;
+	width: 4px;
+	border: 1px solid;
+	border-color: #B0C1F9;
+	z-index:11;
+}
+
+#slidingpanel-toolbar { /*height: 21px;
+	border-bottom: 1px solid #B0C1F9;
+	vertical-align: middle;
+	padding-top: 2px;*/
+	float: left;
+	background: #CCD8FE;
+	overflow: hidden;
+	width: 100%;
+}
+
+#blog-div{
+	position:absolute;
+	display:block;
+	top:54px;
+	left:892px;
+	height:475px;
+	padding:0;
+	width: 225px;
+}
+
+.collapse-right-toggler{
+	background:transparent url(../images/tool-sprites.gif) no-repeat scroll 0 -165px;
+	background-color:#CCD8FE;
+	cursor:pointer;
+	float:left;
+	height:15px;
+	margin-right:5px;
+	margin-top:0;
+	overflow:hidden;
+	width:15px;
+}
+
+.expand-right-toggler{
+	background:transparent url(../images/tool-sprites.gif) no-repeat scroll 0 -180px;
+	background-color:#CCD8FE;
+	cursor:pointer;
+	float:left;
+	height:15px;
+	margin-right:5px;
+	margin-top:0;
+	overflow:hidden;
+	width:15px;
+}
+
+#bottom-bar {
+	border-top: 1px solid #B0C1F9;
+	/*border-bottom:1px solid #CCD8FE;
+	border-left:1px solid #CCD8FE;*/
+	clear: left;
+	width: 99%;
+	height: 23px;
+}
+
+#schedule_info_div {
+	border-right: 1px solid #CCD8FE;
+	padding: 0px 0px 3px 3px;
+	overflow: hidden;
+	font-size: 11px;
+	height: 20px;
+}
+
+#schedule_info_table td {
+	padding: 3px 3px 3px 5px;
+}
+
+.disableSelection {
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+}
+
+.tab-text {
+	padding-top: 3px;
+}
+
+/*
+Dargging and dropping related css
+*/
+.draggables {
+	border: 3px ridge blue;
+	float: left;
+}
+
+.dropZone {
+	margin-left: 1px;
+	margin-right: 1px;
+	text-align: center;
+	cursor: move;
+	position: relative;
+	padding: 0px;
+}
+
+.hoverActive {
+	background-color: #ffffcc;
+	margin-left: 10px;
+}
+
+.childActive {
+  background-color: #ffff99;
+  padding-top: 0px;
+  position:relative;
+  border: 1px threedlightshadow red;
+  filter:alpha(opacity=30);
+          -moz-opacity:.30;
+          opacity:.30;
+}
+
+#draggables img, #dropZone img {
+  margin: 0px;
+}
+.right-tabs-bg {
+	float: left;
+	background: #CCD8FE;
+	height: 24px;
+}
+
+div#viewHiddenRightTabs {
+	text-align: right;
+	position: absolute;
+}
+
+img#scrollImg {
+	height: 19px;
+	cursor: pointer;
+}
+
+.filter-date-separator {
+	padding-right: 2px;
+	padding-left: 2px;
+}
+
+.date-separator-line {
+	width:10px;
+	background: gray;
+}
+.top-padding-cell {
+	padding-top: 5px;
+}
+.label-cell {
+	color: #656565;
+	font-size: 11px;
+	font-weight: bold;
+	width: 25%;
+}
+
+.top-padding-innercell {
+	padding-top: 2px;
+}
+
+.compact-combo {
+	width: 100%;
+	border-top: 1px solid #B2B7BD;
+	border-bottom: 1px solid #B2B7BD;
+	border-right: 1px solid #B2B7BD;
+	border-left: 1px solid #B2B7BD;
+	color: black;
+	height: 21px;
+	font-weight: normal;
+}
+
+.filtermain-left-cell {
+	border-right: 1px solid #B0C1F9;
+}
+
+.filter-tb-style {
+	border-bottom:1px solid #B2B7BD;
+	border-top:1px solid #B2B7BD;
+	border-left:1px solid #B2B7BD;
+	border-right:1px solid #B2B7BD;
+	width: 97%;
+	height: 17px;
+	padding-top: 2px;
+}
+
+.datefilter-tb-style {
+	border: 1px solid #FFFFFF;
+	width: 82%;
+	height: 14px;
+	color: #A1A1A1;
+	vertical-align: middle;
+	font-family: Arial;
+	padding-top: 3px;
+	padding-bottom: 2px;
+}
+
+.large-combo {
+	width: 70%;
+	border-top: 1px solid #B2B7BD;
+	border-bottom: 1px solid #B2B7BD;
+	border-right: 1px solid #B2B7BD;
+	border-left: 1px solid #B2B7BD;
+	color: black;
+	height: 21px;
+	font-weight: normal;
+}
+
+.right-filtercell {
+	padding-left: 10px;
+}
+
+.right-label-cell {
+	color: #292B2E;
+	font-size: 11px;
+	font-weight: normal;
+	height: 21px;
+}
+
+.filter-button {
+	width: 109px;
+	color: black;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.right-top-padding {
+	padding-right: 5px;
+	padding-top: 5px;
+}
+
+.left-top-padding {
+	padding-left: 5px;
+	padding-top: 5px;
+}
+
+.filter-calendar-img {
+	cursor: pointer;
+	margin-bottom: 3px;
+	height: 16px;
+}
+
+.date-div {
+	border-top: 1px solid #B2B7BD;
+	border-bottom: 1px solid #B2B7BD;
+	border-left: 1px solid #B2B7BD;
+	border-right: 1px solid #B2B7BD;
+	background: #FFFFFF;
+	height: 21px;
+}
+
+.header-fixed {
+	position: absolute;
+	cursor: default;
+	text-align: left;
+}
+
+#taskListTable-header th {
+	padding-left: 1px;
+	padding-right: 9px;
+	font-family: arial, tahoma, helvetica, sans-serif;
+	font-size: 12px;
+	color: #737373;
+	font-weight: bold;
+	text-align: center;
+	/*height:21px;*/
+}
+
+#taskListTable-header {
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+.title-only-entry {
+	padding-left: 20px;
+}
+
+.button-bar-workplan {
+	border-top: 1px solid #CCD8FE;
+	border-bottom: 1px solid #CCD8FE;
+	background: #FFD973;
+}
+
+.task-header-div {
+	z-index: 10;
+	position: absolute;
+	overflow: hidden;
+}
+
+.left-tab-content {
+	height: 450px;
+	overflow: auto;
+}
+
+#dropIndicator {
+	position: absolute;
+	z-index: 200;
+	top: 140px;
+	left: -100;
+	visibility: hidden;
+	background: none;
+}
+
+.schedule-popup {
+	position: absolute;
+	z-index: 200;
+	top: -100;
+	left: -100;
+}
+
+.two-pane-tabs {
+	float: left;
+	width: 100%;
+}
+
+.right-pane-closed {
+	border: 1px solid #B0C1F9;
+	background:  #EEF4FE;
+	border-bottom: none;
+	border-right: none;
+}
+
+.two-pane-mini-tab-content {
+	overflow: auto;
+	text-align: left;
+	margin-right: 0.5px;
+}
+
+.task-create-margin-top {
+	margin-top: 8px;
+}
+
+.active-right-tab {
+	background: #EDF1FF;
+	color: black;
+}
+
+.deactive-right-tab {
+	background: #DBE2FB;
+	color: #6776A6;
+}
+.resourceTD{
+	border:  1px solid #B0C1F9;
+	padding-left: 5px;
+}
+
+.numberColumn{
+	padding-right: 10px;
+	text-align: right;	
+}
+
+.assignuser-name {
+	width: 20%;
+}
+/* override some ext form field css to mange its height in inline editing*/
+.ext-strict .x-form-text{
+	height:17px;
+}
+
+.x-form-field-wrap .x-form-trigger { 
+	height: 20px;
+}
+
+#quick_add_link, #spacer, #column_settings_link{
+	padding-left: 20px;
+}
+
+.heading {
+	font-family: Arial, Helvetica;
+	font-size: 14px;
+}
+
+.general-column {
+	width: 10%;
+	padding-left: 15px;
+	border-right: 1px solid #F0F0F0;
+	vertical-align: top;
+}
+
+.status-column {
+	width: 10%;
+	padding-left: 15px;
+	padding-right: 5px;
+	border-right: 1px solid #F0F0F0;
+	vertical-align: top;
+}
+
+.calculated-column {
+	width: 10%;
+	padding-left: 15px;
+	padding-right: 5px;
+	vertical-align: top;
+}
+
+.category-heading{
+	font-family: Arial, Helvetica;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.pagging-bar{
+	font-size: 12px;
+	background: #EEF4FE;
+	text-transform: capitalize;
+	width: 50px;
+	height: 100%;
+	margin-left: 15px;
+}
+
+.text-paging{
+	color: black;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+#blog-tab-paging{
+	width: 100%; 
+	text-align: right;
+	background: #EEF4FE;
+	border-bottom: 1px solid #B0C1F9;
+	margin-right: 5px;
+}
+
+.blog-tab-paging-table{
+	width: 100%;
+	padding-right: 15px;
+}

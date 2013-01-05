@@ -1,0 +1,34 @@
+function createPost(in subject){
+	set_window("upper_frame");
+	web_link_click("Create New Post");
+	wait(1);
+	set_window("New Post",2);
+	edit_set("subject",subject);
+	edit_set("postbody","Creating a new post for automated testing");
+	web_link_click("Submit");
+	wait(1);
+	set_window("upper_frame",2);
+	if(obj_exists(subject)==E_OK)
+		tl_step("Posted message",0,"Discussion group "&subject&" message present");
+	else
+		tl_step("Posted message",1,"Discussion group "&subject&" message ABSENT");
+	wait(1);
+	set_window("lower_frame",2);
+	if(obj_exists("Reply")==E_OK)
+		tl_step("Reply button",0,"Reply button exists");
+	else
+		tl_step("Reply button",1,"Reply button DOES NOT exist");
+	if(obj_exists("Next")==E_OK)
+		tl_step("Next button",0,"Next button exists");
+	else
+		tl_step("Next button",1,"Next button DOES NOT exist");
+	if(obj_exists("Previous")==E_OK)
+		tl_step("Previous button",0,"Previous button exists");
+	else
+		tl_step("Previous button",1,"Previous button DOES NOT exist");	
+	if(obj_exists("Info")==E_OK)
+		tl_step("Info button",0,"Info button exists");
+	else
+		tl_step("Info button",1,"Info button DOES NOT exist");
+}
+		

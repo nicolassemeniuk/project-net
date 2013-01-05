@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnTimezoneLookup" 
+    table="PN_TIMEZONE_LOOKUP"
+    lazy="false"
+>
+
+    <id
+        name="timezoneCode"
+        type="java.lang.String"
+        column="TIMEZONE_CODE"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="timezoneDescription"
+        type="java.lang.String"
+        column="TIMEZONE_DESCRIPTION"
+        length="60"
+    />
+    <property
+        name="gmtOffset"
+        type="java.lang.String"
+        column="GMT_OFFSET"
+        not-null="true"
+        length="8"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,80 @@
+function filterPhase(in phaseName){
+	auto i,k;
+	wait(2);
+
+	k = 0;
+	switch(phaseName){
+	case "Phase1":
+		wait(2);
+		set_window("main",2);
+		list_select_item("selectedPhaseID","Phase1");
+		wait(1);
+		button_press("Apply Filters");
+		wait(1);
+		set_window("main",1);
+		for(i=1;i<=6;i++){
+			if(obj_exists("t"&i&"")!=E_OK){
+				tl_step("Verify Phase1 filter for schedule list",1,"Task/Milestone "&i&" not present in schedule list");
+				k++;
+			}
+		}
+		if(k==0)
+			tl_step("Verify Phase1 filter for schedule list",0,"All tasks assigned to Phase1 show up correctly");
+		k = 0;
+		break;
+	
+	case "Phase2":
+		wait(2);
+		list_select_item("selectedPhaseID","Phase2");
+		wait(1);
+		button_press("Apply Filters");
+		wait(1);
+		set_window("main",2);
+		for(i=7;i<=12;i++){
+			if(obj_exists("t"&i&"")!=E_OK){
+				tl_step("Verify Phase2 filter for schedule list",1,"Task/Milestone "&i&" not present in schedule list");
+				k++;
+			}
+		}
+		if(k==0)
+			tl_step("Verify Phase2 filter for schedule list",0,"All tasks assigned to Phase2 show up correctly");
+		k = 0;
+		break;	
+	
+	case "Phase3":
+		wait(2);
+		list_select_item("selectedPhaseID","Phase3");
+		wait(1);
+		button_press("Apply Filters");
+		wait(1);
+		set_window("main",2);
+		for(i=13;i<=18;i++){
+			if(obj_exists("t"&i&"")!=E_OK){
+				tl_step("Verify Phase3 filter for schedule list",1,"Task/Milestone "&i&" not present in schedule list");
+				k++;
+			}
+		}
+		if(k==0)
+			tl_step("Verify Phase3 filter for schedule list",0,"All tasks assigned to Phase3 show up correctly");
+		k = 0;
+		break;
+	
+	case "Phase4":
+		wait(2);
+		list_select_item("selectedPhaseID","Phase4");
+		wait(1);
+		button_press("Apply Filters");
+		wait(1);
+		set_window("main",2);
+		for(i=19;i<=24;i++){
+			if(obj_exists("t"&i&"")!=E_OK){
+				tl_step("Verify Phase4 filter for schedule list",1,"Task/Milestone "&i&" not present in schedule list");
+				k++;
+			}
+		}
+		if(k==0)
+			tl_step("Verify Phase4 filter for schedule list",0,"All tasks assigned to Phase4 show up correctly");
+		k = 0;
+		break;
+	}	
+}

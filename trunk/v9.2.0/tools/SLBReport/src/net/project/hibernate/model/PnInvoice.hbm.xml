@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnInvoice" 
+    table="PN_INVOICE"
+    lazy="false"
+>
+
+    <id
+        name="invoiceId"
+        type="java.math.BigDecimal"
+        column="INVOICE_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="creationDatetime"
+        type="java.sql.Date"
+        column="CREATION_DATETIME"
+        not-null="true"
+        length="7"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnLedger -->
+
+    <set
+        name="pnLedgers"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="INVOICE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnLedger"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

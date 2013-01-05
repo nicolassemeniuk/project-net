@@ -1,0 +1,136 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnSkill" 
+    table="PN_SKILL"
+    lazy="false"
+>
+
+    <id
+        name="skillId"
+        type="java.math.BigDecimal"
+        column="SKILL_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="skillName"
+        type="java.lang.String"
+        column="SKILL_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="skillDesc"
+        type="java.lang.String"
+        column="SKILL_DESC"
+        length="500"
+    />
+    <property
+        name="parentSkillId"
+        type="java.math.BigDecimal"
+        column="PARENT_SKILL_ID"
+        length="20"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnPersonHasSkill -->
+
+    <set
+        name="pnPersonHasSkills"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="SKILL_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPersonHasSkill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnSkillHasSubskill -->
+
+    <set
+        name="pnSkillHasSubskillsByParentSkillId"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PARENT_SKILL_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSkillHasSubskill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnSkillHasSubskill -->
+
+    <set
+        name="pnSkillHasSubskillsByChildSkillId"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="CHILD_SKILL_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSkillHasSubskill"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnSpaceHasSkill -->
+
+    <set
+        name="pnSpaceHasSkills"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="SKILL_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasSkill"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to PnSkillCategory -->
+    <many-to-one
+        name="pnSkillCategory"
+        class="net.project.hibernate.model.PnSkillCategory"
+        not-null="true"
+    >
+        <column name="SKILL_CATEGORY_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

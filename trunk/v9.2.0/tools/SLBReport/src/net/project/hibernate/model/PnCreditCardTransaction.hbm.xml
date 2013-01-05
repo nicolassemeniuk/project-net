@@ -1,0 +1,97 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnCreditCardTransaction" 
+    table="PN_CREDIT_CARD_TRANSACTION"
+    lazy="false"
+>
+
+    <id
+        name="transactionId"
+        type="java.math.BigDecimal"
+        column="TRANSACTION_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="vendorTransactionId"
+        type="java.lang.String"
+        column="VENDOR_TRANSACTION_ID"
+        length="20"
+    />
+    <property
+        name="dateSubmitted"
+        type="java.sql.Date"
+        column="DATE_SUBMITTED"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="transactionType"
+        type="java.lang.String"
+        column="TRANSACTION_TYPE"
+        not-null="true"
+        length="5"
+    />
+    <property
+        name="transactionAmount"
+        type="java.math.BigDecimal"
+        column="TRANSACTION_AMOUNT"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="transactionAmountCurrency"
+        type="java.lang.String"
+        column="TRANSACTION_AMOUNT_CURRENCY"
+        not-null="true"
+        length="3"
+    />
+    <property
+        name="authorizationCode"
+        type="java.lang.String"
+        column="AUTHORIZATION_CODE"
+        length="20"
+    />
+    <property
+        name="isDuplicate"
+        type="java.lang.Integer"
+        column="IS_DUPLICATE"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnCcTransactionPayment -->
+
+    <set
+        name="pnCcTransactionPayments"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="TRANSACTION_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnCcTransactionPayment"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

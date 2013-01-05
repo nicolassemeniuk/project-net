@@ -1,0 +1,19 @@
+<mappings>
+  <mapping>
+	<property name="assignmentDuration" ignore="true"/>
+	<property name="dateCalculator" ignore="true"/>
+	<property name="daysWorked" ignore="true"/>
+	<property name="deltaWorkLog" ignore="true"/>
+	<property name="distributedWorkComplete" ignore="true"/>
+	<property name="previousWorkComplete" ignore="true"/>
+	<property name="totalWork" ignore="true"/>
+	<property name="totalWorkComplete" ignore="true"/>
+	<property name="work" ignore="true"/>
+	<property name="workComplete" ignore="true"/>
+	<property name="workCompleteDeltaToStore" ignore="true"/>
+	<property name="workingTimeCalendar" ignore="true"/>
+	<property name="workRemaining" ignore="true"/>
+	<property name="status" ignore="true"/>
+	<property name="assignmentType" ignore="true"/>
+  </mapping>
+</mappings>

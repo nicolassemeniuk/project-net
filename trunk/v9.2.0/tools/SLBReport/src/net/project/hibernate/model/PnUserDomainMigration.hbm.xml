@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnUserDomainMigration" 
+    table="PN_USER_DOMAIN_MIGRATION"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnUserDomainMigrationPK">
+        <key-property 
+            name="userId" 
+            column="USER_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="domainMigrationId" 
+            column="DOMAIN_MIGRATION_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="migrationStatusId"
+        type="int"
+        column="MIGRATION_STATUS_ID"
+        not-null="true"
+        length="3"
+    />
+    <property
+        name="activityDate"
+        type="java.sql.Date"
+        column="ACTIVITY_DATE"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="isCurrent"
+        type="int"
+        column="IS_CURRENT"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnDomainMigration -->
+    <many-to-one
+        name="pnDomainMigration"
+	    class="net.project.hibernate.model.PnDomainMigration"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="DOMAIN_MIGRATION_ID" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to PnUser -->
+    <many-to-one
+        name="pnUser"
+	    class="net.project.hibernate.model.PnUser"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="USER_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>
