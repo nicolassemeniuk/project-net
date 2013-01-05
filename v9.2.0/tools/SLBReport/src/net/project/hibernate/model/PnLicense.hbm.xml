@@ -1,0 +1,126 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnLicense" 
+    table="PN_LICENSE"
+    lazy="false"
+>
+
+    <id
+        name="licenseId"
+        type="java.math.BigDecimal"
+        column="LICENSE_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="licenseKeyValue"
+        type="java.lang.String"
+        column="LICENSE_KEY_VALUE"
+        not-null="true"
+        length="100"
+    />
+    <property
+        name="isTrial"
+        type="int"
+        column="IS_TRIAL"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="licenseStatus"
+        type="java.lang.Integer"
+        column="LICENSE_STATUS"
+        length="3"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PnLicenseCertificate -->
+    <many-to-one
+        name="pnLicenseCertificate"
+        class="net.project.hibernate.model.PnLicenseCertificate"
+        not-null="true"
+    >
+        <column name="CERTIFICATE_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPerson"
+        class="net.project.hibernate.model.PnPerson"
+        not-null="true"
+    >
+        <column name="RESPONSIBLE_USER_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PnLicenseStatusReason -->
+    <many-to-one
+        name="pnLicenseStatusReason"
+        class="net.project.hibernate.model.PnLicenseStatusReason"
+        not-null="true"
+    >
+        <column name="STATUS_REASON_CODE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnBill -->
+
+    <set
+        name="pnBills"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="ORIGINATING_LICENSE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnBill"
+        />
+    </set>
+    <!-- bi-directional one-to-one association to PnLicensePurchaser -->
+    <one-to-one
+        name="pnLicensePurchaser"
+        class="net.project.hibernate.model.PnLicensePurchaser"
+        outer-join="auto"
+    />
+    <!-- bi-directional one-to-many association to PnPersonHasLicense -->
+
+    <set
+        name="pnPersonHasLicenses"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="LICENSE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPersonHasLicense"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to PnPaymentInformation -->
+    <many-to-one
+        name="pnPaymentInformation"
+        class="net.project.hibernate.model.PnPaymentInformation"
+        not-null="true"
+    >
+        <column name="PAYMENT_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

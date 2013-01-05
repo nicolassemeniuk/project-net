@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div id="wWikiPageIndex" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+	<table align="center" class="wWikiPageIndexContent">
+		<t:if test="emptyWiki">		<!-- if there are no pages in this wiki -->
+			<t:if test="showImages">	<!-- if this action is action for listing all images -->
+				<t:message value="prm.wiki.index.noimageentriesmsg.labelmsg" />
+				<t:parameter name="else">	<!-- showImages else -->
+					<tr>
+						<td colspan="2">
+							<div class="wPageIndexInfo" >
+								<t:message value="prm.wiki.index.noentriesmsg.labelmsg" />
+							</div>
+						</td>
+					</tr>
+				</t:parameter>				<!-- showImages else end -->
+			</t:if>						<!-- showImages end if -->					
+			<t:parameter name="else"> <!-- map contains returned wiki pages (index is not empty) -->
+				<tr> <td colspan="2"> <div id="indexHeaderMsg"> ${indexHeaderMsg} </div> </td> </tr>
+				<tr>
+					<td colspan="2">
+						<strong><b><t:message value="prm.wiki.index.all.label"/>:&nbsp;</b></strong>&nbsp;&nbsp;&nbsp;&nbsp;
+						<t:loop source="resultingIndex" value="currEl" encoder="mapEncoder">
+							<strong><b> <a href="#${currEl.key}">${currEl.key}</a> </b></strong>&nbsp;&nbsp;
+						</t:loop>
+					</td>
+				</tr>
+				
+				<t:loop source="resultingIndex" value="currEl" encoder="mapEncoder"> <!-- looping Index Map -->
+					<tr>
+						<td colspan="2">
+							<div id="${currEl.key}" style="padding-top:10px;"><strong><b> ${currEl.key} </b></strong></div>
+						</td>
+					</tr>
+
+					<t:loop source="currEl.values" value="currWPgEl" encoder="listEncoder">	<!-- looping the list of pages with same key -->
+						<tr style="padding: 10px;">
+							<td align="left" style="padding-left:20px;">
+								<strong><b>
+									<a id="${currWPgEl.pageName}" href="${jspRootUrl}${currWPgEl.openPage}">
+										${currWPgEl.pageName}
+									</a>
+								</b></strong>
+							</td>
+							<td>
+								<b><t:Message value="prm.wiki.pageindex.lasteditor.label" /> </b> ${currWPgEl.editedBy.displayName}, 
+								<b><t:Message value="prm.wiki.pageindex.editedon.label" /> </b> ${currWPgEl.editDate} <br/>
+								<b><t:Message value="prm.wiki.pageindex.editcomment.label" /> </b> ${currWPgEl.commentText}
+								<t:if test="currWPgEl.deleteAttachmentLink">
+									&nbsp;&nbsp; <b>[ <a href="javascript: ${currWPgEl.deleteAttachmentLink}"> <t:message value="prm.wiki.deleteimage.link" /> </a> ]</b>
+								</t:if>
+							</td>
+						</tr>
+					</t:loop>	<!-- end looping pages with same key -->
+				</t:loop>		<!-- end looping Index Map -->
+				
+			</t:parameter>  <!-- emptyWiki end else -->
+		</t:if>  <!-- emptyWiki end if -->
+	</table><br/>			
+</div>

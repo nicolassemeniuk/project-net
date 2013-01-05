@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.HelpFeedback" 
+    table="HELP_FEEDBACK"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.HelpFeedbackPK">
+        <key-property 
+            name="personId" 
+            column="PERSON_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="timestamp" 
+            column="TIMESTAMP" 
+            type="java.sql.Date"
+            length="7"
+        />
+    </composite-id>    
+
+    <property
+        name="subject"
+        type="java.lang.String"
+        column="SUBJECT"
+        not-null="true"
+        length="30"
+    />
+    <property
+        name="keyId"
+        type="java.lang.Long"
+        column="KEY_ID"
+        length="10"
+    />
+    <property
+        name="comments"
+        type="java.lang.String"
+        column="COMMENTS"
+        length="1000"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPerson"
+	    class="net.project.hibernate.model.PnPerson"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="PERSON_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to PnProjectSpace -->
+    <many-to-one
+        name="pnProjectSpace"
+        class="net.project.hibernate.model.PnProjectSpace"
+        not-null="true"
+    >
+        <column name="PROJECT_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,23 @@
+# wait(2);
+# call "C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\cleanUp"();
+# wait(2);
+# call "C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\registerNewUser"();
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\BusinessWorkspace\\createBusiness"();
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createProjects"();
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createParticipantsDirectory"();
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\insertDocument"();
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createDiscussionGroup"();
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createForms"();
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createProcess"();
+wait(2);
+
+
+
+

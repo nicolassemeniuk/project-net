@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDocType" 
+    table="PN_DOC_TYPE"
+    lazy="false"
+>
+
+    <id
+        name="docTypeId"
+        type="java.math.BigDecimal"
+        column="DOC_TYPE_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="propertySheetClassId"
+        type="java.math.BigDecimal"
+        column="PROPERTY_SHEET_CLASS_ID"
+        length="20"
+    />
+    <property
+        name="typeName"
+        type="java.lang.String"
+        column="TYPE_NAME"
+        length="80"
+    />
+    <property
+        name="typeDescription"
+        type="java.lang.String"
+        column="TYPE_DESCRIPTION"
+        length="500"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnDocument -->
+
+    <set
+        name="pnDocuments"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DOC_TYPE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDocument"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

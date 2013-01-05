@@ -1,0 +1,115 @@
+!!! Always read this file in a fixed width font.  If you try to read it in
+!!! anything else, none of my diagrams will make any sense.
+
+Below are a list of cases that we need to take case of in cross space task
+endpoint calculation.  By studying them, you might get a better insight as to
+why some things are done inside of task endpoint calculation
+
++----------------------------------------------------------------------
+|Legend
+|------
+|A1A1A1      Task A1, it is a member of schedule A
+|B1B1B1      Task B1, it is a member of schedule B
+|AB1AB1      Task AB1, it is a member of schedule A and schedule B
+|*AS*        Start date of schedule A
+|*AF*        Finish date of schedule A
+|*BS*        Start date of schedule B
+|*BF*        Finish date of schedule B
++----------------------------------------------------------------------
+
+Glossary
+--------
+Sharing space - space where a task was originally creates.  This space "shares"
+the task with another space.  Unless otherwise noted, Schedule B is always the
+"sharing space".
+Inviting space - space where a task from the sharing space was invited to.  The
+task may or may not have full privileges in this space.  Unless otherwise noted,
+Schedule A is always the "inviting space".
+Invited task - This is a task that was invited from the sharing space and now
+has a "copy" in the
+
+
+Case 1: Sharing space task delays AB1 start
+-------------------------------------------
+*AS*-+
+     v
+     A1A1-------------+
+                      v
+                      AB1AB1
+
+
+*BS*-+
+     v
+     B1B1B1B1B1B1B1B1-+
+                      v
+                      AB1AB1
+
+Task AB1 has a predecessor in schedule B that delays it beyond its normal start
+time.  This causes a pause which seems nonsensical in schedule A.
+
+Case 2: Inviting space task delays AB1 start
+--------------------------------------------
+*AS*-+
+     v
+     A1A1A1A1A1A1A1A1A1A1-+
+                          v
+                          AB1AB1
+
+*BS*-+
+     v
+     B1B1-----------------+
+                          v
+                          AB1AB1
+
+
+Case 3: Schedule A start pushes task AB1 start forward
+------------------------------------------------------
+         *AS*-+
+              v
+              AB1AB1
+
+*BS*----------+
+              v
+              AB1AB1
+
+
+Case 4: Schedule B start pushes task AB1 start forward
+------------------------------------------------------
+*AS*----------+
+              v
+              AB1AB1-+
+                     v
+                     *AF*
+
+         *BS*-+
+              v
+              AB1AB1-+
+                     v
+                     *BF*
+
+The start date of task AB1 is not the same as the start date of
+schedule A, even though AB1 does not have a constraint date.  Normally, tasks
+start as soon as the schedule starts if they are of constraint type ASAP.  This
+is not true here because the task is being shared from schedule B to schedule A.
+Schedule B has a later start date than schedule A, so schedule B's start date is
+pushing task AB1 forward.
+
+Case 5: Everything matches case
+-------------------------------
+*AS*-+
+     v
+     A1A1A1-+
+            v
+            AB1AB1
+
+*BS*-+
+     v
+     B1B1B1-+
+            v
+            AB1AB1
+
+Normally, you wouldn't even notice this is a case.  We need to test it anyhow.
+It is just the simple case that everything happens to match up.
+
+
+

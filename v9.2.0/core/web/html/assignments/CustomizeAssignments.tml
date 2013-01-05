@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<body>
+	<div style="position: relative;left:0;top:0;background-color:#FFEA87;">
+		<table width="100%" cellpadding="0" cellspacing="0"> 
+			<tr>
+				<td height="20" align="left" id="customizeColumns" style="padding-left:12px"> <b><t:Message value="prm.personal.assignment.customizecolumn.page.title"/> </b></td>
+				<td align="right" ><a href="javascript:hideUploadPopup();"><img border="0" style="padding-right:7px" title="x" src="${JSPRootURL}/images/menu/close.gif"/></a></td>
+			</tr>
+		</table>
+	</div>
+	<form name="columnForm">
+        <div class="acustomize-column-div">
+	        <table border="0" cellspacing="0" width="97%" style="padding-top:5px">
+	        	<tr t:type="loop" source="assignmentsColumnsRows" value="rows" width="100%" style="height:20px;">
+	            	<t:loop source="rows" value="column">
+	                	<td nowrap="nowrap" align="center" width="10%">
+	                    	<t:if test="column.hidable">
+		                    	<t:if test="column.visible">
+	    	                    <input type="checkbox" name="selected" checked="checked" value="${column.id}" id="${column.header}"/>
+		    	                    <t:parameter name="else">
+		        	                	<input type="checkbox" name="selected" value="${column.id}" id="${column.header}"/>
+		            	            </t:parameter>
+	                    	    </t:if>
+	                    	    <t:parameter name="else">
+	                    	    	<input type="checkbox" checked="checked" disabled="disabled"/>
+	                    	    </t:parameter>
+							</t:if>
+						</td>
+						<td style="padding-left:5px;"><span onclick="selectDeselectCheckbox('${column.header}')"><t:OutputRaw value="column.header"/></span></td>
+					</t:loop>
+				</tr>
+			</table>
+		</div>
+	</form>
+	<table width="100%" class="acustomize-column-bottom" >
+		<tr>
+			<td style="width: 80%;"><a href="javascript:changeCheckedState(self.document.columnForm.selected, false)" style="padding-left: 5px;" class="wlink customizeWPColumns"><t:Message value="prm.personal.assignment.customizecolumn.clearall.label"/></a></td>
+			<td rowspan="1" colspan="1"><button style="width: 100px;" onclick="javascript:submitColumnsStatus();"><t:Message value="prm.personal.customize.assignment.button.submit.caption"/></button></td>
+			<td><button  style="width: 100px;" onclick="javascript:hideUploadPopup();" ><t:Message value="prm.personal.customize.assignment.button.cancel.caption"/></button></td>
+		</tr>
+	</table>
+</body>
+</html>

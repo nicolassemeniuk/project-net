@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.QrtzSchedulerState" 
+    table="QRTZ_SCHEDULER_STATE"
+    lazy="false"
+>
+
+    <id
+        name="instanceName"
+        type="java.lang.String"
+        column="INSTANCE_NAME"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="lastCheckinTime"
+        type="long"
+        column="LAST_CHECKIN_TIME"
+        not-null="true"
+        length="13"
+    />
+    <property
+        name="checkinInterval"
+        type="long"
+        column="CHECKIN_INTERVAL"
+        not-null="true"
+        length="13"
+    />
+    <property
+        name="recoverer"
+        type="java.lang.String"
+        column="RECOVERER"
+        length="80"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

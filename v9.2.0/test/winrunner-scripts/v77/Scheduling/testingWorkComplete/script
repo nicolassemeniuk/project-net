@@ -1,0 +1,235 @@
+GUI_close_all();
+wait(3);
+# call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject"();
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+reload("createTask",0,1);
+reload("extractProjectID",0,1);
+reload("extractTaskID",0,1);
+reload("getTaskID",0,1);
+
+public task_types[] = {"Fixed Duration","Fixed Units","Fixed Work"};
+public units[] = {"hours","days","weeks"};
+
+function set_workcomplete_edit(in task_name,in work_complete_value){
+	auto percentage_work;
+	auto we_value, out_num;
+	auto we_units, we_complete_units;
+		
+	set_window("main",1);
+	web_link_click(""&task_name&"");
+	set_window("main",1);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",2);
+	edit_set("work_complete","");
+	obj_type("work_complete",work_complete_value);
+	wait(1);
+	set_window("main",2);
+	obj_type("work_complete","<kTab>");
+	wait(1);
+	set_window("main",1);
+	edit_get_text("work",we_value);
+	list_get_selected("work_units",we_units, out_num);
+	report_msg("The work for "&task_name&" is "&we_value&"" &we_units&"");
+	
+	if(we_units == "days"){
+		we_value = we_value * 8;
+		we_units = "hours";
+	}
+	if(we_units == "weeks"){
+		we_value = we_value * 8 * 5;
+		we_units = "hours";
+	}
+	if(we_complete_units == "days"){
+		work_complete_value = work_complete_value * 8;
+		we_complete_units = "hours";
+	}
+	if(we_complete_units == "weeks"){
+		work_complete_value = work_complete_value * 8 * 5;
+		we_complete_units = "hours";
+	}
+	percentage_work = (work_complete_value/we_value)*100;
+	edit_check_text("work_percent_complete",""&percentage_work&"%", TRUE);
+
+	web_link_click("Submit");
+	set_window("main",1);
+}
+
+function set_workpercentage_edit(in task_name,in work_percentage){
+	auto completed_work;
+	auto we_value, we_complete_value, out_num;
+	auto we_units, we_complete_units;
+		
+	set_window("main",1);
+	web_link_click(""&task_name&"");
+	set_window("main",1);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",2);
+	edit_set("work_percent_complete","");
+	obj_type("work_percent_complete",""&work_percentage&"%");
+	wait(1);
+	set_window("main",2);
+	obj_type("work_percent_complete","<kTab>");
+	wait(1);
+	set_window("main",1);
+	edit_get_text("work",we_value);
+	list_get_selected("work_units",we_units, out_num);
+	report_msg("The work for "&task_name&" is "&we_value&"" &we_units&"");
+	edit_get_text("work_complete",we_complete_value);
+ 	list_get_selected("work_complete_units",we_complete_units, out_num);
+	
+	if(we_units == "days"){
+		we_value = we_value * 8;
+		we_units = "hours";
+	}
+	if(we_units == "weeks"){
+		we_value = we_value * 8 * 5;
+		we_units = "hours";
+	}
+	if(we_complete_units == "days"){
+		we_complete_value = we_complete_value * 8;
+		we_complete_units = "hours";
+	}
+	if(we_complete_units == "weeks"){
+		we_complete_value = we_complete_value * 8 * 5;
+		we_complete_units = "hours";
+	}
+	
+	completed_work = (work_percentage * we_value)/100;
+	if(completed_work != we_complete_value)
+		tl_step("Work percentage edit",1,"The work complete for "&task_name&" has been set INCORRECTLY to "&we_complete_value&""&we_complete_units&" for a percentage of "&work_percentage&"");
+	else
+		tl_step("Work percentage edit",0,"The work complete for "&task_name&" has been set correctly to "&we_complete_value&""&we_complete_units&" for a percentage of "&work_percentage&"");
+		
+	web_link_click("Submit");
+	set_window("main",1);
+}
+
+function set_workpercentage_quick(in task_name,in task_type,in percent_complete,in duration_value,in duration_units,in work_value,in work_units){
+	auto completed_work, taskID, dur_value, value;
+	auto wq_value, wq_completed, out_num;
+	auto wq_units, wq_completed_units;	
+	
+# 	out_num = extractProjectID("WRProject");
+# 	taskID = extractTaskID(task_name,out_num);
+	taskID= getTaskID(task_name);
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","t1_button","part_value",""&taskID&"")!=E_OK)
+		report_msg("NOT OK1");
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+	
+	set_window("main",2);
+	button_set("t1_button",ON);
+	wait(1);
+	web_link_click("Update Percent Complete");
+	set_window("Percent Complete",2);
+	edit_set("percentage",percent_complete);
+	web_link_click("Submit");
+	wait(1);
+	
+	set_window("main",1);
+	button_set("t1_button",ON);
+	web_link_click("Modify Task");
+	wait(3);
+	set_window("main",2);
+	
+	list_get_selected("taskCalculationTypeFixedElementID", value, out_num);
+	if(value != task_type) 
+		tl_step("Verify task type",1,"The task type for "&task_name&" is WRONGLY SET to "&value&"");
+	
+	edit_get_text("work",wq_value);
+	if(wq_value != work_value)
+		tl_step("Verify work value",1,"The work value for "&task_name&" is WRONGLY SET to "&wq_value&". It should be "&work_value&"");
+
+	list_get_selected("work_units",wq_units, out_num);
+	if(wq_units != work_units)
+		tl_step("Verify work units",1,"The work units for "&task_name&" is WRONGLY SET to "&wq_units&". It should be "&work_units&"");
+	report_msg("The work is "&work_value&""&work_units&"");
+	
+	edit_get_text("duration",dur_value);
+	list_get_selected("duration_units", value, out_num);
+	
+	if(duration_units == "hours"){
+		duration_value = duration_value/8;
+		duration_units = "days";
+	}
+	if(duration_units == "weeks"){
+		duration_units = "days";	
+		duration_value = duration_value * 5;
+	}
+	if(dur_value != duration_value) 
+		tl_step("Verify duration value",1,"The duration value for "&task_name&" is WRONGLY SET to "&dur_value&". It should be "&duration_value&"");
+	if(value != duration_units) 
+		tl_step("Verify duration units",1,"The duration units for "&task_name&" is WRONGLY SET to "value". It should be "&duration_units&"");
+	
+	edit_get_text("work_complete",wq_completed);
+	list_get_selected("work_complete_units",wq_completed_units, out_num);
+	report_msg("The work completed is "&wq_completed&""&wq_completed_units&"");
+	
+	if(wq_units == "days"){
+		wq_value = wq_value * 8;
+		wq_units = "hours";
+	}
+	if(wq_units == "weeks"){
+		wq_units = "hours";	
+		wq_value = wq_value * 8 * 5;
+	}
+	if(wq_completed_units == "days"){
+		wq_completed_units = "hours";
+		wq_completed = wq_completed * 8;
+	}
+	if(wq_completed_units == "weeks"){
+		wq_completed_units = "hours";
+		wq_completed = wq_completed * 8 * 5;
+	}
+
+	completed_work = (percent_complete * wq_value)/100;
+	if(completed_work != wq_completed)
+		tl_step("Verify work complete",1,"The work complete percentage for "&task_name&" has NOT been set correctly");
+	else
+		tl_step("Verify work complete",0,"The work complete percentage for "&task_name&" is correctly set at "&percent_complete&"%");
+	web_link_click("Cancel");
+}
+
+# set_window("main",2);
+# web_link_click("WRProject");
+# set_window("menu",3);
+# web_link_click("Workplan");
+wait(2);
+
+set_window("main",2);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer");
+button_press("OK");
+wait(6);
+set_window("main",1);
+
+report_msg("FIXED DURATION TASKS");
+createTask("t1", task_types[0], 2, units[1], 1, units[1]);
+set_workpercentage_quick("t1", task_types[0], 25, 2, units[1], 1, units[1]);
+createTask("t2", task_types[0], 1, units[1], 8, units[0]);
+set_workpercentage_edit("t2", 25);
+createTask("t3", task_types[0], 1, units[1], 8, units[0]);
+set_workcomplete_edit("t3", 2);
+report_msg("");
+
+report_msg("FIXED UNIT TASKS");
+createTask("t4", task_types[1], 2, units[1], 1, units[1]);
+set_workpercentage_quick("t4", task_types[1], 25, 2, units[1], 1, units[1]);
+createTask("t5", task_types[1], 1, units[1], 8, units[0]);
+set_workpercentage_edit("t5", 25);
+createTask("t6", task_types[1], 1, units[1], 8, units[0]);
+set_workcomplete_edit("t6", 2);
+report_msg("");
+
+report_msg("FIXED WORK TASKS");
+createTask("t7", task_types[2], 2, units[1], 1, units[1]);
+set_workpercentage_quick("t7", task_types[2], 25, 2, units[1], 1, units[1]);
+createTask("t8", task_types[2], 1, units[1], 8, units[0]);
+set_workpercentage_edit("t8", 25);
+createTask("t9", task_types[2], 1, units[1], 8, units[0]);
+set_workcomplete_edit("t9", 2);
+report_msg("");
+

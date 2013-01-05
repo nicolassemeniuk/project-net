@@ -1,0 +1,34 @@
+function checkTaskMilestone(in processName, in phaseName, in taskName, in milestoneName, in taskType){
+
+	reload("createTask",0,1);
+	reload("createMilestone",0,1);
+
+	set_window("main",2);
+	if(obj_exists(processName)==E_OK)
+		web_link_click(processName);
+	wait(1);
+	set_window("main",2);
+	web_link_click(phaseName);
+	wait(1);
+	set_window("main",2);
+	web_link_click("Add Task");
+	set_window("main",2);
+	createTask(taskName, taskType, 1, "days", 8, "hours");
+	wait(1);
+	set_window("main",2);
+	if(obj_exists(taskName)==E_OK)
+		tl_step("Verify task in phase main",0,"The task "&taskName&" is listed on "&phaseName&" main");
+	else
+		tl_step("Verify task in phase main",1,"The task "&taskName&" is NOT listed on "&phaseName&" main");
+			
+	set_window("main",2);
+	web_link_click("Add Task");
+	set_window("main",2);
+	createMilestone(milestoneName, taskType, 1, 8);
+	wait(1);
+	set_window("main",2);
+	if(obj_exists(milestoneName)==E_OK)
+		tl_step("Verify milestone in phase main",0,"The milestone "&milestoneName&" is listed on "&phaseName&" main");
+	else
+		tl_step("Verify milestone in phase main",1,"The milestone "&milestoneName&" is NOT listed on "&phaseName&" main");
+}

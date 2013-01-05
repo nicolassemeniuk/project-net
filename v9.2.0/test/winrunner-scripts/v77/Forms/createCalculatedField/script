@@ -1,0 +1,29 @@
+function createCalculatedField(in name, in field1, in field2){
+# 	auto outText;
+	extern i;
+
+	wait(1);
+	report_msg("Within Calculated Field - "&i&"");
+	set_window("main",3);
+	list_select_item("ElementID","Calculated Field");
+	wait(1);
+	set_window("main",3);
+	edit_set("field_label",name);
+	edit_set("row_num",i);
+	list_select_item("column_id","Left");
+	edit_set("99","2");
+	list_select_item("100_3",field1);
+	list_select_item("101","+");
+	list_select_item("102",field2);
+	web_link_click("Submit");
+	wait(1);
+	set_window("main",3);
+	
+	# Verifying the date field was created and exists in the fields list
+	if(obj_exists(name)==E_OK)
+		tl_step("Verify calculated exists",0,"The Calculated Field '"&name&"'created successfully");
+	else
+		tl_step("Verify calculated exists",1,"The creation of Calculated Field CANNOT be verified");
+	report_msg("");
+	wait(1);
+}

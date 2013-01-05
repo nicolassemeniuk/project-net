@@ -1,0 +1,7 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\roughTask> 4 1099612190 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\forLoginProject> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\roughTask> 5 1099612193 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\forLoginProject> 19 1099612209 0
+44 69 <web_link_click:"Add Agenda" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\createMeeting> 39 1099612226 0
+23 6 <Not OK> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\createMeeting> 40 1099612226 0
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\roughTask> 17 1099612227 0

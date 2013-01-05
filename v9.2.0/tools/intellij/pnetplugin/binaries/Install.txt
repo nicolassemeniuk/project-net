@@ -1,0 +1,3 @@
+Unzip this zip into your plugins directory.
+
+The plugin requires version 4.1 or later of IntelliJ.

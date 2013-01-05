@@ -1,0 +1,32 @@
+function checkPosition(in name, in location){
+	auto outText;
+
+	if(location == "1"){
+		win_get_text("main",outText,217,303,244,318);
+		if(outText==name)
+			report_msg("menu item "&name&" is present at location "&location&"");
+		else
+			report_msg("menu item "&name&" NOT present at location "&location&"");
+	}
+				
+	if(location == "2"){
+		win_get_text("main",outText,217,324,244,339);
+		if(outText==name)
+			report_msg("menu item "&name&" is present at location "&location&"");
+		else
+			report_msg("menu item "&name&" NOT present at location "&location&"");
+	}
+	
+	if(location == "3"){
+		win_get_text("main",outText,217,344,244,359);
+		if(outText==name)
+			report_msg("menu item "&name&" is present at location "&location&"");
+		else
+			report_msg("menu item "&name&" NOT present at location "&location&""); 
+	
+	if(location == "4"){
+		win_get_text("main",outText,217,367,244,382);
+		if(outText==name)
+			report_msg("menu item "&name&" is present at location "&location&"");
+		else
+			report_msg("menu item "&name&" NOT present at location "&location&""); 

@@ -1,0 +1,234 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:PnetLayout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" callOnLoad="setup();" >
+	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/two_pane_view.css?${versionNumber}"/>
+	<script type="text/javascript" src="${jSPRootURL}/src/chargecode.js?${versionNumber}"/>
+
+<style title="column-style">
+.main-div{
+	top: 80px;
+	left: 197px;
+}
+
+.charge-code-content-main-div {
+	top: 250px;
+	bottom: 10px;
+	width: 80%;
+}
+
+.charge-code-content {
+	clear: left;
+	border: 1px solid #B5E79E;
+	padding: 0px;
+	width: 99%;
+}
+
+.charge-code-table-upper-div {
+	-moz-background-inline-policy: continuous;
+	-moz-background-origin: padding;
+	background: #D7FEC4 none repeat scroll 0 0;
+	border-bottom: 1px solid #B5E79E;
+	height: 30px;
+}
+
+.charge-code-table-lower-div {
+	border-top: 1px solid #B5E79E;
+	height: 20px;
+	background: #F9FFF6 none repeat scroll 0 0;
+	font-family: Trebuchet MS;
+	font-size: 14px;	
+	
+}
+
+.charge-code-table-heading{
+	top: 80px;
+	color: Black;
+	font-family: Trebuchet MS;
+	font-size: 17px;	
+}
+
+.mysharedListTabletd {
+	border-bottom: 1px solid #EDEDED;
+	border-color: #FFFFFF #EDEDED #EDEDED;
+	height: 15px;
+}
+
+.table-header-text {
+	color:#737373;
+	font-family:arial,tahoma,helvetica,sans-serif;
+	font-size:12px;
+	font-weight:bold;
+	padding-left:2px;
+}
+
+.label-text {
+	font-family:Arial,Helvetica;
+	font-size:12px;
+	font-weight:bold;
+}
+
+</style>
+<script language="javascript">
+var loadingMessageSaveChargeCode = '<t:Message value="prm.schdule.columnsetting.loadingpopup.message"/>';
+var createTitle = '<b class="heading">'+'<t:Message value="prm.business.chargecode.save.page.title"/>'+'</b>';
+var editTitle = '<b class="heading">'+'<t:Message value="prm.business.chargecode.edit.page.title"/>'+'</b>';
+var savingMsg = '<t:Message value="prm.global.saving.message"/>';
+var moduleId = ${moduleId};
+var businessId = ${businessId};
+var isRoolBusiness = ${isRootBusiness};
+var chargeCodeId;
+var chargeCodeName;
+var chargeCodeNo;
+var chargeCodeDesc;
+var prevSelectedRow;
+var action;
+var totalchargeCode = ${totalChargeCodes};
+
+<!--//
+// Apply mouse over style for all rows other than header
+function mo(forTr) {
+	if(isRoolBusiness)
+		forTr.className += ' wMouseOverColor';
+}
+
+// Apply mouse out style for all rows other than header
+function mu(forTr) {
+	if(isRoolBusiness)
+		forTr.className = replaceAll(forTr.className, 'wMouseOverColor', '');
+}
+
+// Get values of selected row and change its color
+function selectRow(obj) {
+	chargeCodeId = obj.id; 
+	var cell = obj.cells;
+	chargeCodeName = cell[0].innerHTML;
+	chargeCodeNo = cell[1].innerHTML;
+	chargeCodeDesc = cell[2].innerHTML;
+	
+	if(isRoolBusiness)
+		setSelectRowStyle(obj);
+}
+
+// set color to selected row and remove for previously selected
+function setSelectRowStyle(forTr) {
+	if(forTr.className.indexOf('wSelectedRow')== -1){
+		forTr.className += 'wSelectedRow';
+	}
+	if(typeof(prevSelectedRow) != 'undefined' && document.getElementById(prevSelectedRow) != null) {
+		document.getElementById(prevSelectedRow).className = document.getElementById(prevSelectedRow).className.replace('wSelectedRow', '');
+	}
+	prevSelectedRow = forTr.id;
+
+}
+
+// To create charge code 
+function create(){
+	openSaveChargeCodePopup('save_charge_code');
+}
+
+function modify(){
+	openSaveChargeCodePopup('edit_charge_code');
+}
+
+function remove(){
+	action = 'delete_charge_code';
+	manageChargeCodeAjaxAction();
+}
+
+
+// -->
+</script> 
+<!-- left action bar -->
+<t:if test="isRootBusiness">
+	<t:ActionBox groupTitle = "prm.business.setup.managechargecode.link"  subTitle = "${businessName}"
+		 buttons = "create,modify,remove"
+		 caption = "prm.business.chargecode.create.button.label,
+		 			prm.business.chargecode.modify.button.label,
+		 			prm.business.chargecode.delete.button.label" />
+	<t:parameter name="else">
+		<div id="left-navbar">
+				<div id="leftheading-business" style="position: relative;"><t:Message value="prm.business.setup.viewchargecode.link"/></div>
+				<div class="project-title" style="margin-top: 5px;"> ${businessName}</div>
+				<br clear="both"/><div class="spacer-for-toolbox" /> 
+		</div>	
+	</t:parameter>
+</t:if>
+
+<div id="content" class="main-div">
+	<div id="historyDiv">
+        <table width="100%" border="0" cellpadding="0" cellspacing="0">
+	        <tr>
+				<td>
+	            	<a href="${businessPageLink}" class="historyText">
+	                	<span>${businessName}</span>
+	                </a>
+	                <span class="bc-arrows"> &#187; </span>
+	            	<a href="${setupPageLink}" class="historyText">
+	                	<span><t:Message value="prm.business.nav.setup"/></span>
+	                </a>
+	                <span class="bc-arrows"> &#187; </span>
+	                <span class="historyText">
+	                	<t:if test="isRootBusiness">
+		                	<t:Message value="prm.business.setup.managechargecode.link"/>
+							<t:parameter name="else">
+		                		<t:Message value="prm.business.setup.viewchargecode.link"/>
+		                	</t:parameter>
+						</t:if>
+	                </span>
+	            </td>
+			</tr>
+		</table>
+	</div><br />
+	
+	<div id="charge-code-table-heading" class="charge-code-table-heading">
+	</div>
+	<div class="charge-code-content" id="charge-code-content-main-div">
+		<div class="charge-code-table-upper-div" id="slidingpanel" />
+			<div id="charge-code-list" class="shared-view-list">
+				<table id="charge-code-view-table-container" cellpadding="0" cellspacing="0" width="100%">
+					<tr>
+						<td>
+							<table cellspacing="0" id="charge-code-table" cellpadding="0" width="100%">
+								<!--table header rendering-->
+								<tr height="22px" align="left" id="charge-code-table-header" class="tableHeader">
+										<th width="20%" id="viewName" class="twoPaneTableHeaderTd">
+											<div class="table-header-text">
+												<span >
+													&nbsp;<t:Message value="prm.business.chargecode.chargecodetable.header.chargecodeno.label" />
+												</span>
+											</div>
+										</th>
+										<th width="" id="createdBy" class="twoPaneTableHeaderTd" >
+											<div class="table-header-text">
+												<span >
+													&nbsp;<t:Message value="prm.business.chargecode.chargecodetable.header.chargecodename.label" />
+												</span>
+											</div>
+										</th>
+										<th width="50%" id="lastModified" class="twoPaneTableHeaderTd">
+											<div class="table-header-text">
+												<span >
+													&nbsp;<t:Message value="prm.business.chargecode.chargecodetable.header.chargecodedescription.label" />
+												</span>
+											</div>
+										</th>
+								</tr>
+							<!--table row rendering-->
+								<t:loop source="chargeCodeList" value="chargeCode">
+									<tr id="${chargeCode.codeId}" onclick="selectRow(this);" onmouseover="mo(this);" onmouseout="mu(this)" >
+										<td>${chargeCode.codeNumber}</td>
+										<td>${chargeCode.codeName}</td>
+										<td>${chargeCode.codeDesc}</td>
+									</tr>
+								</t:loop>
+							</table>
+						</td>
+					</tr>
+				</table>
+			</div><!--	closing of shared-view-list div-->
+		<div id="total-view-div" class="charge-code-table-lower-div"></div>	
+	</div>
+</div>	
+</t:PnetLayout>	
+
+

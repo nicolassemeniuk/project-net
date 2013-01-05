@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnApplicationSpace" 
+    table="PN_APPLICATION_SPACE"
+    lazy="false"
+>
+
+    <id
+        name="applicationId"
+        type="java.math.BigDecimal"
+        column="APPLICATION_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="applicationName"
+        type="java.lang.String"
+        column="APPLICATION_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="applicationDesc"
+        type="java.lang.String"
+        column="APPLICATION_DESC"
+        length="1000"
+    />
+    <property
+        name="createdById"
+        type="java.math.BigDecimal"
+        column="CREATED_BY_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="createdDatetime"
+        type="java.sql.Date"
+        column="CREATED_DATETIME"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

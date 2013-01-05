@@ -1,0 +1,53 @@
+wait(4);
+GUI_close_all();
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createParticipantsDirectory\\createParticipantsDirectory.gui");
+
+
+
+
+public function createParticipant(in firstName, in lastName, in emailID)
+{
+	set_window("main",3);
+	web_link_click("WRProject");
+	wait(2);
+	set_window("menu",3);
+	web_link_click("Directory");
+	wait(2);
+	set_window("main",3);
+	web_link_click("Invite Participant");
+	set_window("main",3);
+	edit_set("inviteeFirstName",firstName);
+	edit_set("inviteeLastName",lastName);
+	edit_set("inviteeEmail",emailID);
+	web_link_click("Add to Invitee List");
+	wait(2);
+	set_window("main",3);
+	web_link_click("Next");
+	edit_set("inviteeResponsibilities","QA and Testing");
+	edit_set("inviteeMessage","Do join in");
+	button_set("sendNotifications",OFF);
+	button_set("autoAcceptInvite_1",ON);
+	web_link_click("Invite");
+}
+
+createParticipant("Robert","Bruce","robert@project.net");
+createParticipant("William","Wallace","william@project.net");
+wait(1);
+set_window("main",1);
+web_link_click("Roles");
+wait(1);
+set_window("main",2);
+web_link_click("Team Member");
+set_window("main",2);
+if(obj_exists("Robert Bruce")== E_OK)
+	tl_step("Invite verification",0,"Robert Bruce has been added to the Team Member group");
+else
+	tl_step("Invite verification",1,"Robert Bruce has NOT BEEN added to the Team Member group");
+if(obj_exists("William Wallace")== E_OK)
+	tl_step("Invite verification",0,"William Wallace has been added to the Team Member group");
+else
+	tl_step("Invite verification",1,"William Wallace has NOT BEEN added to the Team Member group");
+
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createParticipantsDirectory\\createParticipantsDirectory.gui");
+
+		

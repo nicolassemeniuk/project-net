@@ -1,0 +1,131 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:PnetLayout callOnLoad="setHeights();" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<style>
+	div#content {
+		position: inherit;
+		padding-left: 10px;	
+		left: 196px;
+		top: 110px;
+	}
+</style>
+<script type="text/javascript" src="${page.jSPRootURL}/src/inviteMember.js?${page.versionNumber}" />
+<link rel="stylesheet" type="text/css" href="${page.jSPRootURL}/styles/inviteMember.css?${versionNumber}"/>
+	<script language='javascript' type='text/javascript'>
+			window.history.forward(-1);
+			var addToInvitedList = '';
+			var removeFromInvitedList = '';
+			var inviteeListSize = ${inviteeListSize};
+			var blankInviteeListErrMsg =  '<t:Message value="prm.directory.invite.addresponsibility.blankinviteelist.message"/>';
+			
+			function setHeights(){
+				if(typeof setBulkDivHeights != 'undefined'){
+					addEvent(window, 'resize', setBulkDivHeights('teammateContent', 236, 222), false);
+				}
+			}
+			<!-- //
+
+			// To open directory help page
+		    function help() {
+		   		var helplocation = JSPRootURL+'/help/Help.jsp?page=directory&section=people';
+		  		openwin_help(helplocation);
+		  	}
+		  	
+			// concatenating all invitees roles with comma separated list.
+			function concatanateCheckedUsersRoles(id,email,object){
+				if(object.checked){
+					addToInvitedList += id + "-" + email + ",";
+				} else{
+					addToInvitedList = addToInvitedList.replace(id + "-" + email + ",", ''); 	
+				}
+				document.getElementById('userRolescheckListId').value = addToInvitedList;
+			}
+			 function submitForm() {
+			 	if(inviteeListSize != 0) {
+			 	 	document.form.submit();
+			 	} else {
+			 		extAlert(errorTitle, blankInviteeListErrMsg, Ext.MessageBox.ERROR);
+			 		return;
+			 	}
+			 }
+			// -->
+</script> 	
+<t:ActionBox groupTitle = "prm.directory.directory.title"/>
+<div id="content">
+	<table width="99%">
+		<tr>
+			<td class="invitePageTitle">
+				<t:Message value="prm.directory.directorypage.newinvitee.defaultrole.title"/>
+			</td>
+		</tr>
+		<tr>
+			<td><t:Message value="prm.directory.directorypage.newinvitee.defaultrole.subtitle"/></td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center">
+				<div id="teammateContent" class="block-content UMTableBorder" style="overflow:auto;height:352px;width:100%;">
+					<table width="100%" name="tableWithEvenRows" class="row-content" cellpadding="0" cellspacing="0">
+						<tr class="table-header">
+							<td class="cell-right-border" align="center" nowrap="nowrap" style="color:gray;font-weight:bold;" width="10%"><t:Message value="prm.directory.directorypage.roster.column.name"/></td>
+							<td width="15%" class="cell-right-border table-header" style="color:gray;font-weight:bold;"><t:Message value="prm.directory.directorypage.roster.column.titles"/></td>
+							<td width="15%" class="cell-right-border table-header" style="color:gray;font-weight:bold;"><t:Message value="prm.directory.directorypage.roster.column.responsilities"/></td>
+							<t:if test="ChargeCodeEnabled">
+								<t:if test="chargeCodeAvailable">
+									<td width="10%" class="cell-right-border table-header" style="color:gray;font-weight:bold;"><t:Message value="prm.business.chargecode.label"/></td>
+								</t:if>
+							</t:if>							
+							<t:loop source="userRoles" value="userRole">
+								<td nowrap="nowrap" class="cell-right-border" align="center">${userRole.groupName}</td>
+							</t:loop>
+						</tr>
+						<t:form id="addRolesAndResponsiblityForm">
+							<t:loop source="inviteesList" value="invitees" volatile="true">
+								<tr class="UMBottomBorder" style="height:25px;">
+									<td nowrap="nowrap" class="memberName" align="left" style="padding-left:3px;">
+										<t:if test="invitees.online">
+											<img src="${asset:context:/images/user-online-icon.gif}" />
+											<t:parameter name="else">
+												<img src="${asset:context:/images/user-icon.gif}" />
+											</t:parameter>
+										</t:if>
+										<span style="padding-left:8px;">${invitees.displayName}</span></td>
+									<td><input type="text" name="msg_${invitees.email}" size="25" maxlength="100"/></td>
+									<td><input type="text" name="resp_${invitees.email}" size="25" maxlength="500"/></td>
+									<t:if test="ChargeCodeEnabled">
+										<t:if test="chargeCodeAvailable">
+											<td>
+												<t:ComboBox id="chargecode_${invitees.email}" displayField="codeName" 
+												 valueField="codeId" list="chargeCodeList" value="${invitees.chargeCodeId}" 
+												 defaultOption="true" defaultOptionText="prm.business.chargecode.dropdownlist.defaultoption.label" />
+											</td>
+										</t:if>
+									</t:if>		
+									<t:loop source="userRoles" value="userRole" volatile="true">
+										<td align="center">
+											<t:if test="userRole.groupDefaultSelected">
+													<input type="checkbox" checked="checked" disabled="disabled"/>													
+												<t:parameter name="else">
+													<input type="checkbox" id="${userRole.groupId}${invitees.email}" onchange="concatanateCheckedUsersRoles(${userRole.groupId},'${invitees.email}',this)"/>
+												</t:parameter>
+											</t:if>
+										</td>
+									</t:loop>
+								</tr>
+							</t:loop>
+							<input type="hidden" name="userRolescheckListId" id="userRolescheckListId"/>
+						</t:form>	
+					</table>
+			  	</div>
+			</td>
+		</tr>
+	</table>
+	<table width="100%">
+		<tr>
+			<td align="center">
+				<button type="button" onclick="javascript:submitForm();">&nbsp;<t:Message value="prm.directory.bulkresponsiblity.submitbutton.caption" /></button>	
+			</td>
+		</tr>
+	</table>
+	   </div>
+</t:PnetLayout>
+

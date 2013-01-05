@@ -1,0 +1,57 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Forms\batchForms> 2 1115916765 0
+37 93 <Step: Verify form exists, Status: Pass, Description: The form created exists in Form Designer> <C:\Documents and Settings\QA\Desktop\v77\Forms\createForm> 26 1115916782 24
+37 105 <Step: Verify text field exists, Status: Pass, Description: The Text Field 'TextField'created successfully> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 26 1115916789 24
+37 99 <Step: Verify text box exists, Status: Pass, Description: The Text Box 'TextBox'created successfully> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 22 1115916808 24
+37 118 <Step: Verify selection menu exists, Status: Pass, Description: The Selection Menu 'SelectionMenu' created successfully> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 40 1115916834 24
+37 105 <Step: Verify date field exists, Status: Pass, Description: The Date Field 'DateField'created successfully> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 21 1115916848 24
+37 117 <Step: Verify checkbox field exists, Status: Pass, Description: The CheckBox Field 'CheckBoxField'created successfully> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 20 1115916864 24
+37 137 <Step: Verify person selection menu exists, Status: Pass, Description: The Person Selection Menu 'PersonSelectionMenu'created successfully> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 26 1115916881 24
+37 111 <Step: Verify number field exists, Status: Pass, Description: The Number Field 'NumberField'created successfully> <C:\Documents and Settings\QA\Desktop\v77\Forms\createNumberField> 25 1115916900 24
+37 117 <Step: Verify currency field exists, Status: Pass, Description: The Currency Field 'CurrencyField'created successfully> <C:\Documents and Settings\QA\Desktop\v77\Forms\createCurrencyField> 23 1115916919 24
+37 146 <Step: Verify horizontal section field exists, Status: Pass, Description: The Horizontal Section Title 'HorizontalSectionTitle'created successfully> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 20 1115916935 24
+37 126 <Step: Verify user instructions exists, Status: Pass, Description: The User Instructions 'UserInstructions'created successfully> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 21 1115916944 24
+23 28 <Within Calculated Field - 11> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 6 1115916947 0
+37 117 <Step: Verify calculated exists, Status: Pass, Description: The Calculated Field 'CalculatedField'created successfully> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 24 1115916953 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Forms\createField> 27 1115916953 0
+23 48 <The form name 'WRform' appears in the tools menu> <C:\Documents and Settings\QA\Desktop\v77\Forms\batchForms> 22 1115916972 0
+23 58 <The form name 'WRform' appears in the list of active forms> <C:\Documents and Settings\QA\Desktop\v77\Forms\batchForms> 32 1115916974 0
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Forms\batchForms> 36 1115916974 0
+39 1 <web_obj_text_exists- test data text field> <createFormInstance> 99 1115916997 0
+39 1 <web_obj_text_exists- test data text box> <createFormInstance> 101 1115916997 0
+39 1 <web_obj_text_exists- SM3> <createFormInstance> 103 1115916997 0
+39 1 <web_obj_text_exists- 9/22/04> <createFormInstance> 105 1115916997 0
+39 1 <web_obj_text_exists- Avinash Padmanabhan> <createFormInstance> 107 1115916997 0
+39 1 <web_obj_text_exists- 23> <createFormInstance> 109 1115916997 0
+39 1 <web_obj_text_exists- 22> <createFormInstance> 111 1115916997 0
+39 1 <web_obj_text_exists- ¢ð¥¨§¶ÆÐþT?> <createFormInstance> 99 1115916999 0
+39 1 <web_obj_text_exists- ¢ð¥¨§¶ÆÐþT?> <createFormInstance> 101 1115916999 0
+39 1 <web_obj_text_exists- SM1> <createFormInstance> 103 1115916999 0
+39 1 <web_obj_text_exists- 9/22/04> <createFormInstance> 105 1115916999 0
+39 1 <web_obj_text_exists- Avinash Padmanabhan> <createFormInstance> 107 1115916999 0
+39 1 <web_obj_text_exists- 21.22> <createFormInstance> 109 1115916999 0
+39 1 <web_obj_text_exists- 21.23> <createFormInstance> 111 1115916999 0
+39 1 <web_obj_text_exists- TAPORI> <createFormInstance> 99 1115917000 0
+39 1 <web_obj_text_exists- TAPORI> <createFormInstance> 101 1115917000 0
+39 1 <web_obj_text_exists- SM2> <createFormInstance> 103 1115917000 0
+39 1 <web_obj_text_exists- 9/22/04> <createFormInstance> 105 1115917000 0
+39 1 <web_obj_text_exists- Avinash Padmanabhan> <createFormInstance> 107 1115917000 0
+39 1 <web_obj_text_exists- 221.23> <createFormInstance> 109 1115917000 0
+39 1 <web_obj_text_exists- 223.32> <createFormInstance> 111 1115917000 0
+39 13 <web_obj_text_exists- Ù´Üú Ý˜Ù¯??ÙÀÙ¶ÙæÙÔÙ¼Ù¾?Ù™ÛXÛ[Û^Û]ÛgÛxÙâ> <createFormInstance> 99 1115917002 0
+39 1 <web_obj_text_exists- ¤¾ ¹¿¬R?‰€‡> <createFormInstance> 101 1115917002 0
+39 1 <web_obj_text_exists- SM3> <createFormInstance> 103 1115917002 0
+39 1 <web_obj_text_exists- 9/22/04> <createFormInstance> 105 1115917002 0
+39 1 <web_obj_text_exists- Avinash Padmanabhan> <createFormInstance> 107 1115917002 0
+39 1 <web_obj_text_exists- 11.02> <createFormInstance> 109 1115917002 0
+39 1 <web_obj_text_exists- 11.03> <createFormInstance> 111 1115917002 0
+39 1 <web_obj_text_exists- QA's role> <createFormInstance> 99 1115917003 0
+39 1 <web_obj_text_exists- QA's role is in testing> <createFormInstance> 101 1115917003 0
+39 1 <web_obj_text_exists- SM2> <createFormInstance> 103 1115917003 0
+39 13 <web_obj_text_exists- 2/28/2005> <createFormInstance> 105 1115917003 0
+39 1 <web_obj_text_exists- Avinash Padmanabhan> <createFormInstance> 107 1115917003 0
+39 1 <web_obj_text_exists- 12.2> <createFormInstance> 109 1115917003 0
+39 1 <web_obj_text_exists- 12.3> <createFormInstance> 111 1115917003 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Forms\formExport> <C:\Documents and Settings\QA\Desktop\v77\Forms\batchForms> 62 1115917003 0
+11 1 <C:\Documents and Settings\QA\Desktop\v77\Forms\batchForms> <C:\Documents and Settings\QA\Desktop\v77\Forms\formExport> 43 1115917004 0
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\Forms\batchForms> 67 1115917006 0

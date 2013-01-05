@@ -1,0 +1,53 @@
+function createMeeting(in meetingName, in date){
+	auto location;
+	location = date - 1;
+	GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\meeting.gui");
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\meeting.gui","main","Add","location",date)!=E_OK)
+		report_msg("NOT OK1");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\meeting.gui");
+	
+	set_window("main",1);
+	if(web_link_click("Add")!=E_OK)
+		report_msg("Not ok");	
+	set_window("main",2);
+	edit_set("name",meetingName);
+	list_select_item("hostID","Avinash Padmanabhan");
+	list_select_item("start_hour","3");
+	list_select_item("start_minute","30");
+	list_select_item("start_ampm","PM");
+	list_select_item("end_hour","4");
+	list_select_item("end_minute","00");
+	list_select_item("end_ampm","PM");
+	list_select_item("FacilityType","Physical");
+	edit_set("FacilityDescription","Cubicle");
+	edit_set("purpose","testing status");
+	edit_set("description","wierd");
+	web_link_click("Next");
+	set_window("main",2);
+	web_link_click("Next");
+	
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\meeting.gui");	
+# 	set_window("main",1);
+# 	edit_set("name","Agenda1");
+# 	edit_set("allottedTime","10 mins");
+# 	list_select_item("ownerID","Avinash Padmanabhan");
+# 	list_select_item("statusID","Scheduled");
+# 	edit_set("description","agenda1 description");
+# 	edit_set("meetingNotes","agenda1 meeting notes");
+# 	web_link_click("Submit");
+# 	wait(1);
+# 	set_window("main",1);
+# 	web_link_click("Finish");
+# 	web_link_click("Next");
+# 	set_window("main",2);
+# 	web_link_click("Finish");
+# 	wait(2);
+# 	set_window("main",1);
+# 	if(obj_exists("meeting test")==E_OK)
+# 		tl_step("Creating a meeting", 0,"Meeting successfully created");
+# 	else
+# 		tl_step("Creating a meeting", 1,"Meeting NOT created");
+	
+	
+}

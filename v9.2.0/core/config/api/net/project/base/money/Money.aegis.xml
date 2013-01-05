@@ -1,0 +1,8 @@
+<mappings>
+  <mapping>
+  <property name="xMLElement" ignore="true"/>
+  <property name="XMLElement" ignore="true"/>
+  <property name="currencyInstance" ignore="true"/>
+  <property name="currency" ignore="true"/>
+  </mapping>
+</mappings>

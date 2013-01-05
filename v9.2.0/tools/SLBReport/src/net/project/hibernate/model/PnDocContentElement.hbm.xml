@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDocContentElement" 
+    table="PN_DOC_CONTENT_ELEMENT"
+    lazy="false"
+>
+
+    <id
+        name="docContentId"
+        type="java.math.BigDecimal"
+        column="DOC_CONTENT_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="docFormatId"
+        type="java.math.BigDecimal"
+        column="DOC_FORMAT_ID"
+        length="20"
+    />
+    <property
+        name="displaySequence"
+        type="java.lang.Integer"
+        column="DISPLAY_SEQUENCE"
+        length="8"
+    />
+    <property
+        name="fileSize"
+        type="java.math.BigDecimal"
+        column="FILE_SIZE"
+        length="20"
+    />
+    <property
+        name="fileHandle"
+        type="java.lang.String"
+        column="FILE_HANDLE"
+        length="240"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PnDocRepositoryBase -->
+    <many-to-one
+        name="pnDocRepositoryBase"
+        class="net.project.hibernate.model.PnDocRepositoryBase"
+        not-null="true"
+    >
+        <column name="REPOSITORY_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnDocContentRendition -->
+
+    <set
+        name="pnDocContentRenditions"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DOC_CONTENT_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDocContentRendition"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnDocVersionHasContent -->
+
+    <set
+        name="pnDocVersionHasContents"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DOC_CONTENT_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDocVersionHasContent"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

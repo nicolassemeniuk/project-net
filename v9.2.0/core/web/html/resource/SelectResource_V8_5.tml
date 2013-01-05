@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<head>
+<title>Select Resource</title>
+<!-- Linking all css files only here. 
+	 These are used for only Resources tab developed in Tapestry 5 -->
+<link rel="stylesheet" type="text/css" href="/styles/lib.css" />
+<link rel="stylesheet" type="text/css" href="/styles/examples.css" />
+<link rel="stylesheet" type="text/css" href="/styles/grid-examples.css" />
+<link rel="stylesheet" type="text/css" href="/src/extjs/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="/styles/global.css" />
+<link rel="stylesheet" type="text/css" href="/styles/fonts.css" />
+<link rel="stylesheet" type="text/css" href="/styles/colors.css" />
+<link rel="stylesheet" type="text/css" href="/styles/application.css" />
+</head>
+<body onload="selectPersonsInList();">
+<script type="text/javascript" src="/src/extjs/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="/src/extjs/ext-all.js"></script>
+<script language="javascript" type="text/javascript">
+	var personColumnLabel = '${personColumnLabel}';
+	var typeColumnLabel = '${typeColumnLabel}';
+	var primaryRoleColumnLabel = '${primaryRoleColumnLabel}';		
+    var resourceGridData = ${resourceGridData};	
+	var personIdsInList = ${personIdsInList};
+	var sm;
+</script>
+<script type="text/javascript" src="/src/selectResource-grid_V8_5.js"></script>
+<script type="text/javascript" src="/src/examples.js"></script>
+<script language="javascript" type="text/javascript">	
+	function checkListName() {
+		if (document.getElementById('listname').value == null || document.getElementById('listname').value == ''){
+			Ext.MessageBox.alert('Status', '${resourceListNameReqMsg}'); 
+			return false;
+		}
+		if (document.getElementById('hiddenPersonIds').value == null || document.getElementById('hiddenPersonIds').value == ''){
+			Ext.MessageBox.alert('Status', '${resourceSelectionReqMsg}'); 
+			return false;
+		}		
+		return true;
+	}
+	function selectPersonsInList(){	
+		if(personIdsInList != null){
+			sm.selectRows(personIdsInList);
+		}
+	}
+</script>
+<h3 align="center">${pageTitle}</h3>
+<br />
+<t:form method="post" t:id="viewForm">
+	<table align="left" border="0">
+		<tr class="fieldNonRequired">
+			<td>${businessesListLabel} :</td>
+			<td><t:select model="businessesModel" encoder="businessesModel"
+				value="businessSpace" clientId="businessId" /></td>
+			<td rowspan="3" valign="bottom">&nbsp;&nbsp;<t:submit t:id="search"
+				value=" ${searchButtonCaption} " /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+		<tr class="fieldNonRequired">
+			<td>${projectsListLabel} :</td>
+			<td><t:select model="projectsModel" encoder="projectsModel"
+				value="pnProjectSpace" clientId="projectId" /></td>
+		</tr>
+		<tr>
+			<td>&nbsp;</td>
+		</tr>
+		<tr>
+			<td>${saveAsResourceListTextLabel} :</td>
+			<td><input t:type="TextField" value="listname" clientId="listname" />
+			</td>
+			<td>&nbsp;&nbsp; <t:submit t:id="save"
+				value=" ${saveButtonLabel} " onclick="return checkListName();" />
+			</td>
+		</tr>
+		<tr>
+			<td colspan="3" align="center"><br />
+			<label style="color:red; font-weight:bold;">${message} </label></td>
+		</tr>
+	</table>
+	<input t:type="TextField" value="hiddenPersonIds"
+		style="visibility: hidden;" clientId="hiddenPersonIds" />
+</t:form>
+<br />
+<br />
+<div id="resourceGridPosV8_5" style="margin-left:10px; margin-right: 10px;">
+</div>
+</body>
+</html>

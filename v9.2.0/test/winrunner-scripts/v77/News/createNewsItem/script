@@ -1,0 +1,19 @@
+function createNewsItem(in topicName, in priority){
+# 	auto outText;
+	wait(1);
+	set_window("main",2);
+	web_link_click("Create");
+	wait(1);
+	set_window("main",2);
+	edit_set("topic",topicName);
+	list_select_item("priorityID",priority);
+	edit_set("message","Creating a news item for testing");
+	web_link_click("Submit");
+	wait(1);
+	set_window("main",2);
+	if(obj_exists(topicName)==E_OK)
+		tl_step("News",0,"News Item "&topicName&" successfully created");
+	else
+		tl_step("News",1,"News Item "&topicName&" COULD NOT be created");
+	set_window("main",1);
+}	

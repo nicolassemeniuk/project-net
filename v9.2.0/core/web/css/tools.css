@@ -1,0 +1,130 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+ /* MAIN */
+
+body.main			{background-image: url('../images/tools/background-banner.gif');
+					background-color: #FFFFFF;
+					 background-repeat: no-repeat;
+					 margin: 0px;
+					}
+a					{ color: #660099;
+					}
+.instructions		{background-color: #FFFFFF;
+					 color: #660099;
+					}
+a.channelNoUnderline	{	
+					}
+.channelHeader		{background-color: #CC99FF;
+					 color: #000000;
+					}
+.channelHeaderDarker	{	background-color: #660099;
+					color: #FFFFFF;
+					}
+.channelContent		{background-color: #FFFFFF;
+					 color: #000000;
+					}
+.white				{
+					}
+.calendar			{color: #000000;
+					}
+.calToday			{color: #FF0000;
+					 background-color: #ffffcc;
+					 border: 1px solid #FF9933;
+					}
+.pageTitle			{color: #660099;
+					}
+.label				{color: #660099;
+					}
+.actionBar			{color: #000000;
+					 background-image: url('../images/tools/actionbar-background.gif');
+					 background-repeat: repeat-x;
+					}
+.actionContentReq	{color: #000000;
+					}
+.actionContentNotReq	{color: #999999;
+					}
+
+.warningTextRed		{color: #FF0000;
+					}
+.rowSep             {background-color: #CC99FF;
+                     padding: 0px;
+                     height: 1px;
+                     border-collapse: collapse;
+                    }
+.headerSep          {background-color: #CC99FF;
+                     padding: 0px;
+                     height: 2px;
+                     border-collapse: collapse;
+                    }
+
+/* REGISTRATION SPECIFIC */
+.regBanner			{font-family: arial,helvetica,geneva,sans;
+					 color: #660099;
+					 font-size: 30px;
+					 font-weight: bold;
+					}
+.navBg				{background-image: url('../images/help/nav-background.gif');}
+
+
+/* BANNER */
+body.banner			{background-image: url('../images/tools/background-banner.gif');
+					}
+.bannerLink1		{color: #000000;
+					}
+.bannerLink2		{color: #FFFFFF;
+					}
+.userId				{color: #FFFFFF;
+					}
+
+/* LEFT NAV */
+
+div#leftframe		{/*background-image: url('../images/tools/background-leftnav.gif');*/
+					}
+.leftNavHeader		{color: #000000;
+					}
+.leftNavLink		{color: #000000;
+					}
+.vertLine			{
+					}
+.vertNoLine			{
+					}
+
+/* LEGACY */
+
+.tableHeader		{background-color: #FFFFFF;
+					 color: #660099;
+					}
+.tableLine			{background-color: #CC99FF;
+					}
+.tableContent		{background-color: #FFFFFF;
+					 color: #000000;
+					}
+.tableContentNoBGC		{color: #000000;}
+					
+.tableContentFontOnly	{
+					}
+
+/* FORMS */
+
+.fieldRequired		{color: #000000;
+					}
+.fieldNonRequired	{color: #666666;
+					}
+.fieldWithError		{color: #FF0000;
+					}
+.errorMessage       {color: #FF0000;
+                    }                    
+.successMessage     {color: #FF0000;  
+                    }					                    

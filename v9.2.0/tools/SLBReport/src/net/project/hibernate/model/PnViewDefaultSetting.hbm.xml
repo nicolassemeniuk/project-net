@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnViewDefaultSetting" 
+    table="PN_VIEW_DEFAULT_SETTING"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnViewDefaultSettingPK">
+        <key-property 
+            name="contextId" 
+            column="CONTEXT_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="scenarioId" 
+            column="SCENARIO_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to PnView -->
+    <many-to-one
+        name="pnView"
+        class="net.project.hibernate.model.PnView"
+        not-null="true"
+    >
+        <column name="VIEW_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,408 @@
+<projects Name="Projects" ProjectId="root">
+<Project Name="Western Geco" Level="1" Folder="/Western Geco" selected="false" ProjectId="5685058">
+	</Project>
+<Project Name="Western Geco QLS Disk Upgrade" Level="1" Folder="/Western Geco QLS Disk Upgrade" selected="false" ProjectId="5241076">
+	</Project>
+<Project Name="Western Geco Share Point Services" Level="1" Folder="/Western Geco Share Point Services" selected="false" ProjectId="5233155">
+	</Project>
+<Project Name="Western Geco Vessels" Level="1" Folder="/Western Geco Vessels" selected="false" ProjectId="3521236">
+<Project Name="Western Geco QLS Disk Upgrade" Level="2" Folder="/Western Geco/Western Geco QLS Disk Upgrade" selected="false" ProjectId="5241076">
+	</Project>
+<Project Name="Western Geco Share Point Services" Level="2" Folder="/Western Geco/Western Geco Share Point Services" selected="false" ProjectId="5233155">
+	</Project>
+<Project Name="WesternGeco Filenet" Level="2" Folder="/Western Geco/WesternGeco Filenet" selected="false" ProjectId="4943313">
+	</Project>
+	</Project>
+<Project Name="Western Monarch CRS Upgrade" Level="1" Folder="/Western Monarch CRS Upgrade" selected="false" ProjectId="4798148">
+	</Project>
+<Project Name="WesternGeco - Infrastructure" Level="1" Folder="/WesternGeco - Infrastructure" selected="false" ProjectId="744473">
+	</Project>
+<Project Name="WesternGeco 12nd floor setup" Level="1" Folder="/WesternGeco 12nd floor setup" selected="false" ProjectId="713963">
+	</Project>
+<Project Name="WesternGeco Application Development" Level="1" Folder="/WesternGeco Application Development" selected="false" ProjectId="1623808">
+	</Project>
+<Project Name="WesternGeco Bid Flow" Level="1" Folder="/WesternGeco Bid Flow" selected="false" ProjectId="2402279">
+	</Project>
+<Project Name="WesternGeco Bidding Process" Level="1" Folder="/WesternGeco Bidding Process" selected="false" ProjectId="2307551">
+	</Project>
+<Project Name="WesternGeco Bidding Process Workflow" Level="1" Folder="/WesternGeco Bidding Process Workflow" selected="false" ProjectId="2272512">
+	</Project>
+<Project Name="WesternGeco Filenet" Level="1" Folder="/WesternGeco Filenet" selected="false" ProjectId="4943313">
+	</Project>
+<Project Name="WesternGeco Phase IV" Level="1" Folder="/WesternGeco Phase IV" selected="false" ProjectId="3307636">
+	</Project>
+<Project Name="WesternGeco Seismic Loader" Level="1" Folder="/WesternGeco Seismic Loader" selected="false" ProjectId="1985815">
+	</Project>
+<Project Name="WesternGeco TCC Action Items" Level="1" Folder="/WesternGeco TCC Action Items" selected="false" ProjectId="5060124">
+	</Project>
+<Project Name="WesternGeco Vessel WAN Integration Project" Level="1" Folder="/WesternGeco Vessel WAN Integration Project" selected="false" ProjectId="3245123">
+<Project Name="Transition to NIS" Level="2" Folder="/WesternGeco Vessel WAN Integration Project/Transition to NIS" selected="false" ProjectId="3339957">
+	</Project>
+	</Project>
+<Project Name="WesternGeco Worldwide TZ Plan" Level="1" Folder="/WesternGeco Worldwide TZ Plan" selected="false" ProjectId="4772956">
+	</Project>
+<Project Name="Westport Marketing" Level="1" Folder="/Westport Marketing" selected="false" ProjectId="4104329">
+	</Project>
+<Project Name="WinIT Collaboration Space" Level="1" Folder="/WinIT Collaboration Space" selected="false" ProjectId="269837">
+	</Project>
+<Project Name="Windows 2000 Global Deployment" Level="1" Folder="/Windows 2000 Global Deployment" selected="false" ProjectId="1486626">
+	</Project>
+<Project Name="Wired Drill Pipe Telemetry - Electrical &amp; Software  Developments" Level="1" Folder="/Wired Drill Pipe Telemetry - Electrical  Software  Developments" selected="false" ProjectId="3186825">
+	</Project>
+<Project Name="Wireless Service Line" Level="1" Folder="/Wireless Service Line" selected="false" ProjectId="3678370">
+	</Project>
+<Project Name="Wireline Real Time Support Center" Level="1" Folder="/Wireline Real Time Support Center" selected="false" ProjectId="12615801">
+<Project Name="Hardware Master Order" Level="2" Folder="/Wireline Real Time Support Center/Hardware Master Order" selected="false" ProjectId="12615845">
+	</Project>
+<Project Name="Software Master Order" Level="2" Folder="/Wireline Real Time Support Center/Software Master Order" selected="false" ProjectId="12615922">
+	</Project>
+<Project Name="Software testing" Level="2" Folder="/Wireline Real Time Support Center/Software testing" selected="false" ProjectId="12615876">
+	</Project>
+<Project Name="Training plan" Level="2" Folder="/Wireline Real Time Support Center/Training plan" selected="false" ProjectId="12615825">
+	</Project>
+<Project Name="War Room Design" Level="2" Folder="/Wireline Real Time Support Center/War Room Design" selected="false" ProjectId="12615901">
+	</Project>
+	</Project>
+<Project Name="Wolfgang's ERM plan" Level="1" Folder="/Wolfgang's ERM plan" selected="false" ProjectId="12466581">
+	</Project>
+<Project Name="Woodside Enfield 4D" Level="1" Folder="/Woodside Enfield 4D" selected="false" ProjectId="2901485">
+	</Project>
+<Project Name="Woodside Tender Project" Level="1" Folder="/Woodside Tender Project" selected="false" ProjectId="6459447">
+	</Project>
+<Project Name="Woodside-Gippsland Basin" Level="1" Folder="/Woodside-Gippsland Basin" selected="false" ProjectId="5730869">
+	</Project>
+<Project Name="Wordmap Server" Level="1" Folder="/Wordmap Server" selected="false" ProjectId="4943292">
+	</Project>
+<Project Name="Workflow Training" Level="1" Folder="/Workflow Training" selected="false" ProjectId="2986302">
+	</Project>
+<Project Name="Workflow test" Level="1" Folder="/Workflow test" selected="false" ProjectId="1694356">
+	</Project>
+<Project Name="World Petroleum Congress" Level="1" Folder="/World Petroleum Congress" selected="false" ProjectId="1243196">
+	</Project>
+<Project Name="World Wide Contracts" Level="1" Folder="/World Wide Contracts" selected="false" ProjectId="7239985">
+	</Project>
+<Project Name="X-Training" Level="1" Folder="/X-Training" selected="false" ProjectId="3869634">
+	</Project>
+<Project Name="X-segment PTE moves" Level="1" Folder="/X-segment PTE moves" selected="false" ProjectId="14179918">
+	</Project>
+<Project Name="XE944/U044" Level="1" Folder="/XE944 U044" selected="false" ProjectId="1705441">
+	</Project>
+<Project Name="XOM - North Sea block 9-19" Level="1" Folder="/XOM - North Sea block 9-19" selected="false" ProjectId="14613397">
+	</Project>
+<Project Name="XOM Bosi Reports" Level="1" Folder="/XOM Bosi Reports" selected="false" ProjectId="7114112">
+	</Project>
+<Project Name="XOM Chad" Level="1" Folder="/XOM Chad" selected="false" ProjectId="9251536">
+	</Project>
+<Project Name="XOM ERHA Completions" Level="1" Folder="/XOM ERHA Completions" selected="false" ProjectId="7099413">
+	</Project>
+<Project Name="XOM Jay/LEC Field Area Sales Package" Level="1" Folder="/XOM Jay LEC Field Area Sales Package" selected="false" ProjectId="13086573">
+	</Project>
+<Project Name="XOM Magellan" Level="1" Folder="/XOM Magellan" selected="false" ProjectId="13520838">
+	</Project>
+<Project Name="XOM Petrel Pilot" Level="1" Folder="/XOM Petrel Pilot" selected="false" ProjectId="11018684">
+	</Project>
+<Project Name="XOM Sakhalin Completion Tender" Level="1" Folder="/XOM Sakhalin Completion Tender" selected="false" ProjectId="306286">
+	</Project>
+<Project Name="XPT" Level="1" Folder="/XPT" selected="false" ProjectId="1474147">
+	</Project>
+<Project Name="XPT" Level="1" Folder="/XPT" selected="false" ProjectId="1484888">
+	</Project>
+<Project Name="XPT" Level="1" Folder="/XPT" selected="false" ProjectId="1679792">
+	</Project>
+<Project Name="XTO Energy - Re-Fracturing Candidate" Level="1" Folder="/XTO Energy - Re-Fracturing Candidate" selected="false" ProjectId="628472">
+	</Project>
+<Project Name="XyZ-Plot" Level="1" Folder="/XyZ-Plot" selected="false" ProjectId="2209136">
+	</Project>
+<Project Name="YPergas" Level="1" Folder="/YPergas" selected="false" ProjectId="4650622">
+	</Project>
+<Project Name="YUKOS EP TECHNICAL REGULATION AUDIT" Level="1" Folder="/YUKOS EP TECHNICAL REGULATION AUDIT" selected="false" ProjectId="858239">
+	</Project>
+<Project Name="Yukos - 2002" Level="1" Folder="/Yukos - 2002" selected="false" ProjectId="1048029">
+	</Project>
+<Project Name="Yukos Projects" Level="1" Folder="/Yukos Projects" selected="false" ProjectId="2206909">
+<Project Name="Priobskoye FFM" Level="2" Folder="/Yukos Projects/Priobskoye FFM" selected="false" ProjectId="2206955">
+	</Project>
+	</Project>
+<Project Name="Yukos programme office" Level="1" Folder="/Yukos programme office" selected="false" ProjectId="585771">
+<Project Name="Human Resources Management" Level="2" Folder="/Yukos programme office/Human Resources Management" selected="false" ProjectId="582694">
+	</Project>
+<Project Name="Production Management System" Level="2" Folder="/Yukos programme office/Production Management System" selected="false" ProjectId="519118">
+	</Project>
+<Project Name="Stock Control System" Level="2" Folder="/Yukos programme office/Stock Control System" selected="false" ProjectId="586741">
+	</Project>
+	</Project>
+<Project Name="Yukos-Data Model v1.0" Level="1" Folder="/Yukos-Data Model v1.0" selected="false" ProjectId="876551">
+	</Project>
+<Project Name="Yukos_SA" Level="1" Folder="/Yukos_SA" selected="false" ProjectId="3589787">
+	</Project>
+<Project Name="Yukos_Training" Level="1" Folder="/Yukos_Training" selected="false" ProjectId="3898622">
+	</Project>
+<Project Name="ZZZ Petrofac Elke Farmout" Level="1" Folder="/ZZZ Petrofac Elke Farmout" selected="false" ProjectId="12849044">
+	</Project>
+<Project Name="Zarneaux's Project" Level="1" Folder="/Zarneaux's Project" selected="false" ProjectId="844900">
+	</Project>
+<Project Name="Zone Lite" Level="1" Folder="/Zone Lite" selected="false" ProjectId="300972">
+	</Project>
+<Project Name="_Infrastructure Services" Level="1" Folder="/_Infrastructure Services" selected="false" ProjectId="5035053">
+<Project Name="Connectivity Services" Level="2" Folder="/_Infrastructure Services/Connectivity Services" selected="false" ProjectId="8283167">
+<Project Name="ENI migration" Level="3" Folder="/_Infrastructure Services/Connectivity Services/ENI migration" selected="false" ProjectId="8601414">
+	</Project>
+<Project Name="Terrestrial Core Network efficiencies 2004" Level="3" Folder="/_Infrastructure Services/Connectivity Services/Terrestrial Core Network efficiencies 2004" selected="false" ProjectId="8601437">
+	</Project>
+	</Project>
+	</Project>
+<Project Name="a" Level="1" Folder="/a" selected="false" ProjectId="680659">
+	</Project>
+<Project Name="a" Level="1" Folder="/a" selected="false" ProjectId="5738571">
+	</Project>
+<Project Name="a Sub Project" Level="1" Folder="/a Sub Project" selected="false" ProjectId="12898853">
+	</Project>
+<Project Name="bp Angola - Greater Plutonio Implementation" Level="1" Folder="/bp Angola - Greater Plutonio Implementation" selected="false" ProjectId="8883668">
+	</Project>
+<Project Name="bp Atlantis" Level="1" Folder="/bp Atlantis" selected="false" ProjectId="9258718">
+	</Project>
+<Project Name="bp wamsutter" Level="1" Folder="/bp wamsutter" selected="false" ProjectId="499459">
+<Project Name="Iron Pipe 19-1" Level="2" Folder="/bp wamsutter/Iron Pipe 19-1" selected="false" ProjectId="3366867">
+	</Project>
+	</Project>
+<Project Name="cabinet move" Level="1" Folder="/cabinet move" selected="false" ProjectId="3615800">
+	</Project>
+<Project Name="class exe" Level="1" Folder="/class exe" selected="false" ProjectId="10579849">
+	</Project>
+<Project Name="deleteme_paul" Level="1" Folder="/deleteme_paul" selected="false" ProjectId="8180657">
+	</Project>
+<Project Name="dummy" Level="1" Folder="/dummy" selected="false" ProjectId="5857036">
+	</Project>
+<Project Name="e-MMEDIATE" Level="1" Folder="/e-MMEDIATE" selected="false" ProjectId="1173987">
+	</Project>
+<Project Name="e-Score" Level="1" Folder="/e-Score" selected="false" ProjectId="1887343">
+	</Project>
+<Project Name="e-Sim Training Server" Level="1" Folder="/e-Sim Training Server" selected="false" ProjectId="4934930">
+	</Project>
+<Project Name="e-invoicing project" Level="1" Folder="/e-invoicing project" selected="false" ProjectId="2534089">
+	</Project>
+<Project Name="eAdvisor" Level="1" Folder="/eAdvisor" selected="false" ProjectId="980843">
+	</Project>
+<Project Name="eCONSULTING Pilot 2001" Level="1" Folder="/eCONSULTING Pilot 2001" selected="false" ProjectId="40447">
+	</Project>
+<Project Name="eField Mindshare Installation" Level="1" Folder="/eField Mindshare Installation" selected="false" ProjectId="704673">
+	</Project>
+<Project Name="eGate Hardware Upgrade" Level="1" Folder="/eGate Hardware Upgrade" selected="false" ProjectId="5182746">
+	</Project>
+<Project Name="eInitiatives " Level="1" Folder="/eInitiatives " selected="false" ProjectId="4951779">
+	</Project>
+<Project Name="ePO" Level="1" Folder="/ePO" selected="false" ProjectId="2041239">
+	</Project>
+<Project Name="eQuest - commercialize Quest QHSE reporting" Level="1" Folder="/eQuest - commercialize Quest QHSE reporting" selected="false" ProjectId="1750461">
+	</Project>
+<Project Name="eScore2" Level="1" Folder="/eScore2" selected="false" ProjectId="1905372">
+	</Project>
+<Project Name="eSearch Deployment Collaboration Project" Level="1" Folder="/eSearch Deployment Collaboration Project" selected="false" ProjectId="11626101">
+<Project Name="CoP Norway" Level="2" Folder="/eSearch Deployment Collaboration Project/CoP Norway" selected="false" ProjectId="11651579">
+	</Project>
+<Project Name="eSearch @ TOTAL Holland" Level="2" Folder="/eSearch Deployment Collaboration Project/eSearch @ TOTAL Holland" selected="false" ProjectId="11638417">
+	</Project>
+<Project Name="eSearch @ Total Aberdeen" Level="2" Folder="/eSearch Deployment Collaboration Project/eSearch @ Total Aberdeen" selected="false" ProjectId="11651556">
+	</Project>
+<Project Name="eSearch Installation Angola" Level="2" Folder="/eSearch Deployment Collaboration Project/eSearch Installation Angola" selected="false" ProjectId="11651598">
+	</Project>
+	</Project>
+<Project Name="eSearch Sales Collaboration Space" Level="1" Folder="/eSearch Sales Collaboration Space" selected="false" ProjectId="4739914">
+	</Project>
+<Project Name="eTrade Application Server" Level="1" Folder="/eTrade Application Server" selected="false" ProjectId="4943218">
+	</Project>
+<Project Name="eWaiver" Level="1" Folder="/eWaiver" selected="false" ProjectId="14950051">
+	</Project>
+<Project Name="fmp induction" Level="1" Folder="/fmp induction" selected="false" ProjectId="9164914">
+	</Project>
+<Project Name="gafasdg" Level="1" Folder="/gafasdg" selected="false" ProjectId="754475">
+	</Project>
+<Project Name="iCenters" Level="1" Folder="/iCenters" selected="false" ProjectId="8475275">
+	</Project>
+<Project Name="iDirect Action Register" Level="1" Folder="/iDirect Action Register" selected="false" ProjectId="4376770">
+	</Project>
+<Project Name="iFlex" Level="1" Folder="/iFlex" selected="false" ProjectId="7533379">
+<Project Name="Density" Level="2" Folder="/iFlex/Density" selected="false" ProjectId="7533433">
+	</Project>
+<Project Name="Neutron" Level="2" Folder="/iFlex/Neutron" selected="false" ProjectId="7533482">
+	</Project>
+	</Project>
+<Project Name="iMUG User Group Meeting - HESS Club" Level="1" Folder="/iMUG User Group Meeting - HESS Club" selected="false" ProjectId="3645932">
+	</Project>
+<Project Name="icenter ad" Level="1" Folder="/icenter ad" selected="false" ProjectId="3924205">
+	</Project>
+<Project Name="job" Level="1" Folder="/job" selected="false" ProjectId="5381430">
+	</Project>
+<Project Name="mccovey" Level="1" Folder="/mccovey" selected="false" ProjectId="6064169">
+	</Project>
+<Project Name="mikes test" Level="1" Folder="/mikes test" selected="false" ProjectId="3983398">
+	</Project>
+<Project Name="myDeXa Portal Project" Level="1" Folder="/myDeXa Portal Project" selected="false" ProjectId="2025363">
+	</Project>
+<Project Name="mySLB" Level="1" Folder="/mySLB" selected="false" ProjectId="357541">
+<Project Name="AKA-Financials" Level="2" Folder="/mySLB/AKA-Financials" selected="false" ProjectId="353581">
+	</Project>
+	</Project>
+<Project Name="new - MJW" Level="1" Folder="/new - MJW" selected="false" ProjectId="2337238">
+	</Project>
+<Project Name="nis" Level="1" Folder="/nis" selected="false" ProjectId="2085462">
+	</Project>
+<Project Name="p3" Level="1" Folder="/p3" selected="false" ProjectId="346310">
+	</Project>
+<Project Name="personal" Level="1" Folder="/personal" selected="false" ProjectId="2706604">
+	</Project>
+<Project Name="property mapping" Level="1" Folder="/property mapping" selected="false" ProjectId="2982862">
+	</Project>
+<Project Name="prueba" Level="1" Folder="/prueba" selected="false" ProjectId="1243078">
+	</Project>
+<Project Name="prueba" Level="1" Folder="/prueba" selected="false" ProjectId="1244734">
+	</Project>
+<Project Name="sdq" Level="1" Folder="/sdq" selected="false" ProjectId="2291854">
+	</Project>
+<Project Name="slb TMO-SVA" Level="1" Folder="/slb TMO-SVA" selected="false" ProjectId="4494691">
+	</Project>
+<Project Name="template" Level="1" Folder="/template" selected="false" ProjectId="1839389">
+	</Project>
+<Project Name="test" Level="1" Folder="/test" selected="false" ProjectId="833419">
+	</Project>
+<Project Name="test" Level="1" Folder="/test" selected="false" ProjectId="1326419">
+	</Project>
+<Project Name="test" Level="1" Folder="/test" selected="false" ProjectId="1794094">
+	</Project>
+<Project Name="test" Level="1" Folder="/test" selected="false" ProjectId="2173876">
+	</Project>
+<Project Name="test" Level="1" Folder="/test" selected="false" ProjectId="3970317">
+	</Project>
+<Project Name="test" Level="1" Folder="/test" selected="false" ProjectId="4619193">
+	</Project>
+<Project Name="test" Level="1" Folder="/test" selected="false" ProjectId="4750367">
+	</Project>
+<Project Name="test" Level="1" Folder="/test" selected="false" ProjectId="4894878">
+	</Project>
+<Project Name="test" Level="1" Folder="/test" selected="false" ProjectId="9774406">
+	</Project>
+<Project Name="test" Level="1" Folder="/test" selected="false" ProjectId="10360623">
+	</Project>
+<Project Name="test" Level="1" Folder="/test" selected="false" ProjectId="12290400">
+	</Project>
+<Project Name="test" Level="1" Folder="/test" selected="false" ProjectId="13484762">
+	</Project>
+<Project Name="test 1 " Level="1" Folder="/test 1 " selected="false" ProjectId="3528261">
+	</Project>
+<Project Name="test SIS rup template" Level="1" Folder="/test SIS rup template" selected="false" ProjectId="769676">
+<Project Name="test sub-project" Level="2" Folder="/test SIS rup template/test sub-project" selected="false" ProjectId="789639">
+	</Project>
+	</Project>
+<Project Name="test case ENG training" Level="1" Folder="/test case ENG training" selected="false" ProjectId="7542149">
+	</Project>
+<Project Name="test demo" Level="1" Folder="/test demo" selected="false" ProjectId="667949">
+	</Project>
+<Project Name="test project" Level="1" Folder="/test project" selected="false" ProjectId="6671409">
+	</Project>
+<Project Name="test project" Level="1" Folder="/test project" selected="false" ProjectId="10936682">
+	</Project>
+<Project Name="test project - 3M" Level="1" Folder="/test project - 3M" selected="false" ProjectId="12304350">
+	</Project>
+<Project Name="test project.net" Level="1" Folder="/test project.net" selected="false" ProjectId="3216275">
+	</Project>
+<Project Name="test space" Level="1" Folder="/test space" selected="false" ProjectId="2849269">
+<Project Name="overall timing" Level="2" Folder="/test space/overall timing" selected="false" ProjectId="2849915">
+	</Project>
+	</Project>
+<Project Name="test2" Level="1" Folder="/test2" selected="false" ProjectId="5175233">
+<Project Name="Confidential Documents" Level="2" Folder="/test2/Confidential Documents" selected="false" ProjectId="5175526">
+	</Project>
+	</Project>
+<Project Name="test2002" Level="1" Folder="/test2002" selected="false" ProjectId="2118663">
+	</Project>
+<Project Name="testing" Level="1" Folder="/testing" selected="false" ProjectId="12455671">
+	</Project>
+<Project Name="testtodelete" Level="1" Folder="/testtodelete" selected="false" ProjectId="3581351">
+	</Project>
+<Project Name="trial" Level="1" Folder="/trial" selected="false" ProjectId="6386792">
+	</Project>
+<Project Name="v8.2 production test project" Level="1" Folder="/v8.2 production test project" selected="false" ProjectId="14883858">
+	</Project>
+<Project Name="wcp technology day" Level="1" Folder="/wcp technology day" selected="false" ProjectId="5723257">
+	</Project>
+<Project Name="web-portal" Level="1" Folder="/web-portal" selected="false" ProjectId="4606908">
+	</Project>
+<Project Name="wew project" Level="1" Folder="/wew project" selected="false" ProjectId="1476362">
+	</Project>
+<Project Name="whatever" Level="1" Folder="/whatever" selected="false" ProjectId="4217460">
+	</Project>
+<Project Name="yet another test" Level="1" Folder="/yet another test" selected="false" ProjectId="1418664">
+	</Project>
+<Project Name="z-Anne Mallett's Project " Level="1" Folder="/z-Anne Mallett's Project " selected="false" ProjectId="232245">
+	</Project>
+<Project Name="zzz - ExxonMobil - Mid North Sea High" Level="1" Folder="/zzz - ExxonMobil - Mid North Sea High" selected="false" ProjectId="14319151">
+	</Project>
+<Project Name="zzz - ExxonMobil - North Sea Block 29/3b Farm-Out" Level="1" Folder="/zzz - ExxonMobil - North Sea Block 29 3b Farm-Out" selected="false" ProjectId="13447389">
+	</Project>
+<Project Name="zzz - ExxonMobil - North Sea Blocks 9/10b West and 9/15a Divestiture" Level="1" Folder="/zzz - ExxonMobil - North Sea Blocks 9 10b West and 9 15a Divestiture" selected="false" ProjectId="13537607">
+	</Project>
+<Project Name="zzz - ExxonMobil - Phoenix Southern North Sea" Level="1" Folder="/zzz - ExxonMobil - Phoenix Southern North Sea" selected="false" ProjectId="13570054">
+	</Project>
+<Project Name="zzz - Shell NW Demiatta" Level="1" Folder="/zzz - Shell NW Demiatta" selected="false" ProjectId="13724510">
+	</Project>
+<Project Name="zzz - Shell Winston" Level="1" Folder="/zzz - Shell Winston" selected="false" ProjectId="14406484">
+	</Project>
+<Project Name="zzz AMNI Nigeria" Level="1" Folder="/zzz AMNI Nigeria" selected="false" ProjectId="3706820">
+	</Project>
+<Project Name="zzz Atlantis - Oman" Level="1" Folder="/zzz Atlantis - Oman" selected="false" ProjectId="7842599">
+	</Project>
+<Project Name="zzz BG Bedlington" Level="1" Folder="/zzz BG Bedlington" selected="false" ProjectId="7913845">
+	</Project>
+<Project Name="zzz BG Bedlington" Level="1" Folder="/zzz BG Bedlington" selected="false" ProjectId="7913845">
+	</Project>
+<Project Name="zzz BG North Sea -December 2005" Level="1" Folder="/zzz BG North Sea -December 2005" selected="false" ProjectId="12113687">
+	</Project>
+<Project Name="zzz BG Sicily Bear" Level="1" Folder="/zzz BG Sicily Bear" selected="false" ProjectId="8409612">
+	</Project>
+<Project Name="zzz CCC Yemen farmout" Level="1" Folder="/zzz CCC Yemen farmout" selected="false" ProjectId="12396810">
+	</Project>
+<Project Name="zzz COP - Angola Deep Water Farmout" Level="1" Folder="/zzz COP - Angola Deep Water Farmout" selected="false" ProjectId="5953164">
+	</Project>
+<Project Name="zzz CVX-11 Projects (Britania-Alba-Caledonia-CNS Fields)" Level="1" Folder="/zzz CVX-11 Projects Britania-Alba-Caledonia-CNS Fields" selected="false" ProjectId="10255708">
+	</Project>
+<Project Name="zzz CVX-Campos Basin Farm-out" Level="1" Folder="/zzz CVX-Campos Basin Farm-out" selected="false" ProjectId="8242652">
+	</Project>
+<Project Name="zzz CVX-UKCS Blocks 16/22 and 16/23" Level="1" Folder="/zzz CVX-UKCS Blocks 16 22 and 16 23" selected="false" ProjectId="7725361">
+	</Project>
+<Project Name="zzz CVX_Capercaillie" Level="1" Folder="/zzz CVX_Capercaillie" selected="false" ProjectId="8306820">
+	</Project>
+<Project Name="zzz CVX_Project Macleod" Level="1" Folder="/zzz CVX_Project Macleod" selected="false" ProjectId="8028240">
+	</Project>
+<Project Name="zzz Cartier" Level="1" Folder="/zzz Cartier" selected="false" ProjectId="4121060">
+	</Project>
+<Project Name="zzz Central Petroleum" Level="1" Folder="/zzz Central Petroleum" selected="false" ProjectId="13105704">
+	</Project>
+<Project Name="zzz Deep Blue" Level="1" Folder="/zzz Deep Blue" selected="false" ProjectId="5456921">
+	</Project>
+<Project Name="zzz Encana Greenland Farmout" Level="1" Folder="/zzz Encana Greenland Farmout" selected="false" ProjectId="10499903">
+	</Project>
+<Project Name="zzz Engen Kumatage Farm Out" Level="1" Folder="/zzz Engen Kumatage Farm Out" selected="false" ProjectId="13502172">
+	</Project>
+<Project Name="zzz Essential Petroleum Australia" Level="1" Folder="/zzz Essential Petroleum Australia" selected="false" ProjectId="8584574">
+	</Project>
+<Project Name="zzz ExxonMobil - Ampasindava" Level="1" Folder="/zzz ExxonMobil - Ampasindava" selected="false" ProjectId="14810743">
+	</Project>
+<Project Name="zzz ExxonMobil - Argo" Level="1" Folder="/zzz ExxonMobil - Argo" selected="false" ProjectId="11451104">
+	</Project>
+<Project Name="zzz ExxonMobil - GOM 06-09" Level="1" Folder="/zzz ExxonMobil - GOM 06-09" selected="false" ProjectId="14290362">
+	</Project>
+<Project Name="zzz ExxonMobil - Jay / LEC Q &amp; A" Level="1" Folder="/zzz ExxonMobil - Jay   LEC Q  A" selected="false" ProjectId="12936446">
+	</Project>
+<Project Name="zzz First Calgary Petroleums Ltd " Level="1" Folder="/zzz First Calgary Petroleums Ltd " selected="false" ProjectId="9874328">
+	</Project>
+<Project Name="zzz GSPC - Project Discovery" Level="1" Folder="/zzz GSPC - Project Discovery" selected="false" ProjectId="14535093">
+	</Project>
+<Project Name="zzz Grace" Level="1" Folder="/zzz Grace" selected="false" ProjectId="4685146">
+	</Project>
+<Project Name="zzz Igloo" Level="1" Folder="/zzz Igloo" selected="false" ProjectId="6418519">
+	</Project>
+<Project Name="zzz JDZ Nigeria" Level="1" Folder="/zzz JDZ Nigeria" selected="false" ProjectId="4342505">
+	</Project>
+<Project Name="zzz Jordan 2005 NRA Tender" Level="1" Folder="/zzz Jordan 2005 NRA Tender" selected="false" ProjectId="13239270">
+	</Project>		
+</projects>

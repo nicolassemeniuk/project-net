@@ -1,0 +1,84 @@
+GUI_close_all();
+if (invoke_application ("C:\\Program Files\\Internet Explorer\\iexplore.exe"," ", "C:\\Program Files\\Internet Explorer", SW_SHOWMAXIMIZED)!=0)
+	report_msg("AUT is not found. exiting.");
+
+# logging in to the application and then navigating to the projecton which testing will be done
+wait(2);
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject\\forLoginProject.gui");
+wait(2);
+set_window("Project.net Login", 2);
+edit_set("J_USERNAME","avinashp");
+edit_set("J_PASSWORD","abc123");
+button_press("Login");
+wait(3);
+set_window("toolbar_main",3);
+wait(3);
+web_image_click("topnav-projects-off", 20, 20);
+wait(1);
+set_window("main",2);
+web_link_click("WRProject");
+wait(2);
+GUI_close_all();
+
+reload("getPersonID",0,1);
+id[1] = getPersonID("Avinash Padmanabhan");
+fieldID= id[1];
+
+# inviting a user to the project
+reload("inviteUser",0,1);
+inviteUser("Mickey","Mous","daffy@project.net");
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+web_obj_get_info("Daffy Duck","url",urlValue);
+elements = split(urlValue,path_array,"=");
+id[0] = path_array[3];
+resourceID = id[0];
+# pause(resourceID);
+
+set_window("menu",1);
+web_link_click("Workplan");
+
+set_window("main",1);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer");
+button_press("OK");
+wait(5);
+set_window("main");
+
+public task_types[] = {"Fixed Duration","Fixed Units","Fixed Work"};
+public units[] = {"hours","days","weeks"};
+reload("createTaskRU",0,1);
+reload("setSummaryTask",0,1);
+reload("checkDates",0,1);
+
+createTaskRU("t1", 1, units[1], 8, units[0], 1, id, 0);
+createTaskRU("t2", 1, units[1], 8, units[0], 1, id, 1);
+createTaskRU("t3", 2, units[1], 16, units[0], 1, id, 1);
+setSummaryTask("t2","t3",1);
+report_msg("Level 1")l
+checkDates("t1",24, 2);
+
+createTaskRU("t4", 2, units[1], 16, units[0], 2, id, 1);
+createTaskRU("t5", 2, units[1], 16, units[0], 1, id, 1);
+setSummaryTask("t4","t5",2);
+report_msg("Level 2");
+checkDates("t3",32,2);
+checkDates("t1",40,2);
+
+createTaskRU("t6", 3, units[1], 16, units[0], 2, id, 0);
+createTaskRU("t7", 2, units[1], 16, units[0], 1, id, 1);
+setSummaryTask("t6","t7",3);
+report_msg("Level 3");
+checkDates("t5",32,2);
+checkDates("t3",48,2);
+checkDates("t1",56,2);
+
+createTaskRU("t8", 2, units[1], 16, units[0], 2, id, 0);
+createTaskRU("t9", 3, units[1], 16, units[0], 1, id, 1);
+setSummaryTask("t8","t9",4);
+report_msg("Level 4");
+checkDates("t7",32,3);
+checkDates("t5",48,3);
+checkDates("t3",64,3);
+checkDates("t1",72,3);

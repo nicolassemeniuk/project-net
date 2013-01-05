@@ -1,0 +1,11 @@
+function addAttendees(in name){
+	set_window("main",2);
+	web_link_click("Add Attendees");
+	wait(1);
+	set_window("main",2);
+	list_select_item("personID",name);
+	list_select_item("statusID","Invited");
+	edit_set("comment","For testing");
+	web_link_click("Submit");
+	wait(1);
+}

@@ -1,0 +1,13 @@
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Reports\\forLoginReports"();
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Reports\\reports.gui");
+
+wait(1);
+set_window("main",2);
+web_link_click("Late Task Report");
+wait(1);
+set_window("main",1);
+button_set("filter10_1",ON);
+web_link_click("Submit");
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Reports\\reports.gui");

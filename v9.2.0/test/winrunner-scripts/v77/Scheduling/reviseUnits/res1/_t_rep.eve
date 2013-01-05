@@ -1,0 +1,26 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 1 1115930504 0
+23 37 <REVISING UNITS - FIXED DURATION TASKS> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 59 1115930526 0
+23 12 <Quick Add...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 98 1115930589 0
+37 110 <Step: Verify duration, Status: Pass, Description: The duration value and duration units for a FD task do match> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 100 1115930589 24
+37 102 <Step: Verify work, Status: Fail, Description: The work value and work units for a FD task DO NOT match> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 110 1115930589 25
+23 16 <Resource Edit...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 136 1115930605 0
+37 110 <Step: Verify duration, Status: Pass, Description: The duration value and duration units for a FD task do match> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 138 1115930605 24
+37 98 <Step: Verify work, Status: Pass, Description: The work value and work units for a FD task do match> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 144 1115930605 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 153 1115930608 0
+23 33 <REVISING UNITS - FIXED UNIT TASKS> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 154 1115930608 0
+23 12 <Quick Add...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 190 1115930657 0
+37 110 <Step: Verify duration, Status: Pass, Description: The duration value and duration units for a FU task do match> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 192 1115930657 24
+37 98 <Step: Verify work, Status: Pass, Description: The work value and work units for a FU task do match> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 198 1115930657 24
+23 16 <Resource Edit...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 226 1115930675 0
+37 107 <Step: Verify duration, Status: Pass, Description: The duration value and duration units for a FU task match> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 228 1115930675 24
+37 95 <Step: Verify work, Status: Pass, Description: The work value and work units for a FU task match> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 234 1115930675 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 243 1115930677 0
+23 33 <REVISING UNITS - FIXED WORK TASKS> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 244 1115930677 0
+23 12 <Quick Add...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 280 1115930735 0
+37 107 <Step: Verify duration, Status: Pass, Description: The duration value and duration units for a FW task match> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 282 1115930735 24
+37 95 <Step: Verify work, Status: Pass, Description: The work value and work units for a FW task match> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 288 1115930735 24
+23 16 <Resource Edit...> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 309 1115930747 0
+37 107 <Step: Verify duration, Status: Pass, Description: The duration value and duration units for a FU task match> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 311 1115930747 24
+37 95 <Step: Verify work, Status: Pass, Description: The work value and work units for a FU task match> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 317 1115930747 24
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseUnits> 320 1115930748 0

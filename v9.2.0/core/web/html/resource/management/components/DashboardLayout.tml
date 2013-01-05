@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<head> <title><t:Message value="prm.global.application.title" /></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel='SHORTCUT ICON' type="text/css" href="${jSPRootURL}/images/favicon.ico" />
+<!-- Linking all css files only here. 
+     These are used for blog pages developed in Tapestry 5 -->
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/global.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/fonts.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/noframes.css?${versionNumber}"/>
+<script language="javascript" type="text/javascript">
+var JSPRootURL = '${jSPRootURL}';
+var VERSION_NUMBER = '${versionNumber}';
+var spaceType = '${spaceType}';
+var selectProject = '<t:Message value="all.global.blogit.selectproject.errormessage"/>';
+var noProjectInList = '<t:Message value="all.global.blogit.noprojectInlist.errormessage"/>';
+var blogitNotSupportedForObject = '<t:Message value="all.global.blogit.notsupported.errormessage"/>';
+var validationMessageForBlogHtmlTagEntry = '<t:Message value="prm.blog.addweblogentry.htmlvalidation.message"/>';
+var selectRowBeforePostingBlog =  '<t:Message value="all.global.blogit.selectrowbeforepostingblog.errormessage"/>';
+var selectFormRecordBeforePostingBlog =  '<t:Message value="all.global.blogit.selectformrecordbeforepostingblog.errormessage"/>';
+var canNotPostBlogForUrl = '<t:Message value="all.global.blogit.cannotpostblogforurl.errormessage"/>';
+var canNotPostBlogForFolder = '<t:Message value="all.global.blogit.cannotpostblogforfolder.errormessage"/>';
+var selectDocumentRecordBeforePostingBlog = '<t:Message value="all.global.blogit.selectdocumentbeforeblogposting.errormessage"/>';
+var selectItemBeforePostingBlog = '<t:Message value="all.global.blogit.selectitembeforeblogposting.errormessage"/>'; 
+var blogitNotSupportedToThisPage = '<t:Message value="all.global.blogit.notsupportedtopage.errormessage"/>';
+var loadingImage = '<t:Message value="prm.global.loading.message"/>';
+var validationMegForBlogComment = '<t:Message value="all.global.blogit.blogcomment.blank.validationmessage"/>';
+var savingblog = '<t:Message value="prm.global.saving.message"/>';
+var canNotEnterWorkComplete = '<t:Message value="all.global.blogit.notenterworkdone.message"/>'; 
+var blogActivationMsg ='<t:Message value="all.global.blogit.blogactivation.message"/>'; 
+var loadingBlogErrorMsg = '<t:Message value="all.global.blogit.loadingblogentry.errormessage"/>'; 
+var activationErrorMsg =  '<t:Message value="all.global.blogit.activation.errormessage"/>'; 
+var activationFailedErrorMsg = '<t:Message value="all.global.blogit.activateblogbyclickingbloglink.message"/>'; 
+var savingCommentFailedErrorMsg = '<t:Message value="all.global.blogit.savingcommentfailed.errormessage"/>'; 
+var loadingRecentBlog = '<t:Message value="all.global.blogit.loadingrecentblogentry.message"/>';
+var blogentryDeletePermission = '<t:Message value="all.global.blogit.deleteblog.unathorizeduserpermission.message"/>';
+var deleteBlogEntryFailedErrorMsg = '<t:Message value="all.global.blogit.delete.blogfailed.message"/>';
+var checkAndRedirectErrorMsg = '<t:Message value="all.global.blogit.checkingandredirect.error.message"/>'; 
+var noBlogEntryFoundForTask = '<t:Message value="all.global.blogit.noblogentryfoundfortask.message"/>';
+
+<!-- //
+if((navigator.userAgent.toLowerCase()).indexOf( "msie" ) != -1 ) {
+	var version = parseFloat(navigator.appVersion.split("MSIE")[1]);
+	if(version == 8 ){
+		document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\""+JSPRootURL+"/styles/noframesie8.css?"+VERSION_NUMBER+"\"/>");
+	} else {
+	    document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\""+JSPRootURL+"/styles/noframesie.css?"+VERSION_NUMBER+"\"/>");
+	}
+}
+// -->
+</script>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/project.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/blog.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/project_dashboard.css?${versionNumber}"/>
+<!-- Common Styles for the Ext widgets -->
+<link rel="stylesheet" type="text/css" href="${jSPRootURL}/src/extjs/resources/css/ext-all.css?${versionNumber}"/>
+<style type="text/css">
+  a.tt { 
+    background-color:lightsteelblue;
+    text-decoration:none;
+  }
+  .hidden {
+    display:none;
+  }
+  pre {
+    background-color:gainsboro;
+    padding:10px;
+    margin-left:20px;
+    margin-right:20px;
+    font-family:courier;
+    font-size:90%;
+  }
+  b.y { background-color:yellow }
+</style>
+<!-- Ext JS's -->
+<script language="javascript" src="${jSPRootURL}/src/window_functions.js?${versionNumber}"></script>
+<script type="text/javascript" src="${jSPRootURL}/src/extjs/adapter/ext/ext-base.js?${versionNumber}"></script>
+<script type="text/javascript" src="${jSPRootURL}/src/extjs/ext-all.js?${versionNumber}"></script>
+<script type="text/javascript" src="${jSPRootURL}/src/util.js?${versionNumber}"></script>
+<script type="text/javascript" src="${jSPRootURL}/src/menu/dropdown.js?${versionNumber}"></script>
+<script language="javascript" src="${jSPRootURL}/toolbar/include/Main.jsp?s=project&amp;i=${userId}${currentSpaceId}" />
+<script language="javascript" src="${jSPRootURL}/project/include/NavBar.jsp?s=project&amp;i=${userId}${currentSpaceId}" />
+<script type="text/javascript" src="${jSPRootURL}/src/blogit.js?${versionNumber}"></script>
+<script type="text/javascript" src="${JSPRootURL}/src/sessionHook.js?${versionNumber}" />
+<!-- Balloon  JS -->
+<script type="text/javascript" src="${jspRootURL}/src/balloon/showBalloon.js"></script>
+<script language="javascript">
+    var actualDate = "${actualDate}";
+    var weekLaterDate = "${weekLaterDate}";
+    var assignmentReportEndDate = "${assignmentReportEndDate}";
+    var theForm;
+    var isLoaded = false;
+    var JSPRootURL = '${jSPRootURL}';    
+    var startOfMonth = "${startOfMonth}";
+    var PROJECT_SPACE = "${projectSpace}";
+    var MODIFY_ACTION = "${modifyAction}";
+    var VIEW_ACTION = "${viewAction}";
+	// Balloon Variable Declarations
+	var balloon;
+	// Initialize balloon Object
+	function initializeBalloonObj(){
+		balloon = new Balloon();
+		balloon.images = null;
+		balloon.balloonImage  = '${jSPRootURL}/images/balloons/balloon.jpg';
+		balloon.ieImage = '${jSPRootURL}/images/balloons/balloon_ie.jpg';
+		balloon.upLeftStem    = '${jSPRootURL}/images/balloons/up_left.jpg';
+		balloon.downLeftStem  = '${jSPRootURL}/images/balloons/down_left.jpg';
+		balloon.upRightStem   = '${jSPRootURL}/images/balloons/up_right.jpg';
+		balloon.downRightStem = '${jSPRootURL}/images/balloons/down_right.jpg';
+		balloon.closeButton   = '${jSPRootURL}/images/project/dashboard_close.gif';
+		balloon.allowAJAX  = true;
+	}
+	initializeBalloonObj();
+<!-- //
+function setup() {
+   var spaceID = '${spaceId}'; 
+   load_menu(spaceID);
+   load_header();
+   theForm = self.document.forms[0];
+   isLoaded = true;
+}
+
+function help() {
+    var helplocation=JSPRootURL+"/help/Help.jsp?page=project_summary";
+    openwin_help(helplocation);
+}
+function viewPhase(id) {
+   self.document.location = ""; 
+}
+
+// To clear the report parameters before setting any new parameters
+function clearReportFilters() {
+	document.getElementById("checkbox30").value = "";
+    document.getElementById("filter40Start").value = "";
+    document.getElementById("filter40Finish").value = "";
+	document.getElementById("checkbox10").value = "";
+	document.getElementById("filter20").value = "";
+	document.getElementById("filter40comparator").value = "";
+	document.getElementById("filter40").value = "";
+	document.getElementById("grouping").value = "10";
+	document.getElementById("checkbox70").value = "";
+	document.getElementById("filter80Finish").value = "";
+}
+
+// To show report by setting required parameters to generate report data
+function showReport(type) {
+	clearReportFilters();
+    if(type == "tcdr") {
+        document.getElementById("checkbox30").value = "true";
+        document.getElementById("filter40Start").value = actualDate;
+        document.getElementById("filter40Finish").value = weekLaterDate;
+        document.getElementById("reportType").value = type;
+    } else if(type == "unassigned") {
+        document.getElementById("reportType").value = "str";
+        document.getElementById("grouping").value = "20";
+    } else if (type == "wcr") {
+        document.getElementById("reportType").value = "str";
+        document.getElementById("checkbox30").value = "true";
+        document.getElementById("filter40comparator").value = "equals";
+        document.getElementById("filter40").value = "100";
+    } else {
+        document.getElementById("reportType").value = type;
+        document.getElementById("grouping").value = "10";
+    }
+    document.getElementById("reportParameters").submit();
+}
+
+// To show the teamate tasks report by setting the report parameters to generate report data
+function showTeammateTasksReport(tammate) {
+	clearReportFilters();
+    document.getElementById("reportType").value = "str";
+    document.getElementById("checkbox10").value = "true";
+    document.getElementById("filter20").value = tammate;
+	document.getElementById("checkbox70").value = "true";
+	document.getElementById("filter80Finish").value = assignmentReportEndDate;
+    document.getElementById("reportParameters").submit();
+}
+
+function showResourceAllocation(personID) {
+    var url = JSPRootURL + '/resource/ResourceAllocations.jsp?module=140&personID=' + personID + '&startDate=' + startOfMonth;
+    openwin_large('resource_allocation', url);
+}
+
+function modify() { 
+    self.document.location = JSPRootURL + "/project/PropertiesEdit.jsp?module=" + PROJECT_SPACE + "&action=" + MODIFY_ACTION + "&referer=project/Dashboard?id="+ spaceId;
+}
+
+function properties() { 
+    self.document.location = JSPRootURL + "/project/Properties.jsp?module=" + PROJECT_SPACE + "&action=" + VIEW_ACTION; 
+}
+
+function main_toolbar_logout() {
+    self.location=JSPRootURL+"/Logout.jsp";
+}
+function extAlert(title, msg, icon){
+	Ext.MessageBox.show({
+		title: title,
+		msg: msg,
+		buttons: Ext.MessageBox.OK,
+		icon: icon
+	});
+}
+// -->
+</script>
+
+</head>
+<body class="main" onload="applyColorToEvenRows();">
+	<script language="javascript" type="text/javascript"> writeSpaceMenu(); writeSpaceNavBarMenu(); </script>
+    <div id="project_separator"></div>
+    <t:body />
+</body>
+</html>

@@ -1,0 +1,17 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 1 1103064513 0
+44 62 <obj_get_info:"Project.net Login" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 8 1103064517 0
+44 60 <set_window:"Project.net Login" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 8 1103064517 0
+44 55 <obj_get_info:"J_USERNAME" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 9 1103064525 0
+44 55 <obj_get_info:"J_USERNAME" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 9 1103064525 0
+44 55 <win_get_info:"J_USERNAME" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 9 1103064525 0
+44 55 <obj_get_info:"J_PASSWORD" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 10 1103064525 0
+44 55 <obj_get_info:"J_PASSWORD" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 10 1103064525 0
+44 55 <win_get_info:"J_PASSWORD" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 10 1103064525 0
+44 50 <obj_get_info:"Login" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 11 1103064525 0
+44 50 <button_press:"Login" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 11 1103064525 0
+23 24 <FIXED WORK - REVISE WORK> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 147 1103064556 0
+37 83 <Step: Verify assignment %, Status: Pass, Description: Assignment % is set correctly> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 169 1103064578 24
+37 97 <Step: Verify duration, Status: Pass, Description: The duration being shown for FD task is correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 180 1103064581 24
+37 89 <Step: Verify work, Status: Pass, Description: The work being shown for FD task is correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 187 1103064581 24
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\reviseWork> 190 1103064581 0

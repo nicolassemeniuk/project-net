@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+  "http://java.sun.com/j2ee/dtds/web-jsptaglib_1_1.dtd">
+<taglib>
+    <tlibversion>1.0</tlibversion>
+    <jspversion>1.1</jspversion>
+    <shortname>errors</shortname>
+    <info>Object to help report and display errors to users</info>
+
+    <!-- show tag -->
+    <tag>
+        <name>show</name>
+        <tagclass>net.project.taglibs.errors.ShowTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+
+        <!-- Should the error reporter have its errors cleared out after they've been displayed. -->
+        <attribute>
+            <name>clearAfterDisplay</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <!-- The stylesheet that should be used to display the errors.  /base/xsl/error-report.xsl by default. -->
+        <attribute>
+            <name>stylesheet</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <!-- The scope in which the tag can find the error reporter object. -->
+        <attribute>
+            <name>scope</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+    </tag>
+
+    <tag>
+        <name>populate</name>
+        <tagclass>net.project.taglibs.errors.PopulateTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+
+        <attribute>
+            <name>populateOnErrorOnly</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+        <!-- The scope in which the tag can find the error reporter object. -->
+        <attribute>
+            <name>scope</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>clear</name>
+        <tagclass>net.project.taglibs.errors.ClearTag</tagclass>
+
+        <!-- The scope in which the tag can find the error reporter object. -->
+        <attribute>
+            <name>scope</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+</taglib>

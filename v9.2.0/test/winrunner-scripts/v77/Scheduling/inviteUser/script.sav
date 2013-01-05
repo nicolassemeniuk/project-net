@@ -1,0 +1,39 @@
+function inviteUser(in firstName, in lastName, in email){
+	reload(getPersonID,0,1);
+	GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createParticipantsDirectory\\createParticipantsDirectory.gui");
+	wait(1);
+	set_window("menu",1);
+	web_link_click("Directory");
+	wait(1);
+	set_window("main",1);
+	web_link_click("Roles");
+	set_window("main",1);
+	web_link_click("Team Member");
+	set_window("main",1);
+	if(obj_exists(""&firstName&" "&lastName&"")!=E_OK){
+		web_link_click("Close");
+		set_window("main",1);
+		web_link_click("Participants");
+		set_window("main",1);
+		web_link_click("Invite Participant");
+		set_window("main",1);
+		edit_set("inviteeFirstName",firstName);
+		edit_set("inviteeLastName",lastName);
+		edit_set("inviteeEmail",email);
+		web_link_click("Add to Invitee List");
+		set_window("main",2);
+		web_link_click("Next");
+		set_window("main",2);
+		edit_set("inviteeResponsibilities","QA and Testing");
+		edit_set("inviteeMessage","Do join in");
+		button_set("sendNotifications",OFF);
+		button_set("autoAcceptInvite_1",ON);
+		web_link_click("Invite");
+		wait(1);
+		set_window("main",2);
+		web_link_click("Close");
+		set_window("main",2);
+		id[1] = 
+	}
+	GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createParticipantsDirectory\\createParticipantsDirectory.gui");
+}

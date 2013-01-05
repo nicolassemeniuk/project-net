@@ -1,0 +1,15 @@
+<mappings>
+  <mapping>
+    <property name="allSpaces" ignore="true"/>
+    <property name="availableTimes" ignore="true"/>
+    <property name="nonAvailableDays" ignore="true"/> 
+    <property name="timeZone" ignore="true"/> 
+    <property name="locale" ignore="true"/> 
+    <property name="presentation" ignore="true"/> 
+    <property name="dateFormatter" ignore="true"/> 
+    <property name="userActivityStatus" ignore="true"/> 
+    <property name="rosterEntryType" ignore="true"/> 
+    <property name="userActivityStatusInstance" ignore="true"/> 
+    <property name="lastRecordedActivityDate" ignore="true"/> 
+  </mapping>
+</mappings>

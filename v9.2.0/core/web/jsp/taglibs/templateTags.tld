@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+  "http://java.sun.com/j2ee/dtds/web-jsptaglib_1_1.dtd">
+<taglib>
+	<tlibversion>1.0</tlibversion>
+	<jspversion>1.1</jspversion>
+	<shortname>template</shortname>
+	<info>HTML Template tags for JSP</info>
+
+	<!-- Space main menu tag -->
+	<tag>
+		<name>getSpaceMainMenu</name>
+		<tagclass>net.project.taglibs.template.GetSpaceMainMenuTag</tagclass>
+	</tag>
+
+	<!-- Space navbar tag -->
+	<tag>
+		<name>getSpaceNavBar</name>
+		<tagclass>net.project.taglibs.template.GetSpaceNavBarTag</tagclass>
+		<attribute>
+			<name>space</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>showVertical</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>		
+	</tag>
+
+	<!-- Doctype tag -->
+	<tag>
+		<name>getDoctype</name>
+		<tagclass>net.project.taglibs.template.GetDoctypeTag</tagclass>
+	</tag>
+
+    <!-- Import tag -->
+	<tag>
+		<name>import</name>
+		<tagclass>net.project.taglibs.template.ImportTag</tagclass>
+		<attribute>
+			<name>src</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute> 
+		<attribute>
+			<name>type</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute> 
+	</tag>
+
+    <!-- Stylesheet Tag -->
+	<tag>
+		<name>getSpaceCSS</name>
+		<tagclass>net.project.taglibs.template.GetSpaceCSSTag</tagclass>
+                <info>gets the specified stylesheet for the current space.</info>
+                <attribute>
+                        <name>space</name>
+                        <required>false</required>
+                        <rtexprvalue>true</rtexprvalue>
+                </attribute>
+        </tag>
+
+    <!-- Javascript Tag -->
+	<tag>
+		<name>getSpaceJS</name>
+		<tagclass>net.project.taglibs.template.GetSpaceJSTag</tagclass>
+                <info>gets the specified stylesheet for the current space.</info>
+                <attribute>
+                        <name>space</name>
+                        <required>false</required>
+                        <rtexprvalue>true</rtexprvalue>
+                </attribute>
+        </tag>
+	
+    <!-- Insert Tag -->
+    <tag>
+		<name>insert</name>
+		<tagclass>net.project.taglibs.template.InsertTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>Inserts a template</info>
+        <attribute>
+            <name>template</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+	
+    <!-- Put tag -->
+    <tag>
+		<name>put</name>
+		<tagclass>net.project.taglibs.template.PutTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>Puts a template section name into template stack</info>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>content</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>direct</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+	
+    <!-- Get Tag -->
+    <tag>
+		<name>get</name>
+		<tagclass>net.project.taglibs.template.GetTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>Gets content for a template section name</info>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+	
+    <!-- PutDefault Tag -->
+    <tag>
+		<name>putDefault</name>
+		<tagclass>net.project.taglibs.template.PutDefaultTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>Puts content into template stack if not already present</info>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>content</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>direct</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+</taglib>  

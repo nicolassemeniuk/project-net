@@ -1,0 +1,319 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:PersonalLayout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+
+<style type="text/css">
+.workDate{
+	position: absolute;
+	top: 90px;	
+	padding: 10px;
+	text-align:left;
+	}	
+.buttonBar{
+	position: absolute;
+	top: 400px;	
+	left:350px;
+	padding: 10px;
+	text-align:left;
+	}
+	
+.nonWorkingDay {
+    background-color: #CCCCCC;
+}
+
+.workingDay {
+}
+
+.divHeader{
+	font-family: Arial,Helvetica; 
+	font-weight: bold; 
+	font-size: 16px;
+}
+
+body {
+	height: 100%;
+}
+</style>
+
+<script type="text/javascript">
+var JSPRootURL = '${jSPRootURL}';
+var moduleId = '${moduleId}';
+var errorAlertTitle = '${errorAlertTitle}';
+var dateFormatPattern = '${dateFormatPattern}';
+var errorSingleDate = '${errorSingleDate}';
+var errorDateRange = '${errorDateRange}';
+<!-- //
+
+var theForm;
+
+function setup() {
+    theForm = self.document.forms[0];
+    if(theForm.dateValue[0].checked){ 
+    	updateTimeFields('nonworkingtime');
+    }else{
+    	updateTimeFields('workingtime');
+    }
+}
+
+function helpMe() {
+	var helplocation= JSPRootURL + "/help/Help.jsp?page=schedule_personal_work_days";
+	openwin_help(helplocation);
+}
+
+function cancel() {
+    document.location.href = JSPRootURL+'/personal/workcalendar/WorkWeekModify?module='+moduleId;
+}
+
+function reset() {
+    theForm.reset();
+}
+
+function submit() {
+	if (!checkDateFields()) {
+		return;
+	}
+	theForm.action.value ='submit';
+   	theForm.submit();
+}
+
+function add() {
+    theForm.action.value = "add";
+    theForm.submit();
+}
+
+function setStandard() {
+    theForm.action.value = "preset";
+    theForm.presetType.value = "standard";
+    theForm.submit();
+}
+
+function setNightshift() {
+    theForm.action.value ="preset";
+    theForm.presetType.value = "nightshift";
+    theForm.submit();
+}
+
+function set24Hour() {
+    theForm.action.value = "preset";
+    theForm.presetType.value = "24hour";
+    theForm.submit();
+}
+
+function updateTimeFields(selectedOption) {
+
+    var isEnabled;
+
+    if (selectedOption == "workingtime") {
+        isEnabled = true;
+    } else {
+        isEnabled = false;
+    }
+
+    updateTimeFieldsForPrefix("timeStart", isEnabled);
+    updateTimeFieldsForPrefix("timeEnd", isEnabled);
+}
+
+function updateTimeFieldsForPrefix(prefix, isEnabled) {
+    for (var i = 0; i < 5; i++) {
+        var namePrefix = prefix + "_" + i + "_";
+        var nextElement;
+
+        nextElement = theForm.elements[namePrefix + "hour"]
+        if (nextElement) {
+            nextElement.disabled = !isEnabled;
+        }
+        nextElement = theForm.elements[namePrefix + "minute"];
+        if (nextElement) {
+            nextElement.disabled = !isEnabled;
+        }
+        nextElement = theForm.elements[namePrefix + "ampm"];
+        if (nextElement) {
+            nextElement.disabled = !isEnabled;
+        }
+    }
+}
+
+function checkDateFields() {
+	var dateTypeSingle = document.getElementById('dateTypeSingle');
+	var singleDateValue = document.getElementById('singleDateValue');
+	var dateTypeRange = document.getElementById('dateTypeRange');
+	var rangeDateStartValue = document.getElementById('rangeDateStartValue');
+	var rangeDateEndValue = document.getElementById('rangeDateEndValue');
+
+	var dateFormat = new DateFormat(dateFormatPattern);
+	
+	if (dateTypeSingle.checked && !dateFormat.checkValidDate(singleDateValue)) {
+		extAlert(errorAlertTitle, errorSingleDate, Ext.MessageBox.ERROR);
+		singleDateValue.focus();
+		return false;			
+	}
+
+	if (dateTypeRange.checked && !dateFormat.checkValidDate(rangeDateStartValue)) {
+		extAlert(errorAlertTitle, errorDateRange, Ext.MessageBox.ERROR);
+		rangeDateStartValue.focus();
+		return false;			
+	}
+
+	if (dateTypeRange.checked && !dateFormat.checkValidDate(rangeDateEndValue)) {
+		extAlert(errorAlertTitle, errorDateRange, Ext.MessageBox.ERROR);
+		rangeDateEndValue.focus();
+		return false;			
+	}
+	
+	return true;	
+}
+
+// -->
+</script>
+
+<script type="text/javascript" src="${jSPRootURL}/src/checkDate.js?${versionNumber}"/>
+
+	<t:ActionBox groupTitle="${groupHeadingWorkCalendar}" buttons="blogit"/>
+	
+	<div>
+		<div id="contactInfo" style="width: 80%; position: absolute; top: 104px; left: 180px;">		
+		<div><t:OutputRaw value="pageTitle"/></div>
+		<br/>
+		<label class="divHeader"> <t:Message value="prm.workcalendar.workweekmodify.workdate.header" /> </label> <br />
+		<hr width="100%" style="color: gray;" />
+			
+		<t:form t:id="workdateModifyForm" clientValidation="false" autofocus="false">
+		<input type="hidden" name="action" />
+		<input type="hidden" name="presetType"/>
+		<input type="hidden" name="name" value="personalCalender"/>
+		
+		<font color="red" style="font: bold;"><b>${errorMessage}</b></font>	
+		
+		<table width="100%">
+	        <colgroup>
+	            <col width="1%"/>
+	        </colgroup>
+	        <tr class="tableContent">
+				<td>
+					<t:if test="dateHelper.singleDate">
+						<input type="radio" name="dateType" id="dateTypeSingle" value="single" checked="checked" />
+						<t:parameter name="else">
+						<input type="radio" name="dateType" id="dateTypeSingle" value="single"/>
+						</t:parameter>
+					</t:if>	
+				
+				</td>
+				<td class="fieldRequired"><label for="dateTypeSingle"><t:Message value="prm.schedule.workingtime.editdate.singledate.label" /></label></td>
+				<td colspan="2">
+					<input type="text" size="20" maxlength="20" name="singleDateValue" id="singleDateValue" value="${dateHelper.singleDateFormatted}" />
+					<t:InsertCalendarPopup fieldName="singleDateValue"/>
+				</td>
+			</tr>
+			
+			<tr>
+				<td>
+					<t:if test="dateHelper.singleDate"> 
+					<input type="radio" name="dateType" id="dateTypeRange" value="range"/>
+					<t:parameter name="else">
+						<input type="radio" name="dateType" id="dateTypeRange" value="range" checked="checked" />
+					</t:parameter>
+					</t:if>
+				</td>
+				<td class="fieldRequired"><label for="dateTypeRange"><t:Message value="prm.schedule.workingtime.editdate.rangedate.label" /></label></td>
+				<td class="tableContent">
+					 <input type="text" size="20" maxlength="20" name="rangeDateStartValue" id="rangeDateStartValue" value="${dateHelper.rangeDateStartFormatted}" />
+					<t:InsertCalendarPopup fieldName="rangeDateStartValue"/>
+				</td>
+				
+				<td class="tableContent">
+					<input type="text" size="20" maxlength="20" name="rangeDateEndValue" id="rangeDateEndValue" value="${dateHelper.rangeDateEndFormatted}"/>
+					<t:InsertCalendarPopup fieldName="rangeDateEndValue"/>
+				</td>
+			</tr>
+			
+			<tr>
+				<td lass="fieldRequired" colspan="2"><t:Message value="prm.workflow.properties.description.label" /></td> 
+				<td colspan="2">&nbsp;<textarea rows="3" cols="70" name="dateDescription">${dateHelper.dateDescription}</textarea></td>
+			</tr>
+		
+			<tr><td colspan="4">&nbsp;</td></tr>
+
+        <!-- Working time / Non working time selection -->
+        <tr>
+            <td>&nbsp;</td>
+            <td colspan="3">
+            <table width="100%">
+                <colgroup>
+                    <col width="1%"/>
+                    <col span="2"/>
+                </colgroup>
+                <tr class="tableContent">
+	                <td>
+                    <t:if test="dateHelper.nonWorkingTimeSelected">
+	                    <input type="radio" name="dateValue" id="dateValueNWT" value="nonworkingtime" onClick="updateTimeFields('nonworkingtime')" checked="checked"/>
+	                    <t:parameter name="else">
+	                    	<input type="radio" name="dateValue" id="dateValueNWT" value="nonworkingtime" onClick="updateTimeFields('nonworkingtime')" />
+	                    </t:parameter>
+                    </t:if>
+                    </td>
+                    <td><label for="dateValueNWT"><t:Message value="prm.schedule.workingtime.editdate.nonworkingtime.label" /></label></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr class="tableContent">
+                    <td>
+                    <t:if test="dateHelper.workingTimeSelected">
+	                    <input type="radio" name="dateValue" id="dateValueWT" value="workingtime" onClick="updateTimeFields('workingtime')" checked="checked"/>
+	                    <t:parameter name="else">
+	                    	<input type="radio" name="dateValue" id="dateValueWT" value="workingtime" onClick="updateTimeFields('workingtime')" />
+	                    </t:parameter>
+                    </t:if>
+                    </td>
+                    <td><label for="dateValueWT"><t:Message value="prm.schedule.workingtime.editdate.workingtime.label" /></label></td>
+                    <td>
+                 	   <!-- Preset Calendar type links -->
+	                    <table>
+	                        <tr class="tableContent">
+	                            <td class="tableHeader"><t:Message value="prm.schedule.workingtime.editdate.template.label" /></td>
+	                            <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:setStandard();"><t:Message value="prm.schedule.workingtime.editdate.template.standard.label" /></a></td>
+	                            <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:setNightshift();"><t:Message value="prm.schedule.workingtime.editdate.template.nightshift.label" /></a></td>
+	                            <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="javascript:set24Hour();"><t:Message value="prm.schedule.workingtime.editdate.template.24hour.label" /></a></td>
+	                        </tr>
+	                    </table>
+                    </td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td colspan="2">
+	                    <table width="100%">
+	                        <colgroup span="2" />
+	                        <tr class="tableHeaderNoBGC">
+	                            <td><t:Message value="prm.schedule.workingtime.editdate.workingtime.from.label" /></td>
+	                            <td><t:Message value="prm.schedule.workingtime.editdate.workingtime.to.label" /></td>
+	                        </tr>
+	                        <t:loop source="personalCalendarBean.timeBoxIndexList" value="boxEntry"	volatile="true">
+		                        <tr class="tableContent">
+		                            <td>
+		                                <input type="hidden" name="${boxEntry.timeControlName}" value="1"/>
+		                                <t:TimeInput time="boxEntry.startDate" name="boxEntry.startTimeName" isOptional="true" isDisabled="boxEntry.disabled" />
+		                            </td>
+			                        <td><t:TimeInput time="boxEntry.endDate" name="boxEntry.endTimeName" isOptional="true" isDisabled="boxEntry.disabled" /></td>
+		                        </tr>
+	                        </t:loop>
+	                    </table>
+                    </td>
+                </tr>
+               </table>
+               </td>
+			</tr>
+		</table>
+	</t:form>
+
+	<br clear="all" />
+	<table width="100%" cellpadding="0" cellspacing="0" border="0">
+		<tr class="actionBar">
+		<td width="1%" class="actionBar"><img src="${jSPRootURL}/images/icons/actionbar-left_end.gif" width="8" height="27" alt="" border="0"/></td>
+			<td class="actionBar" align="right">&nbsp;
+				<nobr>&nbsp;&nbsp;&nbsp;<a href="javascript:submit();" class="channelNoUnderline"><t:Message value="all.global.toolbar.action.submit" /> &nbsp; <img src="${jSPRootURL}/images/icons/actionbar-submit_off.gif" width="27" height="27" alt="Submit" title="Submit" border="0" align="absmiddle"/></a></nobr>
+				<nobr>&nbsp;&nbsp;&nbsp;<a href="javascript:add();" class="channelNoUnderline"><t:Message value="prm.workcalendar.workweekmodify.addanother.lable" />&nbsp;<img src="${jSPRootURL}/images/icons/actionbar-add_off.gif" width="27" height="27" alt="Add Another" title="Add Another" border="0" align="absmiddle"/></a></nobr>
+			</td>
+			<td width="1%" align="right" class="actionBar"><img src="${jSPRootURL}/images/icons/actionbar-right_end.gif" width="8" height="27" alt="" border="0"/></td>
+		</tr>
+	</table>
+	</div>
+	</div>
+</t:PersonalLayout>

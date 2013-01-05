@@ -1,0 +1,18 @@
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject\\forLoginProject.gui");
+
+if (invoke_application ("C:\\Program Files\\Internet Explorer\\iexplore.exe","http://trout.project.net", "C:\\Program Files\\Internet Explorer", SW_SHOWMAXIMIZED)!=0)
+	report_msg("AUT is not found. Exiting.");
+wait(8);
+
+set_window("Project.net Login",4);
+wait(3);
+edit_set("J_USERNAME","avinashp");
+edit_set("J_PASSWORD","abc123");
+button_press("Login");
+wait(4);
+set_window("toolbar_main",3);
+wait(3);
+web_image_click("topnav-projects-off",20,20);
+wait(4);
+
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject\\forLoginProject.gui");

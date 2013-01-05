@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnSystemSetting" 
+    table="PN_SYSTEM_SETTING"
+    lazy="false"
+>
+    <meta attribute="class-description" inherit="false">
+       Provides system settings irrespective of configuration and across all instances of a web application.
+    </meta>
+
+    <id
+        name="name"
+        type="java.lang.String"
+        column="NAME"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="value"
+        type="java.lang.String"
+        column="VALUE"
+        length="1000"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

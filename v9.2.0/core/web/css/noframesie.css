@@ -1,0 +1,135 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+ 
+
+body#bodyWithFixedAreasSupport {
+  /*height: 100%;*/
+  overflow: auto;
+  padding: 104px 0 29px 0;
+}
+
+/* BODY for Resources Tab */
+body#tBodyWithFixedAreasSupport {
+  height: 67%;
+  /*width: 100%;*/
+  overflow: hidden;
+  padding: 70px 0 29px 0;
+}
+
+div#menu_bar {
+	left: 0px; 
+	top: 60px; 
+	position: absolute; 
+	width: 100%;
+}
+
+body.iframeBody {
+  overflow: auto;
+}
+
+div#content, div#scrollwidecontent, div#tcontent {
+	position: absolute;
+	padding-left: 22px;
+	top: 120px;
+	left: 180px;
+}
+
+/* Content for Resources Tab */
+div#tcontent {
+  top: 104px;  
+}
+
+div#topframe {
+  margin: 0;
+}
+
+div#fixedRightTop form {
+	margin: 0;
+  	overflow: auto;
+}
+
+div#topframe {
+  background: transparent;
+}
+
+div#leftframe {
+  top: 0px;
+  width: 154px;
+  height: 100%;
+  padding: 14px 0 0 0;
+  overflow: auto;
+}
+
+/* LEFT FRAME for Resources Tab */
+div#tLeftframe {
+  top: 0px;
+  width: 174px;
+  height: 100%;
+  padding: 62px 0 0 0;
+}
+
+div#profile-content {  
+	/*height: 100%;*/ 
+	width: 84%;
+	overflow: hidden;
+	position: absolute;
+	left: 196px;
+	padding-left: 1px;
+	background: transparent;
+	margin-top: 10px;
+	text-align: left;  
+}
+
+/* Profile css  */ 
+#content-right {
+	padding-top: 6px;
+	padding-left: 375px;
+	width: 40%;
+}
+#blogPopupScreen, #personalImageScreen, #uploadScreen, #sessionMessageScreen{
+	filter: alpha(opacity=70);
+}
+.heading {
+	width: 100%;
+}
+
+.project-title {
+	float: left;
+}
+
+.project-view {
+	position: absolute;
+	padding-left: 22px;
+	top: 120px;
+	left: 180px;
+}
+
+div#wContent {
+	position: absolute;
+	padding-left: 17px;
+	left: 180px;
+	width: 80%;
+}
+
+#wiki-page {
+	width: 100%; 
+}
+#timeSheetContent{
+	margin-left: 0px;
+}
+
+.menu-subprojects span {
+	margin-right: 8px;
+}

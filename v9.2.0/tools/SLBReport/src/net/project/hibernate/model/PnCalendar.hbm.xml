@@ -1,0 +1,101 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnCalendar" 
+    table="PN_CALENDAR"
+    lazy="false"
+>
+
+    <id
+        name="calendarId"
+        type="java.math.BigDecimal"
+        column="CALENDAR_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="calendarName"
+        type="java.lang.String"
+        column="CALENDAR_NAME"
+        length="255"
+    />
+    <property
+        name="calendarDescription"
+        type="java.lang.String"
+        column="CALENDAR_DESCRIPTION"
+        length="500"
+    />
+    <property
+        name="isBaseCalendar"
+        type="int"
+        column="IS_BASE_CALENDAR"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnObject -->
+    <one-to-one
+        name="pnObject"
+        class="net.project.hibernate.model.PnObject"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional one-to-many association to PnSpaceHasCalendar -->
+
+    <set
+        name="pnSpaceHasCalendars"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="CALENDAR_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasCalendar"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnCalendarHasEvent -->
+
+    <set
+        name="pnCalendarHasEvents"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="CALENDAR_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnCalendarHasEvent"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

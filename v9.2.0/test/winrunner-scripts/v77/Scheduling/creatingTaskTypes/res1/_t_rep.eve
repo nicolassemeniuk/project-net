@@ -1,0 +1,54 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 1 1112227724 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\forLoginProject> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 2 1112227728 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\forLoginProject> 19 1112227745 0
+44 54 <web_link_click:"WRProject" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 63 1112227767 0
+44 68 <set_window:"Microsoft Internet Explorer" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 72 1112227785 0
+44 47 <obj_get_info:"OK" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 73 1112227785 0
+44 47 <button_press:"OK" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 73 1112227785 0
+39 1 <web_obj_text_exists- Fixed Duration, Effort Driven > <check_taskProperties> 12 1112227812 0
+25 1 <a> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 22 1112227814 0
+25 1 <1> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 23 1112227816 0
+25 4 <days> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 24 1112227818 0
+25 1 <c> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 48 1112227820 0
+25 1 <1> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 49 1112227822 0
+25 4 <days> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 50 1112227824 0
+25 1 <d> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 58 1112227826 0
+25 1 <1> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 59 1112227828 0
+25 3 <day> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 60 1112227830 0
+39 1 <web_obj_text_exists- 1 day> <check_taskProperties> 62 1112227830 0
+37 66 <Step: Verify , Status: Pass, Description: 8 hrs of work is correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 72 1112227830 24
+39 1 <web_obj_text_exists- 2 hrs> <creatingTaskTypes> 51 1112227843 0
+23 52 <The work complete being shown for task t1 is correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 52 1112227843 0
+37 96 <Step: Verify work complete%, Status: Pass, Description: The work complete% set for t1 is correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 55 1112227843 24
+39 1 <web_obj_text_exists- Fixed Units, Effort Driven > <check_taskProperties> 12 1112227863 0
+25 1 <a> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 22 1112227865 0
+25 1 <1> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 23 1112227868 0
+25 4 <days> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 24 1112227870 0
+25 1 <c> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 48 1112227872 0
+25 1 <1> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 49 1112227874 0
+25 4 <days> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 50 1112227876 0
+25 1 <d> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 58 1112227878 0
+25 1 <1> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 59 1112227880 0
+25 3 <day> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 60 1112227882 0
+39 1 <web_obj_text_exists- 1 day> <check_taskProperties> 62 1112227882 0
+37 66 <Step: Verify , Status: Pass, Description: 8 hrs of work is correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 72 1112227882 24
+39 1 <web_obj_text_exists- 3 hrs> <creatingTaskTypes> 51 1112227895 0
+23 52 <The work complete being shown for task t2 is correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 52 1112227895 0
+37 96 <Step: Verify work complete%, Status: Pass, Description: The work complete% set for t2 is correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 55 1112227895 24
+39 1 <web_obj_text_exists- Fixed Work> <check_taskProperties> 10 1112227913 0
+25 1 <a> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 22 1112227915 0
+25 1 <1> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 23 1112227917 0
+25 4 <days> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 24 1112227919 0
+25 1 <c> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 48 1112227921 0
+25 1 <1> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 49 1112227923 0
+25 4 <days> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 50 1112227925 0
+25 1 <d> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 58 1112227927 0
+25 1 <1> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 59 1112227929 0
+25 3 <day> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 60 1112227931 0
+39 1 <web_obj_text_exists- 1 day> <check_taskProperties> 62 1112227931 0
+37 66 <Step: Verify , Status: Pass, Description: 8 hrs of work is correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 72 1112227931 24
+39 1 <web_obj_text_exists- 4 hrs> <creatingTaskTypes> 51 1112227943 0
+23 52 <The work complete being shown for task t3 is correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 52 1112227943 0
+37 96 <Step: Verify work complete%, Status: Pass, Description: The work complete% set for t3 is correct> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 55 1112227943 24
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\creatingTaskTypes> 87 1112227943 0

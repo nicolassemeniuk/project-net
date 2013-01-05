@@ -1,0 +1,272 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+ /* MAIN */
+
+body.main			{font-family: arial,helvetica;
+					 font-size: 12px;
+					}
+body.mainNoBGC		{font-family: arial,helvetica;
+                     font-size: 12px;
+					}
+a					{
+					}
+.instructions		{font-family: Arial,Helvetica,Sans-Serif;
+					 font-size: 12px;
+					 font-weight: bold;
+					}
+a.channelNoUnderline	{
+					}
+.channelHeader		{font-family: Arial,Helvetica,Sans-Serif;
+					 font-weight: bold;
+					 font-size: 12px;
+					}
+.channelHeaderDarker	{font-family: Arial,Helvetica,Sans-Serif;
+					 font-size: 12px;
+					}
+.channelContent		{font-family: Arial,Helvetica,Sans-Serif;
+					 font-size: 12px;
+					}
+.channelContentLarge	{font-family: Arial,Helvetica,Sans-Serif;
+					 font-size: 14px;
+					 text-decoration: none;
+					 font-weight: bold;
+					}
+.white				{
+					}
+.calendar			{font-family: verdana,arial,helvetica;
+					 font-size: 10px;
+					 text-decoration: none;
+					}
+.calToday			{font-family: verdana,arial,helvetica;
+					 font-size: 10px;
+					 text-decoration: none;
+					 font-weight: bold;
+					}
+.pageTitle			{font-family: Verdana,Arial,Helvetica;
+					 font-size: 14px;
+					 font-weight: bold;
+					 text-decoration: none;
+					 margin-bottom: 5px;
+					}
+.historyText			{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-decoration: none;
+	color: Gray;
+}
+a.historyText:hover			{
+	text-decoration: underline !important;
+}
+a.historyText			{
+	color: Navy;
+}
+.historyLine			{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px !important;
+	text-decoration: none;
+}
+.label				{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: normal;
+}
+.actionBar			{font-family: Arial, Helvetica, sans-serif;
+					 font-size: 14px;
+					 text-decoration: none;
+					 font-weight: bold;
+					}
+.actionContentReq	{font-family: Arial, Helvetica, sans-serif;
+					 font-size: 14px;
+					 text-decoration: none;
+					 font-weight: bold;
+					}
+.actionContentNotReq	{font-family: Arial, Helvetica, sans-serif;
+					 font-size: 14px;
+					 text-decoration: none;
+					 font-weight: bold;
+					}
+.calendarPopup		{font-size: 8px;
+					 font-family: Arial, Helvetica, sans-serif;
+					 text-decoration: none;
+					 color: #666666;
+					}
+.instructions  {	
+		}
+.tableFilterHeader, .tableFilterHeaderWB  {font-family: Arial,Helvetica,Sans-Serif;
+					 font-size: 12px;
+					 font-weight: bold;
+                    }
+.tableFilterContent, .tableFilterContentWB {font-family: Arial,Helvetica,Sans-Serif;
+					 font-size: 12px;
+					 font-weight: bold;
+                    }
+.tableFilterControl {font-size: 10px;
+                    }
+.rowSep             {
+                    }
+.headerSep          {
+                    }
+.popupTitle         {font-family: Arial,Helvetica,Sans-Serif;
+					 font-weight: bold;
+					 font-size: 12px;
+                    }
+.popupBody          {font-family: Arial,Helvetica,Sans-Serif;
+					 font-size: 12px;
+                    }
+
+
+/* BANNER */
+body.banner			{
+					}
+.bannerLink1		{text-decoration: none;
+					 font-family: Verdana,Arial,Helvetica,sans-serif;
+					 font-size: 10px;
+					}
+.bannerLink2		{text-decoration: none;
+					 font-family: Verdana,Arial,Helvetica,sans-serif;
+					 font-size: 11px;
+					 font-weight: bold;
+					}
+.userId				{text-decoration: none;
+					 font-family: Verdana,Arial,Helvetica,sans-serif;
+					 font-size: 12px;
+					 font-weight: bold;
+					}
+
+/* LEFT NAV */
+
+div#leftframe		{font-size: 11px;
+					 font-family: Verdana,Arial,Helvetica;
+					}
+.leftNavHeader		{font-size: 11px;
+					 font-family: Verdana,Arial,Helvetica;
+					 text-decoration: none;
+					 font-weight: bold;
+					}
+.leftNavLink		{font-size: 10px;
+					 font-family: Verdana,Arial,Helvetica;
+					 text-decoration: none;
+					}
+.vertLine			{
+					}
+.vertNoLine			{
+					}
+.rowHighlight       {font-family: Arial,Helvetica,Sans-Serif;
+					 font-size: 12px;
+					}
+
+/* LEGACY */
+
+.tableHeader		{font-family: Arial,Helvetica,Sans-Serif;
+					 font-size: 12px;
+					 font-weight: bold;
+					 height: 21px;
+					}
+
+.tableHeader a, .tableHeader a:visited {
+	text-decoration: none;
+	margin-right: 5px;
+}
+.tableHeader a:hover {
+	text-decoration: none;
+}
+					
+.tableHeaderNoBGC   {font-family: Arial,Helvetica,Sans-Serif;
+					 font-size: 12px;
+					 font-weight: bold;
+					}
+.tableLine			{
+background-color: #e8eaee !important;
+					}
+.tableContent		{
+	font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 12px;
+	height: 22px;
+}
+.tableContent input {
+	margin-left: 2px;
+	margin-right: 2px;
+}
+.tableContentNoBGC	{font-family: Arial,Helvetica,Sans-Serif;
+					 font-size: 12px;}
+.tableContentFontOnly	{font-family: Arial,Helvetica,Sans-Serif;
+					 font-size: 12px;
+					 color: Black;}
+					 
+tr td.tableContentFontOnly	{
+	height: 32px !important;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #eceef6;
+	background-color: #f5f5ff;
+}
+.legend             {font-family: Arial,Helvetica,Sans-Serif;
+					 font-size: 12px; font-weight:bold;
+					}
+.tableContentFontOnly a {
+	margin-left: 0px;
+	margin-right: 5px;
+	font-family: Tahoma;
+	font-size: 13px;
+}
+
+td .tableContentFontOnly input {
+	margin-left: 5px;
+	margin-right: 2px;
+}
+td .tableContentFontOnly {
+	padding-right: 3px;
+}
+					
+/* FORMS */
+
+.fieldRequired		{font-family: Arial,Helvetica,Sans-Serif;
+					 font-size: 14px;
+					 font-weight: bold;
+					}
+.fieldNonRequired	{font-family: Arial,Helvetica,Sans-Serif;
+					 font-size: 14px;
+					}
+.fieldWithError		{
+					}
+.warningTextRed     {font-family: Arial,Helvetica,Sans-Serif;
+                     font-size: 12px;
+                     font-weight: bold;
+                    }
+.errorMessage       {font-family: Arial,Helvetica,Sans-Serif;
+                     font-size: 12px;
+                     font-weight: bold;
+                    }                    
+.warningMessage       {font-family: Arial,Helvetica,Sans-Serif;
+                     font-size: 12px;
+                     font-weight: bold;
+                    }
+.successMessage     {font-family: Arial,Helvetica,Sans-Serif;
+                     font-size: 12px;
+                     font-weight: bold;
+                    }
+					
+input, textarea, select			{font-family: arial,helvetica;
+					 font-size: 12px;}
+
+.monospaced {
+	font-family : "Courier New", Courier, monospace;
+	font-size : 11px;
+	text-decoration: none;
+}
+
+.leftMargincls {
+	margin-left: 2px;
+}

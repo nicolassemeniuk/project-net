@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnLicensePersonHistory" 
+    table="PN_LICENSE_PERSON_HISTORY"
+    lazy="false"
+>
+
+    <id
+        name="historyId"
+        type="java.math.BigDecimal"
+        column="HISTORY_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="licenseId"
+        type="java.math.BigDecimal"
+        column="LICENSE_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="personId"
+        type="java.math.BigDecimal"
+        column="PERSON_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="createdDatetime"
+        type="java.sql.Date"
+        column="CREATED_DATETIME"
+        not-null="true"
+        length="7"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

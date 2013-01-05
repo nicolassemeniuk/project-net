@@ -1,0 +1,400 @@
+<projects Name="Projects" ProjectId="root">
+<Project Name="NAM Sugarland Server Consolidation and Fault Tolerence" Level="1" Folder="/NAM Sugarland Server Consolidation and Fault Tolerence" selected="false" ProjectId="3983189">
+	</Project>
+<Project Name="NAMFro Dev Hardware Upgrade" Level="1" Folder="/NAMFro Dev Hardware Upgrade" selected="false" ProjectId="4943872">
+	</Project>
+<Project Name="NANSEN" Level="1" Folder="/NANSEN" selected="false" ProjectId="4805963">
+	</Project>
+<Project Name="NAPE 2005" Level="1" Folder="/NAPE 2005" selected="false" ProjectId="10008760">
+	</Project>
+<Project Name="NAPE2006" Level="1" Folder="/NAPE2006" selected="false" ProjectId="12078955">
+	</Project>
+<Project Name="NAQP Analysis" Level="1" Folder="/NAQP Analysis" selected="false" ProjectId="1253176">
+	</Project>
+<Project Name="NAQT Process" Level="1" Folder="/NAQT Process" selected="false" ProjectId="342707">
+	</Project>
+<Project Name="NDC Electrical Audit" Level="1" Folder="/NDC Electrical Audit" selected="false" ProjectId="645710">
+	</Project>
+<Project Name="NDC Infrastructure" Level="1" Folder="/NDC Infrastructure" selected="false" ProjectId="5341956">
+<Project Name="Data Center Backup Solution" Level="2" Folder="/NDC Infrastructure/Data Center Backup Solution" selected="false" ProjectId="4943272">
+	</Project>
+<Project Name="EMC Volume Expansion" Level="2" Folder="/NDC Infrastructure/EMC Volume Expansion" selected="false" ProjectId="5706151">
+	</Project>
+<Project Name="HP Blade Infrastructure " Level="2" Folder="/NDC Infrastructure/HP Blade Infrastructure " selected="false" ProjectId="5838646">
+	</Project>
+<Project Name="HP Reporter" Level="2" Folder="/NDC Infrastructure/HP Reporter" selected="false" ProjectId="5481034">
+	</Project>
+<Project Name="SunFire 15K Architecture Review" Level="2" Folder="/NDC Infrastructure/SunFire 15K Architecture Review" selected="false" ProjectId="5486945">
+	</Project>
+	</Project>
+<Project Name="NDR - DGH" Level="1" Folder="/NDR - DGH" selected="false" ProjectId="3428368">
+	</Project>
+<Project Name="NDS - Pluspetrol" Level="1" Folder="/NDS - Pluspetrol" selected="false" ProjectId="683641">
+	</Project>
+<Project Name="NDS - bp Trinidad" Level="1" Folder="/NDS - bp Trinidad" selected="false" ProjectId="683622">
+	</Project>
+<Project Name="NEE - Piloto de EDM Taxonomia" Level="1" Folder="/NEE - Piloto de EDM Taxonomia" selected="false" ProjectId="10119229">
+	</Project>
+<Project Name="NELP V" Level="1" Folder="/NELP V" selected="false" ProjectId="9653016">
+	</Project>
+<Project Name="NELP-IV" Level="1" Folder="/NELP-IV" selected="false" ProjectId="3428347">
+	</Project>
+<Project Name="NEP - Portal Sede Migration" Level="1" Folder="/NEP - Portal Sede Migration" selected="false" ProjectId="10882466">
+	</Project>
+<Project Name="NER - Integracion de base de datos IPM y aditep" Level="1" Folder="/NER - Integracion de base de datos IPM y aditep" selected="false" ProjectId="10932116">
+	</Project>
+<Project Name="NExT Financial" Level="1" Folder="/NExT Financial" selected="false" ProjectId="3895727">
+	</Project>
+<Project Name="NExT Master Contract" Level="1" Folder="/NExT Master Contract" selected="false" ProjectId="405330">
+	</Project>
+<Project Name="NExT Server Evaluation" Level="1" Folder="/NExT Server Evaluation" selected="false" ProjectId="4944416">
+	</Project>
+<Project Name="NExT Skill Assessment " Level="1" Folder="/NExT Skill Assessment " selected="false" ProjectId="2967323">
+	</Project>
+<Project Name="NGA - Frontier - UQUO" Level="1" Folder="/NGA - Frontier - UQUO" selected="false" ProjectId="11956044">
+	</Project>
+<Project Name="NGA- BelBop OML103" Level="1" Folder="/NGA- BelBop OML103" selected="false" ProjectId="11972523">
+	</Project>
+<Project Name="NGA- Orient Petroleum -OPL914/915" Level="1" Folder="/NGA- Orient Petroleum -OPL914 915" selected="false" ProjectId="11972554">
+	</Project>
+<Project Name="NGA- Total - IBEWA  Petrel model update" Level="1" Folder="/NGA- Total - IBEWA  Petrel model update" selected="false" ProjectId="11980043">
+	</Project>
+<Project Name="NGA-Agip-Nimbe South Integrated Study" Level="1" Folder="/NGA-Agip-Nimbe South Integrated Study" selected="false" ProjectId="11075157">
+	</Project>
+<Project Name="NGA-Agip-OML61" Level="1" Folder="/NGA-Agip-OML61" selected="false" ProjectId="11075024">
+	</Project>
+<Project Name="NGA-Belbop-OPL458" Level="1" Folder="/NGA-Belbop-OPL458" selected="false" ProjectId="11075395">
+	</Project>
+<Project Name="NGA-CVT-Jokka Integrated Study" Level="1" Folder="/NGA-CVT-Jokka Integrated Study" selected="false" ProjectId="11075326">
+	</Project>
+<Project Name="NGA-Sheebah-Simulation model update" Level="1" Folder="/NGA-Sheebah-Simulation model update" selected="false" ProjectId="12280416">
+	</Project>
+<Project Name="NGA-Total-Multiwell petro review OML100" Level="1" Folder="/NGA-Total-Multiwell petro review OML100" selected="false" ProjectId="12280308">
+	</Project>
+<Project Name="NGC - IDR" Level="1" Folder="/NGC - IDR" selected="false" ProjectId="8095995">
+	</Project>
+<Project Name="NGC - WCP Project Support Team" Level="1" Folder="/NGC - WCP Project Support Team" selected="false" ProjectId="4507305">
+	</Project>
+<Project Name="NGC Play Study" Level="1" Folder="/NGC Play Study" selected="false" ProjectId="7375604">
+	</Project>
+<Project Name="NGC SMS Deepwater" Level="1" Folder="/NGC SMS Deepwater" selected="false" ProjectId="14960869">
+	</Project>
+<Project Name="NGC SMS Screen Business" Level="1" Folder="/NGC SMS Screen Business" selected="false" ProjectId="15287230">
+	</Project>
+<Project Name="NH Grane Tender" Level="1" Folder="/NH Grane Tender" selected="false" ProjectId="986283">
+	</Project>
+<Project Name="NHSIA" Level="1" Folder="/NHSIA" selected="false" ProjectId="742957">
+	</Project>
+<Project Name="NIEV/Sojitz - Schlumberger" Level="1" Folder="/NIEV Sojitz - Schlumberger" selected="false" ProjectId="8531986">
+<Project Name="Farm-In Opportunities" Level="2" Folder="/NIEV Sojitz - Schlumberger/Farm-In Opportunities" selected="false" ProjectId="8534445">
+	</Project>
+<Project Name="Production Monitoring" Level="2" Folder="/NIEV Sojitz - Schlumberger/Production Monitoring" selected="false" ProjectId="8534423">
+	</Project>
+	</Project>
+<Project Name="NIGERIAN PETROLEUM DEVELOPMENT COMPANY ICT TRANSFORMATION PHASE 1" Level="1" Folder="/NIGERIAN PETROLEUM DEVELOPMENT COMPANY ICT TRANSFORMATION PHASE 1" selected="false" ProjectId="12295459">
+	</Project>
+<Project Name="NIS Architecture for Web" Level="1" Folder="/NIS Architecture for Web" selected="false" ProjectId="4944381">
+	</Project>
+<Project Name="NIS Centralized Computing Process Develop" Level="1" Folder="/NIS Centralized Computing Process Develop" selected="false" ProjectId="4483606">
+	</Project>
+<Project Name="NIS Master List w/ Content Owners" Level="1" Folder="/NIS Master List w  Content Owners" selected="false" ProjectId="3263147">
+	</Project>
+<Project Name="NIS SCC Management" Level="1" Folder="/NIS SCC Management" selected="false" ProjectId="2303777">
+	</Project>
+<Project Name="NIS Solution Management Framework" Level="1" Folder="/NIS Solution Management Framework" selected="false" ProjectId="3116833">
+<Project Name="SMF Master Project Template" Level="2" Folder="/NIS Solution Management Framework/SMF Master Project Template" selected="false" ProjectId="4557569">
+	</Project>
+	</Project>
+<Project Name="NIS Technical Consulting Coordination" Level="1" Folder="/NIS Technical Consulting Coordination" selected="false" ProjectId="382777">
+<Project Name="Intouch" Level="2" Folder="/NIS Technical Consulting Coordination/Intouch" selected="false" ProjectId="1881809">
+	</Project>
+<Project Name="PSA Resource Management Pilot" Level="2" Folder="/NIS Technical Consulting Coordination/PSA Resource Management Pilot" selected="false" ProjectId="1617011">
+	</Project>
+	</Project>
+<Project Name="NIS Technical Consulting Monthly Reports" Level="1" Folder="/NIS Technical Consulting Monthly Reports" selected="false" ProjectId="1102066">
+	</Project>
+<Project Name="NIS UKN Technical Consulting Practice Operations" Level="1" Folder="/NIS UKN Technical Consulting Practice Operations" selected="false" ProjectId="2522093">
+<Project Name="Practice Operations" Level="2" Folder="/NIS UKN Technical Consulting Practice Operations/Practice Operations" selected="false" ProjectId="801166">
+<Project Name="Resource Management" Level="3" Folder="/NIS UKN Technical Consulting Practice Operations/Practice Operations/Resource Management" selected="false" ProjectId="3183842">
+	</Project>
+	</Project>
+	</Project>
+<Project Name="NIS Whereabouts Calendar" Level="1" Folder="/NIS Whereabouts Calendar" selected="false" ProjectId="2807223">
+	</Project>
+<Project Name="NPTest Split" Level="1" Folder="/NPTest Split" selected="false" ProjectId="911122">
+<Project Name="Physical Split Asia" Level="2" Folder="/NPTest Split/Physical Split Asia" selected="false" ProjectId="913787">
+	</Project>
+<Project Name="Physical Split US" Level="2" Folder="/NPTest Split/Physical Split US" selected="false" ProjectId="886026">
+	</Project>
+	</Project>
+<Project Name="NPTest- Houston EMC" Level="1" Folder="/NPTest- Houston EMC" selected="false" ProjectId="1153199">
+	</Project>
+<Project Name="NR - ESG Project" Level="1" Folder="/NR - ESG Project" selected="false" ProjectId="7051583">
+	</Project>
+<Project Name="NSA - DDP-RTOC Working Materials" Level="1" Folder="/NSA - DDP-RTOC Working Materials" selected="false" ProjectId="7805677">
+	</Project>
+<Project Name="NSA ChevronTexaco RTPRO" Level="1" Folder="/NSA ChevronTexaco RTPRO" selected="false" ProjectId="1607662">
+	</Project>
+<Project Name="NSA Client List" Level="1" Folder="/NSA Client List" selected="false" ProjectId="5801256">
+	</Project>
+<Project Name="NSA DDP CoP RTO Strategy" Level="1" Folder="/NSA DDP CoP RTO Strategy" selected="false" ProjectId="9421043">
+	</Project>
+<Project Name="NSA DDP Petrobras iField" Level="1" Folder="/NSA DDP Petrobras iField" selected="false" ProjectId="10473646">
+	</Project>
+<Project Name="NSA DDP SHELL Global Drilling Center" Level="1" Folder="/NSA DDP SHELL Global Drilling Center" selected="false" ProjectId="7805454">
+	</Project>
+<Project Name="NSA HR/OCM OFS Brooks Wireline Re-Engineering" Level="1" Folder="/NSA HR OCM OFS Brooks Wireline Re-Engineering" selected="false" ProjectId="8105678">
+	</Project>
+<Project Name="NSA HRM BP Global Consulting RFI" Level="1" Folder="/NSA HRM BP Global Consulting RFI" selected="false" ProjectId="7806270">
+	</Project>
+<Project Name="NSA HRM BP Global Consulting RFP" Level="1" Folder="/NSA HRM BP Global Consulting RFP" selected="false" ProjectId="8105633">
+	</Project>
+<Project Name="NSA HRM PMX @DITEP" Level="1" Folder="/NSA HRM PMX @DITEP" selected="false" ProjectId="7895607">
+	</Project>
+<Project Name="NSA Hou Implement 2002 Disaster Recovery Risk Analysis Recommendations" Level="1" Folder="/NSA Hou Implement 2002 Disaster Recovery Risk Analysis Recommendations" selected="false" ProjectId="3189819">
+	</Project>
+<Project Name="NSA Hou MMS Interconnection" Level="1" Folder="/NSA Hou MMS Interconnection" selected="false" ProjectId="3188583">
+	</Project>
+<Project Name="NSA IOT APC Document  &amp; Records Management - Phase I" Level="1" Folder="/NSA IOT APC Document   Records Management - Phase I" selected="false" ProjectId="8532978">
+	</Project>
+<Project Name="NSA IOT APC Document &amp; Records Management - Phase II" Level="1" Folder="/NSA IOT APC Document  Records Management - Phase II" selected="false" ProjectId="10108407">
+	</Project>
+<Project Name="NSA IOT APC Document &amp; Records Management - Phase III" Level="1" Folder="/NSA IOT APC Document  Records Management - Phase III" selected="false" ProjectId="11968160">
+	</Project>
+<Project Name="NSA IOT COP Phase 2 Knowledge Sharing" Level="1" Folder="/NSA IOT COP Phase 2 Knowledge Sharing" selected="false" ProjectId="9356566">
+	</Project>
+<Project Name="NSA IOT NGC KM &amp; Content Management" Level="1" Folder="/NSA IOT NGC KM  Content Management" selected="false" ProjectId="8772474">
+	</Project>
+<Project Name="NSA IOT Trinmar=>Petrotrin Integration" Level="1" Folder="/NSA IOT Trinmar=Petrotrin Integration" selected="false" ProjectId="10468117">
+	</Project>
+<Project Name="NSA Integration" Level="1" Folder="/NSA Integration" selected="false" ProjectId="6342718">
+<Project Name="NAM Finance systems migration" Level="2" Folder="/NSA Integration/NAM Finance systems migration" selected="false" ProjectId="6742506">
+	</Project>
+	</Project>
+<Project Name="NSA MCA PEMEX" Level="1" Folder="/NSA MCA PEMEX" selected="false" ProjectId="2226070">
+	</Project>
+<Project Name="NSA OPE BHP Real Time Drilling Study" Level="1" Folder="/NSA OPE BHP Real Time Drilling Study" selected="false" ProjectId="8771844">
+	</Project>
+<Project Name="NSA OPE PMX  LiveQuest Business Case" Level="1" Folder="/NSA OPE PMX  LiveQuest Business Case" selected="false" ProjectId="8726236">
+	</Project>
+<Project Name="NSA PCE - Hocol" Level="1" Folder="/NSA PCE - Hocol" selected="false" ProjectId="1690454">
+	</Project>
+<Project Name="NSA PCE Col PO: Casabe" Level="1" Folder="/NSA PCE Col PO: Casabe" selected="false" ProjectId="5337634">
+<Project Name="Evaluation, Negotiation &amp; Closure" Level="2" Folder="/NSA PCE Col PO: Casabe/Evaluation Negotiation  Closure" selected="false" ProjectId="5337864">
+	</Project>
+	</Project>
+<Project Name="NSA PCE Ecu WCI : SIPEC Drilling Service for Eastern Ecuador" Level="1" Folder="/NSA PCE Ecu WCI : SIPEC Drilling Service for Eastern Ecuador" selected="false" ProjectId="5338625">
+<Project Name="Evaluation. Negotiation &amp; Closure" Level="2" Folder="/NSA PCE Ecu WCI : SIPEC Drilling Service for Eastern Ecuador/Evaluation. Negotiation  Closure" selected="false" ProjectId="5338694">
+	</Project>
+	</Project>
+<Project Name="NSA Phase II Sema Integration" Level="1" Folder="/NSA Phase II Sema Integration" selected="false" ProjectId="910076">
+	</Project>
+<Project Name="NSA VTT - Guara Este" Level="1" Folder="/NSA VTT - Guara Este" selected="false" ProjectId="1690009">
+	</Project>
+<Project Name="NSA WG BAP Land MCA/Mexico Pemex Potenciales 1" Level="1" Folder="/NSA WG BAP Land MCA Mexico Pemex Potenciales 1" selected="false" ProjectId="3790294">
+	</Project>
+<Project Name="NSA WG BAP Land MCA/Mexico Pemex Potenciales II " Level="1" Folder="/NSA WG BAP Land MCA Mexico Pemex Potenciales II " selected="false" ProjectId="3793332">
+	</Project>
+<Project Name="NSA-APA-OPE-B-CHG" Level="1" Folder="/NSA-APA-OPE-B-CHG" selected="false" ProjectId="11019886">
+	</Project>
+<Project Name="NSA-APO-Reserve Management Initiative" Level="1" Folder="/NSA-APO-Reserve Management Initiative" selected="false" ProjectId="7668049">
+	</Project>
+<Project Name="NSA-DAO-P-CoP-Production Automation Contractor" Level="1" Folder="/NSA-DAO-P-CoP-Production Automation Contractor" selected="false" ProjectId="6650828">
+<Project Name="PAC RFI Response" Level="2" Folder="/NSA-DAO-P-CoP-Production Automation Contractor/PAC RFI Response" selected="false" ProjectId="6651077">
+	</Project>
+	</Project>
+<Project Name="NSA-DDP-PMX-I Prod Mgmt Proposal for MCA" Level="1" Folder="/NSA-DDP-PMX-I Prod Mgmt Proposal for MCA" selected="false" ProjectId="12040308">
+	</Project>
+<Project Name="NSA-ETS-B-CoP-Benefits Realization Phase 1" Level="1" Folder="/NSA-ETS-B-CoP-Benefits Realization Phase 1" selected="false" ProjectId="7211279">
+	</Project>
+<Project Name="NSA-ETS-B-CoP-Benefits Realization Phase 2" Level="1" Folder="/NSA-ETS-B-CoP-Benefits Realization Phase 2" selected="false" ProjectId="8232418">
+	</Project>
+<Project Name="NSA-ETS-B-CoP-Upstream CIO Survey" Level="1" Folder="/NSA-ETS-B-CoP-Upstream CIO Survey" selected="false" ProjectId="6012679">
+	</Project>
+<Project Name="NSA-ETS-I-SBC-Project Office Operation" Level="1" Folder="/NSA-ETS-I-SBC-Project Office Operation" selected="false" ProjectId="6605951">
+	</Project>
+<Project Name="NSA-HSE-B-XOM-Impact Global Implementation" Level="1" Folder="/NSA-HSE-B-XOM-Impact Global Implementation" selected="false" ProjectId="6727308">
+	</Project>
+<Project Name="NSA-HSE-I-Offerings Development" Level="1" Folder="/NSA-HSE-I-Offerings Development" selected="false" ProjectId="6950709">
+	</Project>
+<Project Name="NSA-HUS-OPE-B-Husky WTMAP" Level="1" Folder="/NSA-HUS-OPE-B-Husky WTMAP" selected="false" ProjectId="9094273">
+	</Project>
+<Project Name="NSA-OIT-COP-IM Strategy" Level="1" Folder="/NSA-OIT-COP-IM Strategy" selected="false" ProjectId="11629420">
+	</Project>
+<Project Name="NSA-OPE-B-Drilling Performance Study - NSA-B-5153" Level="1" Folder="/NSA-OPE-B-Drilling Performance Study - NSA-B-5153" selected="false" ProjectId="11578930">
+	</Project>
+<Project Name="NSA-PMO Pemex  SAP Work Mgt" Level="1" Folder="/NSA-PMO Pemex  SAP Work Mgt" selected="false" ProjectId="8147961">
+	</Project>
+<Project Name="NSA-T2" Level="1" Folder="/NSA-T2" selected="false" ProjectId="92051">
+<Project Name="NAM-West" Level="2" Folder="/NSA-T2/NAM-West" selected="false" ProjectId="2455154">
+	</Project>
+	</Project>
+<Project Name="NSG - Tuscan Ardmore" Level="1" Folder="/NSG - Tuscan Ardmore" selected="false" ProjectId="3760275">
+	</Project>
+<Project Name="NSG -Statoil-Veslefrikk Pilot" Level="1" Folder="/NSG -Statoil-Veslefrikk Pilot" selected="false" ProjectId="7868893">
+	</Project>
+<Project Name="NSG UK Solutions Projects 2005" Level="1" Folder="/NSG UK Solutions Projects 2005" selected="false" ProjectId="12019960">
+	</Project>
+<Project Name="NSG WP test project" Level="1" Folder="/NSG WP test project" selected="false" ProjectId="15305496">
+	</Project>
+<Project Name="NSG- CoP Stimulation Engineer" Level="1" Folder="/NSG- CoP Stimulation Engineer" selected="false" ProjectId="12176592">
+	</Project>
+<Project Name="NSG- CoP Tor PLT study" Level="1" Folder="/NSG- CoP Tor PLT study" selected="false" ProjectId="11982677">
+	</Project>
+<Project Name="NSG- DONG Mjoelner modelling" Level="1" Folder="/NSG- DONG Mjoelner modelling" selected="false" ProjectId="12176391">
+	</Project>
+<Project Name="NSG- DONG South Arne &amp; GwenQ Modelling" Level="1" Folder="/NSG- DONG South Arne  GwenQ Modelling" selected="false" ProjectId="11982966">
+	</Project>
+<Project Name="NSG- Finavera Dowra frac study" Level="1" Folder="/NSG- Finavera Dowra frac study" selected="false" ProjectId="11988037">
+	</Project>
+<Project Name="NSG- Hydro Oseberg South Frac Modelling" Level="1" Folder="/NSG- Hydro Oseberg South Frac Modelling" selected="false" ProjectId="12176418">
+	</Project>
+<Project Name="NSG- SCA geomechanics  YTD end Q3" Level="1" Folder="/NSG- SCA geomechanics  YTD end Q3" selected="false" ProjectId="11982902">
+	</Project>
+<Project Name="NSG- Statoil Heidrun Water Solutions" Level="1" Folder="/NSG- Statoil Heidrun Water Solutions" selected="false" ProjectId="11982696">
+	</Project>
+<Project Name="NSG- Statoil Heidrun prod opt" Level="1" Folder="/NSG- Statoil Heidrun prod opt" selected="false" ProjectId="11097881">
+	</Project>
+<Project Name="NSG- Statoil Linere well design" Level="1" Folder="/NSG- Statoil Linere well design" selected="false" ProjectId="12556687">
+	</Project>
+<Project Name="NSG- Statoil int, integrated drilling operations" Level="1" Folder="/NSG- Statoil int integrated drilling operations" selected="false" ProjectId="11982880">
+	</Project>
+<Project Name="NSG- Total-Reservoir Characterization Block 3/25" Level="1" Folder="/NSG- Total-Reservoir Characterization Block 3 25" selected="false" ProjectId="11881447">
+	</Project>
+<Project Name="NSG- UK geomachincs YTD end Q3" Level="1" Folder="/NSG- UK geomachincs YTD end Q3" selected="false" ProjectId="11982923">
+	</Project>
+<Project Name="NSG-Finavera Dowra Pre-Development Study" Level="1" Folder="/NSG-Finavera Dowra Pre-Development Study" selected="false" ProjectId="10888684">
+	</Project>
+<Project Name="NSG-Finavera Northern Ireland" Level="1" Folder="/NSG-Finavera Northern Ireland" selected="false" ProjectId="11960217">
+	</Project>
+<Project Name="NSTS Review" Level="1" Folder="/NSTS Review" selected="false" ProjectId="2915644">
+	</Project>
+<Project Name="NT iPlanet Pilot" Level="1" Folder="/NT iPlanet Pilot" selected="false" ProjectId="6770377">
+	</Project>
+<Project Name="NXM - Integracion de Decision Point y DrillDB" Level="1" Folder="/NXM - Integracion de Decision Point y DrillDB" selected="false" ProjectId="10079209">
+	</Project>
+<Project Name="NXV - Play Tampico with DPDA" Level="1" Folder="/NXV - Play Tampico with DPDA" selected="false" ProjectId="10345347">
+	</Project>
+<Project Name="Naftkav South Pars Oil" Level="1" Folder="/Naftkav South Pars Oil" selected="false" ProjectId="1334599">
+	</Project>
+<Project Name="Napims Peep implementation" Level="1" Folder="/Napims Peep implementation" selected="false" ProjectId="14332938">
+	</Project>
+<Project Name="National Australian Group" Level="1" Folder="/National Australian Group" selected="false" ProjectId="1409425">
+	</Project>
+<Project Name="Nautla-3DQ " Level="1" Folder="/Nautla-3DQ " selected="false" ProjectId="10740839">
+	</Project>
+<Project Name="NavPac Lite" Level="1" Folder="/NavPac Lite" selected="false" ProjectId="1473246">
+	</Project>
+<Project Name="Navigation Signals RFP 2005" Level="1" Folder="/Navigation Signals RFP 2005" selected="false" ProjectId="8953891">
+	</Project>
+<Project Name="Neftrack Project Execution Plan" Level="1" Folder="/Neftrack Project Execution Plan" selected="false" ProjectId="15184389">
+	</Project>
+<Project Name="Nelp V" Level="1" Folder="/Nelp V" selected="false" ProjectId="9662490">
+	</Project>
+<Project Name="Neptune" Level="1" Folder="/Neptune" selected="false" ProjectId="1113988">
+	</Project>
+<Project Name="Netscreen Solution" Level="1" Folder="/Netscreen Solution" selected="false" ProjectId="7211381">
+	</Project>
+<Project Name="Network Assessment Development" Level="1" Folder="/Network Assessment Development" selected="false" ProjectId="20358">
+	</Project>
+<Project Name="Network Consulting Service Line" Level="1" Folder="/Network Consulting Service Line" selected="false" ProjectId="3972479">
+	</Project>
+<Project Name="Network Practice" Level="1" Folder="/Network Practice" selected="false" ProjectId="1254190">
+<Project Name="Lunch and Learn" Level="2" Folder="/Network Practice/Lunch and Learn" selected="false" ProjectId="1721272">
+	</Project>
+<Project Name="Methodology - IPv6" Level="2" Folder="/Network Practice/Methodology - IPv6" selected="false" ProjectId="2399738">
+	</Project>
+<Project Name="Methodology - LAN" Level="2" Folder="/Network Practice/Methodology - LAN" selected="false" ProjectId="2394960">
+	</Project>
+<Project Name="Methodology - Satellite" Level="2" Folder="/Network Practice/Methodology - Satellite" selected="false" ProjectId="2097730">
+	</Project>
+<Project Name="Methodology - Voice" Level="2" Folder="/Network Practice/Methodology - Voice" selected="false" ProjectId="2394472">
+	</Project>
+<Project Name="Methodology - WAN" Level="2" Folder="/Network Practice/Methodology - WAN" selected="false" ProjectId="2399721">
+	</Project>
+<Project Name="Methodology - Wireless" Level="2" Folder="/Network Practice/Methodology - Wireless" selected="false" ProjectId="2394255">
+	</Project>
+<Project Name="Technical Briefs" Level="2" Folder="/Network Practice/Technical Briefs" selected="false" ProjectId="1723804">
+	</Project>
+<Project Name="UNIX Host Security Assessment" Level="2" Folder="/Network Practice/UNIX Host Security Assessment" selected="false" ProjectId="2163099">
+	</Project>
+	</Project>
+<Project Name="New Business Model (Datamodel)" Level="1" Folder="/New Business Model Datamodel" selected="false" ProjectId="1157110">
+	</Project>
+<Project Name="New Generation Pressure Recorder" Level="1" Folder="/New Generation Pressure Recorder" selected="false" ProjectId="12347819">
+	</Project>
+<Project Name="New Generation Pressure Recorder" Level="1" Folder="/New Generation Pressure Recorder" selected="false" ProjectId="13435280">
+	</Project>
+<Project Name="New PRoject" Level="1" Folder="/New PRoject" selected="false" ProjectId="674643">
+	</Project>
+<Project Name="New Project " Level="1" Folder="/New Project " selected="false" ProjectId="1833704">
+<Project Name="ERM Development - Mark Zajac" Level="2" Folder="/New Project /ERM Development - Mark Zajac" selected="false" ProjectId="1839538">
+	</Project>
+	</Project>
+<Project Name="New Sub Project" Level="1" Folder="/New Sub Project" selected="false" ProjectId="12898871">
+	</Project>
+<Project Name="Newfield" Level="1" Folder="/Newfield" selected="false" ProjectId="2989371">
+	</Project>
+<Project Name="Nexen - Aspen #` ST-6" Level="1" Folder="/Nexen - Aspen #` ST-6" selected="false" ProjectId="14805567">
+	</Project>
+<Project Name="Nexen Aspen II " Level="1" Folder="/Nexen Aspen II " selected="false" ProjectId="5206253">
+	</Project>
+<Project Name="Nexen Yemen" Level="1" Folder="/Nexen Yemen" selected="false" ProjectId="798486">
+	</Project>
+<Project Name="Nexen-Aspen Completion Project" Level="1" Folder="/Nexen-Aspen Completion Project" selected="false" ProjectId="5500451">
+	</Project>
+<Project Name="Next Gen Cable Head" Level="1" Folder="/Next Gen Cable Head" selected="false" ProjectId="15028649">
+	</Project>
+<Project Name="Next Gen SenTREE" Level="1" Folder="/Next Gen SenTREE" selected="false" ProjectId="15033858">
+	</Project>
+<Project Name="Nexus II (Gippsland 4Q04-1Q05)" Level="1" Folder="/Nexus II Gippsland 4Q04-1Q05" selected="false" ProjectId="9651461">
+	</Project>
+<Project Name="Nigeria NDR, 2002" Level="1" Folder="/Nigeria NDR 2002" selected="false" ProjectId="1190359">
+	</Project>
+<Project Name="Nigerian marginal fields" Level="1" Folder="/Nigerian marginal fields" selected="false" ProjectId="8121232">
+	</Project>
+<Project Name="Nissan DeXa.Badge" Level="1" Folder="/Nissan DeXa.Badge" selected="false" ProjectId="913270">
+<Project Name="Nissan European Programme" Level="2" Folder="/Nissan DeXa.Badge/Nissan European Programme" selected="false" ProjectId="384449">
+<Project Name="Nissan Paddington" Level="3" Folder="/Nissan DeXa.Badge/Nissan European Programme/Nissan Paddington" selected="false" ProjectId="589786">
+	</Project>
+<Project Name="Physical Access (Phase I)" Level="3" Folder="/Nissan DeXa.Badge/Nissan European Programme/Physical Access Phase I" selected="false" ProjectId="428334">
+	</Project>
+<Project Name="Physical Access (phase II)" Level="3" Folder="/Nissan DeXa.Badge/Nissan European Programme/Physical Access phase II" selected="false" ProjectId="686156">
+	</Project>
+	</Project>
+<Project Name="Nissan Global Program Office" Level="2" Folder="/Nissan DeXa.Badge/Nissan Global Program Office" selected="false" ProjectId="920205">
+<Project Name="Nissan Thailand" Level="3" Folder="/Nissan DeXa.Badge/Nissan Global Program Office/Nissan Thailand" selected="false" ProjectId="4980452">
+	</Project>
+	</Project>
+<Project Name="Nissan Japan, Logical Security" Level="2" Folder="/Nissan DeXa.Badge/Nissan Japan Logical Security" selected="false" ProjectId="660800">
+	</Project>
+	</Project>
+<Project Name="Nissan European Programme" Level="1" Folder="/Nissan European Programme" selected="false" ProjectId="384449">
+<Project Name="Nissan Paddington" Level="2" Folder="/Nissan European Programme/Nissan Paddington" selected="false" ProjectId="589786">
+	</Project>
+<Project Name="Physical Access (Phase I)" Level="2" Folder="/Nissan European Programme/Physical Access Phase I" selected="false" ProjectId="428334">
+	</Project>
+<Project Name="Physical Access (phase II)" Level="2" Folder="/Nissan European Programme/Physical Access phase II" selected="false" ProjectId="686156">
+	</Project>
+	</Project>
+<Project Name="Nissan Japan, Logical Security" Level="1" Folder="/Nissan Japan Logical Security" selected="false" ProjectId="660800">
+	</Project>
+<Project Name="Nissan Security Project (Global)" Level="1" Folder="/Nissan Security Project Global" selected="false" ProjectId="3612117">
+<Project Name="Nissan Design America" Level="2" Folder="/Nissan Security Project Global/Nissan Design America" selected="false" ProjectId="3612212">
+	</Project>
+<Project Name="Nissan North America Los Angeles" Level="2" Folder="/Nissan Security Project Global/Nissan North America Los Angeles" selected="false" ProjectId="3612285">
+	</Project>
+<Project Name="Nissan Regional Office - NER" Level="2" Folder="/Nissan Security Project Global/Nissan Regional Office - NER" selected="false" ProjectId="3612335">
+	</Project>
+<Project Name="Nissan Regional Office - SCR" Level="2" Folder="/Nissan Security Project Global/Nissan Regional Office - SCR" selected="false" ProjectId="3612311">
+	</Project>
+<Project Name="Nissan Technical Center - Arizona Test Center" Level="2" Folder="/Nissan Security Project Global/Nissan Technical Center - Arizona Test Center" selected="false" ProjectId="3615116">
+	</Project>
+<Project Name="Nissan Technical Center - Farmington Hills" Level="2" Folder="/Nissan Security Project Global/Nissan Technical Center - Farmington Hills" selected="false" ProjectId="3612156">
+	</Project>
+	</Project>
+<Project Name="No Drilling Surprises" Level="1" Folder="/No Drilling Surprises" selected="false" ProjectId="3507092">
+	</Project>
+<Project Name="Noble Energy" Level="1" Folder="/Noble Energy" selected="false" ProjectId="6673698">
+	</Project>
+</projects>

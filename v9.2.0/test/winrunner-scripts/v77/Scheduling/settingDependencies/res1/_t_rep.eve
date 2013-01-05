@@ -1,0 +1,24 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 1 1112228306 0
+23 20 <FIXED DURATION TASKS> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 109 1112228390 0
+23 26 <Cannot connect to database> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 31 1112228401 0
+39 1 <web_obj_text_exists- t1> <settingDependencies> 42 1112228406 0
+23 35 <Verified that t2 is dependant on t1> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 43 1112228406 0
+23 26 <Cannot connect to database> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 74 1112228410 0
+39 1 <web_obj_text_exists- t3> <settingDependencies> 85 1112228418 0
+23 35 <Verified that t4 is dependant on t3> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 86 1112228418 0
+23 16 <FIXED UNIT TASKS> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 117 1112228481 0
+23 26 <Cannot connect to database> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 31 1112228487 0
+39 1 <web_obj_text_exists- t5> <settingDependencies> 42 1112228492 0
+23 35 <Verified that t6 is dependant on t5> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 43 1112228492 0
+23 26 <Cannot connect to database> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 74 1112228496 0
+39 1 <web_obj_text_exists- t7> <settingDependencies> 85 1112228504 0
+23 35 <Verified that t8 is dependant on t7> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 86 1112228504 0
+23 16 <FIXED WORK TASKS> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 125 1112228570 0
+23 26 <Cannot connect to database> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 31 1112228576 0
+39 1 <web_obj_text_exists- t9> <settingDependencies> 42 1112228581 0
+23 36 <Verified that t10 is dependant on t9> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 43 1112228581 0
+23 26 <Cannot connect to database> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 74 1112228585 0
+39 1 <web_obj_text_exists- t11> <settingDependencies> 85 1112228593 0
+23 37 <Verified that t12 is dependant on t11> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 86 1112228593 0
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 133 1112228595 0

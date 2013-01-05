@@ -1,0 +1,46 @@
+function createList(in listName, in fieldName){
+	auto fieldID;
+	extern i;
+	reload("fieldName",0,1);
+	fieldID = getFieldID(fieldName);
+	
+	set_window("main",1);
+	web_link_click("Lists");
+	wait(1);
+	set_window("main",1);
+	if(i<=1){
+		web_link_click("Create");
+		wait(1);
+		set_window("main",1);	
+		edit_set("name","WRlist");
+		edit_set("description","Testing creation of lists using WR");
+	}
+	
+	web_link_click(listName);
+	
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui","main","field_checked","html_name","field_checked__"&fieldID&"")!=E_OK)
+		report_msg("Not OK1");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");
+	
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui","main","column_num","html_name","column_num__"&fieldID&"")!=E_OK)
+		report_msg("Not OK2");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");
+	
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui","main","field_width","html_name","field_width__"&fieldID&"")!=E_OK)
+		report_msg("Not OK3");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");
+	
+	wait(1);
+	set_window("main",1);	
+	button_set("field_checked",ON);
+	edit_set("column_num",i);
+	edit_set("field_width",20);
+	wait(1);
+	web_link_click("Submit");
+	set_window("main",1);
+	i = i+1;		
+}	
+	

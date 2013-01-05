@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+	<t:if test="showEntry">
+		<div class="date">
+			<table width="100%">
+				<tr>
+					<td nowrap="nowrap" class="date">
+						<t:if test="showExpandCollapseImage">
+							<a href="javascript:openCloseEntry('${pnWeblogEntry.weblogEntryId}')" >
+								<img src="${JSPRootURL}/images/minus.png" id="expandUnexpandImage_${pnWeblogEntry.weblogEntryId}" alt="${collapseIconTooltip}" title="${collapseIconTooltip}" />
+							</a>
+						</t:if>
+						${pnWeblogEntry.pubDateString} <span class="blogTime">${pnWeblogEntry.pubtimeString}</span>
+					</td>
+					<t:if test="pnWeblogEntry.updateTimeString">
+						<td nowrap="nowrap" align="right" style="padding-right: 50px;">
+							<span class="edited-date" align="right"><t:Message value="prm.viewblog.lastedited.date.label"/> ${pnWeblogEntry.updateTimeString}</span>
+						</td>
+					</t:if>
+				</tr>
+			</table>
+		</div>
+		<span id="FullViewTitle_${pnWeblogEntry.weblogEntryId}" class="title">
+			<t:if test="pnWeblogEntry.isImportantSymbol">
+				<span class="flag" title="${importantSymbolTooltip}">${pnWeblogEntry.isImportantSymbol}</span>
+			</t:if>
+			<b><t:OutputRaw  value="pnWeblogEntry.title"/></b>
+			<t:if test="pnWeblogEntry.contextName">
+				<t:if test="pnWeblogEntry.contextUrl">
+					<a id="blogcontextLinkFor_${pnWeblogEntry.weblogEntryId}" class="blogContext" href="${pnWeblogEntry.contextUrl}">
+				 		${pnWeblogEntry.contextName}: ${pnWeblogEntry.contextValue}
+					</a>
+			    	<t:parameter name="else">
+						<a id="blogcontextLinkFor_${pnWeblogEntry.weblogEntryId}" class="blogContext" href="javascript:showErrorForContextLink('${pnWeblogEntry.weblogEntryId}');">
+				 			${pnWeblogEntry.contextName}: ${pnWeblogEntry.contextValue}
+						</a>
+					</t:parameter>
+				</t:if>	
+			</t:if>
+		</span>
+		<div class="by">
+			<t:if test="linkToPersonSpace">
+				<t:if test="pnWeblogEntry.projectEntry">
+				<t:if test="pnWeblogEntry.checkProject">
+					<t:Message value="prm.blog.viewblog.project.label"/>
+					<a class="project" href="${JSPRootURL}/project/Dashboard?id=${pnWeblogEntry.pnProjectSpace.projectId}">
+						${pnWeblogEntry.pnProjectSpace.projectName}
+					</a>
+					<t:parameter name="else">
+						<t:Message value="prm.blog.viewblog.project.label"/>
+						<a class="project" id="deletedProject_${pnWeblogEntry.weblogEntryId}" href="javascript:showObjectDeletedError('Project', '${pnWeblogEntry.weblogEntryId}', '');">
+							${pnWeblogEntry.pnProjectSpace.projectName}
+						</a>
+						</t:parameter>
+				</t:if>
+				</t:if>
+				<t:parameter name="else">
+					<t:if test="pnWeblogEntry.checkPerson">
+						<t:Message value="prm.blog.viewblog.entrypostedby.label"/>
+						<a id="nonDeletedPerson_${pnWeblogEntry.weblogEntryId}" href="${JSPRootURL}/blog/view/${pnWeblogEntry.pnPerson.personId}/${pnWeblogEntry.pnPerson.personId}/person/160?module=160" class="user">
+						 ${pnWeblogEntry.pnPerson.displayName}</a>
+						 	<t:parameter name="else">
+						 		<t:Message value="prm.blog.viewblog.entrypostedby.label"/>
+								<a id="deletedMember_${pnWeblogEntry.weblogEntryId}" href="javascript:showObjectDeletedError('Member', '${pnWeblogEntry.weblogEntryId}', '');">
+								 ${pnWeblogEntry.pnPerson.displayName}</a>
+							 </t:parameter>
+					</t:if>
+				 </t:parameter>
+				 <!-- t:if test="pnWeblogEntry.projectEntry">
+					<span class="project-name"><t:Message value="prm.blog.viewblog.project.label" /> ${pnWeblogEntry.projectName}</span>
+				</t:if -->
+			</t:if>							
+			<t:if test="pnWeblogEntry.workSubmitted">
+				<span class="hours-submitted"><t:Message value="prm.viewblog.hoursubmitted.label" /> ${pnWeblogEntry.workSubmitted}</span>
+			</t:if>
+			<t:if test="pnWeblogEntry.changedEstimate">
+				<span class="changed-total-estimates"><t:Message value="prm.viewblog.changeestimate.label" /> ${pnWeblogEntry.changedEstimate}</span>
+			</t:if>
+		</div>
+		<div style="clear: both"></div>
+		<div class="post">
+			<div name="weblogEntryContentsDiv" id="weblogEntryContents"><t:OutputRaw value="pnWeblogEntry.text" /></div>
+		</div>		
+		<t:if test="showLinks">		
+		<div class="comments"> 
+			<span id="commentDivFor_${pnWeblogEntry.weblogEntryId}">
+				&darr;&nbsp;
+				<t:if test="pnWeblogEntry.pnWeblogComment">
+					<a id="hideShowCommentsLinkFor_${pnWeblogEntry.weblogEntryId}"
+						href="javascript:hideComments(${pnWeblogEntry.weblogEntryId},'${addACommentLink}')">
+					<strong><t:Message value="prm.viewblog.blogentry.hidecomment.label" /></strong></a>
+					<span id="pnWeblogCommentSize_${pnWeblogEntry.weblogEntryId}">(${pnWeblogEntry.pnWeblogComment.size()})</span>
+					<t:parameter name="else">
+						<b><t:Message value="prm.schedule.taskview.advanced.comments.none.message" /></b>
+					</t:parameter>
+				</t:if> 
+			</span>
+			&nbsp;|&nbsp;
+			<a id="addCommentFor_${pnWeblogEntry.weblogEntryId}"
+				href="javascript:addComment('${JSPRootURL}/blog/AddWeblogEntryComment/${pnWeblogEntry.weblogEntryId}')">
+				${addACommentLink}</a> 
+			<t:if test="showEditLink">
+				<t:if test="pnWeblogEntry.isEditable">&nbsp;|&nbsp;
+					<a href="javascript:updateWin('${JSPRootURL}/blog/AddWeblogEntry/${pnWeblogEntry.weblogEntryId}/${pnWeblogEntry.isImportantSymbol}',650,350,'Edit')">
+					${editLink}</a>
+				</t:if>
+				<t:if test="pnWeblogEntry.isDeletable">
+					&nbsp;|&nbsp;<a href="javascript:deleteBlogEntry('${pnWeblogEntry.weblogEntryId}', '${pnWeblogEntry.workSubmitted}', '${pnWeblogEntry.changedEstimate}')"><t:Message value="prm.viewblog.blogentry.delete.label"/></a>
+				</t:if>
+			</t:if>
+		</div>
+		</t:if>
+	</t:if>
+	<t:if test="showComment">
+		<div t:type="loop" source="comments" value="pnWeblogComment">
+			<div style="clear: both"></div>
+			<div id="blogCommentDiv" class="${blogCommentDivClass}">
+				<div class="photo">
+					<img src="${JSPRootURL}/images/comment-arrow.png"/>
+				</div>
+				<div id="blogPostDiv" class="${blogPostDivClass}">
+					<div class="date">${pnWeblogComment.postDateString} <span class="blogTime"> ${pnWeblogComment.postTimeString} </span></div> 
+					<div class="by">
+						<t:Message value="prm.blog.viewblog.entrypostedby.label"/>
+						<a href="${JSPRootURL}/blog/view/${pnWeblogComment.personId}/${pnWeblogComment.personId}/person/160?module=160" class="user">
+						 ${pnWeblogComment.name}</a>
+					</div>
+					<div style="clear: both"></div>
+					<div class="post">
+						<div name="weblogEntryContentsDiv" id="weblogEntryContents">
+							<t:OutputRaw value="pnWeblogComment.content" />
+						</div>
+					</div>
+					<div class="comments">
+						<t:if test="pnWeblogComment.isDeletable">
+							<a id="deleteCommentLinkFor_${pnWeblogComment.commentId}"
+								href="javascript:deleteComment('${pnWeblogComment.commentId}', '${blogEntryId}')">
+							<strong><t:Message value="prm.blog.viewblog.deletecomment.link"/></strong></a>
+						</t:if>
+					</div>	
+				</div><!-- post-body class end -->
+			</div><!-- comment-entry class end -->
+		</div><!-- comments loop end -->
+		<script type="text/javascript"> 
+			var commentCnt = '${comments.size()}';
+			noCommentsMessage = '<t:Message value="prm.schedule.taskview.advanced.comments.none.message" />';
+		</script>
+	</t:if>
+	<t:if test="showEntryTooltip">
+	<div style="overflow-x:auto;">
+	    <div style="font-family: Arial,Helvetica,sans-serif;font-size:14px;color:#003399;border:none;float:none;font-weight:normal;margin:0px 0px 0px 0px;padding:0px 0px;text-align:left;">
+			${pnWeblogEntry.pubDateString} <span class="blogTime">${pnWeblogEntry.pubtimeString}</span>
+		</div>
+		<span id="FullViewTitle_${pnWeblogEntry.weblogEntryId}" style="font-family: Arial, Helvetica, sans-serif;font-size: 18px;color: #333333;">
+			<t:if test="pnWeblogEntry.isImportantSymbol">
+				<span style="padding-right: 3px;color:Red;font-weight:bold;" title="${importantSymbolTooltip}">${pnWeblogEntry.isImportantSymbol}</span>
+			</t:if>
+			<b><t:OutputRaw  value="pnWeblogEntry.title"/></b>
+			<t:if test="pnWeblogEntry.contextName">
+				<t:if test="pnWeblogEntry.contextUrl">
+					<a id="blogcontextLinkFor_${pnWeblogEntry.weblogEntryId}" class="blogContext" href="${pnWeblogEntry.contextUrl}">
+				 		${pnWeblogEntry.contextName}: ${pnWeblogEntry.contextValue}
+					</a>					
+			    	<t:parameter name="else">
+						<a id="blogcontextLinkFor_${pnWeblogEntry.weblogEntryId}" class="blogContext" href="javascript:showErrorForContextLink('${pnWeblogEntry.weblogEntryId}');">
+				 			${pnWeblogEntry.contextName}: ${pnWeblogEntry.contextValue}
+						</a>
+					</t:parameter>
+				</t:if>	
+			</t:if>
+		</span>
+		<div style="font-family: Arial, Helvetica, sans-serif;font-size: 13px;padding-bottom: 5px;color: Gray;">
+			<t:if test="linkToPersonSpace">
+				<t:parameter name="else">
+					<t:if test="pnWeblogEntry.checkPerson">
+						<t:Message value="prm.blog.viewblog.entrypostedby.label"/>
+						<a id="nonDeletedPerson_${pnWeblogEntry.weblogEntryId}" href="${JSPRootURL}/blog/view/${pnWeblogEntry.pnPerson.personId}/${pnWeblogEntry.pnPerson.personId}/person/160?module=160" class="user">
+						 ${pnWeblogEntry.pnPerson.displayName}</a>
+						 <t:parameter name="else">
+						 	<t:Message value="prm.blog.viewblog.entrypostedby.label"/>
+							<a id="deletedMember_${pnWeblogEntry.weblogEntryId}" href="javascript:showObjectDeletedError('Member', '${pnWeblogEntry.weblogEntryId}', '');">
+							 ${pnWeblogEntry.pnPerson.displayName}</a>
+						 </t:parameter>
+					</t:if>
+				 </t:parameter>
+			</t:if>							
+			<t:if test="pnWeblogEntry.workSubmitted">
+				<span style="padding-left:50px;color:Green;"><t:Message value="prm.viewblog.hoursubmitted.label" /> ${pnWeblogEntry.workSubmitted}</span>
+			</t:if>
+			<t:if test="pnWeblogEntry.changedEstimate">
+				<span style="padding-left:50px;color:Green;"><t:Message value="prm.viewblog.changeestimate.label" /> ${pnWeblogEntry.changedEstimate}</span>
+			</t:if>
+			<t:if test="pnWeblogEntry.multipleWorkSubmitted">
+				<span><t:Message value="prm.viewblog.multiplework.hoursubmitted.label"/></span><br/>
+				<input type="hidden" id="multipleWorkSubmitted_${pnWeblogEntry.weblogEntryId}" name="multipleWorkSubmitted" value="${pnWeblogEntry.multipleWorkSubmitted}"/>
+				<div id="divmultipleWorkSubmitted_${pnWeblogEntry.weblogEntryId}" name="multipleWorkSubmitteddiv" style="display: block;"></div>
+			</t:if>
+		</div>
+		<div style="clear: both"></div>
+		<div style="font-family:Arial,Helvetica,sans-serif;font-size:12px;color:Black;padding-bottom:0px;">
+			<div><t:OutputRaw value="pnWeblogEntry.text" /></div>
+			<t:if test="pnWeblogEntry.updateTimeString">
+				<div style="font-family: Arial,Helvetica,sans-serif;font-size:12px;font-weight:bold;text-align:right;color:silver;"><t:Message value="prm.viewblog.lastedited.date.label"/> ${pnWeblogEntry.updateTimeString}</div>
+			</t:if>
+		</div>
+		</div>
+	</t:if>	
+</div>

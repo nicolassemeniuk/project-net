@@ -1,0 +1,1105 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+ #blogPopupScreen, #blogLaodingScreen {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background-color: #818181;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	-moz-opacity: 0.7;
+	opacity: 0.7;
+	z-index: 11;
+}
+#blogPopupDialogue, #commentDialog {
+	position: absolute;
+	overflow: hidden;
+	left: 200px;
+	top: 100px;
+	margin: 0px;
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+	padding: 0px;
+	z-index: 12;
+	
+}
+#blogPopupbody #commentDialogbody {
+	position: relative;
+	left: 0px;
+	top: 0px;
+	padding: 0px;
+	margin: 0px;
+	margin-top: 0px;
+}
+#personalImageScreen {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background-color: #818181;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	-moz-opacity: 0.7;
+	opacity: 0.7;
+	z-index: 11;
+}
+#personalImageDialogue {
+	position: absolute;
+	overflow: hidden;
+	left: 200px;
+	top: 200px;
+	margin: 0px;
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+	padding: 0px;
+	z-index: 12;
+}
+#personalImagebody {
+	position: relative;
+	left: 0px;
+	top: 0px;
+	padding: 0px;
+	margin: 0px;
+	margin-top: 0px;
+}
+.blogPopupTitle{
+	color: #1264A7;
+	font-weight: bold; 
+	font-size:12px;
+}
+.blogLink{
+	color: #1264A7;
+	text-decoration: none;
+}
+.blogEntryTitle {
+	 font-family: Arial,Verdana,Helvetica;
+	 font-size: 12px;
+	 font-weight: bold;
+	 width: 30%;
+}
+.blogProjectEntryTitle {
+	 padding-left: 80px;
+	 font-family: Arial,Verdana,Helvetica;
+	 font-size: 12px;
+	 font-weight: bold;
+	 color: gray;
+	 width: 30%;
+
+}
+.blogEntryLabel {
+	 font-family: Arial,Verdana,Helvetica;
+	 font-size: 12px;
+	 font-weight: bold;
+	 width: 12%;
+	 color:#999999;
+}
+
+#blog-content {
+	height: auto; 
+	width: 80%; 
+	position: absolute; 
+	left: 176px; 
+	top: 160px;	
+}
+#weblogEntryContents 
+ul, ol { 
+	margin: 1em 0 0 0;
+	padding: 0pt 1.65em;
+}
+#weblogEntryContents 
+ul{
+	list-style-image: inherit;
+	list-style-position: inside;
+	list-style-type: disc;
+}
+#weblogEntryContents 
+ol{
+	list-style-image: inherit;
+	list-style-position: inside;
+	list-style-type: decimal;
+}
+#weblogEntryContents{
+	overflow-X: auto;
+	font-size: 12px;
+}
+
+.weblogEntryContentsClass {
+	position: relative;
+}
+
+.blogbar {
+	background-color: #33BDFF;
+	border-collapse: collapse;
+	height: 2px;
+	padding: 0pt;
+}
+.blogbar2 {
+	background-color: #CC99FF;
+	border-collapse: collapse;
+	height: 1px;
+	padding: 0pt;
+}
+.redlink{
+	color: #CC0000;
+	font-size: 12px;
+	font-family: Arial,Helvetica;
+}
+.bluelink{
+	color: #005CB9;
+	font-size: 12px;
+	font-family: Arial,Helvetica;
+}
+.setTitle{
+	font-family: Arial,Verdana,Helvetica;
+	font-size: 13px;
+	font-weight: bold;
+	width: 30%;
+	color: #005CB9;
+}
+.buttonLink{
+	text-decoration: none;
+	font-family: Arial,Verdana,Helvetica;
+	font-size: 14px;
+	font-weight: bold;
+	width: 30%;
+	color: #005CB9;
+}
+.setPrecentSubTitle{
+	font-family: Arial,Verdana,Helvetica;
+	font-size: 12px;
+	font-weight: bold;
+	color: #666666;
+
+}
+.setPrecentsimpleTitle{
+	font-family: Arial,Verdana,Helvetica;
+	font-size: 12px;
+	color: #000000;
+}
+
+/* CSS for new UI for blog page */
+#blog {
+	text-align: left;
+}
+
+#blog .entry {
+	padding-bottom: 25px;
+	float: left;
+	width: 95%;
+}
+
+#blog .title-only-entry {
+	padding-bottom: 2px;
+	float: left;
+	width: 100%;
+	margin-left: -17px;
+}
+
+#blog .title-only-entry div.short-line span {
+	font-size: 13px;
+}
+
+#blog .date {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #003399;
+	border: none;
+	float: none;
+	font-weight: normal;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px;
+	text-align: left;
+}
+
+#blog .photo {
+	float: left;
+	width: 50px;
+	height: 65px;
+	vertical-align: middle;
+	text-align: center;
+}
+#blog .title {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 16px;
+	color: #333333;
+}
+
+#blog .title span.flag {
+	padding-right: 3px;
+	color: Red;
+	font-weight: bold;
+	
+}
+
+#blog .by {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	padding-bottom: 5px;
+	margin-right: 5px;
+	color: Gray;
+}
+#blog .spacer {
+	width: 5px;
+}
+.by-left-margin {
+	margin-left: 5px;
+}
+
+#blog .by span.hours-submitted {
+	padding-left: 50px;
+	color: Green;
+}
+
+#blog .hours-submitted-title {
+	padding-left: 10px;
+	color: Green;
+}
+
+#blog .by span.project-name {	
+	color: black;
+}
+
+#blog .attachments {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	right: 10%;
+	position: absolute;
+	margin-top: 5px;
+}
+
+#blog .attachments a:hover {
+	text-decoration: none;
+	background-color: Gray;
+	color: White;
+}
+
+#blog .post{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Black;
+	line-height: 20px;
+	padding-bottom: 0px;
+}
+
+#blog .comments {
+	margin-top: 5px;
+	border-top: 1px solid Silver;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Gray;
+	width: 100%;
+	font-weight: normal;
+}
+#blog .comments a {
+	color: #3399ff;
+	font-weight: bold;
+	text-decoration: none;
+}
+#blog .comments strong {
+	font-weight: bold;
+}
+#blog .comments a:hover {
+	text-decoration: none;
+	color: #3366dd;
+}
+#blog a {
+	color: Navy;
+	text-decoration: none;
+}
+
+#blog a:hover {
+	text-decoration: underline;
+}
+
+#blog .line {
+	margin-top: 3px;
+	border-top: 1px solid Silver;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Gray;
+}
+
+#blog .post-body {
+	float: left;
+	margin-left: 15px;
+	width: 90%;
+}
+
+#blog .titleView-post-body {
+	float: left;
+	width: 90%;
+	margin-left: 15px;
+}
+
+#blog .post-body1 {
+	float: left;
+	margin-left: 5px;
+}
+
+/* Blog page - Comments */
+#blog .comment-entry .date {
+	margin-top: 10px;
+}
+
+#blog .comment-entry .post {
+	color: #353535;
+	line-height: 18px;
+}
+
+#blog .comment-entry {
+	padding-left: 50px;
+}
+
+#blog .comment-entry .post-body {
+	width: 80%;	
+}
+
+/*#blog .comment-entry .comment-entry .post-body {
+	width: 90%;
+	
+}*/
+
+#blog .comment-entry .comments {
+	border-top: 1px solid #DDDDDD;
+}
+
+#blog .comment-entry .photo {
+	text-align: right;
+}
+/*.project-title {
+	font-family: Tahoma;
+	font-size: 14px;
+	font-weight: normal;
+	margin-top: 46px;
+	margin-bottom: 2px;
+	float: left;
+	width: 180px;
+	color: Navy;
+}*/
+.project-description {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding-left: 14px;
+	margin-top: 2px;
+	margin-bottom: 4px;
+	width: 160px;
+}
+.project-description a {
+	color: Navy;
+}
+.project-description strong {
+	color: Gray;
+	font-weight: normal;
+	margin-right: 5px;
+}
+.highlightDay {
+	background-color: yellow;
+}
+#left {
+	float:left;
+	width:196px;
+}
+
+.profile-name {
+	font-family: Tahoma;
+	font-size: 15px;
+	padding-left: 14px;
+	margin-top: 30px;
+	margin-bottom: 8px;
+	float: left;
+	width: 180px;
+}
+
+.profile-photo {
+	padding-left: 14px;
+	float: left;
+	height: 140px;
+	width: 109px;
+	text-align: left;
+	padding-top: 10px;
+	overflow: hidden;
+}
+#loadBlogEntries {
+	/*margin-left: 42px;*/
+}
+#uploadScreen {
+	position: absolute;
+	overflow: hidden;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background-color: #818181;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	-moz-opacity: 0.7;
+	opacity: 0.7;
+	z-index: 11;
+}
+#uploadDialogue {
+	position: absolute;
+	overflow: hidden;
+	left: 200px;
+	top: 100px;
+	margin: 0px;
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+	padding: 0px;
+	z-index: 12;
+}
+#uploadBody {
+	position: relative;
+	left: 0px;
+	top: 0px;
+	padding: 0px;
+	margin: 0px;
+	margin-top: 0px;
+}
+.edited-date {	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	text-align: right;
+	color: silver;
+}
+
+.estNotAccurateLabel{
+	color: red;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.estValues {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: left;
+}
+#showDaysAndPostsDiv {
+	color: #000000;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}
+#showDaysAndPostsDiv a {
+	color: #4259cb;
+}
+.fieldSetCls { 
+	border: 0px solid #B5B8C8;
+	padding-bottom: 5px;
+}
+.x-date-middle {
+    padding-top: 2px; 
+    padding-bottom: 2px;
+    width: 130px; /* FF3 */
+}
+.blogEntriesCountMessage{
+	font-family: Arial; 
+	font-size:12px; 
+	color: #848484; 
+	padding-left: 15px;
+	padding-top:7px;
+}
+.blogEntriesTotalWorkMessage{
+	font-family: Arial; 
+	font-size:12px; 
+	color: green; 
+	padding-left: 15px;
+}
+.dayWeeklink{
+	font-family: Arial,Verdana,Helvetica;
+	font-size: 12px;
+}
+.projectTitle {
+	font-family: Arial,Verdana,Helvetica;
+	font-size: 12px;
+	font-weight: bold;
+	width: 30%;
+	padding-left:5px;
+}
+.workEstMessage {
+	font-family: Arial,Verdana,Helvetica;
+	font-size: 12px;
+}
+.week-date {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	padding-left: 10px;
+}
+
+/* Work capture related css */
+.calendar-table {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	background: #f3f3fa;
+	border-bottom: 1px solid Gray;
+	text-align: center;
+	vertical-align: middle;
+}
+a {
+	color: Navy;
+}
+.selected {
+	background: #FFCC66;
+	font-weight: bold;
+	border-bottom: 5px solid #FF9933;
+	border-top: 1px solid #FF9933;
+}
+#time-entry-form {
+	display: inline;
+}
+#time-entry-form input {
+	width: 15px;
+	height: 15px;
+	font-family: Arial, Helvetica, sans-serif !important;
+	font-size: 11px !important;
+}
+.table-headers {
+	font-weight: bold;
+	text-align: left;
+	vertical-align: top;
+}
+.valign-top {
+	vertical-align: top !important;
+}
+.center {
+	text-align: center;
+}
+.time-entry-border {
+	border-top: 1px solid #DDDDDD;
+	border-bottom: 1px solid #DDDDDD;
+}
+.no-top-border {
+	border-top: none !important;
+}
+.table-headers a {
+	font-weight: normal;
+}
+.table-content {
+	font-family: Tahoma;
+	font-size: 14px;
+}
+.table-content-small {
+	font-family: Tahoma;
+	font-size: 11px;
+	color: Gray;
+	padding-top: 1px;
+}
+
+.table-content-small a {
+	color : navy;
+	text-decoration: none;
+}
+
+.table-content-small a:hover {
+	text-decoration : none;
+	background-color : rgb(255, 255, 51);
+}
+
+.table-content-small input {
+	text-align: center;
+	width: 25px;
+}
+.table-content-done {
+	font-family: Tahoma;
+	font-weight: bold;
+	font-size: 10px;
+	text-align: left;
+	vertical-align: middle;
+	
+}
+.table-content-done input {
+	width: auto !important;
+	height: auto !important;
+}
+
+.table-content-estimates {
+	font-family: Tahoma;
+	font-size: 14px;}
+	
+.table-content-estimates-right {
+	font-family: Tahoma;
+	font-size: 14px;
+	background: #f3f3fa url(../images/menu/estimate-box-right-short.gif) no-repeat right;
+}
+.table-content-estimates input {
+	width: 35px !important;
+	text-align: center;
+}
+
+.estimates-instruction {
+	background: #f3f3fa url(../images/menu/estimate-box-left.gif) no-repeat left;
+}
+.estimates-header {
+	font-family: Tahoma;
+	font-size: 15px;
+	color: #CC3300;
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.estimates-message {
+	font-family: Tahoma;
+	font-size: 11px;
+	color: Black;
+	line-height: 13px;
+	margin-top: 0px;
+}
+.message-subject {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+}
+.message-bold {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+}
+.show-message {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Gray;
+	font-weight: normal !important;
+	padding-left: 5px;
+	vertical-align: middle;
+}
+
+.message-subject input {
+	width: auto !important;
+	height: auto !important;
+}
+
+.dialog-button {
+	width: auto !important;
+	height: auto !important;
+	font-size: 13px !important;
+}
+#dialog {
+	border-left: 1px solid #f3f3fa;
+	border-top: 1px solid #f3f3fa;
+	border-right: 1px solid #CCCCCC;
+	border-bottom: 1px solid #CCCCCC;
+	background: White;
+	width: 100%;
+	height:22px;
+	border-style: hidden;
+}
+
+#dialog h1 {
+	border-bottom: 2px solid #c0c0c0;
+	font-family: Tahoma;
+	font-size: 14px;
+	font-weight: normal;
+	background: #f3f3fa;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	padding-left: 10px;
+	line-height: 20px;
+	white-space: nowrap;
+}
+#dialog div.close {
+	position: relative;
+	left: 97%;
+	top: -19px;
+	width: 15px;
+	height: 15px;
+}
+#noOfBlogs{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #FF9933;
+	line-height: 12px;
+	width: 100%; 
+}
+
+#entry-description {
+	border-bottom: 1px solid #c0c0c0;
+	padding: 0px 5px 5px 5px;
+	
+}
+#entry-description .blogDate {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: Gray;
+	border-style: none;
+	float: none;
+}
+#entry-description .task {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: Black;
+	font-weight: bold;
+}
+
+#addToSapce {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #FF9933;
+}
+
+#entry-description .blogProjectTitle {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: Gray;
+	padding-left: 25px;
+}
+#entry-time {
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+#entry-time .title {
+	background: #d9e8ff;
+	font-family: Tahoma;
+	height: 25px;
+	font-size: 14px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 2px;
+	padding-bottom: 1px;
+	background-image: url('../images/dialog-title-end.gif');
+	background-repeat: no-repeat;
+	background-position: right;
+	
+}
+#entry-time .week-date a {
+	font-weight: normal;
+	color: Navy;
+}
+
+.history-table-header {
+	font-family: Tahoma;
+	font-size: 13px;
+	color: Black;
+}
+.minor-smaller {
+	font-size: 10px;
+	color: Gray;
+}
+.history-table-header {
+	height: 26px;
+}
+.history-table-header td {
+	border-bottom: 1px solid #c0c0c0;
+	border-top: 1px solid #c0c0c0;
+	padding-left: 4px;
+	background: #f3f3fa;
+}
+.border-left-dotted {
+	border-left: 1px dotted #c0c0c0;
+}
+.work-cell {
+	border-top: 1px solid #c0c0c0;
+	font-family: Tahoma;
+	font-size: 11px;
+	color: Gray;
+	text-align: center;
+	padding-left: 0px;
+	background: #F8F8F8;
+	height: 12px;
+}
+.changed-instruction {
+	font-family: Tahoma;
+	font-size: 11px;
+	color: #0066CC;
+	text-align: center;
+}
+.even, .odd {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Black;
+	height: 22px;
+}
+
+.even td {
+	background: #FBFBFB;
+	padding-left: 4px;
+	white-space: nowrap;
+	overflow: hidden;
+	
+}
+.odd td {
+	background: White;
+	padding-left: 4px;
+	white-space: nowrap;
+	overflow: hidden;
+}
+
+.changed {
+	color: #0066CC;
+}
+.history-title {
+	font-family: Tahoma;
+	font-size: 14px;
+	font-weight: bold;
+	padding-left: 10px;
+	white-space: nowrap;
+	height: 20px;
+}
+.more-padding td, .more-padding {
+	padding-left: 10px !important;
+}
+.center-cell-align {
+	text-align: center !important;
+	padding-left: 0px !important;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+}
+.status-bar td {
+	height: 15px;
+	border-top: 1px solid #c0c0c0;
+	background: #f3f3fa;
+}
+
+.changed-total-estimates {
+	padding-left: 20px;
+	color: #669900;
+}
+
+.boxSelected{
+	background: #ffffcc;
+	/*border-bottom: 1px solid #FF9933;*/
+}
+
+.todayAndNonWorkingDay{
+	background: #D9C4A8;
+	font-weight: bold;
+	border-bottom: 5px solid #A98D67;
+	border-top: 1px solid #D9C4A8;
+}
+.nonWorkingDay{
+	background: #BDBDBD;
+	font-weight: bold;
+	border-bottom: 5px solid #848484;
+	border-top: 1px solid #BDBDBD;
+}
+.todayAndNonWorkingDayBox{
+	background: #E9DCCA;
+	/*border-bottom: 1px solid #A98D67;*/
+}
+.nonWorkingDayBox{
+	background: #F2F2F2;
+	/*border-bottom: 1px solid #848484;*/
+}
+.loadingText{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	padding-left: 15px;
+}
+.oldWorkForDay-border{
+	border-bottom: 1px solid #D7D7D7;
+	border-top: 1px solid #D7D7D7;
+}
+.oldWorkForDay{
+	font-family: Tahoma;
+	font-size: 11px;
+	color: navy;
+	text-align: center;
+	border-bottom: 1px solid #D7D7D7;
+	/*border-top: 1px solid #D7D7D7;*/
+	
+}
+
+.oldWorkForDay a {
+	color : navy;
+	text-decoration: none;
+}
+
+.oldWorkForDay a:hover {
+	background-color : rgb(255, 255, 51);
+	text-decoration: none;
+}
+
+.oldWorkForDay-content{
+	background: #f3f3fa;
+}
+* a.viewMoreEntries {
+	color: Navy;
+}
+.clickMessage {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	margin-left: 15px; 
+}
+
+/* for Paging */
+.pagingBar {
+	padding-right: 70px;
+	text-align: right;
+}
+
+.pagingBarBottom {
+	padding-right: 40px;
+	text-align: right;
+}
+
+.prevNextArrow {
+	font-size:13px;
+}
+
+.page-controls {
+	color:Gray;
+	font-family:Arial,Helvetica,sans-serif;
+	font-size:13px;
+	font-weight:bold;
+	margin:0 9% 2px 5px;
+	vertical-align:middle;
+	padding-right: 5px;
+}
+
+.page-controls .entries-number {
+	clear:both;
+	color:Black;
+	font-size:12px;
+	font-weight:bold;
+}
+
+.page-controls .next, .page-controls .previous {
+	font-size:12px;
+	padding-right: 10px;
+}
+
+/* For Filter UI */
+.filter {
+	background:  url(../images/filter-bottom.gif) no-repeat bottom;
+	font-family: Tahoma;
+	font-size: 12px;
+	color: #303030;
+	vertical-align: middle;
+	padding-left: 10px;
+	padding-bottom: 7px;
+	height: auto;
+	padding-top: 7px;
+}
+
+.filter input.apply {
+	padding-left: 20px;
+	padding-right: 20px;
+}
+
+.filter-assistant {
+	background: #f3f3fa url(../images/filter-top.gif) no-repeat top;
+	margin-left: 196px;
+	margin-bottom: 2px;
+	width: 746px;
+	position: absolute;
+	vertical-align: middle;
+	top: 108px;
+	left: -6px;
+}
+
+.filter-results {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	margin-left: 60px;
+	color: Gray;
+	margin-bottom: 5px;
+	margin-top: 0px;
+}
+
+.filter-down-button {
+	position: relative;
+	top: 3px;
+	float: right;
+	right: 15px;
+	width: 10px;
+}
+
+.filter form, .filter form * {
+	display: inline;
+	vertical-align: middle;
+	font-size: 12px !important;
+}
+
+.filter form input {
+	font-size: 12px;
+}
+
+.filter form .date-form {
+	height: 20px;
+	font-size: 12px;
+}
+
+.filter form .type {
+	height: 20px;
+	font-size: 12px;
+}
+
+#team, #task, #itemTypeFilter, #projectFilter {
+	width: 135px !important;
+}
+.fixed-width-form {
+	width: 125px !important;
+}
+
+#blog-it_errorMsg {
+	padding-left : 100px;
+	font-family : Arial, Helvetica, Sans-Serif;
+	font-size : 12px;
+	font-weight : bold;
+	color : red;
+	text-align : center;
+}
+
+.assignmentBlogComment {
+	border-color: #FFCC00;
+	border-style: solid;
+	border-collapse: collapse;
+	font-size : 12px;
+}
+
+#blog .multiple span.hours-submitted {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	padding-bottom: 5px;
+	color: Green;
+}
+
+#contentTextareaPosition, #contentTextareaPositionForComment, #contentTextarea {
+	height: 200px;
+	width: 600px;
+}
+
+#personDetailsDiv {
+	width: 160px;
+	overflow: hidden;
+}
+
+.blogTime {
+	color: #888888;
+	padding-left: 5px;
+}
+
+#blog-it_title{
+	font-family: Tahoma, Arial, Helvetica, sans-serif;
+}
+
+.work-label {
+	color: #8B8B8B;
+	border-bottom: 1px solid #D7D7D7;
+	font-size: 11px;
+}
+
+.blog-personImage {
+	height: 140px;
+	width: 109px;
+	overflow: hidden;
+}

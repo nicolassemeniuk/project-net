@@ -1,0 +1,42 @@
+Basic Smoke Testing for Personal Workspace
+
+Case 1. Per_Dashboard_Check_personlize_lo
+
+To Check the personal dashboard page and Personalize Page then logout
+
+
+Case 2. Per_Assignment_opn_sel_task_lo
+
+To check the Personal Assignment module and logout
+
+Case 3. Per_Timesheet_lo
+
+To check the personal Timesheet module and logout
+
+Case 4. Per_blog_open_lo 
+
+TO check the Personal blog module and logout
+
+Case 5. Per_Profile_blog_pro_lo
+
+To check the personal profile and personal blog then logout
+
+Case 6. Per_Cal_Meeting_lo
+
+To check the Calendar module and create a meeting then logout
+
+Case 7. Per_Doc_import_lo
+
+To check the personal document import functionality and logout
+
+Case 8. Per_Doc_Del_lo
+
+To check the personal documet delete functionality and logout
+
+Case 9. Per_Formcreatin_Activation_lo
+
+To check the form creation and activation then logout
+
+Case 10. Per_Setup_all_links_lo
+
+To check the functionality of all the links in setup module

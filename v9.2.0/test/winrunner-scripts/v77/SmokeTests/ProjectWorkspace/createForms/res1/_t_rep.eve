@@ -1,0 +1,47 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 2 1112227374 0
+44 54 <web_link_click:"WRProject" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 9 1112227399 0
+37 101 <Step: Verify form exists, Status: Fail, Description: The form created DOES NOT exist in Form Designer> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 28 1112227412 25
+25 2 <12> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 3 1112227415 0
+44 57 <list_get_item_num:"ElementID" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 24 1112227436 0
+44 62 <obj_get_info:"is_value_required" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 24 1112227443 0
+44 60 <button_set:"is_value_required" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 24 1112227443 0
+37 104 <Step: Verify text field exists, Status: Fail, Description: The creation of Text Field CANNOT be verified> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 23 1112227446 25
+44 58 <web_obj_get_info:"TextField" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 25 1112227447 0
+44 53 <web_link_click:"WRlist" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 25 1112227449 0
+23 7 <Not OK1> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 23 1112227449 0
+23 7 <Not OK2> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 28 1112227449 0
+23 7 <Not OK3> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 33 1112227449 0
+44 58 <obj_get_info:"field_checked" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 25 1112227450 0
+44 56 <button_set:"field_checked" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 25 1112227450 0
+44 55 <obj_get_info:"column_num" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 25 1112227450 0
+44 55 <obj_get_info:"column_num" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 25 1112227450 0
+44 55 <win_get_info:"column_num" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 25 1112227450 0
+44 56 <obj_get_info:"field_width" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 25 1112227450 0
+44 56 <obj_get_info:"field_width" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 25 1112227450 0
+44 56 <win_get_info:"field_width" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 25 1112227450 0
+25 2 <13> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 3 1112227478 0
+44 49 <obj_get_info:"cols" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 27 1112227495 0
+44 49 <obj_get_info:"cols" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 27 1112227495 0
+44 49 <win_get_info:"cols" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 27 1112227495 0
+44 49 <obj_get_info:"rows" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 27 1112227495 0
+44 49 <obj_get_info:"rows" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 27 1112227495 0
+44 49 <win_get_info:"rows" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 27 1112227495 0
+37 100 <Step: Verify text box exists, Status: Fail, Description: The creation of text box CANNOT be verified> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 19 1112227496 25
+44 56 <web_obj_get_info:"TextBox" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 28 1112227497 0
+44 53 <web_link_click:"WRlist" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 28 1112227500 0
+23 7 <Not OK1> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 23 1112227500 0
+23 7 <Not OK2> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 28 1112227500 0
+23 7 <Not OK3> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 33 1112227500 0
+44 58 <obj_get_info:"field_checked" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 28 1112227502 0
+44 56 <button_set:"field_checked" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 28 1112227502 0
+44 55 <obj_get_info:"column_num" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 28 1112227502 0
+44 55 <obj_get_info:"column_num" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 28 1112227502 0
+44 55 <win_get_info:"column_num" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 28 1112227502 0
+44 56 <obj_get_info:"field_width" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 28 1112227502 0
+44 56 <obj_get_info:"field_width" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 28 1112227502 0
+44 56 <win_get_info:"field_width" Object is not in the GUI map.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 28 1112227502 0
+23 56 <The form name 'WRform' DOES NOT appear in the tools menu> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 24 1112227512 0
+23 66 <The form name 'WRform' DOES NOT appear in the list of active forms> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 34 1112227514 0
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 36 1112227514 0
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\ProjectWorkspace\createForms> 34 1112227514 0

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+	<div id="project-list-css" style="display:none">
+		<t:OutputRaw value="projectListHeaderCss"/>
+	</div>
+	<div id="project-list-header" class="project-header-div">
+		<table id="project-list-table-container-header" width="" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+					<table cellspacing="0" id="projectListTable-header" class="resizable draggable disableSelection" cellpadding="0" name="tableWithEvenRows">
+						<!--table header rendering-->
+						<thead>
+							<tr height="22px" align="left" id="project-list-row" class="tableHeader">
+								<t:loop source="projectColumnList" value="projectColumn">
+									<th width="${projectColumn.columnWidth}" id="thd_${projectColumn.propertyName}" columnId="${projectColumn.propertyName}" dragable="true" class="projectHeaderTd" onmouseover="moh(this);TableKit.Resizable.initDetect(event);" onmouseout="muh(this);TableKit.Resizable.killDetect(event);">
+										<div class="div_thd_${projectColumn.propertyName}" id="thd_${projectColumn.propertyName}_divId" style="cursor: default;overflow:hidden" onmousedown="javascript:dragtable.dragStart(event)" onclick="javascript:sort('${projectColumn.columnName}', false);">
+											<span >
+												&nbsp;<t:OutputRaw value="projectColumn.description"/>&nbsp; <img align="absmiddle" src="${jSPRootURL}/s.gif" class="invisible" width="12" height="12" id="sort-img-${projectColumn.columnName}" />
+											</span>
+										</div>
+									</th>
+								</t:loop>
+							</tr>
+						</thead>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div>			
+	<div id="project-list" name="project-list" class="project-list" onselectstart="return false" onscroll="scrollHeader('project-list-header', 'project-list')">
+		<table id="project-table-container" cellpadding="0" cellspacing="0">
+			<tr>
+				<td>
+					<table cellspacing="0" id="projectListTable" name="tableWithEvenRows"  class="disableSelection" cellpadding="0">
+					<!--table header rendering-->
+						<tr height="22px" align="left" id="project-list-inner-row" class="tableHeader">
+							<t:loop source="projectColumnList" value="projectColumn">
+								<th width="${projectColumn.columnWidth}" id="thd_${projectColumn.propertyName}_scroll" columnId="${projectColumn.propertyName}" dragable="true" class="projectHeaderTd">
+									<div class="div_thd_${projectColumn.propertyName}" id="thd_${projectColumn.propertyName}_scroll_divId" style="cursor: default;overflow:hidden" onmousedown="javascript:dragtable.dragStart(event)">
+										<span >
+											&nbsp;<t:OutputRaw value="projectColumn.description"/>
+										</span>
+									</div>
+								</th>
+							</t:loop>
+						</tr>
+					<!--table row rendering-->
+						<t:loop source="projectList" value="node">
+							<tr level="${node.hierarchyLevel}" id="${node.project.projectId}_${node.id}" onclick="b(this,'${node.project.projectId}');" ondblclick="s('${node.project.projectId}');" onmouseover="mo(this);" onmouseout="mu(this)" kidsShown="${node.project.expanded}">
+								<!--table data rendering-->
+								<t:loop source="node.sequensedProject" value="projectRow">
+									<t:OutputRaw value="projectRow.displayValue"/>
+								</t:loop>
+							</tr>
+						</t:loop>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div><!--	closing of project-list div-->
+</div>

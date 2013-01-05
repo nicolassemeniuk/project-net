@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<head>
+</head>
+<body>
+	<div style="position: relative;left:0;top:0;background-color:#BEDEF8;">
+		<table width="100%"> 
+			<tr><td height="20" align="left" style="color:#1264A7;font-weight:bold;" id="importUserTitle"><t:message value="prm.directory.directory.importuser.title.name" /></td></tr>
+		</table>
+	</div>
+	<t:form t:id="formId" target="uploadPicture" onsubmit="return AIM.submit(this, {'onStart' : startCallback, 'onComplete' : completeCallback})">
+		<table width="100%" align="center" height="100">
+			<tr>
+				<td align="center"  colspan="4">
+					<p id="updateWarning" style="color: red;" align="left">
+						<span id="typeNotSupported" style="display: none;"><t:message value="prm.directory.directory.importuser.filesupported.format"/></span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td align="right">
+					<label style="font-family:Arial; font-weight:bold; font-size:12px;"><t:message value="prm.directory.directory.importuser.filetype.label" /></label>&nbsp;&nbsp;
+					<select id="typeId" onchange="validateType()">
+						<option value="${csvType}"><t:message value="prm.directory.directory.importuser.filesupported.csvtype" /></option>
+						<option value="${xmlType}"><t:message value="prm.directory.directory.importuser.filesupported.xmltype" /></option>
+						<option value="${vcfType}"><t:message value="prm.directory.directory.importuser.filesupported.vcftype" /></option>
+					</select>
+				</td>
+				<td align="right">
+					<label style="font-family:Arial; font-weight:bold; font-size:12px;"><t:message value="prm.directory.directory.importuser.filesupported.searchfilemessage" /></label>&nbsp;&nbsp;
+				</td>
+				<td align="left"><input size="40" t:type="upload" t:id="file" validate="required" onchange="validateType();" onkeypress="javascript:return false;" onkeydown="javascript:return false;"/></td>
+				 <td>&nbsp;</td>
+			</tr>
+			<tr>
+				 <td>&nbsp;</td>
+		  	   	 <td align="center" nowrap="nowrap" colspan="3">
+					<input type="submit" id="uploadId" disabled="disabled" value="${uploadLabel}"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 	<input type="button" value="${cancelLabel}" onclick="javascript:hideUploadPopup();" />
+				 </td>
+				 <td>&nbsp;</td>.
+				 <td>&nbsp;</td>
+			</tr>
+		</table>
+	</t:form>
+</body>
+</html>

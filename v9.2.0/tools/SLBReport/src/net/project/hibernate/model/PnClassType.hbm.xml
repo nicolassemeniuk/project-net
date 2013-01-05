@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnClassType" 
+    table="PN_CLASS_TYPE"
+    lazy="false"
+>
+
+    <id
+        name="classTypeId"
+        type="java.math.BigDecimal"
+        column="CLASS_TYPE_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="classTypeName"
+        type="java.lang.String"
+        column="CLASS_TYPE_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="classTypeDesc"
+        type="java.lang.String"
+        column="CLASS_TYPE_DESC"
+        length="500"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnClass -->
+
+    <set
+        name="pnClasses"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="CLASS_TYPE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnClass"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnClassTypeElement -->
+
+    <set
+        name="pnClassTypeElements"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="CLASS_TYPE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnClassTypeElement"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnWfRuleAuth" 
+    table="PN_WF_RULE_AUTH"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnWfRuleAuthPK">
+        <key-property 
+            name="ruleId" 
+            column="RULE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="workflowId" 
+            column="WORKFLOW_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="transitionId" 
+            column="TRANSITION_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional one-to-one association to PnWorkflowRule -->
+    <one-to-one
+        name="pnWorkflowRule"
+        class="net.project.hibernate.model.PnWorkflowRule"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional one-to-many association to PnWfRuleAuthHasGroup -->
+
+    <set
+        name="pnWfRuleAuthHasGroups"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="RULE_ID" />
+            <column name="WORKFLOW_ID" />
+            <column name="TRANSITION_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnWfRuleAuthHasGroup"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

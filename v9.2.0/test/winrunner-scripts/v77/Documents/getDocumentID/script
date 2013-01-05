@@ -1,0 +1,14 @@
+function getDocumentID(in documentName){	
+	auto urlValue, documentID, path_array[], elements;
+
+	wait(1);
+	set_window("main",2);
+# 	pause("asd");
+	web_obj_get_info(documentName,"url",urlValue);
+# 	pause(urlValue);
+	elements = split(urlValue,path_array,"=");
+# 	pause(elements);
+	documentID = path_array[2];
+# 	pause(documentID);
+	return documentID;
+}

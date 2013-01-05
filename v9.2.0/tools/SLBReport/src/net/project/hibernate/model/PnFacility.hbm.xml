@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnFacility" 
+    table="PN_FACILITY"
+    lazy="false"
+>
+
+    <id
+        name="facilityId"
+        type="java.math.BigDecimal"
+        column="FACILITY_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="name"
+        type="java.lang.String"
+        column="NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        length="500"
+    />
+    <property
+        name="facilityType"
+        type="java.lang.String"
+        column="FACILITY_TYPE"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="roomName"
+        type="java.lang.String"
+        column="ROOM_NAME"
+        length="80"
+    />
+    <property
+        name="roomNumber"
+        type="java.lang.String"
+        column="ROOM_NUMBER"
+        length="80"
+    />
+    <property
+        name="building"
+        type="java.lang.String"
+        column="BUILDING"
+        length="80"
+    />
+    <property
+        name="floor"
+        type="java.lang.String"
+        column="FLOOR"
+        length="80"
+    />
+    <property
+        name="campus"
+        type="java.lang.String"
+        column="CAMPUS"
+        length="80"
+    />
+    <property
+        name="isBridge"
+        type="java.lang.Integer"
+        column="IS_BRIDGE"
+        length="1"
+    />
+    <property
+        name="phoneNumber"
+        type="java.lang.String"
+        column="PHONE_NUMBER"
+        length="20"
+    />
+    <property
+        name="password"
+        type="java.lang.String"
+        column="PASSWORD"
+        length="80"
+    />
+    <property
+        name="facilityUrl"
+        type="java.lang.String"
+        column="FACILITY_URL"
+        length="240"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnObject -->
+    <one-to-one
+        name="pnObject"
+        class="net.project.hibernate.model.PnObject"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional many-to-one association to PnAddress -->
+    <many-to-one
+        name="pnAddress"
+        class="net.project.hibernate.model.PnAddress"
+        not-null="true"
+    >
+        <column name="ADDRESS_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnCalendarEvent -->
+
+    <set
+        name="pnCalendarEvents"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="FACILITY_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnCalendarEvent"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

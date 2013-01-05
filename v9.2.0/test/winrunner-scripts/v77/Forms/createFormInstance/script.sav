@@ -1,0 +1,118 @@
+function createFormInstance(in formName, inout id[], in numInstances){
+	auto rc,rowCount;
+	auto table,j,fieldID;
+	auto tField, tBox, tSelectionMenu, tDateField, tCheckBoxField, tPersonSelectionMenu, tNumberField, tCurrencyField;
+	auto k;
+	
+	set_window("main",2);
+	web_link_click(formName);
+	wait(1);
+	table = "C:\\Documents and Settings\\QA\\Desktop\\formData.xls";
+	rc = ddt_open(table);
+	ddt_get_row_count(table,rowCount);
+	if((numInstances-1) > rowCount){
+		report_msg("Not enough test data avalable");
+		report_msg("The available row count is "&rowCount&"");
+	}
+	else{
+		for(j=0;j<=(numInstances-1);j++){
+			set_window("main",2);
+			web_link_click("Create");
+			
+			tField = ddt_val_by_row(table,(j+1),"TextField");
+			fieldID = id[0];
+			if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui","main","field","html_name","field"&fieldID&"")!=E_OK)
+				report_msg("Not OK3");
+			else
+				GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");
+			edit_set("field",tField);
+ 			
+			tBox = ddt_val_by_row(table,(j+1),"TextBox");
+			fieldID = id[1];
+			if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui","main","field","html_name","field"&fieldID&"")!=E_OK)
+				report_msg("Not OK3");
+			else
+				GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");
+			edit_set("field",tBox);
+			
+			tSelectionMenu = ddt_val_by_row(table,(j+1),"SelectionMenu");
+			fieldID = id[2];
+			if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui","main","field2360458","html_name","field"&fieldID&"")!=E_OK)
+				report_msg("Not OK3");
+			else
+				GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");			
+			list_select_item("field2360458",tSelectionMenu);
+
+			tDateField = ddt_val_by_row(table,(j+1),"DateField");
+			fieldID = id[3];
+			if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui","main","field","html_name","field"&fieldID&"")!=E_OK)
+				report_msg("Not OK3");
+			else
+				GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");			
+			edit_set("field",tDateField);
+
+			tCheckBoxField = ddt_val_by_row(table,(j+1),"CheckBoxField");
+			fieldID = id[4];
+			if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui","main","field2360467","html_name","field"&fieldID&"")!=E_OK)
+				report_msg("Not OK3");
+			else
+				GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");			
+			if(tCheckBoxField == 1)
+				button_set("field2360467",ON);
+			else
+				button_set("field2360467",OFF);
+	
+			tPersonSelectionMenu = ddt_val_by_row(table,(j+1),"PersonSelectionMenu");
+			fieldID = id[5];
+			if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui","main","field2360458","html_name","field"&fieldID&"")!=E_OK)
+				report_msg("Not OK3");
+			else
+				GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");			
+			list_select_item("field2360458",tPersonSelectionMenu);
+
+			tNumberField = ddt_val_by_row(table,(j+1),"NumberField");
+			fieldID = id[6];
+			if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui","main","field","html_name","field"&fieldID&"")!=E_OK)
+				report_msg("Not OK3");
+			else
+				GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");			
+			edit_set("field",tNumberField);
+				
+			tCurrencyField = ddt_val_by_row(table,(j+1),"CurrencyField");
+			fieldID = id[7];
+			if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui","main","field","html_name","field"&fieldID&"")!=E_OK)
+				report_msg("Not OK3");
+			else
+				GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");			
+			edit_set("field",tCurrencyField);
+			
+			set_window("main",2);
+			web_link_click("Submit_2");
+		}		
+	
+		k = 3;#k is the row number in the form table
+		for(j=0;j<=(numInstances-1);j++){#j is the column number in the form table
+		#Here we are comparing the values from the excel sheet to those  
+			wait(1);
+			set_window("main",2);
+			tField = ddt_val_by_row(table,(j+1),"TextField");
+			web_obj_text_exists("Number","#"&k&"","#3",tField,""," ");
+			tBox = ddt_val_by_row(table,(j+1),"TextBox");
+			web_obj_text_exists("Number","#"&k&"","#4",tBox,""," ");
+			tSelectionMenu = ddt_val_by_row(table,(j+1),"SelectionMenu");
+			web_obj_text_exists("Number","#"&k&"","#5",tSelectionMenu,""," ");
+			tDateField = ddt_val_by_row(table,(j+1),"DateField");
+			web_obj_text_exists("Number","#"&k&"","#6",tDateField,""," ");
+			tPersonSelectionMenu = ddt_val_by_row(table,(j+1),"PersonSelectionMenu");
+			web_obj_text_exists("Number","#"&k&"","#8",tPersonSelectionMenu,""," ");
+			tNumberField = ddt_val_by_row(table,(j+1),"NumberField");
+			web_obj_text_exists("Number","#"&k&"","#9",tNumberField,""," ");
+			tCurrencyField = ddt_val_by_row(table,(j+1),"CurrencyField");
+			web_obj_text_exists("Number","#"&k&"","#10",tCurrencyField,""," ");
+			k = k+2;
+		}
+	}
+	ddt_close(table);
+}
+
+	

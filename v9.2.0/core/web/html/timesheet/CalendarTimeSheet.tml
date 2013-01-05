@@ -1,0 +1,144 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:PnetLayout title="applicationTitle" xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<link rel="stylesheet" type="text/css" href="${asset:context:/styles/calendar.css}"/>
+<script type="text/javascript" src="${asset:context:/src/workCapture.js}"/>
+<script type="text/javascript">
+var dateForAssignment = '${dateForAssignment}';
+var isEditMode = '<t:Message value="prm.resource.timesheet.editmode.isenabled" />' == '1';
+var personId = '${person.personId}';
+<!--//
+function focusOnMe(currentRow) {
+	currentRow.style.backgroundColor='#fbfbef';
+}
+function focusOutMe(currentRow) {
+	currentRow.style.backgroundColor='#ffffff';
+}
+function modify(){
+	document.location.href = JSPRootURL+"/servlet/AssignmentController/CurrentAssignments/Update?module=160&action=2&startDate="+dateForAssignment+"&isFromTimeSheet=true&personId="+personId+"&isEditMode="+isEditMode;
+}
+//-->
+</script>
+<t:ActionBox groupTitle="${timesheetLeftHeading}" buttons="blogit,modify" caption=all.global.toolbar.standard.blogit,prm.resource.calendartimesheet.weeklytimsheet.link"/>
+<div id="timeSheetContent">
+<div id="calendar-left">
+	<t:block t:id="personBlock">
+		<table cellpadding="0" cellspacing="0" style="padding-right: 10px;">
+		<tr>
+			<td>
+				<t:form t:id="timeSheetForm" zone="peronZone">
+					<table cellpadding="0" cellspacing="0" border="0" style="padding-bottom: 5px">
+						<tr class="timesheet-filter">
+						<t:if test="businessModel">
+							<td style="width:70px;padding-left: 5px;"><t:Message value="Business"/>:</td>
+							<td><t:select model="businessModel" encoder="businessModel" value="business" clientId="selectBusiness" onchange ="document.forms[0].selectProject.selectedIndex=0;this.form.fire(Tapestry.FORMPROCESSSUBMIT_EVENT);" style="width:180px;"/></td>
+						</t:if>
+						<td>&nbsp;</td>
+						<t:if test="projectModel">
+							<td style="width:65px;"><t:Message value="Project"/>:</td>
+							<td><t:select model="projectModel" encoder="projectModel" value="project" clientId="selectProject" onchange="document.forms[0].selectBusiness.selectedIndex=0;this.form.fire(Tapestry.FORMPROCESSSUBMIT_EVENT);" style="width:180px;"/></td>
+						</t:if>
+						<td> &nbsp;</td>
+						<t:if test="personModel">	
+						<td style="width:65px;"><t:Message value="Person"/>:</td>
+						<td><t:select model="personModel" encoder="personModel" value="person" clientId="person" blankOption="NEVER" onchange="this.form.fire(Tapestry.FORMPROCESSSUBMIT_EVENT);" /></td>
+						<td> &nbsp;</td>
+						<td style="padding-right: 5px;">
+							<t:actionlink t:id="refreshCalendarZone" t:zone="calendarZone" context="person.personId"> <button><t:Message value="prm.resource.calendartimesheet.view.button" /></button> </t:actionlink> 
+						</td>
+						</t:if>
+						</tr>
+					</table> 
+				</t:form>
+			</td>
+		</tr>
+		</table>
+		</t:block>
+		<t:zone t:id="peronZone">
+			<t:delegate to="personBlock"/>
+		</t:zone>
+		
+		<t:zone t:id="calendarZone">
+			<t:delegate to="calendarBlock"/>
+		</t:zone>
+		
+		<br/>
+		<t:block t:id="calendarBlock">
+			<div id="month-selector">
+				<a href="${jspRootUrl}/timesheet/CalendarTimeSheet?module=160&amp;DisplayDate=${previousMonth}"><img height="15" border="0" width="15" title="" src="${asset:context:/images/personal/left.png}"/></a>
+					<span>${monthName}</span>
+				<a href="${jspRootUrl}/timesheet/CalendarTimeSheet?module=160&amp;DisplayDate=${nextMonth}"><img height="15" border="0" width="15" title="" src="${asset:context:/images/personal/right.png}"/></a>
+				<span style="padding-left:19%;">${userName}</span>
+			</div>
+			<div id="calendar-main-personal">
+			<table cellpadding="0" cellspacing="0" border="0" width="100%">
+				<tr class="main-calendar-heading-personal">
+				    <td t:type="loop" source="dayHeader" value="timeSheetBean" width="13%" class="right-border-personal">
+				     	${timeSheetBean.dayOfWeek}
+			         </td>
+			         <td class="right-border-personal" style="background:#fef5c7;font-size:14px;color:black;" width="35px"><t:Message value="prm.resource.calendartimesheet.total.label"/></td>
+				</tr>
+				<t:loop source="weeks" value="weekDates">
+					<tr class="top-border-personal" height = "75px" onmouseover="javascript:focusOnMe(this);" onmouseout="javascript:focusOutMe(this);">
+						<t:loop source="weekDates" value="dateOfWeek">
+							<td nowrap="nowrap" class="right-border-personal" width="13%">
+								<t:OutputRaw value="dateOfWeek"/>
+							 </td>
+					    </t:loop>
+					</tr>
+				</t:loop>
+				<tr class="main-calendar-footer-personal" style="height: 25px">
+					<td colspan="7" class="right-border-personal" style="text-align: right;"><t:Message value="prm.resource.calendartimesheet.monthtotal.label"/></td>
+					<td class="main-calendar-footer-personal" width="35px">${monthTotalString}</td>
+				</tr>             
+			</table>
+			</div>
+		</t:block>
+	</div> 
+<!-- Calendar right div starts here -->
+<div id="calendar-right">
+	<div id="today-block-personal">
+	<a href="${jspRootUrl}/timesheet/CalendarTimeSheet">
+			<div class="month-year">${currentMonthName}</div>
+			<div class="date">${dateToday}</div>
+			<div class="day">${dayToday}</div>
+	</a>
+	</div>
+	<div id="year-month-listing-personal">
+		<table cellspacing="0" cellpadding="0" border="0" width="100%">
+		  <tr class="calendar-heading-personal">
+		    <td align="center" width="20" valign="middle"><img height="15" border="0" width="15" title="" src="${asset:context:/images/personal/dashboard_arrow-left.gif}"/></td>
+		    <td align="center" valign="middle">2009</td>
+		    <td align="center" width="20" valign="middle"><img height="15" border="0" width="15" title="" src="${asset:context:/images/personal/dashboard_arrow-right.gif}"/></td>
+		  </tr>
+		</table>
+		<table cellspacing="0" cellpadding="0" border="0" width="100%" class="month-listing">
+		  <tr>
+		    <td width="50%"><a href="${jspRootUrl}/timesheet/CalendarTimeSheet?&amp;module=160&amp;DisplayDate=01022009"><t:Message value="January"/></a></td>
+		    <td width="50%"><a href="${jspRootUrl}/timesheet/CalendarTimeSheet?&amp;module=160&amp;DisplayDate=07022009"><t:Message value="July"/></a></td>
+		  </tr>
+		  <tr>
+		    <td width="50%"><a href="${jspRootUrl}/timesheet/CalendarTimeSheet?&amp;module=160&amp;DisplayDate=02022009"><t:Message value="February"/></a></td>
+		    <td width="50%"><a href="${jspRootUrl}/timesheet/CalendarTimeSheet?&amp;module=160&amp;DisplayDate=08022009"><t:Message value="August"/></a></td>
+		  </tr>
+		  <tr>
+		    <td width="50%"><a href="${jspRootUrl}/timesheet/CalendarTimeSheet?&amp;module=160&amp;DisplayDate=03022009"><t:Message value="March"/></a></td>
+		    <td width="50%"><a href="${jspRootUrl}/timesheet/CalendarTimeSheet?&amp;module=160&amp;DisplayDate=09022009"><t:Message value="September"/></a></td>
+		  </tr>
+		  <tr>
+		    <td width="50%"><a href="${jspRootUrl}/timesheet/CalendarTimeSheet?&amp;module=160&amp;DisplayDate=04022009"><t:Message value="April"/></a></td>
+		    <td width="50%"><a href="${jspRootUrl}/timesheet/CalendarTimeSheet?&amp;module=160&amp;DisplayDate=10022009"><t:Message value="October"/></a></td>
+		  </tr>
+		  <tr>
+		    <td width="50%"><a href="${jspRootUrl}/timesheet/CalendarTimeSheet?&amp;module=160&amp;DisplayDate=05022009"><t:Message value="May"/></a></td>
+		    <td align="center" width="50%"><a href="${jspRootUrl}/timesheet/CalendarTimeSheet?&amp;module=160&amp;DisplayDate=05022009"><t:Message value="November"/></a></td>
+		  </tr>
+		  <tr>
+		    <td width="50%"><a href="${jspRootUrl}/timesheet/CalendarTimeSheet?&amp;module=160&amp;DisplayDate=06022009"><t:Message value="June"/></a></td>
+		    <td width="50%"><a href="${jspRootUrl}/timesheet/CalendarTimeSheet?&amp;module=160&amp;DisplayDate=03022009"><t:Message value="December"/></a></td>
+		  </tr>
+		</table>
+	</div>
+</div>
+</div>
+</t:PnetLayout>

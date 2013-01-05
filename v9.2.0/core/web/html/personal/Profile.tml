@@ -1,0 +1,379 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<head><title><t:Message value="prm.global.application.title" /></title>
+<!-- fix for bug-2188 (IE caching issues) -->
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- Linking all css files only here. 
+	 These are used for blog pages developed in Tapestry 5 -->
+<link rel="stylesheet" type="text/css" href="${JSPRootURL}/styles/global.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${JSPRootURL}/styles/fonts.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${JSPRootURL}/styles/noframes.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${JSPRootURL}/styles/personal.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${JSPRootURL}/styles/blog.css?${versionNumber}"/>
+<link rel="stylesheet" type="text/css" href="${JSPRootURL}/styles/profile.css?${versionNumber}"/>
+<!-- Common Styles for the Ext widgets -->
+<link rel="stylesheet" type="text/css" href="${JSPRootURL}/src/extjs/resources/css/ext-all.css?${versionNumber}"/>
+<link rel='SHORTCUT ICON' type="text/css" href="${JSPRootURL}/images/favicon.ico" />
+<script language="javascript" type="text/javascript">
+var JSPRootURL = '${JSPRootURL}';
+var VERSION_NUMBER = '${versionNumber}';
+<!-- //
+if((navigator.userAgent.toLowerCase()).indexOf( "msie" ) != -1 ) {
+	var version = parseFloat(navigator.appVersion.split("MSIE")[1]);
+	document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\""+JSPRootURL+"/styles/noframesie.css?"+VERSION_NUMBER+"\"/>");
+	if(version == 8 ){
+		document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\""+JSPRootURL+"/styles/noframesie8.css?"+VERSION_NUMBER+"\"/>");
+	}
+	document.write("<style type=\"text/css\"> html { overflow: auto; } body { overflow: hidden; height: auto; }  #content-right { position: absolute; padding-left: 10px; } </style>");
+}
+// -->
+</script>
+<!-- Ext JS's -->
+<script language="javascript" src="${JSPRootURL}/src/util.js?${versionNumber}"></script>
+<script language="javascript" src="${JSPRootURL}/src/window_functions.js?${versionNumber}"></script>
+<script type="text/javascript" src="${JSPRootURL}/src/extjs/adapter/ext/ext-base.js?${versionNumber}"></script>
+<script type="text/javascript" src="${JSPRootURL}/src/extjs/ext-all.js?${versionNumber}"></script>
+<script language="javascript" src="${JSPRootURL}/toolbar/include/Main.jsp?s=${spaceForNavbar}&amp;i=${user.iD}${user.currentSpace.iD}" />
+<script language="javascript" src="${JSPRootURL}${navbarURL}" />
+<script type="text/javascript" src="${JSPRootURL}/src/menu/dropdown.js?${versionNumber}"></script>
+<script type="text/javascript" src="${JSPRootURL}/src/blogit.js?${versionNumber}" />
+<script type="text/javascript" src="${JSPRootURL}/src/skypeCheck.js?${versionNumber}"></script>
+<script type="text/javascript" src="${JSPRootURL}/src/upload.js?${versionNumber}"></script>
+<script type="text/javascript" src="${JSPRootURL}/src/sessionHook.js?${versionNumber}"></script>
+<script language="javascript" type="text/javascript">
+var moduleId = ${moduleId};
+var spaceId = ${spaceId};
+var blogItFor = 'personalProfile';
+var userId = ${user.Id};
+var confirmRemoveImageMessege = '${confirmRemoveImageMessege}';
+var loadingMsg = '<t:Message value="prm.global.loading.message" />';
+var requestFailMsg = '<t:Message value="prm.global.lastblog.request.failure.message" />';
+var loadingRecentBlog = '<t:Message value="all.global.blogit.loadingrecentblogentry.message" />';
+var savingblog = '<t:Message value="prm.global.saving.message" />';
+var loadingImage = '<t:Message value="prm.global.loading.message" />';
+<!-- //
+	
+	function help() {
+		var helplocation = JSPRootURL+"/help/Help.jsp?page=personal_profile";
+		openwin_help(helplocation);
+	}
+
+	function main_toolbar_logout() {
+		self.location = JSPRootURL+"/Logout.jsp";
+	}
+	
+	function extAlert(title, msg, icon){
+		Ext.MessageBox.show({
+			title: title,
+			msg: msg,
+			buttons: Ext.MessageBox.OK,
+			icon: icon
+		});
+	}    
+	
+	// Loading last blog entry after saving successfully
+	function loadLastBlogEntry() {
+		document.getElementById('lastBlogEntry').innerHTML = loadingMsg+'<img src="'+JSPRootURL+'/images/default/grid/loading.gif" />';
+		Ext.Ajax.request({
+		   url: JSPRootURL+'/blog/view/get_last_blog_entry?module='+moduleId,
+		   params: {module : moduleId, userId: userId},
+		   method: 'POST',
+		   success: function(result, request){
+		   	   document.getElementById('lastBlogEntry').innerHTML = result.responseText;
+		   },
+		   failure: function(result, response){
+			   extAlert(errotAlertTitle, requestFailMsg, Ext.MessageBox.ERROR);
+		   }
+		});	
+	}
+	
+// -->
+</script>
+</head>
+<body class="main" id="bodyWithFixedAreasSupport">	
+<script language="javascript" type="text/javascript"> writeSpaceMenu(); writeSpaceNavBarMenu(); </script>
+			
+			<div id="left">
+			
+			<div id="${profileHeaderStyle}" style="position: relative;"><t:Message value="prm.personal.profile.profileview.header" /></div>
+			
+			<div class="profile-name" style="margin-top: 10px;">${registrationBean.displayName}</div>
+			<div class="profile-photo"><img width="110px" src="${imagePath}" id="personImage" alt="${myPictureTitle}" /></div>
+			<div style="clear: both"></div>
+			<div class="spacer-for-toolbox"></div>
+			<div class="toolbox-heading"><t:Message value="prm.global.toolbox.heading" /></div>
+			
+			<div class="toolbox-item">
+				<t:if test="blogEnabled">
+					<t:if test="isSpaceAdmin">
+						<t:if test="actionsIconEnabled">
+							<span id="blog-ItEnabled">
+								<a onmouseover=" document.imgblogit.src = '${jspRootURL}${blogItImagePathOver}'" onmouseout=" document.imgblogit.src = '${jspRootURL}${blogItImagePathOn}'" href="javascript:blogit();">
+									<img hspace="0" border="0" name="imgblogit" src="${jspRootURL}${blogItImagePathOn}" title="${blogitTitle}" alt="${blogitTitle}"/>
+									<t:Message value="all.global.toolbar.standard.blogit" />
+								</a>
+							</span><br />
+						<t:parameter name="else">
+							<span id="blog-ItEnabled">
+								<a href="javascript:blogit();">
+									<t:Message value="all.global.toolbar.standard.blogit" />
+								</a>
+							</span><br />
+						</t:parameter>
+						</t:if>
+						<t:parameter name="else">
+							<span><a class="disabled" href="#"><t:Message value="all.global.toolbar.standard.blogit" /> </a></span>&nbsp;<br/>
+						</t:parameter>
+					</t:if>
+				</t:if>
+				<t:if test="isSpaceAdmin">
+						<t:if test="actionsIconEnabled">
+							<span>
+								<a onmouseover=" document.imgmodify.src = '${jspRootURL}${modifyImagePathOver}'" onmouseout=" document.imgmodify.src = '${jspRootURL}${modifyImagePathOn}'" href="${JSPRootURL}/personal/ProfileName.jsp?module=${moduleId}">
+									<img hspace="0" border="0" name="imgmodify" src="${jspRootURL}${modifyImagePathOn}" title="${editProfileTitle}" alt="${editProfileTitle}"/>
+									<t:Message value="prm.personal.profile.editprofileinfo.link" />
+								</a>
+							</span><br />
+							<span>
+								<a onmouseover="  document.imgupload.src = '${jspRootURL}${uploadImagePathOver}'" onmouseout=" document.imgupload.src = '${jspRootURL}${uploadImagePathOn}'" href="javascript:showUploadPopup('${JSPRootURL}/personal/UploadDocument',625,'null','profilePage');" >
+									<img hspace="0" border="0" name="imgupload" src="${jspRootURL}${uploadImagePathOn}" title="${uploadPictureTitle}" alt="${uploadPictureTitle}"/>
+									<t:Message value="prm.personal.profile.uploadpicture.link" />
+								</a>
+							</span><br />
+							<t:if test="isImageAvailable">
+								<span id="removeLink">
+									<a onmouseover=" document.imgremove.src = '${jspRootURL}${removeImagePathOver}'" onmouseout="document.imgremove.src = '${jspRootURL}${removeImagePathOn}'" href="javascript:confirmRemoveImage();">
+										<img hspace="0" border="0" name="imgremove" src="${jspRootURL}${removeImagePathOn}" title="${removePictureTitle}" alt="${removePictureTitle}"/>
+										<t:Message value="prm.personal.profile.removepicture.link" />
+									</a>
+								</span>
+							</t:if>
+							<t:parameter name="else">
+									<span>
+									<a href="${JSPRootURL}/personal/ProfileName.jsp?module=${moduleId}">
+										<t:Message value="prm.personal.profile.editprofileinfo.link" />
+									</a>
+									</span><br />
+									<span>
+										<a href="javascript:showUploadPopup('${JSPRootURL}/personal/UploadDocument',625,'null','profilePage');" >
+											<t:Message value="prm.personal.profile.uploadpicture.link" />
+										</a>
+									</span><br />
+									<t:if test="isImageAvailable">
+										<span id="removeLink">
+											<a href="javascript:confirmRemoveImage();">
+												<t:Message value="prm.personal.profile.removepicture.link" />
+											</a>
+										</span>
+									</t:if>
+							</t:parameter>
+						</t:if>
+						<t:parameter name="else">
+							<span><a class="disabled" href="#"><t:Message value="prm.personal.profile.editprofileinfo.link" /></a></span><br />
+							<span><a class="disabled" href="#" ><t:Message value="prm.personal.profile.uploadpicture.link" /></a></span><br />													
+						</t:parameter>			
+				</t:if>
+			</div>
+			
+			<div class="toolbox-heading"><t:Message value="prm.global.goto.heading" /></div>
+				<div class="toolbox-item">
+					<span><a href="${JSPRootURL}/blog/view/${user.id}/${user.id}/person/${moduleId}?module=${moduleId}"><t:Message value="prm.personal.profile.myblog.link" /></a></span><br />
+				</div>
+			</div>
+			
+			<div id="profile-data-content">
+			<div id="content-left">
+			
+			<div class="profile-chapter"><t:Message value="prm.personal.profile.contactinfo.header" /></div>
+			<table width="350" border="0" class="table">
+			  <tr>
+			    <td width="110" class="info-title"><t:Message value="prm.personal.profile.name.primaryemail.label" /></td>
+			    <td class="info-content"><a href="mailto:${registrationBean.email}">${registrationBean.email}</a></td>
+			  </tr>
+			  <t:if test="registrationBean.alternateEmail1">
+				  <tr>
+				    <td width="110" class="info-title"><t:Message value="prm.personal.profile.name.alt1email.label" /></td>
+				    <td class="info-content"><a href="mailto:${registrationBean.alternateEmail1}">${registrationBean.alternateEmail1}</a></td>
+				  </tr>
+			  </t:if>
+			  <t:if test="registrationBean.alternateEmail2">
+				  <tr>
+				    <td class="info-title"><t:Message value="prm.personal.profile.name.alt2email.label" /></td>
+				    <td class="info-content"><a href="mailto:${registrationBean.alternateEmail2}">${registrationBean.alternateEmail2}</a></td>
+				  </tr>
+			  </t:if>
+			  <t:if test="registrationBean.skype">
+				  <tr>
+				    <td width="110" class="info-title"><t:Message value="prm.personal.profile.name.skype.label" /></td>
+				    <td class="info-content">
+				    	<t:if test="showSkypeStatus">
+							<a href="skype:${registrationBean.skype}?chat">
+								<t:if test="secureConnection">
+									<img src="${asset:context:/images/skype/SkypeBlue_16X16.png}" style="border: none;" width="16" height="16" title="${skypeStatusTitle}" />
+									<t:parameter name="else">
+										<img src="http://mystatus.skype.com/smallicon/${registrationBean.skype}" style="border: none;" width="16" height="16" title="${skypeStatusTitle}" />					
+									</t:parameter>
+								</t:if>
+							</a> 
+						</t:if>
+						&nbsp;${registrationBean.skype}	
+					</td>
+				  </tr>
+			  </t:if>
+			  <tr>
+			    <td width="110" class="info-title"><t:Message value="prm.business.memberedit.officephone.label" /></td>
+			    <td class="info-content">${registrationBean.officePhone}</td>
+			  </tr>
+			  <!--<tr>
+			    <td class="info-title">Mobile:</td>
+			    <td class="info-content">781-888-0000</td>
+			  </tr>
+			  -->
+			  <t:if test="registrationBean.faxPhone">
+				  <tr>
+				    <td width="110" class="info-title"><t:Message value="prm.business.memberview.fax.label" /></td>
+				    <td class="info-content">${registrationBean.faxPhone}</td>
+				  </tr>
+			  </t:if>
+			  <t:if test="registrationBean.pagerPhone">
+				  <tr>
+				    <td class="info-title"><t:Message value="prm.business.memberview.pagerphone.label" /></td>
+				    <td class="info-content">${registrationBean.pagerPhone}</td>
+				  </tr>
+			  </t:if><!--
+			  <tr>
+			    <td class="info-title">Pager Email: </td>
+			    <td class="info-content"><a href="mailto:pager@email.com">pager@email.com</a></td>
+			  </tr>
+			  -->
+			  <tr>
+			    <td class="info-title"><t:Message value="prm.license.detailview.purchaser.address1.label" /></td>
+			    <td class="info-content">${registrationBean.address1}</td>
+			  </tr>
+			  <t:if test="registrationBean.address2">
+			  <tr>
+			    <td class="info-title">&nbsp;</td>
+			    <td class="info-content">${registrationBean.address2}</td>
+			  </tr>
+			  </t:if>
+			  <t:if test="registrationBean.city">
+			  <tr>
+			    <td class="info-title"><t:Message value="prm.global.creditcard.billinginfo.city.name" /></td>
+			    <td class="info-content">${registrationBean.city}</td>
+			  </tr>
+			  </t:if>
+			  <t:if test="registrationBean.state">
+			  <tr>
+			    <td class="info-title"><t:Message value="prm.global.creditcard.billinginfo.state.name" /></td>
+			    <td class="info-content">${registrationBean.state}</td>
+			  </tr>
+			  </t:if>
+			  <tr>
+			    <td class="info-title"><t:Message value="prm.global.creditcard.billinginfo.country.name" /></td>
+			    <td class="info-content">${registrationBean.country}</td>
+			  </tr>
+			  <tr>
+			    <td class="info-title"><t:Message value="prm.personal.profile.timezone.label" /></td>
+			    <td class="info-content">${registrationBean.timeZoneCode}</td>
+			  </tr>
+			  <tr>
+			    <td class="info-title"><t:Message value="prm.personal.profile.lastlogin.label" /></td>
+			    <td class="info-content">${lastLoginDate}
+			    <span class="online">
+			    	<t:if test="isOnline">
+			    		<label style="color: green; font-weight: bold;">
+			    			<t:Message value="prm.personal.profile.stastus.onlinestatus.label" />
+			    		</label>
+			    		<t:parameter name="else">
+								<label style="color: gray; font-weight: bold;">
+									<t:Message value="prm.personal.profile.stastus.Offlinestatus.label" />
+								</label>
+						</t:parameter>
+			    	</t:if>
+			    </span></td>
+			  </tr>
+			</table>
+			<br />
+			<div class="profile-chapter"><t:Message value="prm.personal.profile.last.label" />&nbsp;<a href="${JSPRootURL}/blog/view/${user.id}/${user.id}/person/${moduleId}?module=${moduleId}"><t:Message value="prm.personal.profile.blog.label"/></a>&nbsp;<t:Message value="prm.personal.profile.entry.label"/> </div>
+			<div id="lastBlogEntry"> 
+				<t:if test="lastBlogEntry">
+					<div class="blogdate">${lastBlogEntry.pubtimeString}</div>
+					<div class="blogentry-title">
+						<label style="color: red; font-weight: bolder; font-size: x-large;" title="${importantSymbolTooltip}">
+								${lastBlogEntry.isImportantSymbol}&nbsp;
+						</label>
+						<t:OutputRaw value="lastBlogEntry.title" />
+						<t:if test="lastBlogEntry.contextName">
+							<t:if test="lastBlogEntry.contextUrl">
+								<a id="blogcontextLinkFor_${lastBlogEntry.weblogEntryId}" class="blogContext" href="${lastBlogEntry.contextUrl}">
+									 ${lastBlogEntry.contextName}: ${lastBlogEntry.contextValue}
+								</a>												
+		    					<t:parameter name="else">
+									<a id="blogcontextLinkFor_${lastBlogEntry.weblogEntryId}" class="blogContext" href="javascript:showErrorForContextLink('${lastBlogEntry.weblogEntryId}');">
+			 							${lastBlogEntry.contextName}:${lastBlogEntry.contextValue}
+									</a>
+								</t:parameter>	
+							</t:if>
+						</t:if>
+					</div>
+					<t:if test="isProjectDeleted">
+ `						<div class="blogentry-project"><t:Message value="prm.personal.profile.project.label" />
+							<a class="project" id="deletedProject_${lastBlogEntry.weblogEntryId}" href="javascript:showObjectDeletedError('Project', '${lastBlogEntry.weblogEntryId}', '');">
+								${projectName}
+							</a>
+						</div>
+						<t:parameter name="else">
+							<div class="blogentry-project"><t:Message value="prm.personal.profile.project.label" /> <a href="${projectUrl}" class="project">${projectName}</a></div>
+						</t:parameter>
+					</t:if>
+					<div class="blogentry-content">
+						<t:OutputRaw  value="lastBlogEntry.text" />
+					</div> <!--blogentry-content end --><br />
+					<t:parameter name="else">
+						<t:Message value="prm.personal.profile.noblog.message" />
+					</t:parameter>
+				</t:if>			
+			</div>
+			</div> <!--content-left id end -->
+			<div id="content-right">
+			
+			
+			<div class="profile-chapter"><t:Message value="prm.personal.profile.teaminfo.label" /></div>
+			<br />
+			<t:if test="spaceHasPersonObjects">	
+				<table width="95%" border="0" cellpadding="4" cellspacing="2">
+				  <tr class="projects-table">
+				    <td width="40%" bgcolor="#FFEFA5"><t:Message value="prm.personal.profile.projectname.label" /></td>
+				    <td width="60%" bgcolor="#FFEFA5"><t:Message value="prm.personal.profile.projectdescription.label" /></td>
+				  </tr>
+				  <t:loop source="spaceHasPersonObjects" value="pnSpaceHasPerson">
+					  <tr class="info-content">
+					    <td width="40%" valign="top" bgcolor="#F3F3FA"><t:OutputRaw value="pnSpaceHasPerson.projectName" />&nbsp;</td>
+					    <td width="60%" valign="top" bgcolor="#F3F3FA">${pnSpaceHasPerson.projectDesc} &nbsp;</td>
+					  </tr>
+				  </t:loop>
+				</table>
+				<t:parameter name="else">
+					<span class="projectTableHeader">
+						<t:Message value="prm.personal.profile.currentlynotworking.message" />
+					</span>
+				</t:parameter>
+				<br />
+			</t:if>
+			<t:if test="registrationBean.skillsBio">
+				<table width="90%" border="0" cellpadding="0" cellspacing="0">
+				  <tr>
+				    <td><span class="info-title"><t:Message value="prm.personal.profile.name.skillsbio.label" /></span></td>
+				  </tr>
+				  <tr>
+				    <td><p class="info-content">${registrationBean.skillsBio}</p></td>
+				  </tr>
+				</table>
+			</t:if>
+			</div><!-- content-right id end-->
+		</div><!-- content id end -->
+	</body>
+</html>

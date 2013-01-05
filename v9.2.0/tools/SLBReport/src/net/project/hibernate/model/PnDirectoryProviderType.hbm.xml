@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDirectoryProviderType" 
+    table="PN_DIRECTORY_PROVIDER_TYPE"
+    lazy="false"
+>
+
+    <id
+        name="providerTypeId"
+        type="java.math.BigDecimal"
+        column="PROVIDER_TYPE_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="name"
+        type="java.lang.String"
+        column="NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        length="500"
+    />
+    <property
+        name="serviceProviderClassName"
+        type="java.lang.String"
+        column="SERVICE_PROVIDER_CLASS_NAME"
+        not-null="true"
+        length="1000"
+    />
+    <property
+        name="configuratorClassName"
+        type="java.lang.String"
+        column="CONFIGURATOR_CLASS_NAME"
+        not-null="true"
+        length="1000"
+    />
+    <property
+        name="configurationClassName"
+        type="java.lang.String"
+        column="CONFIGURATION_CLASS_NAME"
+        not-null="true"
+        length="1000"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnUserDomain -->
+
+    <set
+        name="pnUserDomains"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DIRECTORY_PROVIDER_TYPE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnUserDomain"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

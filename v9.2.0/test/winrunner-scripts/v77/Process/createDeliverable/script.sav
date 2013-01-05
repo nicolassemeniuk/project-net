@@ -1,0 +1,31 @@
+#create a deliverable for a phase and finally verify whether the deliverable appears on phase main
+function createDeliverable(in processName, in phaseName, in deliverableName){
+	set_window("main",1);
+	if(obj_exists(processName)==E_OK)
+		web_link_click(processName);
+	wait(1);
+	set_window("main",1);
+	web_link_click(phaseName);
+	wait(1);
+	set_window("main",1);
+	web_link_click("Create Deliverable");
+	wait(1);
+	set_window("main",1);
+	edit_set("deliverablename",deliverableName);
+	edit_set("deliverabledesc","Again just testing");
+	edit_set("deliverablecomments","No comments");
+	wait(1);
+	if(obj_exists("deliverablestatus")==E_OK){
+		list_select_item("deliverablestatus","Not Started");
+		tl_step("Verify deliverable status",0,"Deliverable status for "&deliverableName&" present");
+	
+	wait(1);
+	list_select_item("deliverableoptional","No");
+	web_link_click("Submit");
+	wait(2);
+	set_window("main",2);
+	if(obj_exists(deliverableName)==E_OK)
+		tl_step("Deliverable created",0,"Deliverable \""&deliverableName&"\" for "&phaseName&" has been created");
+	else
+		tl_step("Deliverable created",1,"Deliverable \""&deliverableName&"\" for "&phaseName&" is NOT present");
+}

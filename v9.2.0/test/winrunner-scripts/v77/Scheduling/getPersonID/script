@@ -1,0 +1,15 @@
+function getPersonID(in personName){
+	auto urlValue, elements, path_array[], fieldID; 
+	wait(3);
+	GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createParticipantsDirectory\\createParticipantsDirectory.gui");
+	set_window("menu",2);
+	web_link_click("Directory");
+	wait(2);
+	set_window("main",1);
+
+	web_obj_get_info(personName,"url",urlValue);
+	elements = split(urlValue,path_array,"=");
+	fieldID = path_array[3];
+	return fieldID;
+	GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createParticipantsDirectory\\createParticipantsDirectory.gui");
+}

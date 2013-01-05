@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnLicenseStatusReason" 
+    table="PN_LICENSE_STATUS_REASONS"
+    lazy="false"
+>
+
+    <id
+        name="reasonCode"
+        type="java.lang.Integer"
+        column="REASON_CODE"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="shortName"
+        type="java.lang.String"
+        column="SHORT_NAME"
+        not-null="true"
+        length="200"
+    />
+    <property
+        name="message"
+        type="java.lang.String"
+        column="MESSAGE"
+        not-null="true"
+        length="1000"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnLicense -->
+
+    <set
+        name="pnLicenses"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="STATUS_REASON_CODE" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnLicense"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

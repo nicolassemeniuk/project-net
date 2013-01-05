@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnSpaceHasMethodology" 
+    table="PN_SPACE_HAS_METHODOLOGY"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnSpaceHasMethodologyPK">
+        <key-property 
+            name="spaceId" 
+            column="SPACE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="methodologyId" 
+            column="METHODOLOGY_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="personId"
+        type="java.math.BigDecimal"
+        column="PERSON_ID"
+        length="20"
+    />
+    <property
+        name="dateApplied"
+        type="java.sql.Date"
+        column="DATE_APPLIED"
+        length="7"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnMethodologySpace -->
+    <many-to-one
+        name="pnMethodologySpace"
+	    class="net.project.hibernate.model.PnMethodologySpace"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="METHODOLOGY_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

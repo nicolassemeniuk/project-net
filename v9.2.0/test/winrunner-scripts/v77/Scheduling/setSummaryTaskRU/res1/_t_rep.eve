@@ -1,0 +1,27 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 1 1115939738 0
+23 7 <Level 1> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 42 1115939904 0
+37 106 <Step: Verify work for summary task, Status: Pass, Description: The work for t1 is correctly shown as 24hrs> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 19 1115939908 24
+37 110 <Step: Verify work for summary task, Status: Pass, Description: The duration for t1 is correctly shown as 2days> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 24 1115939908 24
+23 7 <Level 2> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 47 1115940027 0
+37 106 <Step: Verify work for summary task, Status: Pass, Description: The work for t3 is correctly shown as 32hrs> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 19 1115940031 24
+37 110 <Step: Verify work for summary task, Status: Pass, Description: The duration for t3 is correctly shown as 2days> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 24 1115940031 24
+37 106 <Step: Verify work for summary task, Status: Pass, Description: The work for t1 is correctly shown as 40hrs> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 19 1115940038 24
+37 110 <Step: Verify work for summary task, Status: Pass, Description: The duration for t1 is correctly shown as 2days> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 24 1115940038 24
+23 7 <Level 3> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 54 1115940157 0
+37 106 <Step: Verify work for summary task, Status: Pass, Description: The work for t5 is correctly shown as 32hrs> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 19 1115940161 24
+37 110 <Step: Verify work for summary task, Status: Pass, Description: The duration for t5 is correctly shown as 2days> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 24 1115940161 24
+37 106 <Step: Verify work for summary task, Status: Pass, Description: The work for t3 is correctly shown as 48hrs> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 19 1115940168 24
+37 110 <Step: Verify work for summary task, Status: Pass, Description: The duration for t3 is correctly shown as 2days> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 24 1115940168 24
+37 106 <Step: Verify work for summary task, Status: Pass, Description: The work for t1 is correctly shown as 56hrs> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 19 1115940174 24
+37 110 <Step: Verify work for summary task, Status: Pass, Description: The duration for t1 is correctly shown as 2days> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 24 1115940174 24
+23 7 <Level 4> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 62 1115940301 0
+37 106 <Step: Verify work for summary task, Status: Pass, Description: The work for t7 is correctly shown as 32hrs> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 19 1115940305 24
+37 110 <Step: Verify work for summary task, Status: Pass, Description: The duration for t7 is correctly shown as 2days> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 24 1115940305 24
+37 106 <Step: Verify work for summary task, Status: Pass, Description: The work for t5 is correctly shown as 48hrs> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 19 1115940312 24
+37 110 <Step: Verify work for summary task, Status: Pass, Description: The duration for t5 is correctly shown as 2days> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 24 1115940312 24
+37 106 <Step: Verify work for summary task, Status: Pass, Description: The work for t3 is correctly shown as 64hrs> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 19 1115940319 24
+37 110 <Step: Verify work for summary task, Status: Pass, Description: The duration for t3 is correctly shown as 2days> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 24 1115940319 24
+37 106 <Step: Verify work for summary task, Status: Pass, Description: The work for t1 is correctly shown as 72hrs> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 19 1115940326 24
+37 110 <Step: Verify work for summary task, Status: Pass, Description: The duration for t1 is correctly shown as 2days> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 24 1115940326 24
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setSummaryTaskRU> 66 1115940328 0

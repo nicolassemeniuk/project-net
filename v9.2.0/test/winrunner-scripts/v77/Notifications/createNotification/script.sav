@@ -1,0 +1,16 @@
+function createNotification(in objectType, in notificationType, in name){
+	set_window("main",2);
+	web_link_click("Create New Subscription");
+	wait(1);
+	set_window("main",2);
+	list_select_item("objectType",objectType);
+	wait(1);
+	length
+	set_window("main",2);
+	list_select_item("notificationTypeID",notificationType);
+	wait(1);
+	set_window("main",2);
+	edit_set("name",name);
+	
+	
+		

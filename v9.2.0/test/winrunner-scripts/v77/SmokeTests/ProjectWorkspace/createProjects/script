@@ -1,0 +1,218 @@
+GUI_close_all();
+wait(1);
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\forLoginProject\\forLoginProject.gui");
+# wait(2);
+# if (invoke_application ("C:\\Program Files\\Internet Explorer\\iexplore.exe","http://trout/", "C:\\Program Files\\Internet Explorer", SW_SHOWMAXIMIZED)!=0)
+# 	report_msg("Internet Explorer is not found. exiting.");
+# wait(6);
+# 
+# set_window("Project.net Login");
+# wait(2);
+# edit_set("J_USERNAME","avinashp");
+# edit_set("J_PASSWORD","abc123");
+# button_press("Login");
+wait(4);
+set_window("toolbar_main",3);
+web_image_click("topnav-projects-off",20,20);
+wait(2);
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\forLoginProject\\forLoginProject.gui");
+wait(1);
+
+businessName = "WinrunnerBusiness";
+subBusinessName = "SubWinrunnerBusiness";
+projectName = "WRProject";
+subProjectName1 = "subWRProject1";
+subProjectName2 = "subWRProject2";
+subProjectName3 = "subWRProject3";
+subProjectName4 = "subWRProject4";
+
+rc = GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createProjects\\createProjects.gui");
+# pause(rc);
+###################################################
+# Creates a schedule linked project
+###################################################
+
+public function createScheduleProject(in businessName, in projectName)
+{
+	set_window("main",3);
+	web_link_click("Create_1");
+	wait(2);
+	set_window("main",3);
+	edit_set("name",projectName);
+	list_select_item("parentBusinessID",businessName);
+	button_set("percentCalculationMethod_1", ON);
+	web_link_click("Next");
+	set_window("main",3);
+	web_link_click("Finish");
+}
+
+###################################################
+# Creates a project in which progress has to be manually entered
+###################################################
+
+public function createManualProject(in businessName, in projectName)
+{
+	set_window("main",3);
+	web_link_click("Create_1");
+	wait(2);
+	set_window("main",3);
+	edit_set("name",projectName);
+	list_select_item("parentBusinessID",businessName);
+	button_set("percentCalculationMethod", ON);
+	web_link_click("Next");
+	set_window("main",3);
+	web_link_click("Finish");
+}
+
+###################################################
+# Creates a subproject to the Schedule linked project
+###################################################
+
+public function createScheduleSubProject(in subBusinessName, in projectName, in subProjectName)
+{
+	set_window("main",3);
+	web_link_click("Create_1");
+	wait(2);
+	set_window("main",3);
+	edit_set("name",subProjectName);
+	list_select_item("parentBusinessID",subBusinessName);
+	list_select_item("parentProjectID",projectName);
+	button_set("percentCalculationMethod_1", ON);
+	web_link_click("Next");
+	set_window("main",3);
+	web_link_click("Finish");
+}
+
+###################################################
+# Creates a subproject to the manual project
+###################################################
+
+public function createManualSubProject(in subBusinessName, in projectName, in subProjectName)
+{
+	set_window("main",3);
+	web_link_click("Create_1", 8, 8);
+	wait(2);
+	set_window("main",3);
+	edit_set("name",subProjectName);
+	list_select_item("parentBusinessID",subBusinessName);
+	list_select_item("parentProjectID",projectName);
+	button_set("percentCalculationMethod", ON);
+	web_link_click("Next");
+	set_window("main",3);
+	web_link_click("Finish");
+}
+
+wait(2);
+# Calling the create functions
+createScheduleProject(businessName, projectName);
+createManualProject(businessName, "Manual Project");
+createScheduleSubProject(subBusinessName, projectName, subProjectName1);
+createManualSubProject(subBusinessName, "Manual Project", subProjectName2);
+createScheduleSubProject(subBusinessName, "Manual Project", subProjectName3);
+createManualSubProject(subBusinessName, projectName, subProjectName4);
+
+wait(3);
+set_window("main",2);
+
+# Verifying that the projects created exist on project portfolio
+if(obj_exists(projectName) == E_OK)
+	tl_step("Verify Schedule Linked Project present", 0 ,"Schedule linked project successfully created");
+else
+	tl_step("Verify Schedule Linked Project present", 1 ,"Schedule linked project HAS NOT BEEN created");
+
+if(obj_exists("Manual Project") == E_OK)
+	tl_step("Verify Manual Project present", 0 ,"Manual project successfully created");
+else
+	tl_step("Verify Manual Project present", 1 ,"Manual project HAS NOT BEEN created");
+	
+if(obj_exists(subProjectName1) == E_OK)
+	tl_step("Verify "&subProjectName1&" present", 0 ,""&subProjectName1&" successfully created");
+else
+	tl_step("Verify "&subProjectName1&" present", 1 ,""&subProjectName1&" HAS NOT BEEN created");
+	
+if(obj_exists(subProjectName2) == E_OK)
+	tl_step("Verify "&subProjectName2&" present", 0 ,""&subProjectName2&" successfully created");
+else
+	tl_step("Verify "&subProjectName2&" present", 1 ,""&subProjectName2&" HAS NOT BEEN created");	
+
+if(obj_exists(subProjectName3) == E_OK)
+	tl_step("Verify "&subProjectName3&" present", 0 ,""&subProjectName3&" successfully created");
+else
+	tl_step("Verify "&subProjectName3&" present", 1 ,""&subProjectName3&" HAS NOT BEEN created");
+	
+if(obj_exists(subProjectName4) == E_OK)
+	tl_step("Verify "&subProjectName4&" present", 0 ,""&subProjectName4&" successfully created");
+else
+	tl_step("Verify "&subProjectName4&" present", 1 ,""&subProjectName4&" HAS NOT BEEN created");	
+
+# checking for redundancy of the manual project
+report_msg("");
+wait(1);
+set_window("main",1);
+web_link_click("Manual Project")
+wait(1);
+web_link_click("Modify Project Information");
+wait(1);
+set_window("main",1);
+list_get_info("parentProjectID","count",val);
+for(i=0;i<val;i++){
+	list_get_item("parentProjectID",i,flavorValue);
+# 	pause(flavorValue);
+	if((flavorValue == "Manual Project")||(flavorValue == subProjectName2)||(flavorValue == subProjectName3))
+		tl_step("Verify redundancy",1,"Sub projects of Manual Project are BEING SHOWN is being shown in Sub Business Of list of its parent");
+}
+
+# checking for redundancy of the schedule linked project
+set_window("toolbar_main",2);
+web_link_click("topnav-projects-off");
+wait(2);
+set_window("main",2);
+web_link_click(projectName);
+set_window("main",2);
+web_link_click("Modify Project Information");
+wait(1);
+set_window("main",1);
+list_get_info("parentProjectID","count",val);
+for(i=0;i<val;i++){
+	list_get_item("parentProjectID",i,flavorValue);
+# 	pause(flavorValue);
+	if((flavorValue == projectName)||(flavorValue == subProjectName1)||(flavorValue == subProjectName4))
+		tl_step("Verify redundancy",1,"Sub projects of "&projectName&" are BEING SHOWN is being shown in Sub Business Of list of its parent");
+}		
+
+# Verifying the projects created exist on personal workspace in the 'My Projects' channel	
+set_window("toolbar_main",3);
+web_link_click("topnav-personal-off");
+wait(3);
+set_window("main",2);
+if(obj_exists(projectName) == E_OK)
+	tl_step("Verify Schedule Linked Project present", 0 ,"Schedule linked project exists on Personal Workspace");
+else
+	tl_step("Verify Schedule Linked Project present", 1 ,"Schedule linked project NOT present in Personal Workspace channel");
+
+if(obj_exists("Manual Project") == E_OK)
+	tl_step("Verify Manual Project present", 0 ,"Manual project exists on Personal Workspace");
+else
+	tl_step("Verify Manual Project present", 1 ,"Manual project NOT present in Personal Workspace channel");
+	
+if(obj_exists(subProjectName1) == E_OK)
+	tl_step("Verify "&subProjectName1&" present", 0 ,""&subProjectName1&" exists on Personal Workspace");
+else
+	tl_step("Verify "&subProjectName1&" present", 1 ,""&subProjectName1&" NOT present in Personal Workspace channel");
+	
+if(obj_exists(subProjectName2) == E_OK)
+	tl_step("Verify "&subProjectName2&" present", 0 ,""&subProjectName2&" exists on Personal Workspace");
+else
+	tl_step("Verify "&subProjectName2&" present", 1 ,""&subProjectName2&" NOT present in Personal Workspace channel");	
+
+if(obj_exists(subProjectName3) == E_OK)
+	tl_step("Verify "&subProjectName3&" present", 0 ,""&subProjectName3&" exists on Personal Workspace");
+else
+	tl_step("Verify "&subProjectName3&" present", 1 ,""&subProjectName3&" NOT present in Personal Workspace channel");
+	
+if(obj_exists(subProjectName4) == E_OK)
+	tl_step("Verify "&subProjectName4&" present", 0 ,""&subProjectName4&" exists on Personal Workspace");
+else
+	tl_step("Verify "&subProjectName4&" present", 1 ,""&subProjectName4&" NOT present in Personal Workspace channel");			
+
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\ProjectWorkspace\\createProjects\\createProjects.gui");

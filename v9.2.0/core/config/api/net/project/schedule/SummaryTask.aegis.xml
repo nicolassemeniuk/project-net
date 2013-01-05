@@ -1,0 +1,9 @@
+<mappings>
+  <mapping>
+  <property name="actualDuration" ignore="true"/>
+  <property name="children" ignore="true"/>
+  <property name="childrenNoLazyLoad" ignore="true"/>
+  <property name="childrenWithoutSuccessors" ignore="true"/>
+  <property name="childrenWithoutPredecessors" ignore="true"/>
+  </mapping>
+</mappings>

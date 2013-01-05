@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPaymentModelCreditcard" 
+    table="PN_PAYMENT_MODEL_CREDITCARD"
+    lazy="false"
+>
+
+    <id
+        name="paymentModelId"
+        type="java.math.BigDecimal"
+        column="PAYMENT_MODEL_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="cardNumber"
+        type="java.lang.String"
+        column="CARD_NUMBER"
+        not-null="true"
+        length="100"
+    />
+    <property
+        name="cardExpiryMonth"
+        type="int"
+        column="CARD_EXPIRY_MONTH"
+        not-null="true"
+        length="2"
+    />
+    <property
+        name="cardExpiryYear"
+        type="int"
+        column="CARD_EXPIRY_YEAR"
+        not-null="true"
+        length="4"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

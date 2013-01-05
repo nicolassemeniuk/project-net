@@ -1,0 +1,19 @@
+function testWorkComplete(in taskName, in workCompleteValue,in workCompleteUnits){
+	auto value1;
+
+	set_window("main",2);
+	web_link_click(taskName);
+	set_window("main",1);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",1);
+	edit_get_text("work_complete",value1);
+# 	pause(value1);
+	if(value1 == workCompleteValue)
+		tl_step("Verify work complete",0,"Work complete value for "&taskName&" correctly specified");
+	else
+		tl_step("Verify work complete",1,"Work complete value for "&taskName&" INCORRECTLY specified");
+	
+	list_check_selected("work_complete_units",workCompleteUnits);
+	web_link_click("Cancel");
+} 	

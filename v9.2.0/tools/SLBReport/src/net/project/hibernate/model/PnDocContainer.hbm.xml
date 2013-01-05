@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDocContainer" 
+    table="PN_DOC_CONTAINER"
+    lazy="false"
+>
+
+    <id
+        name="docContainerId"
+        type="java.math.BigDecimal"
+        column="DOC_CONTAINER_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="containerName"
+        type="java.lang.String"
+        column="CONTAINER_NAME"
+        length="80"
+    />
+    <property
+        name="containerDescription"
+        type="java.lang.String"
+        column="CONTAINER_DESCRIPTION"
+        length="500"
+    />
+    <property
+        name="dateModified"
+        type="java.sql.Date"
+        column="DATE_MODIFIED"
+        length="7"
+    />
+    <property
+        name="isHidden"
+        type="int"
+        column="IS_HIDDEN"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnObject -->
+    <one-to-one
+        name="pnObject"
+        class="net.project.hibernate.model.PnObject"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPerson"
+        class="net.project.hibernate.model.PnPerson"
+        not-null="true"
+    >
+        <column name="MODIFIED_BY_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnDocSpaceHasContainer -->
+
+    <set
+        name="pnDocSpaceHasContainers"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DOC_CONTAINER_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDocSpaceHasContainer"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnDocContainerHasObject -->
+
+    <set
+        name="pnDocContainerHasObjects"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DOC_CONTAINER_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDocContainerHasObject"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

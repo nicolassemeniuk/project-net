@@ -1,0 +1,24 @@
+function createCheckBox(in name){
+	extern i;
+# 	auto outText;
+	
+	wait(1);
+# 	report_msg("Within Check Box - "&i&"");
+	set_window("main",3);
+	list_select_item("ElementID","Checkbox");
+	wait(1);
+	set_window("main",3);
+	edit_set("field_label",name);
+	edit_set("row_num",i);
+	list_select_item("column_id","Left");
+	web_link_click("Submit");
+	wait(1);
+	set_window("main",3);
+
+	# Verifying the checkbox field was created and exists in the fields list
+	if(obj_exists(name)==E_OK)
+		tl_step("Verify checkbox field exists",0,"The CheckBox Field '"&name&"'created successfully");
+	else
+		tl_step("Verify checkbox field exists",1,"The creation of checkbox field CANNOT be verified");
+	set_window("main",3);
+}

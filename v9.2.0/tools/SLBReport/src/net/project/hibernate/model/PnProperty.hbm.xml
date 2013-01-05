@@ -1,0 +1,100 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnProperty" 
+    table="PN_PROPERTY"
+    lazy="false"
+>
+    <meta attribute="class-description" inherit="false">
+       For brand name terminology lookups for 
+    </meta>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnPropertyPK">
+        <key-property 
+            name="contextId" 
+            column="CONTEXT_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="language" 
+            column="LANGUAGE" 
+            type="java.lang.String"
+            length="2"
+        />
+        <key-property 
+            name="property" 
+            column="PROPERTY" 
+            type="java.lang.String"
+            length="500"
+        />
+    </composite-id>    
+
+    <property
+        name="propertyType"
+        type="java.lang.String"
+        column="PROPERTY_TYPE"
+        not-null="true"
+        length="40"
+    />
+    <property
+        name="propertyValue"
+        type="java.lang.String"
+        column="PROPERTY_VALUE"
+        length="4000"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        length="1"
+    />
+    <property
+        name="isSystemProperty"
+        type="int"
+        column="IS_SYSTEM_PROPERTY"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isTranslatableProperty"
+        type="int"
+        column="IS_TRANSLATABLE_PROPERTY"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="propertyValueClob"
+        type="java.sql.Clob"
+        column="PROPERTY_VALUE_CLOB"
+        length="4000"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnLanguage -->
+    <many-to-one
+        name="pnLanguage"
+	    class="net.project.hibernate.model.PnLanguage"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="LANGUAGE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

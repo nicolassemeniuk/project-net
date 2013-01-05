@@ -1,0 +1,400 @@
+<projects Name="Projects" ProjectId="root">
+<Project Name="Noble Energy Equatorial Guinea" Level="1" Folder="/Noble Energy Equatorial Guinea" selected="false" ProjectId="15219080">
+<Project Name="Evaluation" Level="2" Folder="/Noble Energy/Evaluation" selected="false" ProjectId="6687096">
+	</Project>
+<Project Name="Hardware implementation" Level="2" Folder="/Noble Energy/Hardware implementation" selected="false" ProjectId="6677134">
+	</Project>
+<Project Name="International Division Migration" Level="2" Folder="/Noble Energy/International Division Migration" selected="false" ProjectId="6677159">
+	</Project>
+<Project Name="Offshore Division Migration" Level="2" Folder="/Noble Energy/Offshore Division Migration" selected="false" ProjectId="6677187">
+	</Project>
+	</Project>
+<Project Name="Noble Evaluation/Workflow Consulting" Level="1" Folder="/Noble Evaluation Workflow Consulting" selected="false" ProjectId="14333026">
+	</Project>
+<Project Name="Nokia_Middleware" Level="1" Folder="/Nokia_Middleware" selected="false" ProjectId="4873266">
+	</Project>
+<Project Name="Non-Infrastructure Server Monitoring" Level="1" Folder="/Non-Infrastructure Server Monitoring" selected="false" ProjectId="2198365">
+	</Project>
+<Project Name="Normativity" Level="1" Folder="/Normativity" selected="false" ProjectId="5676324">
+<Project Name="Codes Unification" Level="2" Folder="/Normativity/Codes Unification" selected="false" ProjectId="5676393">
+	</Project>
+<Project Name="Common Data Model" Level="2" Folder="/Normativity/Common Data Model" selected="false" ProjectId="5270033">
+	</Project>
+	</Project>
+<Project Name="Norne" Level="1" Folder="/Norne" selected="false" ProjectId="6043337">
+	</Project>
+<Project Name="Norsk Hydro" Level="1" Folder="/Norsk Hydro" selected="false" ProjectId="931729">
+	</Project>
+<Project Name="Norsk Hydro Finder 9 Migration" Level="1" Folder="/Norsk Hydro Finder 9 Migration" selected="false" ProjectId="753885">
+	</Project>
+<Project Name="Norsk Hydro IH Transition Project" Level="1" Folder="/Norsk Hydro IH Transition Project" selected="false" ProjectId="162694">
+	</Project>
+<Project Name="Norsk Hydro Information Management" Level="1" Folder="/Norsk Hydro Information Management" selected="false" ProjectId="297617">
+<Project Name="N. Hydro Snorre TLP P-10 Completion" Level="2" Folder="/Norsk Hydro/N. Hydro Snorre TLP P-10 Completion" selected="false" ProjectId="2103510">
+	</Project>
+	</Project>
+<Project Name="North Africa Business Development" Level="1" Folder="/North Africa Business Development" selected="false" ProjectId="13008646">
+	</Project>
+<Project Name="North Kuwait Jurassic" Level="1" Folder="/North Kuwait Jurassic" selected="false" ProjectId="11699534">
+	</Project>
+<Project Name="North Kuwait Jurassic Gas" Level="1" Folder="/North Kuwait Jurassic Gas" selected="false" ProjectId="15068238">
+	</Project>
+<Project Name="North Region" Level="1" Folder="/North Region" selected="false" ProjectId="8418908">
+	</Project>
+<Project Name="Norway Report - May 03" Level="1" Folder="/Norway Report - May 03" selected="false" ProjectId="4252757">
+	</Project>
+<Project Name="Nuclear Database System" Level="1" Folder="/Nuclear Database System" selected="false" ProjectId="1487271">
+	</Project>
+<Project Name="NuclearDB Server" Level="1" Folder="/NuclearDB Server" selected="false" ProjectId="4943824">
+	</Project>
+<Project Name="Nuettermoor K17 K18" Level="1" Folder="/Nuettermoor K17 K18" selected="false" ProjectId="5520037">
+	</Project>
+<Project Name="OASIS" Level="1" Folder="/OASIS" selected="false" ProjectId="657449">
+	</Project>
+<Project Name="OBAGI, OLO AND EREMA MPG PROJECT" Level="1" Folder="/OBAGI OLO AND EREMA MPG PROJECT" selected="false" ProjectId="5398561">
+<Project Name="General Allocation Production" Level="2" Folder="/OBAGI OLO AND EREMA MPG PROJECT/General Allocation Production" selected="false" ProjectId="5399076">
+	</Project>
+<Project Name="Material Balance" Level="2" Folder="/OBAGI OLO AND EREMA MPG PROJECT/Material Balance" selected="false" ProjectId="5399047">
+	</Project>
+	</Project>
+<Project Name="OBC QC Products" Level="1" Folder="/OBC QC Products" selected="false" ProjectId="3434206">
+	</Project>
+<Project Name="ODR User Stats" Level="1" Folder="/ODR User Stats" selected="false" ProjectId="13508046">
+	</Project>
+<Project Name="OFM  Newsletter" Level="1" Folder="/OFM  Newsletter" selected="false" ProjectId="12044751">
+	</Project>
+<Project Name="OFM Homepage" Level="1" Folder="/OFM Homepage" selected="false" ProjectId="822604">
+	</Project>
+<Project Name="OFS 2NET Collaboration Space" Level="1" Folder="/OFS 2NET Collaboration Space" selected="false" ProjectId="40433">
+	</Project>
+<Project Name="OFS BI" Level="1" Folder="/OFS BI" selected="false" ProjectId="262718">
+<Project Name="OFS Reporter" Level="2" Folder="/OFS BI/OFS Reporter" selected="false" ProjectId="262121">
+	</Project>
+	</Project>
+<Project Name="OFS Brownfield Project Assesment Tools &amp; Processes( aka.  Advisor/Screener)" Level="1" Folder="/OFS Brownfield Project Assesment Tools  Processes aka.  Advisor Screener" selected="false" ProjectId="8892185">
+<Project Name="Brownfield Assessment Tools &amp; Processes" Level="2" Folder="/OFS Brownfield Project Assesment Tools  Processes aka.  Advisor Screener/Brownfield Assessment Tools  Processes" selected="false" ProjectId="8892227">
+<Project Name="BFA - Peer Review process" Level="3" Folder="/OFS Brownfield Project Assesment Tools  Processes aka.  Advisor Screener/Brownfield Assessment Tools  Processes/BFA - Peer Review process" selected="false" ProjectId="9750214">
+	</Project>
+<Project Name="BFA - Production Technology Value Estimator ( Advisor)" Level="3" Folder="/OFS Brownfield Project Assesment Tools  Processes aka.  Advisor Screener/Brownfield Assessment Tools  Processes/BFA - Production Technology Value Estimator  Advisor" selected="false" ProjectId="8892246">
+	</Project>
+<Project Name="BFA - Risk Register" Level="3" Folder="/OFS Brownfield Project Assesment Tools  Processes aka.  Advisor Screener/Brownfield Assessment Tools  Processes/BFA - Risk Register" selected="false" ProjectId="9550954">
+	</Project>
+<Project Name="BFA - Technical Assessment Process" Level="3" Folder="/OFS Brownfield Project Assesment Tools  Processes aka.  Advisor Screener/Brownfield Assessment Tools  Processes/BFA - Technical Assessment Process" selected="false" ProjectId="9749955">
+	</Project>
+<Project Name="BFA- Business Model Catalog" Level="3" Folder="/OFS Brownfield Project Assesment Tools  Processes aka.  Advisor Screener/Brownfield Assessment Tools  Processes/BFA- Business Model Catalog" selected="false" ProjectId="8892404">
+	</Project>
+<Project Name="Business Model Screening Tool" Level="3" Folder="/OFS Brownfield Project Assesment Tools  Processes aka.  Advisor Screener/Brownfield Assessment Tools  Processes/Business Model Screening Tool" selected="false" ProjectId="9750307">
+	</Project>
+<Project Name="IT Platform Phase 1" Level="3" Folder="/OFS Brownfield Project Assesment Tools  Processes aka.  Advisor Screener/Brownfield Assessment Tools  Processes/IT Platform Phase 1" selected="false" ProjectId="9614279">
+	</Project>
+<Project Name="RAPID II" Level="3" Folder="/OFS Brownfield Project Assesment Tools  Processes aka.  Advisor Screener/Brownfield Assessment Tools  Processes/RAPID II" selected="false" ProjectId="9750041">
+	</Project>
+<Project Name="Risked Reserve &amp; Forecast" Level="3" Folder="/OFS Brownfield Project Assesment Tools  Processes aka.  Advisor Screener/Brownfield Assessment Tools  Processes/Risked Reserve  Forecast" selected="false" ProjectId="9749863">
+	</Project>
+	</Project>
+<Project Name="Brownfield Screener Technical Process" Level="2" Folder="/OFS Brownfield Project Assesment Tools  Processes aka.  Advisor Screener/Brownfield Screener Technical Process" selected="false" ProjectId="9429029">
+	</Project>
+<Project Name="OFS FDP Proceses ( Integration of DCS/IPM FDP Process)" Level="2" Folder="/OFS Brownfield Project Assesment Tools  Processes aka.  Advisor Screener/OFS FDP Proceses  Integration of DCS IPM FDP Process" selected="false" ProjectId="8892208">
+	</Project>
+	</Project>
+<Project Name="OFS Business Systems" Level="1" Folder="/OFS Business Systems" selected="false" ProjectId="267766">
+<Project Name="OFS BI" Level="2" Folder="/OFS Business Systems/OFS BI" selected="false" ProjectId="262718">
+<Project Name="OFS Reporter" Level="3" Folder="/OFS Business Systems/OFS BI/OFS Reporter" selected="false" ProjectId="262121">
+	</Project>
+	</Project>
+	</Project>
+<Project Name="OFS CRM Sales" Level="1" Folder="/OFS CRM Sales" selected="false" ProjectId="305353">
+<Project Name="CRM - Siebel 7 Upgrade" Level="2" Folder="/OFS CRM Sales/CRM - Siebel 7 Upgrade" selected="false" ProjectId="305367">
+<Project Name="WG Deployment" Level="3" Folder="/OFS CRM Sales/CRM - Siebel 7 Upgrade/WG Deployment" selected="false" ProjectId="312785">
+	</Project>
+	</Project>
+	</Project>
+<Project Name="OFS DWTC LAN Assessment" Level="1" Folder="/OFS DWTC LAN Assessment" selected="false" ProjectId="2262035">
+	</Project>
+<Project Name="OFS Data Management" Level="1" Folder="/OFS Data Management" selected="false" ProjectId="2604310">
+	</Project>
+<Project Name="OFS Encana Visualization Rooms" Level="1" Folder="/OFS Encana Visualization Rooms" selected="false" ProjectId="5696012">
+	</Project>
+<Project Name="OFS External Content Clean-up" Level="1" Folder="/OFS External Content Clean-up" selected="false" ProjectId="3197230">
+	</Project>
+<Project Name="OFS IT Budget" Level="1" Folder="/OFS IT Budget" selected="false" ProjectId="277525">
+	</Project>
+<Project Name="OFS IT Operations 2003" Level="1" Folder="/OFS IT Operations 2003" selected="false" ProjectId="1271654">
+	</Project>
+<Project Name="OFS Invoicing" Level="1" Folder="/OFS Invoicing" selected="false" ProjectId="748812">
+	</Project>
+<Project Name="OFS LMS  V1.1  N" Level="1" Folder="/OFS LMS  V1.1  N" selected="false" ProjectId="543389">
+	</Project>
+<Project Name="OFS LMS Learning Management System" Level="1" Folder="/OFS LMS Learning Management System" selected="false" ProjectId="1988744">
+	</Project>
+<Project Name="OFS Marketing Managers Meeting (April 15, 2002)" Level="1" Folder="/OFS Marketing Managers Meeting April 15 2002" selected="false" ProjectId="455058">
+	</Project>
+<Project Name="OFS Marketing Portal" Level="1" Folder="/OFS Marketing Portal" selected="false" ProjectId="210399">
+<Project Name="External Content Centralization" Level="2" Folder="/OFS Marketing Portal/External Content Centralization" selected="false" ProjectId="498368">
+	</Project>
+	</Project>
+<Project Name="OFS Marketing Training" Level="1" Folder="/OFS Marketing Training" selected="false" ProjectId="460279">
+	</Project>
+<Project Name="OFS NGA Solution Centre" Level="1" Folder="/OFS NGA Solution Centre" selected="false" ProjectId="1549698">
+	</Project>
+<Project Name="OFS NSA LAN Health Check" Level="1" Folder="/OFS NSA LAN Health Check" selected="false" ProjectId="1143548">
+	</Project>
+<Project Name="OFS Physical Access Assessment Solution" Level="1" Folder="/OFS Physical Access Assessment Solution" selected="false" ProjectId="5035165">
+	</Project>
+<Project Name="OFS Portal " Level="1" Folder="/OFS Portal " selected="false" ProjectId="1912142">
+	</Project>
+<Project Name="OFS Reporter" Level="1" Folder="/OFS Reporter" selected="false" ProjectId="262121">
+	</Project>
+<Project Name="OFS Solutions iCollaborate Project Phase Three" Level="1" Folder="/OFS Solutions iCollaborate Project Phase Three" selected="false" ProjectId="1371738">
+	</Project>
+<Project Name="OFS Technical Communications Modular Documentation Methodology" Level="1" Folder="/OFS Technical Communications Modular Documentation Methodology" selected="false" ProjectId="14565624">
+	</Project>
+<Project Name="OFS iCollaborate" Level="1" Folder="/OFS iCollaborate" selected="false" ProjectId="223245">
+	</Project>
+<Project Name="OFS-Invoicing for SIS" Level="1" Folder="/OFS-Invoicing for SIS" selected="false" ProjectId="1388027">
+	</Project>
+<Project Name="OGDC Basin Study" Level="1" Folder="/OGDC Basin Study" selected="false" ProjectId="10579580">
+	</Project>
+<Project Name="OGDCL Qadirpur " Level="1" Folder="/OGDCL Qadirpur " selected="false" ProjectId="5248441">
+	</Project>
+<Project Name="OMJZ 502" Level="1" Folder="/OMJZ 502" selected="false" ProjectId="1611579">
+	</Project>
+<Project Name="OML 58: Simulation Studies- Gas Lift Optimization" Level="1" Folder="/OML 58: Simulation Studies- Gas Lift Optimization" selected="false" ProjectId="4184159">
+	</Project>
+<Project Name="OMNZ 273" Level="1" Folder="/OMNZ 273" selected="false" ProjectId="1611721">
+	</Project>
+<Project Name="OMV Maari Oilfield Development" Level="1" Folder="/OMV Maari Oilfield Development" selected="false" ProjectId="11852867">
+	</Project>
+<Project Name="ONGC QSED" Level="1" Folder="/ONGC QSED" selected="false" ProjectId="12527065">
+	</Project>
+<Project Name="OPC Phase 2 Development" Level="1" Folder="/OPC Phase 2 Development" selected="false" ProjectId="13797900">
+	</Project>
+<Project Name="OPEX - CSG Project" Level="1" Folder="/OPEX - CSG Project" selected="false" ProjectId="14668664">
+	</Project>
+<Project Name="OPPC RR FAT Witness, 2008" Level="1" Folder="/OPPC RR FAT Witness 2008" selected="false" ProjectId="15102604">
+<Project Name="104129-01 HCS REELER FAT" Level="2" Folder="/OPPC RR FAT Witness 2008/104129-01 HCS REELER FAT" selected="false" ProjectId="15110916">
+<Project Name="MCS Container FAT" Level="3" Folder="/OPPC RR FAT Witness 2008/104129-01 HCS REELER FAT/MCS Container FAT" selected="false" ProjectId="15201413">
+	</Project>
+	</Project>
+<Project Name="104129-02 HITEC HPU FAT" Level="2" Folder="/OPPC RR FAT Witness 2008/104129-02 HITEC HPU FAT" selected="false" ProjectId="15110934">
+	</Project>
+<Project Name="104129-03  JDR DWUC-DB  Umbilical" Level="2" Folder="/OPPC RR FAT Witness 2008/104129-03  JDR DWUC-DB  Umbilical" selected="false" ProjectId="15102622">
+<Project Name="01007" Level="3" Folder="/OPPC RR FAT Witness 2008/104129-03  JDR DWUC-DB  Umbilical/01007" selected="false" ProjectId="15121639">
+	</Project>
+<Project Name="01008" Level="3" Folder="/OPPC RR FAT Witness 2008/104129-03  JDR DWUC-DB  Umbilical/01008" selected="false" ProjectId="15121624">
+	</Project>
+<Project Name="01009" Level="3" Folder="/OPPC RR FAT Witness 2008/104129-03  JDR DWUC-DB  Umbilical/01009" selected="false" ProjectId="15121654">
+	</Project>
+<Project Name="01010" Level="3" Folder="/OPPC RR FAT Witness 2008/104129-03  JDR DWUC-DB  Umbilical/01010" selected="false" ProjectId="15121669">
+	</Project>
+	</Project>
+<Project Name="104129-04 TIS FCP FAT Witness" Level="2" Folder="/OPPC RR FAT Witness 2008/104129-04 TIS FCP FAT Witness" selected="false" ProjectId="15102784">
+	</Project>
+<Project Name="104129-05 Belmar Insp Witness" Level="2" Folder="/OPPC RR FAT Witness 2008/104129-05 Belmar Insp Witness" selected="false" ProjectId="15110554">
+	</Project>
+	</Project>
+<Project Name="OPPC RR Projects" Level="1" Folder="/OPPC RR Projects" selected="false" ProjectId="15104581">
+<Project Name="RFQ - 107485" Level="2" Folder="/OPPC RR Projects/RFQ - 107485" selected="false" ProjectId="15104599">
+	</Project>
+	</Project>
+<Project Name="OTC Application Documentation" Level="1" Folder="/OTC Application Documentation" selected="false" ProjectId="12496946">
+<Project Name="PeTra Documentation" Level="2" Folder="/OTC Application Documentation/PeTra Documentation" selected="false" ProjectId="12496966">
+	</Project>
+<Project Name="Web Visitor Documentation" Level="2" Folder="/OTC Application Documentation/Web Visitor Documentation" selected="false" ProjectId="12496983">
+	</Project>
+	</Project>
+<Project Name="OTC Facility Applications Review" Level="1" Folder="/OTC Facility Applications Review" selected="false" ProjectId="12396467">
+<Project Name="Facility Management System Review" Level="2" Folder="/OTC Facility Applications Review/Facility Management System Review" selected="false" ProjectId="12496834">
+	</Project>
+<Project Name="Key Management Review" Level="2" Folder="/OTC Facility Applications Review/Key Management Review" selected="false" ProjectId="12496870">
+	</Project>
+<Project Name="PeTra Process Review" Level="2" Folder="/OTC Facility Applications Review/PeTra Process Review" selected="false" ProjectId="13127556">
+	</Project>
+<Project Name="PeTra Roadmap" Level="2" Folder="/OTC Facility Applications Review/PeTra Roadmap" selected="false" ProjectId="12496925">
+	</Project>
+<Project Name="Transfer to new TMS application" Level="2" Folder="/OTC Facility Applications Review/Transfer to new TMS application" selected="false" ProjectId="12632551">
+	</Project>
+	</Project>
+<Project Name="OTC IT Process Documentation" Level="1" Folder="/OTC IT Process Documentation" selected="false" ProjectId="12497999">
+	</Project>
+<Project Name="OTC IT Web Restructure" Level="1" Folder="/OTC IT Web Restructure" selected="false" ProjectId="12497972">
+	</Project>
+<Project Name="OTP_for_LiveQuest" Level="1" Folder="/OTP_for_LiveQuest" selected="false" ProjectId="4873492">
+	</Project>
+<Project Name="OVO Monitoring Fix" Level="1" Folder="/OVO Monitoring Fix" selected="false" ProjectId="4825322">
+	</Project>
+<Project Name="OXV - DPDA Customization in Argentina" Level="1" Folder="/OXV - DPDA Customization in Argentina" selected="false" ProjectId="10345368">
+	</Project>
+<Project Name="OXY" Level="1" Folder="/OXY" selected="false" ProjectId="1232223">
+	</Project>
+<Project Name="OXY Permian West Welch #2608" Level="1" Folder="/OXY Permian West Welch #2608" selected="false" ProjectId="788615">
+	</Project>
+<Project Name="OZI Design for Baku APS Applications" Level="1" Folder="/OZI Design for Baku APS Applications" selected="false" ProjectId="14936037">
+	</Project>
+<Project Name="Obagi seismic interpretation" Level="1" Folder="/Obagi seismic interpretation" selected="false" ProjectId="7299828">
+	</Project>
+<Project Name="Occidental Petroleum - Ecuador -SCC Remedy Connection" Level="1" Folder="/Occidental Petroleum - Ecuador -SCC Remedy Connection" selected="false" ProjectId="5816105">
+	</Project>
+<Project Name="Occidental eInvoicing " Level="1" Folder="/Occidental eInvoicing " selected="false" ProjectId="10494899">
+<Project Name="OXY - DCS eInvoicing " Level="2" Folder="/Occidental eInvoicing /OXY - DCS eInvoicing " selected="false" ProjectId="10794401">
+	</Project>
+	</Project>
+<Project Name="Ocean  Energy Inc" Level="1" Folder="/Ocean  Energy Inc" selected="false" ProjectId="882742">
+	</Project>
+<Project Name="Ocean - montana coil frac" Level="1" Folder="/Ocean - montana coil frac" selected="false" ProjectId="998260">
+	</Project>
+<Project Name="Ocean Energy - Africa" Level="1" Folder="/Ocean Energy - Africa" selected="false" ProjectId="1163399">
+	</Project>
+<Project Name="Ocean Energy-Well Completion Evaluation" Level="1" Folder="/Ocean Energy-Well Completion Evaluation" selected="false" ProjectId="3312423">
+	</Project>
+<Project Name="Ocean Usability" Level="1" Folder="/Ocean Usability" selected="false" ProjectId="1059209">
+	</Project>
+<Project Name="Ocean Zia" Level="1" Folder="/Ocean Zia" selected="false" ProjectId="1004771">
+	</Project>
+<Project Name="Ochre" Level="1" Folder="/Ochre" selected="false" ProjectId="4507371">
+	</Project>
+<Project Name="Oferta Licitaci" Level="1" Folder="/Oferta Licitaci" selected="false" ProjectId="1302333">
+	</Project>
+<Project Name="Offsite Backup Project" Level="1" Folder="/Offsite Backup Project" selected="false" ProjectId="10579874">
+	</Project>
+<Project Name="Oil Project" Level="1" Folder="/Oil Project" selected="false" ProjectId="382346">
+	</Project>
+<Project Name="Oil Search PNG -Services Transition Plan" Level="1" Folder="/Oil Search PNG -Services Transition Plan" selected="false" ProjectId="4019342">
+	</Project>
+<Project Name="OilCo JV Space" Level="1" Folder="/OilCo JV Space" selected="false" ProjectId="21982">
+	</Project>
+<Project Name="Oilexco Shelley" Level="1" Folder="/Oilexco Shelley" selected="false" ProjectId="15198444">
+	</Project>
+<Project Name="Oilphase projects" Level="1" Folder="/Oilphase projects" selected="false" ProjectId="2022063">
+	</Project>
+<Project Name="Oilphase-DBR 2004 NPD Planning" Level="1" Folder="/Oilphase-DBR 2004 NPD Planning" selected="false" ProjectId="4066014">
+	</Project>
+<Project Name="Okono Project, Agip. Nigeria" Level="1" Folder="/Okono Project Agip. Nigeria" selected="false" ProjectId="1816323">
+	</Project>
+<Project Name="Old NelpV Channel" Level="1" Folder="/Old NelpV Channel" selected="false" ProjectId="13454633">
+	</Project>
+<Project Name="Oman Test" Level="1" Folder="/Oman Test" selected="false" ProjectId="2660766">
+<Project Name="Oman Test SubProject" Level="2" Folder="/Oman Test/Oman Test SubProject" selected="false" ProjectId="2745684">
+	</Project>
+	</Project>
+<Project Name="Omega Hardening" Level="1" Folder="/Omega Hardening" selected="false" ProjectId="3798890">
+	</Project>
+<Project Name="Omega2" Level="1" Folder="/Omega2" selected="false" ProjectId="1832789">
+	</Project>
+<Project Name="Omniworks - Backup/restore" Level="1" Folder="/Omniworks - Backup restore" selected="false" ProjectId="12522825">
+	</Project>
+<Project Name="Omniworks Consolidation" Level="1" Folder="/Omniworks Consolidation" selected="false" ProjectId="4943730">
+	</Project>
+<Project Name="On Site DESC at ConocoPhillips" Level="1" Folder="/On Site DESC at ConocoPhillips" selected="false" ProjectId="10344213">
+	</Project>
+<Project Name="On Site Petrophysics for BP" Level="1" Folder="/On Site Petrophysics for BP" selected="false" ProjectId="10344102">
+	</Project>
+<Project Name="One Time Password" Level="1" Folder="/One Time Password" selected="false" ProjectId="1471731">
+	</Project>
+<Project Name="OneOps Forum" Level="1" Folder="/OneOps Forum" selected="false" ProjectId="5832063">
+	</Project>
+<Project Name="Online QC knowledge Database" Level="1" Folder="/Online QC knowledge Database" selected="false" ProjectId="1821729">
+	</Project>
+<Project Name="Onshore Operations Center - ConocoPhillips" Level="1" Folder="/Onshore Operations Center - ConocoPhillips" selected="false" ProjectId="9121630">
+	</Project>
+<Project Name="Open Water Intervention (OWI)" Level="1" Folder="/Open Water Intervention OWI" selected="false" ProjectId="10511329">
+	</Project>
+<Project Name="Open Water Intervention Project" Level="1" Folder="/Open Water Intervention Project" selected="false" ProjectId="533637">
+	</Project>
+<Project Name="OpenOffice" Level="1" Folder="/OpenOffice" selected="false" ProjectId="12318051">
+	</Project>
+<Project Name="OpenSpirit Performance Project - Unocal" Level="1" Folder="/OpenSpirit Performance Project - Unocal" selected="false" ProjectId="10059956">
+	</Project>
+<Project Name="Operational Procedures (WG UK)" Level="1" Folder="/Operational Procedures WG UK" selected="false" ProjectId="3759396">
+	</Project>
+<Project Name="Operations - A&amp;D / Operations Process" Level="1" Folder="/Operations - AD   Operations Process" selected="false" ProjectId="3363490">
+	</Project>
+<Project Name="Operations - Active Project Information" Level="1" Folder="/Operations - Active Project Information" selected="false" ProjectId="5106831">
+	</Project>
+<Project Name="Operations - IP Processes" Level="1" Folder="/Operations - IP Processes" selected="false" ProjectId="13046966">
+	</Project>
+<Project Name="Operations - IP SQ Metrics &amp; Reports" Level="1" Folder="/Operations - IP SQ Metrics  Reports" selected="false" ProjectId="12937265">
+	</Project>
+<Project Name="Operations - PDR Procedures" Level="1" Folder="/Operations - PDR Procedures" selected="false" ProjectId="14534871">
+	</Project>
+<Project Name="Operations - Project Archiving" Level="1" Folder="/Operations - Project Archiving" selected="false" ProjectId="13717508">
+	</Project>
+<Project Name="Operations - Project List" Level="1" Folder="/Operations - Project List" selected="false" ProjectId="13677977">
+	</Project>
+<Project Name="Operations - Q and A" Level="1" Folder="/Operations - Q and A" selected="false" ProjectId="12531228">
+	</Project>
+<Project Name="Operations - System Documents" Level="1" Folder="/Operations - System Documents" selected="false" ProjectId="12292499">
+	</Project>
+<Project Name="Operations - Test Plans" Level="1" Folder="/Operations - Test Plans" selected="false" ProjectId="13842994">
+	</Project>
+<Project Name="Operations - Training Files" Level="1" Folder="/Operations - Training Files" selected="false" ProjectId="13319603">
+	</Project>
+<Project Name="Operations - User Guides" Level="1" Folder="/Operations - User Guides" selected="false" ProjectId="14453274">
+	</Project>
+<Project Name="Operations - Work Sharing" Level="1" Folder="/Operations - Work Sharing" selected="false" ProjectId="13716205">
+	</Project>
+<Project Name="Operations - Workflow Guide" Level="1" Folder="/Operations - Workflow Guide" selected="false" ProjectId="12183018">
+	</Project>
+<Project Name="Operations Testing Projects" Level="1" Folder="/Operations Testing Projects" selected="false" ProjectId="5377511">
+	</Project>
+<Project Name="Opstats Hardware Upgrade" Level="1" Folder="/Opstats Hardware Upgrade" selected="false" ProjectId="5803433">
+	</Project>
+<Project Name="OptiSep" Level="1" Folder="/OptiSep" selected="false" ProjectId="8266320">
+	</Project>
+<Project Name="Oracle Liscence upgrade" Level="1" Folder="/Oracle Liscence upgrade" selected="false" ProjectId="4053410">
+	</Project>
+<Project Name="Oracle Replication" Level="1" Folder="/Oracle Replication" selected="false" ProjectId="12313239">
+	</Project>
+<Project Name="Oracle Training" Level="1" Folder="/Oracle Training" selected="false" ProjectId="1227787">
+	</Project>
+<Project Name="Orca" Level="1" Folder="/Orca" selected="false" ProjectId="1569023">
+	</Project>
+<Project Name="Oro Grande Wash" Level="1" Folder="/Oro Grande Wash" selected="false" ProjectId="11984932">
+	</Project>
+<Project Name="Oseberg East, Norsk Hydro" Level="1" Folder="/Oseberg East Norsk Hydro" selected="false" ProjectId="6159060">
+	</Project>
+<Project Name="Osprey" Level="1" Folder="/Osprey" selected="false" ProjectId="3161875">
+<Project Name="ChevronTexaco RTPRO" Level="2" Folder="/Osprey/ChevronTexaco RTPRO" selected="false" ProjectId="3279849">
+	</Project>
+<Project Name="Devon" Level="2" Folder="/Osprey/Devon" selected="false" ProjectId="3279935">
+	</Project>
+<Project Name="El Paso" Level="2" Folder="/Osprey/El Paso" selected="false" ProjectId="3279812">
+	</Project>
+<Project Name="Pemex Burgos" Level="2" Folder="/Osprey/Pemex Burgos" selected="false" ProjectId="3279917">
+	</Project>
+<Project Name="TFE" Level="2" Folder="/Osprey/TFE" selected="false" ProjectId="3279953">
+	</Project>
+<Project Name="Talisman" Level="2" Folder="/Osprey/Talisman" selected="false" ProjectId="3279880">
+	</Project>
+<Project Name="WellWatcher Development" Level="2" Folder="/Osprey/WellWatcher Development" selected="false" ProjectId="3283465">
+	</Project>
+<Project Name="Westport" Level="2" Folder="/Osprey/Westport" selected="false" ProjectId="7001762">
+	</Project>
+	</Project>
+<Project Name="Outsourcing Framework" Level="1" Folder="/Outsourcing Framework" selected="false" ProjectId="4204415">
+	</Project>
+<Project Name="Oxley" Level="1" Folder="/Oxley" selected="false" ProjectId="3144471">
+	</Project>
+<Project Name="Oxley - Anadarko" Level="1" Folder="/Oxley - Anadarko" selected="false" ProjectId="1360960">
+	</Project>
+<Project Name="Oxley Petroleum - Arkoma" Level="1" Folder="/Oxley Petroleum - Arkoma" selected="false" ProjectId="924350">
+	</Project>
+<Project Name="Oxley Petroleum VEA" Level="1" Folder="/Oxley Petroleum VEA" selected="false" ProjectId="519684">
+<Project Name="Brown 1-28" Level="2" Folder="/Oxley Petroleum VEA/Brown 1-28" selected="false" ProjectId="893497">
+	</Project>
+<Project Name="Dane 5-20 Completion" Level="2" Folder="/Oxley Petroleum VEA/Dane 5-20 Completion" selected="false" ProjectId="520187">
+	</Project>
+<Project Name="Fowler 1-20" Level="2" Folder="/Oxley Petroleum VEA/Fowler 1-20" selected="false" ProjectId="802189">
+	</Project>
+	</Project>
+<Project Name="Oxy" Level="1" Folder="/Oxy" selected="false" ProjectId="2240350">
+	</Project>
+<Project Name="Oxy Albania" Level="1" Folder="/Oxy Albania" selected="false" ProjectId="6805414">
+	</Project>
+<Project Name="Oxy Colombia, Dual Zone Completions" Level="1" Folder="/Oxy Colombia Dual Zone Completions" selected="false" ProjectId="6971132">
+	</Project>
+<Project Name="Oxy Ecuador Eden Yuturi C-7 IC/ESP Well" Level="1" Folder="/Oxy Ecuador Eden Yuturi C-7 IC ESP Well" selected="false" ProjectId="974084">
+	</Project>
+<Project Name="Oxy WCI Alliance - Ecuador" Level="1" Folder="/Oxy WCI Alliance - Ecuador" selected="false" ProjectId="5048292">
+	</Project>
+</projects>

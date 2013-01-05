@@ -1,0 +1,14 @@
+* Change the "property" textbox to a dropdown text box that will remember the
+last few (20?) properties that you entered.  This will make it easier when you
+are inserting several related properties.
+* Work a lot more on the contextual property type code.  Right now, it does a
+fairly lousy job in JSP code.
+* Figure out how to package the JDBC drivers into the distribution so they don't
+have to be separately copied.  Looking at the beanshell distribution, it appears
+that an "exploded" format containing both files in a lib directory would
+probably work just fine.
+* Create a toolbar for properties that allows us to look up property values
+without having to open another tool.
+* Create some way to modify properties.
+* Fix the cancel button on the Property Dialog.  (It doesn't currently close the
+dialog box.)

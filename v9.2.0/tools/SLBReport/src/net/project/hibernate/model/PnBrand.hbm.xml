@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnBrand" 
+    table="PN_BRAND"
+    lazy="false"
+>
+
+    <id
+        name="brandId"
+        type="java.math.BigDecimal"
+        column="BRAND_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="brandAbbrv"
+        type="java.lang.String"
+        column="BRAND_ABBRV"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="brandName"
+        type="java.lang.String"
+        column="BRAND_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="brandDesc"
+        type="java.lang.String"
+        column="BRAND_DESC"
+        length="1000"
+    />
+    <property
+        name="isSystemDefault"
+        type="int"
+        column="IS_SYSTEM_DEFAULT"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PnLanguage -->
+    <many-to-one
+        name="pnLanguage"
+        class="net.project.hibernate.model.PnLanguage"
+        not-null="true"
+    >
+        <column name="DEFAULT_LANGUAGE" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnBrandHasHost -->
+
+    <set
+        name="pnBrandHasHosts"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="BRAND_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnBrandHasHost"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

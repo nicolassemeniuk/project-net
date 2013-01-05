@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnElement" 
+    table="PN_ELEMENT"
+    lazy="false"
+>
+
+    <id
+        name="elementId"
+        type="java.math.BigDecimal"
+        column="ELEMENT_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="elementName"
+        type="java.lang.String"
+        column="ELEMENT_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="elementDesc"
+        type="java.lang.String"
+        column="ELEMENT_DESC"
+        length="500"
+    />
+    <property
+        name="elementType"
+        type="java.math.BigDecimal"
+        column="ELEMENT_TYPE"
+        length="20"
+    />
+    <property
+        name="elementLabel"
+        type="java.lang.String"
+        column="ELEMENT_LABEL"
+        length="80"
+    />
+    <property
+        name="dbFieldDatatype"
+        type="java.lang.String"
+        column="DB_FIELD_DATATYPE"
+        length="80"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnElementProperty -->
+
+    <set
+        name="pnElementProperties"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="ELEMENT_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnElementProperty"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnClassField -->
+
+    <set
+        name="pnClassFields"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="ELEMENT_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnClassField"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnClassTypeElement -->
+
+    <set
+        name="pnClassTypeElements"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="ELEMENT_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnClassTypeElement"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnElementDisplayClass -->
+
+    <set
+        name="pnElementDisplayClasses"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="ELEMENT_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnElementDisplayClass"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

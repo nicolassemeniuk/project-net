@@ -1,0 +1,174 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+
+html, body {
+    margin: 0px;
+}
+
+.textTable {
+    border-collapse: collapse;
+}
+
+.textHeader {
+    color: WindowText;
+    background-color: ThreeDFace;
+    border: 1px solid ThreeDShadow;
+    font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 11px;
+    font-weight: 400;
+    text-align: left;
+    white-space: nowrap;
+}
+.rowHeader {
+    color: WindowText;
+    background-color: ThreeDFace;
+    border: 1px solid ThreeDShadow;
+    font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 11px;
+    text-align: center;
+    cursor: pointer;
+}
+.dateHeader {
+    color: WindowText;
+    background-color: ThreeDFace;
+    border: 1px solid ThreeDShadow;
+    font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 11px;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+}
+.dow {
+    color: WindowText;
+    background-color: ThreeDFace;
+    border-left: 1px solid ThreeDShadow;
+    border-right: 1px solid ThreeDShadow;
+    border-bottom: 1px solid ThreeDShadow;
+    font-weight: 400;
+    white-space: nowrap;
+    font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 11px;
+    white-space: nowrap;
+    text-align: center;
+    padding: 0em;
+}
+.text {
+    border: 1px solid #c0c0c0;
+    font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 11px;
+    white-space: nowrap;
+    height: 22px;
+}
+.boldText {
+    border: 1px solid #c0c0c0;
+    font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+    height: 22px;
+}
+.textSelected {
+    background-color: black !IMPORTANT;
+    color: white !IMPORTANT;
+}
+.task {
+    border: 1px solid #27d612;
+    background-color: #9ce194;
+    height: 11px;
+    position: absolute;
+    font-size: 11px;
+}
+.taskPercent {
+    background-color:#363636;
+    height:5px;
+    position: relative;
+    top: 2px;
+    left: 0px;
+}
+.toolbar {
+   background-color: ThreeDFace;
+   border: 1px;
+}
+.toolButton {
+   width: 24px;
+   height: 24px;
+   background-color: ButtonFace;
+   background-position: center center;
+}
+.summaryTask {
+    border-collapse: collapse;
+    position: absolute;
+    padding: 0em;
+}
+.summaryTaskLeftEnd {
+    height: 10px;
+    font-size: 10px;
+    background-image: url(../images/schedule/ganttSummaryBar.gif);
+    background-repeat: repeat-x;
+    vertical-align: top;
+    text-align: left;
+}
+.summaryTaskRightEnd {
+    height: 10px;
+    font-size: 10px;
+    background-image: url(../images/schedule/ganttSummaryBar.gif);
+    background-repeat: repeat-x;
+    vertical-align: top;
+    text-align: right;
+}
+.milestone {
+    position: absolute;
+    background-image: url(../images/schedule/ganttMilestone.gif);
+    background-position: center right;
+    background-repeat: no-repeat;
+}
+.resourceName {
+    position: absolute;
+    font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 12px;
+    white-space: nowrap;
+}
+.milestoneDate {
+    position: absolute;
+    font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+.viewChange {
+    text-align: right;
+    font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+.summaryTaskExpander {
+    margin: 0px 4px 0px 4px;
+}
+.linkLine {
+    padding: 0px;
+    position: absolute;
+    z-index: 900;
+}
+.linkArrow {
+    padding: 0px;
+    position: absolute;
+    z-index: 900;
+}
+.progressLocation {
+    padding: 0px;
+    position: absolute;
+    z-index: 901;
+}

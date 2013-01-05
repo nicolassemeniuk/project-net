@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnBaseline" 
+    table="PN_BASELINE"
+    lazy="false"
+>
+
+    <id
+        name="baselineId"
+        type="java.math.BigDecimal"
+        column="BASELINE_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="objectId"
+        type="java.math.BigDecimal"
+        column="OBJECT_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="name"
+        type="java.lang.String"
+        column="NAME"
+        length="255"
+    />
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        length="2000"
+    />
+    <property
+        name="isDefaultForObject"
+        type="java.lang.Integer"
+        column="IS_DEFAULT_FOR_OBJECT"
+        length="1"
+    />
+    <property
+        name="dateCreated"
+        type="java.sql.Date"
+        column="DATE_CREATED"
+        length="7"
+    />
+    <property
+        name="dateModified"
+        type="java.sql.Date"
+        column="DATE_MODIFIED"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnBaselineHasTask -->
+
+    <set
+        name="pnBaselineHasTasks"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="BASELINE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnBaselineHasTask"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnBaselineHasPlan -->
+
+    <set
+        name="pnBaselineHasPlans"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="BASELINE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnBaselineHasPlan"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

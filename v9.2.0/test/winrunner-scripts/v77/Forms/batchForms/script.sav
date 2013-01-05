@@ -1,0 +1,74 @@
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\forLoginForms"();
+wait(2);
+
+reload("createForm",0,1);#compiled module for creating form definition 
+reload("createField",0,1);#compiled module for creating form fields
+reload("checkAllTypes",0,1);#compiled module for verifying the types of fields created 
+reload("createList",0,1);#compiled module for creating a list from the field
+reload("activateForm",0,1);#compiled module for activating the form
+reload("createFormInstance",0,1);#compiled module for creating a form instance
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui");
+wait(1);
+set_window("menu",2);
+web_link_click("Forms");
+wait(1);
+set_window("main",2);
+
+wait(2);
+public i = 1;#i is incremented in the createList function calls and serves as the row number for the fields
+
+createForm("WRform","WR");#form definition function call
+
+createField("WRform","TF","TextField");#form field function call
+id[0] = createList("WRlist","TextField");#form list function call returns the value of the created field id
+
+createField("WRform","TB","TextBox");
+id[1] = createList("WRlist","TextBox");
+
+createField("WRform","SM","SelectionMenu");
+id[2] = createList("WRlist","SelectionMenu");
+
+createField("WRform","DF","DateField");
+id[3] = createList("WRlist","DateField");
+ 
+createField("WRform","CB","CheckBoxField");
+id[4] = createList("WRlist","CheckBoxField");
+ 
+createField("WRform","PSM","PersonSelectionMenu");
+id[5] = createList("WRlist","PersonSelectionMenu");
+ 
+createField("WRform","NF","NumberField");
+id[6] = createList("WRlist","NumberField");
+ 
+createField("WRform","CF","CurrencyField");
+id[7] = createList("WRlist","CurrencyField");
+
+createField("WRform","HST","HorizontalSectionTitle");
+# createList("WRlist","HorizontalSectionTitle");#These two cannot be added to a list. They appear in a form instance by default
+
+createField("WRform","UI","UserInstructions");
+# createList("WRlist","UserInstructions");
+
+createField("WRform","CaF","CalculatedField");
+id[8] = createList("WRlist","CalculatedField");
+
+# win_check_gui("main", "list1.ckl", "gui1", 1);
+checkAllTypes();
+
+activateForm("WRform");#activating the form
+
+createFormInstance("WRform",id,6);#creating form instance
+
+# set_window("main",1);
+# web_link_click("Export");
+# set_window("CSVExport1");
+# list_select_item("characterSet","
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\formExport"();#creates a FormList.csv file on desktop
+i = 1;#public variables for compiled modules retain their value until exiting WR hence reset done
+
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Forms\\createForm\\createForm.gui"); 
+
+
+

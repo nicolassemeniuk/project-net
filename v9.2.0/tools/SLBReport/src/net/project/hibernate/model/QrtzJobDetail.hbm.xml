@@ -1,0 +1,125 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.QrtzJobDetail" 
+    table="QRTZ_JOB_DETAILS"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.QrtzJobDetailPK">
+        <key-property 
+            name="jobName" 
+            column="JOB_NAME" 
+            type="java.lang.String"
+            length="80"
+        />
+        <key-property 
+            name="jobGroup" 
+            column="JOB_GROUP" 
+            type="java.lang.String"
+            length="80"
+        />
+    </composite-id>    
+
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        length="120"
+    />
+    <property
+        name="jobClassName"
+        type="java.lang.String"
+        column="JOB_CLASS_NAME"
+        not-null="true"
+        length="128"
+    />
+    <property
+        name="isDurable"
+        type="java.lang.String"
+        column="IS_DURABLE"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isVolatile"
+        type="java.lang.String"
+        column="IS_VOLATILE"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isStateful"
+        type="java.lang.String"
+        column="IS_STATEFUL"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="requestsRecovery"
+        type="java.lang.String"
+        column="REQUESTS_RECOVERY"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="jobData"
+        type="java.sql.Blob"
+        column="JOB_DATA"
+        length="4000"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional one-to-many association to QrtzJobListener -->
+
+    <set
+        name="qrtzJobListeners"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="JOB_NAME" />
+            <column name="JOB_GROUP" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.QrtzJobListener"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to QrtzTrigger -->
+
+    <set
+        name="qrtzTriggers"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="JOB_NAME" />
+            <column name="JOB_GROUP" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.QrtzTrigger"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

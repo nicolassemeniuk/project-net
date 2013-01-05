@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDocSpace" 
+    table="PN_DOC_SPACE"
+    lazy="false"
+>
+
+    <id
+        name="docSpaceId"
+        type="java.math.BigDecimal"
+        column="DOC_SPACE_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="docSpaceName"
+        type="java.lang.String"
+        column="DOC_SPACE_NAME"
+        length="80"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnObject -->
+    <one-to-one
+        name="pnObject"
+        class="net.project.hibernate.model.PnObject"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional one-to-many association to PnDocProviderHasDocSpace -->
+
+    <set
+        name="pnDocProviderHasDocSpaces"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DOC_SPACE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDocProviderHasDocSpace"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnSpaceHasDocSpace -->
+
+    <set
+        name="pnSpaceHasDocSpaces"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DOC_SPACE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasDocSpace"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnDocSpaceHasContainer -->
+
+    <set
+        name="pnDocSpaceHasContainers"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DOC_SPACE_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDocSpaceHasContainer"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

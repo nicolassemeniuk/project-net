@@ -1,0 +1,25 @@
+function setPercentageComplete(in taskName, in percentComplete){
+	auto taskID;
+	reload("getTaskID",0,1);
+	
+	taskID = getTaskID(taskName);
+	wait(1);
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","t1_button","part_value",""&taskID&"")!=E_OK)
+		report_msg("NOT OK1");
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+	
+	wait(2);
+	set_window("main",2);
+	button_set("t1_button",ON);
+	wait(1);
+	web_link_click("Update Percent Complete");
+	wait(3);
+	set_window("Percent Complete",3);
+	edit_set("percentage",0);
+	wait(2);
+	set_window("Percent Complete",2);
+	edit_set("percentage",percentComplete);
+	wait(1);
+	web_link_click("Submit");
+	wait(2);
+}	

@@ -1,0 +1,28 @@
+function createTextBox(in name){
+	extern i;
+# 	auto outText;
+	set_window("main",1);
+	list_select_item("ElementID","Text Box");
+	wait(2);
+	set_window("main",1);
+	edit_set("field_label",name);
+	edit_set("row_num",i);
+	list_select_item("column_id","Left");
+	edit_set("cols",80);
+	edit_set("rows",10);
+	web_link_click("Submit");
+	if(obj_exists(name)==E_OK)
+		report_msg("The Text Box '"&name&"'created successfully");
+	else
+		report_msg("The creation of text box CANNOT be verified");	
+# 	set_window("main",1);
+# 	web_obj_text_exists("channelbar-left_end","#6","#3","Text Box","","");
+# 	set_window("main",1);
+# 	win_get_text("main",outText,631,246,688,260);
+# 	if(outText == "Text Box")
+# 		report_msg("The field created is of type Text Box");
+# 	else
+# 		report_msg("Unable to verify");
+# 	report_msg("");
+# 	i = i+1;
+}

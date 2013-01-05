@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<body>
+	<div style="position: relative;left:0;top:0;background-color:#CCD8FE;">
+		<table width="100%" cellpadding="0" cellspacing="0"> 
+			<tr>
+				<td class="top_left"></td>
+				<td height="24" align="left" id="customizeColumns" class="top_m"><b class="heading"><t:Message value="prm.schedule.customizecolumn.page.title"/> </b></td>
+				<td align="right" class="top_m"><a href="javascript:hideUploadPopup();"><img border="0" alt="x" src="${JSPRootURL}/images/menu/close.gif"/></a></td>
+				<td class="top_right"></td>
+			</tr>
+		</table>
+	</div>
+	<form name="columnForm">
+        <div class="wp-column-div">
+        <table cellpadding="0" cellspacing="0" width="100%">
+        	<tr><td class="m_left"></td>
+        		<td>
+			        <table border="0" cellspacing="0" width="97%" style="margin-top:15px">
+			        	<tr>
+			        		<!-- General category -->
+		                	<td class="general-column" nowrap="nowrap">
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">
+											<span class="category-heading"><t:Message value="prm.schedule.taskview.category.general.label" /></span>
+										</td>
+									</tr>
+									<t:loop source="workPlanColumnsRows" value="rows">
+										<t:loop source="rows" value="column">
+											<t:if test="column.general">
+											<tr width="100%" style="height:20px;">
+											<td>
+												<t:if test="column.hidable">
+				                    				<t:if test="column.visible">
+					                    				<input type="checkbox" name="selected" checked="checked" value="${column.columnId}" id="${column.header}"/>
+							    	                    <t:parameter name="else">
+							        	                	<input type="checkbox" name="selected" value="${column.columnId}" id="${column.header}"/>
+							            	            </t:parameter>
+							            	        </t:if>
+							            	        <t:parameter name="else">
+						                    	    	<input type="checkbox" checked="checked" disabled="disabled"/>
+						                    	    </t:parameter>
+						                    	</t:if>
+											</td>
+											<td style="padding-left:5px;"><span onclick="selectDeselectCheckbox('${column.header}')"><t:OutputRaw value="column.header"/></span></td>
+											</tr>
+										</t:if>
+									</t:loop>
+									</t:loop>
+								</table>	
+							</td>
+							<!-- Status category -->
+							<td class="status-column" nowrap="nowrap">
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">
+											<span class="category-heading"><t:Message value="prm.schedule.taskview.category.status.label" /></span>
+										</td>
+									</tr>
+									<t:loop source="workPlanColumnsRows" value="rows">
+										<t:loop source="rows" value="column">
+											<t:if test="column.status">
+											<tr width="100%" style="height:20px;">
+											<td>
+												<t:if test="column.hidable">
+				                    				<t:if test="column.visible">
+					                    				<input type="checkbox" name="selected" checked="checked" value="${column.columnId}" id="${column.header}"/>
+							    	                    <t:parameter name="else">
+							        	                	<input type="checkbox" name="selected" value="${column.columnId}" id="${column.header}"/>
+							            	            </t:parameter>
+							            	        </t:if>
+							            	        <t:parameter name="else">
+						                    	    	<input type="checkbox" checked="checked" disabled="disabled"/>
+						                    	    </t:parameter>
+						                    	</t:if>
+											</td>
+											<td style="padding-left:5px;"><span onclick="selectDeselectCheckbox('${column.header}')"><t:OutputRaw value="column.header"/></span></td>
+											</tr>
+										</t:if>
+									</t:loop>
+									</t:loop>
+								</table>	
+							</td>
+							<!-- Calculated category -->
+							<td class="calculated-column" nowrap="nowrap">
+								<table cellpadding="0" cellspacing="0" width="100%">
+									<tr>
+										<td colspan="2">
+											<span class="category-heading"><t:Message value="prm.schedule.taskview.category.calculated.label" /></span>
+										</td>
+									</tr>
+									<t:loop source="workPlanColumnsRows" value="rows">
+										<t:loop source="rows" value="column">
+											<t:if test="column.calculated">
+											<tr width="100%" style="height:20px;">
+											<td>
+												<t:if test="column.hidable">
+				                    				<t:if test="column.visible">
+					                    				<input type="checkbox" name="selected" checked="checked" value="${column.columnId}" id="${column.header}"/>
+							    	                    <t:parameter name="else">
+							        	                	<input type="checkbox" name="selected" value="${column.columnId}" id="${column.header}"/>
+							            	            </t:parameter>
+							            	        </t:if>
+							            	        <t:parameter name="else">
+						                    	    	<input type="checkbox" checked="checked" disabled="disabled"/>
+						                    	    </t:parameter>
+						                    	</t:if>
+											</td>
+											<td style="padding-left:5px;"><span onclick="selectDeselectCheckbox('${column.header}')"><t:OutputRaw value="column.header"/></span></td>
+											</tr>
+										</t:if>
+									</t:loop>
+									</t:loop>
+								</table>	
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td class="m_right"></td>
+			</tr>
+		</table>
+		</div>
+	</form>
+	<table cellpadding="0" cellspacing="0">
+		<tr>
+			<td class="bottom_left" width="1%"></td>
+			<td class="bottom_m" style="width: 80%; padding-left: 10px;"><a href="javascript:changeCheckedState(self.document.columnForm.selected, false)" style="padding-left: 5px;" class="wlink customizeWPColumns"><t:Message value="prm.schedule.customizecolumn.clearall.label"/></a></td>
+			<td class="bottom_m" style="padding-right: 2px;"><button style="width: 100px;" onclick="javascript:submitColumnsStatus();"><t:Message value="prm.schedule.taskview.button.submit.caption"/></button></td>
+			<td class="bottom_m"><button style="width: 100px;" onclick="javascript:hideUploadPopup();" ><t:Message value="prm.schedule.taskview.button.cancel.caption"/></button></td>
+			<td class="bottom_right" width="1%"></td>
+		</tr>
+	</table>
+</body>
+</html>

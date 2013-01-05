@@ -1,0 +1,90 @@
+main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: main
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+main."Create New Discussion Group":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Create New Discussion Group"
+}
+main.Discussions:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Discussions
+}
+main."Smoke Group":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Smoke Group"
+}
+main.Submit:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Submit
+}
+main.WRProject:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: WRProject
+}
+main.charter:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: charter
+}
+main.description:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: description
+}
+main.name:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: name
+}
+menu:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: menu
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+menu.Discussions:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Discussions
+}
+upper_frame:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: upper_frame
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+upper_frame.Welcome:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Welcome
+}

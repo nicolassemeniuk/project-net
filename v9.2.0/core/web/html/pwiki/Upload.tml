@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<head>
+<!-- Common Styles for the Ext widgets -->
+<link rel="stylesheet" type="text/css" href="${jspRootURL}/src/extjs/resources/css/ext-all.css?${versionNumber}"/>
+<style type="text/css">
+.imageEntry {
+	 font-family: Verdana,Arial,Helvetica;
+	 font-size: 12px;
+	 font-weight: bold;
+	 width: 30%;
+}
+.fieldsetAttachment {
+	margin: 30px;
+}
+</style>
+</head>
+<body>
+	<div style="position: relative; left:0; top:0; background-color:#ccd8fe;">
+		<table width="100%"> 
+			<tr><td height="20" align="left" class="blogPopupTitle" id="blogPopupTitle"><t:message value="prm.wiki.uploaddiv.uploadimage.title"/></td></tr>
+		</table>
+	</div>
+	<t:form clientId="uploadForm" target="_top" onsubmit="submitForm();">
+		<input type="hidden" t:type="TextField" clientId="spaceId" value="spaceId" style="height: 0px; visibility: hidden;" />
+		<input type="hidden" t:type="TextField" clientId="userId" value="userId" style="height: 0px; visibility: hidden;" />
+		<input type="hidden" t:type="TextField" clientId="wikiPageId" value="wikiPageId" style="height: 0px; visibility: hidden;" />
+		<input type="hidden" t:type="TextField" clientId="wikiPageName" value="wikiForObject" style="height: 0px; visibility: hidden;" />
+		<input type="hidden" t:type="TextField" clientId="parentPageName" value="parentPageName" style="height: 0px; visibility: hidden;" />
+		
+		<table width="600" align="center" height="160">
+			<tr>
+				<td align="center"  colspan="2">
+					<p id="updateWarning" style="color: red;" align="left">
+						<span id="options" style="display: none;"> <t:message value="prm.wiki.upload.imagealreadyexists.message"/> </span>
+						<span id="typeNotSupported" style="display: none;"> <t:message value="prm.wiki.upload.notsupportedfiletype.message"/> </span>
+						<span id="invalidFileName" style="display: none;">${invalidFileNameMessage}</span>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td align="left" width="70"><label style="font-family:Arial; font-weight:bold; font-size:12px;">
+						<t:message value="prm.project.wiki.upload.selectfile.label"/></label></td>
+				<td align="left"><input onkeydown="return false;" size="70" t:type="upload" t:id="uploadedFile" onchange="doesFileExist();" />
+				<img id="indicator" src="${asset:context:/images/wiki/indicator.gif}" style="display:none"/></td>
+			</tr>
+			<tr>
+				<td align="left" colspan="2">
+					<label style="font-family:Arial; font-size:12px;">
+						<t:message value="prm.project.wiki.upload.filedescription.label"/></label>
+				</td>
+			</tr>
+			<tr>
+				<td/>
+				<td align="left" valign="top"><t:textarea t:id="description" size="80" cols="80"/></td>
+			</tr>
+	        <tr>
+				<td/>
+				<td align="left" nowrap="nowrap">
+					<input id="addImageButton" type="submit" disabled="disabled" value="${addImageButtonCaption}" /> &nbsp;&nbsp;
+					<input type="button" value="${cancelButtonCaption}" onclick="hideUploadPopup();"/>
+				</td>
+			</tr>
+		</table>
+	</t:form>
+
+<script type="text/javascript" src="${jspRootURL}/src/extjs/adapter/ext/ext-base.js?${versionNumber}"></script>
+<script type="text/javascript" src="${jspRootURL}/src/extjs/ext-all.js?${versionNumber}"></script>
+</body>
+</html>

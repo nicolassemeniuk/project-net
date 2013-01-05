@@ -1,0 +1,93 @@
+call "C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\forLoginPersonal"();
+wait(5);
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\cleanUp\\cleanUp.gui");
+
+set_window("menu");
+web_link_click("Application Space");
+web_sync(3);
+web_link_click("Users");
+set_window("main",3);
+list_select_item("userStatusFilter","Unregistered");
+# list_select_item("userLicenseFilter","Unregistered");
+# list_select_item("userDomainFilter","Global Domain");
+edit_set("key","A");
+web_obj_click("Go");
+web_obj_click("Go");
+set_window("main");
+button_set("selected",ON);
+rc = button_set("selected",ON);
+if(rc!=E_OK)
+	report_msg("Cannot be selected");
+else{
+	web_obj_click("Disable User Account");
+	set_window("Microsoft Internet Explorer",3);
+	button_press("OK");
+	wait(1);
+}
+
+set_window("main",3);
+list_select_item("userStatusFilter","Active");
+edit_set("key","P");
+web_obj_click("Go");
+web_obj_click("Go");
+set_window("main",3);
+button_set("selected",ON);
+rc = button_set("selected",ON);
+if(rc!=E_OK)
+	report_msg("Cannot be selected");
+else{
+	web_obj_click("Disable User Account");
+	set_window("Microsoft Internet Explorer",3);
+	button_press("OK");
+	wait(1);
+}
+
+set_window("menu",3);
+web_link_click("Workspaces");
+
+set_window("main",3);
+edit_set("key","T");
+web_obj_click("Go");
+web_obj_click("Go");
+set_window("main");
+button_set("selected",ON);
+rc = button_set("selected",ON);
+if(rc!=E_OK)
+	report_msg("Cannot be selected");
+web_link_click("Disable");
+set_window("Microsoft Internet Explorer",3);
+button_press("OK");
+set_window("Business Delete -- Step 1",3);
+button_set("selected_1",ON);
+web_link_click("Next");
+set_window("Business Delete -- Step 2",3);
+if((obj_exists("SELALL",3))==E_OK){
+	button_set("SELALL",ON);
+	web_link_click("Next");
+}
+
+set_window("main",3);
+edit_set("key","S");
+web_obj_click("Go");
+web_obj_click("Go");
+set_window("main");
+button_set("selected",ON);
+rc = button_set("selected",ON);
+if(rc!=E_OK)
+	report_msg("Cannot be selected");
+web_link_click("Disable");
+set_window("Microsoft Internet Explorer",3);
+button_press("OK");
+set_window("Business Delete -- Step 1",3);
+button_set("selected_1",ON);
+web_link_click("Next");
+set_window("Business Delete -- Step 2",3);
+if((obj_exists("SELALL",3))==E_OK){
+button_set("SELALL",ON);
+web_link_click("Next");
+}
+
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\SmokeTests\\cleanUp\\cleanUp.gui");
+
+

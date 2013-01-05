@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnLdapConfigurationContext" 
+    table="PN_LDAP_CONFIGURATION_CONTEXT"
+    lazy="false"
+>
+
+    <id
+        name="contextId"
+        type="java.math.BigDecimal"
+        column="CONTEXT_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="protocol"
+        type="java.lang.String"
+        column="PROTOCOL"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="host"
+        type="java.lang.String"
+        column="HOST"
+        not-null="true"
+        length="120"
+    />
+    <property
+        name="port"
+        type="java.lang.String"
+        column="PORT"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="searchBase"
+        type="java.lang.String"
+        column="SEARCH_BASE"
+        not-null="true"
+        length="500"
+    />
+    <property
+        name="authenticationMethod"
+        type="java.lang.String"
+        column="AUTHENTICATION_METHOD"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="authenticatedUserDn"
+        type="java.lang.String"
+        column="AUTHENTICATED_USER_DN"
+        length="500"
+    />
+    <property
+        name="authenticatedUserPassword"
+        type="java.lang.String"
+        column="AUTHENTICATED_USER_PASSWORD"
+        length="240"
+    />
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        length="500"
+    />
+
+    <!-- Associations -->
+  
+
+</class>
+</hibernate-mapping>

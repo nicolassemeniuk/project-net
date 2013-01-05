@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<div id="firstAssignmentId" style="display:none">${firstAssignmentId}</div>
+<div id="assignmentsCount" style="display:none">${assignmentsCountString}</div>
+<div id="assignments-list-header" style="height: 29px;overflow: hidden;position: absolute;">
+	<table id="assignment-list-table-container-header" width="2500" cellpadding="0" cellspacing="0">
+		<tr>
+			<td>
+				<table cellspacing="0" id="assignmentListTable-header" name="tableWithEvenRows" class="resizable draggable disableSelection" cellpadding="0">
+					<!--table header rendering-->
+					<thead>
+						<tr align="left" height="22px" id="task-list-row">
+							<t:loop source="assignmentColumn.assignmentColumnList" value="assignmentColumn">
+								<t:if test="assignmentColumn.visible">
+									<th class="myAssignmentsHeaderTd"  id="thd_${assignmentColumn.id}" columnId="${assignmentColumn.id}" dragable="${assignmentColumn.dragable}" width="${assignmentColumn.width}" onmouseover="moh(this);TableKit.Resizable.initDetect(event);" onmouseout=" muh(this,'myAssignmentsHeaderTd'); TableKit.Resizable.killDetect(event);" onclick="javascript:sort('${assignmentColumn.defaultSequence}');">
+										<div class="div_thd_${assignmentColumn.id}" id="thd_${assignmentColumn.id}_divId" style="cursor: default;" onmousedown="javascript:dragtable.dragStart(event);">
+											<t:OutputRaw value="assignmentColumn.header"/><img align="absmiddle" src="${jSPRootURL}/s.gif" style="visibility: hidden;" id="sort-img-${assignmentColumn.defaultSequence}" />
+										</div>
+									</th>
+								</t:if>
+							</t:loop>   
+						</tr>
+					</thead>  
+				</table>
+			</td>
+		</tr>
+	</table>
+ </div>
+ <div id="assignmentList" style="height: 407px; overflow: auto;" onselectstart="return false" onscroll="javascript:scrollHeader('assignments-list-header','assignmentList');" >
+<table id="assignment-table-container" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>
+			<table cellspacing="0"  id="assignmentListTable" name="tableWithEvenRows"  class="resizable draggable disableSelection" cellpadding="0">
+				<thead>
+					<tr align="left" height="22px" id="task-list-inner-row">
+						<t:loop source="assignmentColumn.assignmentColumnList" value="assignmentColumn">
+							<t:if test="assignmentColumn.visible">
+								<th class="myAssignmentsHeaderTd"  id="thd_${assignmentColumn.id}_scroll" columnId="${assignmentColumn.id}" dragable="${assignmentColumn.dragable}" width="${assignmentColumn.width}">
+									<div class="div_thd_${assignmentColumn.id}" style="cursor: default;">
+										<t:OutputRaw value="assignmentColumn.header"/>
+									</div>
+								</th>
+							</t:if>
+						</t:loop>
+					</tr>
+				</thead>
+				<t:loop source="assignmentList" value="node">
+					<tr level="${node.hierarchyLevel}" id="${node.assignment.objectID}_${node.id}" align="left" class="tableContent ${node.assignment.assignmentVisibilityCSS}" height="22px" onclick = "javascript:loadBlogForAssignment(this,'${node.assignment.objectID}', '${node.assignment.spaceID}', '${node.assignment.baseObjectType}', '${node.assignment.objectName}', '${node.assignment.workSpace}','${node.parentBaseObjectType}');" ondblclick="javascript:onGridRowDoubleClick('${node.assignment.objectID}','${node.assignment.baseObjectType}','${node.assignment.objectName}','${node.assignment.workSpace}');"  onmouseover="mo(this);" onmouseout="mu(this)" kidsShown="${node.assignment.expanded}">
+							<td nowrap="nowrap" class="myssignmentListTabletd  ${node.assignment.assignmentTypeCss}" title="${node.assignment.objectName}"> 
+								<div class="div_thd_${assignmentColumn.assignmentName.id}">
+									<t:OutputRaw value="node.elbowLineHTML"/>  
+									<t:unless test="node.leaf">
+										<t:if test="node.assignment.expanded">
+											<img src="${jSPRootURL}/u.gif" id="toggler${node.assignment.objectID}_${node.id}" onclick="toggleTree('${node.assignment.objectID}_${node.id}');" class="toggle-image" ondblclick="stopEventPropagationFor(event);"/>
+										<t:parameter name="else">
+											<img src="${jSPRootURL}/e.gif" id="toggler${node.assignment.objectID}_${node.id}" onclick="toggleTree('${node.assignment.objectID}_${node.id}');" class="toggle-image" ondblclick="stopEventPropagationFor(event);"/>
+										</t:parameter>
+										</t:if>
+									</t:unless>
+									<t:if test="node.assignment.imageForAssignment">
+										<t:OutputRaw value="node.assignment.imageForAssignment"/>
+									</t:if>
+									<t:OutputRaw value="node.assignment.objectName" />
+								</div>
+							</td>
+							<t:loop source="node.sequensedAssignment" value="assignment">
+									<td nowrap="nowrap" class="myssignmentListTabletd">
+										<div class="div_thd_${assignment.currentType}" >
+											<t:OutputRaw value="assignment.currentSequencedData"/>
+										</div>
+									</td>
+							</t:loop>
+					</tr>
+				</t:loop>
+			</table>
+		</td>
+	</tr>
+</table>
+</div>
+</div>					

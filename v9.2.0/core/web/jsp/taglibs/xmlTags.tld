@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib
+  PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+  "http://java.sun.com/j2ee/dtds/web-jsptaglib_1_1.dtd">
+<taglib>
+<tlibversion>1.0</tlibversion>
+    <jspversion>1.1</jspversion>
+	<shortname>xml</shortname>
+	<info>XML tags for JSP</info>
+
+    <!-- transform Tag -->
+	<tag>
+		<name>transform</name>
+		<tagclass>net.project.taglibs.xml.TransformTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>Transforms XML</info>
+        <attribute>
+            <name>stylesheet</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>content</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>name</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>scope</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>xml</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+	</tag>
+
+	<!-- property Tag -->
+	<tag>
+		<name>property</name>
+		<tagclass>net.project.taglibs.xml.PropertyTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>Specifies properties passed during XML transformation</info>
+        <attribute>
+            <name>name</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>value</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+	</tag>
+
+    <tag>
+        <name>param</name>
+        <tagclass>net.project.taglibs.xml.ParamTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>Specifies parameters to pass to XML</info>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>value</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    
+</taglib>
+

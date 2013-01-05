@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDocRepositoryBase" 
+    table="PN_DOC_REPOSITORY_BASE"
+    lazy="false"
+>
+
+    <id
+        name="repositoryId"
+        type="java.lang.Integer"
+        column="REPOSITORY_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="repositoryPath"
+        type="java.lang.String"
+        column="REPOSITORY_PATH"
+        not-null="true"
+        length="240"
+    />
+    <property
+        name="isActive"
+        type="int"
+        column="IS_ACTIVE"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnDocContentElement -->
+
+    <set
+        name="pnDocContentElements"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="REPOSITORY_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDocContentElement"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

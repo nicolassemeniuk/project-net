@@ -1,0 +1,244 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>new_workflow_test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">new_workflow_test</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Workflow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Definition</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Workflow Name:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Workflow Description:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Owner:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Rule Enforcement:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Select the kind of objects that may be workflowed:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>test work flow</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>workflow test description</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>ownerID</td>
+	<td>label=Application Administrator</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>strictnessID</td>
+	<td>label=Relaxed</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Steps</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Steps</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Step Name:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>test step 1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>sequence</td>
+	<td>1</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>step1 test description</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>notes</td>
+	<td>test instructions</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>//input[@name='pres_stepType' and @value='1']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Step Name:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>test step 2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>sequence</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>step2 test description</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>notes</td>
+	<td>test instructions</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Transitions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>transitionVerb</td>
+	<td>test transition</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>transition test description</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>beginStepID</td>
+	<td>label=test step 1</td>
+</tr>
+<tr>
+	<td>select</td>
+	<td>endStepID</td>
+	<td>label=test step 2</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Publish</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Publish Workflow']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Workflow</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertText</td>
+	<td>link=test work flow</td>
+	<td>test work flow</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>workflow test description</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Published</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<%
+/*----------------------------------------------------------------------+
+|
+|    $RCSfile$
+|   $Revision: 17022 $
+|       $Date: 2008-03-09 15:58:28 -0200 (dom, 09 mar 2008) $
+|     $Author: avinash $
+|
+| Standard code to determine stylesheet.
+| This should be statically included with
+|   < %@ include file="thisfile.jsp" % >
+| within the <head></head> tags
++----------------------------------------------------------------------*/
+%>
+<link href="/styles/global.css" rel="stylesheet" rev="stylesheet" type="text/css">
+<link href="/styles/fonts.css" rel="stylesheet" rev="stylesheet" type="text/css">
+<%
+    String myCurrentSpace="personal";
+    if (user.getCurrentSpace().getType().equals(Space.BUSINESS_SPACE)) {
+        out.print("<link href=\"/styles/business.css\" rel=\"stylesheet\" rev=\"stylesheet\" type=\"text/css\">");
+	myCurrentSpace="business";
+    } else if (user.getCurrentSpace().getType().equals(Space.PROJECT_SPACE)) {
+	out.print("<link href=\"/styles/project.css\" rel=\"stylesheet\" rev=\"stylesheet\" type=\"text/css\">");
+    } else {
+	out.print("<link href=\"/styles/personal.css\" rel=\"stylesheet\" rev=\"stylesheet\" type=\"text/css\">");
+    }
+%>
+<%-- End of Include --%>

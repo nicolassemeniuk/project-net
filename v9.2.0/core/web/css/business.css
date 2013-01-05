@@ -1,0 +1,611 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+ /* MAIN */
+
+body.main			{background-color: #FFFFFF;
+					}
+body.mainNoBGC		{
+					}
+a					{
+					}
+.instructions		{background-color: #FFFFFF;
+					 color: #006600;
+					}
+
+a.channelNoUnderline	{
+					}
+.channelHeader		{background-color: #D7FEC4;
+					 color: #000000;
+					}
+.channelHeaderDarker	{	background-color: #006600;
+					 color: #FFFFFF;
+					}
+.channelContent		{background-color: #FFFFFF;
+					 color: #000000;
+					}
+.white				{
+					}
+.calendar			{color: #000000;
+					}
+.calToday			{color: #FF0000;
+					 background-color: #ffffcc;
+					 border: 1px solid #D7FEC4;
+					}
+.actionBar			{color: #000000;
+					 background-image: url('../images/business/actionbar-background.gif');
+					 background-repeat: repeat-x;
+					}
+.actionContentReq	{color: #000000;
+					}
+.actionContentNotReq	{color: #999999;
+					}
+.pageTitle			{color: #006600;
+					}
+.label				{color: #006600;
+					}
+.rowSep             {background-color: #D7FEC4;
+                     padding: 0px;
+                     height: 1px;
+                     border-collapse: collapse;
+                    }
+.headerSep          {background-color: #D7FEC4;
+                     padding: 0px;
+                     height: 2px;
+                     border-collapse: collapse;
+                    }
+.rowHighlight       {background-color: #D7FEC4;
+                    }
+
+/* BANNER */
+/*body.banner			{background-image: url('../images/common/topnav-banner-bg.gif');
+					 background-repeat: no-repeat;
+					}*/
+.bannerLink1		{color: #000000;
+					}
+.bannerLink2		{color: #FFFFFF;
+					}
+.userId				{color: #FFFFFF;
+					}
+
+/* LEFT NAV */
+
+div#leftframe		{/*background-image: url('../images/business/background-leftnav.gif');*/
+					 background-repeat: repeat-y;
+					}
+.leftNavHeader		{color: #000000;
+					}
+.leftNavLink		{color: #000000;
+					}
+.vertLine			{
+					}
+.vertNoLine			{
+					}
+
+/* LEGACY */
+
+.tableHeader		{background-color: #FFFFFF;
+					 color: #006600;
+					}
+.instructions		{background-color: #FFFFFF;
+					 color: #006600;
+					}
+.tableLine			{
+	background-color: transparent;
+}
+.tableContent		{background-color: #FFFFFF;
+					 color: #000000;
+					}
+.tableContentNoBGC	{color: #000000;
+					}
+.tableContentFontOnly	{
+					}
+
+/* FORMS */
+
+.fieldRequired		{color: #000000;
+					}
+.fieldNonRequired	{color: #666666;
+					}
+.fieldWithError		{color: #FF0000;
+					}
+.errorMessage       {color: #FF0000;
+                    }                    
+.successMessage     {color: #FF0000;  
+                    }
+.dashboard-even {
+	background: #f6fff1;
+}
+
+.addSpacingBottom   {height: 23px;
+					}
+
+/* BUSINESS Dashboard */
+
+.block-business-db-content {
+	width: auto;
+	height: auto;
+	border-bottom: 1px solid #b9e0a6;
+	border-left: 1px solid #b9e0a6;
+	border-right: 1px solid #b9e0a6;
+	clear: none;
+}
+.dashboard-business-even {
+	background: #f6fff1;
+}
+
+.business-logo {
+	float:left;
+	height:auto;
+	overflow:hidden;
+	padding-left:14px;
+	text-align:left;
+	vertical-align:top;
+	width:150px;
+}
+
+#left-dashboard-column {
+	padding-right: 310px;
+	width: auto;
+}
+
+#right-dashboard-column {
+	position: absolute;
+	right: 10px;
+	top: 108px;
+	width: 290px;
+}
+
+.progress-bar-container {
+	border: 1px solid #d7d7d7;
+	width: 95%;
+	margin: 2px;
+	background-color: #f6f6f6;
+}
+
+.progress-line {
+	background-color: #64D23F;
+	margin: 1px;
+	text-align: center;
+}
+
+.left_tab {
+	background:#D7FEC4 url(../images/directory/active_business.gif) left no-repeat;
+	width: 130px;
+	height: 20px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+}
+.left_tab.a:hover {
+	text-decoration: none;r
+}
+.right_tab {
+	background: url(../images/directory/deactive_business_no-line.gif) left no-repeat;
+	width: 130px;
+	height: 20px;
+	text-align: center;
+	font-size: 12px;
+}
+#searchMemberBlockTop {
+	background:#D7FEC4 url(../images/directory/top_left_green.gif) no-repeat scroll center top;
+}
+
+#searchMemberBlockBottom {
+	background:#D7FEC4 url(../images/directory/top_right_green.gif) no-repeat scroll center top;
+}
+#searchMemberContents {
+	padding: 15px;
+	color: Black;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 13px;
+}
+TABLE.t-data-grid THEAD TR TH {
+    text-align: left;
+    padding: 1px 3px;
+    white-space: nowrap;
+    border-right: 1px solid #000066;
+    border-bottom: 1px solid #000066;
+    background-color:#D7FEC4;
+    width: 150px;
+}
+
+table.t-data-grid tbody tr td {
+	border-bottom:1px solid #D7FEC4;
+	border-right:none;
+	padding:2px;
+}
+
+#inviteMemberBlockTop {
+	background: #D7FEC4 url(../images/directory/business_filter-top.gif) no-repeat scroll center top;
+}
+
+#inviteMemberBlockBottom {
+	background: #D7FEC4 url(../images/directory/business_filter-top.gif) no-repeat scroll center top;
+}
+#sendMailBlockTop {
+	background: #F3F3FA url(../images/directory/business_filter-top.gif) no-repeat scroll center top;
+}
+
+#sendMailBlockBottom {
+	background: #F3F3FA url(../images/directory/business_filter-top.gif) no-repeat scroll center top;
+	width:100%;
+}
+.borderCls {
+	border: 1px solid #D7FEC4;
+}
+
+.businessMembersTitle {
+	background: #D7FEC4;
+	color:black;
+	color: Black;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	padding-left:5px;
+	border-bottom:1px solid #b5e79e;
+}
+
+.UMTopBorder {
+	border-top:1px solid #b5e79e;
+}
+
+.UMBottomBorder{
+	border-bottom: 1px solid #b5e79e;
+}
+
+.UMBottomTopBorder {
+	border-top:1px solid #b5e79e;
+	border-bottom:1px solid #b5e79e;
+}
+
+.UMTableBorder {
+	border:1px solid #b5e79e;
+}
+
+.inviteMemberSearch {
+	font-family:Arial,Helvetica,sans-serif;
+	background: #D7FEC4;
+	float: left;
+}
+.UMBottomBorder td {
+	border-bottom:1px solid #b5e79e;
+}
+
+.UMTableSemiBorder {
+	border-left:1px solid #b5e79e;
+	border-right:1px solid #b5e79e;
+	border-bottom:1px solid #b5e79e;
+}
+.heighlightRow,.m_overRow {
+	background-color: #e6f7dd;
+}
+
+.UMBottomBorderLine td {
+	border-bottom:1px solid #e8eaee;
+}
+
+.timeSubmitalHeader {
+	vertical-align: middle; 
+	background: #D7FEC4;
+	border-right: 1px solid #b5e79e;
+	border-bottom: 1px solid #b5e79e;
+}
+
+.timeSubmitalBottomHeightWidth {
+	width: 85px;
+	overflow: hidden;
+	
+}
+
+.timeSubmitalDailyWidth {
+	width: 50px;
+	overflow: hidden;
+	
+}
+.topLeftDiv {
+	width: 200px; 
+	align: center; 
+	color: black;
+	font-size: 14px;
+	font-style: normal;
+	vertical-align: middle; 
+}
+
+.projectRow {
+	height: 30px;
+	border-bottom: 1px solid  #b5e79e;
+	vertical-align: middle; 
+	border-right: 1px solid #b5e79e;
+	overflow: hidden;
+}
+
+.projectName {
+	color: #0203D4;
+	font-weight: bold;
+	padding-left: 10px;
+	padding-right: 10px;
+	width: 180px;
+	height: 16px;
+	overflow: hidden;
+}
+
+.summaryTableContent {
+	border-top: 1px solid #b5e79e;
+}
+
+.assignment-name {
+	border-right: 1px solid #b5e79e;
+	border-bottom: 1px solid #b5e79e;
+	vertical-align: middle; 
+	overflow: hidden;
+}
+
+.monthlyTotalView{
+	width: 40px;
+	height: 30px;
+	border-right: 1px solid #b5e79e;
+	border-bottom: 1px solid #b5e79e;
+	border-top: 1px solid #b5e79e;
+}
+
+.contentDiv {
+	border-top: 1px solid #b5e79e;
+}
+
+.userName {
+	color: #0C8B1B;
+	font-weight: bold;
+	padding-left: 5px;
+}
+
+.blankMessage {
+	padding-left: 20px; 
+	padding-top: 10px;
+	height: 100px;
+}
+
+.workCaptureRow {
+	vertical-align: middle;
+	border-right: 1px solid #b5e79e;
+	border-bottom: 1px solid #b5e79e;
+}
+
+.taskName {
+	padding-left: 25px;
+	width: 170px;
+	height: 16px;
+	overflow: hidden;
+}
+
+.blankTr {
+	height:10px;
+}
+
+.allTotalColum {
+	height: 30px;
+	background: #F3F3FA none repeat scroll 0 0;
+	vertical-align: middle; 
+	border-bottom: 1px solid #b5e79e;
+}
+
+.rightBorder{
+	height: 30px;
+	border-right: 1px solid #b5e79e;
+	border-bottom: 1px solid #b5e79e;
+	overflow:hidden;
+}
+
+.hidden {
+    display: none ! IMPORTANT;
+}
+
+.visisble {
+    visibility: visible;
+}
+
+.projectTotalDiv {
+	padding-left:10px;
+	width: 190px;
+	height: 16px;
+	overflow: hidden;
+}
+
+.memberTotalDiv{
+	padding-left:5px;
+	width: 195px;
+}
+
+.jumpedDateLeftPadding {
+	width: 50px;
+	padding-left: 5px;
+}
+
+.jumpedDateLeftPadding{
+	width: 50px;
+	padding-left: 5px;
+}
+
+.datefilter-tb-style {
+	
+	vertical-align: middle;
+	font-family: Arial;
+}
+
+.date-div {
+	width: 105px;
+	background: #FFFFFF;
+}
+
+.wh {
+	height: 20px;
+	background: #F3F3FA none repeat scroll 0 0;
+	vertical-align: middle; 
+	border-right: 1px solid #b5e79e;
+}
+
+.hRange {
+	height: 20px;
+	vertical-align: middle;
+	border-right: 1px solid #b5e79e;
+	border-bottom: 1px solid #b5e79e;
+}
+
+.wEmptyTd {
+	height: 20px;
+	vertical-align: top;
+	border-right: 1px solid #b5e79e;
+}
+
+.filter-calendar-img {
+	cursor: pointer;
+	padding-right: 2px;
+}
+.assignment-title {
+	border-right: 1px solid #b5e79e;
+	border-bottom: 1px solid #b5e79e;
+	vertical-align: top; 
+}
+
+.wText {
+	height: 30px;
+	background: #F3F3FA none repeat scroll 0 0;
+	vertical-align: middle; 
+	border-bottom: 1px solid #b5e79e;
+	border-right: 1px solid #b5e79e;
+}
+
+.topLTd {
+	border-right: 1px solid #b5e79e;
+}
+
+.wRange{
+	width: 85px;
+}
+
+.assignmentDataDiv {
+	overflow: auto;
+	border-right: 1px solid #b5e79e;
+}
+	
+#hidePopup{
+	background-image: url('../images/business/dashboard_close.gif');
+	background-repeat: no-repeat;
+	background-position: right;
+	height: 20px;
+	width: 20px;
+}
+
+#lessButton{
+	background-image: url('../images/business/less_option.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 10px;
+}
+
+#moreButton{
+	background-image: url('../images/business/more_option.png');
+	background-repeat:no-repeat;
+	background-position: center;
+	height: 10px;
+}
+
+.scrollHeader{
+	color: #D7FEC4;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+#table-lines{
+	position: relative;
+	left:0;
+	top:0;
+	border-style:solid;
+	border-width:3px;
+	border-color:#D7FEC4;
+}
+
+.top_left {
+	background: #cccccc url('../images/business/top_left.png') left top no-repeat;
+	width: 6px;
+}
+
+.top_m {
+	background: url('../images/business/top_m.png') center top repeat-x;
+	font-size : 14px;
+	font-weight: bold;
+	height: 18px;
+}
+
+.top_right {
+	background: #cccccc url('../images/business/top_right.png') right top no-repeat;
+	width: 6px;
+}
+
+.m_left {
+	background: url('../images/business/m_left.png') left top repeat-y;
+}
+
+.mid {
+	background: url('../images/business/top_m.png') bottom right repeat-x;
+}
+
+.m_right {
+	background: url('../images/business/m_right.png') right top repeat-y;
+}
+
+.bottom_left {
+	background: #cccccc url('../images/business/bottom_left.png') left top no-repeat;
+	height: 36px;
+}
+
+.bottom_m {
+	background: url('../images/business/bottom_m.png') center top repeat-x;
+}
+
+.bottom_right {
+	background: #cccccc url('../images/business/bottom_right.png') right top no-repeat;
+}
+
+.bar {
+	background: url('../images/business/notify_hbar.png') center top repeat-x;
+	height: 17px;
+}
+
+.editNotifyHeader{
+	border-bottom: 1px solid Silver;
+	color: #37B700;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	width: 95%;
+}
+
+.notification-itemName{
+	background-color: #D7FEC4;
+	border-bottom: solid 1px #B9E0A6;	
+	font-size : 12px;
+	font-weight: bold;
+	height: 30px;
+	padding-left: 30px;
+	vertical-align: middle;
+	width: 99%;
+}
+
+.tableContentHighlight {
+	background-color: #E7FEC4;
+	color: #000000;
+}
+
+/* End of Business Dashboard */
