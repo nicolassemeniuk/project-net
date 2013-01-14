@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project name="pnet-core-tomcat-jerarquicos" default="build" basedir=".">
+<project name="pnet-v9.2.0_JerarquicosSalud" default="build" basedir=".">
 <!--
  * Copyright 2000-2009 Project.net Inc.
  *
