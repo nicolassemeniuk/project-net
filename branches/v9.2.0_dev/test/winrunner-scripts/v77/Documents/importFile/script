@@ -1,0 +1,42 @@
+#importing a document to a specified folder
+
+function importFile(in folderName, in docName, in fileName, in status){
+	auto rc;
+		
+	set_window("main",2);
+	if(folderName!= ""){#if folderName is specified then go to that folder first
+		web_link_click(folderName);
+		set_window("main",2);
+	}
+	web_link_click("Import Document");#importing a document using the toolbar button
+	wait(1);
+	set_window("main",2);
+	wait(1);
+	if(docName!="")#enter in a document name to test out the ASCII character set
+		edit_set("docName",docName);
+	set_window("main",2);
+	button_press("Browse...");
+	wait(2);
+	set_window ("Choose file", 2);
+	list_select_item ("browser_main_combo_location_0", "Desktop");#choose the file with the specified filename present on the desktop
+	wait(1);
+	set_window ("Choose file", 2);
+	rc = list_select_item ("Look in", fileName);
+# 	pause(rc);
+	button_press ("Open");
+	wait(2);
+	
+	set_window("main",2);
+	if(status != ""){#select the status of the document being imported
+		list_select_item("statusID",status);
+	}	
+	web_link_click("Submit");
+	wait(3);
+	set_window("main",3);
+# 	report_msg("Heehaw");
+	if(obj_exists(fileName)==E_OK) # Verifying that the file is imported
+		tl_step("Importing file",0,"File was successfully imported");
+	else
+		tl_step("Importing file",1,"File COULD NOT be imported");
+	set_window("main",2);
+}

@@ -1,0 +1,224 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:PnetLayout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/inviteMember.css?${versionNumber}" />
+	<script type="text/javascript" src="${jSPRootURL}/src/inviteMember.js?${versionNumber}" />
+	<script language='javascript' type='text/javascript'>
+		var loadingMemberErrorMsg = '<t:Message value="prm.directory.removemember.loadingmembermessage.label"/>';
+  		var addingProjectOrSubbusinessErrorMsg = '<t:Message value="prm.directory.bulkinvitation.addingprojectorsubbusinesserrormessage.label"/>';
+  		var searchUserErrorMsg = '<t:Message value="prm.directory.invitemember.searchusers.label "/>';
+		var processingErrorMsg = '<t:Message value="prm.directory.invitemember.showprocessing.label"/>';
+		var selectMemberToRemoveErrorMsg = '<t:Message value="prm.directory.removemember.selectmembertoremove.label"/>';
+		var selectProjectOrSubbusinessToAdd = '<t:Message value="prm.directory.bulkinvitaion.selectprojectorsubbusinesserrormsg.label"/>';
+		var selectedProjectOrSubbusinessAlreadyAddedErrorMeg = '<t:Message value="prm.directory.bulkinvitaion.selectprojectorsubbusinessalreadyaddederrormsg.label"/>';
+		var noProjectOrSubbusinessErrorMeg = '<t:Message value="prm.directory.bulkinvitation.noprojectorsubbusinesserrormsg.label"/>';
+		var searchMsg = '<t:Message value="prm.directory.invite.memberaddition.partialfirstorlastname.defaultmessage"/>';
+		var removingErrorMsg = '<t:Message value="prm.directory.removingmember.showremoving.label"/>';
+		var loadMemberForRemoveFailureMsg = '<t:Message value="prm.directory.removemembers.loadmembertoremovefailure.errormessage"/>';
+		var removeMemberFailureMsg = '<t:Message value="prm.directory.removemembers.removememberfailure.errormessage"/>';
+		var removeSpaceFailureMsg = '<t:Message value="prm.directory.removemembers.removespacefailure.errormessage"/>';
+		var addspaceFailureMsg = '<t:Message value="prm.directory.removemembers.addingspacefailure.errormessage"/>';
+		var noSpacePresentForSearchMember = '<t:Message value="prm.directory.removemembers.nospacepresentforsearchmember.errormessage"/>'; 
+		var highlightMembers = '';
+		<!--//
+		function setup() {
+			setDefaultValue();
+			resizeBulkDiv('bulkInviteList', 218, 370);
+			persistSelectedRecordsForRM('afterProjectAddPersistPrevious','onload');
+			setSelectedRecordsForRM();
+		}			
+		window.onresize = function(){
+			resizeBulkDiv('bulkInviteList', 218, 370);
+		}
+		window.onload = function(){
+			setup();
+		}
+		//-->
+	</script>
+	<table border="0" cellpadding="0" cellspacing="0">
+		<tr>
+			<td valign="top"><!-- Start of left navbar column -->
+				<div id="left-navbar">
+					<div id="leftheading-${user.currentSpace.type}" style="position:relative;">
+						<t:Message value="prm.directory.directory.title" />
+					</div>
+					<div class="project-title">${user.currentSpace.name}</div> <br />
+					<div class="spacer-for-toolbox"/>
+					<!-- Tool Box -->
+					<div class='toolbox-heading'>
+						<t:message value="prm.global.toolbox.heading"/>
+					</div>
+					<div id="toolbox-item" class="toolbox-item">
+						<t:if test="actionsIconEnabled">
+							<t:if test="blogEnabled">
+								<span id="blog-ItEnabled"> <a
+									onmouseover=" document.imgblogit.src = '${jspRootURL}/images/icons/toolbar-gen-blogit_over.gif'"
+									onmouseout=" document.imgblogit.src = '${jspRootURL}/images/icons/toolbar-gen-blogit_on.gif'"
+									href="javascript:blogit();">
+									 <img hspace="0" border="0"	name="imgblogit" src="${jspRootURL}/images/icons/toolbar-gen-blogit_on.gif"
+									title="Blog-it" alt="Blog-it" />&nbsp;
+									<t:Message	value="all.global.toolbar.standard.blogit" /></a></span>
+								<br />
+							</t:if>
+							<t:parameter name="else">
+								<t:if test="blogEnabled">
+									<span id="blog-ItEnabled"> <a href="javascript:blogit();">&nbsp;
+									<t:Message value="all.global.toolbar.standard.blogit" /> </a> </span>
+									<br />
+								</t:if>
+							</t:parameter>
+						</t:if>
+					</div>
+				</div>
+			</td>
+			<!-- End of left navbar -->
+			<td valign="top" width="100%"><!-- Start of Content column -->
+			<div id="content" style="top:110px;padding-right:10px;">
+				<table width="100%" border="0" cellspacing="0" cellpadding="0" vspace="0">
+					<tr>
+						<td id="leftPane" valign="top">
+						  <table border="0" cellspacing="0" cellpadding="0">
+						      <tr>
+						        <td width="130" class="right_tab">
+						        	<a href="${jSPRootURL}/directory/BulkInvitation?module=${moduleId}" style="text-decoration: none;">
+						        		<span class="disable_tab"><t:Message value="prm.directory.managedirectory.invitemember.tab" /></span>
+						        	</a>
+						        </td>
+						        <td>&nbsp;</td>
+								<td width="130" class="left_tab">
+									<a href="${jSPRootURL}/directory/RemoveMembers?module=${moduleId}" style="text-decoration: none;">
+										<span class="active_tab"><t:Message value="prm.directory.managedirectory.removemember.tab" /></span>
+									</a>
+								</td>
+						      </tr>
+						  </table>
+						</td>
+					</tr>
+				</table>
+				<table width="100%" class="UMTableBorder">
+					<tr>
+						<td class="invitePageTitle" colspan="3"><t:Message value="prm.directory.removemember.title.name" /></td>
+					</tr>
+					<tr>	
+						<td width="48%">
+							<div>
+								 <t:form t:id="selectBusienssForm" t:clientId="selectBusienssForm" autofocus="false" clientValidation="false" onsubmit="return false;">
+									<table border="0" cellpadding="0" cellspacing="0" class="inviteMemberSearch" width="100%">
+										<tr>
+											<td width="6">
+												<img src="${jSPRootURL}/images/directory/top_left_${user.currentSpace.type}.gif" width="6" height="5" />
+											</td>
+											<td></td>
+											<td width="6">
+												<img src="${jSPRootURL}/images/directory/top_right_${user.currentSpace.type}.gif" width="6" height="5" />
+											</td>
+										</tr>
+										<tr height="23">
+								       		 <td colspan="3" class="managedirectoryTitle leftPadding" nowrap="nowrap">
+								       			 <t:Message value="prm.directory.removemember.businessmeber.maintitle"/>
+								       		</td>
+							        	</tr>
+							        	<tr height="23">
+											<td colspan="1" class="subTitleMessage" nowrap="nowrap">
+												<t:Message value="prm.directory.removemember.businessmeber.subtitle" />
+											</td>
+										</tr>
+										<tr height="30">
+											<td class="businessSearchTitle" nowrap="nowrap">
+												<t:Message value="prm.directory.invitemember.name.label" />&nbsp; 
+												<t:textField t:id="searchUser" value="searchUser" size="53"	onKeyDown='if(event.keyCode==13) return prepareSearchTextForRemoveMembers();' style="color:gray;" onfocus="javascript:clearValue('searchUser');" onblur="javascript:setDefaultValues('searchUser');"/>&nbsp;&nbsp;&nbsp;
+											</td>
+										</tr>
+										<tr>
+											<td>
+												<img src="${jSPRootURL}/images/directory/bottom_left_${user.currentSpace.type}.gif"	width="6" height="5" />
+											</td>
+											<td></td>
+											<td>
+												<img src="${jSPRootURL}/images/directory/bottom_right_${user.currentSpace.type}.gif" width="6" height="5" />
+											</td>
+										</tr>
+									</table>
+								</t:form>
+							</div>
+						</td>
+						<td width="3%" class="orlabel"><t:Message value="prm.directory.managedirectory.removemember.orlabel"/></td>
+							<td width="48%">
+								<div>
+									<t:form t:id="selectProjectForm" t:clientId="selectProjectForm" autofocus="false" clientValidation="false">
+										<table border="0" cellspacing="0" cellpadding="0" class="adduser" width="100%" height="70">
+											<tr>
+												<td><img src="${asset:context:/images/directory/top_left_gray.gif}"	width="6" height="5" /></td>
+												<td><t:textField t:id="addProjectName" value="defaultProjectValue" style="display:none;"/></td>
+												<td><img src="${asset:context:/images/directory/top_right_gray.gif}" width="6" height="5" /></td>
+											</tr>
+											<tr height="23">
+										       	 <td colspan="3" class="managedirectoryTitle" nowrap="nowrap">
+										       	 	<t:Message value="prm.directory.removemember.chooseproject.maintitle"/>
+										       	 </td>
+									        </tr>
+											<tr height="52">
+												<td>&nbsp;
+													<t:textField t:id="projectOrSubbusinessId" value="projectOrSubbusinessId" style="display: none;"/>
+												</td>
+												<td>
+													<table border="0" cellspacing="0" cellpadding="0">
+														<tr>
+															<td colspan="2" class="subTitleMessage" nowrap="nowrap" style="padding-left: 8px;">
+															<t:Message value="prm.directory.removemember.chooseproject.subtitle" /></td>
+														</tr>
+														<tr>
+															<td style="padding-left: 10px; padding-top: 11px;" nowrap="nowrap">
+																<t:select t:id="projectDirectory" value="business" class="projectDirectory" model="projectBeanModel" encoder="projectBeanModel" validate="required" blankOption="NEVER"/>&nbsp;
+															</td>
+															<td style="padding-top: 11px;">
+																<button type="button" onclick="addProjectOrSubbusinessColumnForRemoveMembers();">
+																	<t:Message value="prm.directory.bulkinvitation.addprojectorsubbusiness.label" />
+																</button>
+															</td>
+														</tr>
+												</table>
+											</td>
+										</tr>
+										<tr>
+											<td width="6"><img	src="${asset:context:/images/directory/bottom_left_gray.gif}" /></td>
+											<td></td>
+											<td width="6"><img src="${asset:context:/images/directory/bottom_right_gray.gif}" /></td>
+										</tr>
+									</table>
+							</t:form>
+						</div>
+						</td>
+					</tr>
+					<tr>
+						<td width="49%" valign="top" colspan="3">
+							<table width="100%" cellspacing="0" style="margin-top: 20px;overflow-x:auto;" cellpadding="0">
+								<tr valign="top">
+									<td width="98%">
+										<div id="bulkInviteList" style="overflow:auto;width:100%;height:210px;"></div>
+										</td>
+									</tr>
+									<tr height="60px;" bgcolor="#F3F3FA">
+										<td class="UMTopBorder">
+											<div id="sendMailBlockTop">
+												<div id="sendMailBlockBottom">
+														<table id="sendMailContents">
+															<tr>
+																<td align="center">
+																	<button type="button" onclick="return removeMemberJSONbject();" class="submitBtn">${removeUncheckedMemberCaption}</button>
+																</td>
+															</tr>
+														</table>
+												</div>
+											</div>
+										</td>
+									</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+				</div>
+			</td>
+		</tr>
+	</table>
+</t:PnetLayout>

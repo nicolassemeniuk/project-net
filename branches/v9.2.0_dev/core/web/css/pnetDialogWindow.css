@@ -1,0 +1,73 @@
+/* Ext.pnet.PnetDialogWindow.js component related css styles */
+
+/* Styling Errors Container */
+#pnetWinErrorCnt { position: relative; margin: 10px auto; -moz-border-radius:6px; background:#EE0101 none repeat scroll 0 0; border:2px solid #DDDDDD; color:#FFFFFF; font-size:11px; padding:4px 10px;  width: 90%/*515px*/; }
+#pnetWinErrorCnt .error { margin-left: 20px; margin-bottom: 10px; }
+#pnetWinErrorCnt h2, #pnetWinErrorCnt h3 {  margin-top: 15px; color: #FFFFFF; }
+#pnetWinErrorCnt h2 b, #pnetWinErrorCnt h3 b { font-size: 12px; }
+#pnetWinErrorHtmlCntWrapper { margin: 10px; }
+#pnetWinErrorCnt #close { position: absolute; top:5px; right:5px; text-transform:uppercase; font-size:8px; cursor: pointer; }
+#pnetWinErrorCnt #close a { color: #FFFFFF; }
+#pnetWinErrorCnt #close a:hover { color: #AAAAAA; }
+.pnetWinFieldError { border: 1px solid red; }
+.tableContent { background: #EE0101; }
+.tableContent td { color: #FFFFFF; font-family:tahoma,arial,helvetica,sans-serif; font-size: 11px; }
+
+/* Styling window Header - Title */
+.x-window-tl .x-window-header {
+	color: #000000;
+	font-size: 14px;
+	/* height: 14px; */
+	font: bold 14px arial;
+	padding: 5px 5px 2px 5px;
+	margin-left: -1px;
+}
+
+/* Styling Sub Header Container */
+#pnetWinSubHeaderCnt {
+	background: #ccd8fe;
+	padding: 5px 25px 5px 5px;
+	width: 100%;
+	/*height: 10px;*/ /*line-height: 35px;*/
+	font-size: 14px;
+	clear: both;
+	overflow: hidden;
+	font-family: Arial, Helvetica, sans-serif;
+	font-weight: normal !important;
+	/* margin-bottom: 10px;  */
+}
+#pnetWinSubHeaderCnt h2 { float:left; padding: 0px; margin: 0; font-weight: normal !important; }
+#pnetWinSubHeaderCnt h2 font { color: #808080; font-size: 13px; }
+/* Sub Header Loading indication */
+#pnetWinSubHeaderCnt .loadIndicator { background: url(/images/default/tree/loading.gif) no-repeat center left; margin-left: 20px; /*line-height:35px;*/}
+#pnetWinSubHeaderCnt .loadIndicator span { margin-left: 20px; }
+
+/* Styling Component Actual Body */
+#pnetWinBodyWrapper { overflow:auto; font-size: 13px; padding-top: 10px; }
+
+/* Styling Footer */
+.pnet-window-cls .x-window-bc .x-window-footer {
+	font-size:0;
+	line-height:0;
+	padding-bottom: 3px;
+}
+.pnet-window-cls {
+	padding: 0px;
+}
+.pnet-window-cls .x-panel-btns {
+	background-color:#F1F1F1;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.x-panel-btns-ct {
+padding: 0px !important; /* Removing extra border in the footer */
+}
+
+#submitBtn, #cancelBtn { margin: 0 2px; font-size: 12px; }
+
+/* IE8 specific */
+.pnet-window-cls { text-align: center; }
+.pnet-window-cls .x-window-header  {text-align: left;}
+.pnet-window-cls #pnetWinSubHeaderCnt {text-align: left;}
+.pnet-window-cls #pnetWinErrorCnt {text-align: left;}
+.pnet-window-cls #pnetWinBodyWrapper {text-align: center;}

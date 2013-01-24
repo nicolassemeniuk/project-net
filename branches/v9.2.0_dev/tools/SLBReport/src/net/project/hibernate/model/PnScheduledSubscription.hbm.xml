@@ -1,0 +1,178 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnScheduledSubscription" 
+    table="PN_SCHEDULED_SUBSCRIPTION"
+    lazy="false"
+>
+
+    <id
+        name="scheduledSubscriptionId"
+        type="java.math.BigDecimal"
+        column="SCHEDULED_SUBSCRIPTION_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="name"
+        type="java.lang.String"
+        column="NAME"
+        length="80"
+    />
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        length="500"
+    />
+    <property
+        name="targetObjectId"
+        type="java.math.BigDecimal"
+        column="TARGET_OBJECT_ID"
+        length="20"
+    />
+    <property
+        name="targetObjectType"
+        type="java.lang.String"
+        column="TARGET_OBJECT_TYPE"
+        length="80"
+    />
+    <property
+        name="targetObjectXml"
+        type="java.lang.String"
+        column="TARGET_OBJECT_XML"
+        length="4000"
+    />
+    <property
+        name="eventTime"
+        type="java.sql.Date"
+        column="EVENT_TIME"
+        length="7"
+    />
+    <property
+        name="eventType"
+        type="java.math.BigDecimal"
+        column="EVENT_TYPE"
+        length="20"
+    />
+    <property
+        name="isQueued"
+        type="java.math.BigDecimal"
+        column="IS_QUEUED"
+        length="22"
+    />
+    <property
+        name="createDate"
+        type="java.sql.Date"
+        column="CREATE_DATE"
+        length="7"
+    />
+    <property
+        name="createdById"
+        type="java.math.BigDecimal"
+        column="CREATED_BY_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="modifiedDate"
+        type="java.sql.Date"
+        column="MODIFIED_DATE"
+        length="7"
+    />
+    <property
+        name="modifiedById"
+        type="java.math.BigDecimal"
+        column="MODIFIED_BY_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        length="1"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        length="7"
+    />
+    <property
+        name="deliveryInterval"
+        type="java.lang.Integer"
+        column="DELIVERY_INTERVAL"
+        length="4"
+    />
+    <property
+        name="deliveryDate"
+        type="java.sql.Date"
+        column="DELIVERY_DATE"
+        length="7"
+    />
+    <property
+        name="targetObjectClobId"
+        type="java.math.BigDecimal"
+        column="TARGET_OBJECT_CLOB_ID"
+        length="20"
+    />
+    <property
+        name="batchId"
+        type="java.math.BigDecimal"
+        column="BATCH_ID"
+        length="20"
+    />
+    <property
+        name="subscriberBatchId"
+        type="java.math.BigDecimal"
+        column="SUBSCRIBER_BATCH_ID"
+        length="20"
+    />
+    <property
+        name="customMessageClob"
+        type="java.sql.Clob"
+        column="CUSTOM_MESSAGE_CLOB"
+        length="4000"
+    />
+    <property
+        name="spaceId"
+        type="java.math.BigDecimal"
+        column="SPACE_ID"
+        length="20"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPerson"
+        class="net.project.hibernate.model.PnPerson"
+        not-null="true"
+    >
+        <column name="INITIATOR_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PnNotificationType -->
+    <many-to-one
+        name="pnNotificationType"
+        class="net.project.hibernate.model.PnNotificationType"
+        not-null="true"
+    >
+        <column name="NOTIFICATION_TYPE_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

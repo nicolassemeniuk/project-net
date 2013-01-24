@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnNotificationQueue" 
+    table="PN_NOTIFICATION_QUEUE"
+    lazy="false"
+>
+
+    <id
+        name="notificationId"
+        type="java.math.BigDecimal"
+        column="NOTIFICATION_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="postedDate"
+        type="java.sql.Date"
+        column="POSTED_DATE"
+        length="7"
+    />
+    <property
+        name="postedById"
+        type="java.lang.String"
+        column="POSTED_BY_ID"
+        length="80"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        length="1"
+    />
+    <property
+        name="batchId"
+        type="java.math.BigDecimal"
+        column="BATCH_ID"
+        length="20"
+    />
+    <property
+        name="deliveryStatus"
+        type="java.lang.String"
+        column="DELIVERY_STATUS"
+        length="80"
+    />
+    <property
+        name="numberOfRetries"
+        type="java.math.BigDecimal"
+        column="NUMBER_OF_RETRIES"
+        length="22"
+    />
+    <property
+        name="isImmediate"
+        type="java.lang.Integer"
+        column="IS_IMMEDIATE"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnNotification -->
+    <one-to-one
+        name="pnNotification"
+        class="net.project.hibernate.model.PnNotification"
+        outer-join="auto"
+        constrained="false"
+    />
+
+</class>
+</hibernate-mapping>

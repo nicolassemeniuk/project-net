@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnTaskDependency" 
+    table="PN_TASK_DEPENDENCY"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnTaskDependencyPK">
+        <key-property 
+            name="taskId" 
+            column="TASK_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="dependencyId" 
+            column="DEPENDENCY_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="dependencyTypeId" 
+            column="DEPENDENCY_TYPE_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="lag"
+        type="java.math.BigDecimal"
+        column="LAG"
+        length="22"
+    />
+    <property
+        name="lagUnits"
+        type="java.lang.String"
+        column="LAG_UNITS"
+        length="5"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

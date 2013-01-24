@@ -1,0 +1,10 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Documents\insertDocument> 1 1093557598 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\forLoginProject> <C:\Documents and Settings\QA\Desktop\v77\Documents\insertDocument> 2 1093557601 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\forLoginProject> 19 1093557617 0
+39 1 <web_frame_text_exists- WRfile.txt> <importFile> 27 1093557644 0
+23 12 <File exists1> <C:\Documents and Settings\QA\Desktop\v77\Documents\insertDocument> 28 1093557644 0
+44 53 <web_link_click:"WRfolder" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\Documents\insertDocument> 25 1093557664 0
+39 1 <web_frame_text_exists- WRfile.txt> <importFile> 27 1093557679 0
+23 12 <File exists1> <C:\Documents and Settings\QA\Desktop\v77\Documents\insertDocument> 28 1093557679 0
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\Documents\insertDocument> 31 1093557679 0

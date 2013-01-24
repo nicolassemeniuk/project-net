@@ -1,0 +1,2 @@
+drop trigger PN_OBJECT_NAME_AFT_UPD_NAME
+/

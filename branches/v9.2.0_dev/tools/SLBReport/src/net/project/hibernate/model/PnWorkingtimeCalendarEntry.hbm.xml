@@ -1,0 +1,151 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnWorkingtimeCalendarEntry" 
+    table="PN_WORKINGTIME_CALENDAR_ENTRY"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnWorkingtimeCalendarEntryPK">
+        <key-property 
+            name="calendarId" 
+            column="CALENDAR_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="entryId" 
+            column="ENTRY_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="isWorkingDay"
+        type="java.lang.String"
+        column="IS_WORKING_DAY"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isDayOfWeek"
+        type="java.lang.String"
+        column="IS_DAY_OF_WEEK"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="dayNumber"
+        type="java.lang.Integer"
+        column="DAY_NUMBER"
+        length="1"
+    />
+    <property
+        name="startDate"
+        type="java.sql.Timestamp"
+        column="START_DATE"
+        length="7"
+    />
+    <property
+        name="endDate"
+        type="java.sql.Timestamp"
+        column="END_DATE"
+        length="7"
+    />
+    <property
+        name="time1Start"
+        type="java.sql.Timestamp"
+        column="TIME1_START"
+        length="7"
+    />
+    <property
+        name="time1End"
+        type="java.sql.Timestamp"
+        column="TIME1_END"
+        length="7"
+    />
+    <property
+        name="time2Start"
+        type="java.sql.Timestamp"
+        column="TIME2_START"
+        length="7"
+    />
+    <property
+        name="time2End"
+        type="java.sql.Timestamp"
+        column="TIME2_END"
+        length="7"
+    />
+    <property
+        name="time3Start"
+        type="java.sql.Timestamp"
+        column="TIME3_START"
+        length="7"
+    />
+    <property
+        name="time3End"
+        type="java.sql.Timestamp"
+        column="TIME3_END"
+        length="7"
+    />
+    <property
+        name="time4Start"
+        type="java.sql.Timestamp"
+        column="TIME4_START"
+        length="7"
+    />
+    <property
+        name="time4End"
+        type="java.sql.Timestamp"
+        column="TIME4_END"
+        length="7"
+    />
+    <property
+        name="time5Start"
+        type="java.sql.Timestamp"
+        column="TIME5_START"
+        length="7"
+    />
+    <property
+        name="time5End"
+        type="java.sql.Timestamp"
+        column="TIME5_END"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnWorkingtimeCalendar -->
+    <many-to-one
+        name="pnWorkingtimeCalendar"
+	    class="net.project.hibernate.model.PnWorkingtimeCalendar"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="CALENDAR_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

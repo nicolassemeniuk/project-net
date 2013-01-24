@@ -1,0 +1,112 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnWorkingtimeCalendar" 
+    table="PN_WORKINGTIME_CALENDAR"
+    lazy="false"
+>
+
+    <id
+        name="calendarId"
+        type="java.math.BigDecimal"
+        column="CALENDAR_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="isBaseCalendar"
+        type="java.lang.String"
+        column="IS_BASE_CALENDAR"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="name"
+        type="java.lang.String"
+        column="NAME"
+        length="255"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPerson"
+        class="net.project.hibernate.model.PnPerson"
+        not-null="true"
+    >
+        <column name="RESOURCE_PERSON_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnWorkingtimeCalendarEntry -->
+
+    <set
+        name="pnWorkingtimeCalendarEntries"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="CALENDAR_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnWorkingtimeCalendarEntry"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnWorkingtimeCalendar -->
+
+    <set
+        name="pnWorkingtimeCalendars"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PARENT_CALENDAR_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnWorkingtimeCalendar"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to PnWorkingtimeCalendar -->
+    <many-to-one
+        name="pnWorkingtimeCalendar"
+        class="net.project.hibernate.model.PnWorkingtimeCalendar"
+        not-null="true"
+    >
+        <column name="PARENT_CALENDAR_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PnPlan -->
+    <many-to-one
+        name="pnPlan"
+        class="net.project.hibernate.model.PnPlan"
+        not-null="true"
+    >
+        <column name="PLAN_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

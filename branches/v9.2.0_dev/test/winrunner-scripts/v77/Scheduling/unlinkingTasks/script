@@ -1,0 +1,97 @@
+wait(3);
+# call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject"();
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+reload("extractProjectID",0,1);
+reload("extractTaskID",0,1);
+
+function unlink_edit(in task1, in task2){
+	auto out_item, out_num;
+	set_window("main",1);
+	web_link_click(""&task2&"");
+	set_window("main",1);
+	web_link_click("Modify");
+	set_window("main",1);
+	list_select_item("dependency_1_task_id","None");
+	web_link_click("Submit");
+	set_window("main",1);
+	web_link_click(""&task2&"");
+	set_window("main",1);
+	web_link_click("Modify");
+	set_window("main",1);
+	list_get_selected("dependency_1_task_id",out_item, out_num);
+	if(out_item == "None")
+		tl_step("Verify unlinking tasks(edit)",0,"Task "&task2&" is no longer dependent on task "&task1&"(edit page)");
+	list_get_selected("dependency_1_type",out_item, out_num);
+	if(out_item != "Finish-to-Start")
+		tl_step("Verify default dependency",1,"Default FS dependency is not set");
+	web_link_click("Cancel");
+	}
+	
+function unlink_quick(in task1, in task2){
+	auto taskID1;
+	auto taskID2;
+	auto out_item, out_num;
+		
+	out_num = extractProjectID("WRProject");
+	taskID1 = extractTaskID(task1,out_num);
+	taskID2 = extractTaskID(task2,out_num);
+	
+	set_window("main",1);
+	wait(1);
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","t1_button","part_value",taskID1)!=E_OK)
+		report_msg("NOT OK1");
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","t2_button","part_value",taskID2)!=E_OK)
+		report_msg("NOT OK2");
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+	
+	button_set("t1_button",ON);
+	button_set("t2_button",ON);
+	wait(1);
+	web_link_click("Unlink Tasks");
+	wait(2);
+	set_window("main",1);
+	web_link_click(""&task2&"");
+	set_window("main",1);
+	web_link_click("Modify");
+	set_window("main",1);
+	list_get_selected("dependency_1_task_id",out_item, out_num);
+	if(out_item == "None")
+		tl_step("Verify unlinking tasks(quick link)",0,"Task "&task2&" is no longer dependent on task "&task1&"(quick link)");
+	list_get_selected("dependency_1_type",out_item, out_num);
+	if(out_item != "Finish-to-Start")
+		tl_step("Verify default dependency",1,"Default FS dependency is not set");
+	web_link_click("Cancel");
+}
+	
+
+# set_window("main",1);
+# web_link_click("TestProject2");
+# set_window("menu",1);
+# web_link_click("Workplan");
+# wait(2);
+set_window("main",2);
+
+report_msg("FIXED DURATION TASKS");
+unlink_edit("t1","t2");
+unlink_edit("t1","t3");
+unlink_quick("t1","t4");
+unlink_quick("t1","t5");
+report_msg("");
+
+report_msg("FIXED UNIT TASKS");
+unlink_edit("t6","t7");
+unlink_edit("t6","t8");
+unlink_quick("t6","t9");
+unlink_quick("t6","t10");
+report_msg("");
+
+report_msg("FIXED WORK TASKS");
+unlink_edit("t11","t12");
+unlink_edit("t11","t13");
+unlink_quick("t11","t14");
+unlink_quick("t11","t15");
+report_msg("");
+
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");

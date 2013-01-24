@@ -1,0 +1,180 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:Layout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+	<style type="text/css">
+.rowColorForTotals{
+	background-color:#EBEBEB;
+}
+</style>
+<script type="text/javascript">
+var year = ${year};
+var monthIndex = ${monthIndex};
+var projectColumnHeader= '${projectColumnLabel}';
+var untilEndOfProjectHeader = '${untilEndOfProjectColumnLabel}';
+var gridTitle = '${gridTitle}';
+var resourceAllocationData = ${resourceAllocationData};
+var clickToAddProjectTooltip = '${clickToAddProjectTooltip}';
+var saveAllocationsTooltip = '${saveAllocationsTooltip}';
+var untilEndOfProjectColumnTooltip = '${untilEndOfProjectColumnTooltip}';
+var selectProjectToAddMessage = '${selectProjectToAddMessage}';
+var clickToEditTooltip = '${clickToEditTooltip}';
+var saveAllocationsTooltipTitle = '${saveAllocationsTooltipTitle}';
+var addProjectTooltipTitle = '${addProjectTooltipTitle}';
+var serverRequestFailedMessage = '${serverRequestFailedMessage}';
+var allocationNotMoreThan100percentMessage = '${allocationNotMoreThan100percentMessage}';
+var allocationZeroPercentMessage = '${allocationZeroPercentMessage}';
+var projectAlreadyAddedMessage = '${projectAlreadyAddedMessage}';
+var addButtonCaption = '${addButtonCaption}';
+var submitButtonCaption = '${submitButtonCaption}';
+var extAlertTitle = '${extAlertTitle}';
+var noRecordToSaveMessage = '${noRecordToSaveMessage}';
+var resourceNotExistToAllocateMessage = '${resourceNotExistToAllocateMessage}';
+var ignoreChangesMessage = '${ignoreChangesMessage}';
+var noResourcesToViewAllocationMessage = '${noResourcesToViewAllocationMessage}';
+var reservationNotFoundMessage = '${reservationNotFoundMessage}';
+var confirmIgnoreChangesTitle = '${confirmIgnoreChangesTitle}';
+var gridTotalRowLabel = '${gridTotalRowLabel}';
+var comboListRecord = '${comboListRecord}';
+var jspRootUrl = '${jSPRootURL}';
+var isGridEdited = false;
+var viewedPersonId = ${person.PersonId};
+var allocationLbl = '<t:Message value="prm.resource.allocation.coulmn.label" />';
+
+function getPersonsByBusiness(business){		
+	Ext.Ajax.request({
+		   url: '${jSPRootURL}/resource/management/AllocateBy/'+business+'/ForFetchPersonsByBusiness',
+		   params: {module: 310},
+		   method: 'POST',
+		   success: function(result, request){ 
+			   resText = result.responseText;
+			   document.getElementById('resource').innerHTML = resText;
+		   },
+		   failure: function(result, response){
+				extAlert(extAlertTitle, serverRequestFailedMessage, Ext.MessageBox.ERROR);
+		   }
+	});
+}
+
+function doSubmit(){ 
+	if(isGridEdited){
+		Ext.MessageBox.confirm(confirmIgnoreChangesTitle,
+			ignoreChangesMessage, 
+			function(btn){
+				if(btn=='yes'){
+					isGridEdited = false;
+					validateForm();
+				}else{
+					return false;
+				}
+			}
+		);
+	}else{
+		validateForm();
+	}
+}
+function validateForm(){ 	
+	if(document.getElementById('person').value == '0' || document.getElementById('person').value == '') {
+		extAlert(extAlertTitle, noResourcesToViewAllocationMessage, Ext.MessageBox.ERROR);
+			return false;
+	}
+	document.getElementById('searchMessage').innerHTML 
+				= '<label style="color:red; font-weight:bold;">Loading ...</label>';
+	setTimeout('2000');
+	document.getElementById('viewBtn').disabled = true;
+	disableNextPreviousMonthImageButtons();
+	document.getElementById('resourceallocationform').submit();
+	return true;
+}
+</script>
+<script type="text/javascript" src="${jSPRootURL}/src/allocateByResource-grid.js?${versionNumber}"></script>
+<t:SpaceMainMenu />
+<t:NavBar />
+<div id="tcontent">
+	<table width="98%" border="0" cellpadding="0" cellspacing="0">
+		<tr class="channelHeader">
+			<td class="channelHeader" width="1%"><img
+				src="${jSPRootURL}/images/icons/channelbar-left_end.gif" width="8"
+				height="15" border="0" hspace="0" vspace="0" /></td>
+			<td nowrap="nowrap" class="channelHeader"><t:Message value="prm.resource.allocatebyresource.pagetitle" /></td>
+			<td align="right" nowrap="nowrap" class="channelHeader">
+			<t:if test="preReleaseEnabled">
+				<font color="red"><t:Message value="prm.resource.prereleasefunctionality.text" /></font>
+			</t:if>
+			</td>
+			<td align="right" class="channelHeader" width="5%"><img
+				src="${jSPRootURL}/images/icons/channelbar-right_end.gif" width="8"
+				height="15" border="0" hspace="0" vspace="0" /></td>
+		</tr>
+	</table>
+	<br />
+	<t:form t:id="resourceallocationform" autofocus="false" clientValidation="false">
+		<table align="center" cellpadding="0" cellspacing="0">
+			<tr>
+				<td><t:Message value="prm.resource.allocatebyresource.business.label" /> : &nbsp;&nbsp;&nbsp;</td>
+				<td><t:select model="businessesModel" encoder="businessesModel"
+					value="business" clientId="business"
+					onchange="getPersonsByBusiness(this.value);" blankOption="NEVER" /></td>
+				<td></td>
+			</tr>
+			<tr height="3">
+				<td></td>
+			</tr>
+			<tr>
+				<td><t:Message value="prm.resource.allocatebyresource.resource.label" /> : &nbsp;&nbsp;&nbsp;</td>
+				<td>
+				<div id="resource"><t:select model="personModel"
+					encoder="personModel" value="person" clientId="person" blankOption="NEVER" /></div>
+				<t:select model="projectsModel" encoder="projectsModel"
+					value="project" clientId="project" style="display: none;" blankOption="NEVER" /> <t:select
+					model="projectsModel" encoder="projectsModel" value="project"
+					clientId="gridProjectList" style="display: none;" blankOption="NEVER" /></td>
+				<td></td>
+			</tr>
+			<tr height="3">
+				<td></td>
+			</tr>
+			<tr>
+				<td><t:Message value="prm.resource.allocatebyresource.startmonth.label" /> : &nbsp;&nbsp;&nbsp;</td>
+				<td><t:select model="monthsModel" value="month"
+					clientId="monthsId" blankOption="NEVER" />&nbsp;&nbsp;&nbsp; <t:select
+					model="yearsModel" value="year" clientId="yearsId" blankOption="NEVER" /></td>
+				<td>&nbsp;&nbsp;&nbsp;<input type="button" value="${viewButtonCaption}"
+					onclick="return doSubmit();" id="viewBtn" /></td>
+			</tr>
+			<tr height="3">
+				<td></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center"><br />
+				<div id="searchMessage"><label
+					style="color:red; font-weight:bold;"> ${message} </label></div>
+				</td>
+			</tr>
+		</table>
+	</t:form>
+
+	<table width="93%">
+		<tr>
+			<td align="right">&nbsp;&nbsp;&nbsp;&nbsp; <img
+				src="${jSPRootURL}/images/icons/actionbar-previouspost_off.gif"
+				id="preThreeMonthImage" onclick="fetchDataByMonths(-3);"
+				title="${goThreeMonthsBackwardImageTooltip}" /> &nbsp;&nbsp;&nbsp;&nbsp; <img
+				src="${jSPRootURL}/images/icons/actionbar-back_off.gif"
+				id="preOneMonthImage" onclick="fetchDataByMonths(-1);"
+				title="${goOneMonthBackwardImageTooltip}" /> &nbsp;&nbsp;&nbsp;&nbsp; <img
+				src="${jSPRootURL}/images/icons/actionbar-next_off.gif"
+				id="nextOneMonthImage" onclick="fetchDataByMonths(1);"
+				title="${goOneMonthForwardImageTooltip}" /> &nbsp;&nbsp;&nbsp;&nbsp; <img
+				src="${jSPRootURL}/images/icons/actionbar-nextpost_off.gif"
+				id="nextThreeMonthImage" onclick="fetchDataByMonths(3);"
+				title="${goThreeMonthsForwardImageTooltip}" /> &nbsp;&nbsp;&nbsp;&nbsp;</td>
+		</tr>
+		<tr>
+			<td>
+			<div id="gridPosition"
+				style="margin-right: 10px; margin-bottom: 10px;"></div>
+			</td>
+		</tr>
+	</table>
+</div>
+</t:Layout>

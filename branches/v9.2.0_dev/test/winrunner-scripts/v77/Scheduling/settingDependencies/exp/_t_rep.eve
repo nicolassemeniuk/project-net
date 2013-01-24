@@ -1,0 +1,8 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 1 1091748510 0
+7 1 <C:\Documents and Settings\QA\Desktop\v77\Scheduling\forLoginProject> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 2 1091748513 0
+11 1 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\forLoginProject> 19 1091748526 0
+4 1 <Img2> <settingDependencies> 39 1091748563 0
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\settingDependencies> 51 1091748563 0
+4 1 <Img3> <settingDependencies> 108 1091821815 0
+4 1 <Img4> <settingDependencies> 109 1091821876 0

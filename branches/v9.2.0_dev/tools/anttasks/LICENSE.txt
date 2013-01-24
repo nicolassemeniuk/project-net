@@ -1,0 +1,4 @@
+Roxes Ant Tasks library is licensed under LGPL by OrangeVolt.com
+For more information see:  
+http://sourceforge.net/projects/ovanttasks
+http://www.orangevolt.com/projects.html

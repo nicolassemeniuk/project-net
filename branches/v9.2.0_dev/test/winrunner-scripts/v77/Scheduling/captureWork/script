@@ -1,0 +1,122 @@
+function captureWork(in taskName, in dur, in durUnits, in work, in workUnits, in workComplete, in workCompleteUnits, in percent, in tense){
+	auto taskID, baseDate, todaysDate, requiredDate, diffRequired, diffToday; 
+	auto addTime, baseTimeStr, requiredTimeStr;
+	auto outDate, outDur, outDurUnits, outWork, outWorkUnits, outNum; 
+	auto outWorkComplete, outWorkCompleteUnits, percentWorkComplete;
+	
+	reload("getTaskID",0,1);
+	reload("date_diff",0,1);
+	reload("setRequiredDate",0,1);
+	
+	wait(2);
+	set_window("main",2);
+	baseTimeStr = 1113116400000;# This is being used as a reference point for the number of seconds since 1970
+	baseDate = "04/10/05";# This is being used as a sample reference date
+	requiredDate = setRequiredDate(tense);# The tense depends on whether you want the work to be logged on the current date or a past date
+# 	report_msg(requiredDate);
+	todaysDate = setRequiredDate();# Today's date
+# 	report_msg(todaysDate);
+	diffRequired = date_diff(baseDate, requiredDate);
+# 	report_msg(diffRequired);
+	diffToday = date_diff(todaysDate, requiredDate);
+# 	report_msg(diffToday);
+	addTime = 86400000*diffRequired;
+	requiredTimeStr = baseTimeStr + addTime;# Add the required number of seconds to the base date for the GUI map
+# 	report_msg(requiredTimeStr);
+	
+	set_window("main",2);
+	taskID= getTaskID(taskName);
+	wait(1);
+	# set the GUI map dynamically
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","t1_button","part_value",taskID)!=E_OK)
+		report_msg("NOT OK1");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+	wait(1);
+	set_window("main",2);
+	button_set("t1_button",ON);
+	wait(2);
+	set_window("main",2);
+	web_link_click("Capture Work");
+	wait(1);
+	
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","dateupd","html_name","dateupdX"&taskID&"X"&requiredTimeStr&"")!=E_OK)
+		report_msg("NOT OK1");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+	
+	if(obj_exists("dateupd")==E_OK){
+		set_window("main",2);
+		obj_type("dateupd",2);
+	}
+	else{
+		set_window("main",2);
+		web_link_click("prev_page_sm");
+		wait(1);
+		set_window("main",2);
+		obj_type("dateupd",2);
+	}		
+	
+	# Capture work 
+	wait(1);
+	set_window("main",2);
+	web_link_click("Submit");
+	wait(1);
+	
+	set_window("main",3);
+	web_link_click(taskName);
+	wait(1);
+	set_window("main",2);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",2);
+	edit_get_text("actualStartDate", outDate);
+# 	report_msg(outDate);
+	edit_get_text("duration", outDur);
+	list_get_selected("duration_units", outDurUnits, outNum);
+	edit_get_text("work", outWork);
+	list_get_selected("work_units", outWorkUnits, outNum);
+	edit_get_text("work_complete", outWorkComplete);
+	list_get_selected("work_complete_units", outWorkCompleteUnits, outNum);
+	edit_get_text("work_percent_complete", percentWorkComplete);
+	wait(1);
+	
+	# Verifying the duration , work, work complete, work complete% and actual start date on the task edit page 
+	if(outDate == requiredDate)
+		tl_step("Verify Actual Start Date", 0, "Actual start date of task "&taskName&" correctly set");
+	else
+		tl_step("Verify Actual Start Date", 1, "Actual start date of task "&taskName&" INCORRECTLY set");
+	if(outDur ==  dur)
+		tl_step("Verify Duration", 0, "Duration value when work is captured for task "&taskName&" correct");
+	else
+		tl_step("Verify Duration", 1, "Duration value when work is captured for task "&taskName&" INCORRECT");
+	if(outDurUnits ==  durUnits)
+		tl_step("Verify Duration Units", 0, "Duration units when work is captured for task "&taskName&" correct");
+	else
+		tl_step("Verify Duration Units", 1, "Duration units when work is captured for task "&taskName&" INCORRECT");
+	if(outWork ==  work)
+		tl_step("Verify Work", 0, "Work value when work is captured for task "&taskName&" correct");
+	else
+		tl_step("Verify Work", 1, "Work value when work is captured for task "&taskName&" INCORRECT");
+	if(outWorkUnits ==  workUnits)
+		tl_step("Verify Work Units", 0, "Work units when work is captured for task "&taskName&" correct");
+	else
+		tl_step("Verify Work Units", 1, "Work units when work is captured for task "&taskName&" INCORRECT");
+	if(outWorkComplete ==  workComplete)
+		tl_step("Verify Work", 0, "Work complete value when work is captured for task "&taskName&" correct");
+	else
+		tl_step("Verify Work", 1, "Work complete value when work is captured for task "&taskName&" INCORRECT");
+	if(outWorkCompleteUnits ==  workCompleteUnits)
+		tl_step("Verify Work Units", 0, "Work complete units when work is captured for task "&taskName&" correct");
+	else
+		tl_step("Verify Work Units", 1, "Work complete units when work is captured for task "&taskName&" INCORRECT");
+	if(percentWorkComplete ==  ""&percent&"%")
+		tl_step("Verify Work Units", 0, "Work percent complete when work is captured for task "&taskName&" correct");
+	else
+		tl_step("Verify Work Units", 1, "Work percent complete when work is captured for task "&taskName&" INCORRECT");
+	
+	set_window("main",2);
+	web_link_click("Cancel");
+	wait(1);
+	set_window("main",2);
+}

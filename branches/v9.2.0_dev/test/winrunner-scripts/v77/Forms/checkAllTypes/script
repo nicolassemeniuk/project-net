@@ -1,0 +1,75 @@
+function checkAllTypes(){
+	auto outText;
+
+	report_msg("");
+	
+	set_window("main",3);
+	win_get_text("main",outText,631,224,688,240);
+	if(outText == "Text Field")
+		report_msg("The field created is of type Text Field");
+	else
+		report_msg("UNABLE to verify");
+	
+	win_get_text("main",outText,631,246,688,260);
+	if(outText == "Text Box")
+		report_msg("The field created is of type Text Box");
+	else
+		report_msg("Unable to verify");
+	
+	win_get_text("main",outText,631,267,719,282);
+	if(outText == "Selection Menu")
+		report_msg("The field created is of type Selection Menu");
+	else
+		report_msg("UNABLE to verify");
+	
+	win_get_text("main",outText,632,289,661,303);
+	if(outText == "Date")
+		report_msg("The field created is of type Date");
+	else
+		report_msg("UNABLE to verify");
+	
+	win_get_text("main",outText,631,310,690,325);
+	if(outText == "Checkbox")
+		report_msg("The field created is of type Checkbox");
+	else
+		report_msg("UNABLE to verify");
+	
+	win_get_text("main",outText,632,330,761,346);
+	if(outText == "Person Selection Menu")
+		report_msg("The field created is of type Person Selection Menu");
+	else
+		report_msg("UNABLE to verify");
+	
+	win_get_text("main",outText,631,351,709,366);
+	if(outText == "Number Field")
+		report_msg("The field created is of type Number Field");
+	else
+		report_msg("UNABLE to verify");
+	
+	win_get_text("main",outText,631,373,714,385);
+	if(outText == "Currency Field")
+		report_msg("The field created is of type Currency Field");
+	else
+		report_msg("UNABLE to verify");
+
+	win_get_text("main",outText,631,394,759,410);
+	if(outText == "Horizontal Section Title")
+		report_msg("The field created is of type Horizontal Section Title");
+	else
+		report_msg("UNABLE to verify");
+
+	win_get_text("main",outText,631,414,728,429);
+	if(outText == "User Instructions")
+		report_msg("The field created is of type User Instructions");
+	else
+		report_msg("UNABLE to verify");	
+
+	win_get_text("main",outText,630,434,723,448);
+	if(outText == "Calculated Field")
+		report_msg("The field created is of type Calculated Field");
+	else
+		report_msg("UNABLE to verify");
+	
+	report_msg("");
+}
+

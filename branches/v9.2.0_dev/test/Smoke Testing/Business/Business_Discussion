@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>Business_Discussion</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Business_Discussion</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/Login.jsp</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>J_USERNAME</td>
+	<td>dkarthikeyan</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>J_PASSWORD</td>
+	<td>cgvak1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Business</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Textile Exports Ltd</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Textile Exports Ltd</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Discussions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Discussions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Discussions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Discussions</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>New Group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Edit Group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Delete Group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>View Properties</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Search</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Notify</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>New Group<br />&nbsp;&nbsp;Edit Group<br />&nbsp;&nbsp;Delete Group<br />&nbsp;&nbsp;View Properties<br />&nbsp;&nbsp;Search<br />&nbsp;&nbsp;Notify</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>New Group<br />&nbsp;&nbsp;Edit Group<br />&nbsp;&nbsp;Delete Group<br />&nbsp;&nbsp;View Properties<br />&nbsp;&nbsp;Search<br />&nbsp;&nbsp;Notify</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New Group</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td></td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>QA Discussion</td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>name</td>
+	<td>QA Discussion</td>
+</tr>
+<tr>
+	<td>waitForValue</td>
+	<td>name</td>
+	<td>QA Discussion</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForTextPresent</td>
+	<td>Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=QA Discussion</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Welcome</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Welcome</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Blog-it <br /> New Subject <br /> New Reply <br /> Delete Post <br /> View Properties <br /> Notify</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Blog-it <br /> New Subject <br /> New Reply <br /> Delete Post <br /> View Properties <br /> Notify</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Log Out</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>J_USERNAME</td>
+	<td>dkarthikeyan</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

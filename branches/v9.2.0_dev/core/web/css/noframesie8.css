@@ -1,0 +1,24 @@
+/*
+ *  css for IE 8
+ */
+
+#content-right{
+	width: 40%;
+	left: 55%;
+}
+
+div#content {
+	overflow: hidden;
+}
+
+#personalPortfolioForm{
+	width: 100%;
+}
+
+.project-view{
+	padding-left: 0px;
+}
+
+.heading {
+	width: auto;
+}

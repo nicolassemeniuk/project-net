@@ -1,0 +1,56 @@
+function setConstraint(in task_name, in constraint_type, in constraint_date){
+	wait(1);
+	set_window("main",2);
+	web_link_click(task_name);
+	wait(1);
+	set_window("main",2);
+	web_link_click("Modify");
+	set_window("main",3);
+	
+#######################################
+# Select the constraint type to set the task for
+#######################################
+	switch(constraint_type){
+	case "ASAP":
+		list_select_item("constraintTypeID","As Soon As Possible");
+		set_window("main",1);
+		break;
+	case "ALAP":
+		list_select_item("constraintTypeID","As Late As Possible");
+		break;
+	case "FNLT":
+		list_select_item("constraintTypeID","Finish No Later Than");
+		set_window("main",1);
+		edit_set("constraintDateString",constraint_date);
+		break;
+	case "FNET":
+		list_select_item("constraintTypeID","Finish No Earlier Than");
+		set_window("main",1);
+		edit_set("constraintDateString",constraint_date);
+		break;
+	case "MSO":
+		list_select_item("constraintTypeID","Must Start On");
+		set_window("main",1);
+		edit_set("constraintDateString",constraint_date);
+		break;
+	case "MFO":
+		list_select_item("constraintTypeID","Must Finish On");
+		set_window("main",1);
+		edit_set("constraintDateString",constraint_date);
+		break;
+	case "SNET":
+		list_select_item("constraintTypeID","Start No Earlier Than");
+		set_window("main",1);
+		edit_set("constraintDateString",constraint_date);
+		break;
+	case "SNLT":
+		list_select_item("constraintTypeID","Start No Later Than");
+		set_window("main",1);
+		edit_set("constraintDateString",constraint_date);
+		break;
+	}
+	wait(2);
+	web_link_click("Submit");
+	wait(2);
+	set_window("main",2);
+}

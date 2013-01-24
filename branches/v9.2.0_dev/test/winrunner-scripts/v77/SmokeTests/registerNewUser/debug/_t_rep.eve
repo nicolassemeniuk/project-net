@@ -1,0 +1,4 @@
+49
+1 6 <---> <C:\pnet\src\8_2_branch\test\winrunner-scripts\v77\SmokeTests\registerNewUser> 1 1143648465 0
+44 62 <obj_get_info:"Project.net Login" Object is not in the GUI map.> <C:\pnet\src\8_2_branch\test\winrunner-scripts\v77\SmokeTests\registerNewUser> 50 1143648465 0
+2 9 <---> <C:\pnet\src\8_2_branch\test\winrunner-scripts\v77\SmokeTests\registerNewUser> 1164 1143648472 0

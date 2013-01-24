@@ -1,0 +1,13 @@
+# --------------------------------------------------------------------
+# Email Settings
+
+# All emails sent by the system will be from the following user name (used in conjunction with address)
+email.from.address=continuum@project.net
+email.from.name=Project.net Continuum
+
+# The subject line for the email message.
+email.validation.subject=Welcome to Project.net Continuum automation server.
+
+security.policy.password.expiration.enabled=false
+security.policy.password.expiration.days=190 
+security.policy.allowed.login.attempt=100

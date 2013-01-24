@@ -1,0 +1,17 @@
+function createWorkflow(in name, in strictness){
+	wait(1);
+	set_window("main",2);
+	web_link_click("Workflow Designer");
+	wait(1);
+	set_window("main",2);
+	web_link_click("{class:object, MSW_class:html_rect,html_name:Create}");
+	wait(1);
+	set_window("main",2);
+	edit_set("name",name);
+	edit_set("description","description of workflow");
+	list_select_item("ownerID","Avinash Padmanabhan");
+	list_select_item("strictnessID",strictness);
+	list_select_item("objectTypeSelect","All types of objects");
+	web_link_click("Submit");
+	wait(1);
+	set_window("main",2);

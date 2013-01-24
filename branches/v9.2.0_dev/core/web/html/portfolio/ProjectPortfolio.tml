@@ -1,0 +1,609 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:PnetLayout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd" xmlns:p="tapestry:parameter" callOnLoad="setup();" showNavigationBar="false" space="project">
+	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/colors.css?${versionNumber}"/>
+	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/wiki.css?${versionNumber}"/>
+	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/two_pane_view.css?${versionNumber}"/>
+	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/project.css?${versionNumber}"/>
+	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/ProjectPortfolio.css?${versionNumber}"/>
+	<script type="text/javascript" src="${jSPRootURL}/src/dhtml/tree.js?${versionNumber}"/>
+	<script type="text/javascript" src="${jSPRootURL}/src/TwoPaneView.js?${versionNumber}"/>
+	<script type="text/javascript" src="${jSPRootURL}/src/dragtable.js?${versionNumber}"/>
+	<script type="text/javascript" src="${jSPRootURL}/src/tablekit.js?${versionNumber}"/>
+	<script type="text/javascript" src="${jSPRootURL}/src/wiki.js?${versionNumber}"/>  
+	<script type="text/javascript" src="${jSPRootURL}/src/projectportfolio.js?${versionNumber}"/>
+	<script type="text/javascript" src="${jSPRootURL}/src/projectportfolioresizer.js?${versionNumber}"/>
+	<script type="text/javascript" src="${jSPRootURL}/src/projectportfoliocolumn.js?${versionNumber}"/>
+	<script type="text/javascript" src="${jSPRootURL}/src/notifyPopup.js?${versionNumber}"/>
+	
+<style title="column-style">
+.tableFilterHeader {
+	background-color: #CCD8FE !important;
+	color: #333399;
+	text-overflow: ellpsis;
+}
+.x-window-mc{
+	margin-left: 0px;
+}
+.project-list {
+	overflow : auto;
+	width: ${slidingPanelContentWidth}px;
+	height: ${tabContentHeight}px;
+}
+.project-div {
+	float: left;
+	height: ${tabContentHeight}px;
+}
+.projectListDiv {
+	overflow: auto;
+	height: ${tabContentHeight}px; 
+	width: ${slidingPanelContentWidth}px; 
+}
+.contentDivs {
+	height: ${tabContentHeight}px;
+	overflow: auto;
+	text-align:left;
+}
+
+.tableContent {
+	background: transparent;
+}
+
+.tabContentWidth {
+	width: ${slidingPanelContentWidth}px; 
+}
+</style>
+<style title="column-style">
+	<t:loop source="colList" value="projectListPage.projectColumn">
+			.div_thd_${projectListPage.projectColumn.propertyName}{
+				width: ${projectListPage.projectColumn.columnWidth}px;
+				overflow: hidden;
+				cursor: default;
+			}			
+	</t:loop>
+</style>
+<script language="javascript">
+var loadingMessage = '<t:Message value="prm.global.loading.message"/>';
+var blogNotFoundForProjectMsg = '<t:Message value="prm.project.portfolio.error.blognotfoundforproject.message"/>';
+var noblogentriesobject = '<t:Message value="prm.blog.tab.noblogentriesobject.message" />';
+var blogNotFoundMsg = '<t:Message value="prm.blog.tab.noblogsfound.message" />';
+var selectProjectToModifyRemove = '<t:message value="prm.global.javascript.verifyselection.noselection.error.message"/>';
+var noProjectsToModifyRemove = '<t:message value="prm.global.javascript.verifyselection.noprojectsinlist.error.message"/>';
+var wikiPagesFoundMessage = '<t:Message value="prm.wiki.tab.header.message" />';
+var isBlogEnabled = '<t:Message value="prm.blog.isenabled" />' == '1';
+var isWikiEnabled = '<t:Message value="prm.project.wiki.isenabled" />' == '1';
+var loadingMessageColSetting = '<t:Message value="prm.schdule.columnsetting.loadingpopup.message"/>';
+var errorColumnSettingPopUp = '<t:Message value="prm.schdule.columnsetting.error.message"/>';
+var errorViewNameEmptyMsg = '<t:Message value="prm.project.portfolio.error.blankviewname.message"/>';
+var confirmViewModifyMsg = '<t:Message value="prm.project.portfolio.modifyview.confirmprompt.message"/>';
+var confirmViewModifyTitle = '<t:Message value="prm.project.portfolio.modifyview.confirmprompt.title"/>';
+var savingMsg = '<t:Message value="prm.global.saving.message"/>';
+var confirmViewDeleteMsg = '<t:Message value="prm.project.portfolio.deleteview.confirmprompt.message"/>';
+var confirmViewDeleteTitle = '<t:Message value="prm.project.portfolio.deleteview.confirmprompt.title"/>';
+var errorSelectBusinessMsg = '<t:Message value="prm.project.portfolio.error.selectbusiness.message"/>';
+var errorSelectAllUserMsg = '<t:Message value="prm.project.portfolio.error.checkalluser.message"/>';
+var errorViewNameContainsSharedMsg = '<t:Message value="prm.project.portfolio.error.viewnamecontainssharedword.message"/>';
+var errorDuplicateViewNameMsg = '<t:Message value="prm.project.portfolio.error.duplicateviewname.message"/>';
+var errorDefaultViewFilterApplyMsg = '<t:Message value="prm.project.portfolio.error.defaultviewfiltersapplied.message"/>';
+var errorMakeViewSharedMsg = '<t:Message value="prm.project.portfolio.error.makeviewshared.message"/>';
+var viewModifiedMessage = '<t:Message value="prm.project.portfolio.error.viewmodified.message"/>';
+var errorSharedViewModificationMsg = '<t:Message value="prm.project.portfolio.saveview.page.error.sharedviewmodification.message"/>';
+var errorInvalidPercentcompleteValueMsg = '<t:Message value="prm.global.view.edit.overallcompletioninvalid.message"/>';
+var errorInvalidBudgetCostValueMsg = '<t:Message value="prm.global.view.edit.budgetcostinvalid.message"/>';
+var viewChangeOnModifiedViewAlertMsg = '<t:Message value="prm.project.portfolio.error.viewchangeonmodifiedview.message"/>';
+var selectProjectBlogTabMessage = '<t:Message value="prm.project.blog.selectproject.message"/>';
+var selectProjectWikiTabMessage = '<t:Message value="prm.project.wiki.selectproject.message"/>';
+var selectProjectDetailsTabMessage = '<t:Message value="prm.twopaneview.detail.selectobject.message"/>';
+var wikiPagesNotFoundMessage = '<t:Message value="prm.twopaneview.tab.wiki.header.wikipagenotfound.message" />';
+var firstProjectID = '${firstProjectId}';
+var rightTebSetArray = new Array('blog-tab','wiki-tab','detail-tab');
+var backToProject = ''; 
+var moduleId = '${moduleId}';
+var spaceId = '${spaceId}';
+var objectType = '${objectType}';
+var createAction = '${createAction}';
+var modifyAction = '${modifyAction}';
+var viewAction = '${viewAction}';
+var upTitle = '${upTitle}';
+var downTitle = '${downTitle}';
+var closeTitle = '${closeTitle}';
+var portfolioStatusCloseState = ${portfolioStatusCloseState};
+var portfolioStatusState = ${portfolioStatusState};
+var portfolioBudgetCloseState = ${portfolioBudgetCloseState};
+var portfolioBudgetState = ${portfolioBudgetState};
+var blogItFor = 'PersonalPortFolio';
+var selectedProjectId = '';
+var loadingMsg = loadingMessage;
+var PROJECT_STATUS_WIDGET = "portfolio_status";
+var PROJECT_BUDGET_WIDGET = "portfolio_budget";
+var personalizePageLink = '${personalizeLink}';
+var resizerDiv = 'project-list';
+var listTable = 'projectListTable';
+var listContainer = 'project-table-container';
+var headerContainer = 'project-list-table-container-header';
+var wikiItFor = 'projectPortfolio';
+var taskListInnerRow = 'project-list-inner-row';
+var taskListRow = 'project-list-row';
+var currentModule = '${currentModule}';
+var rightPaneCollapsed = '${rightPanelCollapsed}';
+var rightPaneActiveTab = '${rightTabSetActiveTab}';
+var isSharedView = ${isSharedView};
+var sharedViewSuffix = '${sharedViewNameSuffixValue}';
+var isDefaultTreeView = ${isDefaultTreeView};
+var isUserCreatedView = ${isUserCreatedView};
+var totalProjects = ${totalProjects};
+var projectListPanelWidthPersonalProperty = ${projectListPanelWidth};
+var	myViewSelectedIndex; 
+var	sharedViewSelectedIndex;
+var businessList;
+
+<!--//
+// Open right panel on page load 
+function setup() {
+	// Checking Portfolio budget state
+	if(portfolioBudgetState){
+		minimize('PortfolioBudgetWidgetContent','pbminmaximg','pbminmaxlink',PROJECT_BUDGET_WIDGET);		
+	}else{	
+		maximize('PortfolioBudgetWidgetContent','pbminmaximg','pbminmaxlink',PROJECT_BUDGET_WIDGET);
+	}
+
+	// Checking Portfolio status state
+	if( portfolioStatusState){
+		minimize('PortfolioStatusWidgetContent','psminmaximg','psminmaxlink',PROJECT_STATUS_WIDGET);	
+	}else{
+		maximize('PortfolioStatusWidgetContent','psminmaximg','psminmaxlink',PROJECT_STATUS_WIDGET);
+	}
+	
+	//Init Column Drag Drop 
+    dragtable.init();
+	portfolioLinks = document.getElementById('left-navbar').getElementsByTagName('a');
+	setIDLeftToolBarLinks();
+	applyPersonalSettings();
+	if(isDefaultTreeView){
+		disablePortfolioActions(isDefaultTreeView);
+	} else {
+		if(isUserCreatedView){
+			disablePortfolioActions(!isUserCreatedView);
+	    } else {
+			disablePortfolioActions(!isUserCreatedView);
+	    }
+	}
+	myViewSelectedIndex = self.document.forms[0].portfolioList.selectedIndex; 
+	sharedViewSelectedIndex = self.document.forms[0].sharedPortfolioList.selectedIndex;
+}
+
+// Apply mouse over style for project header td for sorting intutiveness
+function moh(forTd) {
+	forTd.className = 'projectHeaderTdOver';
+}
+
+// Apply mouse out style for project header td for sorting intutiveness
+function muh(forTd) {
+	forTd.className = 'projectHeaderTd';	
+}
+
+// Apply mouse over style for all rows other than header
+function mo(forTr) {
+	forTr.className += ' wMouseOverColor';
+}
+
+// Apply mouse out style for all rows other than header
+function mu(forTr) {
+	forTr.className = replaceAll(forTr.className, 'wMouseOverColor', '');
+}
+
+function changeSelection() {
+    changeCheckedState(theForm.selected, theForm.changeCheckedState.checked);
+}
+// Toggle Selection
+function toggleSelection(object) {
+    toggleCheckedState(theForm.selected, theForm.changeCheckedState);
+}
+
+// Hide wiki sub menu if opened
+document.onclick = function(e) {
+	var type = e ? e.target : window.event.srcElement;
+	if(document.getElementById('wikiSubMenu') && type != document.getElementById('wikiMenuLink') && document.getElementById('wikiSubMenu').style.display == ''){
+		document.getElementById('wikiSubMenu').style.display = 'none';
+		document.getElementById('wikiMenuLink').onclick = new Function('showWikiSubMenu(true)');
+		document.getElementById('wikiMenuImg').onclick = new Function('showWikiSubMenu(true)');
+	}
+	return true;
+}
+
+function help() {
+    var helplocation=JSPRootURL+"/help/Help.jsp?page=project_portfolio";
+    openwin_help(helplocation);
+}
+
+// To create new project 
+function create(){
+	self.document.location = JSPRootURL + "/project/ProjectCreate.jsp?module=" +currentModule+ "&portfolio=true";
+}
+
+// To remove/delete existing project
+function remove() {
+	if(totalProjects > 0){
+		if(selectedProjectId == ''){
+			extAlert(errorTitle, selectProjectToModifyRemove , Ext.MessageBox.ERROR);
+		} else {
+			var m_url = JSPRootURL + "/portfolio/PersonalPortfolioDelete.jsp?selected="+ selectedProjectId +"&module="+ currentModule +"&action="+ viewAction +"&portfolio=true";
+			var redirect_url = JSPRootURL +"/project/Main.jsp?id="+ selectedProjectId +"&page="+ escape(m_url);
+			var link_win = openwin_linker(redirect_url);
+			link_win.focus();
+		}
+	} else {
+		extAlert(errorTitle, noProjectsToModifyRemove , Ext.MessageBox.ERROR);
+	}
+}
+
+// To edit/modify existing project
+function modify() {
+	if(totalProjects > 0){
+		if(selectedProjectId == ''){
+			extAlert(errorTitle, selectProjectToModifyRemove , Ext.MessageBox.ERROR);
+		} else {
+			var requestPage = JSPRootURL+"/project/PropertiesEdit.jsp?module="+ currentModule +"%26action="+ modifyAction +"%26referer=portfolio/Project?module="+ currentModule +"&portfolio=true";
+			self.document.location = JSPRootURL + "/project/Main.jsp?id=" + selectedProjectId + "&page=" + requestPage;
+		}
+	} else {
+		extAlert(errorTitle, noProjectsToModifyRemove , Ext.MessageBox.ERROR);
+	}
+}
+
+// To change project portfolio view
+function changeMyView() {
+	self.document.location = JSPRootURL + '/portfolio/Project?module=' + currentModule + '&viewID=' + getSelectedValue(document.getElementById('portfolioList')) + '&portfolio=true';
+}
+
+// To export selected view in pdf format
+function exportPDF() {
+	self.document.location = JSPRootURL+ "/servlet/MetaColumnPdfView?" +moduleId+ "&action=" +viewAction+ "&portfolio=true";
+}
+
+// To export selected view in CSV file format
+function exportCSV() {
+	Ext.Ajax.request({
+	   url: JSPRootURL +'/portfolio/Project/exportCSV?module='+moduleId,
+	   params: {moduleId : moduleId},
+	   method: 'POST',
+	   success: function(result, request){
+		   	self.document.location = JSPRootURL +'/servlet/Download?downloadableObjectAttributeName=projectPortfolioCSVDownload&cleanup=true';
+	   },
+	   failure: function(result, response){
+	   }
+	});
+}
+
+// To export selected view in Excel format
+function exportExcel() {
+	self.document.location = JSPRootURL +'/projectportfolio/exportExcel/';
+}
+
+// To change project portfolio shared view
+function changeSharedView() {
+	self.document.location = JSPRootURL + '/portfolio/Project?module=' + currentModule + '&viewID=' + getSelectedValue(document.getElementById('sharedPortfolioList')) + '&portfolio=true';
+}
+
+function autoDate(dateFieldName, url){
+	var form = self.document.viewFilterForm;
+	var str;
+	var calendarURL = '/calendar/MiniMonthPopup.jsp';
+
+	// If we have a JSP root url, use it.  Otherwise, we might be on a server
+	// that allows us to be located at '/' 	
+	if (arguments.length > 1 && JSPRootURL && JSPRootURL != null && JSPRootURL != "") {
+		calendarURL = JSPRootURL + calendarURL;
+	}
+
+		str = "window.dateField = form." + dateFieldName +"\;";
+		
+	var object = eval (str);
+	if(object.disabled)
+		return;
+	calendar = window.open(calendarURL, 'cal', 'width=180,height=200');
+    calendar.focus();
+}
+
+// Subscribe notification
+function notify(){
+	if(totalProjects == 0){
+		extAlert(errorTitle, noProjectsToModifyRemove , Ext.MessageBox.ERROR);
+		return;
+	}
+	if(selectedProjectId == ''){
+		extAlert(errorTitle, selectProjectToModifyRemove , Ext.MessageBox.ERROR);
+		return;
+	} 
+		
+	var m_url = JSPRootURL + '/notification/CreateSubscription2.jsp?targetObjectID='+ selectedProjectId + '&action=2&module=160&moduleType=project&spaceID=' + selectedProjectId +'&projectID=' + selectedProjectId ;
+	spaceId = selectedProjectId;
+	openNotifyPopup(selectedProjectId, m_url);
+
+}
+//-->   
+function personalizePage(){
+	window.document.location.href = '<t:OutputRaw value="personalizeLink"/>';
+}
+
+</script>
+<!-- left action bar -->
+<t:ActionBox groupTitle = "prm.project.portfoliio.leftheader.label" subTitle = "${groupHeaderProject}"
+	 buttons = "create,modify,remove,notify,personalize_page"
+	 caption = "prm.project.main.create.button.tooltip,
+	 			prm.project.main.modify.button.tooltip,
+	 			prm.project.main.delete.button.tooltip, , "
+	 isProjectListPage = "true"
+	 type="portfolio" typeTitle="${projectPortfolioToolBoxHeading}"/>
+
+		
+
+<div id="dropIndicator" class="dropIndicator-portfolio" style="visibility: hidden;">
+	<img src="${asset:context:/images/default/grid/col-move-top.gif}" align="absmiddle"/>
+</div>
+<div id="projectportfoliomaindiv">
+ 	<table border="0" cellpadding="0" cellspacing="0" width="100%">
+		<t:form t:id="viewChangeForm" clientValidation="false">
+		<tr>
+		    <td>&nbsp;</td>
+		    <td class="tableHeader" id="myportfolio-view-drop-down-list-td">
+			        <t:Message value="prm.project.portfolio.mainpage.selectview.label"/>&nbsp;
+					<t:select class="fixed-width-form"  model="portfolioList" value="view.id" clientId="portfolioList" onchange="changeMyView()"/>
+				&nbsp;
+		    </td>
+		    <td class="tableHeader">
+		        <t:Message value="prm.project.portfolio.mainpage.selectsharedview.label"/>&nbsp;
+					<t:select class="fixed-width-form"  model="sharedViewList" value="view.id" clientId="sharedPortfolioList" onchange="changeSharedView()"/>
+				&nbsp;
+		    </td>
+		    <td>&nbsp;</td>
+		</tr>
+		</t:form>
+	</table><br/>
+	<div id="widget">
+				<table width="100%"> 
+					<tr id="widgets-row"> 
+						<td  valign="top" width="49%">
+						<!--PORTFOILO STATUS BLOCK-->		
+							<t:if test="portfolioStatusCloseState">
+								<t:parameter name="else">
+									<div id="PortfolioStatusWidget" class="portal-project-flex-block">
+										<div class="block-heading">
+											<div class="block-heading-end">
+												<table cellspacing="0" cellpadding="0" width="100%">
+													<tr>
+														<td width="92%">
+															<div class="heading" title=""><t:Message value="prm.portfolio.personal.main.channel.portfoliostatus.name" /></div>
+														</td>
+														<td class="channel-heading-end-project">
+															<span><a id="psminmaxlink" href=""><img id="psminmaximg" src="${jspRootURL}/images/project/dashboard_arrow-up.gif" title="${upTitle}" border="0" /></a>&nbsp;</span>
+															<span><a id="pscloselink" href="javascript:hideContent('portfolio_status','2');"><img id="widgetcloseimg" src="${jspRootURL}/images/project/dashboard_close.gif" title="${closeTitle}" border="0" /></a></span>
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									<!--block-heading end -->
+										<div id="PortfolioStatusWidgetContent" class="block-content row-content">
+											<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content">
+							  					<tr>
+												    <td width="305">
+												    	<img src="${JSPRootURL}/servlet/ChartingServlet?chartType=psc" width="400" height="125"/>
+													</td>
+												    <td valign="middle">
+												    </td>
+												</tr>
+											</table>
+										</div> <!--block-content end -->
+									</div> <!--portal-project-flex-block class end -->
+									<!--END of PORTFOILO STATUS BLOCK -->
+								</t:parameter>
+							</t:if>
+						</td>
+						<td>
+						</td>
+						<td  valign="top" width="49%">
+						<!--PORTFOILO BUDGET BLOCK-->		
+							<t:if test="portfolioBudgetCloseState">
+								<t:parameter name="else">
+									<div id="PortfolioBudgetWidget" class="portal-project-flex-block">
+										<div class="block-heading">
+											<div class="block-heading-end">
+												<table cellspacing="0" cellpadding="0" width="100%">
+													<tr>
+														<td width="92%">
+															<div class="heading" title=""><t:Message value="prm.portfolio.personal.main.channel.portfoliobudget.name" /></div>
+														</td>
+														<td class="channel-heading-end-project">
+															<span><a id="pbminmaxlink" href=""><img id="pbminmaximg" src="${JSPRootURL}/images/project/dashboard_arrow-up.gif" title="${upTitle}" border="0" /></a>&nbsp;</span>
+															<span><a id="pbcloselink" href="javascript:hideContent('portfolio_budget','2');"><img id="widgetcloseimg" src="${JSPRootURL}/images/project/dashboard_close.gif" title="${closeTitle}" border="0" /></a></span>
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+										<!--block-heading end -->
+												<div id="PortfolioBudgetWidgetContent" class="block-content row-content">
+													<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content">
+										  				<tr>
+														    <td width="305">
+																<img src="${JSPRootURL}/servlet/ChartingServlet?chartType=pbc" width="365" height="125"/>
+															</td>
+														    <td valign="middle">
+														    </td>
+														</tr>
+													</table>
+												</div> <!--block-content end -->
+									</div> <!--portal-project-flex-block class end -->
+								<!--END of PORTFOILO BUDGET BLOCK -->
+								</t:parameter>
+							</t:if>
+						</td>
+					</tr>
+				</table> <!-- End of Inner Table with left and right column -->
+	</div> <!-- widget div end -->	
+	<div id="pnettabset" class="tap5c_tab-set tabContentWidth">
+		<div class="tap5c_tab-set-content tabContentWidth" id="project-content-main-div">
+			<div class="tap5c_slidingpanel tabContentWidth" id="slidingpanel">
+				<div class="tap5c_slidingPanelSubject" id="slidingpanel_subject"> 
+					<div id="slidingpanel-toolbar" class="right-tabs-bg">
+						<table width="100%">
+							<tr>
+								<td nowrap="nowrap" class="twopane-toolbar-data"><a id="toggleFilterPaneLink" class="wlink" href="javascript: toggleSlidingPanel();"><t:Message value="prm.global.twopaneview.link.filters.lable"/></a></td> 
+								<td nowrap="nowrap" class="twopane-toolbar-data" style="width: 15px"><div class="tap5c_slidingPanelSubject-toggler" id="slidingpanel_toggler" onclick="toggleSlidingPanel();"></div></td>
+								<td nowrap="nowrap" class="twopane-toolbar-data" id="spacer"></td> 
+								<td nowrap="nowrap" class="twopane-toolbar-data" id="epandall_all_link"><div class="expand_allicon" onclick="expand_all()" title="${expandAllTooltip}"></div></td> 
+								<td nowrap="nowrap" class="twopane-toolbar-data" id="collaspe_all_link"><div class="collapse_allicon" onclick="collapse_all()" title="${collapseAllTooltip}"></div></td> 
+								<td nowrap="nowrap" class="twopane-toolbar-data" id="column_settings_link"><div class="column_settingicon" onclick="openCustomizeColumnPopup()" title="${cusomizeColumnTooltip}"></div></td>
+								<td width="100%"></td>
+							</tr>
+						</table>
+					</div>
+					<div id="rightTabSet" class="right-tabs-bg" style="display:none;">	
+						<div class="right-tab active-right-tab" id="blog-tab"  onclick="activate_rightTab('blog-tab');">	
+							<t:Message value="prm.schedule.taskview.tab.blogs.caption"/>
+						</div>
+						<div class="right-tab deactive-right-tab" id="wiki-tab" onclick="activate_rightTab('wiki-tab')">	
+							<t:Message value="prm.schedule.taskview.tab.wiki.caption"/>
+						</div>
+						<div class="right-tab deactive-right-tab" id="detail-tab" onclick="activate_rightTab('detail-tab')">
+							<t:Message value="prm.twopaneview.tab.detail.caption"/>
+						</div>
+						<div id="right-tab-scroll" class="right-tabs-bg disableSelection" onselectstart="return false" style="float: right;">
+							<div id="right-tab-scroll-previous" onclick="scrollRightTabSet('pre');"></div>
+							<div id="right-tab-scroll-next" onclick="scrollRightTabSet('next');"></div>
+						</div>
+					</div>
+				</div>
+				<div class="tap5c_slidingPanelContent tabContentWidth" id="slidingpanel_content" style="display: none;">
+					<form id="viewFilterForm" name="viewFilterForm">
+						<t:ProjectPortfolioFilter viewBuilder = "personalPortfolioViewBuilder"/>
+						<table width="90%">
+							<tr>
+								<td align="right"><input type="button" onclick="submitFilters();" value="Apply"/></td>
+						    </tr>
+						</table>
+					</form>
+				</div>
+			</div>
+			<!--Project tab-->
+			<div id="Project" class="project-div" onmousemove="getPos(event)" >
+				<table width="100%" cellpadding="0" cellspacing="0" id="project-table" border="0" class="project-table">
+					<tr>
+						<td id="projectList" valign="top" height="80%" width="85%">
+							<div id="project-list-table-container">
+									<div id="project-list-header" class="project-header-div">
+										<table id="project-list-table-container-header" width="${projectListTableContainerWidth}" cellpadding="0" cellspacing="0">
+											<tr>
+												<td>
+													<table cellspacing="0" id="projectListTable-header" class="resizable draggable disableSelection" cellpadding="0" name="tableWithEvenRows">
+														<!--table header rendering-->
+														<thead>
+															<tr height="22px" align="left" id="project-list-row">
+																<t:loop source="projectListPage.projectColumnList" value="projectListPage.projectColumn">
+																	<th width="${projectListPage.projectColumn.columnWidth}" id="thd_${projectListPage.projectColumn.propertyName}" columnId="${projectListPage.projectColumn.propertyName}" dragable="true" class="projectHeaderTd" onmouseover="moh(this);TableKit.Resizable.initDetect(event);" onmouseout="muh(this);TableKit.Resizable.killDetect(event);">
+																		<div class="div_thd_${projectListPage.projectColumn.propertyName}" id="thd_${projectListPage.projectColumn.propertyName}_divId" style="cursor: default;overflow:hidden;" onmousedown="javascript:dragtable.dragStart(event)" onclick="javascript:sort('${projectListPage.projectColumn.columnName}', false)">
+																				&nbsp;<t:OutputRaw value="projectListPage.projectColumn.description"/>&nbsp; <img align="absmiddle" src="${jSPRootURL}/s.gif" class="invisible" width="12" height="12" id="sort-img-${projectListPage.projectColumn.columnName}" />
+																		</div>
+																	</th>
+																</t:loop>
+															</tr>
+														</thead>
+													</table>
+												</td>
+											</tr>
+										</table>
+									</div>			
+									<div id="project-list" name="project-list" class="project-list" onselectstart="return false" onscroll="scrollHeader('project-list-header', 'project-list')">
+										<table id="project-table-container" cellpadding="0" cellspacing="0">
+											<tr>
+												<td>
+													<table cellspacing="0" id="projectListTable" name="tableWithEvenRows"  class="disableSelection" cellpadding="0">
+													<!--table header rendering-->
+														<tr height="22px" align="left" id="project-list-inner-row">
+															<t:loop source="projectListPage.projectColumnList" value="projectListPage.projectColumn">
+																<th width="${projectListPage.projectColumn.columnWidth}" id="thd_${projectListPage.projectColumn.propertyName}_scroll" columnId="${projectListPage.projectColumn.propertyName}" dragable="true" class="projectHeaderTd">
+																	<div class="div_thd_${projectListPage.projectColumn.propertyName}" id="thd_${projectListPage.projectColumn.propertyName}_scroll_divId" style="cursor: default;overflow:hidden;" onmousedown="javascript:dragtable.dragStart(event)">
+																		<span >
+																			&nbsp;<t:OutputRaw value="projectListPage.projectColumn.description"/>
+																		</span>
+																	</div>
+																</th>
+															</t:loop>
+														</tr>
+													<!--table row rendering-->
+														<t:loop source="projectList" value="node">
+															<tr level="${node.hierarchyLevel}" id="${node.project.projectId}_${node.id}" onclick="b(this,'${node.project.projectId}');" ondblclick="s('${node.project.projectId}');" onmouseover="mo(this);" onmouseout="mu(this)" kidsShown="${node.project.expanded}">
+																<!--table data rendering-->
+																<t:loop source="node.sequensedProject" value="projectListPage.projectRow">
+																	<t:OutputRaw value="projectListPage.projectRow.displayValue"/>
+																</t:loop>
+															</tr>
+														</t:loop>
+													</table>
+												</td>
+											</tr>
+										</table>
+									</div><!--	closing of project-list div-->
+							</div>
+							<div onmousedown="setPos(event)" id="splitterBar" class="splitter-bar splitterHeight" style="display:none;">
+								<table height="100%" cellspacing="0" cellpadding="0" valign="middle" position="absolute">
+									<tr><td><img onclick="toggleRightPanel(true);" style="cursor:pointer;" title="" src="${jSPRootURL}/images/project/close.gif"/></td></tr>
+								</table>
+							</div>
+							<div id="splitterBarShadow" class="splitter-bar splitterHeight" style="display:none;"></div>
+						</td><!--	closing of projectlist td-->
+		
+						<td id="blogsDiv" valign="top" height="80%" width="15%" >
+					    	<table id="blogsExpanded" width="100%" height="100%" cellpadding="0" cellspacing="0" style="display: none;">
+						        <tr>
+						        	<td valign="top" align="right" id="tabsColumn">
+										<div id="projectBlogDivRight" class="disableSelection tabContentHeight" style="overflow: hidden;" onselectstart="return false;">			        		
+						        			<div class="two-pane-right-top" id="blogDivTop"><t:Message value="prm.project.blog.selectproject.message"/></div>
+						        			<div id="blogDivBody" class="two-pane-mini-tab-content"></div>
+						        		</div>
+						        		<div id="projectWikiDivRight" class="disableSelection tabContentHeight" style="display: none;overflow: hidden;" onselectstart="return false;">
+						        			<div class="two-pane-right-top" id="wikiDivTop"><t:Message value="prm.project.wiki.selectproject.message"/></div>
+						        			<div id="wikiDivBody" class="two-pane-mini-tab-content"></div>
+						        		</div>
+				        				<div id="projectDetailsDivRight" class="contentDivs" style="display: none;overflow: auto" onselectstart="return false;">
+				        					<div class="two-pane-right-top" id="detailsDivTop"><t:Message value="prm.twopaneview.detail.selectobject.message"/></div>
+				        				</div>
+						        		<div id="wikiMenu" style="display: none;">
+						        			<a class="wlink" id="wikiMenuLink" onclick="showWikiSubMenu(true)">
+						        				<t:Message value="prm.wiki.tab.menu.caption" />&nbsp;<img src="${asset:context:/images/default/grid/sort_asc.gif}" id="wikiMenuImg"/>
+						        			</a>
+						        		</div>
+							        </td>
+								</tr>
+					        </table>
+					        <table id="blogsCollapsed" height="450" cellspacing="0" cellpadding="0" valign="middle">
+								<tr><td valign="middle" class="right-pane-closed" height="100%"><img onclick="toggleRightPanel(false);" style="cursor:pointer;" title="" src="${jSPRootURL}/images/project/open.gif"/></td></tr>
+							</table>
+						</td><!--	closing of project blog td-->
+					</tr><!--	closing of project tr-->
+				</table><!--	closing of project table-->
+			</div><!--	closing of project div-->
+		</div>
+	</div>
+</div>
+	<div id="wikiSubMenu" style="display: none;">
+		<table cellpadding="0" cellspacing="5" width="100%" id="wikiMenuTable">
+			<tr onmouseover="this.className='wikiMenuHover'" onmouseout="this.className='wikiMenuOut'" onclick="javascript:function disable(){}" id="backPageIndex">
+				<td><t:Message value="prm.wiki.tab.backtopage.menu.caption" /></td>
+			</tr>
+			<tr class="row_separator">
+				<td></td>
+			</tr>
+			<tr onmouseover="this.className='wikiMenuHover'" onmouseout="this.className='wikiMenuOut'" onclick="javascript:function disable(){}" id="editWikiPage">
+				<td><t:Message value="prm.wiki.tab.edit.menu.caption" /></td>
+			</tr>
+			<tr class="row_separator">
+				<td></td>
+			</tr>
+			<tr onmouseover="this.className='wikiMenuHover'" onmouseout="this.className='wikiMenuOut'" onclick="javascript:function disable(){}" id="cancelWikiPage">
+				<td><t:Message value="prm.wiki.tab.cancel.menu.caption" /></td>
+			</tr>
+		</table>
+</div>
+</t:PnetLayout>

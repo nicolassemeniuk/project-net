@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnLdapDirectoryConfig" 
+    table="PN_LDAP_DIRECTORY_CONFIG"
+    lazy="false"
+>
+
+    <id
+        name="contextId"
+        type="java.math.BigDecimal"
+        column="CONTEXT_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="hostnameValues"
+        type="java.lang.String"
+        column="HOSTNAME_VALUES"
+        length="4000"
+    />
+    <property
+        name="secureHostnameValues"
+        type="java.lang.String"
+        column="SECURE_HOSTNAME_VALUES"
+        length="4000"
+    />
+    <property
+        name="isUseSsl"
+        type="java.lang.Integer"
+        column="IS_USE_SSL"
+        length="1"
+    />
+    <property
+        name="searchBaseDn"
+        type="java.lang.String"
+        column="SEARCH_BASE_DN"
+        length="4000"
+    />
+    <property
+        name="searchTypeId"
+        type="java.lang.String"
+        column="SEARCH_TYPE_ID"
+        length="80"
+    />
+    <property
+        name="usernameAttributeName"
+        type="java.lang.String"
+        column="USERNAME_ATTRIBUTE_NAME"
+        length="1000"
+    />
+    <property
+        name="searchSubtrees"
+        type="java.lang.String"
+        column="SEARCH_SUBTREES"
+        length="1000"
+    />
+    <property
+        name="nonAuthAccessTypeId"
+        type="java.lang.String"
+        column="NON_AUTH_ACCESS_TYPE_ID"
+        length="80"
+    />
+    <property
+        name="specificUserRelativeDn"
+        type="java.lang.String"
+        column="SPECIFIC_USER_RELATIVE_DN"
+        length="4000"
+    />
+    <property
+        name="specificUserPassword"
+        type="java.lang.String"
+        column="SPECIFIC_USER_PASSWORD"
+        length="1000"
+    />
+    <property
+        name="isAvailableDirectorySearch"
+        type="java.lang.Integer"
+        column="IS_AVAILABLE_DIRECTORY_SEARCH"
+        length="1"
+    />
+    <property
+        name="directorySearchDisplayName"
+        type="java.lang.String"
+        column="DIRECTORY_SEARCH_DISPLAY_NAME"
+        length="80"
+    />
+    <property
+        name="searchFilterExpression"
+        type="java.lang.String"
+        column="SEARCH_FILTER_EXPRESSION"
+        length="1000"
+    />
+    <property
+        name="allowsAutomaticRegistration"
+        type="java.lang.Integer"
+        column="ALLOWS_AUTOMATIC_REGISTRATION"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnLdapDirectoryAttrMap -->
+
+    <set
+        name="pnLdapDirectoryAttrMaps"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="CONTEXT_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnLdapDirectoryAttrMap"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

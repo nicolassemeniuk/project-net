@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnProfCertLookup" 
+    table="PN_PROF_CERT_LOOKUP"
+    lazy="false"
+>
+
+    <id
+        name="profCertCode"
+        type="java.lang.Integer"
+        column="PROF_CERT_CODE"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="profCertName"
+        type="java.lang.String"
+        column="PROF_CERT_NAME"
+        not-null="true"
+        length="30"
+    />
+    <property
+        name="profCertDescription"
+        type="java.lang.String"
+        column="PROF_CERT_DESCRIPTION"
+        length="40"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnPersonHasProfCert -->
+
+    <set
+        name="pnPersonHasProfCerts"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PROF_CERT_CODE" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPersonHasProfCert"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

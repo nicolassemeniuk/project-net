@@ -1,0 +1,187 @@
+<table border="0" align="left" cellpadding="0" cellspacing="0" width="100%">
+	
+	<tr align="left" class="channelHeader">
+		<td width=1%><img src="${token.getContext()}/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border=0></td>
+		<td nowrap colspan="2" class="channelHeader">${token.get("prm.business.properties.channel.description.title")}</td>
+		<td width=1% align=right><img src="${token.getContext()}/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border=0></td>
+	</tr>
+		
+	<!-- Business Name -->	
+	<tr align="left">
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.business.modifybusiness.businessname.label")}</td>
+		<td class="tableContent">
+			${theObject.getName()}
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	  
+	<!-- Business Type -->	
+	<tr align="left" >
+		<td>&nbsp;</td> 
+		<td nowrap class="tableHeader">${token.get("prm.business.modifybusiness.businesstype.label")}</td>
+		<td class="tableContent">
+			<#if theObject.getFlavor()??>
+				${theObject.getFlavor()}
+			<#else>
+				&nbsp;
+			</#if>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<!-- Business Description -->	
+	<tr> 
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.business.modifybusiness.description.label")}</td>
+		<td class="tableContent"> 
+			<#if theObject.getDescription()??>
+				${theObject.getDescription()}
+			<#else>
+				&nbsp;
+			</#if>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr class="tableContent"> 
+		<td nowrap colspan="4" class="tableContent">&nbsp;</td>
+	</tr>
+	
+	<tr align="left" class="channelHeader">
+		<td width=1%><img src="${token.getContext()}/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border=0></td>
+		<td nowrap colspan="2" class="channelHeader">${token.get("prm.business.properties.channel.address.title")}</td>
+		<td width=1% align=right><img src="${token.getContext()}/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border=0></td>
+	</tr>
+	
+	<tr> 
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.business.modifybusiness.address1.label")}</td>
+		<td class="tableContent"> 
+			<#if theObject.getAddress1()??>
+				${theObject.getAddress1()}
+			<#else>
+				&nbsp;
+			</#if>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr> 
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.business.modifybusiness.address2.label")}</td>
+		<td class="tableContent"> 
+			<#if theObject.getAddress2()??>
+				${theObject.getAddress2()}
+			<#else>
+				&nbsp;
+			</#if>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr> 
+		<td >&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.business.modifybusiness.address3.label")}</td>
+		<td class="tableContent"> 
+			<#if theObject.getAddress3()??>
+				${theObject.getAddress3()}
+			<#else>
+				&nbsp;
+			</#if>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr>
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.business.modifybusiness.city.label")}</td>
+		<td class="tableContent"> 
+			<#if theObject.getCity()??>
+				${theObject.getCity()}
+			<#else>
+				&nbsp;
+			</#if>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr >
+		<td>&nbsp;</td>
+		<td nowrap width="10" class="tableHeader">${token.get("prm.business.modifybusiness.state.label")}</td>
+		<td class="tableContent"> 
+			<#if theObject.getProvinceCode()??>
+				${theObject.getProvinceCode()}
+			<#else>
+				&nbsp;
+			</#if>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr> 
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.business.modifybusiness.postalcode.label")}</td>
+		<td class="tableContent"> 
+			<#if theObject.getPostalCode()??>
+				${theObject.getPostalCode()}
+			<#else>
+				&nbsp;
+			</#if>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr class="tableContent">
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.business.modifybusiness.country.label")}</td>
+		<td class="tableContent"> 
+			<#if theObject.getCountryCode()??>
+				${theObject.getCountryCode()}
+			<#else>
+				&nbsp;
+			</#if>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr> 
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.business.modifybusiness.phone.label")}</td>
+		<td class="tableContent"> 
+		<#if theObject.getPhone()??>
+				${theObject.getPhone()}
+			<#else>
+				&nbsp;
+			</#if>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr>
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.business.modifybusiness.fax.label")}</td>
+		<td class="tableContent"> 
+			<#if theObject.getFax()??>
+				${theObject.getFax()}
+			<#else>
+				&nbsp;
+			</#if>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+	<tr> 
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.business.modifybusiness.website.label")}</td>
+		<td class="tableContent"> 
+			<#if theObject.getWebsite()??>
+				${theObject.getWebsite()}
+			<#else>
+				&nbsp;
+			</#if>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	
+</table>

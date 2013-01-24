@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>new_event_test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">new_event_test</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Calendar</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New Event</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Event Name:</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>selenium test event</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>FacilityDescription</td>
+	<td>facility test description</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>purpose</td>
+	<td>test purpose</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>description</td>
+	<td>test description</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Submit']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>selenium test event </td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTitle</td>
+	<td>Project.net</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

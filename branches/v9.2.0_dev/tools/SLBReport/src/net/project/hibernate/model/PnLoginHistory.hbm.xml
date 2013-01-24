@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnLoginHistory" 
+    table="PN_LOGIN_HISTORY"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnLoginHistoryPK">
+        <key-property 
+            name="personId" 
+            column="PERSON_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="loginDate" 
+            column="LOGIN_DATE" 
+            type="java.sql.Date"
+            length="7"
+        />
+        <key-property 
+            name="loginConcurrency" 
+            column="LOGIN_CONCURRENCY" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="loginNameUsed"
+        type="java.lang.String"
+        column="LOGIN_NAME_USED"
+        length="80"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPerson"
+	    class="net.project.hibernate.model.PnPerson"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="PERSON_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,9 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\BusinessWorkspace\createBusiness> 1 1084307784 0
+44 59 <web_obj_click:"Create Business" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\BusinessWorkspace\createBusiness> 17 1084307816 0
+44 59 <web_obj_click:"Create Business" Error: Object is not found.> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\BusinessWorkspace\createBusiness> 30 1084307840 0
+39 1 <web_obj_text_exists- TestBusiness1> <createBusiness> 50 1084307848 0
+39 1 <web_obj_text_exists- SubBusiness1> <createBusiness> 52 1084307849 0
+39 1 <web_obj_text_exists- TestBusiness2> <createBusiness> 54 1084307849 0
+39 1 <web_obj_text_exists- SubBusiness1> <createBusiness> 56 1084307850 0
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\SmokeTests\BusinessWorkspace\createBusiness> 56 1084307850 0

@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPlan" 
+    table="PN_PLAN"
+    lazy="false"
+>
+
+    <id
+        name="planId"
+        type="java.math.BigDecimal"
+        column="PLAN_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="planName"
+        type="java.lang.String"
+        column="PLAN_NAME"
+        not-null="true"
+        length="250"
+    />
+    <property
+        name="planDesc"
+        type="java.lang.String"
+        column="PLAN_DESC"
+        length="500"
+    />
+    <property
+        name="dateStart"
+        type="java.sql.Date"
+        column="DATE_START"
+        length="7"
+    />
+    <property
+        name="dateEnd"
+        type="java.sql.Date"
+        column="DATE_END"
+        length="7"
+    />
+    <property
+        name="autocalculateTaskEndpoints"
+        type="java.math.BigDecimal"
+        column="AUTOCALCULATE_TASK_ENDPOINTS"
+        length="22"
+    />
+    <property
+        name="overallocationWarning"
+        type="java.math.BigDecimal"
+        column="OVERALLOCATION_WARNING"
+        length="22"
+    />
+    <property
+        name="defaultCalendarId"
+        type="java.math.BigDecimal"
+        column="DEFAULT_CALENDAR_ID"
+        length="22"
+    />
+    <property
+        name="timezoneId"
+        type="java.lang.String"
+        column="TIMEZONE_ID"
+        length="1000"
+    />
+    <property
+        name="baselineStart"
+        type="java.sql.Date"
+        column="BASELINE_START"
+        length="7"
+    />
+    <property
+        name="baselineEnd"
+        type="java.sql.Date"
+        column="BASELINE_END"
+        length="7"
+    />
+    <property
+        name="modifiedDate"
+        type="java.sql.Date"
+        column="MODIFIED_DATE"
+        length="7"
+    />
+    <property
+        name="modifiedBy"
+        type="java.math.BigDecimal"
+        column="MODIFIED_BY"
+        length="22"
+    />
+    <property
+        name="baselineId"
+        type="java.math.BigDecimal"
+        column="BASELINE_ID"
+        length="22"
+    />
+    <property
+        name="defaultTaskCalcTypeId"
+        type="java.math.BigDecimal"
+        column="DEFAULT_TASK_CALC_TYPE_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="earliestStartDate"
+        type="java.sql.Date"
+        column="EARLIEST_START_DATE"
+        length="7"
+    />
+    <property
+        name="earliestFinishDate"
+        type="java.sql.Date"
+        column="EARLIEST_FINISH_DATE"
+        length="7"
+    />
+    <property
+        name="latestStartDate"
+        type="java.sql.Date"
+        column="LATEST_START_DATE"
+        length="7"
+    />
+    <property
+        name="latestFinishDate"
+        type="java.sql.Date"
+        column="LATEST_FINISH_DATE"
+        length="7"
+    />
+    <property
+        name="constraintTypeId"
+        type="java.lang.String"
+        column="CONSTRAINT_TYPE_ID"
+        length="10"
+    />
+    <property
+        name="constraintDate"
+        type="java.sql.Date"
+        column="CONSTRAINT_DATE"
+        length="7"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnObject -->
+    <one-to-one
+        name="pnObject"
+        class="net.project.hibernate.model.PnObject"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional one-to-many association to PnPlanHasTask -->
+
+    <set
+        name="pnPlanHasTasks"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PLAN_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPlanHasTask"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnSpaceHasPlan -->
+
+    <set
+        name="pnSpaceHasPlans"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PLAN_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasPlan"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnWorkingtimeCalendar -->
+
+    <set
+        name="pnWorkingtimeCalendars"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PLAN_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnWorkingtimeCalendar"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="" />
+<title>Business_Forms_Creation</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">Business_Forms_Creation</td></tr>
+</thead><tbody>
+<tr>
+	<td>open</td>
+	<td>/Login.jsp</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>J_PASSWORD</td>
+	<td>cgvak1</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//input[@value='Login']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Business</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Textile Exports Ltd</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Setup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Manage Forms</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Manage Forms</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>New Form</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New Form</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>Form Testing</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>abbreviation</td>
+	<td>FT</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>displayedInToolsMenu</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>supportsDiscussionGroup</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>supportsDocumentVault</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>supportsExternalAccess</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>shared</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>New Field</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New Field</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>field_label</td>
+	<td>Test Name</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>row_num</td>
+	<td>2</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>size</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>data_column_size</td>
+	<td>10</td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Preview</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Lists</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=New List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>name</td>
+	<td>Form List</td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Creator</td>
+	<td></td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>Test Name</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Workflows</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Sharing</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Activate</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Submit</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Log Out</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

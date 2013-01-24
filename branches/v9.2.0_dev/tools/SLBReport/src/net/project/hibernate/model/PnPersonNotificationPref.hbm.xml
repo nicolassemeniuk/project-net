@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPersonNotificationPref" 
+    table="PN_PERSON_NOTIFICATION_PREFS"
+    lazy="false"
+>
+
+    <id
+        name="personId"
+        type="java.math.BigDecimal"
+        column="PERSON_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="dailyTime"
+        type="java.math.BigDecimal"
+        column="DAILY_TIME"
+        length="22"
+    />
+    <property
+        name="weeklyDay"
+        type="java.math.BigDecimal"
+        column="WEEKLY_DAY"
+        length="22"
+    />
+    <property
+        name="weeklyTime"
+        type="java.math.BigDecimal"
+        column="WEEKLY_TIME"
+        length="22"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnPerson -->
+    <one-to-one
+        name="pnPerson"
+        class="net.project.hibernate.model.PnPerson"
+        outer-join="auto"
+        constrained="false"
+    />
+
+</class>
+</hibernate-mapping>

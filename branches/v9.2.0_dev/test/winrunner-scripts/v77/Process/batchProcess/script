@@ -1,0 +1,203 @@
+GUI_close_all();
+wait(3);
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Process\\process.gui");
+
+# Loading all the compiled modules(functions) used in this test
+reload("createProcess",0,1);
+reload("createPhase",0,1);
+reload("createGate",0,1);
+reload("createDeliverable",0,1);
+reload("checkTaskMilestone",0,1);
+reload("filterPhase",0,1);
+
+wait(2);
+set_window("menu",2);
+web_link_click("Process");
+wait(1);
+set_window("main",2);
+
+processNom = "Process";
+set_window("main",2);
+# If the process already exists skip the body of if statement
+if(obj_exists("processname")==E_OK){
+	wait(1);
+	createProcess(processNom);
+}
+
+# Creating 4 phases for the process
+report_msg("CREATING PHASES...");
+createPhase("Phase1","1", "schedule");
+createPhase("Phase2","2", "schedule");
+createPhase("Phase3","3", "manual");
+createPhase("Phase4","4", "manual");
+report_msg("FINISHED CREATING PHASES");
+report_msg("");
+
+# Creating a Gate for each of the above phases
+report_msg("CREATING GATES...");
+createGate(processNom,"Phase1","Gate Test");
+createGate(processNom,"Phase2","Gate Test");
+createGate(processNom,"Phase3","Gate Test");
+createGate(processNom,"Phase4","Gate Test");
+report_msg("FINISHED CREATING GATES");
+report_msg("");
+
+# Function for verifying that the gate has been created
+function checkGate(in processName, in phaseName){
+	set_window("main",1);
+	web_link_click(phaseName);
+	wait(3);
+	set_window("main",1);
+	wait(1);
+	if(obj_exists("Add Gate")==E_OK)
+		tl_step("Gate absent",1,"Gate is ABSENT in "&phaseName&"");
+	else
+		tl_step("Gate present",0,"Gate is present in "&phaseName&"");
+	wait(1);
+	web_link_click(processName);
+	wait(3);
+	set_window("main",1);
+	wait(2);
+}
+
+# Actually verifying that each of the gates were created
+report_msg("VERIFYING GATES CREATED");
+checkGate(processNom,"Phase1");
+checkGate(processNom,"Phase2");
+checkGate(processNom,"Phase3");
+checkGate(processNom,"Phase4");
+report_msg("");
+
+#creating deliverables, two for each phase 
+report_msg("CREATING DELIVERABLES...");
+createDeliverable(processNom,"Phase1","Deliverable Test1");
+createDeliverable(processNom,"Phase1","Deliverable Test2");
+createDeliverable(processNom,"Phase2","Deliverable Test1");
+createDeliverable(processNom,"Phase2","Deliverable Test2");
+createDeliverable(processNom,"Phase3","Deliverable Test1");
+createDeliverable(processNom,"Phase3","Deliverable Test2");
+createDeliverable(processNom,"Phase4","Deliverable Test1");
+createDeliverable(processNom,"Phase4","Deliverable Test2");
+report_msg("FINISHED CREATING DELIVERABLES");
+report_msg("");
+
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Process\\process.gui");
+wait(1);
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+
+# Deleting tasks that previously existed
+wait(1);
+set_window("menu",3);
+web_link_click("Workplan");
+wait(2);
+set_window("main",3);
+if(obj_exists("t1")==E_OK){
+	button_set("changeCheckedState",ON);
+	wait(1);
+	web_link_click("Delete Task");
+	set_window("Microsoft Internet Explorer", 2);
+	button_press("OK");
+	wait(5);
+	set_window("main", 2);
+}
+
+wait(1);
+set_window("menu",3);
+web_link_click("Process");
+wait(2);
+set_window("main",3);
+
+# Creating 3 tasks and 3 milestones, 1 task and 1 milestone of each tasktype for Phase 1
+report_msg("CREATING TASKS AND MILESTONES FOR PHASE#1...");
+checkTaskMilestone(processNom,"Phase1","t1","t4","Fixed Duration");
+checkTaskMilestone(processNom,"Phase1","t2","t5","Fixed Units");
+checkTaskMilestone(processNom,"Phase1","t3","t6","Fixed Work");
+report_msg("DONE");
+report_msg("");
+
+# Creating 3 tasks and 3 milestones, 1 task and 1 milestone of each tasktype for Phase 2
+report_msg("CREATING TASKS AND MILESTONES FOR PHASE#2...");
+checkTaskMilestone(processNom,"Phase2","t7","t10","Fixed Duration");
+checkTaskMilestone(processNom,"Phase2","t8","t11","Fixed Units");
+checkTaskMilestone(processNom,"Phase2","t9","t12","Fixed Work");
+report_msg("DONE");
+report_msg("");
+
+# Creating 3 tasks and 3 milestones, 1 task and 1 milestone of each tasktype for Phase 3
+report_msg("CREATING TASKS AND MILESTONES FOR PHASE#3...");
+checkTaskMilestone(processNom,"Phase3","t13","t16","Fixed Duration");
+checkTaskMilestone(processNom,"Phase3","t14","t17","Fixed Units");
+checkTaskMilestone(processNom,"Phase3","t15","t18","Fixed Work");
+report_msg("DONE");
+report_msg("");
+
+# Creating 3 tasks and 3 milestones, 1 task and 1 milestone of each tasktype for Phase 4
+report_msg("CREATING TASKS AND MILESTONES FOR PHASE#4...");
+checkTaskMilestone(processNom,"Phase4","t19","t22","Fixed Duration");
+checkTaskMilestone(processNom,"Phase4","t20","t23","Fixed Units");
+checkTaskMilestone(processNom,"Phase4","t21","t24","Fixed Work");
+report_msg("DONE");
+report_msg("");
+
+# Verifying that the tasks created exist in the schedule list
+wait(1);
+set_window("menu",2);
+web_link_click("Workplan");
+wait(2);
+set_window("main",2);
+report_msg("LIST OF TASKS NOT PRESENT IN SCHEDULE");
+for(i=1;i<=24;i++){
+	if(obj_exists("t"&i&"")!=E_OK)
+		tl_step("Verify task/milestone in schedule",1,"Task/Milestone "&i&" not present in schedule list");
+}
+
+report_msg("");
+web_link_click("expand");
+wait(1);
+
+# Filtering the tasks by each phase and then verifying that the filtering is being done correctly
+report_msg("FILTERING TASKS/MILESTONES BY PHASE...");
+report_msg("PHASE#1");
+filterPhase("Phase1");
+report_msg("PHASE#2");
+filterPhase("Phase2");
+report_msg("PHASE#3");
+filterPhase("Phase3");
+report_msg("PHASE#4");
+filterPhase("Phase4");
+
+# Selecting a phase from process main using the phase object ID
+wait(1);
+set_window("menu",2);
+web_link_click("Process");
+wait(1);
+set_window("main",1);
+web_obj_get_info("Phase1","url",urlValue);
+elements = split(urlValue,path_array,"(");
+urlValue = path_array[2];
+elements = split(urlValue,path_array,")");
+phaseID = path_array[1];
+if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui","main","selected","part_value",phaseID)!=E_OK)
+	report_msg("NOT OK1");
+else
+	GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+
+# Verifying that deleting a phase having two or more deliverables is possible	
+set_window("main",1);
+button_set("selected",ON);	
+web_link_click("Delete Phase");
+wait(1);
+set_window("Microsoft Internet Explorer",2);
+button_press("OK");
+wait(1);
+set_window("main",1);
+if(obj_exists("Phase1")==E_OK)
+	tl_step("Deleting Phase having two or more deliverables",1,"Phase1 could not be deleted");
+else
+	tl_step("Deleting Phase having two or more deliverables",0,"Phase1 was successfully deleted");
+	
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+
+

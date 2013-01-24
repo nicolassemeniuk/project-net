@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPersonHasProfCert" 
+    table="PN_PERSON_HAS_PROF_CERT"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnPersonHasProfCertPK">
+        <key-property 
+            name="personId" 
+            column="PERSON_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="profCertCode" 
+            column="PROF_CERT_CODE" 
+            type="java.lang.Integer"
+            length="4"
+        />
+    </composite-id>    
+
+    <property
+        name="otherProfCert"
+        type="java.lang.String"
+        column="OTHER_PROF_CERT"
+        length="30"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPerson"
+	    class="net.project.hibernate.model.PnPerson"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="PERSON_ID" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to PnProfCertLookup -->
+    <many-to-one
+        name="pnProfCertLookup"
+	    class="net.project.hibernate.model.PnProfCertLookup"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="PROF_CERT_CODE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

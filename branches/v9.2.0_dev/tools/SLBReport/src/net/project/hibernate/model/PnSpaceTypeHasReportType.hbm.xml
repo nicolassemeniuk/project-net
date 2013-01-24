@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnSpaceTypeHasReportType" 
+    table="PN_SPACE_TYPE_HAS_REPORT_TYPE"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnSpaceTypeHasReportTypePK">
+        <key-property 
+            name="spaceType" 
+            column="SPACE_TYPE" 
+            type="java.lang.String"
+            length="80"
+        />
+        <key-property 
+            name="reportType" 
+            column="REPORT_TYPE" 
+            type="java.lang.String"
+            length="10"
+        />
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,28 @@
+#deleting a specified document
+
+function deleteDoc(in fileName){
+	auto documentID;
+	
+	reload("getDocumentID",0,1);
+	documentID = getDocumentID(fileName);
+
+	#saving the Document ID or the Container ID in the GUI map file so as to select it
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui","main","selected","part_value",documentID)!=E_OK)
+		report_msg("NOT OK1");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+	
+	set_window("main",2);
+	button_set("selected",ON);
+	wait(1);
+	web_link_click("Remove");# Deleting the document specified using the toolbar button
+	wait(1);
+	set_window("Microsoft Internet Explorer",2);
+	button_press("OK");
+	wait(1);
+	set_window("main");
+	if(obj_exists(fileName)!=E_OK)
+		tl_step("Verify file delete",0,"File has been deleted");
+	else
+		tl_step("Verify file delete",1,"File HAS NOT been deleted");		 	
+}

@@ -1,0 +1,29 @@
+function createTextField(in name, in size, in maxSize){
+	extern i;
+# 	auto outText;
+	report_msg("Within Field - "&&""
+	set_window("main",1);
+	list_select_item("ElementID","Text Field");
+	edit_set("field_label",name);
+	button_set("is_value_required",ON);
+	edit_set("row_num",i);
+	if(size == "")
+		edit_set("size",80);
+	else
+		edit_set("size",size);
+	list_select_item("column_id","Left");
+	if(maxSize == "")
+		edit_set("data_column_size",80);
+	else
+		edit_set("data_column_size",maxSize);	
+	web_link_click("Submit");
+	set_window("main",1);
+	if(obj_exists(name)==E_OK)
+		tl_step("Verify text field exists",0,"The Text Field '"&name&"'created successfully");
+	else
+		tl_step("Verify text field exists",1,"The creation of Text Field CANNOT be verified");
+# 	i = i+1;
+# 	set_window("main",1);
+# 	web_obj_text_exists("channelbar-left_end","#4","#3","Text Field","","")
+# 	report_msg("");
+}

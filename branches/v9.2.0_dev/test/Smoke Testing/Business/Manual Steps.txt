@@ -1,0 +1,55 @@
+1. Business_Creation
+
+TO check Business creation in business worksapce
+
+2. Business_Edit_Dashboard
+
+To check business dashboard and edit options
+
+3.Business_Directory
+
+To Check business directory module
+
+4. Business_Invite_Mem
+
+To check invite member functionlaity in business directory module
+
+5. Business_Delete_Member
+
+To check Delete member functionality in buiness directory module
+
+4. Business_Document_Import
+
+To check import document in document module
+
+5. Business_Document_Remove
+
+To check document remove option in business document module
+
+6. Business_Discussion
+
+To check discussion module
+
+7. Business_Forms
+
+To check check forms module
+
+8. Business_Forms_Creation
+
+To check forms creation and activation
+
+9. Business_Project_creation
+
+To check projcet creation through business workspace
+
+10. Business_Calendar_Meeting_Creation
+
+To check meeting creation in business calendar module
+
+11. Business_workflow
+
+To check workflow creation in business worksapce
+
+12. Business_Setup
+
+To check Sep module links in business worksapce

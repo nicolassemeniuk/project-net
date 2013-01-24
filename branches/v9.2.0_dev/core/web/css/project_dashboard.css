@@ -1,0 +1,127 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+
+div#toolbar_top {
+	width: 100%; 
+	margin-bottom: 5px;
+	background-color: #ccccff; 
+	font-size: small; 
+	font-weight: bold;
+}
+
+div#project_separator {
+	width: 100%;
+	height: 10px;
+}
+
+div#teammate_section {
+	width: 100%; 
+	height: 100%;
+}
+
+div#toolbar_container {
+	padding-left: 30px;
+	font-size: small;
+}
+
+div#left_section {
+}
+
+div#project_channel {
+	width: 100%; 
+	height: auto; 
+	font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 12px;
+}
+
+div#project_schedule {
+	font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 12px;
+	width: 100%;
+}
+
+span#project_schedule_title {
+	font-size: medium; 
+	font-weight: bold;
+}
+
+div#right_section {
+}
+
+div#middle_section {
+}
+
+.completion_percentaje {
+	font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 12px;
+}
+
+.schedule_date_header {
+	font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.schedule_date {
+	font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 12px;
+}
+
+/* PROJECT Dashboard */
+
+.dashboard-even {
+	background: #f6f8ff;
+}
+.assigned-icon {
+	padding-left: 10px;
+	vertical-align: middle;
+}
+.project-title {
+	font-family: Tahoma;
+	font-size: 14px;
+	font-weight: normal;
+	padding-left: 14px;
+	margin-top: 4px;
+	margin-bottom: 2px;
+	float: left;
+	width: 180px;
+	color: Navy;
+}
+.project-logo {
+	padding-left: 14px;
+	float: left;
+	width: 120px;
+	height: auto;
+	overflow: hidden;
+	vertical-align: top;
+	text-align: left;
+}
+.progress-bar-container {
+	border: 1px solid #d7d7d7;
+	width: 95%;
+	margin: 2px;
+	background-color: #f6f6f6;
+}
+.progress-line {
+	background-color: #64D23F;
+	margin: 1px;
+	text-align: center;
+}
+
+.project-description {
+	width: 160px;
+}
+
+/* End PROJECT Dashboard */

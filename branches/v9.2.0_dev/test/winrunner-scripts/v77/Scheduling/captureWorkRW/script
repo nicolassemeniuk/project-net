@@ -1,0 +1,114 @@
+GUI_close_all();
+wait(3);
+
+###################################################################
+# Getting personID for each and every resource invited to the project
+###################################################################
+reload("getPersonID",0,1);#get resource id
+id[0] = getPersonID("Avinash Padmanabhan");
+# pause(id[0]);
+
+reload("inviteUser",0,1);#invite a user to the project
+inviteUser("Daffy","Duck","daffy@project.net");
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+web_obj_get_info("Daffy Duck","url",urlValue);
+elements = split(urlValue,path_array,"=");
+id[1] = path_array[3];
+resourceID = id[1];
+# pause(resourceID);
+wait(1);
+GUI_close_all();
+wait(2);
+
+###################################################################
+# Creating task types and units  
+###################################################################
+wait(2);
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+wait(1);
+public task_types[] = {"Fixed Duration","Fixed Units","Fixed Work"};
+public units[] = {"hours","days","weeks"};
+
+###################################################################
+# Loading compiled modules and deleting any tasks previously present in the schedule list
+###################################################################
+reload("createTask",0,1);#compiled module for creating a FD task without resources
+reload("createTaskRW",0,1);#compiled module for creating a FD task with resources
+reload("captureWork",0,1);# compiled module for capturing work for a task
+
+set_window("menu",3);
+web_link_click("Workplan");
+wait(2);
+
+# Deleting tasks that previously existed
+set_window("main",2);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer", 2); 
+button_press("OK");
+wait(5);
+set_window("main", 2);
+
+###################################################################
+# Creating Fixed Unit Tasks, Checking Task Properties and Resource Assignments
+################################################################### 
+
+report_msg("T1");
+createTaskRW("t1", 1, units[1], 16, units[0], 1, id, 0);
+captureWork("t1", 2, units[1], 16, units[0], 2, units[0], 12.5, "past");
+wait(1);
+
+report_msg("");
+report_msg("T2");
+createTaskRW("t2", 1, units[1], 8, units[0], 1, id, 0);
+captureWork("t2", 1, units[1], 8, units[0], 2, units[0], 25, "past");
+wait(1);
+
+report_msg("");
+report_msg("T3");
+createTaskRW("t3", 1, units[1], 8, units[0], 1, id, 1);
+captureWork("t3", 1, units[1], 8, units[0], 2, units[0], 25, "past");
+wait(1);
+
+report_msg("");
+report_msg("T4");
+createTaskRW("t4", 1, units[1], 8, units[0], 2, id, 0);
+captureWork("t4", 0.5, units[1], 8, units[0], 2, units[0], 25, "past");
+wait(1);
+
+report_msg("");
+report_msg("T5");
+createTaskRW("t5", 2, units[1], 16, units[0], 2, id, 1);
+captureWork("t5", 1, units[1], 16, units[0], 2, units[0], 12.5, "past");
+wait(1);
+
+report_msg("");
+report_msg("T6");
+createTask("t6","Fixed Work", 2, units[1], 16, units[0]);
+captureWork("t6", 2, units[1], 18, units[0], 2, units[0], 11.11);
+wait(1);
+
+report_msg("");
+report_msg("T7");
+createTaskRW("t7", 1, units[1], 8, units[0], 1, id, 0);
+captureWork("t7", 1, units[1], 8, units[0], 2, units[0], 25);
+wait(1);
+
+report_msg("");
+report_msg("T8");
+createTaskRW("t8", 1, units[1], 8, units[0], 1, id, 1);
+captureWork("t8", 1, units[1], 8, units[0], 2, units[0], 25);
+wait(1);
+
+report_msg("");
+report_msg("T9");
+createTaskRW("t9", 1, units[1], 8, units[0], 2, id, 0);
+captureWork("t9", 0.5, units[1], 8, units[0], 2, units[0], 25);
+wait(1);
+
+report_msg("");
+report_msg("T10");
+createTaskRW("t10", 2, units[1], 16, units[0], 2, id, 1);
+captureWork("t10", 1, units[1], 16, units[0], 2, units[0], 12.5);
+wait(1);

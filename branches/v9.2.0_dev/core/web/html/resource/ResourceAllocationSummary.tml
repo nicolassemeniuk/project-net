@@ -1,0 +1,121 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:Layout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<style type="text/css">
+.cellColorRed{
+	background-color:#FF9999;
+}
+.cellColorYellow{
+	background-color:#FFFF99;
+}
+.cellColorGreen{
+	background-color:#CCFF99;
+}
+</style>
+<script type="text/javascript">
+var resourceColumnHeader = '${resourceColumnLabel}';
+var projectColumnHeader = '${projectColumnLabel}';
+var numberOfPrjectColumnHeader = '${numberOfProjectColumnLabel}';
+var extalertTitle = '${extalertTitle}';
+var serverRequestFailedMessage = '${serverRequestFailedMessage}';
+var noReservationDataFoundMessage = '${noReservationDataFoundMessage}';
+var gridTitle = '${gridTitle}';
+var monthIndex = ${monthIndex};
+var year = ${year};
+var allocationSummaryData = ${allocationSummaryData};
+var jspRootUrl = '${jSPRootURL}';
+var gridTotalRowLabel = '${gridTotalRowLabel}';
+</script>
+<script type="text/javascript" src="${jSPRootURL}/src/resourceAllocationSummary-grid.js?${versionNumber}"></script> 
+<t:SpaceMainMenu />
+	<t:NavBar />
+	<div id="tcontent" >
+		<table width="98%" border="0" cellpadding="0" cellspacing="0">
+			<tr class="channelHeader">
+				<td class="channelHeader" width="1%"><img
+					src="${jSPRootURL}/images/icons/channelbar-left_end.gif" width="8" height="15"
+					border="0" hspace="0" vspace="0" /></td>
+				<td nowrap="nowrap" class="channelHeader"><t:Message value="prm.resource.resourceallocationsummary.pagetitle" /></td>
+				<td align="right" nowrap="nowrap" class="channelHeader">
+				<t:if test="preReleaseEnabled">
+					<font color="red"><t:Message value="prm.resource.prereleasefunctionality.text" /></font>
+				</t:if>
+				</td>
+				<td align="right" class="channelHeader" width="5%"><img
+					src="${jSPRootURL}/images/icons/channelbar-right_end.gif" width="8" height="15"
+					border="0" hspace="0" vspace="0" /></td>
+			</tr>
+		</table>
+		<br/> 
+		<t:form t:id="resorceAllocationSummaryForm" autofocus="false" clientValidation="false">
+		<table align="center" cellpadding="0" cellspacing="0">
+			<tr>
+				<td><t:Message value="prm.resource.resourceallocationsummary.business.label" /> : &nbsp;&nbsp;&nbsp;</td>
+				<td colspan="2"><t:select model="businessesModel" encoder="businessesModel"
+					value="business" clientId="business" blankOption="NEVER" />
+				</td>	
+			</tr>
+			<tr height="5"><td></td></tr>
+			<tr>
+				<td><t:Message value="prm.resource.resourceallocationsummary.startmonth.label" />: &nbsp;&nbsp;&nbsp;</td>
+				<td>
+		            <t:select model="monthsModel" value="month" clientId="monthsId" blankOption="NEVER" />
+		            &nbsp;&nbsp;&nbsp;
+		            <t:select model="yearsModel" value="year" clientId="yearsId" blankOption="NEVER"/>
+				</td>
+				<td>&nbsp;&nbsp;&nbsp;<input type="button" value="${viewButtonCaption}" id="viewBtn" 
+						onclick=" getAllocationSummaryByCriteria(0);"/></td>
+			</tr>
+			<tr>
+				<td colspan="3" align="center">
+					<br /><div id="searchMessage"><label style="color:red; font-weight:bold;"> ${message} </label></div>
+				</td>
+			</tr>
+		</table>
+		</t:form>
+		<table width="93%">
+			<tr>
+				<td align="right" colspan="6">&nbsp;&nbsp;&nbsp;&nbsp; <img
+					src="${jSPRootURL}/images/icons/actionbar-previouspost_off.gif"
+					id="preThreeMonthImage" onclick="getAllocationSummaryByCriteria(-3);"
+					title="${goThreeMonthsBackwardImageTooltip}" /> &nbsp;&nbsp;&nbsp;&nbsp; <img
+					src="${jSPRootURL}/images/icons/actionbar-back_off.gif"
+					id="preOneMonthImage" onclick="getAllocationSummaryByCriteria(-1);"
+					title="${goOneMonthBackwardImageTooltip}" /> &nbsp;&nbsp;&nbsp;&nbsp; <img
+					src="${jSPRootURL}/images/icons/actionbar-next_off.gif"
+					id="nextOneMonthImage" onclick="getAllocationSummaryByCriteria(1);"
+					title="${goOneMonthForwardImageTooltip}" /> &nbsp;&nbsp;&nbsp;&nbsp; <img
+					src="${jSPRootURL}/images/icons/actionbar-nextpost_off.gif"
+					id="nextThreeMonthImage" onclick="getAllocationSummaryByCriteria(3);"
+					title="${goThreeMonthsForwardImageTooltip}" /> &nbsp;&nbsp;&nbsp;&nbsp;</td>
+			</tr>
+			<tr>
+				<td colspan="6">
+				<div id="gridPosition"
+					style="margin-right: 10px; margin-bottom: 10px;"></div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<table width = "390" align="left">
+						<tr>
+							<td width="30">	
+								<div id="colorCode" style="margin-top:2px;background-color:#FF9999;height:15px;width:30px;border-color:black;border: medium;" ></div>
+							</td>
+							<td width="100" nowrap="nowrap"><font face="Arial" style="font-weight:bold;" color="brown">&nbsp;&nbsp;<t:Message value="prm.resource.resourceallocationsummary.gridcellredcolor.legend" /></font></td>
+			
+							<td width="30">	
+								<div id="colorCode" style="margin-top:2px;background-color:#FFFF99;height:15px;width:30px;border-color:black;border: medium; "></div>
+							</td>
+							<td width="100" nowrap="nowrap"><font face="Arial" style="font-weight:bold;" color="brown">&nbsp;&nbsp;<t:Message value="prm.resource.resourceallocationsummary.gridcellyellowcolor.legend" /></font></td>
+							<td width="30">	
+								<div id="colerCode" style="margin-top:2px;background-color:#CCFF99;height:15px;width:30px;border-color:black;border: medium;" ></div>
+							</td>
+							<td width="100" nowrap="nowrap"><font face="Arial" style="font-weight:bold;" color="brown">&nbsp;&nbsp;<t:Message value="prm.resource.resourceallocationsummary.gridcellgreencolor.legend" /></font></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div>
+</t:Layout>

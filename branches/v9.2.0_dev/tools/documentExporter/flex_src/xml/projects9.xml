@@ -1,0 +1,410 @@
+<projects Name="Projects" ProjectId="root">
+<Project Name="GISS Confidential" Level="1" Folder="/GISS Confidential" selected="false" ProjectId="5554369">
+	</Project>
+<Project Name="GISS General Information" Level="1" Folder="/GISS General Information" selected="false" ProjectId="10390548">
+	</Project>
+<Project Name="GIV - DP Customization" Level="1" Folder="/GIV - DP Customization" selected="false" ProjectId="12016594">
+	</Project>
+<Project Name="GM27 Pre-Work" Level="1" Folder="/GM27 Pre-Work" selected="false" ProjectId="14484042">
+	</Project>
+<Project Name="GNPOC Sudan" Level="1" Folder="/GNPOC Sudan" selected="false" ProjectId="6611581">
+<Project Name="Dubai" Level="2" Folder="/GNPOC Sudan/Dubai" selected="false" ProjectId="6611669">
+	</Project>
+<Project Name="EPC" Level="2" Folder="/GNPOC Sudan/EPC" selected="false" ProjectId="6611699">
+	</Project>
+	</Project>
+<Project Name="GOLD" Level="1" Folder="/GOLD" selected="false" ProjectId="13936880">
+	</Project>
+<Project Name="GOLD Test" Level="1" Folder="/GOLD Test" selected="false" ProjectId="3378501">
+<Project Name="ASN for 3rd party suppliers" Level="2" Folder="/GOLD/ASN for 3rd party suppliers" selected="false" ProjectId="15033031">
+	</Project>
+<Project Name="Barcoding/RFID initiative" Level="2" Folder="/GOLD/Barcoding RFID initiative" selected="false" ProjectId="14419448">
+	</Project>
+<Project Name="Capture Weight at line item level for CAG" Level="2" Folder="/GOLD/Capture Weight at line item level for CAG" selected="false" ProjectId="15032654">
+	</Project>
+<Project Name="Capture of leg 6" Level="2" Folder="/GOLD/Capture of leg 6" selected="false" ProjectId="14418600">
+	</Project>
+<Project Name="Daily KPIs" Level="2" Folder="/GOLD/Daily KPIs" selected="false" ProjectId="14017551">
+	</Project>
+<Project Name="Embedded Software" Level="2" Folder="/GOLD/Embedded Software" selected="false" ProjectId="15033046">
+	</Project>
+<Project Name="Explosives Nafta" Level="2" Folder="/GOLD/Explosives Nafta" selected="false" ProjectId="13937472">
+	</Project>
+<Project Name="Explosives SRPC" Level="2" Folder="/GOLD/Explosives SRPC" selected="false" ProjectId="15032639">
+	</Project>
+<Project Name="Flexible Markup" Level="2" Folder="/GOLD/Flexible Markup" selected="false" ProjectId="15032624">
+	</Project>
+<Project Name="GOLD China implementation for TC" Level="2" Folder="/GOLD/GOLD China implementation for TC" selected="false" ProjectId="14080562">
+	</Project>
+<Project Name="Inspection charge for LAS" Level="2" Folder="/GOLD/Inspection charge for LAS" selected="false" ProjectId="15032669">
+	</Project>
+<Project Name="Integration of GOLD data with OFS Reporter" Level="2" Folder="/GOLD/Integration of GOLD data with OFS Reporter" selected="false" ProjectId="13943765">
+	</Project>
+<Project Name="Interface to Panalpina WMS" Level="2" Folder="/GOLD/Interface to Panalpina WMS" selected="false" ProjectId="14134299">
+	</Project>
+<Project Name="Migration EU Hub" Level="2" Folder="/GOLD/Migration EU Hub" selected="false" ProjectId="15032684">
+	</Project>
+<Project Name="Migration of GOLD finance to LAWSON" Level="2" Folder="/GOLD/Migration of GOLD finance to LAWSON" selected="false" ProjectId="13939496">
+	</Project>
+<Project Name="Migration of the GOLD logistic" Level="2" Folder="/GOLD/Migration of the GOLD logistic" selected="false" ProjectId="14140031">
+	</Project>
+<Project Name="Orange light" Level="2" Folder="/GOLD/Orange light" selected="false" ProjectId="14813824">
+	</Project>
+<Project Name="RC with specific HTC to be processed separately" Level="2" Folder="/GOLD/RC with specific HTC to be processed separately" selected="false" ProjectId="14813938">
+	</Project>
+<Project Name="Royalty payment for SRC perforating gun systems" Level="2" Folder="/GOLD/Royalty payment for SRC perforating gun systems" selected="false" ProjectId="14264839">
+	</Project>
+<Project Name="SRPL 15%" Level="2" Folder="/GOLD/SRPL 15" selected="false" ProjectId="15032609">
+	</Project>
+<Project Name="Shipment from non US Tech Center to Nafta" Level="2" Folder="/GOLD/Shipment from non US Tech Center to Nafta" selected="false" ProjectId="13937723">
+	</Project>
+<Project Name="TC automated invoicing" Level="2" Folder="/GOLD/TC automated invoicing" selected="false" ProjectId="14419305">
+	</Project>
+<Project Name="Transportation services" Level="2" Folder="/GOLD/Transportation services" selected="false" ProjectId="13937212">
+	</Project>
+	</Project>
+<Project Name="GOM BUSINESS PLAN" Level="1" Folder="/GOM BUSINESS PLAN" selected="false" ProjectId="1412757">
+	</Project>
+<Project Name="GOM Lower Tertiary" Level="1" Folder="/GOM Lower Tertiary" selected="false" ProjectId="14470169">
+<Project Name="BP " Level="2" Folder="/GOM Lower Tertiary/BP " selected="false" ProjectId="14617622">
+	</Project>
+<Project Name="Petrobras Lower Tertiary" Level="2" Folder="/GOM Lower Tertiary/Petrobras Lower Tertiary" selected="false" ProjectId="14617651">
+	</Project>
+	</Project>
+<Project Name="GOM MEM" Level="1" Folder="/GOM MEM" selected="false" ProjectId="1074251">
+<Project Name="Dt Shear in Mechanically Damaged Zones" Level="2" Folder="/GOM MEM/Dt Shear in Mechanically Damaged Zones" selected="false" ProjectId="1008378">
+	</Project>
+	</Project>
+<Project Name="GPL mission" Level="1" Folder="/GPL mission" selected="false" ProjectId="1071343">
+	</Project>
+<Project Name="GSC-IS" Level="1" Folder="/GSC-IS" selected="false" ProjectId="3454127">
+	</Project>
+<Project Name="GSD S 001" Level="1" Folder="/GSD S 001" selected="false" ProjectId="1760970">
+	</Project>
+<Project Name="GSD S 002" Level="1" Folder="/GSD S 002" selected="false" ProjectId="1761021">
+	</Project>
+<Project Name="GSD S 003" Level="1" Folder="/GSD S 003" selected="false" ProjectId="1761048">
+	</Project>
+<Project Name="GSD S 004" Level="1" Folder="/GSD S 004" selected="false" ProjectId="1761083">
+	</Project>
+<Project Name="GSD S 005" Level="1" Folder="/GSD S 005" selected="false" ProjectId="1762697">
+	</Project>
+<Project Name="GSD S 006" Level="1" Folder="/GSD S 006" selected="false" ProjectId="1762731">
+	</Project>
+<Project Name="GSD S 007" Level="1" Folder="/GSD S 007" selected="false" ProjectId="1762762">
+	</Project>
+<Project Name="GSD Service Description" Level="1" Folder="/GSD Service Description" selected="false" ProjectId="1606814">
+	</Project>
+<Project Name="GSD Web Transition" Level="1" Folder="/GSD Web Transition" selected="false" ProjectId="2481588">
+	</Project>
+<Project Name="GSPC" Level="1" Folder="/GSPC" selected="false" ProjectId="13266441">
+	</Project>
+<Project Name="GW Test" Level="1" Folder="/GW Test" selected="false" ProjectId="4355139">
+	</Project>
+<Project Name="GWIS Sales Collaboration Space" Level="1" Folder="/GWIS Sales Collaboration Space" selected="false" ProjectId="4913878">
+	</Project>
+<Project Name="GWIntegrate" Level="1" Folder="/GWIntegrate" selected="false" ProjectId="1704349">
+	</Project>
+<Project Name="Garden Banks 7 Depth Migration Salt Interpretation" Level="1" Folder="/Garden Banks 7 Depth Migration Salt Interpretation" selected="false" ProjectId="3694124">
+	</Project>
+<Project Name="Gas Natural Siroco" Level="1" Folder="/Gas Natural Siroco" selected="false" ProjectId="15202270">
+	</Project>
+<Project Name="Gasco Uinta" Level="1" Folder="/Gasco Uinta" selected="false" ProjectId="5695356">
+	</Project>
+<Project Name="Gecko 5 Release" Level="1" Folder="/Gecko 5 Release" selected="false" ProjectId="3172908">
+	</Project>
+<Project Name="Gems" Level="1" Folder="/Gems" selected="false" ProjectId="5803405">
+	</Project>
+<Project Name="Gems Hardware Upgrade" Level="1" Folder="/Gems Hardware Upgrade" selected="false" ProjectId="4916945">
+<Project Name="GEMS Disaster Recovery" Level="2" Folder="/Gems/GEMS Disaster Recovery" selected="false" ProjectId="4944464">
+	</Project>
+<Project Name="Gems Hardware Upgrade" Level="2" Folder="/Gems/Gems Hardware Upgrade" selected="false" ProjectId="4916945">
+	</Project>
+	</Project>
+<Project Name="Gender Diversity Committee" Level="1" Folder="/Gender Diversity Committee" selected="false" ProjectId="9983130">
+	</Project>
+<Project Name="General (monthly) eCard" Level="1" Folder="/General monthly eCard" selected="false" ProjectId="818577">
+	</Project>
+<Project Name="General e-Cards" Level="1" Folder="/General e-Cards" selected="false" ProjectId="848125">
+<Project Name="2002 June eCard" Level="2" Folder="/General e-Cards/2002 June eCard" selected="false" ProjectId="818776">
+	</Project>
+<Project Name="General (monthly) eCard" Level="2" Folder="/General e-Cards/General monthly eCard" selected="false" ProjectId="818577">
+	</Project>
+<Project Name="May 2002 E-Card" Level="2" Folder="/General e-Cards/May 2002 E-Card" selected="false" ProjectId="797753">
+	</Project>
+<Project Name="May 2002 eCard v.2" Level="2" Folder="/General e-Cards/May 2002 eCard v.2" selected="false" ProjectId="818526">
+	</Project>
+	</Project>
+<Project Name="GeoFrame" Level="1" Folder="/GeoFrame" selected="false" ProjectId="5961564">
+	</Project>
+<Project Name="GeoFrame Productivity Revenue Program" Level="1" Folder="/GeoFrame Productivity Revenue Program" selected="false" ProjectId="6907567">
+<Project Name="GeoFrame Hardware Upgrade" Level="2" Folder="/GeoFrame/GeoFrame Hardware Upgrade" selected="false" ProjectId="5961583">
+	</Project>
+	</Project>
+<Project Name="GeoMobile Latin America" Level="1" Folder="/GeoMobile Latin America" selected="false" ProjectId="9316410">
+	</Project>
+<Project Name="Geochemistry" Level="1" Folder="/Geochemistry" selected="false" ProjectId="11988591">
+	</Project>
+<Project Name="Geology" Level="1" Folder="/Geology" selected="false" ProjectId="4882810">
+<Project Name="LTK White paper &amp; product sheet" Level="2" Folder="/Geology/LTK White paper  product sheet" selected="false" ProjectId="5996171">
+	</Project>
+<Project Name="LTk lunch and learn" Level="2" Folder="/Geology/LTk lunch and learn" selected="false" ProjectId="4926082">
+	</Project>
+	</Project>
+<Project Name="Geomarket 1 Plan" Level="1" Folder="/Geomarket 1 Plan" selected="false" ProjectId="3322714">
+	</Project>
+<Project Name="Geomarket PO/PSE/WCI Business Strategies and Action Plans" Level="1" Folder="/Geomarket PO PSE WCI Business Strategies and Action Plans" selected="false" ProjectId="1132117">
+<Project Name="AKA Geomarket PO/PSE/WCI Business Strategy and Action Plan" Level="2" Folder="/Geomarket PO PSE WCI Business Strategies and Action Plans/AKA Geomarket PO PSE WCI Business Strategy and Action Plan" selected="false" ProjectId="1132546">
+	</Project>
+<Project Name="CAN Geomarket PO/PSE/WCI Business Strategy and Action Plan" Level="2" Folder="/Geomarket PO PSE WCI Business Strategies and Action Plans/CAN Geomarket PO PSE WCI Business Strategy and Action Plan" selected="false" ProjectId="1132518">
+	</Project>
+<Project Name="LAS Geomarket PO/PSE/WCI Business Strategy and Action Plan" Level="2" Folder="/Geomarket PO PSE WCI Business Strategies and Action Plans/LAS Geomarket PO PSE WCI Business Strategy and Action Plan" selected="false" ProjectId="1132390">
+	</Project>
+<Project Name="MCA Geomarket PO/PSE/WCI Business Strategy and Action Plan" Level="2" Folder="/Geomarket PO PSE WCI Business Strategies and Action Plans/MCA Geomarket PO PSE WCI Business Strategy and Action Plan" selected="false" ProjectId="1132493">
+	</Project>
+<Project Name="NGC PO/PSE/WCI Business Strategy and Action Plan" Level="2" Folder="/Geomarket PO PSE WCI Business Strategies and Action Plans/NGC PO PSE WCI Business Strategy and Action Plan" selected="false" ProjectId="1132427">
+	</Project>
+<Project Name="PCE Geomarket PO/PSE/WCI Business Strategy and Action Plan" Level="2" Folder="/Geomarket PO PSE WCI Business Strategies and Action Plans/PCE Geomarket PO PSE WCI Business Strategy and Action Plan" selected="false" ProjectId="1132478">
+	</Project>
+<Project Name="USL Geomarket PO/PSE/WCI Business Strategy and Action Plan" Level="2" Folder="/Geomarket PO PSE WCI Business Strategies and Action Plans/USL Geomarket PO PSE WCI Business Strategy and Action Plan" selected="false" ProjectId="1132233">
+	</Project>
+<Project Name="VTT Geomarket PO/PSE/WCI Business Strategy and Action Plan" Level="2" Folder="/Geomarket PO PSE WCI Business Strategies and Action Plans/VTT Geomarket PO PSE WCI Business Strategy and Action Plan" selected="false" ProjectId="1132461">
+	</Project>
+	</Project>
+<Project Name="Geomarket Segmentation" Level="1" Folder="/Geomarket Segmentation" selected="false" ProjectId="3113579">
+	</Project>
+<Project Name="Geomechanics 2003" Level="1" Folder="/Geomechanics 2003" selected="false" ProjectId="6665699">
+<Project Name="Stress Direction Database" Level="2" Folder="/Geomechanics 2003/Stress Direction Database" selected="false" ProjectId="6682619">
+	</Project>
+	</Project>
+<Project Name="Geomechanics 2004" Level="1" Folder="/Geomechanics 2004" selected="false" ProjectId="9827165">
+	</Project>
+<Project Name="Geophysics" Level="1" Folder="/Geophysics" selected="false" ProjectId="4880800">
+<Project Name="GF-Petrel White Paper" Level="2" Folder="/Geophysics/GF-Petrel White Paper" selected="false" ProjectId="6450322">
+	</Project>
+<Project Name="GigaViz" Level="2" Folder="/Geophysics/GigaViz" selected="false" ProjectId="6894128">
+	</Project>
+<Project Name="Interpretation Models White Paper" Level="2" Folder="/Geophysics/Interpretation Models White Paper" selected="false" ProjectId="6399235">
+	</Project>
+<Project Name="Seismic Attribute ToolKit Product Sheet" Level="2" Folder="/Geophysics/Seismic Attribute ToolKit Product Sheet" selected="false" ProjectId="6665540">
+	</Project>
+	</Project>
+<Project Name="Geoquest - 2002 " Level="1" Folder="/Geoquest - 2002 " selected="false" ProjectId="349213">
+	</Project>
+<Project Name="Germany Phase II Sema Integration" Level="1" Folder="/Germany Phase II Sema Integration" selected="false" ProjectId="416575">
+<Project Name="Frankfurt" Level="2" Folder="/Germany Phase II Sema Integration/Frankfurt" selected="false" ProjectId="697140">
+	</Project>
+	</Project>
+<Project Name="Gjoa" Level="1" Folder="/Gjoa" selected="false" ProjectId="12347952">
+	</Project>
+<Project Name="Global GTS and Reporting" Level="1" Folder="/Global GTS and Reporting" selected="false" ProjectId="2154160">
+	</Project>
+<Project Name="Global Information Management" Level="1" Folder="/Global Information Management" selected="false" ProjectId="923114">
+<Project Name="ChevronTexaco Decision Support" Level="2" Folder="/Global Information Management/ChevronTexaco Decision Support" selected="false" ProjectId="900162">
+	</Project>
+<Project Name="ChevronTexaco Master Data Consolidation" Level="2" Folder="/Global Information Management/ChevronTexaco Master Data Consolidation" selected="false" ProjectId="900147">
+	</Project>
+<Project Name="ChevronTexaco Production History Data" Level="2" Folder="/Global Information Management/ChevronTexaco Production History Data" selected="false" ProjectId="900177">
+	</Project>
+	</Project>
+<Project Name="Global Legacy Systems Inventory " Level="1" Folder="/Global Legacy Systems Inventory " selected="false" ProjectId="11955819">
+	</Project>
+<Project Name="Global Physical Access (GPAC)" Level="1" Folder="/Global Physical Access GPAC" selected="false" ProjectId="1782236">
+	</Project>
+<Project Name="Global Server Backup" Level="1" Folder="/Global Server Backup" selected="false" ProjectId="13254724">
+	</Project>
+<Project Name="Global Service Contract Renewal" Level="1" Folder="/Global Service Contract Renewal" selected="false" ProjectId="1408575">
+	</Project>
+<Project Name="Global Shell DSP RFP" Level="1" Folder="/Global Shell DSP RFP" selected="false" ProjectId="3498590">
+<Project Name="Create Final Document" Level="2" Folder="/Global Shell DSP RFP/Create Final Document" selected="false" ProjectId="3504931">
+	</Project>
+<Project Name="Technical Footprint" Level="2" Folder="/Global Shell DSP RFP/Technical Footprint" selected="false" ProjectId="3504859">
+	</Project>
+	</Project>
+<Project Name="Global Strategic Sourcing Update" Level="1" Folder="/Global Strategic Sourcing Update" selected="false" ProjectId="5631907">
+	</Project>
+<Project Name="Global TC Security Service Line Development" Level="1" Folder="/Global TC Security Service Line Development" selected="false" ProjectId="4483300">
+	</Project>
+<Project Name="Global Team Implementation" Level="1" Folder="/Global Team Implementation" selected="false" ProjectId="545529">
+<Project Name="G-Team Hub" Level="2" Folder="/Global Team Implementation/G-Team Hub" selected="false" ProjectId="717505">
+	</Project>
+<Project Name="G-Team Pilot Teams" Level="2" Folder="/Global Team Implementation/G-Team Pilot Teams" selected="false" ProjectId="602831">
+	</Project>
+<Project Name="G-Team Support" Level="2" Folder="/Global Team Implementation/G-Team Support" selected="false" ProjectId="595306">
+	</Project>
+<Project Name="G-Team Training Package" Level="2" Folder="/Global Team Implementation/G-Team Training Package" selected="false" ProjectId="724524">
+	</Project>
+	</Project>
+<Project Name="Global VPN/PKI Project" Level="1" Folder="/Global VPN PKI Project" selected="false" ProjectId="4299902">
+	</Project>
+<Project Name="GoM East Shelf Collaboration Project" Level="1" Folder="/GoM East Shelf Collaboration Project" selected="false" ProjectId="10086818">
+	</Project>
+<Project Name="Goldman Sachs Dual-Card CIS (GS2CardCIS)" Level="1" Folder="/Goldman Sachs Dual-Card CIS GS2CardCIS" selected="false" ProjectId="4670803">
+	</Project>
+<Project Name="Goliat ENI Zero Emission Testing - ZET " Level="1" Folder="/Goliat ENI Zero Emission Testing - ZET " selected="false" ProjectId="13856815">
+	</Project>
+<Project Name="Goliat ZET Project" Level="1" Folder="/Goliat ZET Project" selected="false" ProjectId="13993624">
+	</Project>
+<Project Name="Good Oil Conference" Level="1" Folder="/Good Oil Conference" selected="false" ProjectId="11658210">
+	</Project>
+<Project Name="Google " Level="1" Folder="/Google " selected="false" ProjectId="4916905">
+	</Project>
+<Project Name="Gorgon CO2 Phase II Development Tender" Level="1" Folder="/Gorgon CO2 Phase II Development Tender" selected="false" ProjectId="6600803">
+	</Project>
+<Project Name="Grassroots" Level="1" Folder="/Grassroots" selected="false" ProjectId="2190859">
+	</Project>
+<Project Name="Green Canyon 15-16 Depth Migration Salt Interpretation" Level="1" Folder="/Green Canyon 15-16 Depth Migration Salt Interpretation" selected="false" ProjectId="4194193">
+	</Project>
+<Project Name="Group 3, Project Execution Plan" Level="1" Folder="/Group 3 Project Execution Plan" selected="false" ProjectId="2235274">
+	</Project>
+<Project Name="Groupement Berkine PDMS" Level="1" Folder="/Groupement Berkine PDMS" selected="false" ProjectId="1111841">
+	</Project>
+<Project Name="Guara Este" Level="1" Folder="/Guara Este" selected="false" ProjectId="1699011">
+	</Project>
+<Project Name="Guidelines" Level="1" Folder="/Guidelines" selected="false" ProjectId="4144714">
+	</Project>
+<Project Name="Gulf News Network Security Upgrade" Level="1" Folder="/Gulf News Network Security Upgrade" selected="false" ProjectId="2261964">
+	</Project>
+<Project Name="GulfStream Positioning" Level="1" Folder="/GulfStream Positioning" selected="false" ProjectId="9659344">
+	</Project>
+<Project Name="Gungoll " Level="1" Folder="/Gungoll " selected="false" ProjectId="1996660">
+	</Project>
+<Project Name="Gunnison" Level="1" Folder="/Gunnison" selected="false" ProjectId="4801660">
+	</Project>
+<Project Name="Gunnison Development Program" Level="1" Folder="/Gunnison Development Program" selected="false" ProjectId="473088">
+	</Project>
+<Project Name="Gunnison Spar Development" Level="1" Folder="/Gunnison Spar Development" selected="false" ProjectId="4507221">
+<Project Name="Garden Banks Subsea Comletions" Level="2" Folder="/Gunnison Spar Development/Garden Banks Subsea Comletions" selected="false" ProjectId="4803093">
+	</Project>
+	</Project>
+<Project Name="H3G International Sales" Level="1" Folder="/H3G International Sales" selected="false" ProjectId="754390">
+	</Project>
+<Project Name="H3G Italy - P&amp;SS" Level="1" Folder="/H3G Italy - PSS" selected="false" ProjectId="1062625">
+	</Project>
+<Project Name="H3G P&amp;SS Global Deployment" Level="1" Folder="/H3G PSS Global Deployment" selected="false" ProjectId="876714">
+	</Project>
+<Project Name="HEES (Hydrocarbon Economics Evaluation Symposium) - Dallas, TX" Level="1" Folder="/HEES Hydrocarbon Economics Evaluation Symposium - Dallas TX" selected="false" ProjectId="3645756">
+	</Project>
+<Project Name="HGA 6" Level="1" Folder="/HGA 6" selected="false" ProjectId="1611503">
+	</Project>
+<Project Name="HIPAA" Level="1" Folder="/HIPAA" selected="false" ProjectId="3368854">
+	</Project>
+<Project Name="HP Openview &amp; Radia Deployment to All Servers" Level="1" Folder="/HP Openview  Radia Deployment to All Servers" selected="false" ProjectId="6769590">
+	</Project>
+<Project Name="HPHT Gas Completion" Level="1" Folder="/HPHT Gas Completion" selected="false" ProjectId="5720268">
+	</Project>
+<Project Name="HQ WG BAP Land HQ/Demo Project" Level="1" Folder="/HQ WG BAP Land HQ Demo Project" selected="false" ProjectId="4620594">
+	</Project>
+<Project Name="HR Strategy" Level="1" Folder="/HR Strategy" selected="false" ProjectId="7384005">
+	</Project>
+<Project Name="HR&amp;Payroll Technical Group" Level="1" Folder="/HRPayroll Technical Group" selected="false" ProjectId="4467619">
+	</Project>
+<Project Name="HSBC Call Flow" Level="1" Folder="/HSBC Call Flow" selected="false" ProjectId="431253">
+	</Project>
+<Project Name="HSBC Connectivity Documentation" Level="1" Folder="/HSBC Connectivity Documentation" selected="false" ProjectId="804977">
+	</Project>
+<Project Name="HSE Practice" Level="1" Folder="/HSE Practice" selected="false" ProjectId="9445210">
+<Project Name="Unocal IMPACT Global Deployment" Level="2" Folder="/HSE Practice/Unocal IMPACT Global Deployment" selected="false" ProjectId="9444937">
+	</Project>
+	</Project>
+<Project Name="HSE UCL Global IMPACT Deployment Pursuit" Level="1" Folder="/HSE UCL Global IMPACT Deployment Pursuit" selected="false" ProjectId="7546884">
+	</Project>
+<Project Name="HT OilSEEKER" Level="1" Folder="/HT OilSEEKER" selected="false" ProjectId="1682260">
+	</Project>
+<Project Name="HUB2" Level="1" Folder="/HUB2" selected="false" ProjectId="2884894">
+	</Project>
+<Project Name="HUB2 Phase 1" Level="1" Folder="/HUB2 Phase 1" selected="false" ProjectId="2033152">
+	</Project>
+<Project Name="HVE Project" Level="1" Folder="/HVE Project" selected="false" ProjectId="14303314">
+<Project Name="Midcontinent" Level="2" Folder="/HVE Project/Midcontinent" selected="false" ProjectId="14363376">
+	</Project>
+	</Project>
+<Project Name="Harwin Data Management Warehouse Operations Outsourcing" Level="1" Folder="/Harwin Data Management Warehouse Operations Outsourcing" selected="false" ProjectId="8742851">
+	</Project>
+<Project Name="Haslimi's Super Project " Level="1" Folder="/Haslimi's Super Project " selected="false" ProjectId="3634509">
+	</Project>
+<Project Name="Hawqa 2002/3" Level="1" Folder="/Hawqa 2002 3" selected="false" ProjectId="2660730">
+	</Project>
+<Project Name="Heavy Oil " Level="1" Folder="/Heavy Oil " selected="false" ProjectId="4963149">
+	</Project>
+<Project Name="Heavy Oil Theme" Level="1" Folder="/Heavy Oil Theme" selected="false" ProjectId="3539139">
+	</Project>
+<Project Name="Hess &amp; SCC connectivity" Level="1" Folder="/Hess  SCC connectivity" selected="false" ProjectId="5925203">
+	</Project>
+<Project Name="Hess IC tender" Level="1" Folder="/Hess IC tender" selected="false" ProjectId="7000252">
+	</Project>
+<Project Name="Hess Pony" Level="1" Folder="/Hess Pony" selected="false" ProjectId="15295802">
+	</Project>
+<Project Name="Hi Volume Low Tier" Level="1" Folder="/Hi Volume Low Tier" selected="false" ProjectId="334799">
+	</Project>
+<Project Name="Hibiscus Field Development NDS" Level="1" Folder="/Hibiscus Field Development NDS" selected="false" ProjectId="1151630">
+	</Project>
+<Project Name="High Incidents Analysis from SLA" Level="1" Folder="/High Incidents Analysis from SLA" selected="false" ProjectId="6770791">
+	</Project>
+<Project Name="High Volume Low Tier Market" Level="1" Folder="/High Volume Low Tier Market" selected="false" ProjectId="3740503">
+	</Project>
+<Project Name="Hong Kong" Level="1" Folder="/Hong Kong" selected="false" ProjectId="876883">
+	</Project>
+<Project Name="Hoover/Diana Platform VSAT project" Level="1" Folder="/Hoover Diana Platform VSAT project" selected="false" ProjectId="7117123">
+	</Project>
+<Project Name="Houma Subsea Documents" Level="1" Folder="/Houma Subsea Documents" selected="false" ProjectId="13495762">
+	</Project>
+<Project Name="Houston Expl. Lobo Project" Level="1" Folder="/Houston Expl. Lobo Project" selected="false" ProjectId="3895365">
+	</Project>
+<Project Name="Houston Firewall Replacement" Level="1" Folder="/Houston Firewall Replacement" selected="false" ProjectId="9271350">
+	</Project>
+<Project Name="How Life Cycle Cost Model could improve FPSO bidding process (Phase 1)" Level="1" Folder="/How Life Cycle Cost Model could improve FPSO bidding process Phase 1" selected="false" ProjectId="11955457">
+	</Project>
+<Project Name="Hub" Level="1" Folder="/Hub" selected="false" ProjectId="5486992">
+	</Project>
+<Project Name="Hub AVO Workshop seminar" Level="1" Folder="/Hub AVO Workshop seminar" selected="false" ProjectId="3735195">
+	</Project>
+<Project Name="Hub Broken Links" Level="1" Folder="/Hub Broken Links" selected="false" ProjectId="1960228">
+	</Project>
+<Project Name="Hub Data Migration" Level="1" Folder="/Hub Data Migration" selected="false" ProjectId="4944084">
+	</Project>
+<Project Name="Hub Trade Control Compliance Project " Level="1" Folder="/Hub Trade Control Compliance Project " selected="false" ProjectId="4894989">
+	</Project>
+<Project Name="Hub WebTrends Server Upgrade" Level="1" Folder="/Hub WebTrends Server Upgrade" selected="false" ProjectId="4916861">
+<Project Name="Google " Level="2" Folder="/Hub/Google " selected="false" ProjectId="4916905">
+	</Project>
+<Project Name="Hub Data Migration" Level="2" Folder="/Hub/Hub Data Migration" selected="false" ProjectId="4944084">
+	</Project>
+<Project Name="Hub WebTrends Server Upgrade" Level="2" Folder="/Hub/Hub WebTrends Server Upgrade" selected="false" ProjectId="4916861">
+	</Project>
+<Project Name="Hub2 Implementation" Level="2" Folder="/Hub/Hub2 Implementation" selected="false" ProjectId="4916842">
+	</Project>
+	</Project>
+<Project Name="Hub2 Implementation" Level="1" Folder="/Hub2 Implementation" selected="false" ProjectId="4916842">
+	</Project>
+<Project Name="Hub2 Migration" Level="1" Folder="/Hub2 Migration" selected="false" ProjectId="3840007">
+	</Project>
+<Project Name="Hulme Randall Development Plan" Level="1" Folder="/Hulme Randall Development Plan" selected="false" ProjectId="1030481">
+	</Project>
+<Project Name="Human Resources Management" Level="1" Folder="/Human Resources Management" selected="false" ProjectId="582694">
+	</Project>
+<Project Name="Hunt Oil Company" Level="1" Folder="/Hunt Oil Company" selected="false" ProjectId="8645092">
+<Project Name="Phase I project cleanups &amp; QC" Level="2" Folder="/Hunt Oil Company/Phase I project cleanups  QC" selected="false" ProjectId="9350369">
+	</Project>
+<Project Name="Phase II project cleanup and QC" Level="2" Folder="/Hunt Oil Company/Phase II project cleanup and QC" selected="false" ProjectId="9543321">
+	</Project>
+<Project Name="TX South Conversion" Level="2" Folder="/Hunt Oil Company/TX South Conversion" selected="false" ProjectId="9397640">
+	</Project>
+<Project Name="Tx UPCST East conversion" Level="2" Folder="/Hunt Oil Company/Tx UPCST East conversion" selected="false" ProjectId="9398069">
+	</Project>
+<Project Name="Tx UPCST West conversion" Level="2" Folder="/Hunt Oil Company/Tx UPCST West conversion" selected="false" ProjectId="9397793">
+	</Project>
+<Project Name="Tx Wilcox Cen conversion" Level="2" Folder="/Hunt Oil Company/Tx Wilcox Cen conversion" selected="false" ProjectId="9398425">
+	</Project>
+<Project Name="Tx Wilcox South conversion" Level="2" Folder="/Hunt Oil Company/Tx Wilcox South conversion" selected="false" ProjectId="9398185">
+	</Project>
+<Project Name="Yemen Project conversion" Level="2" Folder="/Hunt Oil Company/Yemen Project conversion" selected="false" ProjectId="9346478">
+	</Project>
+<Project Name="la_ehaynes" Level="2" Folder="/Hunt Oil Company/la_ehaynes" selected="false" ProjectId="9660680">
+	</Project>
+<Project Name="la_gillis" Level="2" Folder="/Hunt Oil Company/la_gillis" selected="false" ProjectId="9660705">
+	</Project>
+<Project Name="la_nodembay" Level="2" Folder="/Hunt Oil Company/la_nodembay" selected="false" ProjectId="9660724">
+	</Project>
+	</Project>
+</projects>

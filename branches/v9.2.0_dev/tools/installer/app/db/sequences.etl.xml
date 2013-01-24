@@ -1,0 +1,32 @@
+<!DOCTYPE etl SYSTEM "http://scriptella.javaforge.com/dtd/etl.dtd">
+<etl>
+    <description>Database creation script</description>
+    <properties>
+        <include href="dbinit.properties"/>
+    </properties>
+    <connection driver="${driver}" url="${url}" user="${PNET_BUILD_USER_NAME}" password="${PNET_BUILD_USER_PASSWORD}">
+    plsql=true
+    </connection>
+	
+	<script>
+    	<include href="${ADMINPATH}sequences/form_instance_sequence.seq"/>
+    </script>
+
+	<script>
+    	<include href="${ADMINPATH}sequences/form_sequence.seq"/>
+    </script>
+    
+	<script>
+    	<include href="${ADMINPATH}sequences/message_sequence.seq"/>
+    </script>
+
+    <script>
+    	<include href="${ADMINPATH}sequences/pn_invite_sequence.seq"/>
+    </script>
+    
+	<script>
+    	<include href="${ADMINPATH}sequences/pn_object_sequence.seq"/>
+		COMMIT
+		/
+    </script>
+</etl>

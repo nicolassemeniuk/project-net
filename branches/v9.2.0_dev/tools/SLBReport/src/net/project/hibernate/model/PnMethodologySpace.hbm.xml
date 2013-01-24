@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnMethodologySpace" 
+    table="PN_METHODOLOGY_SPACE"
+    lazy="false"
+>
+
+    <id
+        name="methodologyId"
+        type="java.math.BigDecimal"
+        column="METHODOLOGY_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="methodologyName"
+        type="java.lang.String"
+        column="METHODOLOGY_NAME"
+        length="80"
+    />
+    <property
+        name="methodologyDesc"
+        type="java.lang.String"
+        column="METHODOLOGY_DESC"
+        length="1000"
+    />
+    <property
+        name="statusId"
+        type="java.math.BigDecimal"
+        column="STATUS_ID"
+        length="20"
+    />
+    <property
+        name="createdById"
+        type="java.math.BigDecimal"
+        column="CREATED_BY_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="createdDate"
+        type="java.sql.Date"
+        column="CREATED_DATE"
+        length="7"
+    />
+    <property
+        name="modifiedById"
+        type="java.math.BigDecimal"
+        column="MODIFIED_BY_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="modifiedDate"
+        type="java.sql.Date"
+        column="MODIFIED_DATE"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        length="1"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        length="7"
+    />
+    <property
+        name="useScenarioClob"
+        type="java.sql.Clob"
+        column="USE_SCENARIO_CLOB"
+        length="4000"
+    />
+    <property
+        name="isGlobal"
+        type="int"
+        column="IS_GLOBAL"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnSpaceHasMethodology -->
+
+    <set
+        name="pnSpaceHasMethodologies"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="METHODOLOGY_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasMethodology"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,98 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+ /* PROFILE page */
+.divHeader{
+	font-family: Arial,Helvetica; 
+	font-weight: bold; 
+	font-size: 16px;
+}
+.fieldLabel{
+	font-family: Arial,Helvetica; 
+	font-weight: bold; 
+	font-size: 12px;
+	color: gray;
+}
+.projectTableHeader{
+	background-color: #FFEFA5; 
+	font-family: Arial,Helvetica; 
+	font-weight: bold;
+}
+
+.info-title {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Gray;
+	margin-bottom: 0px;
+	margin-top: 5px;
+}
+
+.info-content {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: Black;
+	margin-bottom: 0px;
+	margin-top: 5px;
+	padding: 4px;
+}
+.info-content a {
+	color: Navy;
+}
+
+#content-leftborder {
+	border-right: 2px solid #dcdcdc;
+	padding-right: 10px;
+	height: 100%;
+}
+
+.blogentry-content {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: Black;
+	padding-top: 5px;
+	line-height: 20px;
+	width: 95%;
+}
+
+#profile-data-content {
+	padding-left: 196px;
+	text-align: left;
+	overflow: visible;
+	width: auto;
+}
+
+.projects-table td {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	color: Black;
+	border-bottom: 1px solid #B7BED2;
+	padding: 4px;
+}
+
+.blogentry-project {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: Gray;
+}
+
+.info-content td {
+	border-bottom: 1px solid #B7BED2;
+	padding: 4px;
+}
+
+.online {
+	color: Green;
+	font-weight: bold;
+	padding-left: 10px;
+}

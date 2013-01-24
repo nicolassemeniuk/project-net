@@ -1,0 +1,625 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:PersonalLayout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">	
+	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/wiki.css?${versionNumber}"/>
+	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/two_pane_view.css?${versionNumber}"/>
+	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/MyAssignments.css?${versionNumber}"/>
+	<script type="text/javascript" src="${jSPRootURL}/src/dhtml/tree.js?${versionNumber}"/>
+	<style title="column-style">
+		<t:loop source="assignmentListPage.assignmentColumn.assignmentColumnList" value="assignmentListPage.assignmentColumn">
+			.div_thd_${assignmentListPage.assignmentColumn.id}{
+				width: ${assignmentListPage.assignmentColumn.width}px;
+				overflow: hidden;
+			}
+		</t:loop>
+		.assignmentListDiv-personal {
+			height: ${tabContentHeight}px; 
+			width: ${slidingPanelContentWidth}px; 
+			overflow: auto;
+		}
+		.contentDivs {
+			height: ${tabContentHeight}px;
+			overflow: hidden;
+			text-align:left;
+		}
+		.splitter-bar{
+			height:${splitterBarHeight}px;
+		}
+		.assignments-list-header-personal {
+			width:${taskListHeaderWidth}px;
+			overflow: hidden;
+			position: absolute;
+		}
+		.myAssignmentDiv-personal {
+			height:${tabContentHeight}px;
+			float: left;
+		}	
+		
+		div.tap5c_slidingPanelContent-personal {
+			background: #FEF5C7;
+			border-bottom: 1px solid #EED765;
+			border-left: 1px solid #EED765;
+			border-right: 1px solid #EED765;
+			overflow: hidden;
+			padding-bottom: 5px;
+			padding-left: 5px;
+			text-align: left;
+			float: left;
+			width:${slidingPanelContentWidth}px;
+		}
+		
+		div.tap5c_tab-set-personal {
+			position: absolute;
+			left: 197px;
+			top:110px;
+			height:${pnetTabSetHeight}px;
+			width:${pnetTabSetWidth}px;
+		}
+		.dropIndicator-personal {
+			position:absolute;
+			z-index:200;
+			top:140px;
+			left:-100;
+		}
+		.slidingpanel-toolbar-personal {
+			float: left;
+			background: #FEF5C7; 
+			overflow:hidden;
+			height:24px;
+			border-bottom: 1px solid #EED765;
+			width:${slidingPanelToolBarWidth}px;
+		}	
+	</style>
+	<script type="text/javascript">
+	var loadingMessage = '<t:Message value="prm.global.loading.message" />';
+	showLoadingDiv(loadingMessage);
+	var JSPRootURL = '${JSPRootURL}';
+	var moduleId = ${moduleId};
+	var spaceId = ${spaceId};
+	var userId = '${userId}';
+	var blogItFor = 'myAssignments';
+	var wikiItFor = 'myAssignments';
+	var validationMessageForBlogEntry = '${validationMessageForBlogEntry}';
+	var validationMessageForBlogComment = '${validationMessageForBlogComment}';
+	var noSelectionErrMes = '<t:Message value="prm.assignments.blogpost.noselection.message" />';
+	var assigneeOrAssignorParameter = '${assigneeOrAssignorParameter}';
+	var projectOptionsData = ${projectOptionsString};
+	var businessOptionsData = ${businessOptionsString};
+	var assignmentViewParameter = '${assignmentViewParameter}';
+	var myAssignmentsColumn = ${myAssignmentsColumn};
+	var myAssignmentsColumnSize = ${myAssignmentsColumnSize};
+	var defaultPageSize = ${defaultPageSize};
+	var startDisplayFrom = '${startDisplayFrom}';
+	var totalFilteredAssignments = ${totalFilteredAssignments};
+	var groupingParameter = '${groupingParameter}';
+	var rightPanelCollapsed = ${rightPanelCollapsed};
+	var rightPanelWidth = '${rightPanelWidth}';
+	var versionNumber = '${versionNumber}';
+	var isAgileWorkRemainingEnabled = ${isAgileWorkRemainingEnabled};
+	var actionsIconEnabled = ${actionsIconEnabled};
+	var userDateFormatString = "${userDateFormatString}";
+	var userDisplayName = '${userDisplayName}';
+	var assignmentTypesValue = [${assignmentTypesCSV}];
+	var percentCompleteValue = '${percentComplete}';
+	var assignmentNameComparatorValue = '${assignmentNameComparator}';
+	var percentCompleteComparatorValue = '${percentCompleteComparator}';
+	var projectValue = [${projectIdsCSV}];
+	var businessValue = '${businessId}';
+	var startDateValue = '${startDateString}';
+	var endDateValue = '${endDateString}';
+	var lateAssignmentCheck = '${lateAssignment}';
+	var comingDueDateCheck = '${comingDueDate}';
+	var shouldHaveStartCheck = '${shouldHaveStart}';
+	var inProgressCheck = '${inProgress}';
+	var assignmentNameValue = '${assignmentName}';
+	var numberOfLateAssignments	= ${numberOfLateAssignments};
+	var numberOfComingDueAssignments = ${numberOfComingDueAssignments};
+	var numberOfShouldHaveStartedAssignments = ${numberOfShouldHaveStartedAssignments};
+	var numberOfInProgressAssignments = ${numberOfInProgressAssignments};
+	var numberOfCompetedAssignments = ${numberOfCompletedAssignments};
+	var numberOfAllAssignments = ${numberOfAllAssignments};
+	var numberOfAllAssignedByMe = ${numberOfAllAssignedByMe};
+	var months = ${userLocaleMonthList};
+	var utilizationSummaryLinkTitle = '<t:Message value="prm.personal.assignments.myassignment.utilizationsummary.link" />';
+	var utilizationSummaryImageOn = '<t:Message value="prm.personal.assignments.myassignment.utilizationsummary.image.on" />';
+	var utilizationSummaryImageOver = '<t:Message value="prm.personal.assignments.myassignment.utilizationsummary.image.over" />';
+	var isBlogEnabled = '<t:Message value="prm.blog.isenabled" />' == '1';
+	var isWikiEnabled = '<t:Message value="prm.project.wiki.isenabled" />' == '1';
+	var noProjectTaskAvailableMsg = '${noProjectTaskAvailableMsg}';
+	var firstObjectId = '${assignmentListPage.firstAssignmentId}'
+	var assignmentTreeNodeId = 0;
+	var taskSpaceId;
+	var objectType;
+	var objectName, workSpaceName, workSpaceType;
+	var childTaskList='';
+	var activeTab = 'panel_MyAssignments';
+	var filterForm;
+	var assignmentListForm;
+	var firstAssignmentID = '${assignmentListPage.firstAssignmentId}';
+	var resizerDiv = 'assignmentList';
+	var listTable = 'assignmentListTable';
+	var listContainer = 'assignment-table-container';
+	var headerContainer = 'assignment-list-table-container-header';
+	var persistingColumnMessage = '<t:Message value="prm.personal.assignment.persistingcolumn.message"/>';
+	var noNodesToexpandMessage = '<t:message value="prm.personal.assignment.nonodestoexpand.message" />';
+	var noNodesToCollapseMessage = '<t:message value="prm.personal.assignment.nonodestocollapse.message" />';
+	var personProperty =  "${personalSettingsString}";
+	var allAssignmentsLink =  '<t:message value="prm.personal.assignment.allassignments.link" />';
+	var assignedByMeLink = '<t:message value="prm.personal.assignment.assignedbyme.link" />';
+	var completedAssignmentsLink = '<t:message value="prm.personal.assignment.completedassignments.link" />';
+	var inProgressLink =  '<t:message value="prm.personal.assignment.inprogress.link" />';
+    var comingDueLink = '<t:message value="prm.personal.assignment.comingdue.link" />';
+    var shouldHaveStartedLink = '<t:message value="prm.personal.assignment.shouldhavestarted.link" />'; 
+    var lateAssignmentsLink = '<t:message value="prm.personal.assignment.lateassignments.link" />';
+    var textFieldNameLabel = '<t:message value="prm.personal.resourceassignmentgrid.textfield.name.label" />';
+	var textFieldDescriptionLabel = '<t:message value="prm.personal.resourceassignmentgrid.textfield.description.label" />';
+	var numberFieldWorkLabel = '<t:message value="prm.personal.resourceassignmentgrid.numberfield.Work.label" />';
+	var startDateLabel = '<t:message value="prm.personal.resourceassignmentgrid.startdate.label" />'; 
+	var endDateLabel = '<t:message value="prm.personal.resourceassignmentgrid.duedate.label" />';
+	var resourceLabel = '<t:message value="prm.personal.resourceassignmentgrid.resource.label" />';
+	var wikiNotSupportedMsg = '<t:message value="prm.personal.wiki.doesnotsupportforobject.message" />';
+	var rightTebSetArray = new Array('blog-tab','wiki-tab','detail-tab');
+	var filterPreset = '<t:message value="prm.personal.assignment.filterpreset.header" />';
+	var assingPageWikiMenuItem = '<t:Message value="prm.wiki.tab.assignpagetotask.menu.caption" />';
+    var unassignPageWikiMenuItem = '<t:Message value="prm.personal.wiki.menu.unassignbutton.message" />';
+    var newAssignmentCancelLabel = '<t:message value="prm.personal.resourceassignmentgrid.cancel.button.label" />';
+    var wikiPagesFoundMessage = '<t:Message value="prm.wiki.tab.header.message" />';
+	var taskListInnerRow = 'task-list-inner-row';
+	var taskListRow = 'task-list-row';
+	var newAssignmentHeader = '<t:message value="prm.personal.resourceassignmentgrid.newassignment.header" />';
+	var selectResourceMessage = '<t:message value="prm.personal.resourceassignmentgrid.selectresource.message" />';
+	var percentAssignedMessage = '<t:message value="prm.personal.resourceassignmentgrid.percentassigned.message" />';
+	var waitingMessage = '<t:message value="prm.personal.resourceassignmentgrid.waiting.message" />';
+	var serverRequestFailedMessage = '<t:message value="prm.personal.resourceassignmentgrid.serverrequest.message" />';
+	var workErrorMessage = '<t:message value="prm.personal.resourceassignmentgrid.workerror.message" />';
+	var validDateMessage = '<t:message value="prm.personal.resourceassignmentgrid.invaliddate.message" />';
+	var validTaskMessage = '<t:message value="prm.personal.resourceassignmentgrid.invalidtaskname.message" />';
+	var taskDescriptionMessage = '<t:message value="prm.personal.resourceassignmentgrid.taskdescription.message" />';
+	var noHtmlContentMessage = '<t:message value="prm.personal.resourceassignmentgrid.verifyname.nohtmlcontent.message" />';
+	var selectTaskOrProject = '<t:message value="prm.personal.resourceassignmentgrid.taskorproject.message" />';
+	var utilizationTooltip = '<t:message value="prm.personal.resourceassignmentgrid.utilization.tooltip" />';
+	var resourcesLabel = '<t:message value="prm.personal.resourceassignmentgrid.resources.label" />';
+	var invalidDateMsg = '<t:Message value="prm.assignments.filter.invaliddate.message" />';
+	var dueDateEmptyText = '<t:Message value="prm.assignments.filters.duedate.emptytext" />';
+	var startDateEmptyText = '<t:Message value="prm.assignments.filters.startdate.emptytext" />';
+	var datesLbl = '<t:Message value="prm.assignments.filters.dates.label" />';
+	var dateFormatErr = '<t:Message value="prm.assignments.filters.invaliddateformat.errormessage" />';
+	var startDateErr = '<t:Message value="prm.assignments.filters.invalidstartdate.errormessage" />';
+	var dueDateErr = '<t:Message value="prm.assignments.filters.invalidduedate.errormessage" />';
+	var emptyStartDateErr = '<t:Message value="prm.assignments.filters.emptystartdate.errormessage" />';
+	var emptyDueDateErr = '<t:Message value="prm.assignments.filters.emptyduedate.errormessage" />';
+	var sDAfterDDateErr = '<t:Message value="prm.assignments.filters.startdateafterduedate.errormessage" />';
+	var requestFailedMsg = '<t:Message value="prm.global.requestfailed.error.message" />';
+	var clickToEditTooltip = '<t:Message value="prm.assignments.newassignment.clicktoedit.tooltip" />';
+	var projectTitle = '<t:Message value="prm.assignments.newassignment.project.label" />';
+	var entriesMessage = '<t:Message value="prm.twopaneview.blog.paging.entries.label" />';
+	var nextBlogPageTitle = '<t:Message value="prm.twopaneview.blog.paging.next.label" />';
+	var prevBlogPageTitle = '<t:Message value="prm.twopaneview.blog.paging.prevoius.label" />';
+	var noProjectTaskAvailableToBlogMsg = '<t:Message value="prm.assignments.blogpost.noprojectortaskavailable.message" />';
+	var wikiPagesNotFoundMessage = 	'<t:Message value="prm.twopaneview.tab.wiki.header.wikipagenotfound.message" />';
+	<!-- //	
+	function help() {
+		var helplocation=JSPRootURL+"/help/Help.jsp?page=personal_assignments";
+		openwin_help(helplocation);
+	}
+	
+	function setup(){
+		filterForm = self.document.fForm;
+		displayAssignmentsLinks();
+	    applyPersonalSettings();
+	    resizePanel();
+   	    removeLoadingDiv();
+   	    // Init Column Drag Drop 
+	    dragtable.init();
+	    //Sets previously selected grouping parameter
+	    setGroupingParameters();
+	    setDefaultFilterParameter();
+	    myAssignmentsHTML = document.getElementById('assignmentContainer').innerHTML;
+	}
+	
+	// apply mouse over style for table header td for sorting intutiveness
+	function moh(forTd) {
+		forTd.className = 'tableHeaderTd';
+	}
+	
+	function muh(forTd, className) {
+		forTd.className = className;	
+	}
+	//-->
+	</script>
+	<script type="text/javascript" src="${jSPRootURL}/src/dragtable.js?${versionNumber}"/>	
+	<script type="text/javascript" src="${jSPRootURL}/src/tablekit.js?${versionNumber}"/>  
+	<script type="text/javascript" src="${jSPRootURL}/src/wiki.js?${versionNumber}"/>	
+	<script type="text/javascript" src="${jSPRootURL}/src/assignmentsColumn.js?${versionNumber}"/>
+	<script type="text/javascript" src="${jSPRootURL}/src/myassignments.js?${versionNumber}"/>	
+	<script type="text/javascript" src="${jSPRootURL}/src/myassignmentsresizer.js?${versionNumber}"/>
+	<script type="text/javascript" src="${jSPRootURL}/src/workCapture.js?${versionNumber}"/>
+	<script type="text/javascript" src="${jSPRootURL}/src/components/myAssignments-taskAssignWindow.js?${versionNumber}"/>
+	<script type="text/javascript" src="${jSPRootURL}/src/TwoPaneView.js?${versionNumber}"/>
+	<t:ActionBox groupTitle="${leftHeaderMyAssignments}" buttons="create" caption="${newAssignmentLabel}"/>
+	<!-- Drop Zone indicator -->
+	<div id="dropIndicator" class="dropIndicator-personal" style="visibility: hidden;">
+		<img src="${asset:context:/images/default/grid/col-move-top.gif}" align="absmiddle"/>
+	</div>
+	<div id="pnettabset" class="tap5c_tab-set-personal">
+		<div id="container" style="width:${pnetTabSetWidth}px;">
+		<div class="tap5c_tab-set-panel activated" id="panel_MyAssignments" onclick="activate_tab('panel_MyAssignments');"><div class="defaultActiveTab-personl"><t:Message value="prm.personal.assignment.tab.label" /></div></div>
+		<div class="assignmentsTab-personal" id="panel_allAssignments" style="display:none;" onclick="activate_tab('panel_allAssignments');"><div class="assignmentTabText-personal"><t:message value="prm.personal.assignment.allassignments.link" /></div><div class="assignmentTabClose-personal"><img src="${asset:context:/images/personal/tab-close.gif}" onclick="closeTab('panel_allAssignments')" class="assignmentTabCloseIcon-personal"/></div></div>
+		<div class="assignmentsTab-personal" id="panel_assignedByMe" style="display:none;" onclick="activate_tab('panel_assignedByMe');"><div class="assignmentTabText-personal"><t:message value="prm.personal.assignment.assignedbyme.link" /></div><div class="assignmentTabClose-personal"><img src="${asset:context:/images/personal/tab-close.gif}" onclick="closeTab('panel_assignedByMe')" class="assignmentTabCloseIcon-personal"/></div></div>
+		<div class="assignmentsTab-personal" id="panel_completedAssignments" style="display:none;" onclick="activate_tab('panel_completedAssignments');"><div class="assignmentTabText-personal"><t:message value="prm.personal.assignment.completedassignments.tab.label" /></div><div class="assignmentTabClose-personal"><img src="${asset:context:/images/personal/tab-close.gif}" onclick="closeTab('panel_completedAssignments')" class="assignmentTabCloseIcon-personal"/></div></div>
+		<div class="assignmentsTab-personal" id="panel_inProgressAssignments" style="display:none;" onclick="activate_tab('panel_inProgressAssignments');"><div class="assignmentTabText-personal"><t:message value="prm.personal.assignment.inprogress.tab.label" /></div><div class="assignmentTabClose-personal"><img src="${asset:context:/images/personal/tab-close.gif}" onclick="closeTab('panel_inProgressAssignments')" class="assignmentTabCloseIcon-personal"/></div></div>
+		<div class="assignmentsTab-personal" id="panel_comingDue" style="display:none;" onclick="activate_tab('panel_comingDue');"><div class="assignmentTabText-personal"><t:message value="prm.personal.assignment.comingdue.tab.label" /></div><div class="assignmentTabClose-personal"><img src="${asset:context:/images/personal/tab-close.gif}" onclick="closeTab('panel_comingDue')" class="assignmentTabCloseIcon-personal"/></div></div>
+		<div class="assignmentsTab-personal" id="panel_shouldHaveStarted" style="display:none;" onclick="activate_tab('panel_shouldHaveStarted');"><div class="assignmentTabText-personal"><t:message value="prm.personal.assignment.shouldhavestarted.tab.label" /> </div><div class="assignmentTabClose-personal"><img src="${asset:context:/images/personal/tab-close.gif}" onclick="closeTab('panel_shouldHaveStarted')" class="assignmentTabCloseIcon-personal"/></div></div>
+		<div class="assignmentsTab-personal" id="panel_lateAssignments" style="display:none;" onclick="activate_tab('panel_lateAssignments');"><div class="assignmentTabText-personal"><t:message value="prm.personal.assignment.lateassignments.link" /></div><div class="assignmentTabClose-personal"><img src="${asset:context:/images/personal/tab-close.gif}" onclick="closeTab('panel_lateAssignments')" class="assignmentTabCloseIcon-personal"/></div></div>
+		</div>
+		<div class="tap5c_tab-set-content" id="pnetTabsetContent" >
+			<div class="tap5c_slidingpanel-personal" id="slidingpanel">
+			<div class="tap5c_slidingPanelSubject" id="slidingpanel_subject"> 
+				<div id="slidingpanel-toolbar" class="slidingpanel-toolbar-personal" >
+					<table  width="100%">
+						<tr>
+							<td nowrap="nowrap" class="toolbar-filter"><a class="wlink" id="filterToggler" href="javascript: toggleSlidingPanel();"><t:Message value="prm.schedule.taskview.link.filters.label"/></a></td> 
+							<td nowrap="nowrap" class="toolbar-filter"><div class="tap5c_slidingPanelSubject-toggler" id="slidingpanel_toggler" onclick="toggleSlidingPanel();"></div></td>
+							<td nowrap="nowrap" class="twopane-toolbar-data" id="epandall_all_link"><div class="expand_allicon" onclick="expand_all()" title="${expandAllTitle}"></div></td> 
+							<td nowrap="nowrap" class="twopane-toolbar-data"><font color="#BECCFB">|</font></td> 
+							<td nowrap="nowrap" class="twopane-toolbar-data" id="collaspe_all_link"><div class="collapse_allicon" onclick="collapse_all()" title="${collapseAllTitle}"></div></td>
+							<td nowrap="nowrap" class="twopane-toolbar-data" id="groupby-sep"><font color="#BECCFB">|</font></td> 
+							<td nowrap="nowrap" class="twopane-toolbar-data"> <div id="groupBy" class="dropDownMenuSource-personal" onclick="showGroupMenu(true, 'GroupByMenu', 'groupBy')"><t:message value="prm.personal.assignment.groupby.label" /></div></td>
+							<td nowrap="nowrap" class="twopane-toolbar-data" id="assignmenttype-sep"><font color="#BECCFB">|</font></td> 
+							<td nowrap="nowrap" class="twopane-toolbar-data"><div id="assignmentType" class="dropDownMenuSource-personal" onclick="showGroupMenu(true, 'AssignmentTypeMenu', 'assignmentType')"> <t:message value="prm.personal.assignment.assignmenttype.label" /> </div> </td>
+							<td nowrap="nowrap" class="twopane-toolbar-data" id="assignment-sep"><font color="#BECCFB">|</font></td> 
+							<td nowrap="nowrap" class="twopane-toolbar-data"><div id="assignments" class="dropDownMenuSource-personal" onclick="showGroupMenu(true, 'AssignmentsMenu', 'assignments')"> <t:message value="prm.personal.assignment.assignment.label" /></div></td>
+							<td width="100%"></td>
+							<td nowrap="nowrap" class="twopane-toolbar-data" id="column_settings_link"><div class="column_settingicon" onclick="openCustomizeColumnPopup()" title="${columnSettingsTitle}"></div></td>
+						</tr>
+					</table>
+				</div>
+				
+				<div id="rightTabSet" class="assignmentRightTabSet-personal" style="display:none;">	
+					<div class="right-tab active-right-tab" id="blog-tab" onclick="activate_rightTab('blog-tab');">	
+						<t:Message value="prm.schedule.taskview.tab.blogs.caption"/>
+					</div>
+					<div class="right-tab deactive-right-tab" id="wiki-tab" onclick="activate_rightTab('wiki-tab')">	
+						<t:Message value="prm.schedule.taskview.tab.wiki.caption"/>
+					</div>
+					<div class="right-tab deactive-right-tab" id="detail-tab" onclick="activate_rightTab('detail-tab')">
+						<t:Message value="prm.twopaneview.tab.detail.caption"/>
+					</div>
+					<div id="right-tab-scroll" class="right-tabs-bg disableSelection" onselectstart="return false" style="float: right;">
+						<div id="right-tab-scroll-previous" onclick="scrollRightTabSet('pre');"></div>
+						<div id="right-tab-scroll-next" onclick="scrollRightTabSet('next');"></div>
+					</div>
+				</div>
+				
+			</div>
+			<div class="tap5c_slidingPanelContent-personal" id="slidingpanel_content" style="display: none;">
+			<span>
+			    <div id="myassignments-filter">
+			    <form name="fForm" >
+					<table width="100%" cellpadding="0" cellspacing="0" border="0" class="assignmentFilterTable-personal">
+					<tr>
+						<!-- Left Side Content -->
+						<td width="57%" class="filtermain-left-cell">
+							<table cellpadding="0" cellspacing="0" border="0" width="100%">
+								<!-- Start Date Range -->
+								<tr>
+									<td class="label-cell top-padding-cell"><t:message value="prm.personal.assignment.filter.dates.label" />:</td>
+									<td class="filterPadding-personal" width="37%">
+										<div class="date-div">
+										<input type="text" name="fromDate" id="fromDate" size="10" maxlength="10" class="datefilter-tb-style" value="${startDateString}" onfocus="javascript:setDate(this);" onblur="javascript:changeDate(this);" />
+										<img src="${asset:context:/images/schedule/constraint.gif}" align="absmiddle" onclick="autoDate('fromDate', '${jSPRootURL}')" class="filter-calendar-img"/>
+										</div>
+									</td>
+									<td class="filter-date-separator" width="1%"><hr class="date-separator-line" /> </td>
+									<td class="filter-top-padding-cell-personal" width="37%">
+									<div class="date-div">
+										 <input type="text" name="toDate" id="toDate"  size="10" maxlength="10" class="datefilter-tb-style" value="${endDateString}" onfocus="javascript:setDate(this);" onblur="javascript:changeDate(this);" />
+										<img src="${asset:context:/images/schedule/constraint.gif}" align="absmiddle" onclick="autoDate('toDate', '${jSPRootURL}')" class="filter-calendar-img"/>
+									</div>	
+									</td>
+								</tr>
+								<!-- Task Name -->
+								<tr>
+									<td class="label-cell top-padding-innercell"><t:Message value="prm.personal.assignments.name.label"/></td>
+									<td class="top-padding-innercell" width="20%">
+										<select name="assignmentNameComparator" id="assignmentNameComparator"  class="compact-combo" >
+					                        <t:OutputRaw value="assignmentNameComparatorModel"/>
+					                    </select>
+									</td>
+									<td colspan="2" class="top-padding-innercell assignmentFilterPadding-personal" width="53%">
+										<input type="text" name="assignmentName" id="assignmentName" size="20" value="${assignmentName}" class="filter-tb-style"/>
+									</td>
+								</tr>
+								<!-- Work Percent Complete -->
+								<tr>
+										<td class="label-cell top-padding-innercell"><t:message value="prm.personal.assignment.filter.percentcomplete.label"/>:</td>
+										<td class="top-padding-innercell">
+											<select name="percentCompleteComparator" id="percentCompleteComparator" class="compact-combo">
+						                      	<t:OutputRaw value="workPercentCompleteComparatorModel"/>
+						                     </select>
+										</td>
+										<td colspan="2" class="top-padding-innercell assignmentFilterPadding-personal">
+											<input type="text" name="percentWorkComplete" id="percentWorkComplete" size="20" value="${percentComplete}" class="filter-tb-style"/>
+										</td>
+								</tr>
+								<!-- assignment type filter -->	
+								<tr><td colspan="2" class ="assignmentFilterTd-personal"><t:Message value="prm.personal.assignments.filter.show.assignments.label"/>:</td></tr>
+								<tr>
+									<td class ="right-label-cell"><input type="checkbox" name="allAssignments" id="allAssignments" checked="checked" onclick="allAssignmentsChecked();"/>&nbsp;<t:Message value="prm.personal.assignments.allassignments.label"/></td>
+									<td class ="right-label-cell"><input type="checkbox" name="shouldHaveStart" id="shouldHaveStart" onclick="setassignmentTypeChecked(this);" value="true"/>&nbsp;<t:Message value="prm.personal.assignments.shouldhavestarted.label"/></td>
+								</tr>
+								<tr>
+									<td class ="right-label-cell"><input type="checkbox" name="lateAssignment"  id="lateAssignment" onclick="setassignmentTypeChecked(this);" />&nbsp;<t:Message value="prm.personal.assignments.lateassignments.label"/></td>
+									<td class ="right-label-cell">
+										<input type="checkbox" name="inProgress" id="inProgress" onclick="setassignmentTypeChecked(this);" value="true"/>&nbsp;<t:Message value="prm.personal.assignments.inprogress.label"/>
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2" class ="right-label-cell"><input type="checkbox" name="assignmentComingDue" id="assignmentComingDue" onclick="setassignmentTypeChecked(this);" />&nbsp;<t:Message value="prm.personal.assignments.assignmentscomingdue.label"/></td>
+								</tr>
+							</table>
+						</td>
+						<!-- Right Side Content -->
+						<td width="50%" class="right-filtercell">
+							<table cellpadding="0" cellspacing="0" border="0" width="100%">
+								<!-- Show Task Label -->
+								<tr>
+									<td colspan="2" class="label-cell"><t:message value="prm.personal.assignment.filter.business.label" />:
+									 <select name="businessCombo" id="businessCombo" size="1" class="bussinessCombo-personal" value="${businessId}" onchange="bussinessChanges(this);">
+			                            <option value=""><t:Message value="prm.personal.assignments.alltypes.label"/></option>
+			                            <t:loop source="businesses" value="bussinessSpace">
+			                            <option value="${bussinessSpace.id}">${bussinessSpace.truncatedBussinessName}</option>
+			                            </t:loop>
+		                        	</select>
+									</td>
+								</tr>
+								<tr>
+									<td width="40%" colspan="2" class="right-label-cell label-cell">
+										<t:message value="prm.personal.assignment.filter.projectfilter.label" />:
+									</td>
+								</tr>
+								<tr>
+									<td colspan="2">
+									  <select name="workSpace" id="workSpace" size="5" multiple="multiple" class="projectCombo-personal">
+			                            <option value="0"><t:Message value="prm.personal.assignments.option.all.name"/></option>
+			                            <t:loop source="projects" value="project">
+			                            <option value="${project.projectId}">${project.truncatedProjectName}</option>
+			                            </t:loop>
+		                       		  </select>
+		                        	  <input type="hidden" name="spaceComboSelectedIndex" value="0"/>
+									</td>
+								</tr>
+								<!-- Clear All and Apply Button -->
+								<tr><td>&nbsp;</td> </tr>
+								<tr>
+									<td width="40%" class="assignmentFilterButtons-personal" align="right">
+										<input type="button" class="filter-button" value="${clearFilterLabel}" onclick="clearFilter();"/>
+									</td>
+									<td width="60%" class="assignmentFilterButtons-personal">
+										<input type="button" id="applyFilters" class="filter-button" value="${applyFilterLabel}" onclick="submitFilters();"/> 
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>     
+				</table>
+		      </form>
+			</div>
+			</span>
+			</div>
+			</div>
+		<!--Myassignment tab-->
+			<div id="MyAssignments" name="MyAssignments" class="myAssignmentDiv-personal" onmousemove="getPos(event)">
+				<table width="100%" cellpadding="0" cellspacing="0" id="myassignment-table">
+					<tr>
+					<td id="taskList" valign="top" height="80%" width="90%">
+						<div id="assignmentContainer">
+						<div id="assignments-list-header" class="assignments-list-header-personal">
+							<table id="assignment-list-table-container-header" width="${assignmentListTableContainerWidth}" cellpadding="0" cellspacing="0">
+								<tr>
+									<td>
+										<table cellspacing="0" id="assignmentListTable-header" name="tableWithEvenRows" class="resizable draggable disableSelection" cellpadding="0">
+											<!--table header rendering-->
+											<thead>
+												<tr align="left" height="22px" id="task-list-row">
+													<t:loop source="assignmentListPage.assignmentColumn.assignmentColumnList" value="assignmentListPage.assignmentColumn">
+														<t:if test="assignmentListPage.assignmentColumn.visible">
+															<th class="myAssignmentsHeaderTd"  id="thd_${assignmentListPage.assignmentColumn.id}" columnId="${assignmentListPage.assignmentColumn.id}" dragable="${assignmentListPage.assignmentColumn.dragable}" width="${assignmentListPage.assignmentColumn.width}" onmouseover="moh(this);TableKit.Resizable.initDetect(event);" onmouseout=" muh(this,'myAssignmentsHeaderTd'); TableKit.Resizable.killDetect(event);" onclick="javascript:sort('${assignmentListPage.assignmentColumn.defaultSequence}');">
+																<div class="div_thd_${assignmentListPage.assignmentColumn.id}" id="thd_${assignmentListPage.assignmentColumn.id}_divId" style="cursor: default;" onmousedown="javascript:dragtable.dragStart(event)">
+																	<t:OutputRaw value="assignmentListPage.assignmentColumn.header"/><img align="absmiddle" src="${jSPRootURL}/s.gif" style="visibility: hidden;" id="sort-img-${assignmentListPage.assignmentColumn.defaultSequence}" />
+																</div>
+															</th>
+														</t:if>
+													</t:loop>
+												</tr>
+											</thead>
+										</table>
+									</td>
+								</tr>
+							</table>
+					    </div>
+						<div id="assignmentList" name="assignmentList" class="assignmentListDiv-personal" onselectstart="return false" onscroll="javascript:scrollHeader('assignments-list-header','assignmentList');" >
+						<table id="assignment-table-container" width="${assignmentListTableContainerWidth}" cellpadding="0" cellspacing="0">
+							<tr>
+							<td>
+							<table cellspacing="0"  id="assignmentListTable" name="tableWithEvenRows"  class="resizable draggable disableSelection" cellpadding="0">
+								<thead>
+									<tr align="left" height="22px" id="task-list-inner-row">
+										<t:loop source="assignmentListPage.assignmentColumn.assignmentColumnList" value="assignmentListPage.assignmentColumn">
+											<t:if test="assignmentListPage.assignmentColumn.visible">
+												<th class="myAssignmentsHeaderTd"  id="thd_${assignmentListPage.assignmentColumn.id}_scroll" columnId="${assignmentListPage.assignmentColumn.id}" dragable="${assignmentListPage.assignmentColumn.dragable}" width="${assignmentListPage.assignmentColumn.width}">
+													<div class="div_thd_${assignmentListPage.assignmentColumn.id}" style="cursor: default;" onmousedown="javascript:dragtable.dragStart(event)">
+														<t:OutputRaw value="assignmentListPage.assignmentColumn.header"/>
+													</div>
+												</th>
+											</t:if>
+										</t:loop>
+									</tr>
+								</thead>
+								<t:loop source="assignmentList" value="node">
+									<tr level="${node.hierarchyLevel}" id="${node.assignment.objectID}_${node.id}" align="left" class="tableContent ${node.assignment.assignmentVisibilityCSS}" height="22px" onclick = "javascript:loadBlogForAssignment(this,'${node.assignment.objectID}', '${node.assignment.spaceID}', '${node.assignment.baseObjectType}', '${node.assignment.objectName}', '${node.assignment.workSpace}','${node.parentBaseObjectType}');" ondblclick="javascript:onGridRowDoubleClick('${node.assignment.objectID}','${node.assignment.baseObjectType}','${node.assignment.objectName}','${node.assignment.workSpace}');" onmouseover="mo(this);" onmouseout="mu(this)" kidsShown="${node.assignment.expanded}">
+										<td nowrap="nowrap" class="myssignmentListTabletd  ${node.assignment.assignmentTypeCss}" title="${node.assignment.objectName}"> 
+											<div class="div_thd_${assignmentListPage.assignmentColumn.assignmentName.id}">
+												<t:OutputRaw value="node.elbowLineHTML"/>
+												<t:unless test="node.leaf">
+													<t:if test="node.assignment.expanded">
+														<img src="${jSPRootURL}/u.gif" id="toggler${node.assignment.objectID}_${node.id}" onclick="toggleTree('${node.assignment.objectID}_${node.id}');" class="toggle-image" ondblclick="stopEventPropagationFor(event);"/>
+													<t:parameter name="else">
+														<img src="${jSPRootURL}/e.gif" id="toggler${node.assignment.objectID}_${node.id}" onclick="toggleTree('${node.assignment.objectID}_${node.id}');" class="toggle-image" ondblclick="stopEventPropagationFor(event);"/>
+													</t:parameter>
+													</t:if>
+													
+												</t:unless>
+												<t:if test="node.assignment.imageForAssignment">
+													<t:OutputRaw value="node.assignment.imageForAssignment"/>
+												</t:if>
+												<t:OutputRaw value="node.assignment.objectName" />
+											</div>
+										</td>
+										<t:loop source="node.sequensedAssignment" value="assignmentListPage.assignment">
+											<td nowrap="nowrap" class="myssignmentListTabletd"><div class="div_thd_${assignmentListPage.assignment.currentType}" ><t:OutputRaw value="assignmentListPage.assignment.currentSequencedData"/></div></td>
+										</t:loop>
+									</tr>
+								</t:loop>
+							</table>
+							</td>
+							</tr>
+						</table>
+						</div><!--	closing of assignmentlist div-->
+						</div><!-- closing of assignment container -->
+						<div  id="splitterBar" class="splitter-bar" onmousedown="setPos(event)" style="display:none;">
+							<table height="100%" cellspacing="0" cellpadding="0" valign="middle">
+								<tr><td><img onclick="toggleRightPanel(true);" style="cursor:pointer;" src="${jSPRootURL}/images/personal/close.gif"/></td></tr>
+							</table>
+						</div>
+						<div id="splitterBarShadow" class="splitter-bar" style="display:none;"></div>
+						
+					</td><!--	closing of schedule tasklist td-->
+			
+					<td width="10%" id="blogsDiv" valign="top" height="80%">
+				    	<table id="blogsExpanded" width="100%" height="100%" cellpadding="0" cellspacing="0" class="blogsExpanded-personal" style="display:none;">
+					        <tr>
+					        	<td valign="top" align="right">
+					        		<div id="taskBlogDivRight" class="disableSelection contentDivs" onselectstart="return false;">
+					        			<div class="two-pane-right-top" id="blogDivTop"><t:Message value="prm.personal.assignments.blog.selecttask.message"/></div>
+					        			<div id="blog-tab-paging" style="display: none;"></div>
+			        					<div id="blogDivBody" class="two-pane-mini-tab-content"></div>
+					        		</div>
+					        		<div id="taskWikiDivRight" class="contentDivs" style="display: none;overflow: hidden" onselectstart="return false;">
+			        					<div class="two-pane-right-top"  id="wikiDivTop"><t:Message value="prm.personal.assignments.wiki.selecttask.message"/></div>
+					        			<div id="wikiDivBody" class="two-pane-mini-tab-content"></div>
+			        				</div>
+					        		<div id="wikiMenu" style="display: none;">
+			        					<a class="wikiLinks" id="wikiMenuLink" onclick="showWikiSubMenu(true)">
+			        						<t:Message value="prm.wiki.tab.menu.caption" />&nbsp;<img src="${asset:context:/images/default/grid/sort_asc.gif}" id="wikiMenuImg" onclick="showWikiSubMenu(true)"/>
+			        					</a>
+			        				</div>
+			        				<div id="taskDetailsDivRight" class="contentDivs" style="display: none;overflow: auto" onselectstart="return false;">
+			        					<div class="two-pane-right-top"><t:Message value="prm.twopaneview.detail.selectobject.message"/></div>
+			        				</div>
+						        </td>
+							</tr>
+				        </table>
+				        <table id="blogsCollapsed"  height="${tabContentHeight}px;" cellspacing="0" cellpadding="0" valign="middle">
+							<tr><td class="right-pane-closed" valign="middle" height="100%"><img onclick="toggleRightPanel(false);" style="cursor:pointer;" src="${jSPRootURL}/images/personal/open.gif"/></td></tr>
+						</table>
+					</td><!--	closing of Myassignments blog td-->
+					</tr><!--	closing of Myassignments tr-->
+				</table><!--	closing of Myassignments table-->
+			</div><!--	closing of Myassignments div-->
+		
+			<!--	Timeline tab-->
+			<div id="TimeLine" style="display:none;width:100%;height:450px;float:left;">
+		    </div>
+		   <div id="bottom-bar" style="width: ${bottomBarWidth}px;">
+				<div id="assignments_info_div">
+			   		<table id="assignments_info_table" width="100%"> 
+						<tr>
+							<td nowrap="nowrap" width="80%" class="tableFilterControl"><t:message value="prm.personal.assignment.totalassignment.gridfooter.label" /> &nbsp;<b><span id="assignmentTotalCount">${totalFilteredAssignments}</span></b></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div><!-- closing of pnettabset -->
+	
+	<div id="GroupByMenu" class="dropDownMenu-personal" style="display: none;" >
+		<table cellpadding="0" cellspacing="5" width="100%" id="groupByTable">
+			<tr onmouseover="this.className='dropDownOver'" onmouseout="this.className='dropDownOut'" onclick="javascript:setGroupingParameter(document.getElementById('groupByBussiness'),'Business');" class="dropDownTableTr" id="pussines">
+				<td> <input type="checkbox" name="groupByBussiness" id="groupByBussiness"  onclick ="javascript:onGroupItemCheck('Business',document.getElementById('groupByBussiness').checked),groupByBusinessChecked = true;"  /><span class="dropdownSpan-personal"><t:message value="prm.personal.assignment.groupbybusiness.text" /></span></td>
+			</tr>
+			<tr class="row_separator">
+				<td></td>
+			</tr>
+			<tr onmouseover="this.className='dropDownOver'" onmouseout="this.className='dropDownOut'" onclick="javascript:setGroupingParameter(document.getElementById('groupByProject'),'Project');" class="dropDownTableTr" id="project">
+				<td> <input type="checkbox" name="groupByProject" id="groupByProject"  onclick ="javascript:onGroupItemCheck('Project',document.getElementById('groupByProject').checked),groupByBusinessChecked = true;"/><span class="dropdownSpan-personal"><t:message value="prm.personal.assignment.groupbyproject.text" /></span></td>
+			</tr>
+			<tr class="row_separator">
+				<td></td>
+			</tr>
+			<tr onmouseover="this.className='dropDownOver'" onmouseout="this.className='dropDownOut'" onclick="javascript:setGroupingParameter(document.getElementById('groupByAssignment'),'Assignment');" class="dropDownTableTr" id="assignment">
+			<td> <input type="checkbox" name="groupByAssignment" id="groupByAssignment" checked="true" disabled="disabled" onclick ="javascript:onGroupItemCheck('Assignment',document.getElementById('groupByAssignment').checked),groupByBusinessChecked = true;"/><span class="dropdownSpan-personal"><t:message value="prm.personal.assignment.groupbyassignment.text" /></span></td>
+			</tr>
+		</table>
+	</div>
+		
+	<div id="AssignmentTypeMenu" class="dropDownMenu-personal" style="display: none;" >
+		<table cellpadding="0" cellspacing="5" width="100%" id="AssignmentTypeTable">
+			<tr onmouseover="this.className='dropDownOver'" onmouseout="this.className='dropDownOut'" onclick="javascript:setAssignmentTypeParameter(document.getElementById('meeting'));" class="dropDownTableTr" id="pussines">
+				<td> <input type="checkbox" name="groupByMeeting" id="meeting"  onclick ="onAssignmentTypeItemCheck(),assignmentTypeChecked = true;"  /><span class="dropdownSpan-personal"><t:message value="prm.personal.assignment.assignmenttypemeeting.text" /></span></td>
+			</tr>
+			<tr class="row_separator">
+				<td></td>
+			</tr>
+			<tr onmouseover="this.className='dropDownOver'" onmouseout="this.className='dropDownOut'" onclick="javascript:setAssignmentTypeParameter(document.getElementById('task@data'));" class="dropDownTableTr" id="Task">
+				<td> <input type="checkbox" name="groupByTask" id="task@data"  onclick ="onAssignmentTypeItemCheck(),assignmentTypeChecked = true;"/><span class="dropdownSpan-personal"><t:message value="prm.personal.assignment.assignmenttypetask.text" /></span></td>
+			</tr>
+			<tr class="row_separator">
+				<td></td>
+			</tr>
+			<tr onmouseover="this.className='dropDownOver'" onmouseout="this.className='dropDownOut'" onclick="javascript:setAssignmentTypeParameter(document.getElementById('form_data'));" class="dropDownTableTr" id="Form">
+			<td> <input type="checkbox" name="groupByForm" id="form_data"  onclick ="onAssignmentTypeItemCheck(),assignmentTypeChecked = true;"/><span class="dropdownSpan-personal"><t:message value="prm.personal.assignment.assignmenttypeform.text" /></span></td>
+			</tr>
+		</table>
+</div>	
+
+<div id="AssignmentsMenu" class="dropDownMenu-personal" style="display: none;" >
+	<table cellpadding="0" cellspacing="5" width="100%" id="AssignmentsTable">
+		<tr onmouseover="this.className='dropDownOver'" onmouseout="this.className='dropDownOut'" onclick="javascript:setAssignmentsParameter(document.getElementById('assignee'));" class="dropDownTableTr" id="pussines">
+			<td> <input type="checkbox" name="assignee" id="assignee"  onclick ="onAssignorOrAssigneeMenuItemCheck(),assignmentsChecked = true;"  /><span class="dropdownSpan-personal"><t:message value="prm.personal.assignment.assignororassignee.assignedtome.text" /></span></td>
+		</tr>
+		<tr class="row_separator">
+			<td></td>
+		</tr>
+		<tr onmouseover="this.className='dropDownOver'" onmouseout="this.className='dropDownOut'" onclick="javascript:setAssignmentsParameter(document.getElementById('assignor'));" class="dropDownTableTr" id="Task">
+			<td> <input type="checkbox" name="assignor" id="assignor"  onclick ="onAssignorOrAssigneeMenuItemCheck(),assignmentsChecked = true;"/><span class="dropdownSpan-personal"><t:message value="prm.personal.assignment.assignororassignee.assignedbyme.text" /></span></td>
+		</tr>
+	</table>
+</div>
+
+<div id="wikiSubMenu" class="wikiSubMenu-personal" style="display: none;">
+	<table cellpadding="0" cellspacing="5" width="100%" id="wikiMenuTable">
+		<tr onmouseover="this.className='wikiMenuHover'" onmouseout="this.className='wikiMenuOut'" onclick="javascript:function disable(){}" id="backPageIndex">
+			<td><t:Message value="prm.wiki.tab.backtopage.menu.caption" /></td>
+		</tr>
+		<tr class="rowSeparator">
+			<td></td>
+		</tr>
+		<tr onmouseover="this.className='wikiMenuHover'" onmouseout="this.className='wikiMenuOut'" onclick="javascript:function disable(){}" id="editWikiPage">
+			<td><t:Message value="prm.wiki.tab.edit.menu.caption" /></td>
+		</tr>
+		<tr class="rowSeparator">
+			<td></td>
+		</tr>
+		<tr onmouseover="this.className='wikiMenuHover'" onmouseout="this.className='wikiMenuOut'" onclick="javascript:function disable(){}" id="cancelWikiPage">
+			<td><t:Message value="prm.wiki.tab.cancel.menu.caption" /></td>
+		</tr>
+		<tr class="rowSeparator">
+			<td></td>
+		</tr>
+		<tr onmouseover="this.className='wikiMenuHover'" onmouseout="this.className='wikiMenuOut'" onclick="javascript:function disable(){}" id="assignSelected">
+			<td><t:Message value="prm.wiki.tab.assignpagetotask.menu.caption" /></td>
+		</tr>
+	</table>
+</div>
+</t:PersonalLayout>

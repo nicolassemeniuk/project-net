@@ -1,0 +1,452 @@
+main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: main
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+main."Add Gate":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Add Gate"
+}
+main."Add Task":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Add Task"
+}
+main."Add to Workflow":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Add to Workflow"
+}
+main.Cancel:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Cancel
+}
+main.Cancel_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Cancel
+}
+main."Capture Work":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Capture Work"
+}
+main.Copy:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Copy
+}
+main.Create:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Create
+}
+main."Create Deliverable":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Create Deliverable"
+}
+main."Create Modify Remove Refresh Properties Copy Link Add to Workflow Sear":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 0
+}
+main."Create Phase":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Create Phase"
+}
+main."Deliverable Test":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Deliverable Test"
+}
+main."Deliverable Test1":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Deliverable Test1"
+}
+main."Deliverable Test2":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Deliverable Test2"
+}
+main.Help:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Help
+}
+main.Link:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Link
+}
+main.Modify:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Modify
+}
+main.Modify_1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Modify,
+ location: 1
+}
+main.Notify:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Notify
+}
+main.Phase1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Phase1
+}
+main.Phase2:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Phase2
+}
+main.Phase3:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Phase3
+}
+main.Phase4:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Phase4
+}
+main.Process:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Process
+}
+main.Properties:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Properties
+}
+main.Refresh:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Refresh
+}
+main.Remove:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Remove
+}
+main.Reset:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Reset
+}
+main.Reset_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Reset
+}
+main.Search:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Search
+}
+main.Security:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Security
+}
+main.Submit:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Submit
+}
+main.Submit_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Submit
+}
+main.WRProject:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: WRProject
+}
+main."actionbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 3
+}
+main."actionbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-left_end.gif"
+}
+main."actionbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "actionbar-right_end.gif"
+}
+main.calendar:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "calendar.gif",
+ location: 0
+}
+main.calendar_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "calendar.gif",
+ location: 1
+}
+main."channelbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 2
+}
+main."channelbar-left_end_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-left_end.gif"
+}
+main."channelbar-right_end":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "channelbar-right_end.gif"
+}
+main.deliverablecomments:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: deliverablecomments
+}
+main.deliverabledesc:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: deliverabledesc
+}
+main.deliverablename:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: deliverablename
+}
+main.deliverableoptional:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: deliverableoptional
+}
+main.deliverablestatus:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: deliverablestatus
+}
+main.dsd:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: dsd
+}
+main.enddate:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: enddate
+}
+main.gatedate:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: gatedate
+}
+main.gatedesc:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: gatedesc
+}
+main.gatename:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: gatename
+}
+main.gatestatus:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: gatestatus
+}
+main.html_combobox:
+{
+ class: list,
+ MSW_class: html_combobox
+}
+main.html_combobox_0:
+{
+ class: list,
+ MSW_class: html_combobox,
+ location: 0
+}
+main.html_combobox_1:
+{
+ class: list,
+ MSW_class: html_combobox,
+ location: 1
+}
+main.percentcomplete:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: percentcomplete
+}
+main.phasedesc:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: phasedesc
+}
+main.phasename:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: phasename
+}
+main.phasestatus:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: phasestatus
+}
+main.processdesc:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: processdesc
+}
+main.processname:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: processname
+}
+main.progressReportingMethod:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: progressReportingMethod,
+ part_value: schedule
+}
+main.progressReportingMethod_1:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: progressReportingMethod,
+ part_value: manual
+}
+main.sequence:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: sequence
+}
+main.startdate:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: startdate
+}
+main.t1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: t1
+}
+main.trans:
+{
+ class: object,
+ MSW_class: html_table,
+ location: 1
+}
+main.trans_1:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 0
+}
+main.trans_2:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "trans.gif",
+ location: 1
+}
+menu:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: menu
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+menu.Process:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Process
+}

@@ -1,0 +1,44 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>personal_blog_add_comment_test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">personal_blog_add_comment_test</td></tr>
+</thead><tbody>
+<tr>
+	<td>click</td>
+	<td>link=add a comment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForCondition</td>
+	<td>selenium.page().bodyText().indexOf(&quot;Cancel&quot;) &gt; -1 </td>
+	<td>10000</td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>Add Comment</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>document.getElementById('blogCommentContent').value = &quot;this is selenium text comment&quot;; </td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScriptAndWait</td>
+	<td>document.getElementById('form').submit(); </td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyTextPresent</td>
+	<td>this is selenium text comment</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

@@ -1,0 +1,755 @@
+html,body {
+	font: normal 12px verdana;
+	margin: 0;
+	padding: 0;
+	border: 0 none;
+	overflow-y: auto;
+	overflow-x: auto;
+}
+
+#assignmentListTable th {
+	padding-left: 5px;
+	font-family: arial, tahoma, helvetica, sans-serif;
+	font-size: 12px;
+	color: black;
+	height :22px;
+}
+
+#assignmentListTable td{
+	padding: 3px 3px 3px 5px;
+	font-family: arial, tahoma, helvetica, sans-serif;
+	font-size: 12px;
+	border-bottom: 1px solid;
+	border-color: #FFFFFF #EDEDED #EDEDED;
+
+}
+
+#assignmentListTable-header th {
+	padding-left: 5px;
+	height :22px;
+	font-family:arial,tahoma,helvetica,sans-serif;
+	font-size:12px;
+	color:#737373;
+	font-weight: bold;
+}
+
+.myAssignmentsHeaderTd {
+	border-left: 1px solid #EEEEEE;
+	border-right: 1px solid #D0D0D0;
+	background: #F9F9F9 url(../images/default/grid/grid3-hrow.gif) repeat-x
+		scroll 0 bottom;
+	line-height: 14px;
+	vertical-align: middle;
+	height:22px;
+	padding-right : 5px;
+}
+
+.myssignmentListTabletd {
+	border-bottom: 1px solid #EDEDED;
+	border-color: #FFFFFF #EDEDED #EDEDED;
+	padding-left: 5px;
+}
+
+.tableFilterHeader {
+	background-color: #CCD8FE !important;
+	color: #333399;
+	text-overflow: ellpsis;
+}
+
+.visible {
+	visibility: visible;
+}
+
+.hidden {
+	display: none ! IMPORTANT;
+}
+
+a#filters img {
+	width: 36px;
+	height: 16px;
+	border-width: 0;
+	background: top left no-repeat;
+}
+
+a#filters {
+	padding: 0px;
+	width: 36px;
+	height: 16px;
+	background-image: url(../images/schedule/filters.gif);
+	background-repeat: no-repeat;
+}
+
+a#filters :hover {
+	padding: 0px;
+	width: 36px;
+	height: 16px;
+	background-image: url(../images/schedule/filters-pressed.gif);
+}
+
+.expandall-icon {
+	background:
+		url(../src/extjs/resources/images/default/tree/expand-icon.gif)
+		no-repeat !important;
+	height: 20px;
+}
+
+.collapseall-icon {
+	background:
+		url(../src/extjs/resources/images/default/tree/collapse-icon.gif)
+		no-repeat !important;
+	height: 20px;
+}
+
+div.tap5c_tab-set-panel {
+	background: transparent url(../images/personal/active-tab.gif)
+		no-repeat scroll left center;
+	border: none;
+	color: black;
+	cursor: pointer;
+	float: left;
+	margin-left: 0;
+	padding: 0;
+	width: 130px;
+	height: 20px;
+	text-align: center;
+	margin-right: 3px;
+}
+
+.assignmentsTab-personal {
+	background:transparent url(../images/personal/inactive-tab.gif) no-repeat scroll left center;
+	border: none;
+	color: black;
+	cursor: pointer;
+	float: left;
+	margin-left: 0;
+	padding: 0;
+	width: 124px;
+	height: 20px;
+	margin-right: 3px;
+	padding-left: 5px;
+	text-align: center;
+}
+
+div.tap5c_tab-set {
+	position: absolute;
+	left: 197px;
+	/*height: 100%;*/
+	width: 84%;
+	
+}
+
+div.tap5c_tab-set-content {
+	border-top: 1px solid #EED765;
+	border-bottom: 1px solid #EED765;
+	border-left: 1px solid #EED765;
+	border-right: 1px solid #EED765;
+	clear: left;
+	padding: 0px;
+	width: 99%;
+	
+	/*overflow-y:scroll;*/
+}
+
+div.tap5c_slidingPanelSubject {
+	-moz-user-select: none;
+	background: #CCD8FE;
+	font-weight: bold;
+	/*padding-bottom:5px;*/ /*padding-left:5px;
+	padding-right:3px;
+	/*padding-top:5px;*/
+	text-align: left;
+}
+
+div.tap5c_slidingPanelContent {
+	background: #FEF5C7;
+	border-bottom: 1px solid #EED765;
+	border-left: 1px solid #EED765;
+	border-right: 1px solid #EED765;
+	overflow: hidden;
+	padding-bottom: 5px;
+	padding-left: 5px;
+	text-align: left;
+	float: left;
+	width: 1104px;
+}
+
+.tap5c_sidepanel {
+	display: block;
+	left: 800px;
+	position: absolute;
+	top: 20px;
+}
+
+.button {
+	font-family: arial, helvetica;
+	font-size: 12px;
+	height: 25px;
+	text-align: center;
+}
+
+.disabled {
+	text-decoration: none;
+	color: Silver;
+}
+
+.enabled {
+	color: #3399FF;
+	list-style-image: none;
+	list-style-position: outside;
+	list-style-type: none;
+	text-decoration: none;
+}
+
+DIV.activated {
+	font-weight: bold;
+}
+
+div.tap5c_slidingPanelSubject-toggler {
+	background-image: url("../images/personal/channelbar-minimized.gif");
+	cursor: pointer;
+	float: left;
+	height: 15px;
+	margin-right: 5px;
+	margin-top: 0;
+	overflow: hidden;
+	width: 20px;
+}
+
+div.tap5c_slidingPanelSubject-toggler-collapse {
+	background-image: url("../images/personal/channelbar-maximized.gif");
+	cursor: pointer;
+	float: left;
+	height: 15px;
+	margin-right: 5px;
+	margin-top: 0;
+	overflow: hidden;
+	width: 20px;
+}
+
+/*status bar style to act as the bottom border of the div*/
+.splitter-bar {
+	cursor: e-resize;
+	position: absolute;
+	display: block;
+	background-color:#FEF5C7;
+	top: 20px;
+	padding: 0;
+	width: 4px;
+	border: 1px solid;
+	border-color: #EED765;
+}
+
+#blog-div {
+	position: absolute;
+	display: block;
+	top: 54px;
+	left: 892px;
+	height: 475px;
+	padding: 0;
+	width: 225px;
+}
+
+.collapse-right-toggler {
+	background: transparent url(../images/tool-sprites.gif) no-repeat scroll
+		0 -165px;
+	background-color: #CCD8FE;
+	cursor: pointer;
+	float: left;
+	height: 15px;
+	margin-right: 5px;
+	margin-top: 0;
+	overflow: hidden;
+	width: 15px;
+}
+
+.expand-right-toggler {
+	background: transparent url(../images/tool-sprites.gif) no-repeat scroll
+		0 -180px;
+	background-color: #CCD8FE;
+	cursor: pointer;
+	float: left;
+	height: 15px;
+	margin-right: 5px;
+	margin-top: 0;
+	overflow: hidden;
+	width: 15px;
+}
+
+.disableSelection {
+	user-select: none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+}
+
+.blogDivTop, .wikiDivTop{
+	border-bottom: 1px solid #EED765;
+	border-right: 1px solid #EED765;
+	background-color: #FEF5C7;
+	padding: 5px 0px 5px 15px;
+	color: #999999;
+}
+
+.tableFilterHeader {
+	background-color: #FEF5C7 !important;
+	color: #333399;
+	text-overflow: ellpsis;
+}
+
+.dropDownMenuSource-personal {
+	cursor: pointer;
+	color: #3399FF;
+}
+
+.dropDownMenu-personal {
+	position: absolute;
+	background: #FEF5C7;
+	border: 2px solid #EED765;
+	width: 128px;
+	position:absolute
+}
+
+.dropDownTableTr {
+	cursor: help;
+	color: gray;
+}
+
+.dropDownOver {
+	background: #EED765;
+}
+
+.dropDownOut {
+	background: #FEF5C7;
+}
+
+.dropDownEnable {
+	color: black;
+	cursor: pointer;
+}
+
+.row_separator {
+	background: #EED765;
+	height: 2px;
+}
+
+.hidden {
+	display: none ! IMPORTANT;
+}
+
+.wlink{
+	color:#3399FF;
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+	text-decoration:none;
+	font-size: 11px;
+}
+
+#bottom-bar{
+	border-top:1px solid #EED765;
+	clear:left;
+	width:100%;
+}
+#assignments_info_div{
+	padding: 0px 0px 3px 3px; 
+	overflow: hidden; 
+	font-size: 11px;
+}
+
+#assignments_info_table td{
+	padding: 3px 3px 3px 5px;
+}
+
+.business{
+	color :green;
+}
+
+.project{
+	color :blue;
+}
+img{
+	vertical-align: middle;
+}
+.tableFilterControl {
+	font-size: 11px;
+}
+
+
+
+div#viewHiddenRightTabs {
+	text-align: right;
+	position: absolute;
+}
+
+img#scrollImg {
+	height: 19px;
+	cursor: pointer;
+}
+
+div#wikiMenu {
+	text-align: left;
+	padding-left: 7px;
+	background: #FEF5C7;
+	height: 20px;
+	border-bottom:1px solid #EED765;
+	border-top:1px solid #EED765;
+	font-weight: bold;
+	padding-top: 5px;
+}
+
+div#wikiSubMenu {
+	position: absolute;
+	background:#FEF5C7;
+	border: 2px solid #EED765;
+}
+
+#wikiMenuTable tr{
+	cursor: help;
+	color: gray;
+}
+
+.wikiMenuHover {
+	background: #EED765;
+}
+
+.wikiMenuOut {
+	background: #FEF5C7;
+}
+
+.wikiMenuEnable {
+	color: black;
+	cursor: pointer;
+}
+
+.rowSeparator {
+	background: #EED765;  
+	height: 2px;
+}
+
+.acustomize-column-div{
+	overflow:auto;
+	height:94px;
+	vertical-align: top; 
+	border-left:3px solid #EED765;
+	border-right:3px solid #EED765;
+	border-bottom:1px solid #EED765;
+}
+
+.acustomize-column-bottom{
+	background-color: #F9F9F9;
+	padding: 3px;
+	border-left:3px solid #EED765;
+	border-right:3px solid #EED765;
+	border-bottom:3px solid #EED765;
+}
+
+th.resize-handle-active {
+	cursor: e-resize;
+}
+
+div.resize-handle {
+	cursor: e-resize;
+	width: 2px;
+	border-right: 1px dashed #1E90FF;
+	position:absolute;
+	top:0;
+	left:0;
+}
+
+#assignmentListTable {
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+#assignmentListTable-header {
+	border-collapse: collapse;
+	table-layout: fixed;
+}
+
+#container {
+ position: relative;
+ height: 20px;
+ overflow: hidden;
+}
+
+.tableHeaderTd {
+	border-left:1px solid #EEEEEE;
+	border-right:1px solid #D0D0D0;
+	background:#F9F9F9 url(../images/default/grid/grid3-hrow-over.gif) repeat-x scroll 0 bottom;
+	line-height:14px;
+	vertical-align:middle;  
+	text-align: left;
+	padding-right : 5px;
+}
+
+.x-window-mc{
+	margin-left: 0px;
+}
+
+.title-only-entry{
+	padding-left:20px;	
+}
+
+.date-div {
+	border-top: 1px solid #B2B7BD;
+	border-bottom: 1px solid #B2B7BD;
+	border-left: 1px solid #B2B7BD;
+	border-right: 1px solid #B2B7BD;
+	background: #FFFFFF;
+	height: 20px;
+}
+
+.datefilter-tb-style {
+	border: 1px solid #FFFFFF;
+	width: 82%;
+	height: 13px;
+	color: #A1A1A1;
+	vertical-align: middle;
+	font-family: Arial;
+	padding-top: 5px;
+}
+
+.filter-date-separator {
+	padding-right: 2px;
+	padding-left: 2px;
+}
+
+.date-separator-line {
+	width:10px;
+	background: gray;
+}
+
+.top-padding-innercell {
+	padding-top: 3px;
+}
+
+.filter-tb-style {
+	border-bottom:1px solid #B2B7BD;
+	border-top:1px solid #B2B7BD;
+	border-left:1px solid #B2B7BD;
+	border-right:1px solid #B2B7BD;
+	width: 97%;
+	height: 17px;
+	padding-top: 2px;
+}
+
+.right-filtercell {
+	padding-left: 10px;
+}
+
+.right-label-cell {
+	color: #292B2E;
+	font-size: 11px;
+	font-weight: normal;
+	height: 21px;
+}
+
+.filter-button {
+	width: 109px;
+	color: black;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+.filter-calendar-img {
+	cursor: pointer;
+	padding-right: 2px;
+}
+
+.compact-combo {
+	width: 100%;
+	border-top: 1px solid #B2B7BD;
+	border-bottom: 1px solid #B2B7BD;
+	border-right: 1px solid #B2B7BD;
+	border-left: 1px solid #B2B7BD;
+	color: black;
+	height: 21px;
+	font-weight: normal;
+}
+.label-cell {
+	color: #656565;
+	font-size: 11px;
+	font-weight: bold;
+	width: 28%;
+}
+
+.filtermain-left-cell {
+	border-right: 1px solid #B0C1F9;
+}
+
+.blogsExpanded-personal {
+	border:0px solid #CCD8FE; 
+}
+
+.wikiLinks {
+	color: #3399FF;
+}
+
+.dropdownSpan-personal {
+	padding-left:5px;
+}
+
+.wikiSubMenu-personal {
+	 width: 190px;
+}
+
+.assignmentFilterButtons-personal {
+	padding-left: 10px;
+	padding-top:5px;
+}
+
+.projectCombo-personal {
+	width:318px;
+	font-size: 12px;
+}
+
+.bussinessCombo-personal {
+	width:259px;
+	font-size: 12px;
+}
+
+.assignmentFilterTd-personal {
+	padding-top:5px;
+	padding-bottom:3px;
+	color: #656565;
+	font-size: 11px;
+	font-weight: bold;
+	width: 28%;
+}
+
+.assignmentFilterPadding-personal {
+	padding-left:5px;
+}
+
+.assignmentFilterTable-personal {
+	padding-top:5px;
+}
+
+.filter-top-padding-cell-personal {
+	padding-right:5px;
+}
+.filterPadding-personal {
+	padding-left:1px;
+}
+
+.assignmentRightTabSet-personal {
+	float:left; 
+	background: #FFEA87;
+	height: 24px;
+	width: 10%;
+}
+
+.assignmentToolBarTdPadding-personal {
+	padding-left:5px;
+}
+
+.twopane-toolbar-data{
+	padding-left: 10px;
+}
+
+.toolbar-filter{
+	width: 15px;
+	padding-top: 2px;
+}
+
+.tap5c_slidingpanel-personal {
+	width: 100%;
+}
+
+.defaultActiveTab-personl {
+	padding-top: 3px;
+}
+
+.assignmentTabText-personal {
+	padding-top: 3px;
+	width:113px;
+	height:20px;
+	float:left;
+	overflow:hidden;
+}
+
+.assignmentTabClose-personal {
+	float:left;
+}
+
+.assignmentTabCloseIcon-personal {
+	vertical-align:top;
+}	
+
+.right-tab{
+	border-top : 1px solid #EED765;
+	border-right: 1px solid #EED765;
+}
+
+.active-right-tab {
+	background: #FEF5C7;
+	color: black;
+}
+
+.deactive-right-tab {
+	background: #FEEEA1;
+	color: #6776A6;
+}
+
+.resourceTD{
+	border:  1px solid #EED765;
+	padding-left: 5px;
+}
+.toggle-image{
+	padding-right: 2px;
+}
+
+.right-pane-closed {
+	border: 1px solid #EED765;
+	border-right: none;
+	background: #FEF5C7;
+}
+
+.column_settingicon{
+	background-image: url("../images/personal/column_settings.gif");
+	background-repeat: no-repeat;
+	cursor: pointer;
+	width: 15px;
+	height: 15px;
+	padding-right: 5px;
+}
+
+.expand_allicon{
+	background-image: url("../images/personal/expand_all.gif");
+	background-repeat: no-repeat;
+	cursor: pointer;
+	width: 15px;
+	height: 15px;
+}
+
+.collapse_allicon{
+	background-image: url("../images/personal/collapse_all.gif");
+	background-repeat: no-repeat;
+	cursor: pointer;
+	width: 15px;
+	height: 15px;
+}
+
+.two-pane-mini-tab-content {
+	overflow: auto;
+	text-align: left;
+	margin-right: 0.5px;
+}
+
+#blog-tab-paging{
+	width: 100%; 
+	text-align: right;
+	background: #FEF5C7;
+	border-bottom: 1px solid #EED765;
+	margin-right: 5px;
+}
+
+.blog-tab-paging-table{
+	width: 100%;
+	padding-right: 15px;
+}
+
+.text-paging{
+	color: black;
+	font-size: 11px;
+	font-weight: bold;
+}

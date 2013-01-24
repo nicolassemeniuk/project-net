@@ -1,0 +1,23 @@
+function createTransition(in name, in firstStep, in secondStep){
+	extern m;
+	wait(1);
+	set_window("main",2);
+	if(m==0)
+		web_link_click("Transitions");
+	m = m+1;
+	wait(1);
+	set_window("main",2);
+	web_link_click("Create",2);
+	wait(1);
+	set_window("main",2);
+	edit_set("transitionVerb",name);
+	edit_set("description","transition from one step to another");
+	list_select_item("beginStepID",firstStep);
+	list_select_item("endStepID",secondStep);
+	web_link_click("Submit");
+	wait(1);
+	set_window("main",2);
+	web_link_click("Submit");
+	wait(1);
+	set_window("main",3);
+}

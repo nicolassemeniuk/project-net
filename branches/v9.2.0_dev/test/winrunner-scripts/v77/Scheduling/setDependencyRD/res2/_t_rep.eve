@@ -1,0 +1,5 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 1 1105038290 0
+23 36 <The default dependency FS was chosen> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 29 1105038370 0
+37 96 <Step: Verify FS dependency type, Status: Pass, Description: FS dependency verified for t6 and t5> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\testDependencyType> 32 1105038381 24
+2 21 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\setDependencyRD> 67 1105038381 0

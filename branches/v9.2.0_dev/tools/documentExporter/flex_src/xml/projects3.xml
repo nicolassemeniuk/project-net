@@ -1,0 +1,434 @@
+<projects Name="Projects" ProjectId="root">
+<Project Name="Automation for Omega 1" Level="1" Folder="/Automation for Omega 1" selected="false" ProjectId="1661170">
+	</Project>
+<Project Name="Avocet IAM PESA Implementation" Level="1" Folder="/Avocet IAM PESA Implementation" selected="false" ProjectId="13957073">
+<Project Name="Modelo de simulacion de PA en Petrel RE" Level="2" Folder="/Avocet IAM PESA Implementation/Modelo de simulacion de PA en Petrel RE" selected="false" ProjectId="13992758">
+	</Project>
+<Project Name="Modelo economico de Palo Azul" Level="2" Folder="/Avocet IAM PESA Implementation/Modelo economico de Palo Azul" selected="false" ProjectId="13992778">
+	</Project>
+	</Project>
+<Project Name="Avocet IAM in Block 18 PESA Ecuador" Level="1" Folder="/Avocet IAM in Block 18 PESA Ecuador" selected="false" ProjectId="12193981">
+	</Project>
+<Project Name="Axalto Collaboration" Level="1" Folder="/Axalto Collaboration" selected="false" ProjectId="8824224">
+	</Project>
+<Project Name="BAH Test Project" Level="1" Folder="/BAH Test Project" selected="false" ProjectId="333655">
+	</Project>
+<Project Name="BAPCO" Level="1" Folder="/BAPCO" selected="false" ProjectId="13721448">
+	</Project>
+<Project Name="BASS Enterprise Bonin #1" Level="1" Folder="/BASS Enterprise Bonin #1" selected="false" ProjectId="1146037">
+	</Project>
+<Project Name="BBC AVM Implementation" Level="1" Folder="/BBC AVM Implementation" selected="false" ProjectId="14083294">
+	</Project>
+<Project Name="BBK Firewall/VPN Implementation" Level="1" Folder="/BBK Firewall VPN Implementation" selected="false" ProjectId="2261984">
+	</Project>
+<Project Name="BFA - RAPID II" Level="1" Folder="/BFA - RAPID II" selected="false" ProjectId="10923189">
+	</Project>
+<Project Name="BG A2 Geosteering UKI" Level="1" Folder="/BG A2 Geosteering UKI" selected="false" ProjectId="4350281">
+	</Project>
+<Project Name="BG Calloway" Level="1" Folder="/BG Calloway" selected="false" ProjectId="14931311">
+	</Project>
+<Project Name="BG Common Data Architecture" Level="1" Folder="/BG Common Data Architecture" selected="false" ProjectId="14348979">
+	</Project>
+<Project Name="BG Hasdrubal Wellbore Stability Study" Level="1" Folder="/BG Hasdrubal Wellbore Stability Study" selected="false" ProjectId="6968971">
+	</Project>
+<Project Name="BG India Collaboration" Level="1" Folder="/BG India Collaboration" selected="false" ProjectId="5003984">
+	</Project>
+<Project Name="BG Miskar NDS" Level="1" Folder="/BG Miskar NDS" selected="false" ProjectId="453308">
+	</Project>
+<Project Name="BG Miskar Wellbore Stability Study" Level="1" Folder="/BG Miskar Wellbore Stability Study" selected="false" ProjectId="6968930">
+	</Project>
+<Project Name="BG North Sea - Nov 2006" Level="1" Folder="/BG North Sea - Nov 2006" selected="false" ProjectId="13574512">
+	</Project>
+<Project Name="BHP Billiton - Australia" Level="1" Folder="/BHP Billiton - Australia" selected="false" ProjectId="3478348">
+	</Project>
+<Project Name="BHP Billiton - Ultra-Deep Water Development" Level="1" Folder="/BHP Billiton - Ultra-Deep Water Development" selected="false" ProjectId="8218236">
+	</Project>
+<Project Name="BHP Billiton DecisionPoint Pilot" Level="1" Folder="/BHP Billiton DecisionPoint Pilot" selected="false" ProjectId="388938">
+<Project Name="BHP Billiton Houston Pilot Project" Level="2" Folder="/BHP Billiton DecisionPoint Pilot/BHP Billiton Houston Pilot Project" selected="false" ProjectId="557123">
+	</Project>
+<Project Name="BHP Billiton London Pilot Project" Level="2" Folder="/BHP Billiton DecisionPoint Pilot/BHP Billiton London Pilot Project" selected="false" ProjectId="557034">
+	</Project>
+	</Project>
+<Project Name="BHP Billiton DecisionPoint Programme" Level="1" Folder="/BHP Billiton DecisionPoint Programme" selected="false" ProjectId="1048095">
+	</Project>
+<Project Name="BHP Billiton Houston Pilot Project" Level="1" Folder="/BHP Billiton Houston Pilot Project" selected="false" ProjectId="557123">
+	</Project>
+<Project Name="BHP Billiton Petroleum Workspace" Level="1" Folder="/BHP Billiton Petroleum Workspace" selected="false" ProjectId="2919849">
+	</Project>
+<Project Name="BHP Billiton eInvoicing" Level="1" Folder="/BHP Billiton eInvoicing" selected="false" ProjectId="10498663">
+	</Project>
+<Project Name="BHP Boris Well" Level="1" Folder="/BHP Boris Well" selected="false" ProjectId="174551">
+	</Project>
+<Project Name="BHP Cascade" Level="1" Folder="/BHP Cascade" selected="false" ProjectId="1962786">
+	</Project>
+<Project Name="BHP Cascade Well Test" Level="1" Folder="/BHP Cascade Well Test" selected="false" ProjectId="11551338">
+	</Project>
+<Project Name="BHP ML tender" Level="1" Folder="/BHP ML tender" selected="false" ProjectId="2412629">
+	</Project>
+<Project Name="BHP Pyrenees Tender Ref DRIL100598" Level="1" Folder="/BHP Pyrenees Tender Ref DRIL100598" selected="false" ProjectId="14542128">
+	</Project>
+<Project Name="BHP Shenzi Wide Azimuth Project" Level="1" Folder="/BHP Shenzi Wide Azimuth Project" selected="false" ProjectId="11939175">
+	</Project>
+<Project Name="BHPBilliton Neptune Proposal - Subsea Services" Level="1" Folder="/BHPBilliton Neptune Proposal - Subsea Services" selected="false" ProjectId="9348683">
+	</Project>
+<Project Name="BN Dull" Level="1" Folder="/BN Dull" selected="false" ProjectId="626661">
+	</Project>
+<Project Name="BN FMI Perm" Level="1" Folder="/BN FMI Perm" selected="false" ProjectId="627341">
+	</Project>
+<Project Name="BODEGA-Libros-Blancos" Level="1" Folder="/BODEGA-Libros-Blancos" selected="false" ProjectId="11819544">
+	</Project>
+<Project Name="BP - GIM" Level="1" Folder="/BP - GIM" selected="false" ProjectId="461774">
+<Project Name="BP - Trinidad" Level="2" Folder="/BP - GIM/BP - Trinidad" selected="false" ProjectId="544914">
+	</Project>
+	</Project>
+<Project Name="BP - Smartcard Rollout with PKI" Level="1" Folder="/BP - Smartcard Rollout with PKI" selected="false" ProjectId="1379767">
+	</Project>
+<Project Name="BP - Trinidad" Level="1" Folder="/BP - Trinidad" selected="false" ProjectId="544914">
+	</Project>
+<Project Name="BP - ebusiness" Level="1" Folder="/BP - ebusiness" selected="false" ProjectId="1453198">
+<Project Name="Online Bidding Events" Level="2" Folder="/BP - ebusiness/Online Bidding Events" selected="false" ProjectId="1513673">
+	</Project>
+	</Project>
+<Project Name="BP Alaska VOTT" Level="1" Folder="/BP Alaska VOTT" selected="false" ProjectId="10688074">
+	</Project>
+<Project Name="BP Angola (Blk 18) Greater Plutonio - Subsea DTS System" Level="1" Folder="/BP Angola Blk 18 Greater Plutonio - Subsea DTS System" selected="false" ProjectId="10407909">
+	</Project>
+<Project Name="BP Angola Project" Level="1" Folder="/BP Angola Project" selected="false" ProjectId="303552">
+<Project Name="ITT Information" Level="2" Folder="/BP Angola Project/ITT Information" selected="false" ProjectId="5714523">
+	</Project>
+<Project Name="ITT Response " Level="2" Folder="/BP Angola Project/ITT Response " selected="false" ProjectId="6086885">
+	</Project>
+<Project Name="Post Tender" Level="2" Folder="/BP Angola Project/Post Tender" selected="false" ProjectId="7019982">
+	</Project>
+<Project Name="Subsea Interfaces" Level="2" Folder="/BP Angola Project/Subsea Interfaces" selected="false" ProjectId="359470">
+	</Project>
+<Project Name="Tender - GOM" Level="2" Folder="/BP Angola Project/Tender - GOM" selected="false" ProjectId="5181126">
+	</Project>
+<Project Name="Upper Completion Design" Level="2" Folder="/BP Angola Project/Upper Completion Design" selected="false" ProjectId="335845">
+	</Project>
+<Project Name="Workshop 2003" Level="2" Folder="/BP Angola Project/Workshop 2003" selected="false" ProjectId="4891060">
+	</Project>
+	</Project>
+<Project Name="BP Aspen" Level="1" Folder="/BP Aspen" selected="false" ProjectId="1443492">
+	</Project>
+<Project Name="BP Baku CDWG Water Injection" Level="1" Folder="/BP Baku CDWG Water Injection" selected="false" ProjectId="12108340">
+	</Project>
+<Project Name="BP Berau Ltd." Level="1" Folder="/BP Berau Ltd." selected="false" ProjectId="15012152">
+	</Project>
+<Project Name="BP Block 18 DTS System Rebid Jan 2005" Level="1" Folder="/BP Block 18 DTS System Rebid Jan 2005" selected="false" ProjectId="9924563">
+	</Project>
+<Project Name="BP Block-31 NE Completion Tenders" Level="1" Folder="/BP Block-31 NE Completion Tenders" selected="false" ProjectId="12661389">
+	</Project>
+<Project Name="BP Fields of the Future Engagement" Level="1" Folder="/BP Fields of the Future Engagement" selected="false" ProjectId="9267874">
+	</Project>
+<Project Name="BP Forties Water Solutions - UK" Level="1" Folder="/BP Forties Water Solutions - UK" selected="false" ProjectId="2015237">
+	</Project>
+<Project Name="BP GOM ESP Project" Level="1" Folder="/BP GOM ESP Project" selected="false" ProjectId="717832">
+	</Project>
+<Project Name="BP ISIS" Level="1" Folder="/BP ISIS" selected="false" ProjectId="1674311">
+	</Project>
+<Project Name="BP Information Management" Level="1" Folder="/BP Information Management" selected="false" ProjectId="2388359">
+	</Project>
+<Project Name="BP Kaskida" Level="1" Folder="/BP Kaskida" selected="false" ProjectId="15053645">
+	</Project>
+<Project Name="BP MP275 A2 Permanent Gauge" Level="1" Folder="/BP MP275 A2 Permanent Gauge" selected="false" ProjectId="506697">
+	</Project>
+<Project Name="BP Mad Dog Tech &amp; Support" Level="1" Folder="/BP Mad Dog Tech  Support" selected="false" ProjectId="15006799">
+	</Project>
+<Project Name="BP Mahogany M12 DTS Completion" Level="1" Folder="/BP Mahogany M12 DTS Completion" selected="false" ProjectId="1372250">
+	</Project>
+<Project Name="BP Moxa (Wyoming)" Level="1" Folder="/BP Moxa Wyoming" selected="false" ProjectId="4765856">
+	</Project>
+<Project Name="BP Norway Valhall" Level="1" Folder="/BP Norway Valhall" selected="false" ProjectId="720480">
+	</Project>
+<Project Name="BP SIS Support" Level="1" Folder="/BP SIS Support" selected="false" ProjectId="10344121">
+	</Project>
+<Project Name="BP TKO (Hugoton, Anadarko)" Level="1" Folder="/BP TKO Hugoton Anadarko" selected="false" ProjectId="4766314">
+	</Project>
+<Project Name="BP Thunderhorse 2004 STHP" Level="1" Folder="/BP Thunderhorse 2004 STHP" selected="false" ProjectId="7331545">
+<Project Name="MDL - Master Documents List" Level="2" Folder="/BP Thunderhorse 2004 STHP/MDL - Master Documents List" selected="false" ProjectId="7332121">
+	</Project>
+<Project Name="Project Engineering" Level="2" Folder="/BP Thunderhorse 2004 STHP/Project Engineering" selected="false" ProjectId="7331607">
+	</Project>
+<Project Name="Project Management" Level="2" Folder="/BP Thunderhorse 2004 STHP/Project Management" selected="false" ProjectId="7331566">
+<Project Name="Baseline Documents" Level="3" Folder="/BP Thunderhorse 2004 STHP/Project Management/Baseline Documents" selected="false" ProjectId="7331832">
+	</Project>
+<Project Name="Budget" Level="3" Folder="/BP Thunderhorse 2004 STHP/Project Management/Budget" selected="false" ProjectId="7331874">
+	</Project>
+<Project Name="Contract" Level="3" Folder="/BP Thunderhorse 2004 STHP/Project Management/Contract" selected="false" ProjectId="7331790">
+	</Project>
+<Project Name="Important Documents" Level="3" Folder="/BP Thunderhorse 2004 STHP/Project Management/Important Documents" selected="false" ProjectId="7331854">
+	</Project>
+<Project Name="MOM" Level="3" Folder="/BP Thunderhorse 2004 STHP/Project Management/MOM" selected="false" ProjectId="7331810">
+	</Project>
+<Project Name="Progress" Level="3" Folder="/BP Thunderhorse 2004 STHP/Project Management/Progress" selected="false" ProjectId="7511791">
+	</Project>
+<Project Name="Schedule" Level="3" Folder="/BP Thunderhorse 2004 STHP/Project Management/Schedule" selected="false" ProjectId="7332010">
+	</Project>
+	</Project>
+<Project Name="Quality Management" Level="2" Folder="/BP Thunderhorse 2004 STHP/Quality Management" selected="false" ProjectId="7331656">
+	</Project>
+	</Project>
+<Project Name="BP Trinidad" Level="1" Folder="/BP Trinidad" selected="false" ProjectId="277511">
+	</Project>
+<Project Name="BP Tuscaloosa" Level="1" Folder="/BP Tuscaloosa" selected="false" ProjectId="798555">
+	</Project>
+<Project Name="BP VOTT DCS Consulting" Level="1" Folder="/BP VOTT DCS Consulting" selected="false" ProjectId="10285014">
+	</Project>
+<Project Name="BP WC66" Level="1" Folder="/BP WC66" selected="false" ProjectId="2110869">
+	</Project>
+<Project Name="BS4b Defining a Training blueprint" Level="1" Folder="/BS4b Defining a Training blueprint" selected="false" ProjectId="1830423">
+	</Project>
+<Project Name="BS7799 Cert. for Aberdeen InterACT HUB" Level="1" Folder="/BS7799 Cert. for Aberdeen InterACT HUB" selected="false" ProjectId="6871238">
+	</Project>
+<Project Name="BT Major Business - Collaboration Project" Level="1" Folder="/BT Major Business - Collaboration Project" selected="false" ProjectId="4269088">
+	</Project>
+<Project Name="BTC 126" Level="1" Folder="/BTC 126" selected="false" ProjectId="15116011">
+	</Project>
+<Project Name="BTC scheduling" Level="1" Folder="/BTC scheduling" selected="false" ProjectId="15160230">
+<Project Name="BTC-129" Level="2" Folder="/BTC scheduling/BTC-129" selected="false" ProjectId="15157129">
+	</Project>
+<Project Name="BTC-131" Level="2" Folder="/BTC scheduling/BTC-131" selected="false" ProjectId="15158195">
+	</Project>
+	</Project>
+<Project Name="BTC-129" Level="1" Folder="/BTC-129" selected="false" ProjectId="15157129">
+	</Project>
+<Project Name="BTC-131" Level="1" Folder="/BTC-131" selected="false" ProjectId="15158195">
+	</Project>
+<Project Name="BUILD-IT 1 DM Specialist Course" Level="1" Folder="/BUILD-IT 1 DM Specialist Course" selected="false" ProjectId="14751320">
+	</Project>
+<Project Name="BUILD-IT LMS" Level="1" Folder="/BUILD-IT LMS" selected="false" ProjectId="2090703">
+	</Project>
+<Project Name="BUILD-IT Workbooks" Level="1" Folder="/BUILD-IT Workbooks" selected="false" ProjectId="13551505">
+<Project Name="2007" Level="2" Folder="/BUILD-IT Workbooks/2007" selected="false" ProjectId="13551525">
+	</Project>
+	</Project>
+<Project Name="Banco de Datos Integral de Hidrocarburos" Level="1" Folder="/Banco de Datos Integral de Hidrocarburos" selected="false" ProjectId="12968434">
+	</Project>
+<Project Name="Banco de Venezuela" Level="1" Folder="/Banco de Venezuela" selected="false" ProjectId="6721363">
+	</Project>
+<Project Name="Banesto GPRS" Level="1" Folder="/Banesto GPRS" selected="false" ProjectId="4062048">
+	</Project>
+<Project Name="Bank of America" Level="1" Folder="/Bank of America" selected="false" ProjectId="1339508">
+	</Project>
+<Project Name="Baraka Mauritania Opportunity" Level="1" Folder="/Baraka Mauritania Opportunity" selected="false" ProjectId="12944117">
+	</Project>
+<Project Name="Bass Bloomberg" Level="1" Folder="/Bass Bloomberg" selected="false" ProjectId="2784036">
+	</Project>
+<Project Name="Bass Edwards Horizontal Well Project" Level="1" Folder="/Bass Edwards Horizontal Well Project" selected="false" ProjectId="3188400">
+	</Project>
+<Project Name="Bass Enterprises" Level="1" Folder="/Bass Enterprises" selected="false" ProjectId="1189193">
+	</Project>
+<Project Name="Bass Enterprises Production Co" Level="1" Folder="/Bass Enterprises Production Co" selected="false" ProjectId="1193157">
+	</Project>
+<Project Name="Bass Hallettville Edward Lime Horizontal" Level="1" Folder="/Bass Hallettville Edward Lime Horizontal" selected="false" ProjectId="5885130">
+	</Project>
+<Project Name="Bass Hallettville Wilcox" Level="1" Folder="/Bass Hallettville Wilcox" selected="false" ProjectId="5885092">
+	</Project>
+<Project Name="Bass Piceance JVEA" Level="1" Folder="/Bass Piceance JVEA" selected="false" ProjectId="7444993">
+	</Project>
+<Project Name="Bass Piceance Yellow Creek" Level="1" Folder="/Bass Piceance Yellow Creek" selected="false" ProjectId="4090245">
+	</Project>
+<Project Name="Bass Portland Wilcox" Level="1" Folder="/Bass Portland Wilcox" selected="false" ProjectId="5885266">
+	</Project>
+<Project Name="Bass Queen Waterflood" Level="1" Folder="/Bass Queen Waterflood" selected="false" ProjectId="3965888">
+	</Project>
+<Project Name="Bass Queen Waterflood Project" Level="1" Folder="/Bass Queen Waterflood Project" selected="false" ProjectId="3188668">
+	</Project>
+<Project Name="Bass Riceville New Drill" Level="1" Folder="/Bass Riceville New Drill" selected="false" ProjectId="5885195">
+	</Project>
+<Project Name="Bass Wescott Devonian Horizontal" Level="1" Folder="/Bass Wescott Devonian Horizontal" selected="false" ProjectId="5885068">
+	</Project>
+<Project Name="Beijing Sema" Level="1" Folder="/Beijing Sema" selected="false" ProjectId="1329232">
+	</Project>
+<Project Name="Bench:  IPM and DCS" Level="1" Folder="/Bench:  IPM and DCS" selected="false" ProjectId="14173808">
+	</Project>
+<Project Name="Benefits Communications" Level="1" Folder="/Benefits Communications" selected="false" ProjectId="480351">
+	</Project>
+<Project Name="Bent Wellbore WCP" Level="1" Folder="/Bent Wellbore WCP" selected="false" ProjectId="1720859">
+	</Project>
+<Project Name="Benton Field" Level="1" Folder="/Benton Field" selected="false" ProjectId="882074">
+	</Project>
+<Project Name="Best Practices Task Force" Level="1" Folder="/Best Practices Task Force" selected="false" ProjectId="320510">
+	</Project>
+<Project Name="Betty FFR" Level="1" Folder="/Betty FFR" selected="false" ProjectId="3979978">
+	</Project>
+<Project Name="Beyond BO XVIII" Level="1" Folder="/Beyond BO XVIII" selected="false" ProjectId="14273580">
+<Project Name="BO XVIII History Analysis" Level="2" Folder="/Beyond BO XVIII/BO XVIII History Analysis" selected="false" ProjectId="14274173">
+	</Project>
+	</Project>
+<Project Name="Bid Authorization Process Feedback" Level="1" Folder="/Bid Authorization Process Feedback" selected="false" ProjectId="2674750">
+	</Project>
+<Project Name="Bid Evaluation Project" Level="1" Folder="/Bid Evaluation Project" selected="false" ProjectId="3634155">
+	</Project>
+<Project Name="Bid Pricing Tool v17" Level="1" Folder="/Bid Pricing Tool v17" selected="false" ProjectId="731045">
+	</Project>
+<Project Name="Bid Procedure 1" Level="1" Folder="/Bid Procedure 1" selected="false" ProjectId="2085607">
+	</Project>
+<Project Name="Bid Workflow Progress" Level="1" Folder="/Bid Workflow Progress" selected="false" ProjectId="2540342">
+	</Project>
+<Project Name="Bid process" Level="1" Folder="/Bid process" selected="false" ProjectId="649943">
+	</Project>
+<Project Name="Bidding best practices" Level="1" Folder="/Bidding best practices" selected="false" ProjectId="10170922">
+	</Project>
+<Project Name="Bima MPSV" Level="1" Folder="/Bima MPSV" selected="false" ProjectId="10428274">
+	</Project>
+<Project Name="Biometrics and Strong Authentication System" Level="1" Folder="/Biometrics and Strong Authentication System" selected="false" ProjectId="1782252">
+	</Project>
+<Project Name="Black Bear" Level="1" Folder="/Black Bear" selected="false" ProjectId="14915645">
+	</Project>
+<Project Name="Black River Project 2" Level="1" Folder="/Black River Project 2" selected="false" ProjectId="65731">
+	</Project>
+<Project Name="Blake Production Optimisation" Level="1" Folder="/Blake Production Optimisation" selected="false" ProjectId="1151666">
+	</Project>
+<Project Name="Block 21/4b" Level="1" Folder="/Block 21 4b" selected="false" ProjectId="5563783">
+	</Project>
+<Project Name="Boca Chimire" Level="1" Folder="/Boca Chimire" selected="false" ProjectId="1595427">
+	</Project>
+<Project Name="Boeing Smart Badge RFI" Level="1" Folder="/Boeing Smart Badge RFI" selected="false" ProjectId="1370425">
+	</Project>
+<Project Name="Bogota SCC Resilient Design" Level="1" Folder="/Bogota SCC Resilient Design" selected="false" ProjectId="3352536">
+	</Project>
+<Project Name="Bogota SCC Secondary circuit" Level="1" Folder="/Bogota SCC Secondary circuit" selected="false" ProjectId="1949245">
+	</Project>
+<Project Name="Bogota SCC management handover" Level="1" Folder="/Bogota SCC management handover" selected="false" ProjectId="1382256">
+	</Project>
+<Project Name="Bokor Project Development" Level="1" Folder="/Bokor Project Development" selected="false" ProjectId="685526">
+<Project Name="Bokor Pursuit , Closure &amp; Transition" Level="2" Folder="/Bokor Project Development/Bokor Pursuit  Closure  Transition" selected="false" ProjectId="3286249">
+	</Project>
+<Project Name="Drilling Engineering" Level="2" Folder="/Bokor Project Development/Drilling Engineering" selected="false" ProjectId="3876651">
+	</Project>
+<Project Name="Facility Engineering" Level="2" Folder="/Bokor Project Development/Facility Engineering" selected="false" ProjectId="3876567">
+	</Project>
+<Project Name="Production Engineering" Level="2" Folder="/Bokor Project Development/Production Engineering" selected="false" ProjectId="3875744">
+	</Project>
+<Project Name="QHSE" Level="2" Folder="/Bokor Project Development/QHSE" selected="false" ProjectId="6039389">
+	</Project>
+<Project Name="SubSurface" Level="2" Folder="/Bokor Project Development/SubSurface" selected="false" ProjectId="2883224">
+	</Project>
+	</Project>
+<Project Name="Bongkot South &amp; Central Productivity Study" Level="1" Folder="/Bongkot South  Central Productivity Study" selected="false" ProjectId="3195742">
+	</Project>
+<Project Name="Brazil" Level="1" Folder="/Brazil" selected="false" ProjectId="13008727">
+	</Project>
+<Project Name="Brazil 2D Depth Conversion" Level="1" Folder="/Brazil 2D Depth Conversion" selected="false" ProjectId="4194861">
+	</Project>
+<Project Name="British American Tobacco" Level="1" Folder="/British American Tobacco" selected="false" ProjectId="4946833">
+	</Project>
+<Project Name="Brownfield opportunities in Gabon" Level="1" Folder="/Brownfield opportunities in Gabon" selected="false" ProjectId="492506">
+	</Project>
+<Project Name="Brownfields-IPM-DCS" Level="1" Folder="/Brownfields-IPM-DCS" selected="false" ProjectId="6257754">
+	</Project>
+<Project Name="Brunei Shell Land Well Construction Campaign" Level="1" Folder="/Brunei Shell Land Well Construction Campaign" selected="false" ProjectId="245674">
+	</Project>
+<Project Name="Brussel SCC ongoing work" Level="1" Folder="/Brussel SCC ongoing work" selected="false" ProjectId="383924">
+	</Project>
+<Project Name="Buenos Aires LEF" Level="1" Folder="/Buenos Aires LEF" selected="false" ProjectId="5197749">
+	</Project>
+<Project Name="Build Program" Level="1" Folder="/Build Program" selected="false" ProjectId="3810743">
+	</Project>
+<Project Name="Building Move" Level="1" Folder="/Building Move" selected="false" ProjectId="10590400">
+	</Project>
+<Project Name="Building refurb" Level="1" Folder="/Building refurb" selected="false" ProjectId="10579891">
+	</Project>
+<Project Name="Bundle 1 Dunhill" Level="1" Folder="/Bundle 1 Dunhill" selected="false" ProjectId="4364716">
+	</Project>
+<Project Name="Burgos Dew Point Plant" Level="1" Folder="/Burgos Dew Point Plant" selected="false" ProjectId="1024573">
+	</Project>
+<Project Name="Burgos IV" Level="1" Folder="/Burgos IV" selected="false" ProjectId="2287647">
+	</Project>
+<Project Name="Burlington North Little Lake" Level="1" Folder="/Burlington North Little Lake" selected="false" ProjectId="1027722">
+	</Project>
+<Project Name="Burullus Gas Company, Egypt - Tender Proposal" Level="1" Folder="/Burullus Gas Company Egypt - Tender Proposal" selected="false" ProjectId="3990366">
+	</Project>
+<Project Name="Business Areas" Level="1" Folder="/Business Areas" selected="false" ProjectId="12589966">
+	</Project>
+<Project Name="Business Change" Level="1" Folder="/Business Change" selected="false" ProjectId="4843165">
+<Project Name="Public Service Change Management Model" Level="2" Folder="/Business Change/Public Service Change Management Model" selected="false" ProjectId="4877432">
+	</Project>
+	</Project>
+<Project Name="Business Development" Level="1" Folder="/Business Development" selected="false" ProjectId="1748971">
+	</Project>
+<Project Name="Business Development Strategy for Iraq" Level="1" Folder="/Business Development Strategy for Iraq" selected="false" ProjectId="4225538">
+	</Project>
+<Project Name="Business Intelligence Network" Level="1" Folder="/Business Intelligence Network" selected="false" ProjectId="2355655">
+	</Project>
+<Project Name="Business Layers" Level="1" Folder="/Business Layers" selected="false" ProjectId="2069284">
+<Project Name="Bank of America eProvisioning" Level="2" Folder="/Business Layers/Bank of America eProvisioning" selected="false" ProjectId="2069308">
+	</Project>
+	</Project>
+<Project Name="Business Packaging Concepts" Level="1" Folder="/Business Packaging Concepts" selected="false" ProjectId="1356417">
+	</Project>
+<Project Name="Business Review" Level="1" Folder="/Business Review" selected="false" ProjectId="5663668">
+	</Project>
+<Project Name="Business Trend Analysis" Level="1" Folder="/Business Trend Analysis" selected="false" ProjectId="7027629">
+	</Project>
+<Project Name="Business of Petroleum Course Notes" Level="1" Folder="/Business of Petroleum Course Notes" selected="false" ProjectId="10502049">
+	</Project>
+<Project Name="C-K Water Flood Optimization Study" Level="1" Folder="/C-K Water Flood Optimization Study" selected="false" ProjectId="6548989">
+	</Project>
+<Project Name="C2C" Level="1" Folder="/C2C" selected="false" ProjectId="13945394">
+	</Project>
+<Project Name="CACTUS" Level="1" Folder="/CACTUS" selected="false" ProjectId="1403125">
+<Project Name="CACTUS Support" Level="2" Folder="/CACTUS/CACTUS Support" selected="false" ProjectId="1722856">
+	</Project>
+	</Project>
+<Project Name="CAG - KazTransGas - Reserves Audit" Level="1" Folder="/CAG - KazTransGas - Reserves Audit" selected="false" ProjectId="11336263">
+	</Project>
+<Project Name="CAG Asset Inventory" Level="1" Folder="/CAG Asset Inventory" selected="false" ProjectId="13007525">
+	</Project>
+<Project Name="CAG NorthSun_fieldstudy" Level="1" Folder="/CAG NorthSun_fieldstudy" selected="false" ProjectId="11944772">
+	</Project>
+<Project Name="CAG-Big Sky: Karatal Field study" Level="1" Folder="/CAG-Big Sky: Karatal Field study" selected="false" ProjectId="11291694">
+	</Project>
+<Project Name="CAG-FIAL-FDP" Level="1" Folder="/CAG-FIAL-FDP" selected="false" ProjectId="7423387">
+	</Project>
+<Project Name="CAG-FIOC 3 wells performance study" Level="1" Folder="/CAG-FIOC 3 wells performance study" selected="false" ProjectId="12284425">
+	</Project>
+<Project Name="CAG-KING-FDP" Level="1" Folder="/CAG-KING-FDP" selected="false" ProjectId="5111426">
+	</Project>
+<Project Name="CAG-KMG-Reserve-Audit" Level="1" Folder="/CAG-KMG-Reserve-Audit" selected="false" ProjectId="7392112">
+	</Project>
+<Project Name="CAG-KNH-Reserves estimation for Kopa field" Level="1" Folder="/CAG-KNH-Reserves estimation for Kopa field" selected="false" ProjectId="11291638">
+	</Project>
+<Project Name="CAG-KSR-Reserves_Audit" Level="1" Folder="/CAG-KSR-Reserves_Audit" selected="false" ProjectId="11797199">
+	</Project>
+<Project Name="CAG-Mitro FDP" Level="1" Folder="/CAG-Mitro FDP" selected="false" ProjectId="5089683">
+	</Project>
+<Project Name="CAG-Petronas UZ Baisun evaluation" Level="1" Folder="/CAG-Petronas UZ Baisun evaluation" selected="false" ProjectId="11959991">
+	</Project>
+<Project Name="CAG-SIS-IM Best Practices" Level="1" Folder="/CAG-SIS-IM Best Practices" selected="false" ProjectId="10366413">
+	</Project>
+<Project Name="CAG-SIS-IM EmbaMunayGaz" Level="1" Folder="/CAG-SIS-IM EmbaMunayGaz" selected="false" ProjectId="10377545">
+<Project Name="CAG-SIS-IM JaikMunayGas" Level="2" Folder="/CAG-SIS-IM EmbaMunayGaz/CAG-SIS-IM JaikMunayGas" selected="false" ProjectId="10377593">
+	</Project>
+	</Project>
+<Project Name="CAG-SIS-IM Karazhanbasmunay" Level="1" Folder="/CAG-SIS-IM Karazhanbasmunay" selected="false" ProjectId="10625261">
+	</Project>
+<Project Name="CAG-SIS-IM KazMunayGas RD" Level="1" Folder="/CAG-SIS-IM KazMunayGas RD" selected="false" ProjectId="10377628">
+<Project Name="CAG-SIS-IM EmbaMunayGaz" Level="2" Folder="/CAG-SIS-IM KazMunayGas RD/CAG-SIS-IM EmbaMunayGaz" selected="false" ProjectId="10377545">
+<Project Name="CAG-SIS-IM JaikMunayGas" Level="3" Folder="/CAG-SIS-IM KazMunayGas RD/CAG-SIS-IM EmbaMunayGaz/CAG-SIS-IM JaikMunayGas" selected="false" ProjectId="10377593">
+	</Project>
+	</Project>
+<Project Name="CAG-SIS-IM UzenMunayGas" Level="2" Folder="/CAG-SIS-IM KazMunayGas RD/CAG-SIS-IM UzenMunayGas" selected="false" ProjectId="10377667">
+	</Project>
+	</Project>
+<Project Name="CAG-SIS-IM PetroKazakhstan" Level="1" Folder="/CAG-SIS-IM PetroKazakhstan" selected="false" ProjectId="10377497">
+	</Project>
+<Project Name="CAG-SIS-IM Socar IM pilot project" Level="1" Folder="/CAG-SIS-IM Socar IM pilot project" selected="false" ProjectId="10377523">
+	</Project>
+<Project Name="CAG-Shirvanoil-Kyrovdag Reserve" Level="1" Folder="/CAG-Shirvanoil-Kyrovdag Reserve" selected="false" ProjectId="8658068">
+	</Project>
+<Project Name="CAG-TARAZ: Zhingyldy Field Evaluation Study" Level="1" Folder="/CAG-TARAZ: Zhingyldy Field Evaluation Study" selected="false" ProjectId="11336198">
+	</Project>
+<Project Name="CAG-Total-CBM Pilot" Level="1" Folder="/CAG-Total-CBM Pilot" selected="false" ProjectId="8921044">
+	</Project>
+<Project Name="CAG-UNG-Kokdumalak-Reserves Audit" Level="1" Folder="/CAG-UNG-Kokdumalak-Reserves Audit" selected="false" ProjectId="8659334">
+	</Project>
+<Project Name="CAG_Big Sky Morskoe field study" Level="1" Folder="/CAG_Big Sky Morskoe field study" selected="false" ProjectId="11335625">
+	</Project>
+<Project Name="CAG_PETROM_Komsomolskoe_Field_Study" Level="1" Folder="/CAG_PETROM_Komsomolskoe_Field_Study" selected="false" ProjectId="12319143">
+	</Project>
+<Project Name="CAG_Petrom_Turkmenoi_Field_Study" Level="1" Folder="/CAG_Petrom_Turkmenoi_Field_Study" selected="false" ProjectId="12431986">
+	</Project>
+</projects>

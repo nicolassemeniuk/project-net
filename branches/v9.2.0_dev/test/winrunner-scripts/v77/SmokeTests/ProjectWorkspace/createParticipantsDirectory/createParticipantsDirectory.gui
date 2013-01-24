@@ -1,0 +1,391 @@
+"Browser Main Window":
+{
+ class: window,
+ MSW_class: browser_main_window,
+ NSTitle: "Browser Main Window"
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+"Browser Main Window".MainToolBar_0:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 0
+}
+"Browser Main Window".MainToolBar_1:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 1
+}
+"Browser Main Window".MainToolBar_2:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 2
+}
+"Browser Main Window".MainToolBar_3:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 3
+}
+"Browser Main Window".MainToolBar_4:
+{
+ class: toolbar,
+ NSTBTitle: MainToolBar,
+ location: 4
+}
+"Browser Main Window".ReBarWindow32:
+{
+ class: object,
+ MSW_class: ReBarWindow32
+}
+"Browser Main Window".WorkerW:
+{
+ class: object,
+ MSW_id: 40965,
+ MSW_class: WorkerW
+}
+"Browser Main Window".WorkerW_1:
+{
+ class: object,
+ MSW_id: 0,
+ MSW_class: WorkerW
+}
+"Browser Main Window".browser_main_combo_location_0:
+{
+ class: list,
+ MSW_class: browser_main_combo_location,
+ location: 0
+}
+"Browser Main Window".browser_main_combo_location_1:
+{
+ class: list,
+ MSW_class: browser_main_combo_location,
+ location: 1
+}
+"Browser Main Window".browser_main_comboex_location:
+{
+ class: object,
+ MSW_id: 2,
+ MSW_class: browser_main_comboex_location
+}
+"Browser Main Window".browser_main_comboex_location_1:
+{
+ class: object,
+ MSW_id: 41477,
+ MSW_class: browser_main_comboex_location
+}
+"Browser Main Window".browser_main_edit_location_0:
+{
+ class: edit,
+ MSW_class: browser_main_edit_location,
+ location: 0
+}
+"Browser Main Window".browser_main_edit_location_1:
+{
+ class: edit,
+ MSW_class: browser_main_edit_location,
+ location: 1
+}
+"Browser Main Window"."sys_Close Alt+F4":
+{
+ class: menu_item,
+ label: "Close Alt+F4",
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Maximize:
+{
+ class: menu_item,
+ label: Maximize,
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Minimize:
+{
+ class: menu_item,
+ label: Minimize,
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Move:
+{
+ class: menu_item,
+ label: Move,
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Restore:
+{
+ class: menu_item,
+ label: Restore,
+ sysmenu: 1,
+ parent: none
+}
+"Browser Main Window".sys_Size:
+{
+ class: menu_item,
+ label: Size,
+ sysmenu: 1,
+ parent: none
+}
+main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: main
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+main."Add to Invitee List":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Add to Invitee List"
+}
+main."Avinash Padmanabhan":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Avinash Padmanabhan"
+}
+main.Close:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Close
+}
+main."Daffy Duck":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Daffy Duck"
+}
+main.Invite:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Invite
+}
+main."Invite Participant":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Invite Participant"
+}
+main."Invite Participant_1":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Invite Participant",
+ location: 0
+}
+main."Kevin Chan":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Kevin Chan"
+}
+main."Mickey Mouse":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Mickey Mouse"
+}
+main.Next:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Next
+}
+main.Participants:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Participants
+}
+main."Robert Bruce":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Robert Bruce"
+}
+main.Roles:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Roles
+}
+main.Search:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Search
+}
+main.SubProject1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: SubProject1
+}
+main."Team Member":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Team Member"
+}
+main.TestProject1:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: TestProject1
+}
+main.TestProject2:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: TestProject2
+}
+main.WRProject:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: WRProject
+}
+main."William Wallace":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "William Wallace"
+}
+main."Winnie ThePooh":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Winnie ThePooh"
+}
+main.autoAcceptInvite:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: autoAcceptInvite,
+ part_value: false
+}
+main.autoAcceptInvite_1:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: autoAcceptInvite,
+ part_value: true
+}
+main.directoryID:
+{
+ class: list,
+ MSW_class: html_combobox,
+ html_name: directoryID
+}
+main.inviteeEmail:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: inviteeEmail
+}
+main.inviteeFirstName:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: inviteeFirstName
+}
+main.inviteeLastName:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: inviteeLastName
+}
+main.inviteeMessage:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: inviteeMessage
+}
+main.inviteeResponsibilities:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: inviteeResponsibilities
+}
+main.searchName:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: searchName
+}
+main.sendNotifications:
+{
+ class: check_button,
+ MSW_class: html_check_button,
+ html_name: sendNotifications,
+ part_value: true
+}
+main."test User1":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "test User1"
+}
+main."test User2":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "test User2"
+}
+menu:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: menu
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+menu.Directory:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Directory
+}
+toolbar_main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: toolbar_main
+}
+{
+ rtree_state: open,
+ ltree_state: close
+}
+toolbar_main."Log Out":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Log Out"
+}
+toolbar_main."topnav-projects-off":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "topnav-projects-off.gif"
+}
+toolbar_main."topnav-projects-on":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "topnav-projects-on.gif"
+}

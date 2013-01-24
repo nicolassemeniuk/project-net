@@ -1,0 +1,201 @@
+"New Post":
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: "New Post"
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+"New Post".Submit:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Submit
+}
+"New Post".postbody:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: postbody
+}
+"New Post".subject:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: subject
+}
+lower_frame:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: lower_frame
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+lower_frame."From:":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 1
+}
+lower_frame.Info:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Info
+}
+lower_frame.Modify:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Modify
+}
+lower_frame.Next:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Next
+}
+lower_frame.Previous:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Previous
+}
+lower_frame.Reply:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Reply
+}
+lower_frame."channelbar-left_end":
+{
+ class: object,
+ MSW_class: html_table,
+ location: 3
+}
+main:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: main
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+main."Create New Discussion Group":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Create New Discussion Group"
+}
+main."Discussion Group Test":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Discussion Group Test"
+}
+main.Submit:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Submit
+}
+main.charter:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: charter
+}
+main.description:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: description
+}
+main.name:
+{
+ class: edit,
+ MSW_class: html_edit,
+ html_name: name
+}
+menu:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: menu
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+menu.Discussions:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Discussions
+}
+upper_frame:
+{
+ class: window,
+ MSW_class: html_frame,
+ html_name: upper_frame
+}
+{
+ rtree_state: open,
+ ltree_state: open
+}
+upper_frame."Create New Post":
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "Create New Post"
+}
+upper_frame."Post test":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Post test"
+}
+upper_frame."Re: Post test":
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: "Re: Post test"
+}
+upper_frame.Remove:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: Remove
+}
+upper_frame.Welcome:
+{
+ class: object,
+ MSW_class: html_text_link,
+ html_name: Welcome
+}
+upper_frame.post_minus:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "post_minus.gif"
+}
+upper_frame.post_plus:
+{
+ class: object,
+ MSW_class: html_rect,
+ html_name: "post_plus.gif"
+}
+upper_frame.selected:
+{
+ class: radio_button,
+ MSW_class: html_radio_button,
+ html_name: selected,
+ part_value: 5895
+}

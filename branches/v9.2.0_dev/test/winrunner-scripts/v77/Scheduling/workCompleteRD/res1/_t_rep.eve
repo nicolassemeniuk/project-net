@@ -1,0 +1,23 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 1 1115932156 0
+37 108 <Step: Verify work complete, Status: Pass, Description: Percentage value and units for t1 correctly specified> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 14 1115932230 24
+37 101 <Step: Verify work complete, Status: Pass, Description: Work complete value for t2 correctly specified> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 13 1115932289 24
+58 47 <work_complete_unitsselectionlisthourshours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 17 1115932289 24
+37 108 <Step: Verify work complete, Status: Pass, Description: Percentage value and units for t3 correctly specified> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 14 1115932348 24
+37 101 <Step: Verify work complete, Status: Pass, Description: Work complete value for t4 correctly specified> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 13 1115932415 24
+58 47 <work_complete_unitsselectionlisthourshours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 17 1115932415 24
+37 108 <Step: Verify work complete, Status: Pass, Description: Percentage value and units for t5 correctly specified> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 14 1115932482 24
+37 101 <Step: Verify work complete, Status: Pass, Description: Work complete value for t6 correctly specified> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 13 1115932559 24
+58 47 <work_complete_unitsselectionlisthourshours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 17 1115932559 24
+37 108 <Step: Verify work complete, Status: Pass, Description: Percentage value and units for t7 correctly specified> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 14 1115932626 24
+37 101 <Step: Verify work complete, Status: Pass, Description: Work complete value for t8 correctly specified> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 13 1115932702 24
+58 47 <work_complete_unitsselectionlisthourshours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 17 1115932702 24
+37 103 <Step: Verify work complete, Status: Fail, Description: Work complete value for t9 INCORRECTLY specified> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 15 1115932760 25
+58 47 <work_complete_unitsselectionlisthourshours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 17 1115932760 24
+37 104 <Step: Verify work complete, Status: Fail, Description: Work complete value for t10 INCORRECTLY specified> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 15 1115932810 25
+58 47 <work_complete_unitsselectionlisthourshours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 17 1115932810 24
+37 104 <Step: Verify work complete, Status: Fail, Description: Work complete value for t11 INCORRECTLY specified> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 15 1115932877 25
+58 47 <work_complete_unitsselectionlisthourshours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 17 1115932877 24
+37 102 <Step: Verify work complete, Status: Pass, Description: Work complete value for t12 correctly specified> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 13 1115932944 24
+58 47 <work_complete_unitsselectionlisthourshours> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 17 1115932944 24
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\workCompleteRD> 87 1115932944 0

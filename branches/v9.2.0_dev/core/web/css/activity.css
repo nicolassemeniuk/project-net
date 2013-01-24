@@ -1,0 +1,417 @@
+
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #000000;
+}
+
+.search {
+	background: #CCD8FE;
+	border-left: 1px solid #B0C1F9;
+	border-right: 1px solid #B0C1F9;
+	border-top: 1px solid #B0C1F9;
+	height: 25px;
+}
+
+.search_box {
+	float: right;
+	width: 180px;
+	font-size: 12px;
+	color: #B0C1F9;
+	border: 1px solid #B0C1F9;
+	padding: 2px;
+	margin: 2px;
+}
+
+#activityLog .b {
+	font-weight: bold;
+}
+
+#activityLog .blue a {
+	color: #4E5C9E;
+}
+
+#activityLog .green a, #activityLog .blogPersonGreen a {
+	color: #0C8B1B;
+	font-size: 13px;
+}
+
+.blogPersonGreen {
+	color: #0C8B1B;
+	padding-left: 5px;
+	font-size: 13px;
+}
+
+.gray {
+	font-family: Arial; 
+	color: #BEBEBE;
+	font-size: 12px;
+}
+
+.content {
+	color: #414141;
+}
+
+.heading {
+	background: url(../images/activitylog/bg.gif) left repeat-x;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.headingtwo {
+	font-weight: bold;
+	color: #000000;
+	font-size:14px;
+	padding-left:3px;
+}
+
+.border {
+	border-bottom: 1px solid #B0C1F9;
+	border-left:  1px solid #B0C1F9;
+	border-right:  1px solid #B0C1F9;
+	border-top:  1px solid #B0C1F9;
+}
+
+.blue_top {
+	border-top: 1px solid #B0C1F9;
+}
+
+.border_gray {
+	border-top: 1px solid #C2C2C2;
+}
+
+.padding_activity_text_table {
+   padding-top: 15px;
+   padding-left: 3px;
+   padding-bottom: 15px;
+}
+
+.leftpadding_titleText {
+	padding-left: 6px;
+}
+
+.commentDate {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	color: #003399;
+	border: none;
+	float: none;
+	font-weight: normal;
+	margin: 0px 0px 0px 0px;
+	padding: 0px 0px;
+	text-align: left;
+}	
+
+#activityLog .border_gray strong {
+	font-weight: bold;
+}
+
+.commentLine {
+	border-top: 1px solid #DDDDDD;
+}
+
+.commentText {
+	color: #3399FF;
+	font-size: 11px;
+	font-weight: bold; 
+}
+
+.personImg {
+	border: 1px;
+	color: #dfdfdf;
+}
+
+#rightPane .clearAll{
+	color: #3399ff; 
+	font-size: 12px; 
+	font-weight: bold; 
+}
+	
+div.filterExpandImage {
+	background:transparent url(../images/tool-sprites.gif) no-repeat scroll 0 -75px;
+	cursor:pointer;
+	float:left;
+	height:15px;
+	margin-right:5px;
+	margin-top:0;
+	overflow:hidden;
+	width:15px;
+}
+
+div.filterCollapseImage {
+	background:transparent url(../images/tool-sprites.gif) no-repeat scroll 0 -60px;
+	cursor:pointer;
+	float:left;
+	height:15px;
+	margin-right:5px;
+	margin-top:0;
+	overflow:hidden;
+	width:15px;
+}
+
+.filterLink{
+	color:#3399FF;
+	list-style-image:none;
+	list-style-position:outside;
+	list-style-type:none;
+}
+
+.activityIcontd {
+	height:17px;
+	width:22px;
+}
+
+.activityIcon {
+	height:14px;
+	width:16px;
+}
+
+.markedIcon {
+	height:16px;
+	width:16px;
+}
+
+.markedIcontd {
+	width:4%;
+	text-align:right;
+	padding-right:15px;
+}
+
+.opencloseFilterObj {
+	padding-bottom: 3px;
+}
+
+.filter-calendar-img {
+	cursor: pointer;
+	padding-right: 2px;
+}
+
+.datefilter-tb-style {
+	color: #A1A1A1;
+	vertical-align: middle;
+	font-family: Arial;
+}
+
+.date-div {
+	border-top:1px solid #B2B7BD;
+	border-bottom:1px solid #B2B7BD;
+	background: #FFFFFF;
+}
+
+.activityBodyText {
+	font-family: Arial;
+	font-size: 13px;
+}
+
+div#activityLog a#disabled {
+	color: #999999;
+	cursor: default;
+	font-size: 13px;
+	text-decoration : none;
+}
+
+.displayNone {
+	display : none;
+}
+
+.activityContent {
+	top:109px;
+}
+
+.contentTable {
+	padding-top: 5px;
+}
+
+.left_tab {
+	text-align: left;
+	padding-left: 20px;
+}
+
+.filterText {
+	padding-left: 5px;
+}
+
+.showLoadingImg {
+	padding-left: 10px;
+}
+
+#leftheading-project {
+	position: relative;
+}
+
+.filterContent {
+	border: 1px solid #B0C1F9;
+	background: #f9f9f9;
+}
+
+.all_obj {
+	padding-bottom: 7px;
+	padding-top: 5px;
+}
+
+.filterColumn {
+	padding-right:2px;
+	border-right:1px solid #B0C1F9;
+}
+
+.paddingLeftForFiltersColumn {
+	padding-left: 15px;
+}
+
+.filterContentPart1 {
+	padding-left: 15px;
+}
+
+.filterContentPart1Column {
+	padding-left: 9px;
+	font-weight: bold;
+}
+
+.criteriaForm {
+	padding-bottom: 2px;
+}
+
+.filterCriteria {
+	height: 0px;
+	width: 0px;
+	visibility: hidden;
+}
+
+.teamMember {
+	width : 115px;
+}
+
+.filterCriteriaPart1PaddingLeft {
+	padding-left: 25px;
+}
+
+.showActivityOn {
+	padding-bottom: 5px;
+	padding-top: 2px;
+}
+
+.blogFilterViewColumn {
+	padding-right:2px;
+}
+
+.filterObjectPadding {
+	padding : 3px;
+}
+
+.checkBoxLeftPadding {
+	padding-left: 2px;
+}
+
+.filterObjectBottomPadding {
+	padding : 15px;
+}
+
+.selectallAndClearAllDivider {
+	color: #3399FF;
+}
+
+.applyButton {
+	margin-top: 5px;
+	margin-bottom: 5px;
+	width:100px;
+}
+
+.jumpedDateLeftPadding {
+	padding-left: 5px;
+}
+
+.NextPrevLink {
+	padding-right: 10px;
+}
+
+.ShowDate {
+	padding-right: 5px;
+	padding-left: 5px;
+}
+
+.continuedDate {
+	padding-left: 3px;
+	color : silver;
+}
+
+.activityLogtableContent {
+	vertical-align: top;
+}
+
+.noActivityFound {
+	padding-left: 20px;
+	padding-top: 10px;
+}
+
+.markedUnMarkedColumn {
+	padding-right: 10px;
+}
+
+.blogTitleColumn {
+	padding-left: 45px;
+}
+
+.blogFullText {
+	padding-left: 43px;
+}
+
+.commentsForBlogEntry {
+	text-align: left;
+	padding-top: 5px;
+}	
+
+.clearBoth {
+	clear: both;
+}
+
+.blogCommentSecondColumn {
+	padding-left:5px;
+}	
+
+.post {
+	padding-bottom: 5px;
+}
+
+.personImage {
+	height: 28px;
+	width: 36px;
+	overflow: hidden;
+}
+
+.addComment {
+	color: #3399FF;
+	font-size: 11px;
+	font-weight: bold;
+}
+
+.blogCommentTitle {
+	padding-right: 5px;
+}
+
+.descriptionOn {
+	padding-left: 3px;
+}
+
+.textAreaContent {
+	border: none;
+	width: 99%;
+	color: gray;
+	overflow: auto;
+}	
+
+.submitCancelDevider {
+	color: #c2c2c2;
+	width: 50%;
+}
+
+.blogEntryText {
+	padding-left: 5px;
+}		
+
+#project-title-activity {
+	margin-top: 5px;
+}

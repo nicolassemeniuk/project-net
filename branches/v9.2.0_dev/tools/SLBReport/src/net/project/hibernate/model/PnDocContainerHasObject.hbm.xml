@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDocContainerHasObject" 
+    table="PN_DOC_CONTAINER_HAS_OBJECT"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnDocContainerHasObjectPK">
+        <key-property 
+            name="docContainerId" 
+            column="DOC_CONTAINER_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="objectId" 
+            column="OBJECT_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnObject -->
+    <many-to-one
+        name="pnObject"
+	    class="net.project.hibernate.model.PnObject"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="OBJECT_ID" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to PnDocContainer -->
+    <many-to-one
+        name="pnDocContainer"
+	    class="net.project.hibernate.model.PnDocContainer"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="DOC_CONTAINER_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

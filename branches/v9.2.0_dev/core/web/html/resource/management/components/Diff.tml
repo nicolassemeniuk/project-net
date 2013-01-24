@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<tr xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+	<td width="49%" style="border: 1px solid #B0C1F9;">
+		<div id="leftPageDiv" style="height:480px; overflow:auto;" onScroll="moveLeftScroll('left')">
+			<table id="leftTable" cellspacing="0" cellpadding="0" width="100%" style="margin:0px;">
+				<t:loop source="leftFileLines" value="currentLeftFileLine">
+					<t:SetDiffLineColor fileLine="currentLeftFileLine" isLeftFile="true"/>	
+				</t:loop>
+			</table>
+		</div>
+	</td>
+	<td width="2%">&nbsp;&nbsp;&nbsp;&nbsp;</td>
+	<td width="49%" style="border: 1px solid #B0C1F9;">
+		<div id="rightPageDiv" style="height:480px;overflow:auto;" onScroll="moveLeftScroll('right')">
+			<table id="rightTable" cellspacing="0" cellpadding="0" width="100%" style="margin:0px;">
+				<t:loop source="rightFileLines" value="currentRightFileLine">
+					<t:SetDiffLineColor fileLine="currentRightFileLine" isLeftFile="false"/>
+				</t:loop>	
+			</table>
+		</div>
+	</td>
+</tr>	

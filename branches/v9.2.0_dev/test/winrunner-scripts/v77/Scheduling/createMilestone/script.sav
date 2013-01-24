@@ -1,0 +1,23 @@
+function createMilestone(in milestone_name,in task_type, in duration_value,in work_value){
+	wait(1);
+	set_window("main",2);
+	if(obj_exists(
+	web_link_click("Create New Task");
+	wait(1);
+	set_window("main",2);
+	edit_set("name",milestone_name);
+	wait(1);
+	list_select_item("taskCalculationTypeFixedElementID",""&task_type&"");
+	wait(1);
+	edit_set("work",""&work_value&"");
+	wait(1);
+	edit_set("duration",""&duration_value&"");
+	button_set("milestoneCheckbox",ON);
+	
+	web_link_click("Submit");
+	wait(2);
+	set_window("main",2);
+	web_link_click("Return to Task List");
+	wait(1);
+}
+

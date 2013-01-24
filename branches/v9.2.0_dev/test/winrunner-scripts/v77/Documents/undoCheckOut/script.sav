@@ -1,0 +1,22 @@
+function undoCheckOut(in projectName,in folderName,in fileName){
+	auto val1, val2, val3;
+
+	reload("extractProjectID",0,1);
+	reload("extractContainerID",0,1);
+	reload("extractDocumentID",0,1);
+	GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+	
+	val1 = extractProjectID(projectName);
+	val2 = extractContainerID(val1,folderName);
+	val3 = extractDocumentID(val2,fileName);
+	
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui","main","selected","part_value",""&val3&"")!=E_OK)
+		report_msg("NOT OK1");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+	
+	set_window("main",2);
+	button_set("selected",ON);
+	wait(1);
+	web_link_click("Undo Check Out");
+	wait(1

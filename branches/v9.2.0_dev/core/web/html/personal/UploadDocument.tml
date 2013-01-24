@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<head>
+<!-- Common Styles for the Ext widgets -->
+<style type="text/css">
+.imageEntry {
+	 font-family: Verdana,Arial,Helvetica;
+	 font-size: 12px;
+	 font-weight: bold;
+	 width: 30%;
+}
+</style>
+<link rel="stylesheet" type="text/css" href="${JSPRootURL}/src/extjs/resources/css/ext-all.css?${versionNumber}"/>
+
+<script space="preserve" type="text/javascript">
+ 
+ errorAlertTitle = '${errorAlertTitle}';
+ imageTypeNotSupportedMessage = '${imageTypeNotSupportedMessage}';
+ selectImageToUploadMessage = '${selectImageToUploadMessage}';
+ selectedInvalidImageMessage = '${selectedInvalidImageMessage}';
+ invalidFilePathMessage = '<t:Message value="prm.personal.personalimageupload.invalidimagepath.message" />';
+ window.parent.validImage = validImage = ${isValidImage};
+ window.parent.newdocumentId =  '${documentId}';
+ window.onload = setup;
+	
+	function setup() {
+		checkForInvalidImageUpload();
+	}
+	
+	function extAlert(title, msg, icon){
+		Ext.MessageBox.show({
+			title: title,
+			msg: msg,
+			buttons: Ext.MessageBox.OK,
+			icon: icon
+		});
+	}    
+	
+	// checking if invalid image file is uploaded  Ext.MessageBox.ERROR
+	function checkForInvalidImageUpload(){
+		if(!validImage){
+			if(window != top){
+				window.parent.extAlert(errorAlertTitle, selectedInvalidImageMessage, Ext.MessageBox.ERROR);
+			}
+		}
+	}
+</script>
+
+</head>
+<body>
+	<div style="position: relative;left:0;top:0;background-color:#BEDEF8;">
+		<table width="100%"> 
+			<tr><td height="20" align="left" class="blogPopupTitle" id="blogPopupTitle"><t:Message value="prm.personal.personalimageupload.uploadimage.title"/></td></tr>
+		</table>
+	</div>
+	
+	<t:form onsubmit="javascript:uploadDocument('${uploadFor}');">
+		<table width="500" align="center" height="100">
+			<tr>
+				<td class="imageEntry" align="center">
+					<label style="font-family:Arial; font-weight:bold; font-size:12px;">
+						${selectImageToUploadLabel}</label>
+					<input t:type="upload" t:id="file" validate="required" onkeydown="return false;" onkeypress="return false;"/>
+				</td>
+			</tr>
+			<tr>
+				<td align="center">
+					<input type="button" value="${uploadButtonCaption}" onclick="javascript:uploadDocument('${uploadFor}');" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;      
+					<input type="button" value="${cancelButtonCaption}" onclick="javascript:hideUploadPopup();" />
+				</td>
+			</tr>
+		</table> 
+	</t:form>
+<script type="text/javascript" src="${JSPRootURL}/src/extjs/adapter/ext/ext-base.js?${versionNumber}"></script>
+<script type="text/javascript" src="${JSPRootURL}/src/extjs/ext-all.js?${versionNumber}"></script>
+</body>
+</html>

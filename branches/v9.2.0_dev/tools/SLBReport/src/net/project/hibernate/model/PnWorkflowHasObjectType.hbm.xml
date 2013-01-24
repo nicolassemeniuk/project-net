@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnWorkflowHasObjectType" 
+    table="PN_WORKFLOW_HAS_OBJECT_TYPE"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnWorkflowHasObjectTypePK">
+        <key-property 
+            name="workflowId" 
+            column="WORKFLOW_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="objectType" 
+            column="OBJECT_TYPE" 
+            type="java.lang.String"
+            length="80"
+        />
+    </composite-id>    
+
+    <property
+        name="subTypeId"
+        type="java.lang.String"
+        column="SUB_TYPE_ID"
+        length="80"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnWorkflow -->
+    <many-to-one
+        name="pnWorkflow"
+	    class="net.project.hibernate.model.PnWorkflow"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="WORKFLOW_ID" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to PnObjectType -->
+    <many-to-one
+        name="pnObjectType"
+	    class="net.project.hibernate.model.PnObjectType"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="OBJECT_TYPE" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

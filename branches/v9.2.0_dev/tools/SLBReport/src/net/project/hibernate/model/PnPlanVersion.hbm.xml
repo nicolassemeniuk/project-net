@@ -1,0 +1,164 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPlanVersion" 
+    table="PN_PLAN_VERSION"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnPlanVersionPK">
+        <key-property 
+            name="planId" 
+            column="PLAN_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="planVersionId" 
+            column="PLAN_VERSION_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="planName"
+        type="java.lang.String"
+        column="PLAN_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="planDesc"
+        type="java.lang.String"
+        column="PLAN_DESC"
+        length="500"
+    />
+    <property
+        name="dateStart"
+        type="java.sql.Date"
+        column="DATE_START"
+        length="7"
+    />
+    <property
+        name="dateEnd"
+        type="java.sql.Date"
+        column="DATE_END"
+        length="7"
+    />
+    <property
+        name="autocalculateTaskEndpoints"
+        type="java.math.BigDecimal"
+        column="AUTOCALCULATE_TASK_ENDPOINTS"
+        length="22"
+    />
+    <property
+        name="overallocationWarning"
+        type="java.math.BigDecimal"
+        column="OVERALLOCATION_WARNING"
+        length="22"
+    />
+    <property
+        name="defaultCalendarId"
+        type="java.math.BigDecimal"
+        column="DEFAULT_CALENDAR_ID"
+        length="22"
+    />
+    <property
+        name="timezoneId"
+        type="java.lang.String"
+        column="TIMEZONE_ID"
+        length="1000"
+    />
+    <property
+        name="baselineStart"
+        type="java.sql.Date"
+        column="BASELINE_START"
+        length="7"
+    />
+    <property
+        name="baselineEnd"
+        type="java.sql.Date"
+        column="BASELINE_END"
+        length="7"
+    />
+    <property
+        name="modifiedDate"
+        type="java.sql.Date"
+        column="MODIFIED_DATE"
+        length="7"
+    />
+    <property
+        name="modifiedBy"
+        type="java.math.BigDecimal"
+        column="MODIFIED_BY"
+        length="22"
+    />
+    <property
+        name="baselineId"
+        type="java.math.BigDecimal"
+        column="BASELINE_ID"
+        length="22"
+    />
+    <property
+        name="defaultTaskCalcTypeId"
+        type="java.math.BigDecimal"
+        column="DEFAULT_TASK_CALC_TYPE_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="earliestStartDate"
+        type="java.sql.Date"
+        column="EARLIEST_START_DATE"
+        length="7"
+    />
+    <property
+        name="earliestFinishDate"
+        type="java.sql.Date"
+        column="EARLIEST_FINISH_DATE"
+        length="7"
+    />
+    <property
+        name="latestStartDate"
+        type="java.sql.Date"
+        column="LATEST_START_DATE"
+        length="7"
+    />
+    <property
+        name="latestFinishDate"
+        type="java.sql.Date"
+        column="LATEST_FINISH_DATE"
+        length="7"
+    />
+    <property
+        name="constraintTypeId"
+        type="java.lang.String"
+        column="CONSTRAINT_TYPE_ID"
+        length="10"
+    />
+    <property
+        name="constraintDate"
+        type="java.sql.Date"
+        column="CONSTRAINT_DATE"
+        length="7"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

@@ -1,0 +1,25 @@
+#Fri Mar 28 19:17:22 IST 2008
+smtp.smtpPassword=
+step.copy.jce.jdk.dir=0
+step.copy.jce.jre.dir=0
+db.sysPassword=
+smtp.smtpPort=25
+step.check.db.connection=0
+step.send.email.test=0
+db.oraclePath=
+step.execute.db.script=0
+step.restart=0
+db.sysUsername=
+smtp.smtpHost=localhost
+step.copy.jdbc.jar=0
+step.check.db.setup=0
+step.copy.endorsed.dir=0
+step.change.context.file=0
+step.copy.activation.jar=0
+db.databaseName=XE
+smtp.smtpUsername=
+step.check.smtp.setup=0
+step.xml.apply.changes=0
+step.copy.mail.jar=0
+db.databasehost=localhost
+step.restart.again=0

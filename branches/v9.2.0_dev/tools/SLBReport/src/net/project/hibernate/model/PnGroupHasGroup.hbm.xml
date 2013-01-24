@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnGroupHasGroup" 
+    table="PN_GROUP_HAS_GROUP"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnGroupHasGroupPK">
+        <key-property 
+            name="groupId" 
+            column="GROUP_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="memberGroupId" 
+            column="MEMBER_GROUP_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnGroup -->
+    <many-to-one
+        name="pnGroupByMemberGroupId"
+	    class="net.project.hibernate.model.PnGroup"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="MEMBER_GROUP_ID" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to PnGroup -->
+    <many-to-one
+        name="pnGroupByGroupId"
+	    class="net.project.hibernate.model.PnGroup"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="GROUP_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

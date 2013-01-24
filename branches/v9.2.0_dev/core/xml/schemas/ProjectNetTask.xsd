@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <!-- TaskList element structure -->
+        <xsd:element name="Task" type="TaskListType">
+            <xsd:annotation>
+                <xsd:documentation xml:lang="en">
+                    Task is a top-level element that encapsulates the concept of 
+                    scheduled or unscheduled work that exists in a schedule.
+                </xsd:documentation>
+            </xsd:annotation>
+        </xsd:element>
+
+        <!-- Task Type declaration  -->
+        <xsd:complexType name="TaskType">
+            <xsd:all>
+                <xsd:element name="ID" type="xsd:int"/>
+                <xsd:element name="Name" type="xsd:string"/>
+                <xsd:element name="Description" type="xsd:string"/>
+                <xsd:element name="Type" type="xsd:short"/>
+                <xsd:element name="Duration" type="xsd:duration"/>
+                <xsd:element name="ScheduledWork" type="xsd:duration"/>
+                <xsd:element name="CompletedWork" type="xsd:duration"/>
+                <xsd:element name="StartDate" type="xsd:dateTime"/>
+                <xsd:element name="FinishDate" type="xsd:dateTime"/>
+                <xsd:element name="ActualDuration" type="xsd:duration"/>
+                <xsd:element name="RemainingDuration" type="xsd:duration"/>
+                <xsd:element name="ActualStartDate" type="xsd:dateTime"/>
+                <xsd:element name="ActualFinishDate" type="xsd:dateTime"/>
+                <xsd:element name="Priority" type="xsd:short"/>
+                <xsd:element name="PercentComplete" type="xsd:short"/>
+                <xsd:element name="CreationDate" type="xsd:dateTime"/>
+                <xsd:element name="IsModified" type="xsd:boolean"/>
+                <xsd:element name="ModifiedDate" type="xsd:dateTime"/>
+                <xsd:element name="ModifiedByID" type="xsd:int"/>
+                <xsd:element name="IsMilestone" type="xsd:boolean"/>
+
+
+                <xsd:element name="IDSequence" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="HasLinkedFields" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="IsCritical" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="IsSummary" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="IsSubproj" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="IsMarked" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="IgnoresResourceCalendar" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="IsRolledUp" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="IsFromFinishSubproject" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="TaskBarHidden" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="IsRecurring" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="IsRecurringSummary" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="IsExternal" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="IsEffortDriven" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="IsCollapsed" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="IsReadyOnlySubproject" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="LevelingCanSplit" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="LevelingAdjustsAssn" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="DurationIsEstimated" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="EarlyStart" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="LateStart" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="EarlyFinish" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="LateFinish" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="StopDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="ResumeDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="FreeSlack" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="OutlineLevel" type="xsd:short" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="BaselineDuration" type="xsd:short" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="BaselineDurationFormat" type="xsd:short" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="ConstraintType" type="xsd:short" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="LevelingDelay" type="xsd:short" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="LevelingDelayFormat" type="xsd:short" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="BaselineStartDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="BaselineFinishDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="ConstraintDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="PercentWorkComplete" type="xsd:short" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="FixedCostAccrual" type="xsd:short" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="PreleveledStartDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="PreleveledFinishDate" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="CalendarID" type="xsd:int" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="Deadline" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="BaselineWork" type="xsd:double" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="RemainingWork" type="xsd:double" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="ScheduledCost" type="xsd:double" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="FixedCost" type="xsd:double" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="ActualCost" type="xsd:double" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="RemainingCost" type="xsd:double" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="BaseCost" type="xsd:double" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="ActualOvertimeWork" type="xsd:double" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="RemainingOvertimeWork" type="xsd:double" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="ScheduledOvertimeCost" type="xsd:double" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="ActualOvertimeCost" type="xsd:double" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="RemainingOvertimeCost" type="xsd:double" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="WBS" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="WBSLevel" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="HasNotes" type="xsd:boolean" minOccurs="0" maxOccurs="1"/>
+                <xsd:element name="RTFNotes" type="xsd:base64Binary" minOccurs="0" maxOccurs="1"/>
+            </xsd:all>
+        </xsd:complexType>
+
+        <!-- Task list type -->
+        <xsd:complexType name="TaskListType">
+            <xsd:sequence>
+                <xsd:element name="Task" type="TaskType" minOccurs="0" maxOccurs="unbounded"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:schema>

@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.DatabaseVersionUpdate" 
+    table="DATABASE_VERSION_UPDATE"
+    lazy="false"
+>
+
+    <composite-id>
+        <key-property 
+            name="majorVersion" 
+            column="MAJOR_VERSION" 
+            type="int"
+            length="3"
+        />
+        <key-property 
+            name="minorVersion" 
+            column="MINOR_VERSION" 
+            type="int"
+            length="3"
+        />
+        <key-property 
+            name="subMinorVersion" 
+            column="SUB_MINOR_VERSION" 
+            type="int"
+            length="3"
+        />
+        <key-property 
+            name="patchFilename" 
+            column="PATCH_FILENAME" 
+            type="java.lang.String"
+            length="250"
+        />
+        <key-property 
+            name="patchDescription" 
+            column="PATCH_DESCRIPTION" 
+            type="java.lang.String"
+            length="4000"
+        />
+        <key-property 
+            name="timestamp" 
+            column="TIMESTAMP" 
+            type="java.sql.Date"
+            length="7"
+        />
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

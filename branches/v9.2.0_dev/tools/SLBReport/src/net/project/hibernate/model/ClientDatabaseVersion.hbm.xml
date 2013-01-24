@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.ClientDatabaseVersion" 
+    table="CLIENT_DATABASE_VERSION"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.ClientDatabaseVersionPK">
+        <key-property 
+            name="majorVersion" 
+            column="MAJOR_VERSION" 
+            type="java.lang.Integer"
+            length="3"
+        />
+        <key-property 
+            name="minorVersion" 
+            column="MINOR_VERSION" 
+            type="java.lang.Integer"
+            length="3"
+        />
+        <key-property 
+            name="subMinorVersion" 
+            column="SUB_MINOR_VERSION" 
+            type="java.lang.Integer"
+            length="3"
+        />
+    </composite-id>    
+
+    <property
+        name="clientName"
+        type="java.lang.String"
+        column="CLIENT_NAME"
+        not-null="true"
+        length="50"
+    />
+    <property
+        name="prmMajorVersion"
+        type="java.lang.Integer"
+        column="PRM_MAJOR_VERSION"
+        length="3"
+    />
+    <property
+        name="prmMinorVersion"
+        type="java.lang.Integer"
+        column="PRM_MINOR_VERSION"
+        length="3"
+    />
+    <property
+        name="prmSubMinorVersion"
+        type="java.lang.Integer"
+        column="PRM_SUB_MINOR_VERSION"
+        length="3"
+    />
+    <property
+        name="timestamp"
+        type="java.sql.Date"
+        column="TIMESTAMP"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="description"
+        type="java.lang.String"
+        column="DESCRIPTION"
+        not-null="true"
+        length="1000"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

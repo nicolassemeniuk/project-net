@@ -1,0 +1,30 @@
+function createCheckBox(in name){
+	extern i;
+	set_window("main",1);
+	list_select_item("ElementID","Checkbox");
+	wait(1);
+	set_window("main",1);
+	edit_set("field_label",name);
+	edit_set("row_num",i);
+	list_select_item("column_id","Left");
+	web_link_click("Submit");
+	wait(1);
+	set_window("main",1);
+	if(obj_exists(name)==E_OK)
+		report_msg("The CheckBox Field '"&name&"'created successfully");
+	else
+		report_msg("The creation of checkbox field CANNOT be verified");
+	i = i + 1;
+	set_window("main",1);
+# 	web_obj_text_exists("channelbar-left_end","#12","#3","Checkbox","","");
+# 	if(obj_exists("Checkbox")==E_OK)
+# 		report_msg("The field created is of type Checkbox");
+# 	else
+# 		report_msg("Unable to verify");
+	win_get_text("main",outText,631,310,690,315);
+	if(outText == "Checkbox")
+		report_msg("The field created is of type Text Field");
+	else
+		report_msg("UNABLE to verify");
+	report_msg("");
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+        <xsd:include schemaLocation="ProjectNetTask.xsd"/>
+
+        <xsd:complexType name="ScheduleType">
+            <xsd:sequence>
+                <xsd:element name="ProjectID" minOccurs="0" maxOccurs="1" type="xsd:unsignedLong"/>
+                <!-- Task definition -->   
+                <xsd:element name="TaskList" type="TaskListType"/>
+                <!-- Constraint definitions --> 
+                <!-- Resource definitions -->
+            </xsd:sequence>
+        </xsd:complexType>
+
+        <xsd:element name="Schedule" type="ScheduleType"/>
+</xsd:schema>

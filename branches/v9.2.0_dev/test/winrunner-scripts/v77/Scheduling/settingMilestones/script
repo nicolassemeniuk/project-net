@@ -1,0 +1,69 @@
+#script has to run in update mode before running in verify mode since it needs to capture the bitmap and associate 
+#it with the image name
+
+wait(3);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject"();
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+public task_types[] = {"Fixed Duration","Fixed Units","Fixed Work"};
+public units[] = {"hours","days","weeks"};
+reload("createMilestone",0,1);
+reload("extractProjectID",0,1);
+reload("extractTaskID",0,1);
+reload("extractSequenceID",0,1);
+
+wait(2);
+set_window("main",2);
+web_link_click("TestProject2");
+set_window("menu",3);
+web_link_click("Workplan");
+wait(2);
+set_window("main",1);
+
+function checkMilestone(in project_name,in task_name){
+	auto val, val_t, val_s,y;
+# 	createMilestone(task_name, task_types[0], 1, units[1], 8, units[0]);
+	val = extractProjectID(project_name);
+	val_t = extractTaskID(task_name,val);	
+	val_s = extractSequenceID(val_t,val);
+	y = 220 + (20*val_s);
+	win_check_bitmap("main", "Img"&val_s&"", 1, 220, y, 14, 13);
+	web_link_click(task_name);
+	wait(1)
+	set_window("main",1);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",1);
+	wait(1);
+	if(button_check_state("milestoneCheckbox",ON) != E_OK)
+		tl_step("CHeck milestones",0,"The milestone button is NOT checked");
+	web_link_click("Cancel");
+	wait(2);
+}
+
+# win_check_bitmap("main", "Img5", 1, 220, 240, 14, 13);first task coordinates
+# win_check_bitmap("main", "Img1", 1, 221, 419, 14, 13);10th task coordinates
+# win_check_bitmap("main", "Img2", 1, 221, 440, 14, 13);11th
+# win_check_bitmap("main", "Img3", 1, 221, 460, 14, 13);12th
+# val1 = 221;
+# val2 = 480; 
+# win_check_bitmap("main", "Img4", 1, val1, val2, 14, 13);13th
+#
+set_window("main",2);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer");
+button_press("OK");
+wait(6);
+set_window("main",1);
+ 
+createMilestone("t1", task_types[0], 1, 8);
+checkMilestone("TestProject2","t1");
+
+createMilestone("t2", task_types[1], 1, 8);
+checkMilestone("TestProject2","t2");
+
+createMilestone("t3", task_types[2], 1, 8);
+checkMilestone("TestProject2","t3");
+
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");

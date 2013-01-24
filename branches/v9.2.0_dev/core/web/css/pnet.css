@@ -1,0 +1,56 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+ 
+TABLE { font-family: Arial, Helvetica, sans-serif; font-size: 10pt;}
+TD { font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-style: normal; font-weight: normal;}
+TH { font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-style: normal; font-weight: bold;}
+PRE  {font-size: 10pt; font-weight: normal; font-family: Arial, Helvetica, sans-serif;}
+TEXTAREA {font-size: 10pt; font-weight: normal; font-family: Arial, Helvetica, sans-serif;}
+SELECT {font-size: 10pt; font-weight: normal; font-family: Arial, Helvetica, sans-serif;}
+OPTION {font-size: 10pt; font-weight: normal; font-family: Arial, Helvetica, sans-serif;}
+.loginHeader {font-size: 28pt; color: #888888; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.largeHeaderGrey {font-size: 16pt; color: #888888; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.mediumHeaderGrey {font-size: 14pt; color: #666666; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.smallHeaderGrey {font-size: 11pt; font-weight: bold; color: #666666; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.largeHeaderWhite {font-size: 16pt; color: #FFFFFF; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.mediumHeaderWhite {font-size: 14pt; color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.smallHeaderWhite {font-size: 11pt; font-weight: bold; color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.largeHeaderBlack {font-size: 16pt; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.mediumHeaderBlack {font-size: 14pt; font-family: Verdana, Arial, Helvetica, sans-serif;; font-weight: bold}
+.smallHeaderBlack {font-size: 12pt; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.bold10 { font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-style: normal; font-weight: bold;}
+.normal10 { font-family: Arial, Helvetica, sans-serif; font-size: 10pt; font-style: normal; font-weight: normal;}
+.normal12 {font-size: 12pt; font-weight: normal; font-family: Arial, Helvetica, sans-serif;}
+.normal11 {font-size: 11pt; font-weight: normal; font-family: Arial, Helvetica, sans-serif;}
+.pageHeader {font-size: 14pt; color: #666666; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.pageHeaderWhite {font-size: 14pt; color: #FFFFFF; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.pageHeaderGrey {font-size: 14pt; color: #888888; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.navHeader {font-size: 10pt; font-weight: bold; color: #FFFFFF; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.smallHeader {font-size: 12pt; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.smallHeaderBold {font-size: 12pt; font-family: Verdana, Arial, Helvetica, sans-serif; font-style: normal; font-weight: bold;}
+.warningTextRed {font-size: 11pt; font-weight: bold; color: #FF3333; font-family: Arial, Helvetica, sans-serif;}
+.projectHeader {font-size: 12pt; color: #666666; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.spaceHeader {font-size: 12pt; color: #666666; font-weight: bold; font-family: Verdana, Arial, Helvetica, sans-serif;}
+.emptyList {font-size: 12pt; font-family: Arial, Helvetica, sans-serif;} 
+
+.FRAMETITLE {
+	COLOR: #000000; FONT-SIZE: 10pt; FONT-WEIGHT: bold; TEXT-DECORATION: none
+}
+.FRAME {
+	BACKGROUND-COLOR: #99CCCC
+}
+.WINDOW {
+	
+}

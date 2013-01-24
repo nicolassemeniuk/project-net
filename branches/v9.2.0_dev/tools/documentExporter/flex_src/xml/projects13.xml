@@ -1,0 +1,400 @@
+<projects Name="Projects" ProjectId="root">
+<Project Name="MMS" Level="1" Folder="/MMS" selected="false" ProjectId="3128632">
+	</Project>
+<Project Name="MMS Demo Project" Level="1" Folder="/MMS Demo Project" selected="false" ProjectId="3340337">
+	</Project>
+<Project Name="MMS/USCG Documentation Cronology" Level="1" Folder="/MMS USCG Documentation Cronology" selected="false" ProjectId="15154182">
+<Project Name="GeoFrame ready" Level="2" Folder="/MMS/GeoFrame ready" selected="false" ProjectId="3134148">
+	</Project>
+<Project Name="Preliminary log verification" Level="2" Folder="/MMS/Preliminary log verification" selected="false" ProjectId="3129002">
+	</Project>
+<Project Name="Standard log verification" Level="2" Folder="/MMS/Standard log verification" selected="false" ProjectId="3129537">
+	</Project>
+<Project Name="Workstation Ready" Level="2" Folder="/MMS/Workstation Ready" selected="false" ProjectId="3223301">
+	</Project>
+	</Project>
+<Project Name="MNSA" Level="1" Folder="/MNSA" selected="false" ProjectId="2312045">
+	</Project>
+<Project Name="MNSA - Connected Backup" Level="1" Folder="/MNSA - Connected Backup" selected="false" ProjectId="1450115">
+	</Project>
+<Project Name="MNSA - Intrusion Detection System" Level="1" Folder="/MNSA - Intrusion Detection System" selected="false" ProjectId="3027943">
+	</Project>
+<Project Name="MNSA - LDAP Migration" Level="1" Folder="/MNSA - LDAP Migration" selected="false" ProjectId="3539844">
+	</Project>
+<Project Name="MNSA - Loghost" Level="1" Folder="/MNSA - Loghost" selected="false" ProjectId="1450972">
+	</Project>
+<Project Name="MNSA - MTA" Level="1" Folder="/MNSA - MTA" selected="false" ProjectId="1450852">
+	</Project>
+<Project Name="MNSA - Physical Access Integration" Level="1" Folder="/MNSA - Physical Access Integration" selected="false" ProjectId="3028096">
+	</Project>
+<Project Name="MNSA - QoS" Level="1" Folder="/MNSA - QoS" selected="false" ProjectId="1326177">
+	</Project>
+<Project Name="MNSA - Secure LAN" Level="1" Folder="/MNSA - Secure LAN" selected="false" ProjectId="3027790">
+	</Project>
+<Project Name="MNSA - Secure Web" Level="1" Folder="/MNSA - Secure Web" selected="false" ProjectId="3027612">
+	</Project>
+<Project Name="MNSA - Standard Image Outsource" Level="1" Folder="/MNSA - Standard Image Outsource" selected="false" ProjectId="2944045">
+	</Project>
+<Project Name="MNSA - Two Factor Authentication" Level="1" Folder="/MNSA - Two Factor Authentication" selected="false" ProjectId="3028248">
+	</Project>
+<Project Name="MNSA - ePolicy Orchestrator" Level="1" Folder="/MNSA - ePolicy Orchestrator" selected="false" ProjectId="3027449">
+	</Project>
+<Project Name="MNSA Eng server move" Level="1" Folder="/MNSA Eng server move" selected="false" ProjectId="1958478">
+	</Project>
+<Project Name="MNSA Program Office Master Project" Level="1" Folder="/MNSA Program Office Master Project" selected="false" ProjectId="1212280">
+<Project Name="MNSA - Access Servers" Level="2" Folder="/MNSA Program Office Master Project/MNSA - Access Servers" selected="false" ProjectId="1219835">
+	</Project>
+<Project Name="MNSA - Active Directory" Level="2" Folder="/MNSA Program Office Master Project/MNSA - Active Directory" selected="false" ProjectId="1219956">
+	</Project>
+<Project Name="MNSA - Basic Services (CisoRME etc)" Level="2" Folder="/MNSA Program Office Master Project/MNSA - Basic Services CisoRME etc" selected="false" ProjectId="1220883">
+	</Project>
+<Project Name="MNSA - Content Delivery Network" Level="2" Folder="/MNSA Program Office Master Project/MNSA - Content Delivery Network" selected="false" ProjectId="1219930">
+	</Project>
+<Project Name="MNSA - Contract" Level="2" Folder="/MNSA Program Office Master Project/MNSA - Contract" selected="false" ProjectId="1219510">
+	</Project>
+<Project Name="MNSA - DNS" Level="2" Folder="/MNSA Program Office Master Project/MNSA - DNS" selected="false" ProjectId="1219820">
+	</Project>
+<Project Name="MNSA - FW &amp; Internet GW" Level="2" Folder="/MNSA Program Office Master Project/MNSA - FW  Internet GW" selected="false" ProjectId="1220838">
+	</Project>
+<Project Name="MNSA - Finance" Level="2" Folder="/MNSA Program Office Master Project/MNSA - Finance" selected="false" ProjectId="1286767">
+	</Project>
+<Project Name="MNSA - LDAP" Level="2" Folder="/MNSA Program Office Master Project/MNSA - LDAP" selected="false" ProjectId="1220898">
+	</Project>
+<Project Name="MNSA - LDAP Migration" Level="2" Folder="/MNSA Program Office Master Project/MNSA - LDAP Migration" selected="false" ProjectId="3539844">
+	</Project>
+<Project Name="MNSA - Lightweight VPN Portals" Level="2" Folder="/MNSA Program Office Master Project/MNSA - Lightweight VPN Portals" selected="false" ProjectId="1219858">
+	</Project>
+<Project Name="MNSA - Lines Management" Level="2" Folder="/MNSA Program Office Master Project/MNSA - Lines Management" selected="false" ProjectId="1220823">
+	</Project>
+<Project Name="MNSA - MTA" Level="2" Folder="/MNSA Program Office Master Project/MNSA - MTA" selected="false" ProjectId="1219803">
+	</Project>
+<Project Name="MNSA - NAM RFP" Level="2" Folder="/MNSA Program Office Master Project/MNSA - NAM RFP" selected="false" ProjectId="1362566">
+	</Project>
+<Project Name="MNSA - PKI" Level="2" Folder="/MNSA Program Office Master Project/MNSA - PKI" selected="false" ProjectId="1219236">
+<Project Name="MNSA - 2 Factor Authentication" Level="3" Folder="/MNSA Program Office Master Project/MNSA - PKI/MNSA - 2 Factor Authentication" selected="false" ProjectId="4559625">
+	</Project>
+<Project Name="MNSA - SLB CMS Upgrade" Level="3" Folder="/MNSA Program Office Master Project/MNSA - PKI/MNSA - SLB CMS Upgrade" selected="false" ProjectId="3780249">
+	</Project>
+<Project Name="MNSA - SLB Corporate Badge Deployment" Level="3" Folder="/MNSA Program Office Master Project/MNSA - PKI/MNSA - SLB Corporate Badge Deployment" selected="false" ProjectId="1379620">
+	</Project>
+<Project Name="MNSA - SLB SmartLogin Field Test" Level="3" Folder="/MNSA Program Office Master Project/MNSA - PKI/MNSA - SLB SmartLogin Field Test" selected="false" ProjectId="1540821">
+	</Project>
+	</Project>
+<Project Name="MNSA - Proxy Cache" Level="2" Folder="/MNSA Program Office Master Project/MNSA - Proxy Cache" selected="false" ProjectId="1220853">
+	</Project>
+<Project Name="MNSA - QoS" Level="2" Folder="/MNSA Program Office Master Project/MNSA - QoS" selected="false" ProjectId="1326177">
+	</Project>
+<Project Name="MNSA - Radia" Level="2" Folder="/MNSA Program Office Master Project/MNSA - Radia" selected="false" ProjectId="1220868">
+<Project Name="Radia Operations" Level="3" Folder="/MNSA Program Office Master Project/MNSA - Radia/Radia Operations" selected="false" ProjectId="8662584">
+<Project Name="Change Management" Level="4" Folder="/MNSA Program Office Master Project/MNSA - Radia/Radia Operations/Change Management" selected="false" ProjectId="8682829">
+	</Project>
+	</Project>
+<Project Name="Radia Outsource" Level="3" Folder="/MNSA Program Office Master Project/MNSA - Radia/Radia Outsource" selected="false" ProjectId="8662538">
+	</Project>
+<Project Name="Security Dashboard" Level="3" Folder="/MNSA Program Office Master Project/MNSA - Radia/Security Dashboard" selected="false" ProjectId="8644272">
+	</Project>
+<Project Name="radia 3.1.1 Client Upgrade" Level="3" Folder="/MNSA Program Office Master Project/MNSA - Radia/radia 3.1.1 Client Upgrade" selected="false" ProjectId="8057824">
+	</Project>
+	</Project>
+<Project Name="MNSA - Rockbox" Level="2" Folder="/MNSA Program Office Master Project/MNSA - Rockbox" selected="false" ProjectId="1339932">
+	</Project>
+<Project Name="MNSA - Routers" Level="2" Folder="/MNSA Program Office Master Project/MNSA - Routers" selected="false" ProjectId="1220808">
+	</Project>
+<Project Name="MNSA - SCC" Level="2" Folder="/MNSA Program Office Master Project/MNSA - SCC" selected="false" ProjectId="1220913">
+	</Project>
+<Project Name="MNSA - Standard Image Outsource" Level="2" Folder="/MNSA Program Office Master Project/MNSA - Standard Image Outsource" selected="false" ProjectId="2944045">
+	</Project>
+<Project Name="MNSA - VPN" Level="2" Folder="/MNSA Program Office Master Project/MNSA - VPN" selected="false" ProjectId="1219768">
+	</Project>
+<Project Name="MNSA - VoIP" Level="2" Folder="/MNSA Program Office Master Project/MNSA - VoIP" selected="false" ProjectId="1219895">
+	</Project>
+	</Project>
+<Project Name="MNSA QoS/VoIP" Level="1" Folder="/MNSA QoS VoIP" selected="false" ProjectId="1181225">
+	</Project>
+<Project Name="MNSA Server Monitoring" Level="1" Folder="/MNSA Server Monitoring" selected="false" ProjectId="4014906">
+	</Project>
+<Project Name="MNSA Servers" Level="1" Folder="/MNSA Servers" selected="false" ProjectId="5803552">
+<Project Name="LDAP Archives" Level="2" Folder="/MNSA Servers/LDAP Archives" selected="false" ProjectId="4944012">
+	</Project>
+<Project Name="LDAP Migration" Level="2" Folder="/MNSA Servers/LDAP Migration" selected="false" ProjectId="5830051">
+	</Project>
+<Project Name="MNSA Servers to NDC/DDC" Level="2" Folder="/MNSA Servers/MNSA Servers to NDC DDC" selected="false" ProjectId="5803600">
+	</Project>
+	</Project>
+<Project Name="MOL Merak Implementation" Level="1" Folder="/MOL Merak Implementation" selected="false" ProjectId="14332821">
+<Project Name="MOL Phase 1 - Peep and Volts" Level="2" Folder="/MOL Merak Implementation/MOL Phase 1 - Peep and Volts" selected="false" ProjectId="14332839">
+	</Project>
+<Project Name="MOL Phase 2: Capital Planning and DTK" Level="2" Folder="/MOL Merak Implementation/MOL Phase 2: Capital Planning and DTK" selected="false" ProjectId="14332877">
+	</Project>
+	</Project>
+<Project Name="MOL project" Level="1" Folder="/MOL project" selected="false" ProjectId="14337318">
+	</Project>
+<Project Name="MPS Service Improvement Q1 2004" Level="1" Folder="/MPS Service Improvement Q1 2004" selected="false" ProjectId="6716826">
+	</Project>
+<Project Name="MPS Superintendents Conference" Level="1" Folder="/MPS Superintendents Conference" selected="false" ProjectId="1112026">
+	</Project>
+<Project Name="MPS Workstation Refresh" Level="1" Folder="/MPS Workstation Refresh" selected="false" ProjectId="4146471">
+	</Project>
+<Project Name="MPSV for Gulf of Suez, Egypt" Level="1" Folder="/MPSV for Gulf of Suez Egypt" selected="false" ProjectId="4744066">
+	</Project>
+<Project Name="MRCSP" Level="1" Folder="/MRCSP" selected="false" ProjectId="15271960">
+	</Project>
+<Project Name="MRH Schlumberger Corporate Strategy" Level="1" Folder="/MRH Schlumberger Corporate Strategy" selected="false" ProjectId="10208406">
+	</Project>
+<Project Name="MRSS Sample Bottle (MSB)" Level="1" Folder="/MRSS Sample Bottle MSB" selected="false" ProjectId="4118019">
+<Project Name="MSB for 30,000psi Well, RFQ 19245" Level="2" Folder="/MRSS Sample Bottle MSB/MSB for 30000psi Well RFQ 19245" selected="false" ProjectId="7660972">
+	</Project>
+<Project Name="Magnetic Mixer" Level="2" Folder="/MRSS Sample Bottle MSB/Magnetic Mixer" selected="false" ProjectId="5777500">
+	</Project>
+	</Project>
+<Project Name="MS Project Import" Level="1" Folder="/MS Project Import" selected="false" ProjectId="4726359">
+	</Project>
+<Project Name="MTA Monitoring" Level="1" Folder="/MTA Monitoring" selected="false" ProjectId="6103790">
+	</Project>
+<Project Name="MXO - Migracion de AssetDB a eSearch Marinas" Level="1" Folder="/MXO - Migracion de AssetDB a eSearch Marinas" selected="false" ProjectId="11865069">
+	</Project>
+<Project Name="MZST" Level="1" Folder="/MZST" selected="false" ProjectId="11772622">
+	</Project>
+<Project Name="Maersk Geoquest connection" Level="1" Folder="/Maersk Geoquest connection" selected="false" ProjectId="2148856">
+	</Project>
+<Project Name="Maestro Schedule Changes" Level="1" Folder="/Maestro Schedule Changes" selected="false" ProjectId="1310157">
+	</Project>
+<Project Name="Magnolia" Level="1" Folder="/Magnolia" selected="false" ProjectId="222695">
+	</Project>
+<Project Name="Mail Transfer Agent (MTA) Project" Level="1" Folder="/Mail Transfer Agent MTA Project" selected="false" ProjectId="471026">
+	</Project>
+<Project Name="MaintScape CMMS Deployment" Level="1" Folder="/MaintScape CMMS Deployment" selected="false" ProjectId="197668">
+	</Project>
+<Project Name="Mallik Gas Hydrate Production Research Project" Level="1" Folder="/Mallik Gas Hydrate Production Research Project" selected="false" ProjectId="13543748">
+	</Project>
+<Project Name="Mallik SQ Audit" Level="1" Folder="/Mallik SQ Audit" selected="false" ProjectId="14119799">
+	</Project>
+<Project Name="Maloichskoe FIeld" Level="1" Folder="/Maloichskoe FIeld" selected="false" ProjectId="10174196">
+	</Project>
+<Project Name="Managed Security Services (MSS)" Level="1" Folder="/Managed Security Services MSS" selected="false" ProjectId="4821453">
+	</Project>
+<Project Name="Management - Documentation Policy" Level="1" Folder="/Management - Documentation Policy" selected="false" ProjectId="14534950">
+	</Project>
+<Project Name="Management Info. Bids/Sales Pipeline" Level="1" Folder="/Management Info. Bids Sales Pipeline" selected="false" ProjectId="515104">
+	</Project>
+<Project Name="Management System and IT Implementation" Level="1" Folder="/Management System and IT Implementation" selected="false" ProjectId="333485">
+	</Project>
+<Project Name="Manager's Desktop" Level="1" Folder="/Manager's Desktop" selected="false" ProjectId="30624">
+	</Project>
+<Project Name="Managment - Email Policy" Level="1" Folder="/Managment - Email Policy" selected="false" ProjectId="14556368">
+	</Project>
+<Project Name="Manufacturing testdev" Level="1" Folder="/Manufacturing testdev" selected="false" ProjectId="10117197">
+<Project Name="Auxiliary" Level="2" Folder="/Manufacturing testdev/Auxiliary" selected="false" ProjectId="10121791">
+	</Project>
+<Project Name="Framework common" Level="2" Folder="/Manufacturing testdev/Framework common" selected="false" ProjectId="10121808">
+	</Project>
+<Project Name="Land" Level="2" Folder="/Manufacturing testdev/Land" selected="false" ProjectId="10121770">
+	</Project>
+<Project Name="Marine" Level="2" Folder="/Manufacturing testdev/Marine" selected="false" ProjectId="10121749">
+	</Project>
+	</Project>
+<Project Name="Marathon Droshky" Level="1" Folder="/Marathon Droshky" selected="false" ProjectId="14950135">
+	</Project>
+<Project Name="Marathon Global HR Strategy Response" Level="1" Folder="/Marathon Global HR Strategy Response" selected="false" ProjectId="7007002">
+	</Project>
+<Project Name="Marathon Oil - Gabon" Level="1" Folder="/Marathon Oil - Gabon" selected="false" ProjectId="2989227">
+	</Project>
+<Project Name="Marathon Ozona" Level="1" Folder="/Marathon Ozona" selected="false" ProjectId="15278258">
+	</Project>
+<Project Name="Marc test proj" Level="1" Folder="/Marc test proj" selected="false" ProjectId="1476549">
+	</Project>
+<Project Name="Marine Region" Level="1" Folder="/Marine Region" selected="false" ProjectId="8418892">
+	</Project>
+<Project Name="Mariner Energy" Level="1" Folder="/Mariner Energy" selected="false" ProjectId="1233313">
+	</Project>
+<Project Name="Mariner Energy Inc Collaboration Project" Level="1" Folder="/Mariner Energy Inc Collaboration Project" selected="false" ProjectId="13677794">
+	</Project>
+<Project Name="Mariner-Pioneer Falcon" Level="1" Folder="/Mariner-Pioneer Falcon" selected="false" ProjectId="927400">
+	</Project>
+<Project Name="Market Analysis &amp; Revenue Forecast Tool" Level="1" Folder="/Market Analysis  Revenue Forecast Tool" selected="false" ProjectId="9303369">
+	</Project>
+<Project Name="Market Positioning " Level="1" Folder="/Market Positioning " selected="false" ProjectId="12605160">
+	</Project>
+<Project Name="Market and Customer Intelligence" Level="1" Folder="/Market and Customer Intelligence" selected="false" ProjectId="13377131">
+	</Project>
+<Project Name="Market intellegence strategy" Level="1" Folder="/Market intellegence strategy" selected="false" ProjectId="1825464">
+	</Project>
+<Project Name="Marketing - Reference" Level="1" Folder="/Marketing - Reference" selected="false" ProjectId="13858501">
+	</Project>
+<Project Name="Marketing - eCard Reports" Level="1" Folder="/Marketing - eCard Reports" selected="false" ProjectId="13183629">
+	</Project>
+<Project Name="Marketing Intern" Level="1" Folder="/Marketing Intern" selected="false" ProjectId="959423">
+	</Project>
+<Project Name="Marketing Plan" Level="1" Folder="/Marketing Plan" selected="false" ProjectId="4030534">
+	</Project>
+<Project Name="Marketing Project Template" Level="1" Folder="/Marketing Project Template" selected="false" ProjectId="4867968">
+<Project Name="geo's test project" Level="2" Folder="/Marketing Project Template/geo's test project" selected="false" ProjectId="4884918">
+	</Project>
+	</Project>
+<Project Name="Marketing confrences, brochures &amp; advertising" Level="1" Folder="/Marketing confrences brochures  advertising" selected="false" ProjectId="2085573">
+	</Project>
+<Project Name="Master Project Template" Level="1" Folder="/Master Project Template" selected="false" ProjectId="11152962">
+	</Project>
+<Project Name="Masterclasses" Level="1" Folder="/Masterclasses" selected="false" ProjectId="857811">
+	</Project>
+<Project Name="Matador Devonian Project" Level="1" Folder="/Matador Devonian Project" selected="false" ProjectId="3898194">
+	</Project>
+<Project Name="Material Planning" Level="1" Folder="/Material Planning" selected="false" ProjectId="12934289">
+	</Project>
+<Project Name="Matterhorn" Level="1" Folder="/Matterhorn" selected="false" ProjectId="2643837">
+<Project Name="Personnel Files" Level="2" Folder="/Matterhorn/Personnel Files" selected="false" ProjectId="8660450">
+	</Project>
+<Project Name="Project Cost Management " Level="2" Folder="/Matterhorn/Project Cost Management " selected="false" ProjectId="8660432">
+	</Project>
+	</Project>
+<Project Name="Mature / Brownfields" Level="1" Folder="/Mature   Brownfields" selected="false" ProjectId="5254327">
+<Project Name="Carmopolis-WCI-Well Intervention-20 Wells" Level="2" Folder="/Mature   Brownfields/Carmopolis-WCI-Well Intervention-20 Wells" selected="false" ProjectId="5509572">
+<Project Name=" BD Confidential Information" Level="3" Folder="/Mature   Brownfields/Carmopolis-WCI-Well Intervention-20 Wells/ BD Confidential Information" selected="false" ProjectId="5509681">
+	</Project>
+	</Project>
+	</Project>
+<Project Name="Maximum Reservoir Contact Wells Modelling" Level="1" Folder="/Maximum Reservoir Contact Wells Modelling" selected="false" ProjectId="10331418">
+	</Project>
+<Project Name="Maxus East Rama AC-06 RC ML" Level="1" Folder="/Maxus East Rama AC-06 RC ML" selected="false" ProjectId="1768770">
+	</Project>
+<Project Name="May 2002 E-Card" Level="1" Folder="/May 2002 E-Card" selected="false" ProjectId="797753">
+	</Project>
+<Project Name="May 2002 eCard v.2" Level="1" Folder="/May 2002 eCard v.2" selected="false" ProjectId="818526">
+	</Project>
+<Project Name="May Conference " Level="1" Folder="/May Conference " selected="false" ProjectId="470233">
+	</Project>
+<Project Name="McMoran" Level="1" Folder="/McMoran" selected="false" ProjectId="4153964">
+	</Project>
+<Project Name="MePaw" Level="1" Folder="/MePaw" selected="false" ProjectId="5966487">
+	</Project>
+<Project Name="Medical Services Remote User Migration" Level="1" Folder="/Medical Services Remote User Migration" selected="false" ProjectId="5472868">
+	</Project>
+<Project Name="Meetings" Level="1" Folder="/Meetings" selected="false" ProjectId="578513">
+	</Project>
+<Project Name="Merak V&amp;R - Single Page Interface" Level="1" Folder="/Merak VR - Single Page Interface" selected="false" ProjectId="3706903">
+	</Project>
+<Project Name="Mercator - presales" Level="1" Folder="/Mercator - presales" selected="false" ProjectId="2198642">
+	</Project>
+<Project Name="Mercator Integration &amp; Testing" Level="1" Folder="/Mercator Integration  Testing" selected="false" ProjectId="2000760">
+	</Project>
+<Project Name="Merlon Petroleum PowerSTIM/SMS" Level="1" Folder="/Merlon Petroleum PowerSTIM SMS" selected="false" ProjectId="5197836">
+	</Project>
+<Project Name="Messaging Environment" Level="1" Folder="/Messaging Environment" selected="false" ProjectId="308557">
+	</Project>
+<Project Name="Metadot Website" Level="1" Folder="/Metadot Website" selected="false" ProjectId="4943923">
+	</Project>
+<Project Name="Metier Quality Assurance Workgroup" Level="1" Folder="/Metier Quality Assurance Workgroup" selected="false" ProjectId="3765174">
+	</Project>
+<Project Name="Metier Test Project" Level="1" Folder="/Metier Test Project" selected="false" ProjectId="1476322">
+	</Project>
+<Project Name="Metodologia" Level="1" Folder="/Metodologia" selected="false" ProjectId="2248364">
+	</Project>
+<Project Name="Mfg Process Improvement" Level="1" Folder="/Mfg Process Improvement" selected="false" ProjectId="12313483">
+<Project Name="Prometheus Program" Level="2" Folder="/Mfg Process Improvement/Prometheus Program" selected="false" ProjectId="12455204">
+<Project Name="AMS Road Map" Level="3" Folder="/Mfg Process Improvement/Prometheus Program/AMS Road Map" selected="false" ProjectId="12455698">
+	</Project>
+<Project Name="Product Delivery Dashboard (PD2)" Level="3" Folder="/Mfg Process Improvement/Prometheus Program/Product Delivery Dashboard PD2" selected="false" ProjectId="12455739">
+	</Project>
+	</Project>
+	</Project>
+<Project Name="Microsoft Alliance" Level="1" Folder="/Microsoft Alliance" selected="false" ProjectId="3103612">
+	</Project>
+<Project Name="Microsoft Alliance - Secure Connected Infrastructure" Level="1" Folder="/Microsoft Alliance - Secure Connected Infrastructure" selected="false" ProjectId="3103701">
+<Project Name="Microsoft Alliance - Secure Connected Infrastructure" Level="2" Folder="/Microsoft Alliance/Microsoft Alliance - Secure Connected Infrastructure" selected="false" ProjectId="3103701">
+	</Project>
+	</Project>
+<Project Name="Migracion Geoframe 4.2 en ABB" Level="1" Folder="/Migracion Geoframe 4.2 en ABB" selected="false" ProjectId="12191741">
+	</Project>
+<Project Name="Migrate COOL Server Reports to FileNET" Level="1" Folder="/Migrate COOL Server Reports to FileNET" selected="false" ProjectId="3324471">
+	</Project>
+<Project Name="Migration Test Project" Level="1" Folder="/Migration Test Project" selected="false" ProjectId="15216058">
+	</Project>
+<Project Name="Miranga Profundo 74D &amp; 75DP" Level="1" Folder="/Miranga Profundo 74D  75DP" selected="false" ProjectId="6043483">
+	</Project>
+<Project Name="Misc" Level="1" Folder="/Misc" selected="false" ProjectId="2115505">
+	</Project>
+<Project Name="Miscellaneous" Level="1" Folder="/Miscellaneous" selected="false" ProjectId="4883638">
+<Project Name="icenter ad" Level="2" Folder="/Miscellaneous/icenter ad" selected="false" ProjectId="3924205">
+	</Project>
+	</Project>
+<Project Name="Mischa" Level="1" Folder="/Mischa" selected="false" ProjectId="4682619">
+	</Project>
+<Project Name="Mobile Services SD Training" Level="1" Folder="/Mobile Services SD Training" selected="false" ProjectId="14063027">
+	</Project>
+<Project Name="Mobtel" Level="1" Folder="/Mobtel" selected="false" ProjectId="3543781">
+	</Project>
+<Project Name="Model Privacy Policy/Disclaimer Development" Level="1" Folder="/Model Privacy Policy Disclaimer Development" selected="false" ProjectId="1192097">
+	</Project>
+<Project Name="Monarch QIP" Level="1" Folder="/Monarch QIP" selected="false" ProjectId="3632870">
+	</Project>
+<Project Name="Monarch-Woodside-Job Start" Level="1" Folder="/Monarch-Woodside-Job Start" selected="false" ProjectId="3632813">
+	</Project>
+<Project Name="Monthly Reports" Level="1" Folder="/Monthly Reports" selected="false" ProjectId="4063720">
+	</Project>
+<Project Name="Montrouge Building Move" Level="1" Folder="/Montrouge Building Move" selected="false" ProjectId="10717822">
+	</Project>
+<Project Name="Montrouge Internet DSL" Level="1" Folder="/Montrouge Internet DSL" selected="false" ProjectId="11120460">
+	</Project>
+<Project Name="Motorpress" Level="1" Folder="/Motorpress" selected="false" ProjectId="994924">
+	</Project>
+<Project Name="Move to Expertus" Level="1" Folder="/Move to Expertus" selected="false" ProjectId="10148403">
+	</Project>
+<Project Name="Mozambique 2D Seismic Data Reprocessing" Level="1" Folder="/Mozambique 2D Seismic Data Reprocessing" selected="false" ProjectId="3632734">
+	</Project>
+<Project Name="MuZIC" Level="1" Folder="/MuZIC" selected="false" ProjectId="14015503">
+	</Project>
+<Project Name="Multi-Layer Rate Forecast in single Well Lost Hills Field - Diatomite Formation" Level="1" Folder="/Multi-Layer Rate Forecast in single Well Lost Hills Field - Diatomite Formation" selected="false" ProjectId="818505">
+	</Project>
+<Project Name="Multi-Segment Integration White Paper" Level="1" Folder="/Multi-Segment Integration White Paper" selected="false" ProjectId="8612568">
+	</Project>
+<Project Name="Multiclient public web site" Level="1" Folder="/Multiclient public web site" selected="false" ProjectId="3537649">
+	</Project>
+<Project Name="Multiconponent Interpretation" Level="1" Folder="/Multiconponent Interpretation" selected="false" ProjectId="3696227">
+	</Project>
+<Project Name="Multilateral Manufacturing" Level="1" Folder="/Multilateral Manufacturing" selected="false" ProjectId="902670">
+	</Project>
+<Project Name="Multilateral PB-764" Level="1" Folder="/Multilateral PB-764" selected="false" ProjectId="11607417">
+	</Project>
+<Project Name="Multiphase/Oilphase-DBR Collaboration" Level="1" Folder="/Multiphase Oilphase-DBR Collaboration" selected="false" ProjectId="3942419">
+	</Project>
+<Project Name="Mumbai Data Center Build 2005" Level="1" Folder="/Mumbai Data Center Build 2005" selected="false" ProjectId="11816096">
+	</Project>
+<Project Name="Mumbai High IAM" Level="1" Folder="/Mumbai High IAM" selected="false" ProjectId="12372211">
+	</Project>
+<Project Name="Mumbai_Data_Center_Buildout" Level="1" Folder="/Mumbai_Data_Center_Buildout" selected="false" ProjectId="11817159">
+	</Project>
+<Project Name="Murphy Front Runner" Level="1" Folder="/Murphy Front Runner" selected="false" ProjectId="15053753">
+	</Project>
+<Project Name="Murphy FrontRunner" Level="1" Folder="/Murphy FrontRunner" selected="false" ProjectId="3086512">
+	</Project>
+<Project Name="Murphy Kikeh Completions" Level="1" Folder="/Murphy Kikeh Completions" selected="false" ProjectId="10716482">
+	</Project>
+<Project Name="My Personal Project in MY Business" Level="1" Folder="/My Personal Project in MY Business" selected="false" ProjectId="2224900">
+	</Project>
+<Project Name="My test project" Level="1" Folder="/My test project" selected="false" ProjectId="913204">
+	</Project>
+<Project Name="MySLB" Level="1" Folder="/MySLB" selected="false" ProjectId="10344139">
+	</Project>
+<Project Name="NAE Repository" Level="1" Folder="/NAE Repository" selected="false" ProjectId="1641124">
+	</Project>
+<Project Name="NAG- MPZarat - Didon Field Study" Level="1" Folder="/NAG- MPZarat - Didon Field Study" selected="false" ProjectId="12182217">
+	</Project>
+<Project Name="NAG- Repsol Gassi Touil 2005 Program" Level="1" Folder="/NAG- Repsol Gassi Touil 2005 Program" selected="false" ProjectId="11962056">
+	</Project>
+<Project Name="NAG- Repsol Gassi Touil 2006 Program" Level="1" Folder="/NAG- Repsol Gassi Touil 2006 Program" selected="false" ProjectId="12011331">
+	</Project>
+<Project Name="NAG- SH Exploration Project Support 2005-06" Level="1" Folder="/NAG- SH Exploration Project Support 2005-06" selected="false" ProjectId="11962298">
+	</Project>
+<Project Name="NAG- Sonatrach Forage, HMD 3D MEM" Level="1" Folder="/NAG- Sonatrach Forage HMD 3D MEM" selected="false" ProjectId="11962177">
+	</Project>
+<Project Name="NAG- Sonatrach Hassi R'Mel Sud" Level="1" Folder="/NAG- Sonatrach Hassi R'Mel Sud" selected="false" ProjectId="11962103">
+	</Project>
+<Project Name="NAG-Athanor-Sabria field Geo modeling" Level="1" Folder="/NAG-Athanor-Sabria field Geo modeling" selected="false" ProjectId="8563036">
+	</Project>
+<Project Name="NAG-Medex-Block 242 Evaluation" Level="1" Folder="/NAG-Medex-Block 242 Evaluation" selected="false" ProjectId="9532895">
+	</Project>
+<Project Name="NAM 1087" Level="1" Folder="/NAM 1087" selected="false" ProjectId="2022304">
+	</Project>
+<Project Name="NAM Disposal" Level="1" Folder="/NAM Disposal" selected="false" ProjectId="6857720">
+	</Project>
+</projects>

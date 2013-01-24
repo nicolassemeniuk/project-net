@@ -1,0 +1,681 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	
+<div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<style>
+	/* styling popup window for links here option */
+	.x-window-mc {
+	    background: white;
+	    padding: 10px;
+	}
+</style>
+<script type="text/javascript">
+		var lengthOrNameErrorMessage = '<t:Message value="prm.wiki.newpage.invalidpagenamelength.message"/>';
+		var invalidPageName = '<t:Message value="prm.wiki.newpage.invalidpagename.message"/>';
+		var pageNameBlankErrorMessage = '<t:Message value="prm.wiki.newpage.blankpagename.message"/>';
+		var pageAlreadyExistConfirmMessage = '<t:Message value="prm.wiki.newpage.pageexistconfirm.message"/>';
+		var confirmTitle = '<t:Message value="prm.global.extconfirm.title"/>';
+		var nowikipage = '<t:Message value="prm.wiki.whatlinkhere.nowikipage.message"/>';
+		var whatLinkHereMessage = '<t:Message value="prm.wiki.whatlinkhere.whatlinkhere.message"/>';
+		var sureToDeleteMessage	 = '<t:Message value="prm.wiki.deletepage.suretodelete.message"/>';
+		var moduleId = '${moduleId}';
+		var enterPageNameMsg = '<t:Message value="prm.wiki.createpage.entername.message"/>';
+		var pageNameTitle = '<t:Message value="prm.wiki.createpage.wikipagename.title"/>';
+		var editPageNameLabel = '<t:message value="prm.wiki.editpagename.messagebox.label" />';
+		var errorRenameMessage = '<t:message value="prm.wiki.renameerror.message" />';
+		var pageExistsErrorMessage = '<t:message value="prm.wiki.samepageexists.error.message" />';
+		var spaceId = '${spaceId}';
+		var imgReferencesTitle = '<t:Message value="prm.wiki.imagereferences.title"/>';
+		var norefereces = '<t:Message value="prm.wiki.imagereferences.noreferences.message"/>';
+		var imgNotDeleteableMsg = '<t:Message value="prm.wiki.imagereferences.imgnotdeleteable.message"/>';
+		var errorMessage = '';
+		var currentWikiPageName = '${wikiPage.pageName}';
+		var linksOnThisPage = '<t:Message value="prm.wiki.linksonthispage.title"/>';
+		var wikilinkNotPresent = '<t:Message value="prm.wiki.nowikilinkpresent.message" />';
+		var loadingMessage = '<t:Message value="prm.global.loading.message" />';
+		var serverRequestFailed = '<t:Message value="prm.global.requestfailed.error.message" />';
+		var closeButton = '<t:Message value="prm.wiki.popupwindow.close.button" />';
+		var blankContentError = '<t:Message value="prm.wiki.blankcontent.error.message" />';
+		var errorTitle = '<t:Message value="prm.resource.global.exterroralert.title" />';
+		var lengthNameErrorMessage = '<t:Message value="prm.wiki.newpage.invalidpagenamelength.message"/>';
+		var nameErrorMessage = '<t:Message value="prm.wiki.newpage.invalidpagename.message"/>';
+		var deleteButton = '<t:Message value="prm.wiki.deleteimage.link"/>';
+		var confirmMessage = '<t:Message value="prm.wiki.deleteimage.confirmation.title"/>';
+		var sureToDeleteImageMessage = '<t:Message value="prm.wiki.deleteimage.confirmation.message"/>';
+		
+		//subscribe Notification 
+		function notify(){
+			openNotifyPopup('${wikiPageId}', null);
+		}
+
+		//added for attaching images
+		function attachImages() {
+		}
+		
+		function showPageLinks() {
+			whatLinksHereDialogBox();
+		}
+		
+		// for deleting from image-details page
+		function deletePage() {
+			var rootPage = "${rootPageName}";
+			var wikiPageId = '${wikiPageId}';
+			Ext.MessageBox.confirm('Confirm', sureToDeleteMessage, function(btn) {
+				if( btn == 'yes' ) {
+					// Ajax deleting/detaching image
+				    Ext.Ajax.request({
+						url: JSPRootURL+'/pwiki/WikiAjaxHandler/deletePage?module='+moduleId,
+						params: {module: moduleId, wikiPageId: wikiPageId, spaceId: spaceId}, //, customAction: type, wikiPgName: wikiPageName},
+				   		method: 'POST',
+						success: function(result, request){
+							if(result.responseText != ''){
+								document.location = JSPRootURL+"/wiki/"+ rootPage +"?op=view"
+							}
+						},
+						failure: function(result, response){
+							extAlert(errorTitle, serverRequestFailed, Ext.MessageBox.ERROR);
+						}
+					});
+				} else {
+					return false;
+				}
+			});
+		}
+		
+	
+		// function for creating new wiki page - with custom name entered in prompt dialog
+		function createNewPage() {
+			Ext.MessageBox.prompt(pageNameTitle, enterPageNameMsg, forwardToEditPage); 
+		}
+		
+		// function for creating new wiki page - after enter invalid message
+		function createNewPageWithBlankErrorMsg(pageName) {
+			if(errorMessage != ''){
+				Ext.MessageBox.prompt(pageNameTitle, '<font color="red">'+errorMessage+'</font>', forwardToEditPage, '', '', pageName); 
+			}
+		}
+		
+		function validPageName(pageName){
+			<!--//
+			if (!isEmptyString(pageName) ) {
+				var VALID_CHARS =/[\u0030-\u0039\u0041-\u005a\u0061-\u007a\u002d\u005f\s\u00c0-\u00ff\u0131-\u0132\u0152\u0178\u4e00-\ud7a3]/gm;
+				// page length should be less than 50 character and page name should not contains special characters.
+			    	if(pageName.length <= 50 && pageName.match(VALID_CHARS)) {
+			    		if(removeSpecialCharFromPageName(pageName)){
+				    		return true;
+				    	} else {
+			    			errorMessage = invalidPageName;
+			    			return false;
+			   			} 
+					} else {
+						if(pageName.length > 50 ) {
+			    			errorMessage = lengthNameErrorMessage;								
+						} else if(!pageName.match(VALID_CHARS)) {  
+			    			errorMessage = nameErrorMessage;
+						}
+		    			return false;
+			   		} 
+			} else {
+				errorMessage = enterPageNameMsg;
+				return false;
+			}
+			//-->
+		}
+		
+		function forwardToEditPage(btn, pageName){
+			var spaceId = '${spaceId}';
+			var rootPageName = "${rootPageName}";
+			pageName = pageName.trim();
+			<!--//
+			if (btn == 'ok' ){
+				if(validPageName(pageName)){
+					pageName = replaceAll(pageName.trim(), ' ', '_');							//replace all " " occurences with "_"
+				 	var createNewPageLinkHref = JSPRootURL+'/wiki/'+rootPageName +'/'+ pageName;
+					//First to test page is already exist or not
+					Ext.Ajax.request({
+						url: JSPRootURL+'/pwiki/WikiAjaxHandler/isPageExist',
+						params: {wikiPageName: pageName, spaceId: spaceId, module: moduleId},
+				   		method: 'POST',
+						success: function(result, request){
+							if(result.responseText != 'true') {
+								self.document.location = createNewPageLinkHref+"?op=edit";
+							} else {
+								self.document.location = createNewPageLinkHref;
+/*								
+								Ext.MessageBox.confirm(confirmTitle, pageAlreadyExistConfirmMessage, function(btn) {
+									if(btn == 'yes'){
+										self.document.location = createNewPageLinkHref;
+									}else{
+										return false;
+									}
+								  }
+								)
+*/
+							}
+						}
+					});
+				} else {
+					createNewPageWithBlankErrorMsg(pageName);
+				}		
+			}
+				//-->
+		}
+		
+		// This function is for triming the spaces in values
+		String.prototype.trim = function(){
+		    a = this.replace(/^\s+/, '');
+		    return a.replace(/\s+$/, '');
+		}
+		// 
+		
+		function isEmptyString(str) {
+			if(str.trim() == ''){
+				return true;
+			}
+			return false;
+		}
+
+		// function to replace all occurences of strA with strB in given text
+		function replaceAll(text, strA, strB) {
+		    while ( text.indexOf(strA) != -1) {
+		        text = text.replace(strA,strB);
+		    }
+		    return text;
+		}
+		
+		// when going to Top Page - set isSubPage to false
+		// (not to have bfds ("no content" - type) when going to top page)
+		function goToTopPage() {
+		}
+		
+		// show what links here in extJs dialog
+		var winWLH;
+		function whatLinksHereDialogBox() {
+			var spaceId = '${spaceId}';
+			var pageName = "${wikiPage.pageName}";
+			var myView;
+			var myStore;
+			
+			myStore = new Ext.data.Store({
+				autoLoad: true,
+				proxy: new Ext.data.HttpProxy({
+					url: JSPRootURL+'/pwiki/WikiAjaxHandler/whatLinksHere',
+					method: 'POST'
+				}),
+				reader: new Ext.data.JsonReader({
+					totalProperty: 'total',
+					root: 'results',
+					fields:['id', 'pageName', 'url']
+				}),
+		        baseParams: { spaceId : spaceId, wikiPageName: pageName, module: moduleId }
+			});
+			
+			myView = new Ext.DataView({
+			    tpl: '<h1 class="model_sec_header">'+whatLinkHereMessage+'</h1>' +
+			          '<div id="whatLinkHereList" class="model_sec_body"><br/><br/>' +
+				      '<tpl for=".">' + 										// Loop through the Array which DataView creates from the Store.
+				          '<div class="model_sec_row">' +
+					      	' <a id="{id}" wikiLink="{pageName}" style="padding-left:5px" href="{url}">{pageName}</a> <div style="float:right; padding-right:5px;">({#})</div> <br/>' +
+				          '</div> <br/>' +
+				      '</tpl>' +
+			          '</div>',
+			    itemSelector: '.model_sec_row',
+			    store: myStore,
+			    emptyText: '<h1>'+whatLinkHereMessage+'</h1> <br/><br/>'+nowikipage+'<i style="color: gray;"></i>',
+			    loadingText: loadingMessage
+			});
+			
+			winWLH = new Ext.Window({
+								width:400,
+		  						id:'wlhWindow',
+								height:300,
+								autoScroll:true,
+								items: myView,
+								title: whatLinkHereMessage,
+								text:	loadingMessage,
+					            buttons: [{
+					                text: closeButton,
+					                handler: function(){
+					                    winWLH.hide();
+					                }
+					            }]
+			});
+			if( winLOTP ){ winLOTP.hide(); }
+			winWLH.show();				
+		}
+		
+		var winLOTP;
+		function linksOnThisPageDialogBox() {
+			var spaceId = '${spaceId}';
+			var pageName = "${wikiPage.pageName}";
+			var myView;
+			var myStore;
+
+			myStore = new Ext.data.Store({
+				autoLoad: true,
+				proxy: new Ext.data.HttpProxy({
+					url: JSPRootURL+'/pwiki/WikiAjaxHandler/linksOnThisPage',
+					method: 'POST'
+				}),
+				reader: new Ext.data.JsonReader({
+					totalProperty: 'total',
+					root: 'results',
+					fields:	['id', 'pageName', 'url']
+				}),
+		        baseParams: { spaceId: spaceId, wikiPageName: pageName, module: moduleId }
+			});
+			
+			myView = new Ext.DataView({
+			    tpl: '<h1 class="model_sec_header">' + linksOnThisPage + '</h1>' +
+			          '<div id="linksOnThisPageList" class="model_sec_body"><br/><br/>' +
+				      '<tpl for=".">' + 										// Loop through the Array which DataView creates from the Store.
+				          '<div class="model_sec_row">' +
+					      	'<a id="{id}" wikiLink="{pageName}" style="padding-left:5px;" href="{url}">{pageName}</a> <div style="float:right; padding-right:5px;">({#})</div> <br/>' +
+				          '</div> <br/>' +
+				      '</tpl>' +
+			          '</div>',
+			    itemSelector: '.model_sec_row',
+			    store: myStore,
+			    emptyText: '<h1>'+ linksOnThisPage +'</h1> <br/><br/> <i style="color: gray;">'+wikilinkNotPresent+'</i>',
+			    loadingText: loadingMessage
+			});
+			
+			winLOTP = new Ext.Window({
+					width:400,
+ 						id:'ltWindow',
+					height:300,
+					autoScroll:true,
+					items: myView,
+					title: linksOnThisPage,
+					text:	loadingMessage,
+		            buttons: [{
+		                text: closeButton,
+		                handler: function(){
+		                    winLOTP.hide();
+		                }
+			            }]
+				});
+				if(winWLH ) { winWLH.hide(); }
+				winLOTP.show();
+		}
+		
+		
+	function validateWikiContent(){
+		var wikiPgContent = document.getElementById('wikiPageBasicContent');
+		var notAllowedContent = wikiPgContent.value.match('<source lang=".*"></source>');
+		
+		if(wikiPgContent == null || wikiPgContent.value.trim() == '' || notAllowedContent) {
+			extAlert(errorTitle, blankContentError, Ext.MessageBox.ERROR);
+			return false;
+		}
+		return true;
+	}
+
+
+	//added for showAttachements option
+	function insertImage(data){
+		var spaceName = '${currentSpaceNameEscaped}';
+		var rootWikiPageName = '${rootWikiPageName}';
+
+		document.location = JSPRootURL+"/wiki/" + rootWikiPageName + '/Image:' + data.name;
+    	Ext.get('showAttachmentsBtn').focus();
+    };
+	
+	var chooser;
+	function showAttachments() {
+		var spaceId = '${spaceId}';
+		if(!chooser){
+    		chooser = new ImageChooser({
+    			url:	JSPRootURL+'/pwiki/WikiAjaxHandler/showAttachments',
+    			params: {	spaceId: spaceId, module: moduleId 	},
+    			width:	515, 
+    			height:	350
+    		});
+    	}
+    	chooser.show(Ext.get('showAttachmentsBtn'), insertImage);
+	}
+	
+	// Method to prompt user for new page name.
+	function editPageName() {
+		Ext.MessageBox.prompt(pageNameTitle, editPageNameLabel, checkForExistingWikiPage, '', '', currentWikiPageName); 
+	}
+
+	// Method to show error message on blank page name.
+	function validateBlankPageName() {
+		Ext.MessageBox.prompt(pageNameTitle, '<font color="red">'+ editPageNameLabel +'</font>', checkForExistingWikiPage); 
+	}
+
+    // Method to check existing wiki page
+	function checkForExistingWikiPage(btn, pageName){
+		pageName = replaceAll(pageName.trim(), ' ', '_');
+		var wikiPageName = '${wikiPage.pageName}';
+		
+		if (btn == 'ok'){
+			if(validPageName(pageName)){
+				Ext.Ajax.request({
+					url: JSPRootURL+'/pwiki/WikiAjaxHandler/isPageExist',
+					params: {wikiPageName: pageName, spaceId: spaceId, module: moduleId},
+			   		method: 'POST',
+					success: function(result, request){
+						if(result.responseText != 'true' 
+								|| pageName === wikiPageName) {		// bug fix: if page name not changed - finish rename page process regulary
+							renameWikiPage(pageName);
+						} else {
+							extAlert(errorTitle, pageExistsErrorMessage, Ext.MessageBox.ERROR);
+						}
+					}
+				});
+			} else {
+				validateBlankPageName();
+			}
+		}
+	}
+
+	// Method to rename wiki page
+	function renameWikiPage(pageName){
+		Ext.Ajax.request({
+			url: JSPRootURL+'/pwiki/WikiAjaxHandler/renamePage',
+			params: {editedPageName: pageName,wikiPageId: wikiPageId, spaceId: spaceId, module: moduleId},
+	   		method: 'POST',
+			success: function(result, request){		
+				if(result.responseText != 'failed'){							
+					document.location = result.responseText;					
+				} else {
+					extAlert(errorTitle, errorRenameMessage, Ext.MessageBox.ERROR);
+				}
+			},
+			failure: function(result, response){				
+				extAlert(errorTitle, serverRequestFailed, Ext.MessageBox.ERROR);
+			}
+		});
+	}
+	
+</script>
+
+ 	<div id="leftDiv" style="left: 0px; top: 85px; position: absolute;">
+		<!-- start -->
+		<div id="left">
+			<!-- Project info -->
+			<div id="wleftheading-${spaceType}">${spaceName} <t:Message value="prm.global.wiki.title" /></div>
+			<t:if test="projectSpace">
+				<t:OutputRaw value="projectSpaceBean.projectSpaceDetails"/>
+			<t:parameter name="else">
+				<br/><div  id="leftSpaceName" style="margin-top: 15px;" class="project-title">${user.currentSpace.name}</div><br clear="both"/> 
+			</t:parameter>
+			</t:if>
+			<div class="project-descrition"><strong><t:Message value="prm.wiki.menu.searchwiki.option" /></strong></div>
+			<!-- Search -->
+			<div id="search-wiki">
+				<input type="text" onKeyDown="if(event.keyCode==13) globalSearch(this.value, 'wiki')" id="global.search.keyword" name="global.search.keyword" maxlength="30" /> 								
+			</div>
+			<div style='clear: both'></div>
+			<div class='toolbox-heading'><t:Message value="prm.wiki.menu.toolbox.menutitle" /></div>
+				<div class="toolbox-item">
+					<t:if test="actionsIconEnabled">
+						<t:if test="blogEnabled">
+							<span id="blog-ItEnabled">
+								<a onmouseover="document.imgblogit.src='${jspRootURL}${blogItImagePathOver}'" onmouseout=" document.imgblogit.src = '${jspRootURL}${blogItImagePathOn}'" href="javascript:blogit();">
+									<img hspace="0" border="0" name="imgblogit" src="${jspRootURL}${blogItImagePathOn}" title="${blogitAltOrTitle}"/>&nbsp;
+									<t:Message value="all.global.toolbar.standard.blogit" />
+								</a>
+							</span><br />
+						</t:if>
+						<t:if test="editEnable">
+							<span>
+								<a onmouseover="document.imgmodify.src='${jspRootUrl}/images/icons/toolbar-rollover-modify.gif'" onmouseout=" document.imgmodify.src='${jspRootUrl}/images/icons/toolbar-gen-modify_on.gif'" href="${jspRootUrl}/wiki/${pageToCall}?op=edit">
+									<img hspace="0" border="0" name="imgmodify" src="${jspRootUrl}/images/icons/toolbar-gen-modify_on.gif" title="${editPageAltOrTitle}" alt="${editPageAltOrTitle}"/>&nbsp;
+									<t:Message value="prm.wiki.menu.editpage.option" />
+								</a>
+							</span><br />
+							<t:parameter name="else">
+								<span><a class="disabled" href="#"><img src="${jspRootUrl}/images/icons/toolbar-gen-modify_off.gif"/>&nbsp;&nbsp;<t:Message value="prm.wiki.menu.editpage.option" /></a></span><br/>
+							</t:parameter>
+						</t:if>
+						<t:if test="deleteEnable">
+							<span>
+								<a id="deletePage" onmouseover="document.imgremove.src='${jspRootUrl}/images/icons/toolbar-rollover-remove.gif'" onmouseout="document.imgremove.src='${jspRootUrl}/images/icons/toolbar-gen-remove_on.gif'" href="javascript:deletePage();">
+									<img hspace="0" border="0" name="imgremove" src="${jspRootUrl}/images/icons/toolbar-rollover-remove.gif" title="${deletePageAltOrTitle}" alt="${deletePageAltOrTitle}"/>&nbsp;
+									<t:message value="prm.wiki.left.deletepage.link" />
+								</a>
+							</span><br />
+							<t:parameter name="else">
+								<span><a id="deletePage" href="#" class="disabled"><img src="${jspRootUrl}/images/icons/toolbar-gen-remove-off.gif"/>&nbsp;&nbsp;<t:message value="prm.wiki.left.deletepage.link" /></a></span><br/>
+							</t:parameter>
+						</t:if>
+						<t:if test="whatLinkHereEnable">
+							<span>
+								<a onmouseover="document.whatimglink.src='${jspRootUrl}/images/icons/toolbar-wiki-link-page-over.gif'" onmouseout="document.whatimglink.src='${jspRootUrl}/images/icons/toolbar-wiki-link-page-on.gif'" href="javascript:showPageLinks();" id="whatLinksHereLink">
+									<img hspace="0" border="0" name="whatimglink" src="${jspRootUrl}/images/icons/toolbar-wiki-link-page-on.gif" title="${pageLinkAltOrTitle}" alt="${pageLinkAltOrTitle}"/>&nbsp;
+								 	<t:Message value="prm.wiki.menu.pageLinks.label" />
+							 	</a>
+							</span><br/>
+							<t:parameter name="else">
+								<span><a href="#" class="disabled"><img src="${jspRootUrl}/images/icons/toolbar-wiki-link-page-off.gif"/>&nbsp;&nbsp;<t:Message value="prm.wiki.menu.pageLinks.label" /></a></span> <br/>
+							</t:parameter>
+						</t:if>
+						<t:if test="linkOnThisPageEnable">
+							<span>
+								<a onmouseover="document.linksonpage.src='${jspRootUrl}/images/icons/toolbar-wiki-link-page-over.gif'" onmouseout="document.linksonpage.src='${jspRootUrl}/images/icons/toolbar-wiki-link-page-on.gif'" href="javascript:linksOnThisPageDialogBox();" id="linksToExistingPagesLink">
+									<img hspace="0" border="0" name="linksonpage" src="${jspRootUrl}/images/icons/toolbar-wiki-link-page-on.gif" title="${linksOnPageAltOrTitle}" alt="${linksOnPageAltOrTitle}"/>&nbsp;
+								 	<t:Message value="prm.wiki.menu.linkstoexistingpages.label" />
+							 	</a>
+							</span><br/>
+							<t:parameter name="else">
+								<span><a href="#" class="disabled"><img src="${jspRootUrl}/images/icons/toolbar-wiki-link-page-off.gif"/>&nbsp;&nbsp;<t:Message value="prm.wiki.menu.linkstoexistingpages.label" /></a></span> <br/>
+							</t:parameter>
+						</t:if>
+						<t:if test="changeHistoryEnable">
+							<span>
+								<a onmouseover="document.changehistory.src='${jspRootUrl}/images/icons/toolbar-wiki-changehistory-over.gif'" onmouseout="document.changehistory.src='${jspRootUrl}/images/icons/toolbar-wiki-changehistory-on.gif'" href="${jspRootUrl}/wiki/${openChangeHistory}" id="changeHistoryLink">
+									<img hspace="0" border="0" name="changehistory" src="${jspRootUrl}/images/icons/toolbar-wiki-changehistory-on.gif" title="${changeHistoryAltOrTitle}" alt="${changeHistoryAltOrTitle}"/>&nbsp;
+								 	<t:Message value="prm.wiki.menu.changeHistory.label" />
+							 	</a>
+							</span><br/>
+					 		<t:parameter name="else">
+								<span><a href="#" class="disabled"><img src="${jspRootUrl}/images/icons/toolbar-wiki-changehistory-off.gif"/>&nbsp;&nbsp;<t:Message value="prm.wiki.menu.changeHistory.label" /></a></span><br/>
+							</t:parameter>
+						 </t:if>
+						 
+					 	<t:if test="pageExist">
+						 	<span><a id="wiki-notify" onmouseover="document.imgnotify.src = '${jspRootUrl}/images/icons/toolbar-rollover-notify.gif'" onmouseout="document.imgnotify.src ='${jspRootUrl}/images/icons/toolbar-gen-notify_on.gif'" href="javascript:notify();">
+						   		<img hspace="0" border="0" name="imgnotify" src="${jspRootUrl}/images/icons/toolbar-gen-notify_on.gif" title="Notify" alt="Notify"/>
+							  		&nbsp;&nbsp;<t:Message value="all.global.toolbar.standard.notify" /></a>
+							</span>
+							<t:parameter name="else">
+	 						 	<span><a href="#" class="disabled">
+							   		<img hspace="0" border="0" name="imgnotify" src="${jspRootUrl}/images/icons/toolbar-gen-notify_off.gif" title="Notify" alt="Notify"/>
+							  		&nbsp;&nbsp;<t:Message value="all.global.toolbar.standard.notify" /></a>
+								</span>
+							</t:parameter>
+						</t:if>
+					 
+						<t:parameter name="else">
+							<t:if test="blogEnabled">
+								<span id="blog-ItEnabled">
+									<a href="javascript:blogit();">
+										<t:Message value="all.global.toolbar.standard.blogit" />
+									</a>
+								</span><br />
+							</t:if>
+							<t:if test="editEnable">
+								<span><a id="editPage" href="${jspRootUrl}/wiki/${pageToCall}?op=edit"><t:Message value="prm.wiki.menu.editpage.option" /></a></span><br/>
+								<t:parameter name="else">
+									<span><a id="editPage" href="#" class="disabled"><t:Message value="prm.wiki.menu.editpage.option" /></a></span><br/>
+								</t:parameter>
+							</t:if>
+							<t:if test="deleteEnable">
+								<span><a id="deletePage" href="javascript: deletePage();"><t:message value="prm.wiki.left.deletepage.link" /></a></span><br/>
+								<t:parameter name="else">
+									<span><a id="deletePage" href="#" class="disabled"><t:message value="prm.wiki.left.deletepage.link" /></a></span><br/>
+								</t:parameter>
+							</t:if>
+							<t:if test="whatLinkHereEnable">
+								<span><a id="whatLinksHereLink" href="javascript:showPageLinks();"><t:Message value="prm.wiki.menu.pageLinks.label" /></a></span> <br/>
+								<t:parameter name="else">
+									<span><a href="#" class="disabled"><t:Message value="prm.wiki.menu.pageLinks.label" /></a></span> <br/>	
+								</t:parameter>
+							</t:if>
+							<t:if test="linkOnThisPageEnable">
+								<span><a id="linksToExistingPagesLink" href="javascript:linksOnThisPageDialogBox();"><t:Message value="prm.wiki.menu.linkstoexistingpages.label" /></a></span> <br/>
+								<t:parameter name="else">
+									<span><a href="#" class="disabled"><t:Message value="prm.wiki.menu.linkstoexistingpages.label" /></a></span> <br/>
+								</t:parameter>
+							</t:if>
+							<t:if test="changeHistoryEnable">
+								<span><a id="changeHistoryLink" href="${jspRootUrl}/wiki/${openChangeHistory}"><t:Message value="prm.wiki.menu.changeHistory.label" /></a></span><br/>
+								<t:parameter name="else">
+									<span><a href="#" class="disabled"><t:Message value="prm.wiki.menu.changeHistory.label" /></a></span><br/>
+								</t:parameter>
+						 	</t:if>
+						 	<t:if test="pageExist">
+							 	<span>
+							 		<a id="wiki-notify" href="javascript:notify();"> <t:Message value="all.global.toolbar.standard.notify" /></a>
+								</span>
+								<t:parameter name="else">
+									<span><a href="#" class="disabled"><t:Message value="all.global.toolbar.standard.notify" /></a></span>
+								</t:parameter>
+						 	</t:if>
+							
+						</t:parameter>
+					</t:if>
+				</div>
+				<div class="toolbox-heading"><t:Message value="prm.wiki.menu.wiki.menutitle" /></div>
+				<div class="toolbox-item">	<!-- toolbox-item - start -->
+					<t:if test="actionsIconEnabled">
+						<t:if test="topPageEnable">
+							<span>
+								<a id="topPageLink" onmouseover="document.toppagelink.src='${jspRootUrl}/images/icons/toolbar-wiki-toppage-over.gif'" onmouseout="document.toppagelink.src='${jspRootUrl}/images/icons/toolbar-wiki-toppage-on.gif'" href="${jspRootUrl}/wiki/${rootPageName}">
+									<img hspace="0" border="0" name="toppagelink" title="${topPageAltOrTitle}" alt="${topPageAltOrTitle}" src="${jspRootUrl}/images/icons/toolbar-wiki-toppage-on.gif"/>&nbsp;
+									<t:Message value="prm.wiki.menu.toppage.option" />
+								</a>
+							</span><br/>
+							<t:parameter name="else">
+								<span><a href="#" class="disabled"> <img src="${jspRootUrl}/images/icons/toolbar-wiki-toppage-off.gif"/>&nbsp;&nbsp;<t:Message value="prm.wiki.menu.toppage.option" /></a></span> <br/>
+							</t:parameter>
+						</t:if>
+						<t:if test="indexByTitleEnable">
+							<span>
+								<a id="topPageLink" onmouseover="document.imgIndexByTitle.src='${jspRootUrl}/images/icons/toolbar-wiki-indexbytitle-over.gif'" onmouseout="document.imgIndexByTitle.src='${jspRootUrl}/images/icons/toolbar-wiki-indexbytitle-on.gif'" href="${jspRootUrl}/wiki/${rootPageName}?op=index">
+									<img hspace="0" border="0" name="imgIndexByTitle" title="${indexByTitleAltOrTitle}" alt="${indexByTitleAltOrTitle}" src="${jspRootUrl}/images/icons/toolbar-wiki-indexbytitle-on.gif"/>&nbsp;
+									<t:message value="prm.wiki.left.indexbytitle.link"/>
+								</a>
+							</span><br/>
+							<t:parameter name="else">
+								<span><a href="#" class="disabled"><img src="${jspRootUrl}/images/icons/toolbar-wiki-indexbytitle-off.gif"/>&nbsp;&nbsp;<t:message value="prm.wiki.left.indexbytitle.link"/></a></span> <br/>
+							</t:parameter>
+						</t:if>
+						<t:if test="allImagesEnable">
+							<span>
+								<a id="topPageLink" onmouseover="document.imgIndexByTitle.src='${jspRootUrl}/images/icons/toolbar-wiki-indexbytitle-over.gif'" onmouseout="document.imgIndexByTitle.src='${jspRootUrl}/images/icons/toolbar-wiki-indexbytitle-on.gif'" href="${jspRootUrl}/wiki/${rootPageName}?op=show_images">
+									<img hspace="0" border="0" name="imgIndexByTitle" title="${allImagesAltOrTitle}" alt="${allImagesAltOrTitle}" src="${jspRootUrl}/images/icons/toolbar-wiki-indexbytitle-on.gif"/>&nbsp;
+									<t:message value="prm.wiki.left.allimages.link"/>
+								</a>
+							</span><br/>
+							<t:parameter name="else">
+								<span><a href="#" class="disabled"> <img src="${jspRootUrl}/images/icons/toolbar-wiki-indexbytitle-off.gif"/>&nbsp;&nbsp;<t:message value="prm.wiki.left.allimages.link"/></a> </span> <br/>
+							</t:parameter>
+						</t:if>
+						<t:if test="recentChangesEnable">	
+							<span>
+								<a id="topPageLink" onmouseover="document.recentchanges.src='${jspRootUrl}/images/icons/toolbar-wiki-recentchanges-over.gif'" onmouseout="document.recentchanges.src='${jspRootUrl}/images/icons/toolbar-wiki-recentchanges-on.gif'" href="${jspRootUrl}/wiki/${rootPageName}?op=recent_changes">
+									<img hspace="0" border="0" name="recentchanges" title="${recentChangesAltOrTitle}" alt="${recentChangesAltOrTitle}" src="${jspRootUrl}/images/icons/toolbar-wiki-recentchanges-on.gif"/>&nbsp;
+									<t:message value="prm.wiki.left.recentchanges.link"/>
+								</a>
+							</span><br/>
+							<t:parameter name="else">
+								<span><a href="#" class="disabled"><img src="${jspRootUrl}/images/icons/toolbar-wiki-recentchanges-off.gif"/>&nbsp;&nbsp;<t:message value="prm.wiki.left.recentchanges.link"/></a></span> <br/>
+							</t:parameter>
+						</t:if>
+						<t:if test="showAttachmentsEnable">
+							<span>
+								<a id="showAttachmentsBtn" onmouseover="document.showattachmnets.src='${jspRootUrl}/images/icons/toolbar_attach_over.gif'" onmouseout="document.showattachmnets.src='${jspRootUrl}/images/icons/toolbar_attach_on.gif'" href="javascript:showAttachments()">
+									<img hspace="0" border="0" name="showattachmnets" src="${jspRootUrl}/images/attachment.gif" title="${showAttachmentsAltOrTitle}" alt="${showAttachmentsAltOrTitle}"/>&nbsp;
+								 	<t:Message value="prm.wiki.menu.showattachments.label" />
+							 	</a>
+							</span> <br/>
+							<t:parameter name="else">
+								<span>
+									<a href="#" class="disabled">
+										<img hspace="0" border="0" name="showattachmnets" src="${jspRootUrl}/images/toolbar-wiki-attachment-off.gif" title="${showAttachmentsAltOrTitle}" alt="${showAttachmentsAltOrTitle}"/>&nbsp;
+										<t:Message value="prm.wiki.menu.showattachments.label" />
+									</a>
+								</span> <br/>
+							</t:parameter>
+						</t:if>
+						<t:if test="createPageEnable">
+							<span>
+								<a id="createNewPage" onmouseover="document.imgcreatepage.src='${jspRootUrl}/images/icons/toolbar-wiki-create-image-over.gif'" onmouseout="document.imgcreatepage.src='${jspRootUrl}/images/icons/toolbar-wiki-create-image-on.gif'" href="javascript:createNewPage();">
+									<img hspace="0" border="0" name="imgcreatepage" title="${createPageAltOrTitle}" alt="${createPageAltOrTitle}" src="${jspRootUrl}/images/icons/toolbar-wiki-create-image-on.gif"/>&nbsp;
+									<t:message value="prm.wiki.left.createpage.link" />
+								</a>
+							</span><br/>
+							<t:parameter name="else">
+								<span><a href="#" class="disabled"><img src="${jspRootUrl}/images/icons/toolbar-wiki-create-image-off.gif"/>&nbsp;&nbsp;<t:message value="prm.wiki.left.createpage.link" /></a></span> <br/>
+							</t:parameter>
+						</t:if>
+						<t:if test="uploadImageEnable">
+							<span>
+								<a id="uploadLink" onmouseover="document.imgupload.src='${jspRootUrl}/images/icons/toolbar-wiki-upload-image-over.gif'" onmouseout="document.imgupload.src='${jspRootUrl}/images/icons/toolbar-wiki-upload-image-on.gif'" href="javascript:showUploadPopup('${jspRootUrl}/pwiki/Upload',725,'null','');">
+									<img hspace="0" border="0" name="imgupload" title="${uploadImageAltOrTitle}" alt="${uploadImageAltOrTitle}" src="${jspRootUrl}/images/icons/toolbar-wiki-upload-image-on.gif"/>&nbsp;
+									<t:Message value="prm.wiki.menu.uploadimage.option" />
+								</a>
+							</span><br/>
+							<t:parameter name="else">
+								<span><a href="#" class="disabled"><img src="${jspRootUrl}/images/icons/toolbar-wiki-upload-image-off.gif"/>&nbsp;&nbsp;<t:Message value="prm.wiki.menu.uploadimage.option" /></a></span> <br/>
+							</t:parameter>
+						</t:if>
+						<t:parameter name="else">
+							<t:if test="topPageEnable">
+							<span>
+								<a id="topPageLink" href="${jspRootUrl}/wiki/${rootPageName}"><t:Message value="prm.wiki.menu.toppage.option" /></a>
+							</span><br/>
+							<t:parameter name="else">
+								<span><a href="#" class="disabled"><t:Message value="prm.wiki.menu.toppage.option" /></a></span> <br/>
+							</t:parameter>
+							</t:if>
+							<t:if test="indexByTitleEnable">
+								<span>
+									<a id="topPageLink" href="${jspRootUrl}/wiki/${rootPageName}?op=index"><t:message value="prm.wiki.left.indexbytitle.link"/></a>
+								</span><br/>
+								<t:parameter name="else">
+									<span><a href="#" class="disabled"><t:message value="prm.wiki.left.indexbytitle.link"/></a></span> <br/>
+								</t:parameter>
+							</t:if>
+							<t:if test="allImagesEnable">
+								<span>
+									<a id="topPageLink" href="${jspRootUrl}/wiki/${rootPageName}?op=show_images"> <t:message value="prm.wiki.left.allimages.link"/> </a>
+								</span><br/>
+								<t:parameter name="else">
+									<span><a href="#" class="disabled"> <t:message value="prm.wiki.left.allimages.link"/></a> </span> <br/>
+								</t:parameter>
+							</t:if>
+							<t:if test="recentChangesEnable">	
+								<span>
+									<a id="topPageLink" href="${jspRootUrl}/wiki/${rootPageName}?op=recent_changes"><t:message value="prm.wiki.left.recentchanges.link"/></a>
+								</span><br/>
+								<t:parameter name="else">
+									<span><a href="#" class="disabled"><t:message value="prm.wiki.left.recentchanges.link"/></a></span> <br/>
+								</t:parameter>
+							</t:if>
+							<t:if test="createPageEnable">
+								<span>
+									<a id="createNewPage" href="javascript:createNewPage();"><t:message value="prm.wiki.left.createpage.link" /></a>
+								</span><br/>
+								<t:parameter name="else">
+									<span><a href="#" class="disabled"><t:message value="prm.wiki.left.createpage.link" /></a></span> <br/>
+								</t:parameter>
+							</t:if>
+							<t:if test="uploadImageEnable">
+								<span>
+									<a id="uploadLink" href="javascript:showUploadPopup('${jspRootUrl}/pwiki/Upload',725,'null','');"><t:Message value="prm.wiki.menu.uploadimage.option" /></a>
+								</span><br/>
+								<t:parameter name="else">
+									<span><a href="#" class="disabled"><t:Message value="prm.wiki.menu.uploadimage.option" /></a></span> <br/>
+								</t:parameter>
+							</t:if>
+						</t:parameter>
+					</t:if>
+				</div> <!-- toolbox-item - end -->
+		</div> <!-- left -->
+	</div> <!-- leftDiv -->
+</div>

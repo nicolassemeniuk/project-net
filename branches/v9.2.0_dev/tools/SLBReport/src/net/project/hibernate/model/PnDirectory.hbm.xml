@@ -1,0 +1,200 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDirectory" 
+    table="PN_DIRECTORY"
+    lazy="false"
+>
+
+    <id
+        name="directoryId"
+        type="java.math.BigDecimal"
+        column="DIRECTORY_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="directoryName"
+        type="java.lang.String"
+        column="DIRECTORY_NAME"
+        length="80"
+    />
+    <property
+        name="directoryDesc"
+        type="java.lang.String"
+        column="DIRECTORY_DESC"
+        length="500"
+    />
+    <property
+        name="displayClassId"
+        type="java.math.BigDecimal"
+        column="DISPLAY_CLASS_ID"
+        length="20"
+    />
+    <property
+        name="directoryTypeId"
+        type="java.math.BigDecimal"
+        column="DIRECTORY_TYPE_ID"
+        length="20"
+    />
+    <property
+        name="directoryHost"
+        type="java.lang.String"
+        column="DIRECTORY_HOST"
+        length="240"
+    />
+    <property
+        name="directoryVendor"
+        type="java.lang.String"
+        column="DIRECTORY_VENDOR"
+        length="80"
+    />
+    <property
+        name="bindUsername"
+        type="java.lang.String"
+        column="BIND_USERNAME"
+        length="80"
+    />
+    <property
+        name="directoryUrl"
+        type="java.lang.String"
+        column="DIRECTORY_URL"
+        length="240"
+    />
+    <property
+        name="bindPassword"
+        type="java.lang.String"
+        column="BIND_PASSWORD"
+        length="80"
+    />
+    <property
+        name="searchRoot"
+        type="java.lang.String"
+        column="SEARCH_ROOT"
+        length="240"
+    />
+    <property
+        name="directoryPort"
+        type="java.lang.String"
+        column="DIRECTORY_PORT"
+        length="80"
+    />
+    <property
+        name="directorySecurePort"
+        type="java.lang.String"
+        column="DIRECTORY_SECURE_PORT"
+        length="80"
+    />
+    <property
+        name="directoryCipherKey"
+        type="java.lang.String"
+        column="DIRECTORY_CIPHER_KEY"
+        length="240"
+    />
+    <property
+        name="connectSecure"
+        type="java.lang.Integer"
+        column="CONNECT_SECURE"
+        length="1"
+    />
+    <property
+        name="isDefault"
+        type="int"
+        column="IS_DEFAULT"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnSpaceHasDirectory -->
+
+    <set
+        name="pnSpaceHasDirectories"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DIRECTORY_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasDirectory"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnDirectoryField -->
+
+    <set
+        name="pnDirectoryFields"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DIRECTORY_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDirectoryField"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnSpaceHasDirectoryField -->
+
+    <set
+        name="pnSpaceHasDirectoryFields"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DIRECTORY_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasDirectoryField"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnDirectoryHasPerson -->
+
+    <set
+        name="pnDirectoryHasPersons"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DIRECTORY_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDirectoryHasPerson"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

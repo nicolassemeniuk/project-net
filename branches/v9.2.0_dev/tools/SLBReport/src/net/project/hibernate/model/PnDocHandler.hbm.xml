@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDocHandler" 
+    table="PN_DOC_HANDLER"
+    lazy="false"
+>
+
+    <composite-id>
+        <key-property 
+            name="docFormatId" 
+            column="DOC_FORMAT_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="action" 
+            column="ACTION" 
+            type="java.lang.String"
+            length="200"
+        />
+        <key-property 
+            name="actionHandler" 
+            column="ACTION_HANDLER" 
+            type="java.lang.String"
+            length="200"
+        />
+        <key-property 
+            name="isDefault" 
+            column="IS_DEFAULT" 
+            type="java.lang.Integer"
+            length="1"
+        />
+    </composite-id>    
+
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

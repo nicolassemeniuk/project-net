@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<!-- 
+		Created by the Middlegen Hibernate plugin 2.2
+		
+		http://boss.bekk.no/boss/middlegen/
+		http://www.hibernate.org/
+	-->
+
+	<class name="net.project.hibernate.model.PnEnvelopeVersion"
+		table="PN_ENVELOPE_VERSION" lazy="false">
+
+		<composite-id name="comp_id"
+			class="net.project.hibernate.model.PnEnvelopeVersionPK">
+			<key-property name="versionId" column="VERSION_ID"
+				type="java.math.BigDecimal" length="20" />
+			<key-property name="envelopeId" column="ENVELOPE_ID"
+				type="java.math.BigDecimal" length="20" />
+		</composite-id>
+
+		<property name="priorityId" type="java.math.BigDecimal"
+			column="PRIORITY_ID" not-null="true" length="20" />
+		<property name="createdById" type="java.math.BigDecimal"
+			column="CREATED_BY_ID" not-null="true" length="20" />
+		<property name="createdDatetime" type="java.sql.Date"
+			column="CREATED_DATETIME" not-null="true" length="7" />
+		<property name="crc" type="java.sql.Date" column="CRC"
+			not-null="true" length="7" />
+		<property name="recordStatus" type="java.lang.String"
+			column="RECORD_STATUS" not-null="true" length="1" />
+		<property name="commentsClob" type="java.sql.Clob"
+			column="COMMENTS_CLOB" length="4000" />
+
+		<!-- Associations -->
+		<!-- derived association(s) for compound key -->
+		<!-- bi-directional many-to-one association to PnWorkflowEnvelope -->
+		<many-to-one name="pnWorkflowEnvelope"
+			class="net.project.hibernate.model.PnWorkflowEnvelope" update="false"
+			insert="false">
+			<column name="ENVELOPE_ID" />
+		</many-to-one>
+
+		<!-- end of derived association(s) -->
+
+		<!-- bi-directional many-to-one association to PnWorkflowTransition -->
+		<many-to-one name="pnWorkflowTransition"
+			class="net.project.hibernate.model.PnWorkflowTransition"
+			not-null="true" insert="false" update="false">
+			<column name="TRANSITION_ID" />
+			<column name="WORKFLOW_ID" />
+		</many-to-one>
+		<!-- bi-directional many-to-one association to PnWorkflowStep -->
+		<many-to-one name="pnWorkflowStep"
+			class="net.project.hibernate.model.PnWorkflowStep" not-null="true" insert="false" update="false">
+			<column name="STEP_ID" />
+			<column name="WORKFLOW_ID" />
+		</many-to-one>
+		<!-- bi-directional one-to-many association to PnEnvelopeVersionHasObject -->
+
+		<set name="pnEnvelopeVersionHasObjects" lazy="false"
+			inverse="true" cascade="all">
+			<key>
+				<column name="VERSION_ID" />
+				<column name="ENVELOPE_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnEnvelopeVersionHasObject" />
+		</set>
+		<!-- bi-directional many-to-one association to PnWorkflowStatus -->
+		<many-to-one name="pnWorkflowStatus"
+			class="net.project.hibernate.model.PnWorkflowStatus"
+			not-null="true">
+			<column name="STATUS_ID" />
+		</many-to-one>
+
+	</class>
+</hibernate-mapping>

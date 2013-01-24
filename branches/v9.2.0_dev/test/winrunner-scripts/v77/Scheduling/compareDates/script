@@ -1,0 +1,31 @@
+function compareDates(in date1, in date2){
+	auto elements;
+	auto day1,month1,year1;
+	auto day2,month2,year2;
+	static array1[], array2[];
+	
+	elements = split(date1,array1," ");
+	date1 = array1[1];
+	elements = split(date1,array1,"/");
+	day1 = array1[2];
+	month1 = array1[1];
+	year1 = array1[3];
+	if(year1 > 2000)
+		year1 = year1 - 2000;
+	elements = split(date2,array2," ");
+	date2 = array2[1];
+	elements = split(date2,array2,"/");
+	day2 = array2[2];
+	month2 = array2[1];
+	year2 = array2[3];
+	if(year2 > 2000)
+		year2 = year2 - 2000;
+	
+	if((year1 == year2)&&(month1 == month2)&&(day1 == day2))
+		return 1;
+	else
+		return 0;
+		
+}
+	
+		 

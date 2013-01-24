@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+   <div xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+   	<t:if test="isCommentEntry">
+	   	<table width="100%">
+			<tr>
+				<td width="90%" class="blogTitleColumn">
+					<span class="green"><a href="${personLink}">${personName}</a></span>&nbsp;<span class="activityBodyText"><t:Message value="prm.project.activity.blogcommentview.createblogpostlabel" /></span>
+					<t:OutputRaw value="blogTitle" />
+				</td>
+				<td align="right" width="10%"><a href="javascript:addActivityComment(${activityLogId}, ${webBlogEntryId});">
+			 		<span id="commentImage_${activityLogId}"> <img src="${asset:context:/images/activitylog/coment_blank.gif}" /> </span></a>
+			 	</td>
+			 	<td align="right" class="markedUnMarkedColumn">
+					<t:if test="isMarked">	
+						<a title="${markedUnmarkedToken}" id="commentMarked_${activityLogId}" href="javascript:marked(${activityLogId},0);">
+							<img src="${asset:context:/images/activitylog/green_checkmark.gif}" width="16" height="16" />
+						</a>
+					    <t:parameter name="else">
+					        <a title="${markedUnmarkedToken}" id="commentMarked_${activityLogId}" href="javascript:marked(${activityLogId},1);">
+								<img src="${asset:context:/images/activitylog/blank_checkmark.gif}" width="16" height="16" />
+						    </a>
+						</t:parameter>
+					</t:if>	    	
+				</td>
+			</tr>
+			<tr>
+				<td class="content blogFullText">
+					<div name="weblogEntryContentsDiv" id="weblogEntryContents">
+						<t:OutputRaw value="fullText" />
+					</div>	
+				</td>	
+			</tr>
+			<tr>
+				<td colspan="2">
+					<div id="Comments_For_${activityLogId}" class="commentsForBlogEntry">
+							<div t:type="loop" source="comment" value="pnWeblogComment">
+								<div class="clearBoth"/>
+									<div id="blogCommentDiv" class="comment-entry">
+										<t:if test="pnWeblogComment.commentId">
+											<table width="92%">
+												<tr>
+													<td width="36"/>
+													<td class="content blogCommentSecondColumn">
+														<span class="green"> 
+															<a href="${personLink}">${pnWeblogComment.name}</a>  
+														&nbsp;</span><b><span class="activityBodyText"><t:Message value="prm.project.activity.blogcommentview.commentedonlabel" /></span></b>
+														&nbsp;<span class="activityBodyText"><t:OutputRaw value="pnWeblogComment.postTimeString" /></span>
+														<div class="clearBoth"></div>
+														<div class="post">
+															<div name="weblogEntryContentsDiv" id="weblogEntryContents">
+														       <t:OutputRaw value="pnWeblogComment.content" />
+														       &nbsp;&nbsp;
+													       		<t:if test="pnWeblogComment.isLastEntry">
+														     	  <a title="${collapse}" id="collapse_${activityLogId}" href="javascript:shortView(${activityLogId});" >
+		 															<img src="${asset:context:/images/activitylog/colaps.gif}" /></a>
+	 													   		</t:if>
+															</div>
+														</div>
+													</td>
+												</tr>
+											</table>
+										<t:parameter name="else">
+											<div>
+												<table>
+													<tr>
+														<td colspan="2">
+															<img src="${asset:context:/images/activitylog/blog_comment.gif}" width="16" height="14" title="${blogEntryToken}" alt="${blogEntryToken}"/>
+															&nbsp;<span class="green"><a href="${personLink}">${pnWeblogComment.name}</a></span>&nbsp;<span class="activityBodyText"><t:Message value="prm.project.activity.blogcommentview.blogpostcommented" /></span>
+															<t:OutputRaw value="blogTitle" />
+															<span id="showLoading_${activityLogId}"></span>
+														</td>
+													</tr>
+													<tr>
+														<td class="content" valign="top">
+															<div class="personImage">
+																<img width="37px" src="${personImg}" />
+															</div>
+														</td>
+														<td class="content blogCommentSecondColumn" width="100%">
+															<div name="weblogEntryContentsDiv" id="weblogEntryContents">
+														       <t:OutputRaw value="pnWeblogComment.content" />
+														       &nbsp;&nbsp;
+														       <t:if test="pnWeblogComment.isLastEntry">
+														     	  <a title="${collapse}" id="collapse_${activityLogId}" href="javascript:shortView(${activityLogId});" >
+		 															<img src="${asset:context:/images/activitylog/colaps.gif}" /></a>
+		 													   </t:if>	
+															</div> 
+														</td>
+													</tr>
+												</table>
+											</div>
+										</t:parameter>
+										</t:if>	
+									</div><!-- comment-entry class end -->
+							</div><!-- comments loop end -->
+						</div>
+				</td>
+			</tr>
+		</table>
+	  <t:parameter name="else">
+	  	<div name="weblogEntryContentsDiv" id="weblogEntryContents">
+		  	<t:OutputRaw value="fullText" />
+	  	</div>
+			<t:if test="comment">
+				<div id="Comments_For_${activityLogId}" class="commentsForBlogEntry">
+					<div t:type="loop" source="comment" value="pnWeblogComment">
+						<div class="clearBoth"/>
+							<div id="blogCommentDiv" class="comment-entry">
+									<table width="92%">
+										<tr>
+											<td>
+												<span class="green"> 
+													<a href="${personLink}">${pnWeblogComment.name}</a>  
+												&nbsp;</span><b><span class="activityBodyText"><t:Message value="prm.project.activity.blogcommentview.commentedonlabel" /></span></b>
+												&nbsp;<span class="activityBodyText"><t:OutputRaw value="pnWeblogComment.postTimeString" /></span>
+												<div class="clearBoth"></div>
+												<div class="post">
+													<div name="weblogEntryContentsDiv" id="weblogEntryContents">
+													   <t:OutputRaw value="pnWeblogComment.content" />
+													   &nbsp;&nbsp;
+												       <t:if test="pnWeblogComment.isLastEntry">
+												     	  <a title="${collapse}" id="collapse_${activityLogId}" href="javascript:shortView(${activityLogId});">
+ 															<img src="${asset:context:/images/activitylog/colaps.gif}" /></a>
+ 													   </t:if>
+													</div>       
+												</div>
+											</td>
+										</tr>
+									</table>
+							</div><!-- comment-entry class end -->
+					</div><!-- comments loop end -->
+				</div>
+				<t:parameter name="else">
+					&nbsp;&nbsp;
+					<a title="${collapse}" id="collapse_${activityLogId}" href="javascript:shortView(${activityLogId});">
+				 	<img src="${asset:context:/images/activitylog/colaps.gif}" /></a>
+			 	</t:parameter>	
+			</t:if>
+		</t:parameter>
+	</t:if>
+	<t:if test="isBlogEntryNotDeleted">
+		<div id="commentLabel_${activityLogId}" style="display:none;">
+			<table width="92%">
+				<tr>
+					<td>
+						<span id="addComment_${activityLogId}" class="commentElement">
+							<a id="LBlueColor" class="addComment" href="javascript:addActivityComment(${activityLogId});"><t:Message value="prm.project.activity.addcomment.label" /></a>
+						</span>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</t:if>
+</div>

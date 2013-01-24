@@ -1,0 +1,128 @@
+GUI_close_all();
+wait(3);
+
+#####################################################################
+# Getting personID for each and every resource invited to the project
+#####################################################################
+
+reload("getPersonID",0,1);
+id[0] = getPersonID("Avinash Padmanabhan");
+wait(1);
+
+reload("inviteUser",0,1);
+inviteUser("Daffy","Duck","daffy@project.net");
+wait(2);
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+wait(1);
+web_obj_get_info("Daffy Duck","url",urlValue);
+wait(1);
+elements = split(urlValue,path_array,"=");
+id[1] = path_array[3];
+resourceID = id[1];
+
+#####################################################################
+# Defining task types and units 
+#####################################################################
+wait(1);
+public task_types[] = {"Fixed Duration","Fixed Units","Fixed Work"};
+public units[] = {"hours","days","weeks"};
+
+#####################################################################
+# Loading compiled modules and deleting any tasks previously present in the schedule list
+#####################################################################
+
+reload("createTaskRU",0,1);#creating a task with resources
+reload("checkResourcesU",0,1);#verifying the assignment percentages, work assigned to each resource and work units
+reload("checkTaskProperties",0,1);#verifying the task properties
+
+set_window("menu",3);
+web_link_click("Workplan");
+wait(2);
+ 
+set_window("main",1);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer");
+button_press("OK");
+wait(5);
+set_window("main");
+
+#####################################################################
+# Creating Fixed Unit Tasks, Checking Task Properties and Resource Assignments
+# Cross checking tasks for resources assigned using the resources page and resources assigned using the toolbar buttons
+#####################################################################
+ 
+report_msg("");
+report_msg("T1");
+createTaskRU("t1",1, units[1], 8, units[0], 1, id, 0);
+checkTaskProperties("t1", task_types[1], 1, units[1], 8, units[0]);
+checkResourcesU("t1", 1, units[1], 8, units[0], 1, id);
+
+report_msg("");
+report_msg("T6(Quick Adding Resources)");
+createTaskRU("t6", 1, units[1], 8, units[0], 1, id, 1);
+checkTaskProperties("t6", task_types[1], 1, units[1], 8, units[0]);
+checkResourcesU("t6", 1, units[1], 8, units[0], 1, id);
+
+report_msg("");
+report_msg("T2");
+createTaskRU("t2", 3, units[1], 16, units[0], 2, id, 0);
+checkTaskProperties("t2", task_types[1], 1, units[1], 16, units[0]);
+checkResourcesU("t2", 1, units[1], 16, units[0], 2, id);
+
+report_msg("");
+report_msg("T7(Quick Adding Resources)");
+createTaskRU("t7", 3, units[1], 16, units[0], 2, id, 1);
+checkTaskProperties("t7", task_types[1], 1, units[1], 16, units[0]);
+checkResourcesU("t7", 1, units[1], 16, units[0], 2, id);
+
+report_msg("");
+report_msg("T3");
+createTaskRU("t3", 2, units[1], 24, units[0], 2, id, 0);
+checkTaskProperties("t3", task_types[1], 2, units[1], 24, units[0]);
+checkResourcesU("t3", 2, units[1], 24, units[0], 2, id);
+
+report_msg("");
+report_msg("T8(Quick Adding Resources)");
+createTaskRU("t8", 8, units[0], 8, units[0], 1, id, 1);
+checkTaskProperties("t8", task_types[1], 1, units[1], 8, units[0]);
+checkResourcesU("t8", 1, units[1], 8, units[0], 1, id);
+
+report_msg("");
+report_msg("T4");
+createTaskRU("t4", 2, units[1], 24, units[0], 1, id, 0);
+checkTaskProperties("t4", task_types[1],3, units[1], 24, units[0]);
+checkResourcesU("t4", 3, units[1], 24, units[0], 1, id);
+
+report_msg("");
+report_msg("T9(Quick Adding Resources)");
+createTaskRU("t9", 1, units[2], 8, units[1], 1, id, 1);
+checkTaskProperties("t9", task_types[1], 8, units[1], 8, units[1]);
+checkResourcesU("t9", 8, units[1], 8, units[1], 1, id);
+
+report_msg("");
+report_msg("T5");
+createTaskRU("t5", 2, units[2], 8, units[1], 1, id, 0);
+checkTaskProperties("t5", task_types[1], 8, units[1], 8, units[1]);
+checkResourcesU("t5", 8, units[1], 8, units[1], 1, id);
+
+report_msg("");
+report_msg("T10(Quick Adding Resources)");
+createTaskRU("t10", 2, units[2], 8, units[1], 1, id, 1);
+checkTaskProperties("t10", task_types[1], 8, units[1], 8, units[1]);
+checkResourcesU("t10", 8, units[1], 8, units[1], 1, id);
+
+report_msg("");
+report_msg("T11");
+createTaskRU("t11", 2, units[1], 12, units[0], 1, id, 0);
+checkTaskProperties("t11", task_types[1], 1.5, units[1], 12, units[0]);
+checkResourcesU("t11", 1.5, units[1], 12, units[0], 1, id);
+
+report_msg("");
+report_msg("T12(Quick Adding Resources)");
+createTaskRU("t12", 2, units[1], 12, units[0], 1, id, 1);
+checkTaskProperties("t12", task_types[1], 1.5, units[1], 12, units[0]);
+checkResourcesU("t12", 1.5, units[1], 12, units[0], 1, id);
+
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");

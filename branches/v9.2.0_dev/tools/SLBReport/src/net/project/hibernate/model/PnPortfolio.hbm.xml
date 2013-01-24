@@ -1,0 +1,123 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnPortfolio" 
+    table="PN_PORTFOLIO"
+    lazy="false"
+>
+
+    <id
+        name="portfolioId"
+        type="java.math.BigDecimal"
+        column="PORTFOLIO_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="portfolioName"
+        type="java.lang.String"
+        column="PORTFOLIO_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="portfolioDesc"
+        type="java.lang.String"
+        column="PORTFOLIO_DESC"
+        length="500"
+    />
+    <property
+        name="portfolioType"
+        type="java.lang.String"
+        column="PORTFOLIO_TYPE"
+        length="40"
+    />
+    <property
+        name="contentType"
+        type="java.lang.String"
+        column="CONTENT_TYPE"
+        length="40"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnObject -->
+    <one-to-one
+        name="pnObject"
+        class="net.project.hibernate.model.PnObject"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional one-to-many association to PnPortfolioHasConfiguration -->
+
+    <set
+        name="pnPortfolioHasConfigurations"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PORTFOLIO_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPortfolioHasConfiguration"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnPortfolioHasSpace -->
+
+    <set
+        name="pnPortfolioHasSpaces"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PORTFOLIO_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnPortfolioHasSpace"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnSpaceHasPortfolio -->
+
+    <set
+        name="pnSpaceHasPortfolios"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="PORTFOLIO_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasPortfolio"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

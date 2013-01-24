@@ -1,0 +1,12 @@
+<mappings>
+  <mapping>
+    <property name="firstPost" ignore="true"/>
+    <property name="nextPost" ignore="true"/>
+    <property name="previousPost" ignore="true"/> 
+    <property name="space" ignore="true"/> 
+    <property name="user" ignore="true"/> 
+    <property name="XMLElements" ignore="true"/>
+    <property name="XMLBody" ignore="true"/>
+    <property name="XML" ignore="true"/>
+  </mapping>
+</mappings>

@@ -1,0 +1,400 @@
+<projects Name="Projects" ProjectId="root">
+<Project Name="King Abdul Aziz Economic City (KAAEC)" Level="1" Folder="/King Abdul Aziz Economic City KAAEC" selected="false" ProjectId="13008454">
+	</Project>
+<Project Name="Kirchhoff Cluster Schedule" Level="1" Folder="/Kirchhoff Cluster Schedule" selected="false" ProjectId="3735076">
+	</Project>
+<Project Name="Knowledge Architect Team" Level="1" Folder="/Knowledge Architect Team" selected="false" ProjectId="2866234">
+	</Project>
+<Project Name="Knowledge Architect Team Projects" Level="1" Folder="/Knowledge Architect Team Projects" selected="false" ProjectId="3386355">
+	</Project>
+<Project Name="Knowledge Base Financials" Level="1" Folder="/Knowledge Base Financials" selected="false" ProjectId="2508538">
+	</Project>
+<Project Name="KnowledgeBase" Level="1" Folder="/KnowledgeBase" selected="false" ProjectId="842182">
+	</Project>
+<Project Name="LADWP-ECSU" Level="1" Folder="/LADWP-ECSU" selected="false" ProjectId="1280620">
+<Project Name="000 - SADAT" Level="2" Folder="/LADWP-ECSU/000 - SADAT" selected="false" ProjectId="2137271">
+	</Project>
+<Project Name="001 - RS-P" Level="2" Folder="/LADWP-ECSU/001 - RS-P" selected="false" ProjectId="2139155">
+	</Project>
+<Project Name="002 - McCullough" Level="2" Folder="/LADWP-ECSU/002 - McCullough" selected="false" ProjectId="2141096">
+	</Project>
+<Project Name="003 - Sylmar" Level="2" Folder="/LADWP-ECSU/003 - Sylmar" selected="false" ProjectId="2149046">
+	</Project>
+<Project Name="004 - DS-9" Level="2" Folder="/LADWP-ECSU/004 - DS-9" selected="false" ProjectId="2150915">
+	</Project>
+<Project Name="005 - IS-1386" Level="2" Folder="/LADWP-ECSU/005 - IS-1386" selected="false" ProjectId="2278482">
+	</Project>
+<Project Name="006 - DS-75" Level="2" Folder="/LADWP-ECSU/006 - DS-75" selected="false" ProjectId="2333370">
+	</Project>
+<Project Name="007 - DS-16" Level="2" Folder="/LADWP-ECSU/007 - DS-16" selected="false" ProjectId="2333565">
+	</Project>
+<Project Name="008 - DS-12" Level="2" Folder="/LADWP-ECSU/008 - DS-12" selected="false" ProjectId="2333632">
+	</Project>
+<Project Name="009 - DS-42" Level="2" Folder="/LADWP-ECSU/009 - DS-42" selected="false" ProjectId="2333675">
+	</Project>
+<Project Name="P010 - Haynes" Level="2" Folder="/LADWP-ECSU/P010 - Haynes" selected="false" ProjectId="4056560">
+	</Project>
+	</Project>
+<Project Name="LAM Disposal" Level="1" Folder="/LAM Disposal" selected="false" ProjectId="7303572">
+	</Project>
+<Project Name="LAM RTR" Level="1" Folder="/LAM RTR" selected="false" ProjectId="6770610">
+	</Project>
+<Project Name="LAN Health Assessment" Level="1" Folder="/LAN Health Assessment" selected="false" ProjectId="1073178">
+	</Project>
+<Project Name="LAN Upgrade" Level="1" Folder="/LAN Upgrade" selected="false" ProjectId="12313520">
+	</Project>
+<Project Name="LAWSON Implementation - Worldwide" Level="1" Folder="/LAWSON Implementation - Worldwide" selected="false" ProjectId="3876996">
+<Project Name="LAM Roll out plan" Level="2" Folder="/LAWSON Implementation - Worldwide/LAM Roll out plan" selected="false" ProjectId="3877159">
+	</Project>
+	</Project>
+<Project Name="LBTest1" Level="1" Folder="/LBTest1" selected="false" ProjectId="1461343">
+	</Project>
+<Project Name="LDAP Archives" Level="1" Folder="/LDAP Archives" selected="false" ProjectId="4944012">
+	</Project>
+<Project Name="LDAP Authentication" Level="1" Folder="/LDAP Authentication" selected="false" ProjectId="1333496">
+	</Project>
+<Project Name="LDAP Migration" Level="1" Folder="/LDAP Migration" selected="false" ProjectId="4867487">
+	</Project>
+<Project Name="LDAP Migration Project" Level="1" Folder="/LDAP Migration Project" selected="false" ProjectId="5410335">
+<Project Name="Governance" Level="2" Folder="/LDAP Migration/Governance" selected="false" ProjectId="5028209">
+	</Project>
+<Project Name="Load Balancing" Level="2" Folder="/LDAP Migration/Load Balancing" selected="false" ProjectId="5028319">
+	</Project>
+<Project Name="Relocation of ldap cluster to Sugar Land" Level="2" Folder="/LDAP Migration/Relocation of ldap cluster to Sugar Land" selected="false" ProjectId="5729848">
+	</Project>
+<Project Name="Separation of Web Service from LDAP Replicas" Level="2" Folder="/LDAP Migration/Separation of Web Service from LDAP Replicas" selected="false" ProjectId="5027916">
+	</Project>
+<Project Name="Testing SunOne 5.2" Level="2" Folder="/LDAP Migration/Testing SunOne 5.2" selected="false" ProjectId="5774218">
+	</Project>
+<Project Name="WAN Redirection" Level="2" Folder="/LDAP Migration/WAN Redirection" selected="false" ProjectId="5028253">
+	</Project>
+	</Project>
+<Project Name="LDAP Photo Project" Level="1" Folder="/LDAP Photo Project" selected="false" ProjectId="2859836">
+	</Project>
+<Project Name="LDAP Replacement" Level="1" Folder="/LDAP Replacement" selected="false" ProjectId="4094518">
+	</Project>
+<Project Name="LDAP Updates" Level="1" Folder="/LDAP Updates" selected="false" ProjectId="3957175">
+	</Project>
+<Project Name="LND OPS PRJ - SAUDI ARABIA -" Level="1" Folder="/LND OPS PRJ - SAUDI ARABIA -" selected="false" ProjectId="1933501">
+	</Project>
+<Project Name="LND-Management Reporting Tool (MRT) - aka Crew Costs, Cost Sheet" Level="1" Folder="/LND-Management Reporting Tool MRT - aka Crew Costs Cost Sheet" selected="false" ProjectId="1315860">
+	</Project>
+<Project Name="LND-Permit Database" Level="1" Folder="/LND-Permit Database" selected="false" ProjectId="1162397">
+	</Project>
+<Project Name="LONGBOW - CALIFORNIA" Level="1" Folder="/LONGBOW - CALIFORNIA" selected="false" ProjectId="550677">
+	</Project>
+<Project Name="LPS Project Template" Level="1" Folder="/LPS Project Template" selected="false" ProjectId="5708076">
+	</Project>
+<Project Name="LTSB BACSTEL-IP" Level="1" Folder="/LTSB BACSTEL-IP" selected="false" ProjectId="7051649">
+	</Project>
+<Project Name="LVMH" Level="1" Folder="/LVMH" selected="false" ProjectId="1094992">
+	</Project>
+<Project Name="LVMH Internet Security Platforms" Level="1" Folder="/LVMH Internet Security Platforms" selected="false" ProjectId="2847615">
+	</Project>
+<Project Name="LVMH Internet Security Platforms" Level="1" Folder="/LVMH Internet Security Platforms" selected="false" ProjectId="3605107">
+	</Project>
+<Project Name="LVMH WAN Management" Level="1" Folder="/LVMH WAN Management" selected="false" ProjectId="2297069">
+	</Project>
+<Project Name="LWD Resistivity Training Workshop" Level="1" Folder="/LWD Resistivity Training Workshop" selected="false" ProjectId="509887">
+	</Project>
+<Project Name="LWD Resistivity Training Workshop" Level="1" Folder="/LWD Resistivity Training Workshop" selected="false" ProjectId="509887">
+<Project Name="True resistivity modeling from ARC tool" Level="2" Folder="/LWD Resistivity Training Workshop/True resistivity modeling from ARC tool" selected="false" ProjectId="509973">
+	</Project>
+<Project Name="True resistivity modeling from ARC tool" Level="2" Folder="/LWD Resistivity Training Workshop/True resistivity modeling from ARC tool" selected="false" ProjectId="509973">
+	</Project>
+	</Project>
+<Project Name="LWD Ultra Deep Resistivity" Level="1" Folder="/LWD Ultra Deep Resistivity" selected="false" ProjectId="5442454">
+	</Project>
+<Project Name="LWTU" Level="1" Folder="/LWTU" selected="false" ProjectId="2513916">
+	</Project>
+<Project Name="La Caixa" Level="1" Folder="/La Caixa" selected="false" ProjectId="3724209">
+<Project Name="CMS Components" Level="2" Folder="/La Caixa/CMS Components" selected="false" ProjectId="3724670">
+	</Project>
+	</Project>
+<Project Name="Lachlan ERM Project" Level="1" Folder="/Lachlan ERM Project" selected="false" ProjectId="1857555">
+	</Project>
+<Project Name="Lagos-Houston VSAT upgrade to T1" Level="1" Folder="/Lagos-Houston VSAT upgrade to T1" selected="false" ProjectId="7104504">
+	</Project>
+<Project Name="Land Article - Volume I" Level="1" Folder="/Land Article - Volume I" selected="false" ProjectId="6620571">
+	</Project>
+<Project Name="Land Infield Processing System" Level="1" Folder="/Land Infield Processing System" selected="false" ProjectId="1703829">
+	</Project>
+<Project Name="Land Ops Application Consolidation" Level="1" Folder="/Land Ops Application Consolidation" selected="false" ProjectId="1046805">
+<Project Name="Training Matrix to LMS" Level="2" Folder="/Land Ops Application Consolidation/Training Matrix to LMS" selected="false" ProjectId="1143603">
+	</Project>
+	</Project>
+<Project Name="Landmark 2003 Upgrade" Level="1" Folder="/Landmark 2003 Upgrade" selected="false" ProjectId="3425683">
+	</Project>
+<Project Name="Langley Operations Support Project" Level="1" Folder="/Langley Operations Support Project" selected="false" ProjectId="2976630">
+	</Project>
+<Project Name="Lankahuasa - 1" Level="1" Folder="/Lankahuasa - 1" selected="false" ProjectId="5726663">
+	</Project>
+<Project Name="Large Bore SCAR RR3" Level="1" Folder="/Large Bore SCAR RR3" selected="false" ProjectId="4823458">
+	</Project>
+<Project Name="Large Scale deployment of Linux for Innovative customers" Level="1" Folder="/Large Scale deployment of Linux for Innovative customers" selected="false" ProjectId="1416224">
+	</Project>
+<Project Name="Las Monas Field_Reserves and Forecast" Level="1" Folder="/Las Monas Field_Reserves and Forecast" selected="false" ProjectId="3352068">
+	</Project>
+<Project Name="Las Palmas Shipyard Installation" Level="1" Folder="/Las Palmas Shipyard Installation" selected="false" ProjectId="11182780">
+	</Project>
+<Project Name="Laslau Mare Field Development Program" Level="1" Folder="/Laslau Mare Field Development Program" selected="false" ProjectId="11403106">
+	</Project>
+<Project Name="Laslau Mare Field RO Project" Level="1" Folder="/Laslau Mare Field RO Project" selected="false" ProjectId="10256030">
+	</Project>
+<Project Name="Lawson ERP &amp; PSA for SchlumbergerSema" Level="1" Folder="/Lawson ERP  PSA for SchlumbergerSema" selected="false" ProjectId="2446259">
+	</Project>
+<Project Name="Lawson ERP for Schlumberger OFS" Level="1" Folder="/Lawson ERP for Schlumberger OFS" selected="false" ProjectId="2450116">
+	</Project>
+<Project Name="Learning Project.net " Level="1" Folder="/Learning Project.net " selected="false" ProjectId="2210370">
+<Project Name="Talk to Lina" Level="2" Folder="/Learning Project.net /Talk to Lina" selected="false" ProjectId="2260075">
+	</Project>
+	</Project>
+<Project Name="Lee County (EDO) -- Web Design" Level="1" Folder="/Lee County EDO -- Web Design" selected="false" ProjectId="5500203">
+	</Project>
+<Project Name="Lee County (EDO) -- Web Design" Level="1" Folder="/Lee County EDO -- Web Design" selected="false" ProjectId="5671084">
+	</Project>
+<Project Name="Lee County Monitoring" Level="1" Folder="/Lee County Monitoring" selected="false" ProjectId="3128006">
+	</Project>
+<Project Name="Leeds Onocology" Level="1" Folder="/Leeds Onocology" selected="false" ProjectId="2033795">
+	</Project>
+<Project Name="Legacy server removal" Level="1" Folder="/Legacy server removal" selected="false" ProjectId="3759096">
+	</Project>
+<Project Name="Legal/Finance 5-Year Strategy Plan for Russia" Level="1" Folder="/Legal Finance 5-Year Strategy Plan for Russia" selected="false" ProjectId="4934495">
+	</Project>
+<Project Name="Leveraged Server Team" Level="1" Folder="/Leveraged Server Team" selected="false" ProjectId="7316626">
+	</Project>
+<Project Name="LiftPro" Level="1" Folder="/LiftPro" selected="false" ProjectId="10335778">
+	</Project>
+<Project Name="Lisa Ann's Projects" Level="1" Folder="/Lisa Ann's Projects" selected="false" ProjectId="3275408">
+	</Project>
+<Project Name="Live Quest users" Level="1" Folder="/Live Quest users" selected="false" ProjectId="13123746">
+	</Project>
+<Project Name="LiveQuest" Level="1" Folder="/LiveQuest" selected="false" ProjectId="835304">
+	</Project>
+<Project Name="LiveQuest 2.0" Level="1" Folder="/LiveQuest 2.0" selected="false" ProjectId="682829">
+	</Project>
+<Project Name="LiveQuest 2.1" Level="1" Folder="/LiveQuest 2.1" selected="false" ProjectId="4112020">
+<Project Name="LQ2.1 Deployment" Level="2" Folder="/LiveQuest 2.1/LQ2.1 Deployment" selected="false" ProjectId="5232489">
+	</Project>
+	</Project>
+<Project Name="LiveQuest 2.5" Level="1" Folder="/LiveQuest 2.5" selected="false" ProjectId="1778045">
+	</Project>
+<Project Name="LiveQuest Houston" Level="1" Folder="/LiveQuest Houston" selected="false" ProjectId="335421">
+	</Project>
+<Project Name="LiveQuest Inside Deployments" Level="1" Folder="/LiveQuest Inside Deployments" selected="false" ProjectId="701120">
+<Project Name="Shell NAM" Level="2" Folder="/LiveQuest Inside Deployments/Shell NAM" selected="false" ProjectId="708670">
+	</Project>
+<Project Name="Sidanco" Level="2" Folder="/LiveQuest Inside Deployments/Sidanco" selected="false" ProjectId="4588413">
+	</Project>
+	</Project>
+<Project Name="LiveQuest redesign" Level="1" Folder="/LiveQuest redesign" selected="false" ProjectId="818812">
+<Project Name="LiveQuest redesign" Level="2" Folder="/LiveQuest/LiveQuest redesign" selected="false" ProjectId="818812">
+	</Project>
+	</Project>
+<Project Name="LiveReservoir" Level="1" Folder="/LiveReservoir" selected="false" ProjectId="147375">
+	</Project>
+<Project Name="Liz DR1" Level="1" Folder="/Liz DR1" selected="false" ProjectId="12305290">
+	</Project>
+<Project Name="Llano " Level="1" Folder="/Llano " selected="false" ProjectId="882693">
+	</Project>
+<Project Name="Lloyds TSB BACS" Level="1" Folder="/Lloyds TSB BACS" selected="false" ProjectId="2522050">
+	</Project>
+<Project Name="Local Logistics" Level="1" Folder="/Local Logistics" selected="false" ProjectId="13936803">
+<Project Name="Custom Clearance" Level="2" Folder="/Local Logistics/Custom Clearance" selected="false" ProjectId="13936844">
+	</Project>
+<Project Name="Local Transportation" Level="2" Folder="/Local Logistics/Local Transportation" selected="false" ProjectId="13936862">
+	</Project>
+	</Project>
+<Project Name="Local Solutions" Level="1" Folder="/Local Solutions" selected="false" ProjectId="6460531">
+<Project Name="Integrated Cement Design" Level="2" Folder="/Local Solutions/Integrated Cement Design" selected="false" ProjectId="6460551">
+	</Project>
+	</Project>
+<Project Name="Locate and View Assets" Level="1" Folder="/Locate and View Assets" selected="false" ProjectId="789342">
+	</Project>
+<Project Name="Log Data Edits" Level="1" Folder="/Log Data Edits" selected="false" ProjectId="10344160">
+	</Project>
+<Project Name="Logistic Reporter" Level="1" Folder="/Logistic Reporter" selected="false" ProjectId="13939087">
+	</Project>
+<Project Name="London UPS monitoring" Level="1" Folder="/London UPS monitoring" selected="false" ProjectId="1957937">
+	</Project>
+<Project Name="London Well Construction Seminar" Level="1" Folder="/London Well Construction Seminar" selected="false" ProjectId="268068">
+	</Project>
+<Project Name="Lost Hills MEM" Level="1" Folder="/Lost Hills MEM" selected="false" ProjectId="1008265">
+	</Project>
+<Project Name="Lottery Winning" Level="1" Folder="/Lottery Winning" selected="false" ProjectId="2982812">
+	</Project>
+<Project Name="Luanda International circuit - SAT3 / VSAT" Level="1" Folder="/Luanda International circuit - SAT3   VSAT" selected="false" ProjectId="7115645">
+	</Project>
+<Project Name="Luanda Offshore Microwave Network" Level="1" Folder="/Luanda Offshore Microwave Network" selected="false" ProjectId="7117142">
+	</Project>
+<Project Name="Luanda SCPC overlay of TDMA network" Level="1" Folder="/Luanda SCPC overlay of TDMA network" selected="false" ProjectId="7117161">
+	</Project>
+<Project Name="Luanda Sonils base network cabling" Level="1" Folder="/Luanda Sonils base network cabling" selected="false" ProjectId="7115505">
+	</Project>
+<Project Name="Luanda TDMA downlink to Aberdeen, 768K" Level="1" Folder="/Luanda TDMA downlink to Aberdeen 768K" selected="false" ProjectId="7115591">
+	</Project>
+<Project Name="Luanda onshore LOS microwave implementation" Level="1" Folder="/Luanda onshore LOS microwave implementation" selected="false" ProjectId="7115399">
+	</Project>
+<Project Name="Lufthansa" Level="1" Folder="/Lufthansa" selected="false" ProjectId="4951242">
+	</Project>
+<Project Name="Lukoil" Level="1" Folder="/Lukoil" selected="false" ProjectId="2280519">
+	</Project>
+<Project Name="Lukoil SAGD " Level="1" Folder="/Lukoil SAGD " selected="false" ProjectId="9535671">
+	</Project>
+<Project Name="Lunch" Level="1" Folder="/Lunch" selected="false" ProjectId="6343151">
+	</Project>
+<Project Name="M10 Housing 2008 China" Level="1" Folder="/M10 Housing 2008 China" selected="false" ProjectId="14888138">
+	</Project>
+<Project Name="M5" Level="1" Folder="/M5" selected="false" ProjectId="4748723">
+	</Project>
+<Project Name="MAR-Marine Asset Management System (MAMS)" Level="1" Folder="/MAR-Marine Asset Management System MAMS" selected="false" ProjectId="764302">
+	</Project>
+<Project Name="MBA Final Thesis" Level="1" Folder="/MBA Final Thesis" selected="false" ProjectId="12339142">
+	</Project>
+<Project Name="MBA Thesis" Level="1" Folder="/MBA Thesis" selected="false" ProjectId="6924045">
+	</Project>
+<Project Name="MBA- Final Project" Level="1" Folder="/MBA- Final Project" selected="false" ProjectId="4569897">
+	</Project>
+<Project Name="MCA Drilling  Contractors" Level="1" Folder="/MCA Drilling  Contractors" selected="false" ProjectId="1064109">
+	</Project>
+<Project Name="MCA LAN Health Check" Level="1" Folder="/MCA LAN Health Check" selected="false" ProjectId="6769619">
+	</Project>
+<Project Name="MD Communications" Level="1" Folder="/MD Communications" selected="false" ProjectId="8352575">
+	</Project>
+<Project Name="MDT .Net Adoption" Level="1" Folder="/MDT .Net Adoption" selected="false" ProjectId="4210378">
+	</Project>
+<Project Name="MDT Stress Test Analysis for Lost Hills Diatomite" Level="1" Folder="/MDT Stress Test Analysis for Lost Hills Diatomite" selected="false" ProjectId="818486">
+	</Project>
+<Project Name="MDT Stress Testing" Level="1" Folder="/MDT Stress Testing" selected="false" ProjectId="1008343">
+	</Project>
+<Project Name="MDZ 542" Level="1" Folder="/MDZ 542" selected="false" ProjectId="1611674">
+	</Project>
+<Project Name="MEA Business Development" Level="1" Folder="/MEA Business Development" selected="false" ProjectId="4815500">
+	</Project>
+<Project Name="MEA Business Development Strategy" Level="1" Folder="/MEA Business Development Strategy" selected="false" ProjectId="4085050">
+<Project Name="Advanced Account Management Workshop" Level="2" Folder="/MEA Business Development/Advanced Account Management Workshop" selected="false" ProjectId="5960303">
+	</Project>
+	</Project>
+<Project Name="MEA Geophysics Blue projects" Level="1" Folder="/MEA Geophysics Blue projects" selected="false" ProjectId="1982080">
+<Project Name="training material for Client meetings" Level="2" Folder="/MEA Geophysics Blue projects/training material for Client meetings" selected="false" ProjectId="1982107">
+	</Project>
+	</Project>
+<Project Name="MEA ING - CNOOC" Level="1" Folder="/MEA ING - CNOOC" selected="false" ProjectId="1690433">
+	</Project>
+<Project Name="MEA Key Client List " Level="1" Folder="/MEA Key Client List " selected="false" ProjectId="3528705">
+	</Project>
+<Project Name="MEA Marine Test project" Level="1" Folder="/MEA Marine Test project" selected="false" ProjectId="3632693">
+	</Project>
+<Project Name="MEA Mobile-LDAP" Level="1" Folder="/MEA Mobile-LDAP" selected="false" ProjectId="819822">
+	</Project>
+<Project Name="MEA New Technology Revenue" Level="1" Folder="/MEA New Technology Revenue" selected="false" ProjectId="6501133">
+	</Project>
+<Project Name="MEA Oct 2002 Meeting" Level="1" Folder="/MEA Oct 2002 Meeting" selected="false" ProjectId="1913716">
+<Project Name="MEA Q Marine 3Yr Plan" Level="2" Folder="/MEA Oct 2002 Meeting/MEA Q Marine 3Yr Plan" selected="false" ProjectId="1725761">
+	</Project>
+<Project Name="MEA Shallow Water 3Yr Plan" Level="2" Folder="/MEA Oct 2002 Meeting/MEA Shallow Water 3Yr Plan" selected="false" ProjectId="1738029">
+	</Project>
+<Project Name="MEA WG Q Marine APG/Australia Woodside 12/2002" Level="2" Folder="/MEA Oct 2002 Meeting/MEA WG Q Marine APG Australia Woodside 12 2002" selected="false" ProjectId="1689559">
+	</Project>
+	</Project>
+<Project Name="MEA Q Marine 3Yr Plan" Level="1" Folder="/MEA Q Marine 3Yr Plan" selected="false" ProjectId="1725761">
+	</Project>
+<Project Name="MEA Shallow Water 3Yr Plan" Level="1" Folder="/MEA Shallow Water 3Yr Plan" selected="false" ProjectId="1738029">
+	</Project>
+<Project Name="MEA Training Collaboration - Surveying" Level="1" Folder="/MEA Training Collaboration - Surveying" selected="false" ProjectId="2689088">
+	</Project>
+<Project Name="MEA WG BAP Land ARM/KSA Aramco 03/2003 123456" Level="1" Folder="/MEA WG BAP Land ARM KSA Aramco 03 2003 123456" selected="false" ProjectId="3636303">
+	</Project>
+<Project Name="MEA WG BAP Land ARM/Kuwait KOC 06/2003 Bid:764" Level="1" Folder="/MEA WG BAP Land ARM Kuwait KOC 06 2003 Bid:764" selected="false" ProjectId="4415589">
+	</Project>
+<Project Name="MEA WG BAP Land ARM/Saudi Arabia ARAMCO  04/2003, Bid:2003-001/KSA (Qatif)" Level="1" Folder="/MEA WG BAP Land ARM Saudi Arabia ARAMCO  04 2003 Bid:2003-001 KSA Qatif" selected="false" ProjectId="3649226">
+	</Project>
+<Project Name="MEA WG BAP Land ARM\Pakistan 04\2003 MP-01/03" Level="1" Folder="/MEA WG BAP Land ARMPakistan 042003 MP-01 03" selected="false" ProjectId="3968345">
+	</Project>
+<Project Name="MEA WG BAP Land ARM\Pakistan Lasmo 03\2003 03/MAN/03" Level="1" Folder="/MEA WG BAP Land ARMPakistan Lasmo 032003 03 MAN 03" selected="false" ProjectId="3687617">
+	</Project>
+<Project Name="MEA WG BAP Land ARM\Pakistan Tullow 03\2003 PAK-03-190-T " Level="1" Folder="/MEA WG BAP Land ARMPakistan Tullow 032003 PAK-03-190-T " selected="false" ProjectId="3577545">
+	</Project>
+<Project Name="MEA WG BAP Land GFM/Abu Dahbi ATLANTIS 05/2003 TDR: 0000" Level="1" Folder="/MEA WG BAP Land GFM Abu Dahbi ATLANTIS 05 2003 TDR: 0000" selected="false" ProjectId="4171736">
+	</Project>
+<Project Name="MEA WG BAP Land GFM/Oman  PTT 2003" Level="1" Folder="/MEA WG BAP Land GFM Oman  PTT 2003" selected="false" ProjectId="3485708">
+	</Project>
+<Project Name="MEA WG BAP Land GFM/Oman PDO 2003-001/OMA" Level="1" Folder="/MEA WG BAP Land GFM Oman PDO 2003-001 OMA" selected="false" ProjectId="2747485">
+	</Project>
+<Project Name="MEA WG BAP Land HMD/Algeria SONATRACH 08/2003 TDR:0000" Level="1" Folder="/MEA WG BAP Land HMD Algeria SONATRACH 08 2003 TDR:0000" selected="false" ProjectId="5361670">
+	</Project>
+<Project Name="MEA WG BAP MARINE APG/AUSTRALIA 03/2003 WOODSIDE" Level="1" Folder="/MEA WG BAP MARINE APG AUSTRALIA 03 2003 WOODSIDE" selected="false" ProjectId="4503011">
+	</Project>
+<Project Name="MEA WG BAP Marine BMP/Malaysia Exxon 03/2003 PCP 23512/IS" Level="1" Folder="/MEA WG BAP Marine BMP Malaysia Exxon 03 2003 PCP 23512 IS" selected="false" ProjectId="3598153">
+	</Project>
+<Project Name="MEA WG BAP Marine TMV/Vietnam 03/2003PetroVietnam" Level="1" Folder="/MEA WG BAP Marine TMV Vietnam 03 2003PetroVietnam" selected="false" ProjectId="3599030">
+	</Project>
+<Project Name="MEA WG BAP Q-Land EEG/Egypt Apache 03/2003 " Level="1" Folder="/MEA WG BAP Q-Land EEG Egypt Apache 03 2003 " selected="false" ProjectId="3617832">
+	</Project>
+<Project Name="MEA WG BAP TZ GFM/Abu Dhabi ADOC 01/2003 TDR:123456" Level="1" Folder="/MEA WG BAP TZ GFM Abu Dhabi ADOC 01 2003 TDR:123456" selected="false" ProjectId="2885523">
+	</Project>
+<Project Name="MEA WG BAP TZ GFM/Qatar ANADARKO 04/2003 TDR:000000" Level="1" Folder="/MEA WG BAP TZ GFM Qatar ANADARKO 04 2003 TDR:000000" selected="false" ProjectId="3907594">
+	</Project>
+<Project Name="MEA WG Land BAP EEG/Egypt test" Level="1" Folder="/MEA WG Land BAP EEG Egypt test" selected="false" ProjectId="3924684">
+	</Project>
+<Project Name="MEA WG Marine BMP/Malaysia BAP P000006 Draft Testing" Level="1" Folder="/MEA WG Marine BMP Malaysia BAP P000006 Draft Testing" selected="false" ProjectId="3357873">
+	</Project>
+<Project Name="MEA WG Marine BMP/Malaysia BAP P000007 Draft Testing 2" Level="1" Folder="/MEA WG Marine BMP Malaysia BAP P000007 Draft Testing 2" selected="false" ProjectId="3358157">
+	</Project>
+<Project Name="MEA WG Q Land ARM/Kuwait KOC 12/2002" Level="1" Folder="/MEA WG Q Land ARM Kuwait KOC 12 2002" selected="false" ProjectId="1788224">
+	</Project>
+<Project Name="MEA WG Q Land ARM/Saudi Arabia ARAMCO 01/2003" Level="1" Folder="/MEA WG Q Land ARM Saudi Arabia ARAMCO 01 2003" selected="false" ProjectId="2471545">
+<Project Name="Saudi Q-Ranking" Level="2" Folder="/MEA WG Q Land ARM Saudi Arabia ARAMCO 01 2003/Saudi Q-Ranking" selected="false" ProjectId="3915097">
+	</Project>
+	</Project>
+<Project Name="MEA WG Q Marine APG/Australia Woodside 12/2002" Level="1" Folder="/MEA WG Q Marine APG Australia Woodside 12 2002" selected="false" ProjectId="1689559">
+	</Project>
+<Project Name="MEA-T2" Level="1" Folder="/MEA-T2" selected="false" ProjectId="92079">
+	</Project>
+<Project Name="MED - Manager Desktop Drilling" Level="1" Folder="/MED - Manager Desktop Drilling" selected="false" ProjectId="10145673">
+	</Project>
+<Project Name="MED - Manager Desktop Drilling, Phase II" Level="1" Folder="/MED - Manager Desktop Drilling Phase II" selected="false" ProjectId="11390521">
+	</Project>
+<Project Name="MEG - Integracion Maquetas Electronicas" Level="1" Folder="/MEG - Integracion Maquetas Electronicas" selected="false" ProjectId="10145807">
+	</Project>
+<Project Name="MEMS Pressure Sensor" Level="1" Folder="/MEMS Pressure Sensor" selected="false" ProjectId="13022929">
+	</Project>
+<Project Name="MEP - Manager Desktop Production" Level="1" Folder="/MEP - Manager Desktop Production" selected="false" ProjectId="11047774">
+	</Project>
+<Project Name="MEP -Flujo Optimo de Operaciones de Produccion" Level="1" Folder="/MEP -Flujo Optimo de Operaciones de Produccion" selected="false" ProjectId="10780822">
+<Project Name="FASE 1 - Pilot Project" Level="2" Folder="/MEP -Flujo Optimo de Operaciones de Produccion/FASE 1 - Pilot Project" selected="false" ProjectId="10782948">
+	</Project>
+<Project Name="FASE 2 - Flujo Optimo de Operaciones de Produccion" Level="2" Folder="/MEP -Flujo Optimo de Operaciones de Produccion/FASE 2 - Flujo Optimo de Operaciones de Produccion" selected="false" ProjectId="10782967">
+	</Project>
+<Project Name="FASE 3 - Flujo Optimo de Operaciones de Produccion" Level="2" Folder="/MEP -Flujo Optimo de Operaciones de Produccion/FASE 3 - Flujo Optimo de Operaciones de Produccion" selected="false" ProjectId="10782983">
+	</Project>
+<Project Name="FASE 4 - Flujo Optimo de Operaciones de Produccion" Level="2" Folder="/MEP -Flujo Optimo de Operaciones de Produccion/FASE 4 - Flujo Optimo de Operaciones de Produccion" selected="false" ProjectId="10783000">
+	</Project>
+	</Project>
+<Project Name="MFC - MANULIFE FINANCIAL" Level="1" Folder="/MFC - MANULIFE FINANCIAL" selected="false" ProjectId="3898550">
+<Project Name="MFC - Manulife Japan Capture Team" Level="2" Folder="/MFC - MANULIFE FINANCIAL/MFC - Manulife Japan Capture Team" selected="false" ProjectId="3898704">
+	</Project>
+<Project Name="MFC - Manulife NSA Capture Team" Level="2" Folder="/MFC - MANULIFE FINANCIAL/MFC - Manulife NSA Capture Team" selected="false" ProjectId="5329511">
+	</Project>
+	</Project>
+<Project Name="MGSC Phase III" Level="1" Folder="/MGSC Phase III" selected="false" ProjectId="14980152">
+	</Project>
+<Project Name="MIV - Upgrade DP5.0 to DP5.1" Level="1" Folder="/MIV - Upgrade DP5.0 to DP5.1" selected="false" ProjectId="10401745">
+	</Project>
+<Project Name="MLI Security Upgrade" Level="1" Folder="/MLI Security Upgrade" selected="false" ProjectId="2262832">
+	</Project>
+<Project Name="MMLI Project" Level="1" Folder="/MMLI Project" selected="false" ProjectId="5271721">
+	</Project>
+<Project Name="MMRD" Level="1" Folder="/MMRD" selected="false" ProjectId="5125277">
+<Project Name="Fundamentals Training" Level="2" Folder="/MMRD/Fundamentals Training" selected="false" ProjectId="9746453">
+	</Project>
+<Project Name="Q-BorSeis" Level="2" Folder="/MMRD/Q-BorSeis" selected="false" ProjectId="3552879">
+<Project Name="Q-BorSeis Evaluation " Level="3" Folder="/MMRD/Q-BorSeis/Q-BorSeis Evaluation " selected="false" ProjectId="4496809">
+	</Project>
+<Project Name="Q-BorSeis Requirements" Level="3" Folder="/MMRD/Q-BorSeis/Q-BorSeis Requirements" selected="false" ProjectId="4710166">
+	</Project>
+	</Project>
+	</Project>
+<Project Name="MMRD2 Testing" Level="1" Folder="/MMRD2 Testing" selected="false" ProjectId="9129510">
+	</Project>
+</projects>

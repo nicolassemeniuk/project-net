@@ -1,0 +1,60 @@
+function testDependencyType(in task1, in task2, in dependencyType){
+	auto duration_total, duration_task1, duration_task2;
+	auto startDate1, endDate1, startDate2, endDate2, diff;
+	
+	reload("date_diff",0,1);
+	
+	web_link_click(task1);
+	set_window("main",2);
+	wait(1);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",2);
+	edit_get_text("startTime_NotSubmitted", startDate1);
+	edit_get_text("endTime_NotSubmitted", endDate1);
+	edit_get_text("duration",duration_task1);
+	web_link_click("Cancel");
+	wait(2);
+	
+	set_window("main",2);
+	web_link_click(task2);
+	wait(1);
+	set_window("main",2);
+	web_link_click("Modify");
+	wait(1);
+	set_window("main",2);
+	edit_get_text("startTime_NotSubmitted", startDate2);
+	edit_get_text("endTime_NotSubmitted", endDate2);
+	edit_get_text("duration",duration_task2);
+	web_link_click("Cancel");
+	set_window("main",2);
+	
+	switch(dependencyType){
+		case "FS":
+			duration_total = duration_task1 + duration_task2 - 1;
+# 			report_msg(duration_total);
+			diff = date_diff(startDate1,endDate2);
+# 			report_msg(diff);
+			if(duration_total == diff) 
+				tl_step("Verify FS dependency type",0,"FS dependency verified for "&task2&" and "&task1&"");
+			else
+				tl_step("Verify FS dependency type",1,""&task2&" end date is NOT correctly set");
+			break;
+		case "SS":
+			diff = date_diff(startDate1,startDate2);
+			if(diff==0)
+				tl_step("Verify SS dependency",0,"SS dependency verified with tasks "&task1&" and "&task2&" starting on the same date");
+			else
+				tl_step("Verify SS dependency",1,"Tasks "&task1&" and "&task2&" do NOT start on the same date");
+			break;
+		case "FF":
+			diff = date_diff(endDate1,endDate2);
+			if(diff==0)
+				tl_step("Verify FF dependency",0,"FF dependency verified with tasks "&task1&" and "&task2&" ending on the same date");
+			else
+				tl_step("Verify FF dependency",1,"Tasks "&task1&" and "&task2&" do NOT end on the same date");
+			break;
+		case "SF":
+			break;
+	}		
+}	

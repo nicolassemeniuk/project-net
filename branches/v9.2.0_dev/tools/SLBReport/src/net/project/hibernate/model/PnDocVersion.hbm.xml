@@ -1,0 +1,189 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDocVersion" 
+    table="PN_DOC_VERSION"
+    lazy="false"
+>
+
+    <id
+        name="docVersionId"
+        type="java.math.BigDecimal"
+        column="DOC_VERSION_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="docVersionName"
+        type="java.lang.String"
+        column="DOC_VERSION_NAME"
+        length="240"
+    />
+    <property
+        name="sourceFileName"
+        type="java.lang.String"
+        column="SOURCE_FILE_NAME"
+        length="240"
+    />
+    <property
+        name="docDescription"
+        type="java.lang.String"
+        column="DOC_DESCRIPTION"
+        length="4000"
+    />
+    <property
+        name="dateModified"
+        type="java.sql.Date"
+        column="DATE_MODIFIED"
+        length="7"
+    />
+    <property
+        name="isCheckedOut"
+        type="int"
+        column="IS_CHECKED_OUT"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="dateCheckedOut"
+        type="java.sql.Date"
+        column="DATE_CHECKED_OUT"
+        length="7"
+    />
+    <property
+        name="docComment"
+        type="java.lang.String"
+        column="DOC_COMMENT"
+        length="500"
+    />
+    <property
+        name="docVersionNum"
+        type="java.math.BigDecimal"
+        column="DOC_VERSION_NUM"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="docVersionLabel"
+        type="java.lang.String"
+        column="DOC_VERSION_LABEL"
+        length="240"
+    />
+    <property
+        name="checkoutDue"
+        type="java.sql.Date"
+        column="CHECKOUT_DUE"
+        length="7"
+    />
+    <property
+        name="shortFileName"
+        type="java.lang.String"
+        column="SHORT_FILE_NAME"
+        length="240"
+    />
+    <property
+        name="crc"
+        type="java.sql.Date"
+        column="CRC"
+        not-null="true"
+        length="7"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnObject -->
+    <one-to-one
+        name="pnObject"
+        class="net.project.hibernate.model.PnObject"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional many-to-one association to PnDocument -->
+    <many-to-one
+        name="pnDocument"
+        class="net.project.hibernate.model.PnDocument"
+        not-null="true"
+    >
+        <column name="DOC_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPersonByDocAuthorId"
+        class="net.project.hibernate.model.PnPerson"
+        not-null="true"
+    >
+        <column name="DOC_AUTHOR_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPersonByModifiedById"
+        class="net.project.hibernate.model.PnPerson"
+        not-null="true"
+    >
+        <column name="MODIFIED_BY_ID" />
+    </many-to-one>
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPersonByCheckedOutById"
+        class="net.project.hibernate.model.PnPerson"
+        not-null="true"
+    >
+        <column name="CHECKED_OUT_BY_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnDocVersionHasContent -->
+
+    <set
+        name="pnDocVersionHasContents"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DOC_VERSION_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDocVersionHasContent"
+        />
+    </set>
+    <!-- bi-directional one-to-many association to PnDocConfigurationHasDoc -->
+
+    <set
+        name="pnDocConfigurationHasDocs"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DOC_VERSION_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnDocConfigurationHasDoc"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

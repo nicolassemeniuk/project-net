@@ -1,0 +1,85 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnDirectoryField" 
+    table="PN_DIRECTORY_FIELD"
+    lazy="false"
+>
+
+    <id
+        name="directoryFieldId"
+        type="java.math.BigDecimal"
+        column="DIRECTORY_FIELD_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="isLocallyStored"
+        type="int"
+        column="IS_LOCALLY_STORED"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="directoryFieldName"
+        type="java.lang.String"
+        column="DIRECTORY_FIELD_NAME"
+        length="255"
+    />
+    <property
+        name="pnPersonColumnName"
+        type="java.lang.String"
+        column="PN_PERSON_COLUMN_NAME"
+        length="80"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnSpaceHasDirectoryField -->
+
+    <set
+        name="pnSpaceHasDirectoryFields"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="DIRECTORY_FIELD_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnSpaceHasDirectoryField"
+        />
+    </set>
+    <!-- bi-directional many-to-one association to PnDirectory -->
+    <many-to-one
+        name="pnDirectory"
+        class="net.project.hibernate.model.PnDirectory"
+        not-null="true"
+    >
+        <column name="DIRECTORY_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

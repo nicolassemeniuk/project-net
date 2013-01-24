@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<head>
+<title>Manage Resource List</title>
+<!-- Linking all css files only here. 
+	 These are used for only Resources tab developed in Tapestry 5 -->
+<link rel="stylesheet" type="text/css" href="/styles/global.css" />
+<link rel="stylesheet" type="text/css" href="/styles/fonts.css" />
+<link rel="stylesheet" type="text/css" href="/styles/colors.css" />
+<link rel="stylesheet" type="text/css" href="/styles/application.css" />
+<link rel="stylesheet" type="text/css" href="/styles/noframes.css" />
+<link rel="stylesheet" type="text/css" href="/src/extjs/resources/css/ext-all.css" />
+<link rel="stylesheet" type="text/css" href="/styles/lib.css" />
+<link rel="stylesheet" type="text/css" href="/styles/examples.css" />
+<link rel="stylesheet" type="text/css" href="/styles/grid-examples.css" />
+</head>
+<body onload="changeTab();">
+<script type="text/javascript" src="/src/extjs/adapter/ext/ext-base.js"></script>
+<script type="text/javascript" src="/src/extjs/ext-all.js"></script>
+<script type="text/javascript" src="/src/examples.js"></script>
+<script language="javascript" type="text/javascript">
+	var listColumnLabel = '${listColumnLabel}';
+	var resourcesColumnLabel = '${resourcesColumnLabel}';
+	var manageResourceListGridData = ${manageResourceListGridData};	
+	var changeTabVal = ${changeTab};	
+</script>
+<script type="text/javascript" src="/src/manageResourceList-grid.js"></script>
+<script language="javascript" type="text/javascript">
+	function changeTab(){ 
+		if(changeTabVal == true){
+			parent.setIframeSource(1);			
+		}	
+	}
+	function submitForm(btn){
+		if(btn == 'yes'){
+			document.getElementById('formAction').value = 'delete';
+			document.getElementById('form').submit();
+			return true;
+		} else if(btn == 'edit'){
+			document.getElementById('formAction').value = 'edit';
+			document.getElementById('form').submit();			
+			return true;
+		}
+		return false;
+	}	
+</script>
+<h3 align="center">${pageTitle}</h3>
+<t:form >
+	<input t:type="TextField" value="hiddenResourceListId"
+		style="visibility: hidden;" clientId="hiddenResourceListId" />
+	<input t:type="TextField" value="formAction"
+		style="visibility: hidden;" clientId="formAction" />
+</t:form>
+<br/> <label style="color: red; text-align: center; font-weight: bold;"> ${message} </label> <br /><br />
+<div id="manageListGridPos" style="margin-left:10px; margin-right: 10px;">
+</div>
+</body>
+</html>

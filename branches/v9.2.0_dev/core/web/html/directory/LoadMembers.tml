@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<span xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+	<script type='text/javascript'>
+		inviteeEmails = '${inviteeEmail}';
+		inviteesCount = '${inviteesCount}';
+		if(document.getElementById('inviteCountSpan') != null){
+			document.getElementById('inviteCountSpan').innerHTML = '${inviteeCount}';
+		}
+		if(document.getElementById('totalBusinessMembers') != null){
+			document.getElementById('totalBusinessMembers').innerHTML = '${businessMembersCount}';
+		}
+	</script>
+	<t:if test="isLoadMember">
+		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr>
+				<td width="100%">
+					<t:form clientValidation="false" autoFocus="false">
+						<t:if test="personWrappers">
+							<table class="t-data-grid">
+							<t:loop source="personWrappers" value="personWrapper" volatile="true">
+							<tr><td class="invite">
+							  	    <t:if test="${personWrapper.disable}">
+						                <t:checkbox value="delete" disabled="${personWrapper.disable}" checked="${personWrapper.disable}" clientId="eml_${personWrapper.email}" onclick="concatanateCheckedUsers('${personWrapper.email}',this)"/>
+						                &nbsp;<span class="disabledMemberName">${personWrapper.searchedDisplayName}</span>&nbsp;
+			         						<span class="email">${personWrapper.email}</span>
+			         					<t:parameter name="else">
+			         						<t:checkbox value="delete" disabled="${personWrapper.disable}" clientId="eml_${personWrapper.email}" onclick="concatanateCheckedUsers('${personWrapper.email}',this)"/>
+						               &nbsp;<span class="memberName">${personWrapper.searchedDisplayName}</span>&nbsp;
+			         						<span class="email">${personWrapper.email}</span>
+			         					</t:parameter>
+			         				</t:if>
+			         				</td>
+			         				</tr>
+			         		</t:loop>
+			         		</table>
+						<t:parameter name="else">
+							<div class="noMembersFound">
+								<t:if test="userExistanceError">
+									<label style="font-size:12;color:red">${errorIterator}</label>
+									<t:parameter name="else">
+									<t:Message value="prm.directory.directory.invitemember.nomember.message"/>
+									</t:parameter>
+								</t:if>
+							</div>
+						</t:parameter>
+						</t:if>
+					</t:form>
+				</td>
+					<td id="updatedInviteeCount" style="display: none;"></td>
+			</tr>
+		</table>
+	</t:if>
+	<t:if test="isInviteMember">
+		<table width="100%" cellspacing="0" cellpadding="0" border="0">
+			<tr> 
+				<td>
+					<t:form t:id="invitedListForm" t:clientId="invitedListForm" clientValidation="false" autoFocus="false">
+						<t:if test="inviteesList">
+							<table class="t-data-grid">
+								<t:loop source="inviteesList" value="invitedObject" volatile="true">
+									<tr>
+										<td>
+											<a href="javascript:enableMemberOnRemove('${invitedObject.email}')">
+												<img src="${jSPRootURL}/images/application/channelbar-close_it.gif" title="${deleteUserTooltip}"/>
+											</a>
+											&nbsp;<span>${invitedObject.searchedDisplayName}</span>&nbsp;
+							      			<span class="email">${invitedObject.email}</span>
+										</td>
+									</tr>
+								</t:loop>
+							</table>
+						<t:parameter name="else">
+							<div class="noMembersFound"><t:Message value="prm.directory.directory.invitemember.noinviteesadded.message"/></div>
+						</t:parameter>
+						</t:if>
+					</t:form>
+				</td>
+			</tr>
+		</table>
+	</t:if>
+</span>

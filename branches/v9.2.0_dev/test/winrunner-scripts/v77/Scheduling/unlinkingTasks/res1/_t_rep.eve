@@ -1,0 +1,11 @@
+49
+1 6 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\unlinkingTasks> 1 1112228840 0
+23 20 <FIXED DURATION TASKS> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\unlinkingTasks> 76 1112228843 0
+37 115 <Step: Verify unlinking tasks(edit), Status: Pass, Description: Task t2 is no longer dependent on task t1(edit page)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\unlinkingTasks> 23 1112228856 24
+37 115 <Step: Verify unlinking tasks(edit), Status: Pass, Description: Task t3 is no longer dependent on task t1(edit page)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\unlinkingTasks> 23 1112228864 24
+37 122 <Step: Verify unlinking tasks(quick link), Status: Pass, Description: Task t5 is no longer dependent on task t1(quick link)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\unlinkingTasks> 61 1112228883 24
+23 0 <> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\unlinkingTasks> 81 1112228883 0
+23 16 <FIXED UNIT TASKS> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\unlinkingTasks> 83 1112228883 0
+37 115 <Step: Verify unlinking tasks(edit), Status: Pass, Description: Task t7 is no longer dependent on task t6(edit page)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\unlinkingTasks> 23 1112228891 24
+37 115 <Step: Verify unlinking tasks(edit), Status: Pass, Description: Task t8 is no longer dependent on task t6(edit page)> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\unlinkingTasks> 23 1112228899 24
+44 61 <web_link_click:"t9" Error: Object is not currently displayed.> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\unlinkingTasks> 55 1112228906 0

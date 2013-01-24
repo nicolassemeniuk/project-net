@@ -1,0 +1,37 @@
+wait(3);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject"();
+wait(1);
+
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+wait(2);
+set_window("main",2);
+web_link_click("TestProject2");
+wait(1);
+set_window("menu",2);
+wait(2);
+web_link_click("Documents");
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+wait(3);
+
+# reload("importFile",0,1);
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+
+
+# main
+	set_window("main",25);
+	web_image_click("Import Document", 9, 7);
+	wait(1);
+	set_window("main",1);
+	wait(1);
+	button_press("Browse...");
+	wait(1);
+	
+# Choose file
+	set_window ("Choose file", 6);
+	list_select_item ("browser_main_combo_location_0", "Desktop");  # Item Number 1;
+	list_select_item ("Look in", "WRfile.txt"); # Item Number 28;
+	button_press ("Open");
+
+# main
+	set_window("main",17);
+	web_link_click("Submit");

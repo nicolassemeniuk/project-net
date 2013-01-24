@@ -1,0 +1,145 @@
+body {
+	padding: 0;
+	margin: 0;
+}
+
+h1 {
+	font-size: 16px;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+h2 {
+	font-size: 12px;
+	font-weight: bold;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	margin:2px;
+}
+body, td, p, input {
+	font-size: 11px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	color: #333333;
+}
+
+.navlinks {
+	font-size: 11px;
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	color: Gray;
+	background-image: url(../img/leftback.gif);
+	background-repeat: repeat-y;
+}
+
+.loadingPage1 {
+	position: relative;
+	overflow: hidden;
+	visibility: hidden1;	
+	width: 570px;
+	height: 530px;
+	margin: 0;
+	/*top: 140;
+	left: 310;
+	right: 50;*/
+	/*filter:alpha(opacity=40); */
+	background-color: #FFFFFF;
+	z-index: 9999;
+}
+ol.setsteps {
+	list-style: url(../img/point_disabled.gif);
+}
+li.selected {
+	color: Black;
+	font-size: 12px;
+	list-style: url(../img/point_active.gif);
+	list-style-position: outside;
+	font-weight: bolder;
+}
+
+.installErrorStyle {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	/*font-weight: bold;*/
+	color: #B22222;
+}
+
+button {
+	color: #FFFFFF;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	padding-left: 15px;
+	background: #f5f5f5;
+	background-image: url(../img/button.gif);
+	background-repeat: no-repeat;
+	border: none;
+	width: 83px;
+	height: 17px;
+	padding-bottom: 3px;
+}
+.basestyle {
+	color: #666666;
+	font-size: 10px;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background-image: url(../img/basebott.gif);
+	background-color: #ededed;
+	padding-top: 15px;
+	padding-left: 170px;
+}
+
+#helplink {
+	color: White;
+	background-color: #14809F;
+	background-image: url(../img/butend.gif);
+	background-repeat: no-repeat;
+	background-position: right;
+	height: 17px;
+	width: 85px;
+	text-decoration: none;
+	cursor: pointer;
+	float: left;
+	margin-right: 10px;
+	border: none;
+}
+
+#helplink:first-letter {
+	background-image: url(../img/iconp.gif);
+	background-repeat: no-repeat;
+	padding-left: 20px;
+	background-position: left;
+	border: none;
+	padding-bottom: 1px;
+}
+.welcome {
+	position: absolute;	
+	overflow: hidden; 
+	visibility: hidden; 
+	width: 770px; 
+	height: 420px; 
+	margin: 0; 
+	top: 140; 
+	left: 110; 
+	right: 50;
+	/*filter:alpha(opacity=40); */ 
+	background-color: #FFFFFF; z-index: 9000;
+}
+.license {
+	position:absolute;
+	top: 41%;
+	left: 29%;
+	width:68em;
+	height:40em;
+	margin-top: -9em; /*set to a negative number 1/2 of your height*/
+	margin-left: -15em; /*set to a negative number 1/2 of your width*/
+	border: 0px solid #ccc;
+	background-color: #f3f3f3;
+}
+/*
+position: absolute;	
+	overflow: hidden; 
+	visibility: hidden; 
+	width: 770px; 
+	height: 420px; 
+	margin: 0; 
+	top: 160; 
+	left: 110; 
+	right: 50;
+	//filter:alpha(opacity=40); 
+	background-color: #FFFFFF; z-index: 9000;
+*/

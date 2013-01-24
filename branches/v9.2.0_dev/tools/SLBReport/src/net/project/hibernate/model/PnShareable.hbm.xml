@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnShareable" 
+    table="PN_SHAREABLE"
+    lazy="false"
+>
+
+    <id
+        name="objectId"
+        type="java.math.BigDecimal"
+        column="OBJECT_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="permissionType"
+        type="java.math.BigDecimal"
+        column="PERMISSION_TYPE"
+        not-null="true"
+        length="22"
+    />
+    <property
+        name="containerId"
+        type="java.math.BigDecimal"
+        column="CONTAINER_ID"
+        length="20"
+    />
+    <property
+        name="spaceId"
+        type="java.math.BigDecimal"
+        column="SPACE_ID"
+        length="20"
+    />
+    <property
+        name="allowableActions"
+        type="java.math.BigDecimal"
+        column="ALLOWABLE_ACTIONS"
+        length="20"
+    />
+    <property
+        name="propagateToChildren"
+        type="java.math.BigDecimal"
+        column="PROPAGATE_TO_CHILDREN"
+        length="15"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnObject -->
+    <one-to-one
+        name="pnObject"
+        class="net.project.hibernate.model.PnObject"
+        outer-join="auto"
+        constrained="false"
+    />
+
+</class>
+</hibernate-mapping>

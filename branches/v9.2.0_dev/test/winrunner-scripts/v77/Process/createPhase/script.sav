@@ -1,0 +1,25 @@
+function createPhase(in phaseName, in seqNum, in link){
+	set_window("main");
+	web_link_click("Create Phase");
+	wait(1);
+	set_window("main",2);
+	edit_set("phasename",phaseName);
+	edit_set("phasedesc",""&seqNum&" phase");
+	list_select_item("phasestatus","Not Started");
+	if(link == "schedule"){
+		button_set("progressReportingMethod", ON);
+	}
+	if(link == "manual"){
+	
+	edit_set("startdate","11/11/04");
+	edit_set("enddate","11/18/04");
+	edit_set("sequence",seqNum);
+	edit_set("percentcomplete","0");
+	web_link_click("Submit");
+	wait(1);
+	set_window("main",2);
+	web_frame_text_exists("main",""&phaseName&" ",""," ");
+}
+
+
+	

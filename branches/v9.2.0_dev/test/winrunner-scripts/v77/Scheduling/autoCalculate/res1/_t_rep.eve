@@ -1,0 +1,15 @@
+49
+1 2 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\autoCalculate> 1 1114210785 0
+37 145 <Step: Verify duration value, Status: Pass, Description: The duration value of a summary task t1 does not change when auto calculate is turned off> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\autoCalculate> 13 1114210936 24
+37 145 <Step: Verify duration value, Status: Pass, Description: The duration units of a summary task t1 does not change when auto calculate is turned off> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\autoCalculate> 18 1114210936 24
+37 129 <Step: Verify work value, Status: Fail, Description: The work value of a summary task t1 CHANGES when auto calculate is turned off> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\autoCalculate> 26 1114210936 25
+37 141 <Step: Verify duration value, Status: Pass, Description: The work units of a summary task t1 does not change when auto calculate is turned off> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\autoCalculate> 29 1114210936 24
+37 137 <Step: Verify duration value, Status: Fail, Description: The duration value of a summary task t4 CHANGES when auto calculate is turned off> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\autoCalculate> 15 1114211064 25
+37 145 <Step: Verify duration value, Status: Pass, Description: The duration units of a summary task t4 does not change when auto calculate is turned off> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\autoCalculate> 18 1114211064 24
+37 129 <Step: Verify work value, Status: Fail, Description: The work value of a summary task t4 CHANGES when auto calculate is turned off> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\autoCalculate> 26 1114211064 25
+37 141 <Step: Verify duration value, Status: Pass, Description: The work units of a summary task t4 does not change when auto calculate is turned off> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\autoCalculate> 29 1114211064 24
+37 137 <Step: Verify duration value, Status: Fail, Description: The duration value of a summary task t7 CHANGES when auto calculate is turned off> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\autoCalculate> 15 1114211184 25
+37 145 <Step: Verify duration value, Status: Pass, Description: The duration units of a summary task t7 does not change when auto calculate is turned off> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\autoCalculate> 18 1114211184 24
+37 129 <Step: Verify work value, Status: Fail, Description: The work value of a summary task t7 CHANGES when auto calculate is turned off> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\autoCalculate> 26 1114211184 25
+37 141 <Step: Verify duration value, Status: Pass, Description: The work units of a summary task t7 does not change when auto calculate is turned off> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\autoCalculate> 29 1114211184 24
+2 22 <---> <C:\Documents and Settings\QA\Desktop\v77\Scheduling\autoCalculate> 82 1114211190 0

@@ -1,0 +1,283 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+
+<hibernate-mapping>
+	<!-- 
+		Created by the Middlegen Hibernate plugin 2.2
+		
+		http://boss.bekk.no/boss/middlegen/
+		http://www.hibernate.org/
+	-->
+
+	<class name="net.project.hibernate.model.PnObject" table="PN_OBJECT" lazy="false">
+
+		<id name="objectId" type="java.math.BigDecimal"	column="OBJECT_ID">
+			<generator class="assigned" />
+		</id>
+
+		<property name="dateCreated" type="java.sql.Date"
+			column="DATE_CREATED" not-null="true" length="7" />
+		<property name="recordStatus" type="java.lang.String"
+			column="RECORD_STATUS" not-null="true" length="1" />
+
+		<!-- Associations -->
+
+		<!-- bi-directional many-to-one association to PnPerson -->
+		<many-to-one name="pnPerson" cascade="all" 
+			class="net.project.hibernate.model.PnPerson" not-null="true">
+			<column name="CREATED_BY" />
+		</many-to-one>
+		<!-- bi-directional one-to-one association to PnMeeting -->
+		<one-to-one name="pnMeeting" cascade="all"
+			class="net.project.hibernate.model.PnMeeting" outer-join="auto" />
+		<!-- bi-directional one-to-one association to PnCalendar -->
+		<one-to-one name="pnCalendar" cascade="all"
+			class="net.project.hibernate.model.PnCalendar" outer-join="auto" />
+		<!-- bi-directional one-to-one association to PnPortfolio -->
+		<one-to-one name="pnPortfolio" cascade="all"
+			class="net.project.hibernate.model.PnPortfolio" outer-join="auto" />
+		<!-- bi-directional one-to-one association to PnDiscussionGroup -->
+		<one-to-one name="pnDiscussionGroup" cascade="all"
+			class="net.project.hibernate.model.PnDiscussionGroup"
+			outer-join="auto" />
+		<!-- bi-directional one-to-many association to PnCustomCode -->
+
+		<set name="pnCustomCodes" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="OBJECT_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnCustomCode" />
+		</set>
+		<!-- bi-directional one-to-many association to PnObjectHasDiscussion -->
+
+		<set name="pnObjectHasDiscussions" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="OBJECT_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnObjectHasDiscussion" />
+		</set>
+		<!-- bi-directional one-to-many association to PnObjectLink -->
+
+		<set name="pnObjectLinksByToObjectId" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="TO_OBJECT_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnObjectLink" />
+		</set>
+		<!-- bi-directional one-to-many association to PnObjectLink -->
+
+		<set name="pnObjectLinksByFromObjectId" lazy="false"
+			inverse="true" cascade="all">
+			<key>
+				<column name="FROM_OBJECT_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnObjectLink" />
+		</set>
+		<!-- bi-directional one-to-one association to PnDocContainer -->
+		<one-to-one name="pnDocContainer"
+			class="net.project.hibernate.model.PnDocContainer" outer-join="auto" />
+		<!-- bi-directional one-to-many association to PnAssignment -->
+
+		<set name="pnAssignments" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="OBJECT_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnAssignment" />
+		</set>
+		<!-- bi-directional one-to-many association to PnPost -->
+
+		<set name="pnPosts" lazy="false" inverse="true" cascade="all">
+			<key>
+				<column name="POST_ID" />
+			</key>
+
+			<one-to-many class="net.project.hibernate.model.PnPost" />
+		</set>
+		<!-- bi-directional one-to-one association to PnPhase -->
+		<one-to-one name="pnPhase" cascade="all"
+			class="net.project.hibernate.model.PnPhase" outer-join="auto" />
+		<!-- bi-directional one-to-one association to PnClassDomain -->
+		<one-to-one name="pnClassDomain" cascade="all"
+			class="net.project.hibernate.model.PnClassDomain" outer-join="auto" />
+		<!-- bi-directional one-to-many association to PnAgendaItem -->
+
+		<set name="pnAgendaItems" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="AGENDA_ITEM_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnAgendaItem" />
+		</set>
+		<!-- bi-directional one-to-one association to PnFacility -->
+		<one-to-one name="pnFacility" cascade="all"
+			class="net.project.hibernate.model.PnFacility" outer-join="auto" />
+		<!-- bi-directional one-to-one association to PnGroup -->
+		<one-to-one name="pnGroup" cascade="all"
+			class="net.project.hibernate.model.PnGroup" outer-join="auto" />
+		<!-- bi-directional one-to-many association to PnObjectPermission -->
+
+		<set name="pnObjectPermissions" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="OBJECT_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnObjectPermission" />
+		</set>
+		<!-- bi-directional one-to-one association to PnClass -->
+		<one-to-one name="pnClass" cascade="all"
+			class="net.project.hibernate.model.PnClass" outer-join="auto" />
+		<!-- bi-directional one-to-one association to PnProcess -->
+		<one-to-one name="pnProcess" cascade="all"
+			class="net.project.hibernate.model.PnProcess" outer-join="auto" />
+		<!-- bi-directional one-to-one association to PnDocVersion -->
+		<one-to-one name="pnDocVersion" cascade="all"
+			class="net.project.hibernate.model.PnDocVersion" outer-join="auto" />
+		<!-- bi-directional one-to-many association to PnClassDomainValue -->
+
+		<set name="pnClassDomainValues" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="DOMAIN_VALUE_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnClassDomainValue" />
+		</set>
+		<!-- bi-directional one-to-one association to PnGate -->
+		<one-to-one name="pnGate" cascade="all"
+			class="net.project.hibernate.model.PnGate" outer-join="auto" />
+		<!-- bi-directional one-to-many association to PnShareablePermission -->
+
+		<set name="pnShareablePermissions" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="OBJECT_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnShareablePermission" />
+		</set>
+		<!-- bi-directional one-to-many association to PnEnvelopeHasObject -->
+
+		<set name="pnEnvelopeHasObjects" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="OBJECT_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnEnvelopeHasObject" />
+		</set>
+		<!-- bi-directional one-to-one association to PnProjectSpace -->
+		<one-to-one name="pnProjectSpace"
+			class="net.project.hibernate.model.PnProjectSpace" outer-join="auto" />
+		<!-- bi-directional one-to-many association to PnFormsHistory -->
+
+		<set name="pnFormsHistories" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="OBJECT_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnFormsHistory" />
+		</set>
+		<!-- bi-directional one-to-one association to PnDeliverable -->
+		<one-to-one name="pnDeliverable" cascade="all"
+			class="net.project.hibernate.model.PnDeliverable" outer-join="auto" />
+		<!-- bi-directional one-to-one association to PnDocument -->
+		<one-to-one name="pnDocument" cascade="all" 
+			class="net.project.hibernate.model.PnDocument" outer-join="auto" />
+		<!-- bi-directional one-to-one association to PnDocSpace -->
+		<one-to-one name="pnDocSpace" cascade="all" 
+			class="net.project.hibernate.model.PnDocSpace" outer-join="auto" />
+		<!-- bi-directional one-to-one association to PnShareable -->
+		<one-to-one name="pnShareable" cascade="all" 
+			class="net.project.hibernate.model.PnShareable" outer-join="auto" />
+		<!-- bi-directional one-to-many association to PnDocContainerHasObject -->
+
+		<set name="pnDocContainerHasObjects" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="OBJECT_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnDocContainerHasObject" />
+		</set>
+		<!-- bi-directional one-to-one association to PnBusiness -->
+		<one-to-one name="pnBusiness" cascade="all" 
+			class="net.project.hibernate.model.PnBusiness" outer-join="auto" />
+		<!-- bi-directional one-to-one association to PnPerson -->
+		<one-to-one name="pnPerson2" cascade="all" 
+			class="net.project.hibernate.model.PnPerson" outer-join="auto" />
+		<!-- bi-directional one-to-one association to PnAddress -->
+		<one-to-one name="pnAddress" cascade="all" 
+			class="net.project.hibernate.model.PnAddress" outer-join="auto" />
+		<!-- bi-directional one-to-many association to PnClassField -->
+
+		<set name="pnClassFields" lazy="false" inverse="true"
+			cascade="all">
+			<key>
+				<column name="FIELD_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnClassField" />
+		</set>
+		<!-- bi-directional one-to-many association to PnSpaceHasFeaturedMenuitem -->
+
+		<set name="pnSpaceHasFeaturedMenuitemsBySpaceId" lazy="false"
+			inverse="true" cascade="all">
+			<key>
+				<column name="SPACE_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnSpaceHasFeaturedMenuitem" />
+		</set>
+		<!-- bi-directional one-to-many association to PnSpaceHasFeaturedMenuitem -->
+
+		<set name="pnSpaceHasFeaturedMenuitemsByObjectId" lazy="false"
+			inverse="true" cascade="all">
+			<key>
+				<column name="OBJECT_ID" />
+			</key>
+
+			<one-to-many
+				class="net.project.hibernate.model.PnSpaceHasFeaturedMenuitem" />
+		</set>
+		<!-- bi-directional one-to-one association to PnPlan -->
+		<one-to-one name="pnPlan" cascade="all" 
+			class="net.project.hibernate.model.PnPlan" outer-join="auto" />
+		<!-- bi-directional one-to-one association to PnTask -->
+		<one-to-one name="pnTask" cascade="all" 
+			class="net.project.hibernate.model.PnTask" outer-join="auto" />
+		<!-- bi-directional many-to-one association to PnObjectType -->
+		<many-to-one name="pnObjectType" cascade="all" 
+			class="net.project.hibernate.model.PnObjectType" not-null="true">
+			<column name="OBJECT_TYPE" />
+		</many-to-one>
+
+	</class>
+</hibernate-mapping>

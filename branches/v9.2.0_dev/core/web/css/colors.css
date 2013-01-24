@@ -1,0 +1,151 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+ /*.background-lt-blue a:link,a:visited,a:hover,a:active { color: black !IMPORTANT; }*/
+
+.background-lt-blue a:link { color: black !IMPORTANT; }
+.background-lt-blue a:visited { color: black !IMPORTANT; }
+.background-lt-blue a:hover { color: black !IMPORTANT; }
+.background-lt-blue a:active { color: black !IMPORTANT; }
+.background-lt-blue {
+	background-color: #93fcfe;
+	color: black;
+}
+
+.background-blue a:link { color: black !IMPORTANT; }
+.background-blue a:visited { color: black !IMPORTANT; }
+.background-blue a:hover { color: black !IMPORTANT; }
+.background-blue a:active { color: black !IMPORTANT; }
+.background-blue {
+	background-color: #9494fd;
+	color: black;
+}
+
+.background-pink a:link { color: black !IMPORTANT; }
+.background-pink a:visited { color: black !IMPORTANT; }
+.background-pink a:hover { color: black !IMPORTANT; }
+.background-pink a:active { color: black !IMPORTANT; }
+.background-pink {
+	background-color: #fc96ff;
+	color: black;
+}
+
+.background-gray a:link { color: black !IMPORTANT; }
+.background-gray a:visited { color: black !IMPORTANT; }
+.background-gray a:hover { color: black !IMPORTANT; }
+.background-gray a:active { color: black !IMPORTANT; }
+.background-gray {
+    background-color: #c9c9ca;
+    color: black;
+}
+
+.background-green a:link { color: black !IMPORTANT; }
+.background-green a:visited { color: black !IMPORTANT; }
+.background-green a:hover { color: black !IMPORTANT; }
+.background-green a:active { color: black !IMPORTANT; }
+.background-green {
+    background-color: #94ca96;
+    color: black ;
+}
+
+.background-lt-green a:link { color: black !IMPORTANT; }
+.background-lt-green a:visited { color: black !IMPORTANT; }
+.background-lt-green a:hover { color: black !IMPORTANT; }
+.background-lt-green a:active { color: black !IMPORTANT; }
+.background-lt-green {
+	background-color: #96fe96;
+	color: black;
+}
+
+.background-dk-red a:link { color: black !IMPORTANT; }
+.background-dk-red a:visited { color: black !IMPORTANT; }
+.background-dk-red a:hover { color: black !IMPORTANT; }
+.background-dk-red a:active { color: black !IMPORTANT; }
+.background-dk-red {
+    background-color: #ca9696;
+    color: black;
+}
+
+.background-dk-blue a:link { color: black !IMPORTANT; }
+.background-dk-blue a:visited { color: black !IMPORTANT; }
+.background-dk-blue a:hover { color: black !IMPORTANT; }
+.background-dk-blue a:active { color: black !IMPORTANT; }
+.background-dk-blue {
+    background-color: #9495ca;
+    color: black;
+}
+
+.background-olive a:link { color: black !IMPORTANT; }
+.background-olive a:visited { color: black !IMPORTANT; }
+.background-olive a:hover { color: black !IMPORTANT; }
+.background-olive a:active { color: black !IMPORTANT; }
+.background-olive {
+    background-color: #c9ca96;
+    color: black;
+}
+
+.background-purple a:link { color: black !IMPORTANT; }
+.background-purple a:visited { color: black !IMPORTANT; }
+.background-purple a:hover { color: black !IMPORTANT; }
+.background-purple a:active { color: black !IMPORTANT; }
+.background-purple {
+    background-color: #c894ca;
+    color: black;
+}
+
+.background-red a:link { color: black !IMPORTANT; }
+.background-red a:visited { color: black !IMPORTANT; }
+.background-red a:hover { color: black !IMPORTANT; }
+.background-red a:active { color: black !IMPORTANT; }
+.background-red {
+	background-color: #fc9494;
+	color: black;
+}
+
+.background-silver a:link { color: black !IMPORTANT; }
+.background-silver a:visited { color: black !IMPORTANT; }
+.background-silver a:hover { color: black !IMPORTANT; }
+.background-silver a:active { color: black !IMPORTANT; }
+.background-silver {
+    background-color: #e3e4e5;
+    color: black;
+}
+
+.background-teal a:link { color: black !IMPORTANT; }
+.background-teal a:visited { color: black !IMPORTANT; }
+.background-teal a:hover { color: black !IMPORTANT; }
+.background-teal a:active { color: black !IMPORTANT; }
+.background-teal {
+	background-color: #669966;
+	color: black;
+}
+
+.background-white a:link { color: black !IMPORTANT; }
+.background-white a:visited { color: black !IMPORTANT; }
+.background-white a:hover { color: black !IMPORTANT; }
+.background-white a:active { color: black !IMPORTANT; }
+.background-white {
+    background-color: white;
+    color: black;
+}
+
+.background-yellow a:link { color: black !IMPORTANT; }
+.background-yellow a:visited { color: black !IMPORTANT; }
+.background-yellow a:hover { color: black !IMPORTANT; }
+.background-yellow a:active { color: black !IMPORTANT; }
+.background-yellow {
+	background-color: #feff96;
+	color: black;
+}
+

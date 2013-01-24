@@ -1,0 +1,89 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>invite_participant_test</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">invite_participant_test</td></tr>
+</thead><tbody>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Directory</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>Directory</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Invite Participant</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>inviteeFirstName</td>
+	<td>firstname</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>inviteeLastName</td>
+	<td>lastname</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>inviteeEmail</td>
+	<td>emailaddress@email.com</td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>link=Add to Invitee List</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Next']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>inviteeResponsibilities</td>
+	<td>some responsibilities</td>
+</tr>
+<tr>
+	<td>type</td>
+	<td>inviteeMessage</td>
+	<td>invitation message </td>
+</tr>
+<tr>
+	<td>click</td>
+	<td>sendNotifications</td>
+	<td></td>
+</tr>
+<tr>
+	<td>clickAndWait</td>
+	<td>//img[@alt='Invite']</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>firstname lastname</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>some responsibilities</td>
+	<td></td>
+</tr>
+<tr>
+	<td>assertTextPresent</td>
+	<td>emailaddress@email.com</td>
+	<td></td>
+</tr>
+
+</tbody></table>
+</body>
+</html>

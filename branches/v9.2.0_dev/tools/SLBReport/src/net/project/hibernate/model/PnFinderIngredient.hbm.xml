@@ -1,0 +1,58 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnFinderIngredient" 
+    table="PN_FINDER_INGREDIENTS"
+    lazy="false"
+>
+
+    <id
+        name="ingredientsId"
+        type="java.math.BigDecimal"
+        column="INGREDIENTS_ID"
+    >
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="ingredientsData"
+        type="java.sql.Clob"
+        column="INGREDIENTS_DATA"
+        not-null="true"
+        length="4000"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-many association to PnView -->
+
+    <set
+        name="pnViews"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="INGREDIENTS_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnView"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>

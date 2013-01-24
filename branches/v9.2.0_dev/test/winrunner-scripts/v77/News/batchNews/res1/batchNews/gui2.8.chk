@@ -1,0 +1,16 @@
+#Checklist for window "main"
+^T list1.ckl
+V 7.5
+main:
+{
+}1
+"{class: \"object\", MSW_class: \"html_table\", location: \"3\", tag: \"channelbar-left_end\"},disp_tag:\"[html_table] channelbar-left_end\"":
+{
+}1
+"{class: \"object\", MSW_class: \"html_table\", location: \"3\", tag: \"channelbar-left_end\",row:\"2\" ,col:\"2\"},disp_tag:\"[html_cell] (2, 2)\"":
+{
+}1
+"{class: \"object\", MSW_class: \"html_table\", location: \"4\", tag: \"Priority\"},disp_tag:\"[html_table] Priority\"":
+{
+ TableContent: @gui2.8.001
+}0

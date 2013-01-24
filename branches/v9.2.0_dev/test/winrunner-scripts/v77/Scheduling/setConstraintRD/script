@@ -1,0 +1,75 @@
+GUI_close_all();
+wait(3);
+
+# inviting a user to the project
+reload("inviteUser",0,1);
+inviteUser("Daffy","Duck","daffy@project.net");
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+web_obj_get_info("Daffy Duck","url",urlValue);
+elements = split(urlValue,path_array,"=");
+id[0] = path_array[3];
+resourceID1 = id[0];
+# pause(resourceID1);
+GUI_close_all();
+wait(1);
+
+inviteUser("Mickey","Mouse","mickey@project.net");
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+web_obj_get_info("Mickey Mouse","url",urlValue);
+elements = split(urlValue,path_array,"=");
+id[1] = path_array[3];
+resourceID2 = id[1];
+# pause(resourceID2);
+
+set_window("menu",2);
+web_link_click("Workplan");
+wait(2);
+
+set_window("main",2);
+button_set("changeCheckedState",ON);
+wait(1);
+web_link_click("Delete Task");
+set_window("Microsoft Internet Explorer", 2);
+button_press("OK");
+wait(5);
+set_window("main", 2);
+
+public task_types[] = {"Fixed Duration","Fixed Units","Fixed Work"};
+public units[] = {"hours","days","weeks"};
+reload("createTaskRD",0,1);
+reload("setConstraint",0,1);
+reload("checkConstraint",0,1);
+get_short_date(constraintDate);
+
+# Creates task, sets the constraint from the task edit page and verifies the constraints caused the start/finish date to be set correctly
+createTaskRD("t1",3, units[1], 24, units[0], 1, id, 0);
+setConstraint("t1","FNET",constraintDate);
+checkConstraint("t1","FNET");
+
+createTaskRD("t2",2, units[1], 16, units[0], 1, id, 0);
+setConstraint("t2","FNLT",constraintDate);
+checkConstraint("t2","FNLT");
+
+createTaskRD("t3",2, units[1], 16, units[0], 1, id, 1);
+setConstraint("t3","MSO",constraintDate);
+checkConstraint("t3","MSO");
+
+createTaskRD("t4",1, units[1], 8, units[0], 1, id, 1);
+setConstraint("t4","MFO",constraintDate);
+checkConstraint("t4","MFO");
+
+createTaskRD("t5",2, units[1], 16, units[0], 2, id, 0);
+setConstraint("t5","SNET",constraintDate);
+checkConstraint("t5","SNET");
+
+createTaskRD("t6",2, units[1], 16, units[0], 2, id, 0);
+setConstraint("t6","SNLT",constraintDate);
+checkConstraint("t6","SNLT");
+
+createTaskRD("t7",2, units[1], 16, units[0], 2, id, 1);
+setConstraint("t7","ASAP");
+checkConstraint("t7","ASAP");
+
+createTaskRD("t8",3, units[1], 24, units[0], 2, id, 1);
+setConstraint("t8","ALAP");
+checkConstraint("t8","ALAP");

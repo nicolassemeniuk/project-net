@@ -1,0 +1,10 @@
+#Checklist for window "main"
+^T list8.ckl
+V 7.5
+main:
+{
+}0
+"channelbar-left_end_2":
+{
+ TableContent: @gui16.001
+}0

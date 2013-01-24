@@ -1,0 +1,200 @@
+<table border="0" align="left" cellpadding="0" cellspacing="0" width="97%">
+
+	<tr align="left" valign="top">
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader" width="25">${token.get("prm.schedule.taskedit.name.label")}&nbsp;</td>
+		<td colspan="3" class="tableContent"> ${theObject.name}	</td>
+	</tr>
+	
+	<tr align="left" valign="top">
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.description.label")}&nbsp;</td>
+		<td colspan="3" class="tableContent">
+			<#if theObject.getDescription()??>
+				${theObject.getDescWithHyperLinkURL()}
+			<#else>
+				&nbsp;
+			</#if>
+		</td>
+	</tr>
+	
+	<tr align="left" valign="top">
+		<td>&nbsp;</td>
+        <td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.priority.label")}&nbsp;</td>
+        <td class="tableContent"> ${theObject.priorityString}</td>
+		<td class="tableHeader">${token.get("prm.schedule.taskedit.taskcalculationtype.label")}&nbsp;</td>
+		<td class="tableContent">
+			${theObject.getTaskCalculationType().formatDisplay()}
+		</td>
+	</tr>
+	
+	<tr align="left" valign="middle">
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.status.startdate.label")}&nbsp;</td>
+		<td class="tableContent">
+            <div id="startTimeString">${theObject.getStartTimeStringFormatted()}</div>
+		</td>
+		<td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.status.finishdate.label")}&nbsp;</td>
+		<td nowrap class="tableContent">
+            <div id="endTimeString">${theObject.getEndTimeStringFormatted()}</div>
+		</td>
+		<td>&nbsp;</td>
+	</tr>
+	<tr align="left" valign="middle">
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.status.actualstartdate.label")}&nbsp;</td>
+		<td class="tableContent">
+     		${theObject.getActualStartDateStringMedium()}
+			&nbsp;
+		</td>
+		<td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.status.actualfinishdate.label")}&nbsp;</td>
+		<td nowrap class="tableContent">
+            ${theObject.getActualEndDateStringMedium()}
+			&nbsp;
+		</td>
+	</tr>
+	
+	<tr align="left" valign="middle">
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.status.work.label")}
+		</td>
+		<td class="tableContent">
+            <div id="workFormatted">${theObject.getWorkTQ().toShortString(0,2)}</div>
+		</td>
+		<td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.status.workcomplete.label")}&nbsp;</td>
+		<td nowrap class="tableContent">
+            ${theObject.getWorkCompleteTQ().toShortString(0,2)}
+			&nbsp;
+		</td>
+	</tr>
+	
+	<tr align="left" valign="middle">
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.status.duration.label")}
+		</td>
+		<td class="tableContent">
+            <div id="durationFormatted">${theObject.getDurationTQ().toShortString(0,2)}</div>
+		</td>
+		<td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.status.workpercentcomplete.label")}&nbsp;</td>
+		<td nowrap class="tableContent">
+            ${theObject.getWorkPercentComplete()}
+			&nbsp;
+		</td>
+	</tr>
+
+	<tr align="left" valign="top">
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.phase.label")}&nbsp;</td>
+		<td class="tableContent"> 
+		<#if theObject.getPhaseName()??>
+				${theObject.getPhaseName()}
+			<#else>
+				&nbsp;
+			</#if>
+		</td>
+		<td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.subtaskof.label")}&nbsp;</td>
+		<td nowrap class="tableContent">
+			<#if theObject.getParentTaskNameMaxLength40()??>
+				${theObject.getParentTaskNameMaxLength40()}
+			<#else>
+				&nbsp;
+			</#if>
+		</td>
+	</tr>
+	
+	<tr align="left" valign="middle">
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.status.baselinestartdate.label")}&nbsp;</td>
+		<td class="tableContent">
+			${theObject.getBaselineStartDateStringMedium()}&nbsp;
+		</td>
+		<td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.status.baselinestartvariance.label")}&nbsp;</td>
+
+        <td class="tableContent">
+			<#if theObject.getStartVarianceTQ()??>
+				${theObject.getStartVarianceString()}
+			<#else>
+				&nbsp;
+			</#if>
+		</td>
+
+	</tr>
+	<tr align="left" valign="middle">
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.status.baselinefinishdate.label")}&nbsp;</td>
+		<td nowrap class="tableContent">
+			${theObject.getBaselineEndDateStringMedium()}
+			&nbsp;
+		</td>
+		<td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.status.baselinefinishvariance.label")}&nbsp;</td>
+		<td nowrap class="tableContent">
+			<#if theObject.getEndVarianceTQ()??>
+				${theObject.getEndVarianceString()}
+			<#else>
+				&nbsp;
+			</#if>
+		</td>
+	</tr>
+	<tr align="left" valign="middle">
+		<td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.status.baselinework.label")}
+		</td>
+		<td class="tableContent">
+            ${theObject.getFormattedBaselineWork()}
+			&nbsp;
+		</td>
+        <td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.status.workvariance.label")}&nbsp;</td>
+        <td class="tableContent">
+            ${theObject.getWorkVarianceString()}
+            &nbsp;
+        </td>
+	</tr>
+    <tr align="left" valign="middle">
+        <td>&nbsp;</td>
+		<td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.status.baselineduration.label")} </td>
+		<td class="tableContent">
+            ${theObject.getBaselineDurationString()}
+			&nbsp;
+		</td>
+		<td nowrap class="tableHeader">${token.get("prm.schedule.taskedit.status.durationvariance.label")}&nbsp;</td>
+		<td nowrap class="tableContent">
+            ${theObject.getDurationVarianceString()}
+			&nbsp;
+		</td>
+    </tr>
+    
+    <tr><td colspan="5">&nbsp;</td></tr>
+    
+	<tr align="left" class="channelHeader">
+		<td nowrap width=1%><img src="${token.getContext()}/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border=0></td>
+		<td nowrap class="channelHeader">${token.get("prm.schedule.taskview.resources.tab")}</td>
+		<td nowrap align="right" colspan="3"> <img src="${token.getContext()}/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border=0></td>
+	</tr>
+	
+	<tr><td colspan="5">&nbsp;</td></tr>
+	         
+     <#if theObject.getAssignmentList().isEmpty()>
+	 <tr>
+	 	<td>&nbsp;</td>
+	  	<td class="tableContent resourceTD" colspan="4">${token.get("prm.taskdetail.noassignments.message")} </td>
+	 </tr>
+	 <#else>
+	 <tr align="left" valign="top">
+        <td>&nbsp;</td>
+		<td nowrap class="tableHeader resourceTD">${token.get("prm.schedule.taskview.resources.assign.person.column")} </td>
+		<td nowrap class="tableHeader resourceTD ">${token.get("prm.schedule.taskdetail.resources.assign.assigned.column")} </td>
+		<td nowrap class="tableHeader resourceTD">${token.get("prm.schedule.taskview.resources.assign.work.column")} </td>
+		<td nowrap class="tableHeader resourceTD">${token.get("prm.schedule.taskdetail.resources.assign.workcomplete.column")} </td>
+     </tr>
+    <#list theObject.getAssignments() as assignment>
+    <tr align="left" valign="middle">
+        <td>&nbsp;</td>
+		<td class="tableContent resourceTD">${assignment.getPersonName()}</td>
+		<td class="tableContent resourceTD">${assignment.getPercentAssignedInt()} </td>
+		<td class="tableContent resourceTD">${assignment.getWork().toShortString(0, 2)} </td>
+		<td class="tableContent resourceTD">${assignment.getWorkComplete().toShortString(0,2)} </td>
+    </tr>
+	</#list>  
+	</#if>
+    <tr><td colspan="5">&nbsp;</td></tr>
+</table>

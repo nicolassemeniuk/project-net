@@ -1,0 +1,79 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnShared" 
+    table="PN_SHARED"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnSharedPK">
+        <key-property 
+            name="exportedObjectId" 
+            column="EXPORTED_OBJECT_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="importContainerId" 
+            column="IMPORT_CONTAINER_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="importSpaceId"
+        type="java.math.BigDecimal"
+        column="IMPORT_SPACE_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="importedObjectId"
+        type="java.math.BigDecimal"
+        column="IMPORTED_OBJECT_ID"
+        length="20"
+    />
+    <property
+        name="exportSpaceId"
+        type="java.math.BigDecimal"
+        column="EXPORT_SPACE_ID"
+        length="20"
+    />
+    <property
+        name="exportContainerId"
+        type="java.math.BigDecimal"
+        column="EXPORT_CONTAINER_ID"
+        length="20"
+    />
+    <property
+        name="readOnly"
+        type="java.lang.Integer"
+        column="READ_ONLY"
+        length="1"
+    />
+    <property
+        name="traversed"
+        type="java.math.BigDecimal"
+        column="TRAVERSED"
+        length="22"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- end of derived association(s) -->
+  
+
+</class>
+</hibernate-mapping>

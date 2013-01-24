@@ -1,0 +1,72 @@
+function registerUser(in userName){
+	extern iUser;
+# 	auto verCode;
+	static val1; 
+	auto record_number, rc1, rc2;
+# 	auto login_link[] = {"Register","Forgotten Password or Login Name","Verification","Help Desk"};
+# 	auto newuser_link[] = {"End User License Agreement","I Accept","I Decline"};
+# 	auto pages_arr[] = {"Login","New User Registration","Registration - Authorization"};
+# 	auto reg_auth_link[] = {"Back","Cancel","Next"};
+	set_window("Project.net Login",1);
+	web_link_click("Register");
+	wait(1);
+	
+	#new user registration page
+	set_window("New User Registration -- Legal Information",2);
+	web_link_click("I Accept");
+	wait(1);
+	
+	set_window("Registration - Authorization",2);
+	edit_set("login",userName);
+	edit_set("password","abc123");
+	edit_set("password_2","abc123");
+	edit_set("ecom_ShipTo_Online_Email",""&userName&"@project.net");
+	edit_set("ecom_ShipTo_Online_Email2",""&userName&"@project.net");
+	edit_set("clearTextHintPhrase","How are you testing?");
+	edit_set("clearTextHintAnswer","WR");
+	web_link_click("Next");#go to Licensing Page
+	wait(1);
+	
+	set_window("Registration - Select License Option");
+	button_set("selectionTypeID_3",ON);
+	edit_set("chargeCode","olap");
+	web_link_click("Next");
+	wait(1);
+	
+	#entering the user registration information after setting the cost center
+	iUser = iUser + 1;
+	set_window("Project.net User Registration",3);
+	edit_set("ecom_ShipTo_Postal_Name_First","test");
+	edit_set("ecom_ShipTo_Postal_Name_Last","User"&iUser&"");
+	edit_set("ecom_ShipTo_Postal_Street_Line1","123 SD Street");
+	edit_set("ecom_ShipTo_Postal_City","San Diego");
+	list_select_item("ecom_ShipTo_Postal_StateProv","California");
+	list_select_item("ecom_ShipTo_Postal_CountryCode","United States");
+	edit_set("ecom_ShipTo_Telecom_Phone_Number","123 123 1234");
+	list_select_item("languageCode","English (American)");
+	list_select_item("localeCode","English (United States)");
+	list_select_item("timeZoneCode","(GMT-08:00) America/Los Angeles PST/PDT");
+	web_link_click("Register");
+	wait(1);
+	
+	rc1 = db_connect("query1","DSN=v80stage;UID=pnet;PWD=pnet;DRIVER={Oracle in OraHome92};");
+	pause(rc1);
+	if (rc1!=E_OK)
+	 		report_msg("Cannot connect to database");
+	else
+		rc2 = db_execute_query ("query1","Select verification_code from pn_person_view where email = '"&userName&"@project.net' and user_status = 'Unregistered'", record_number);
+	val1 = db_get_field_value ("query1", "#0", "VERIFICATION_CODE");
+	db_disconnect("query1");
+	pause(val1);
+	
+	set_window("Verify Registration with Project",3);
+	edit_set("ecom_ShipTo_Online_Email",""&userName&"@project.net");
+	edit_set("verificationCode",val1);
+	wait(2);
+	set_window("Verify Registration with Project",3);
+	web_link_click("Verify Now");
+# 	
+	set_window("Microsoft Internet Explorer",3);
+	button_press("OK");
+# 	set_window("Project.net Login",3);
+}	

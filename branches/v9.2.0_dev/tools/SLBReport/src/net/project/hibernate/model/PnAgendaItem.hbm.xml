@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnAgendaItem" 
+    table="PN_AGENDA_ITEM"
+    lazy="false"
+>
+
+    <composite-id name="comp_id" class="net.project.hibernate.model.PnAgendaItemPK">
+        <key-property 
+            name="meetingId" 
+            column="MEETING_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+        <key-property 
+            name="agendaItemId" 
+            column="AGENDA_ITEM_ID" 
+            type="java.math.BigDecimal"
+            length="20"
+        />
+    </composite-id>    
+
+    <property
+        name="itemName"
+        type="java.lang.String"
+        column="ITEM_NAME"
+        not-null="true"
+        length="80"
+    />
+    <property
+        name="itemDesc"
+        type="java.lang.String"
+        column="ITEM_DESC"
+        length="500"
+    />
+    <property
+        name="timeAlloted"
+        type="java.lang.String"
+        column="TIME_ALLOTED"
+        length="80"
+    />
+    <property
+        name="statusId"
+        type="java.math.BigDecimal"
+        column="STATUS_ID"
+        not-null="true"
+        length="20"
+    />
+    <property
+        name="itemSequence"
+        type="java.lang.Integer"
+        column="ITEM_SEQUENCE"
+        length="8"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="meetingNotesClob"
+        type="java.sql.Clob"
+        column="MEETING_NOTES_CLOB"
+        length="4000"
+    />
+
+    <!-- Associations -->
+    <!-- derived association(s) for compound key -->
+    <!-- bi-directional many-to-one association to PnObject -->
+    <many-to-one
+        name="pnObject"
+	    class="net.project.hibernate.model.PnObject"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="AGENDA_ITEM_ID" />
+	</many-to-one>
+	
+    <!-- bi-directional many-to-one association to PnMeeting -->
+    <many-to-one
+        name="pnMeeting"
+	    class="net.project.hibernate.model.PnMeeting"
+	    update="false"
+	    insert="false"
+	>
+    	<column name="MEETING_ID" />
+	</many-to-one>
+	
+    <!-- end of derived association(s) -->
+  
+    <!-- bi-directional many-to-one association to PnPerson -->
+    <many-to-one
+        name="pnPerson"
+        class="net.project.hibernate.model.PnPerson"
+        not-null="true"
+    >
+        <column name="OWNER_ID" />
+    </many-to-one>
+
+</class>
+</hibernate-mapping>

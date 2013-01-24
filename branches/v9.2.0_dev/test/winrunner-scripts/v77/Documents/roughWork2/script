@@ -1,0 +1,37 @@
+wait(2);
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\forLoginDocument"();
+wait(2);
+
+	reload("extractProjectID",0,1);
+	reload("extractContainerID",0,1);
+	reload("extractDocumentID",0,1);
+	GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+	
+	val1 = extractProjectID("TestProject2");
+	val2 = extractContainerID(val1,"asdf");
+	val3 = extractDocumentID(val2,"WRfile.txt");
+	
+	
+	if(GUI_buf_set_desc_attr("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui","main","selected","part_value",""&val3&"")!=E_OK)
+		report_msg("NOT OK1");
+	else
+		GUI_save("C:\\Documents and Settings\\QA\\Desktop\\v77\\Documents\\insertDocument\\insertDocument.gui");
+		
+		
+	set_window("main",2);
+	wait(2);
+# 	button_set("selected",ON);
+# 	wait(1);
+# 	web_link_click("View Properties");
+# 	wait(1);
+# 	set_window("property_tabs",2);
+# 	wait(1);
+# 	web_link_click("Versions");
+# 	wait(1);
+# 	set_window("property_main",2);
+# 	wait(1);
+# 	web_obj_text_exists("Version","#2","#1","2","","");
+
+	
+	web_obj_text_exists("Name","#7","#7","Not Started","","");
+

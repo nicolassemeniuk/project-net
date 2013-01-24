@@ -1,0 +1,54 @@
+#######################################
+# Create a project without specifying any start or end date for schedule
+#######################################	
+wait(3);
+# Login to the application
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\forLoginProject"();
+wait(3);
+# Create Project 
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\createProjectWithoutDates"();
+# Go to the workplan of the project created
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+set_window("menu",2);
+web_link_click("Workplan");
+wait(3);
+set_window("main",2);
+web_link_click("Schedule Properties");
+wait(2);
+public result_array1[] = {363,185,39,15};
+set_window("main");
+# Verify schedule list has NO start/end date specified
+if(edit_check_text("scheduleStart","",TRUE)==E_OK)
+	report_msg("The schedule correctly has no start date set");
+if(web_find_text("main","None",result_array1,"Schedule End Date:","-- Schedule is empty)",1,TRUE)==E_OK)
+	report_msg("The schedule correctly has no End Date set");
+set_window("toolbar_main",2);
+web_image_click("topnav-projects-off",20,20);
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+wait(2);
+
+#######################################
+# Create a project specifying start or end date for schedule
+#######################################	
+call_close "C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\createProjectWithDates"();
+# Go the workplan of the project 
+GUI_load("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+set_window("menu",2);
+web_link_click("Workplan");
+wait(3);
+set_window("main",2);
+web_link_click("Schedule Properties");
+wait(2);
+public result_array2[] = {364,186,44,12};
+set_window("main");
+# Verify schedule is created with the start/end date specified
+if(edit_check_text("scheduleStart","8/2/04",TRUE)==E_OK)
+	report_msg("The schedule correctly has Start Date set");
+set_window("main",2);
+if(web_find_text("main","8/22/04",result_array2,"Schedule End Date:","12:00:00 AM PDT",1,TRUE)==E_OK)
+	report_msg("The schedule correctly has End Date set");
+
+wait(2);
+GUI_close("C:\\Documents and Settings\\QA\\Desktop\\v77\\Scheduling\\checkingDates\\checkingDates.gui");
+wait(2);
+

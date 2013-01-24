@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application 
+	xmlns:mx="http://www.adobe.com/2006/mxml" 
+	xmlns:login="net.project.view.login.*"
+	xmlns:util="net.project.util.*"
+	xmlns:home="net.project.view.home.*"
+	currentState="{model.state}"
+	creationComplete="init();"	
+	layout="absolute">
+	<mx:Script>
+		<![CDATA[
+			import net.project.model.States;
+			import mx.binding.utils.BindingUtils;
+			import flash.net.navigateToURL;
+			
+			[Bindable]
+			private var model:States = States.getInstance();
+			
+			[Bindable]
+			private var loginSuccessfull:Boolean = false;
+			
+			private function gotoURL():void{
+				var url:URLRequest = new URLRequest("http://project.net");
+				navigateToURL(url, "_blank");
+			}
+			
+			public function setState():void{
+				if(loginScreen.logedin){
+					currentState="showHomeScreen";
+				}
+			}
+			
+			public function init():void{
+				currentState = "loginScreenState";
+			}
+		
+		]]>
+	</mx:Script>
+	
+	<mx:states>
+	
+		<mx:State name="loginScreenState" >			
+			<mx:AddChild relativeTo="{mainArea}">
+				<login:Login id="loginScreen" logedin="{loginSuccessfull}"/>
+			</mx:AddChild>
+		</mx:State>		
+		<mx:State name="showHomeScreen" >
+			<mx:RemoveChild target="{loginScreen}" />			
+			<mx:AddChild relativeTo="{mainArea}">
+				<home:HomePage id="homePage" />
+			</mx:AddChild>
+		</mx:State>	
+				
+	</mx:states>
+
+	<mx:transitions>
+	  	<mx:Transition fromState="loginScreenState" toState="showHomeScreen">
+	  		<mx:Sequence targets="{[loginScreen, homePage]}">
+		  		<mx:Sequence target="{loginScreen}">
+		  			<mx:Fade target="{loginScreen}" alphaFrom="1" alphaTo="0" duration="1500"/>
+		  		</mx:Sequence>
+				<mx:RemoveChildAction/>			  		
+		  		<mx:Sequence target="{homePage}">
+		  			<mx:Move target="{homePage}"  duration="1500" xFrom="{-mainArea.width}" xTo="0" />
+		  		</mx:Sequence>	
+				<mx:AddChildAction/>			  		
+		  	</mx:Sequence>	
+	  	</mx:Transition>	
+	  	<mx:Transition fromState="showHomeScreen" toState="loginScreenState">
+	  		<mx:Sequence targets="{[loginScreen, homePage]}">
+		  		<mx:Sequence target="{homePage}">
+		  			<mx:Fade target="{homePage}" alphaFrom="1" alphaTo="0" duration="1000"/>
+		  		</mx:Sequence>
+				<mx:RemoveChildAction/>			  		
+		  		<mx:Sequence target="{loginScreen}">
+		  			<mx:Fade target="{loginScreen}" alphaFrom="0" alphaTo="1" duration="1000"/>
+		  			<!--mx:Move target="{loginScreen}"  duration="100" xFrom="{-mainArea.width}" xTo="0" /-->
+		  		</mx:Sequence>	
+				<mx:AddChildAction/>			  		
+		  	</mx:Sequence>	
+	  	</mx:Transition>	  		  	  	
+  	</mx:transitions>
+  	
+	<util:Observe source="{loginScreen.logedin}" handler="{setState}" />	
+      
+	<!--mx:Move id="myShowEffect" duration="1500" xFrom="{mainArea.width}" xTo="0" />
+	
+	<mx:Fade id="myHideEffect" alphaFrom="1" alphaTo="0" duration="1500"/-->
+	      
+	<mx:VBox width="100%" height="100%" backgroundColor="0xFFFFFF" >
+		<mx:VBox width="100%" height="20%" verticalGap="0" horizontalGap="0">
+			<mx:Grid width="100%" height="80%" verticalAlign="bottom">
+				<mx:GridRow width="100%" height="100%" verticalAlign="bottom">
+	                <mx:GridItem width="30%"  height="100%" verticalAlign="bottom" horizontalAlign="left">
+	                    <mx:Image source="images/pnet_logo2.gif"  />
+	                </mx:GridItem>
+	                <mx:GridItem width="35%"  height="100%" verticalAlign="bottom" horizontalAlign="right">
+	                	<mx:LinkButton label="Project.net" fontWeight="bold"  color="0x3C5F84" click="gotoURL();" />
+	                </mx:GridItem>
+	                <mx:GridItem width="35%"  height="100%" verticalAlign="bottom" horizontalAlign="right">
+	                   <mx:Image  source="images/top_img_product.jpg"/>
+	                </mx:GridItem>
+	            </mx:GridRow>
+			</mx:Grid>
+			<mx:Canvas width="100%" height="20%" backgroundColor="0x888888" />			
+		</mx:VBox>
+		<mx:HBox id="mainArea" width="100%" height="75%" verticalGap="0" horizontalGap="2">
+			
+		</mx:HBox>
+		<mx:HBox width="100%" height="40" horizontalGap="0" verticalGap="0">
+			<mx:VBox width="100%" horizontalAlign="center">
+				<mx:LinkButton label="Copyright 2000-2009 Project.net, Inc." click="gotoURL();" height="15" horizontalGap="0" verticalGap="0"/>
+				<mx:LinkButton label="All Rights Reserved."  click="gotoURL();" height="15" horizontalGap="0" verticalGap="0"/>
+			</mx:VBox>
+		</mx:HBox>
+	</mx:VBox>
+</mx:Application>

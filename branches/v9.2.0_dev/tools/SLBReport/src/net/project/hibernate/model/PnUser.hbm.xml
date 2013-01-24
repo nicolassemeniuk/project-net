@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd" >
+    
+<hibernate-mapping>
+<!-- 
+    Created by the Middlegen Hibernate plugin 2.2
+
+    http://boss.bekk.no/boss/middlegen/
+    http://www.hibernate.org/
+-->
+
+<class 
+    name="net.project.hibernate.model.PnUser" 
+    table="PN_USER"
+    lazy="false"
+>
+
+    <id
+        name="userId"
+        type="java.math.BigDecimal"
+        column="USER_ID"
+    >
+		    <meta attribute="field-description" inherit="false">
+		       Foreign key to pn_person.person_id
+		    </meta>
+    
+        <generator class="assigned" />
+    </id>
+
+    <property
+        name="username"
+        type="java.lang.String"
+        column="USERNAME"
+        not-null="true"
+        length="32"
+    />
+    <property
+        name="recordStatus"
+        type="java.lang.String"
+        column="RECORD_STATUS"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="isLogin"
+        type="int"
+        column="IS_LOGIN"
+        not-null="true"
+        length="1"
+    />
+    <property
+        name="lastBrandId"
+        type="java.math.BigDecimal"
+        column="LAST_BRAND_ID"
+        length="20"
+    />
+    <property
+        name="lastLogin"
+        type="java.sql.Date"
+        column="LAST_LOGIN"
+        length="7"
+    />
+
+    <!-- Associations -->
+  
+    <!-- bi-directional one-to-one association to PnPerson -->
+    <one-to-one
+        name="pnPerson"
+        class="net.project.hibernate.model.PnPerson"
+        outer-join="auto"
+        constrained="false"
+    />
+    <!-- bi-directional many-to-one association to PnUserDomain -->
+    <many-to-one
+        name="pnUserDomain"
+        class="net.project.hibernate.model.PnUserDomain"
+        not-null="true"
+    >
+        <column name="DOMAIN_ID" />
+    </many-to-one>
+    <!-- bi-directional one-to-many association to PnUserDomainMigration -->
+
+    <set
+        name="pnUserDomainMigrations"
+        lazy="false"
+        inverse="true"
+		cascade="all"
+
+    >
+        <key>
+            <column name="USER_ID" />
+        </key>
+        
+        <one-to-many 
+            class="net.project.hibernate.model.PnUserDomainMigration"
+        />
+    </set>
+
+</class>
+</hibernate-mapping>
