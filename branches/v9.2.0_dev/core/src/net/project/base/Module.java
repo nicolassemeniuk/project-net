@@ -48,12 +48,13 @@ public class Module implements java.io.Serializable {
     public static final int BUSINESS_SPACE = 170;
     public static final int SECURITY = 180;
     public static final int METHODOLOGY_SPACE = 190;
-    public static final int WORKFLOW = 200;
+    public static final int WORKFLOW = 200;    
     public static final int VOTE = 210;
     public static final int MESSAGE = 220;
     public static final int SALES = 230;
     public static final int APPLICATION_SPACE = 240;
     public static final int CONFIGURATION_SPACE = 250;
+    public static final int MATERIAL = 260;
     /** User Authentication Domain */
     public static final int DOMAIN = 300;
     public static final int REPORT = 310;
@@ -63,6 +64,7 @@ public class Module implements java.io.Serializable {
     public static final int RESOURCES_SPACE = 360;
     public static final int BLOG = 380;  
     public static final int TIME_SUMMARY_REPORT = 390; 
+    
     
     /** Set the module's database id */
     public void setId(String id) {
