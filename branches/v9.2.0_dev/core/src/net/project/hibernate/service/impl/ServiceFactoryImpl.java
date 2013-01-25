@@ -22,15 +22,8 @@ import net.project.hibernate.service.*;
 import net.project.versioncheck.service.IVersionCheckService;
 
 import org.apache.log4j.Logger;
-import org.springframework.beans.factory.BeanFactory;
-import org.springframework.beans.factory.xml.XmlBeanFactory;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Service;
-import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 /**
  * Implementation of the service factory that uses Spring to locate service
  * objects.
@@ -789,4 +782,30 @@ public class ServiceFactoryImpl extends ServiceFactory {
 	public IPnObjectHasChargeCodeService getPnObjectHasChargeCodeService() {
 		return (IPnObjectHasChargeCodeService) beanFactory.getBean("pnObjectHasChargeCodeService");
 	}
+	
+	//@nicolas added
+	@Override
+    public IPnMaterialService getPnMaterialService() {
+        return (IPnMaterialService) beanFactory.getBean("pnMaterialService");
+    }
+	
+	@Override
+	public IPnMaterialTypeService getPnMaterialTypeService(){
+		return (IPnMaterialTypeService) beanFactory.getBean("pnMaterialTypeService");
+	}
+
+	@Override
+    public IPnSpaceHasMaterialService getPnSpaceHasMaterialService(){
+    	return (IPnSpaceHasMaterialService) beanFactory.getBean("pnSpaceHasMaterialService");
+    }
+	
+	
+	@Override
+	public IMaterialService getMaterialService(){
+		return (IMaterialService) beanFactory.getBean("materialService");
+	}
+	
+
+    
+	
 }
