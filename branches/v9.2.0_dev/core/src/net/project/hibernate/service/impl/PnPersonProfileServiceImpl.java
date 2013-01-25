@@ -127,6 +127,7 @@ public class PnPersonProfileServiceImpl implements IPnPersonProfileService {
 	 * @return resized file instance
 	 */
 	public File createResizedImage(File original, File resized){
+		try{
 		Image rawImage = new ImageIcon(original.getPath()).getImage();
 		
 		int imageWidth = rawImage.getWidth(null);
@@ -165,9 +166,11 @@ public class PnPersonProfileServiceImpl implements IPnPersonProfileService {
 
         enparam.setQuality( (float) quality / 100.0f, false);
         encoder.setJPEGEncodeParam(enparam);
-        try {
-			encoder.encode(thumbImage);
+		encoder.encode(thumbImage);
+		
 		} catch (ImageFormatException pnetEx) {
+			log.error("Error occured while encoding image : "+pnetEx.getMessage());
+		} catch (IOException pnetEx){
 			log.error("Error occured while encoding image : "+pnetEx.getMessage());
 		}
 		// Unreachable catch
