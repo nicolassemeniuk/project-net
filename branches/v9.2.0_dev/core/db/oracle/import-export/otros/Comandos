@@ -1,0 +1,18 @@
+
+-- Exportar la base de datos
+-- Hace un dump de los dos espacios de usuarios pnet y pnet_user y genera los logs
+exp userid=pnet/pnet@XE file=pnet_db_dump.dmp owner=pnet log=pnet_dump.log
+exp userid=pnet_user/pnet_user@XE file=pnet_user_db_dump.dmp owner=pnet_user log=pnet_user_dump.log
+
+-- Importar la base de datos
+-- Limpia los datos que ya se encuentren en la DB
+sqlplus system/system@XE @clean_and_create_users.sql
+
+-- Importa los dumps de los usuarios pnet y pnet_user y genera los logs
+imp userid=pnet/pnet@XE file=pnet_db_dump.dmp fromuser=pnet touser=pnet log=pnet_restore.log
+imp userid=pnet_user/pnet_user@XE file=pnet_user_db_dump.dmp fromuser=pnet_user touser=pnet_user log=pnet_user_restore.log
+
+-- Por si hubo errores al generar algunas vistas
+sqlplus pnet/pnet@XE @compilar_vistas.sql
+
+-- Fuente: http://doc.project.net/9_1:Backup_and_Restore-Linux
