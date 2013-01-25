@@ -21,7 +21,7 @@ import javax.servlet.ServletContext;
 import net.project.events.async.ActivitySubscriber;
 import net.project.events.async.EventPublisher;
 import net.project.versioncheck.service.IVersionCheckService;
-import org.springframework.web.context.WebApplicationContext;
+
 import org.springframework.beans.factory.BeanFactory;
 
 /**
@@ -377,6 +377,14 @@ public abstract class ServiceFactory {
     
     // Service for accessing PnObjectHasChargeCode table
     public abstract IPnObjectHasChargeCodeService getPnObjectHasChargeCodeService();
+    
+    public abstract IPnMaterialService getPnMaterialService();
+    
+    public abstract IPnSpaceHasMaterialService getPnSpaceHasMaterialService();
+    
+    public abstract IMaterialService getMaterialService();
+    
+    public abstract IPnMaterialTypeService getPnMaterialTypeService();
 
     public void setBeanFactory(BeanFactory beanFactory) {
         this.beanFactory = beanFactory;
