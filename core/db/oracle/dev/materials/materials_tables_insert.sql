@@ -4,15 +4,10 @@
 
 -- prm.directory.directorypage.materials.column.id
 
--- Seleccion de una propiedad
-
-select *
-from PN_PROPERTY a
-where a.PROPERTY like '%enterprise%'
-
-update pn_property set Property_value='1' where pn_property.property = 'prm.enterprise.isenabled'
-
-insert into PN_PROPERTY values (2000,'en','boolean','prm.enterprise.isenabled','1','A',0,0,null);
+-- Enterprise
+-- select * from PN_PROPERTY a where a.PROPERTY like '%enterprise%';
+-- update pn_property set Property_value='1' where pn_property.property = 'prm.enterprise.isenabled'
+-- insert into PN_PROPERTY values (2000,'en','boolean','prm.enterprise.isenabled','1','A',0,0,null);
 
 -- Insercion de una propiedad
 -- insert into PN_PROPERTY values (2000,'en','text','propiedad','valor','A',0,1,null);
@@ -82,5 +77,5 @@ insert into PN_OBJECT_TYPE values ('material','pn_material','@prm.global.materia
 ************************************************************************************/
 insert into PN_MODULE values (260,'material','@prm.materialspace.module.description', 1, null);
 
-
+COMMIT;
 
