@@ -68,6 +68,12 @@ Quick Help:
         <deploy url="${tomcat.url}" username="${tomcat.username}" password="${tomcat.password}" path="${tomcat.path}"
                 localWar="${build.dir}" config="${build.metainf.dir}/context.xml"/>
     </target>
+	
+	<!-- @ramiro nueva tarea -->
+    <target name="deployWAR" description="Install the web application as a WAR file" depends="generic-package-war">
+        <deploy url="${tomcat.url}" username="${tomcat.username}" password="${tomcat.password}" path="${tomcat.path}"
+                war="${package.tomcat.war.name}" update="true" />
+    </target>	
 
     <target name="reload" depends="build">
 		<condition property="app.path" value="/ROOT" else="${tomcat.path}">

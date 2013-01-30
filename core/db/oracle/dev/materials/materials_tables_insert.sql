@@ -20,7 +20,7 @@ insert into PN_PROPERTY values (2000,'en','boolean','prm.enterprise.isenabled','
 insert into PN_PROPERTY values (2000,'en','text','prm.application.nav.space.material','Materials','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.space.spacetypes.materials.name','Materials','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.nav.dashboard','Dashboard','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.materialspace.module.description','Materials Workspace','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.materialspace.module.description','Material','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.global.materials.objecttype.material','Material','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.materials.tab','Materials','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.directory.directory.tab.materials.title','Materials','A',0,1,null);
@@ -30,13 +30,20 @@ insert into PN_PROPERTY values (2000,'en','css','prm.global.css.material','/styl
 insert into PN_PROPERTY values (2000,'en','boolean','prm.material.isenabled','1','A',0,0,null);
 insert into PN_PROPERTY values (2000,'en','boolean','prm.material.dashboard.isenabled','1','A',0,0,null);
 
--- Portafolio de Materiales
-insert into PN_PROPERTY values (2000,'en','text','prm.material.materialportfolio.channel.memberof.title','Materials you have access to','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.material.materialportfolio.title','Material List','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.material.materialportfolio.create.button.tooltip','New Material','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.material.materialportfolio.modify.button.tooltip','Modify Material','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.material.materialportfolio.remove.button.tooltip','Delete Material','A',0,1,null);
+--Navbar Project/Material
+insert into PN_PROPERTY values (2000,'en','boolean','prm.project.material.isenabled','1','A',0,0,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.nav.material','Materials','A',0,1,null);
 
+
+
+-- Portafolio de Materiales
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.channel.title','Materials you have access to','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.title','Material List','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.create.button.tooltip','New Material','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.modify.button.tooltip','Modify Material','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.remove.button.tooltip','Delete Material','A',0,1,null);
+
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.module.history','Materials','A',0,1,null);
 
 
 --Material main
