@@ -64,9 +64,10 @@ Quick Help:
     <taskdef name="stop" classpathref="tomcat.ant.classpath" classname="org.apache.catalina.ant.StopTask"/>
     <taskdef name="undeploy" classpathref="tomcat.ant.classpath" classname="org.apache.catalina.ant.UndeployTask"/>
 
+	<!-- @ramiro agregada la opcion update="true" en vez de llamar a undeploy -->
     <target name="deploy" description="Install the web application" depends="build">
         <deploy url="${tomcat.url}" username="${tomcat.username}" password="${tomcat.password}" path="${tomcat.path}"
-                localWar="${build.dir}" config="${build.metainf.dir}/context.xml"/>
+                localWar="${build.dir}" config="${build.metainf.dir}/context.xml" update="true"/>
     </target>
 	
 	<!-- @ramiro nueva tarea -->
