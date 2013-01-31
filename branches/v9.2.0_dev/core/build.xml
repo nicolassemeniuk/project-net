@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project name="pnet-core-tomcat-dev" default="build" basedir=".">
+<project name="pnet-v9.2.0_release" default="build" basedir=".">
 <!--
  * Copyright 2000-2009 Project.net Inc.
  *
@@ -67,7 +67,7 @@ Quick Help:
 	<!-- @ramiro agregada la opcion update="true" en vez de llamar a undeploy -->
     <target name="deploy" description="Install the web application" depends="build">
         <deploy url="${tomcat.url}" username="${tomcat.username}" password="${tomcat.password}" path="${tomcat.path}"
-                localWar="${build.dir}" config="${build.metainf.dir}/context.xml" update="true"/>
+                localWar="${build.dir}" config="${build.metainf.dir}/context.xml" update="true" />
     </target>
 	
 	<!-- @ramiro nueva tarea -->
@@ -156,8 +156,8 @@ Quick Help:
 			   nowarn="on"
 			   source="1.5"
 			   target="1.5"
-			   memoryinitialsize="32m"
-               memorymaximumsize="256m"
+			   memoryinitialsize="256m"
+               memorymaximumsize="512m"
 			   srcdir="${build.dir}/WEB-INF/src" 
 		   excludes="**/*.smap">
 		  <classpath>
@@ -640,7 +640,13 @@ Quick Help:
 				<exclude name="activation.jar"/>
 				<exclude name="yuicompressor-2.3.5.jar"/>
 				<exclude name="yui-compressor-ant-task-0.3.jar"/>
-                <include name="*.jar"/>
+				<!--
+               	<include name="*.jar"/>
+               	-->
+                <!-- Excluir para optimizar espacio y agregar los libs a /usr/share/tomcat6/lib -->
+            	
+			   	<exclude name="*.jar"/>
+			   	
                 <include name="*.zip"/>
             </fileset>
         </copy>
