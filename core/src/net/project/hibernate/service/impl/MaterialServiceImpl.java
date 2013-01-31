@@ -1,6 +1,6 @@
 package net.project.hibernate.service.impl;
 
-import java.util.Date;
+import java.sql.Date;
 
 import net.project.hibernate.model.PnMaterial;
 import net.project.hibernate.model.PnMaterialType;
@@ -10,6 +10,7 @@ import net.project.hibernate.service.IPnMaterialService;
 import net.project.hibernate.service.IPnMaterialTypeService;
 import net.project.hibernate.service.IPnObjectService;
 import net.project.hibernate.service.IPnSpaceHasMaterialService;
+import net.project.material.MaterialBean;
 import net.project.material.PnMaterialList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,36 +53,36 @@ public class MaterialServiceImpl implements IMaterialService {
 		return materialService.getMaterials(this.spaceHasMaterialService.getMaterialsFromSpace(spaceId));
 	}
 	
-//	@Override
-//	public void saveMaterial(MaterialCreateWizard materialWizard) {
-//		// TODO Ramiro Chequear la tabla PN_DEFAULT_OBJECT_PERMISSION
-//	    Integer materialObjectId = objectService.saveObject(new PnObject(PnMaterial.OBJECT_TYPE, new Integer(materialWizard.getUser().getID()), new Date(System.currentTimeMillis()), "A"));	
-//	    PnMaterialType materialType = materialTypeService.getMaterialTypeById(Integer.valueOf(materialWizard.getMaterialTypeId()));
-//	    
-//		PnMaterial pnMaterial = new PnMaterial();
-//		pnMaterial.setMaterialName(materialWizard.getName());
-//		pnMaterial.setMaterialDescription(materialWizard.getDescription());
-//		pnMaterial.setMaterialCost(Float.valueOf(materialWizard.getCost()));
-//		pnMaterial.setPnMaterialType(materialType);
-//		pnMaterial.setRecordStatus("A");
-//		pnMaterial.setMaterialId(materialObjectId);	
-//		
-//		materialService.saveMaterial(pnMaterial);
-//	}
-//
-//	@Override
-//	public void updateMaterial(MaterialSpaceBean materialSpace) {
-//	    PnMaterialType materialType = materialTypeService.getMaterialTypeById(Integer.valueOf(materialSpace.getMaterialTypeId()));
-//		
-//		PnMaterial pnMaterial = materialService.getMaterial(Integer.valueOf(materialSpace.getID()));
-//		pnMaterial.setMaterialName(materialSpace.getName());
-//		pnMaterial.setMaterialDescription(materialSpace.getDescription());
-//		pnMaterial.setMaterialCost(Float.valueOf(materialSpace.getCost()));
-//		pnMaterial.setPnMaterialType(materialType);
-//		pnMaterial.setRecordStatus("A");
-//		
-//		materialService.updateMaterial(pnMaterial);
-//	}
+	@Override
+	public void saveMaterial(MaterialBean materialBean) {
+		// TODO Ramiro Chequear la tabla PN_DEFAULT_OBJECT_PERMISSION
+	    Integer materialObjectId = objectService.saveObject(new PnObject(PnMaterial.OBJECT_TYPE, new Integer(materialBean.getSpace().getID()), new Date(System.currentTimeMillis()), "A"));	
+	    PnMaterialType materialType = materialTypeService.getMaterialTypeById(Integer.valueOf(materialBean.getMaterialTypeId()));
+	    
+		PnMaterial pnMaterial = new PnMaterial();
+		pnMaterial.setMaterialName(materialBean.getName());
+		pnMaterial.setMaterialDescription(materialBean.getDescription());
+		pnMaterial.setMaterialCost(Float.valueOf(materialBean.getCost()));
+		pnMaterial.setPnMaterialType(materialType);
+		pnMaterial.setRecordStatus("A");
+		pnMaterial.setMaterialId(materialObjectId);	
+		
+		materialService.saveMaterial(pnMaterial);
+	}
+
+	@Override
+	public void updateMaterial(MaterialBean materialBean) {
+	    PnMaterialType materialType = materialTypeService.getMaterialTypeById(Integer.valueOf(materialBean.getMaterialTypeId()));
+		
+		PnMaterial pnMaterial = materialService.getMaterial(Integer.valueOf(materialBean.getMaterialId()));
+		pnMaterial.setMaterialName(materialBean.getName());
+		pnMaterial.setMaterialDescription(materialBean.getDescription());
+		pnMaterial.setMaterialCost(Float.valueOf(materialBean.getCost()));
+		pnMaterial.setPnMaterialType(materialType);
+		pnMaterial.setRecordStatus("A");
+		
+		materialService.updateMaterial(pnMaterial);
+	}
 
 	@Override
 	public PnMaterial getMaterial(Integer id) {

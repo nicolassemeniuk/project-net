@@ -14,5 +14,9 @@ public class MaterialBean extends Material {
     public void setSpace(Space space) {
         this.space = space;
     }
+    
+    public Space getSpace(){
+    	return this.space;
+    }
 
 }

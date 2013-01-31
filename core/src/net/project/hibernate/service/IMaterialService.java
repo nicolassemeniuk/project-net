@@ -1,6 +1,7 @@
 package net.project.hibernate.service;
 
 import net.project.hibernate.model.PnMaterial;
+import net.project.material.MaterialBean;
 import net.project.material.PnMaterialList;
 
 public interface IMaterialService {
@@ -9,9 +10,9 @@ public interface IMaterialService {
 	
 	public PnMaterial getMaterial(Integer id);
 	
-//	public void saveMaterial(MaterialCreateWizard materialWizard);
-//	
-//	public void updateMaterial(MaterialSpaceBean materialSpace);
+	public void saveMaterial(MaterialBean materialBean);
+	
+	public void updateMaterial(MaterialBean materialBean);
 	
 	public PnMaterialList getMaterialsFromSpace(Integer spaceId);
 	
