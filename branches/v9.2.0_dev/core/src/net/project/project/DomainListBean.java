@@ -148,6 +148,14 @@ public class DomainListBean implements Serializable {
 
         return HTMLOptionList.makeHtmlOptionList(getAvailableBusinessOptions(user.getID(), new CreatePermissionFilter(user), defaultID, null), defaultID);
     }
+    
+    public String getMaterialTypeListForMaterialCreation(Collection collection){
+    	return HTMLOptionList.makeHtmlOptionList(collection);
+	}
+    
+    public String getMaterialTypeListForMaterialModification(Collection collection, String selectedValue){
+    	return HTMLOptionList.makeHtmlOptionList(collection, selectedValue);
+	}
 
     /**
      * Returns a collection of <code>IHTMLOption</code>s where the user with the specified ID is a member of each
@@ -592,4 +600,6 @@ public class DomainListBean implements Serializable {
 		
 		return visibleProjectList;
     }
+    
+    
 }

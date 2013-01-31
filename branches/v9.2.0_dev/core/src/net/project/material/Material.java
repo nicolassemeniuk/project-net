@@ -17,13 +17,8 @@ public class Material implements Serializable, IJDBCPersistence {
 	private String materialTypeId = null;
 	private String materialTypeName = null;
 	
-	public Material(){
-		
-	}
-	
-
-	
-	
+	public Material(){		
+	}	
 
 	public String getMaterialId() {
 		return materialId;
@@ -91,16 +86,15 @@ public class Material implements Serializable, IJDBCPersistence {
 	}
 
 	@Override
-	public void store() throws PersistenceException, SQLException {
-		
-		
+	public void store() throws PersistenceException, SQLException {		
+		// TODO Auto-generated method stub
 	}
 
 	@Override
 	public void remove() throws PersistenceException {
-		// TODO Auto-generated method stub
-		
-	}
+		// TODO Auto-generated method stub		
+	}	
+	
 	public void clear(){
 		this.materialId = null;
 		this.name= null;
