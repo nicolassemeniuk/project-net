@@ -15,7 +15,7 @@
 
 <%@ page contentType="text/html; charset=UTF-8" info="New Material Wizard" language="java" errorPage="/errors.jsp"
 	import="net.project.base.property.PropertyProvider,
-            net.project.materials.MaterialCreateWizard,
+            net.project.material.MaterialBean,
             net.project.methodology.MethodologyProvider,
             net.project.project.DomainListBean,
             net.project.security.User, 
@@ -29,8 +29,8 @@
 <%@ include file="/base/taglibInclude.jsp"%>
 
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
+<jsp:useBean id="materialBean" class="net.project.material.MaterialBean" scope="session" />
 <jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
-<jsp:useBean id="materialWizard" class="net.project.materials.MaterialCreateWizard" scope="session" />
 <jsp:useBean id="domainList" class="net.project.project.DomainListBean" scope="page" />
 <jsp:useBean id="methodologyProvider" class="net.project.methodology.MethodologyProvider" scope="page" />
 
@@ -41,19 +41,19 @@
 <title><display:get name="prm.global.application.title" /></title>
 
 <%-- Import CSS --%>
-<template:getSpaceCSS space="material" />
+<template:getSpaceCSS />
 
 <%-- Import Javascript --%>
 <template:import type="javascript" src="/src/checkComponentForms.js" />
 <template:import type="javascript" src="/src/errorHandler.js" />
 <template:import type="javascript" src="/src/checkLength.js" />
-<template:getSpaceJS space="material" />
+<template:getSpaceJS space="project" />
 <script language="javascript">
 
     var theForm;
     var isLoaded = false;
     var JSPRootURL = '<%=SessionManager.getJSPRootURL()%>';    
-	var currentSpaceTypeForBlog = 'person';
+	var currentSpaceTypeForBlog = 'project';
     var currentSpaceIdForBlog = '<%=SessionManager.getUser().getID()%>';
     
 	function setup() {
@@ -68,7 +68,7 @@
 
 	function cancel() {
 		// TODO Aqui en un futuro se podria retornar al material padre
-		self.document.location = JSPRootURL + "/material/Main.jsp?module=<%=net.project.base.Module.MATERIAL_SPACE%>";
+		self.document.location = JSPRootURL + "/material/Main.jsp?module=<%=net.project.base.Module.MATERIAL%>";
 	}
 
 	function submit() {
@@ -101,6 +101,7 @@
 
 <body class="main" id='bodyWithFixedAreasSupport' onLoad="setup();">
 	<template:getSpaceMainMenu />
+	<template:getSpaceNavBar />
 
 	<tb:toolbar style="tooltitle" groupTitle="prm.application.nav.space.materials" showAll="true"
 		leftTitle='<%=PropertyProvider.get("prm.material.create.wizard.step1.lefttitle.label")%>'
@@ -115,11 +116,12 @@
 	--  Configure beans                                                                                                                                          
 	----------------------------------------------------------------------------------------------------------------------------------------------------------------%>
 		<%
-			materialWizard.clear();
+			materialBean.clear();
 		%>
 
 		<form method="post" action="CreateMaterialProcessing.jsp" name="createMaterial">
 			<input type="hidden" name="theAction"> <input type="hidden" name="module" value="<%=securityProvider.getCheckedModuleID()%>">
+			<input type="hidden" name="spaceID" value='<%=user.getCurrentSpace().getID()%>' />
 			<table border="0" align="left" width="600" cellpadding="0" cellspacing="0">
 				<tr align="left" class="channelHeader">
 					<td width=1%><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border=0></td>

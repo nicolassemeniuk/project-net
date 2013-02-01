@@ -16,7 +16,7 @@
 <%@ page contentType="text/html; charset=UTF-8" info="Material Modify Page" language="java" errorPage="/errors.jsp"
     import="net.project.security.*,
     			net.project.base.Module,
-            	net.project.materials.MaterialSpaceBean,
+            	net.project.material.MaterialBean,
             	net.project.project.DomainListBean,
             	net.project.base.property.PropertyProvider,
             	net.project.hibernate.service.ServiceFactory"
@@ -24,12 +24,12 @@
 <%@ include file="/base/taglibInclude.jsp" %>
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
 <jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
-<jsp:useBean id="materialSpace" class="net.project.materials.MaterialSpaceBean" scope="session" />
+<jsp:useBean id="materialBean" class="net.project.material.MaterialBean" scope="session" />
 <jsp:useBean id="domainList" class="net.project.project.DomainListBean" scope="page" />
 
 <security:verifyAccess action="modify"
-					   module="<%=net.project.base.Module.MATERIAL_SPACE%>"
-					   objectID="" /> 
+					   module="<%=Module.MATERIAL%>"
+					   objectID="<%request.getParameter("id");%>" /> 
 					   
 <template:getDoctype />
 
@@ -120,7 +120,7 @@
 		<form name="mainForm" method="POST" action="ModifyMaterialProcessing.jsp">
 			<input type="hidden" name="theAction"> 
 			<input type="hidden" name="action" value="<%=Action.MODIFY%>" /> 
-			<input type="hidden" name="module" value="<%=Module.MATERIAL_SPACE%>" />
+			<input type="hidden" name="module" value="<%=Module.MATERIAL%>" />
 
 								<table border=0 cellpadding=0 cellspacing=0 width="600">
 									<tr>
@@ -147,7 +147,7 @@
 														<td nowrap class="fieldNonRequired"><display:get name="prm.material.modifymaterial.materialtype.label" />:&nbsp;</td>
 														<td nowrap class="tableContent" colspan="2">
 															<select name="materialTypeId">
-																<%=domainList.getMaterialTypeListForMaterialModification(ServiceFactory.getInstance().getPnMaterialTypeService().getMaterialTypes(), materialSpace.getMaterialTypeId())%>
+																<%=domainList.getMaterialTypeListForMaterialModification(ServiceFactory.getInstance().getPnMaterialTypeService().getMaterialTypes(), materialBean.getMaterialTypeId())%>
 															</select></td>
 														<td nowrap class="tableContent" colspan="2">&nbsp;</td>
 													</tr>
