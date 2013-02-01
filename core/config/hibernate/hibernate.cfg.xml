@@ -8,11 +8,11 @@
 	
 		<property name="dialect">org.hibernate.dialect.Oracle10gDialect</property>
 		<property name="connection.datasource">java:comp/env/jdbc/PnetDB</property> 
-		<!-- property name="connection.driver_class">oracle.jdbc.OracleDriver</property>
-		<property name="connection.username">pnet</property>
-		<property name="connection.password">pnet</property> 
-		<property name="connection.url">jdbc:oracle:thin:@pusa:1521:10g</property -->		
-        <property name="show_sql">false</property>		
+<!-- 		<property> name="connection.driver_class">oracle.jdbc.OracleDriver</property> -->
+<!-- 		<property name="connection.username">pnet</property> -->
+<!-- 		<property name="connection.password">pnet</property>  -->
+<!-- 		<property name="connection.url">jdbc:oracle:thin:@pusa:1521:10g</property> -->
+<!--         <property name="show_sql">false</property>		 -->
 		<mapping resource="net/project/hibernate/model/PnPersonCosts.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/ClientDatabaseVersion.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/DatabaseVersion.hbm.xml"/>
@@ -140,6 +140,8 @@
 		<mapping resource="net/project/hibernate/model/PnLicensePurchaser.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnLicenseStatusReason.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnLoginHistory.hbm.xml"/>
+		<mapping resource="net/project/hibernate/model/PnMaterial.hbm.xml"/>
+		<mapping resource="net/project/hibernate/model/PnMaterialType.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnMeeting.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnMethodologyInIndustry.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnMethodologySpace.hbm.xml"/>
@@ -242,6 +244,7 @@
 		<mapping resource="net/project/hibernate/model/PnSpaceHasDocSpace.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnSpaceHasFeaturedMenuitem.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnSpaceHasGroup.hbm.xml"/>
+		<mapping resource="net/project/hibernate/model/PnSpaceHasMaterial.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnSpaceHasMethodology.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnSpaceHasModule.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnSpaceHasNew.hbm.xml"/>

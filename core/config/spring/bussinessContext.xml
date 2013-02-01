@@ -139,6 +139,8 @@
 				<value>net.project.hibernate.model.PnLicensePurchaser</value>
 				<value>net.project.hibernate.model.PnLicenseStatusReason</value>
 				<value>net.project.hibernate.model.PnLoginHistory</value>
+				<value>net.project.hibernate.model.PnMaterial</value>
+				<value>net.project.hibernate.model.PnMaterialType</value>
 				<value>net.project.hibernate.model.PnMeeting</value>
 				<value>net.project.hibernate.model.PnMethodologyInIndustry</value>
 				<value>net.project.hibernate.model.PnMethodologySpace</value>
@@ -242,6 +244,7 @@
 				<value>net.project.hibernate.model.PnSpaceHasDocSpace</value>
 				<value>net.project.hibernate.model.PnSpaceHasFeaturedMenuitem</value>
 				<value>net.project.hibernate.model.PnSpaceHasGroup</value>
+				<value>net.project.hibernate.model.PnSpaceHasMaterial</value>
 				<value>net.project.hibernate.model.PnSpaceHasMethodology</value>
 				<value>net.project.hibernate.model.PnSpaceHasModule</value>
 				<value>net.project.hibernate.model.PnSpaceHasNew</value>
