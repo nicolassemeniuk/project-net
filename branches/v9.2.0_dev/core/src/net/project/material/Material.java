@@ -7,6 +7,7 @@ import net.project.hibernate.model.PnMaterial;
 import net.project.hibernate.service.ServiceFactory;
 import net.project.persistence.IJDBCPersistence;
 import net.project.persistence.PersistenceException;
+import net.project.security.User;
 
 public class Material implements Serializable, IJDBCPersistence {
 	
@@ -16,6 +17,8 @@ public class Material implements Serializable, IJDBCPersistence {
 	private String cost = null;
 	private String materialTypeId = null;
 	private String materialTypeName = null;
+	private String spaceID = null;
+    private User user = null;
 	
 	public Material(){		
 	}	
@@ -71,6 +74,22 @@ public class Material implements Serializable, IJDBCPersistence {
 	@Override
 	public void setID(String id) {
 		this.materialId = id;		
+	}	
+	
+	public String getSpaceID() {
+		return spaceID;
+	}
+
+	public void setSpaceID(String spaceID) {
+		this.spaceID = spaceID;
+	}	
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override
@@ -102,6 +121,8 @@ public class Material implements Serializable, IJDBCPersistence {
 		this.cost = null;
 		this.materialTypeId = null;
 		this.materialTypeName = null;
+		this.spaceID=null;
+		this.user= null;
 	}
 	
 	

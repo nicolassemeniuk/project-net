@@ -14,5 +14,7 @@ public interface IPnSpaceHasMaterialDAO extends
 	public boolean spaceHasMaterial(Integer spaceId, Integer materialId);
 	
 	public List<Integer> getMaterialsFromSpace(Integer spaceId);
+	
+	public void associateMaterial(PnSpaceHasMaterial spaceHasMaterial);
 
 }

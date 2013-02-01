@@ -28,6 +28,7 @@ public class MaterialServiceImpl implements IMaterialService {
 	@Autowired
 	private IPnSpaceHasMaterialService spaceHasMaterialService;
 	
+
 	@Autowired
 	private IPnObjectService objectService;	
 
@@ -56,7 +57,7 @@ public class MaterialServiceImpl implements IMaterialService {
 	@Override
 	public void saveMaterial(MaterialBean materialBean) {
 		// TODO Ramiro Chequear la tabla PN_DEFAULT_OBJECT_PERMISSION
-	    Integer materialObjectId = objectService.saveObject(new PnObject(PnMaterial.OBJECT_TYPE, new Integer(materialBean.getSpace().getID()), new Date(System.currentTimeMillis()), "A"));	
+	    Integer materialObjectId = objectService.saveObject(new PnObject(PnMaterial.OBJECT_TYPE, new Integer(materialBean.getUser().getID()), new Date(System.currentTimeMillis()), "A"));	
 	    PnMaterialType materialType = materialTypeService.getMaterialTypeById(Integer.valueOf(materialBean.getMaterialTypeId()));
 	    
 		PnMaterial pnMaterial = new PnMaterial();
@@ -65,9 +66,9 @@ public class MaterialServiceImpl implements IMaterialService {
 		pnMaterial.setMaterialCost(Float.valueOf(materialBean.getCost()));
 		pnMaterial.setPnMaterialType(materialType);
 		pnMaterial.setRecordStatus("A");
-		pnMaterial.setMaterialId(materialObjectId);	
-		
+		pnMaterial.setMaterialId(materialObjectId);			
 		materialService.saveMaterial(pnMaterial);
+		spaceHasMaterialService.associateMaterial(Integer.valueOf(materialBean.getSpaceID()), pnMaterial);
 	}
 
 	@Override
