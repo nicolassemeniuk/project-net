@@ -25,6 +25,18 @@ public class PnSpaceHasMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<PnS
 	public PnSpaceHasMaterialDAOImpl() {
 		super(PnSpaceHasMaterial.class);
 	}
+	
+	@Override
+	public void associateMaterial(PnSpaceHasMaterial spaceHasMaterial) {
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+			session.save(spaceHasMaterial);
+			session.close();
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}		
+	}
 
 	@Override
 	public PnSpaceHasMaterial getPnSpaceHasMaterial(Integer spaceId, Integer materialId) {
@@ -75,5 +87,7 @@ public class PnSpaceHasMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<PnS
 		}
 		return idList;
 	}
+
+
 
 }
