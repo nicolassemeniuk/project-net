@@ -14,21 +14,19 @@
 --%>
 
 <%@ page contentType="text/html; charset=UTF-8" info="New Business Processing 2" language="java" errorPage="/errors.jsp"
-	import="net.project.material.MaterialCreateWizard,
+	import="net.project.material.MaterialBean,
+			net.project.project.ProjectSpaceBean,
     		net.project.security.User,
     		net.project.base.Module,
     		net.project.security.SessionManager,
     		net.project.hibernate.service.ServiceFactory"%>
-<jsp:useBean id="materialBean" class="net.project.material.MaterialCreateWizard" scope="session" />
+<jsp:useBean id="materialBean" class="net.project.material.MaterialBean" scope="session" />
+<jsp:useBean id="projectSpace" class="net.project.project.ProjectSpaceBean" scope="session" />
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
-<jsp:setProperty name="materialWizard" property="*" />
+<jsp:setProperty name="materialBean" property="*" />
 
 <%
 	materialBean.setUser(user);
-
-	if ((request.getParameter("type") == null) || (request.getParameter("type").equals(""))) {
-		materialBean.setFlavor("");
-	}
 
 	if ((request.getParameter("description") == null) || (request.getParameter("description").equals(""))) {
 		materialBean.setDescription("");
@@ -36,6 +34,5 @@
 
 	ServiceFactory.getInstance().getMaterialService().saveMaterial(materialBean);
 
-	// TODO Ramiro Enviar la pantalla del material recien creado
-	response.sendRedirect(SessionManager.getJSPRootURL() + "/material/Main.jsp?module=" + Module.MATERIAL + "&portfolio=true");
+	response.sendRedirect(SessionManager.getJSPRootURL() + "/material/Main.jsp?module=" + Module.MATERIAL );
 %>

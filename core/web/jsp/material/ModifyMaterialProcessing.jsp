@@ -14,22 +14,16 @@
 --%>
 
 <%@ page contentType="text/html; charset=UTF-8" info="New Business Processing 2" language="java" errorPage="/errors.jsp"
-	import="net.project.materials.MaterialSpaceBean,
+	import="net.project.material.MaterialBean,
     		net.project.security.User,
     		net.project.base.Module,
     		net.project.security.SessionManager,
     		net.project.hibernate.service.ServiceFactory"%>
-<jsp:useBean id="materialBean" class="net.project.materials.MaterialSpaceBean" scope="session" />
+<jsp:useBean id="materialBean" class="net.project.material.MaterialBean" scope="session" />
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
-<jsp:setProperty name="materialSpace" property="*" />
+<jsp:setProperty name="materialBean" property="*" />
 
 <%
-
-
-	if ((request.getParameter("type") == null) || (request.getParameter("type").equals(""))) {
-		materialBean.setFlavor("");
-	}
-
 	ServiceFactory.getInstance().getMaterialService().updateMaterial(materialBean);
 
 	// TODO Ramiro Enviar la pantalla del material recien creado

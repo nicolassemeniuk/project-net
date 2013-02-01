@@ -60,7 +60,7 @@ function create (){
 
 function modify(){
 	if (verifySelection(theForm, 'multiple', '<%=PropertyProvider.get("prm.global.javascript.verifyselection.noselection.error.message")%>')){ 
-		var theLocation = JSPRootURL+"/material/ModifyMaterial.jsp?id=" + getSelectedValueLocal(); + "&module=<%=Module.MATERIAL%>&action=<%=Action.MODIFY%>";
+		var theLocation = JSPRootURL+"/material/ModifyMaterial.jsp?id=" + getSelectedValueLocal() + "&module=<%=Module.MATERIAL%>&action=<%=Action.MODIFY%>";
 		self.document.location=theLocation;
 		
 <%-- 		var referer=JSPRootURL + "/material/MaterialPortfolio.jsp?module=<%=Module.MATERIAL%>&portfolio=true";	 --%>
@@ -127,6 +127,7 @@ function popupHelp(page) {
 </head>
 <body onLoad="setup();" class="main" id='bodyWithFixedAreasSupport'>
 	<template:getSpaceMainMenu />
+	<template:getSpaceNavBar />
 
 	<tb:toolbar style="tooltitle" showAll="true" groupTitle="prm.material.main.title">
 		<tb:setAttribute name="leftTitle">
