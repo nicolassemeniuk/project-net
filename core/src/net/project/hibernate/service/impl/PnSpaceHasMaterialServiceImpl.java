@@ -3,7 +3,6 @@ package net.project.hibernate.service.impl;
 import java.util.List;
 
 import net.project.hibernate.dao.IPnSpaceHasMaterialDAO;
-import net.project.hibernate.model.PnMaterial;
 import net.project.hibernate.model.PnSpaceHasMaterial;
 import net.project.hibernate.model.PnSpaceHasMaterialPK;
 import net.project.hibernate.service.IPnSpaceHasMaterialService;
@@ -30,24 +29,24 @@ public class PnSpaceHasMaterialServiceImpl implements IPnSpaceHasMaterialService
 	}
 
 	@Override
-	public PnSpaceHasMaterial getPnSpaceHasMaterial(Integer spaceId,
-			Integer MaterialId) {
-		return this.pnSpaceHasMaterialDAO.getPnSpaceHasMaterial(spaceId, MaterialId);		
+	public PnSpaceHasMaterial getPnSpaceHasMaterial(String spaceId,
+			String MaterialId) {
+		return this.pnSpaceHasMaterialDAO.getPnSpaceHasMaterial(Integer.valueOf(spaceId), Integer.valueOf(MaterialId));		
 	}
 
 	@Override
-	public boolean spaceHasMaterial(Integer spaceId, Integer materialId) {
-		return this.pnSpaceHasMaterialDAO.spaceHasMaterial(spaceId, materialId);
+	public boolean spaceHasMaterial(String spaceId, String materialId) {
+		return this.pnSpaceHasMaterialDAO.spaceHasMaterial(Integer.valueOf(spaceId), Integer.valueOf(materialId));
 	}
 
 	@Override
-	public List<Integer> getMaterialsFromSpace(Integer spaceId) {
-		return this.pnSpaceHasMaterialDAO.getMaterialsFromSpace(spaceId);
+	public List<Integer> getMaterialsFromSpace(String spaceId) {
+		return this.pnSpaceHasMaterialDAO.getMaterialsFromSpace(Integer.valueOf(spaceId));
 	}
 
 	@Override
-	public void associateMaterial(Integer spaceId, PnMaterial material) {
-		PnSpaceHasMaterialPK spaceHasMaterialPK = new PnSpaceHasMaterialPK(spaceId, material.getMaterialId());
+	public void associateMaterial(String spaceId, String materialId) {
+		PnSpaceHasMaterialPK spaceHasMaterialPK = new PnSpaceHasMaterialPK(Integer.valueOf(spaceId), Integer.valueOf(materialId));
 		PnSpaceHasMaterial spaceHasMaterial = new PnSpaceHasMaterial();
 		spaceHasMaterial.setComp_id(spaceHasMaterialPK);
 		spaceHasMaterial.setRecordStatus("A");

@@ -11,14 +11,14 @@ import net.project.security.User;
 
 public class Material implements Serializable, IJDBCPersistence {
 	
-	private String materialId = null;	
-	private String name = null;	
-	private String description = null;
-	private String cost = null;
-	private String materialTypeId = null;
-	private String materialTypeName = null;
-	private String spaceID = null;
-    private User user = null;
+	protected String materialId = null;	
+	protected String name = null;	
+	protected String description = null;
+	protected String cost = null;
+	protected String materialTypeId = null;
+	protected String materialTypeName = null;
+	protected String spaceID = null;
+	protected User user = null;
 	
 	public Material(){		
 	}	
@@ -95,7 +95,7 @@ public class Material implements Serializable, IJDBCPersistence {
 	@Override
 	public void load() throws PersistenceException {
 		if(materialId!=null){
-			PnMaterial material = ServiceFactory.getInstance().getMaterialService().getMaterial(Integer.valueOf(materialId));
+			PnMaterial material = ServiceFactory.getInstance().getMaterialService().getMaterial(materialId);
 			name = material.getMaterialName();
 			description = material.getMaterialDescription();
 			cost = String.valueOf(material.getMaterialCost());

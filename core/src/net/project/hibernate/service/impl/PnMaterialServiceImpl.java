@@ -1,10 +1,16 @@
 package net.project.hibernate.service.impl;
 
+import java.sql.Date;
 import java.util.List;
 
 import net.project.hibernate.dao.IPnMaterialDAO;
 import net.project.hibernate.model.PnMaterial;
+import net.project.hibernate.model.PnMaterialType;
+import net.project.hibernate.model.PnObject;
 import net.project.hibernate.service.IPnMaterialService;
+import net.project.hibernate.service.IPnMaterialTypeService;
+import net.project.hibernate.service.IPnObjectService;
+import net.project.material.MaterialBean;
 import net.project.material.PnMaterialList;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +24,12 @@ public class PnMaterialServiceImpl implements IPnMaterialService {
 	 */
 	@Autowired
 	private IPnMaterialDAO pnMaterialDAO;
+	
+	@Autowired
+	private IPnMaterialTypeService materialTypeService;
+	
+	@Autowired
+	private IPnObjectService objectService;	
 	
 	public void setPnMaterialDAO(IPnMaterialDAO pnMaterialDAO) {
 		this.pnMaterialDAO = pnMaterialDAO;
@@ -37,7 +49,18 @@ public class PnMaterialServiceImpl implements IPnMaterialService {
 		return pnMaterialDAO.getMaterials();
 	}
 
-	public Integer saveMaterial(PnMaterial pnMaterial) {
+	public Integer saveMaterial(MaterialBean materialBean) {		
+		// TODO Ramiro Chequear la tabla PN_DEFAULT_OBJECT_PERMISSION
+	    Integer materialObjectId = objectService.saveObject(new PnObject(PnMaterial.OBJECT_TYPE, new Integer(materialBean.getUser().getID()), new Date(System.currentTimeMillis()), "A"));	
+	    PnMaterialType materialType = materialTypeService.getMaterialTypeById(Integer.valueOf(materialBean.getMaterialTypeId()));
+	    
+		PnMaterial pnMaterial = new PnMaterial();
+		pnMaterial.setMaterialName(materialBean.getName());
+		pnMaterial.setMaterialDescription(materialBean.getDescription());
+		pnMaterial.setMaterialCost(Float.valueOf(materialBean.getCost()));
+		pnMaterial.setPnMaterialType(materialType);
+		pnMaterial.setRecordStatus("A");
+		pnMaterial.setMaterialId(materialObjectId);
 		return this.pnMaterialDAO.create(pnMaterial);
 	}
 
@@ -45,13 +68,37 @@ public class PnMaterialServiceImpl implements IPnMaterialService {
 		this.pnMaterialDAO.delete(pnMaterial);
 	}
 
-	public void updateMaterial(PnMaterial pnMaterial) {
-		this.pnMaterialDAO.update(pnMaterial);
+	public void updateMaterial(MaterialBean materialBean) {
+	    PnMaterialType materialType = materialTypeService.getMaterialTypeById(Integer.valueOf(materialBean.getMaterialTypeId()));		
+		PnMaterial pnMaterial = this.getMaterial(Integer.valueOf(materialBean.getMaterialId()));
+		
+		//If found, update
+		if(pnMaterial!=null){
+			pnMaterial.setMaterialName(materialBean.getName());
+			pnMaterial.setMaterialDescription(materialBean.getDescription());
+			pnMaterial.setMaterialCost(Float.valueOf(materialBean.getCost()));
+			pnMaterial.setPnMaterialType(materialType);
+			pnMaterial.setRecordStatus("A");		
+			this.pnMaterialDAO.update(pnMaterial);
+		}
 	}
 
 	@Override
 	public PnMaterialList getMaterials(List<Integer> materialsId) {
 		return this.pnMaterialDAO.getMaterials(materialsId);
 	}
+
+	@Override
+	public void disableMaterial(Integer materialId) {
+		PnMaterial pnMaterial = this.getMaterial(materialId);
+		
+		//if found, disable
+		if(pnMaterial!=null){
+			pnMaterial.setRecordStatus("D");		
+			this.pnMaterialDAO.update(pnMaterial);
+		}
+	}
+	
+	
 
 }

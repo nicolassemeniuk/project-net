@@ -73,4 +73,9 @@ public class PnMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<PnMaterial,
 		return result;
 	}
 
+	@Override
+	public void disableMaterial(PnMaterial material) {		
+		
+	}
+
 }
