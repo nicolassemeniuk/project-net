@@ -1,8 +1,10 @@
 package net.project.material;
 
+import java.io.Serializable;
+
 import net.project.space.Space;
 
-public class MaterialBean extends Material {
+public class MaterialBean extends Material implements Serializable {
 	
     /** Current space */
     private Space space;

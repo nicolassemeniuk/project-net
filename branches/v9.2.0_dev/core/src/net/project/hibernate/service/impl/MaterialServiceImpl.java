@@ -1,10 +1,6 @@
 package net.project.hibernate.service.impl;
 
-import java.sql.Date;
-
 import net.project.hibernate.model.PnMaterial;
-import net.project.hibernate.model.PnMaterialType;
-import net.project.hibernate.model.PnObject;
 import net.project.hibernate.service.IMaterialService;
 import net.project.hibernate.service.IPnMaterialService;
 import net.project.hibernate.service.IPnMaterialTypeService;
@@ -50,44 +46,33 @@ public class MaterialServiceImpl implements IMaterialService {
 	}
 	
 	@Override
-	public PnMaterialList getMaterialsFromSpace(Integer spaceId){		
+	public PnMaterialList getMaterialsFromSpace(String spaceId){		
 		return materialService.getMaterials(this.spaceHasMaterialService.getMaterialsFromSpace(spaceId));
 	}
 	
 	@Override
-	public void saveMaterial(MaterialBean materialBean) {
-		// TODO Ramiro Chequear la tabla PN_DEFAULT_OBJECT_PERMISSION
-	    Integer materialObjectId = objectService.saveObject(new PnObject(PnMaterial.OBJECT_TYPE, new Integer(materialBean.getUser().getID()), new Date(System.currentTimeMillis()), "A"));	
-	    PnMaterialType materialType = materialTypeService.getMaterialTypeById(Integer.valueOf(materialBean.getMaterialTypeId()));
-	    
-		PnMaterial pnMaterial = new PnMaterial();
-		pnMaterial.setMaterialName(materialBean.getName());
-		pnMaterial.setMaterialDescription(materialBean.getDescription());
-		pnMaterial.setMaterialCost(Float.valueOf(materialBean.getCost()));
-		pnMaterial.setPnMaterialType(materialType);
-		pnMaterial.setRecordStatus("A");
-		pnMaterial.setMaterialId(materialObjectId);			
-		materialService.saveMaterial(pnMaterial);
-		spaceHasMaterialService.associateMaterial(Integer.valueOf(materialBean.getSpaceID()), pnMaterial);
+	public void saveMaterial(MaterialBean materialBean) {			
+		Integer materialId = materialService.saveMaterial(materialBean);
+		
+		//Associate to the space
+		if(materialId != null){
+			spaceHasMaterialService.associateMaterial(materialBean.getSpaceID(), String.valueOf(materialId));
+		}		
 	}
 
 	@Override
-	public void updateMaterial(MaterialBean materialBean) {
-	    PnMaterialType materialType = materialTypeService.getMaterialTypeById(Integer.valueOf(materialBean.getMaterialTypeId()));
-		
-		PnMaterial pnMaterial = materialService.getMaterial(Integer.valueOf(materialBean.getMaterialId()));
-		pnMaterial.setMaterialName(materialBean.getName());
-		pnMaterial.setMaterialDescription(materialBean.getDescription());
-		pnMaterial.setMaterialCost(Float.valueOf(materialBean.getCost()));
-		pnMaterial.setPnMaterialType(materialType);
-		pnMaterial.setRecordStatus("A");
-		
-		materialService.updateMaterial(pnMaterial);
+	public void updateMaterial(MaterialBean materialBean) {		
+		materialService.updateMaterial(materialBean);
 	}
 
 	@Override
-	public PnMaterial getMaterial(Integer id) {
-		return materialService.getMaterial(id);
+	public PnMaterial getMaterial(String materialId) {
+		return materialService.getMaterial(Integer.valueOf(materialId));
 	}	
+	
+	@Override
+	public void disableMaterial(String materialId){
+		materialService.disableMaterial(Integer.valueOf(materialId));
+	}
 
 }
