@@ -26,10 +26,19 @@
 <jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
 <jsp:useBean id="materialBean" class="net.project.material.MaterialBean" scope="session" />
 <jsp:useBean id="domainList" class="net.project.project.DomainListBean" scope="page" />
+<%
+String id = request.getParameter("id");
+if (id != null){
+	materialBean.clear();
+	materialBean.setMaterialId(id);
+	materialBean.load();
+}
+
+%>
 
 <security:verifyAccess action="modify"
-					   module="<%=Module.MATERIAL%>"
-					   objectID="<%request.getParameter("id");%>" /> 
+					   module="<%=net.project.base.Module.MATERIAL%>"
+					   objectID="<%=materialBean.getMaterialId()%>" /> 
 					   
 <template:getDoctype />
 
@@ -39,7 +48,7 @@
 <title><display:get name="prm.global.application.title" /></title>
 
 <%-- Import CSS --%>
-<template:getSpaceCSS space="material" />
+<template:getSpaceCSS/>
 
 <%-- Import Javascript --%>
 <template:import type="javascript" src="/src/checkComponentForms.js" />
@@ -99,9 +108,9 @@
 
 <body class="main" bgcolor="#FFFFFF" onLoad="setup();" id="bodyWithFixedAreasSupport">
 	<template:getSpaceMainMenu />
-	<!-- 	<template:getSpaceNavBar /> -->
+	<template:getSpaceNavBar />
 
-	<tb:toolbar style="tooltitle" showAll="true" groupTitle="prm.application.nav.space.material" space="material">
+	<tb:toolbar style="tooltitle" showAll="true" groupTitle="prm.application.nav.space.material">
 		<tb:setAttribute name="leftTitle">
 			<history:history>
 <%-- 			            <history:module display='<%=materialSpace.getName()%>' --%>
@@ -121,6 +130,8 @@
 			<input type="hidden" name="theAction"> 
 			<input type="hidden" name="action" value="<%=Action.MODIFY%>" /> 
 			<input type="hidden" name="module" value="<%=Module.MATERIAL%>" />
+			<input type="hidden" name="materialId" value="<%=materialBean.getMaterialId()%>" />
+			
 
 								<table border=0 cellpadding=0 cellspacing=0 width="600">
 									<tr>
@@ -137,7 +148,7 @@
 														<td>&nbsp;</td>
 														<td nowrap class="fieldRequired"><display:get name="prm.material.modifymaterial.materialname.label" />:&nbsp;</td>
 														<td nowrap class="tableContent" colspan="2">
-															<input type="text" name="name" size="40" maxLength="80" value='<c:out value="${materialSpace.name}" />'>
+															<input type="text" name="name" size="40" maxLength="80" value='<c:out value="${materialBean.name}" />'>
 														</td>
 														<td nowrap class="tableContent" colspan="2">&nbsp;</td>
 													</tr>
@@ -157,7 +168,7 @@
 														<td>&nbsp;</td>
 														<td nowrap class="fieldNonRequired"><display:get name="prm.material.modifymaterial.materialcost.label" />:&nbsp;</td>
 														<td nowrap class="tableContent" colspan="2">
-															<input type="number" name="cost" size="40" maxlength="80" value='<c:out value="${materialSpace.cost}">0.0</c:out>'>
+															<input type="number" name="cost" size="40" maxlength="80" value='<c:out value="${materialBean.cost}">0.0</c:out>'>
 														</td>
 														<td nowrap class="tableContent" colspan="2">&nbsp;</td>
 													</tr>
@@ -167,7 +178,7 @@
 														<td>&nbsp;</td>
 														<td nowrap colspan="5" class="fieldNonRequired"><display:get name="prm.material.modifymaterial.materialdescription.label" />:&nbsp;<br> 
 															<textarea name="description" cols="50" rows="3">
-																	<c:out value="${materialSpace.description}"></c:out>
+																	<c:out value="${materialBean.description}"></c:out>
 															</textarea>
 														</td>
 													</tr>

@@ -18,9 +18,7 @@
             net.project.material.MaterialBean,
             net.project.methodology.MethodologyProvider,
             net.project.project.DomainListBean,
-            net.project.security.User, 
-            net.project.security.SessionManager,
-            net.project.security.SecurityProvider,
+            net.project.security.*, 
             net.project.space.Space,
             net.project.space.SpaceRelationship,
             net.project.util.JSPUtils,
@@ -137,7 +135,7 @@
 				<tr align="left" class="addSpacingBottom">
 					<td>&nbsp;</td>
 					<td nowrap class="fieldRequired" width="20%"><display:get name="prm.material.create.wizard.step1.name.label" />:&nbsp;</td>
-					<td nowrap class="tableContent" colspan="2"><input type="text" name="name" size="40" maxlength="80" value='<c:out value="${materialWizard.name}"/>'>
+					<td nowrap class="tableContent" colspan="2"><input type="text" name="name" size="40" maxlength="80" value='<c:out value="${materialBean.name}"/>'>
 					<td nowrap class="tableContent" colspan="2">&nbsp;</td>
 				</tr>
 
@@ -156,7 +154,7 @@
 					<td>&nbsp;</td>
 					<td nowrap class="fieldNonRequired"><display:get name="prm.material.create.wizard.step1.cost.label" />:&nbsp;</td>
 					<td nowrap class="tableContent" colspan="2"><input type="number" name="cost" size="40" maxlength="80"
-						value='<c:out value="${materialWizard.cost}">0.0</c:out>'></td>
+						value='<c:out value="${materialBean.cost}">0.0</c:out>'></td>
 					<td nowrap class="tableContent" colspan="2">&nbsp;</td>
 				</tr>
 
@@ -168,7 +166,7 @@
 					<td>&nbsp;</td>
 					<td nowrap colspan="5" class="fieldNonRequired"><display:get name="prm.material.create.wizard.step1.description.label" />:&nbsp;<br> 
 						<textarea name="description" cols="50" rows="3" wrap="virtual">
-								<c:out value="${materialWizard.description}"></c:out>
+								<c:out value="${materialBean.description}"></c:out>
 						</textarea>
 					</td>
 				</tr>
