@@ -5,7 +5,10 @@
 -- prm.directory.directorypage.materials.column.id
 
 -- Enterprise
--- select * from PN_PROPERTY a where a.PROPERTY like '%enterprise%';
+
+select * from PN_PROPERTY a where a.PROPERTY like '%prm.project.businessportfoliodelete.channel.selectoption.title%';
+
+
 -- update pn_property set Property_value='1' where pn_property.property = 'prm.enterprise.isenabled'
 -- insert into PN_PROPERTY values (2000,'en','boolean','prm.enterprise.isenabled','1','A',0,0,null);
 
@@ -29,8 +32,6 @@ insert into PN_PROPERTY values (2000,'en','boolean','prm.material.dashboard.isen
 insert into PN_PROPERTY values (2000,'en','boolean','prm.project.material.isenabled','1','A',0,0,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.nav.material','Materials','A',0,1,null);
 
-
-
 -- Portafolio de Materiales
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.channel.title','Materials you have access to','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.title','Material List','A',0,1,null);
@@ -39,7 +40,6 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.main.modify.butto
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.remove.button.tooltip','Delete Material','A',0,1,null);
 
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.module.history','Materials','A',0,1,null);
-
 
 --Material main
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.authorizationfailed.message','Access to Material Workspace denied','A',0,1,null);
@@ -64,6 +64,15 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.ma
 insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.materialtype.label','Material Type','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.materialcost.label','Material Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.materialdescription.label','Material Description','A',0,1,null);
+
+-- Propiedades para la vista de borrar material
+insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.title','Delete Material','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.pagetitle','Material Delete Wizard','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.rightpagetitle','Step 1','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.channel.selectoption','Select one of the following option(s)','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.button.finish.label','Finish','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.option.disablematerial.label','Disable the Material for this Project Workspace','A',0,1,null);
+
 
 /************************************************************************************
  * 				PN_OBJECT_TYPE

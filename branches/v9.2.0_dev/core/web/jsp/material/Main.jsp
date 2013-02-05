@@ -14,21 +14,18 @@
 --%>
 <%@ page contentType="text/html; charset=UTF-8" info="Material List" language="java" errorPage="/errors.jsp"
 	import="net.project.base.property.PropertyProvider,
-               net.project.channel.ChannelManager, 
-               net.project.channel.Channel, 
-               net.project.document.DocumentManagerBean,
                net.project.security.*, 
-               net.project.space.PersonalSpaceBean,
                net.project.util.NumberFormat,
                net.project.gui.toolbar.Button,
                net.project.gui.toolbar.ButtonType,
                net.project.base.Module,
-               net.project.channel.State,
-		       net.project.space.SpaceURLFactory,
-		       net.project.space.Space,
+               net.project.material.MaterialBean,
 		       net.project.hibernate.service.ServiceFactory"%>
 <%@ include file="/base/taglibInclude.jsp"%>
+
+<jsp:useBean id="materialBean" class="net.project.material.MaterialBean" scope="session" />
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
+<jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
 
 <template:getDoctype />
 
@@ -62,20 +59,14 @@ function modify(){
 	if (verifySelection(theForm, 'multiple', '<%=PropertyProvider.get("prm.global.javascript.verifyselection.noselection.error.message")%>')){ 
 		var theLocation = JSPRootURL+"/material/ModifyMaterial.jsp?id=" + getSelectedValueLocal() + "&module=<%=Module.MATERIAL%>&action=<%=Action.MODIFY%>";
 		self.document.location=theLocation;
-		
-<%-- 		var referer=JSPRootURL + "/material/MaterialPortfolio.jsp?module=<%=Module.MATERIAL%>&portfolio=true";	 --%>
-<%-- 		var modifyMaterialURL=JSPRootURL + "/material/ModifyMaterial.jsp?module=<%=Module.MATERIAL%>&action=<%=Action.MODIFY%>&referer="+referer; --%>
-// 		self.document.location=JSPRootURL+"/material/Main.jsp?id="+getSelectedValueLocal()+"&page="+ escape(modifyMaterialURL);
 	}
 }
 
 function remove(){
 	if(verifySelection(theForm, 'multiple', '<%=PropertyProvider
 					.get("prm.global.javascript.verifyselection.noselection.error.message")%>')){
-		var m_url = JSPRootURL + "/material/MaterialDelete.jsp?selected="+ getSelection(theForm) +"&module=<%=Module.MATERIAL%>"+"&action=<%=Action.VIEW%>";
-		console.log(m_url);
-		var redirect_url = JSPRootURL +"/material/Main.jsp?id=" + getSelectedValueLocal() + "&page="+ escape(m_url);
-		console.log(redirect_url);
+		var redirect_url = JSPRootURL + "/material/MaterialDelete.jsp?selected="+ getSelection(theForm) + "&module=<%=Module.MATERIAL%>"+"&action=<%=Action.DELETE%>";
+		console.log(redirect_url);		
 		var link_win = openwin_linker(redirect_url);
 		link_win.focus();
 	}	
