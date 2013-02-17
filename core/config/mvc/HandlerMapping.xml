@@ -64,7 +64,17 @@
     </Handler>
     <Handler url="/TaskView/Advanced">
         <Class>net.project.schedule.mvc.handler.taskview.TaskAdvancedHandler</Class>
-    </Handler>
+    </Handler> 
+    
+    <!-- @nicolas -->
+    <!-- Material Handler -->
+    <Handler url="/TaskView/Material">
+        <Class>net.project.schedule.mvc.handler.taskview.TaskMaterialHandler</Class>
+    </Handler>   
+    <Handler url="/TaskView/MaterialProcessing">
+        <Class>net.project.schedule.mvc.handler.taskview.TaskMaterialProcessingHandler</Class>
+    </Handler>   
+ 
     <Handler url="/TaskView/History">
         <Class>net.project.schedule.mvc.handler.taskview.TaskHistoryHandler</Class>
     </Handler>

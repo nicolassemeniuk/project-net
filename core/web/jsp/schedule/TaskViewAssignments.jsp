@@ -576,6 +576,7 @@ function setAvailability(resourceID, isEnabled) {
 <tab:tabStrip>
 	<tab:tab label='<%=PropertyProvider.get("prm.schedule.taskview.status.tab")%>' href="javascript:tabClick('/servlet/ScheduleController/TaskView?action=1');"  />
 	<tab:tab label='<%=PropertyProvider.get("prm.schedule.taskview.resources.tab")%>' href="javascript:tabClick('/servlet/ScheduleController/TaskView/Assignments?action=1');" selected="true" />
+	<tab:tab label='<%=PropertyProvider.get("prm.schedule.taskview.materials.tab")%>' href="javascript:tabClick('/servlet/ScheduleController/TaskView/Material?action=1');" />
 	<tab:tab label='<%=PropertyProvider.get("prm.schedule.taskview.dependencies.tab")%>' href="javascript:tabClick('/servlet/ScheduleController/TaskView/Dependencies?action=1');" />
 	<tab:tab label='<%=PropertyProvider.get("prm.schedule.taskview.advanced.tab")%>' href="javascript:tabClick('/servlet/ScheduleController/TaskView/Advanced?action=1');" />
 	<tab:tab label='<%=PropertyProvider.get("prm.schedule.taskview.history.tab")%>' href="javascript:tabClick('/servlet/ScheduleController/TaskView/History?action=1');" />
@@ -590,7 +591,7 @@ function setAvailability(resourceID, isEnabled) {
         <td colspan="7">
             <%
                 if (scheduleEntry.isFromShare()) {
-                    errorReporter.addWarning("Assignments cannot be added to shares.  All assignment work must occur in the source task or schedule.");
+                    errorReporter.addWarning(PropertyProvider.get("prm.schedule.taskedit.resources.cannotassignonshared.message"));
                 }
             %>
             <pnet-xml:transform xml="<%=errorReporter.getXML()%>" stylesheet="/base/xsl/error-report.xsl" />
