@@ -8,7 +8,7 @@ CREATE TABLE PN_MATERIAL_TYPE (
   MATERIAL_TYPE_NAME varchar(40),
   RECORD_STATUS varchar(1),
   constraint MATERIAL_TYPE_PK primary key (MATERIAL_TYPE_ID),
-  constraint RECORD_STATUS_MT1 check (RECORD_STATUS in ('A','I'))
+  constraint RECORD_STATUS_MT1 check (RECORD_STATUS in ('A','D'))
 );
 CREATE OR REPLACE SYNONYM PNET_USER.PN_MATERIAL_TYPE FOR PNET.PN_MATERIAL_TYPE;
 
@@ -21,7 +21,7 @@ CREATE TABLE PN_MATERIAL (
   RECORD_STATUS varchar(1),
   constraint MATERIAL_PK primary key (MATERIAL_ID),
   constraint MATERIAL_TYPE_FK1 FOREIGN KEY (material_type_id) REFERENCES pn_material_type(material_type_id),
-  constraint RECORD_STATUS_M1 check (RECORD_STATUS in ('A','I'))
+  constraint RECORD_STATUS_M1 check (RECORD_STATUS in ('A','D'))
 );
 CREATE OR REPLACE SYNONYM PNET_USER.PN_MATERIAL FOR PNET.PN_MATERIAL;
 

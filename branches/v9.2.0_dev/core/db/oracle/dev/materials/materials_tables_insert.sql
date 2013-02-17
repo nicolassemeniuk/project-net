@@ -6,7 +6,23 @@
 
 -- Enterprise
 
-select * from PN_PROPERTY a where a.PROPERTY like '%prm.project.businessportfoliodelete.channel.selectoption.title%';
+
+select * from PN_PROPERTY a where a.PROPERTY like '%prm.schedule.taskview.resources.assign.person.column%';
+
+
+
+-- Propiedades de TaskView Materials (materiales de la tarea).
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material.cantassignmentmaterial.message','You cannot assign a material in a template!','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material.unsavedchanges.message','You haven''t saved your changes yet','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material.oncriticalpath.message','This task is in the critical path','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material.overallocatedmaterials.message','This task has over-assigned materials','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material.lookforfixes.message','(Look for Fixes)','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskedit.material.cannotassignonshared.message','Materials cannot be added to shares.','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskedit.material.assignor.label','Assignor','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material.channel.assign.title','Assign Materials to a Task','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.resources.assign.person.column','Material','A',0,1,null);
+
+
 
 
 -- update pn_property set Property_value='1' where pn_property.property = 'prm.enterprise.isenabled'
@@ -27,6 +43,9 @@ insert into PN_PROPERTY values (2000,'en','css','prm.global.css.material','/styl
 
 insert into PN_PROPERTY values (2000,'en','boolean','prm.material.isenabled','1','A',0,0,null);
 insert into PN_PROPERTY values (2000,'en','boolean','prm.material.dashboard.isenabled','1','A',0,0,null);
+
+--Error harcodeado en taskedit/assignments
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskedit.resources.cannotassignonshared.message','Assignments cannot be added to shares.  All assignment work must occur in the source task or schedule.','A',0,1,null);
 
 --Navbar Project/Material
 insert into PN_PROPERTY values (2000,'en','boolean','prm.project.material.isenabled','1','A',0,0,null);
@@ -72,6 +91,9 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.ste
 insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.channel.selectoption','Select one of the following option(s)','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.button.finish.label','Finish','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.option.disablematerial.label','Disable the Material for this Project Workspace','A',0,1,null);
+
+
+
 
 
 /************************************************************************************
