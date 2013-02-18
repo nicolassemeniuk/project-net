@@ -101,7 +101,7 @@
 	<template:getSpaceMainMenu />
 	<template:getSpaceNavBar />
 
-	<tb:toolbar style="tooltitle" groupTitle="prm.application.nav.space.materials" showAll="true"
+	<tb:toolbar style="tooltitle" groupTitle="prm.application.nav.space.material" showAll="true"
 		leftTitle='<%=PropertyProvider.get("prm.material.create.wizard.step1.lefttitle.label")%>'
 		rightTitle='<%=PropertyProvider.get("prm.material.create.wizard.step1.righttitle.label")%>' space="material">
 		<tb:band name="standard">
