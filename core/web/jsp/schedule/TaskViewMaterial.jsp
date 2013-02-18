@@ -34,56 +34,52 @@
             net.project.schedule.AssignmentsHelper,
             java.util.Collection,
             net.project.util.DateFormat,
-            net.project.schedule.IAssignmentHelper,
+            net.project.schedule.IMaterialAssignmentsHelper,
             net.project.chargecode.ChargeCodeManager,
             net.project.hibernate.service.ServiceFactory,
 			net.project.hibernate.model.PnChargeCode,
-			org.apache.commons.collections.CollectionUtils"%>
+			org.apache.commons.collections.CollectionUtils,
+			net.project.material.Material"%>
 <%@ include file="/base/taglibInclude.jsp"%>
 <jsp:useBean id="user" type="net.project.security.User" scope="session" />
+<!-- Es la tarea -->
+<jsp:useBean id="scheduleEntry" type="net.project.schedule.ScheduleEntry" scope="request" />
+
+<!-- Lista de Materials -->
+<jsp:useBean id="materialAssignmentsHelper" class="net.project.schedule.MaterialAssignmentsHelper" scope="page" />
+
+
 <jsp:useBean id="roster" class="net.project.resource.RosterBean" scope="session" />
 <jsp:useBean id="refLink" class="java.lang.String" scope="request" />
 <jsp:useBean id="refLinkEncoded" class="java.lang.String" scope="request" />
 <jsp:useBean id="assignments" type="java.util.List" scope="request" />
-<jsp:useBean id="scheduleEntry" type="net.project.schedule.ScheduleEntry" scope="request" />
 <jsp:useBean id="assignmentMap" type="java.util.Map" scope="request" />
 <jsp:useBean id="assignmentRoster" type="net.project.resource.AssignmentRoster" scope="request" />
 <jsp:useBean id="overallocatedResourcesExist" type="java.lang.Boolean" scope="request" />
 <jsp:useBean id="errorReporter" class="net.project.util.ErrorReporter" scope="request" />
-<jsp:useBean id="assignmentsHelper" class="net.project.schedule.AssignmentsHelper" scope="page" />
+
 
 <%
 	DateFormat dateFormat = user.getDateFormatter();
 
 	String baseUrl = SessionManager.getJSPRootURL();
 	String id = scheduleEntry.getID();
-	refLink = (refLink != null && refLink.length() > 0
-			? refLink
-			: "/workplan/taskview?module="
-					+ net.project.base.Module.SCHEDULE);
-	refLinkEncoded = refLinkEncoded != null
-			&& refLinkEncoded.length() > 0
-			? refLinkEncoded
-			: java.net.URLEncoder.encode(refLink,
-					SessionManager.getCharacterEncoding());
+	refLink = (refLink != null && refLink.length() > 0	? refLink	: "/workplan/taskview?module="	+ net.project.base.Module.SCHEDULE);
+	refLinkEncoded = refLinkEncoded != null	&& refLinkEncoded.length() > 0	? refLinkEncoded	: java.net.URLEncoder.encode(refLink, SessionManager.getCharacterEncoding());
 
 	//Determine if we need to show the information icon box by default
-	boolean showInfoBox = scheduleEntry.isCriticalPath()
-			|| overallocatedResourcesExist.booleanValue();
+	boolean showInfoBox = scheduleEntry.isCriticalPath() || overallocatedResourcesExist.booleanValue();
 
 	assignmentsHelper.init(request, assignmentRoster, assignmentMap);
 	//load the assignies for the space
 	roster.setSpace(user.getCurrentSpace());
 	roster.load();
-	ChargeCodeManager chargeCodeManager = new ChargeCodeManager();
 	Integer spaceId = Integer.valueOf(user.getCurrentSpace().getID());
-	chargeCodeManager
-			.setChargeCodeList(ServiceFactory.getInstance()
-					.getPnChargeCodeService()
-					.getChargeCodeByProjectId(spaceId));
+
 %>
 
 <template:getDoctype />
+
 <html>
 <head>
 <META http-equiv="expires" content="0">
@@ -91,6 +87,7 @@
 <%-- Import CSS --%>
 <template:import type="css" src="/styles/schedule.css" />
 <template:getSpaceCSS />
+
 <style>
 .invalidNumber {
 	color: red;
@@ -363,22 +360,28 @@ function constructMaxAllocParameters(resourceID) {
 function flagError(errorText) {
     document.getElementById("errorLocationID").innerHTML += (errorText + "<br/>");
     goSubmit = false;
+    
 }
 function setTaskDuration(displayValue) {
     document.getElementById("durationFormatted").innerHTML = displayValue;
 }
+
 function setTaskWork(displayValue) {
     document.getElementById("workFormatted").innerHTML = displayValue;
 }
+
 function setTaskStartDate(displayDate) {
     document.getElementById("startTimeString").innerHTML = displayDate;
 }
+
 function setTaskEndDate(displayDate) {
     document.getElementById("endTimeString").innerHTML = displayDate;
 }
+
 function setTaskWorkComplete(displayValue) {
     document.getElementById("workCompleteFormatted").innerHTML = displayValue;
 }
+
 function setAssignmentValues(resourceID, percentageAssigned, workAmount, workUnitsID, workComplete, maxPercentString, maxPercentValue, isOverallocated) {
     document.getElementById("percent_" + resourceID).value = percentageAssigned;
     setTimeQuantity(resourceID, workAmount, workUnitsID);
@@ -393,6 +396,8 @@ function setAssignmentValues(resourceID, percentageAssigned, workAmount, workUni
     }
 
 }
+
+//When we use the "back" button, called from setup.
 function overallocationExist(exist) {
     if (exist) {
         document.getElementById('overallocatedResourcesIcon').className = 'tableContent';
@@ -468,19 +473,25 @@ function setAvailability(resourceID, isEnabled) {
 			}
 		%>
 		<form method="post" action="<%=baseUrl%>/servlet/ScheduleController/TaskView/MaterialProcessing">
-			<input type="hidden" name="id" value="<%=id%>"> <input type="hidden" name="action" value="<%=Action.VIEW%>"> <input type="hidden"
-				name="module" value="<%=Module.SCHEDULE%>"> <input type="hidden" name="theAction"> <input type="hidden" name="refLink" value="<%=refLink%>" />
+			<input type="hidden" name="id" value="<%=id%>"> 
+			<input type="hidden" name="action" value="<%=Action.VIEW%>"> 
+			<input type="hidden" name="module" value="<%=Module.SCHEDULE%>"> 
+			<input type="hidden" name="theAction"> 
+			<input type="hidden" name="refLink" value="<%=refLink%>" />
 			<input type="hidden" name="overallocated" value="false" />
 
 			<table border="0" cellpadding="0" cellspacing="0" width="97%">
 				<tr class="channelHeader">
-					<td width="1%" class="channelHeader"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt=""
-						border="0"></td>
-					<td nowrap class="channelHeader" colspan="5"><nobr>
-							<display:get name="prm.schedule.taskview.channel.viewtask.title" />
-						</nobr></td>
-					<td align=right width="1%" class="channelHeader"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8
-						height=15 alt="" border="0"></td>
+					<td width="1%" class="channelHeader"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border="0">
+					</td>
+					<td nowrap class="channelHeader" colspan="5">
+						<nobr>
+								<display:get name="prm.schedule.taskview.channel.viewtask.title" />
+						</nobr>
+					</td>
+					<td align=right width="1%" class="channelHeader">
+						<img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border="0">
+					</td>
 				</tr>
 
 				<tr>
@@ -607,13 +618,16 @@ function setAvailability(resourceID, isEnabled) {
 
 				<tr>
 					<td colspan="7">
+						
 						<%
 							if (scheduleEntry.isFromShare()) {
 								errorReporter.addWarning(PropertyProvider.get("prm.schedule.taskedit.material.cannotassignonshared.message"));
 							}
-						%> <pnet-xml:transform xml="<%=errorReporter.getXML()%>" stylesheet="/base/xsl/error-report.xsl" /> <%-- Provide a div for server round-trip error messaging --%>
+						%> 
+						<pnet-xml:transform xml="<%=errorReporter.getXML()%>" stylesheet="/base/xsl/error-report.xsl" /> 
+						
+						<%-- Provide a div for server round-trip error messaging --%>
 						<div id="errorLocationID" class="errorMessage"></div>
-
 					</td>
 				</tr>
 				<%
@@ -648,34 +662,43 @@ function setAvailability(resourceID, isEnabled) {
 							</tr>
 
 							<%
-								for (Iterator it = assignmentsHelper.getAssignments().iterator(); it.hasNext();) {
+// 								for (Iterator it = assignmentsHelper.getAssignments().iterator(); it.hasNext();) {
+// 										IAssignmentHelper assignment = (IAssignmentHelper) it.next();
+// 										String materialID = assignment.getPersonID();
+// 										String disabledString = (assignment.isAssigned() ? "" : "disabled");
+// 										String timeZoneId = assignment.getTimeZone().getID();
+										
+								for (Iterator<Material> it = materialAssignmentsHelper.getMaterials().iterator(); it.hasNext();) {
 										IAssignmentHelper assignment = (IAssignmentHelper) it.next();
-										String personID = assignment.getPersonID();
+										String materialID = assignment.getPersonID();
 										String disabledString = (assignment.isAssigned() ? "" : "disabled");
-										String timeZoneId = assignment.getTimeZone().getID();
+										String timeZoneId = assignment.getTimeZone().getID();		
+										
 							%>
-							<tr class="tableContent">
-								<input type="hidden" id="max_alloc_value_<%=personID%>" value='<%=assignment.getMaximumAllocationDecimal()%>'>
-
-								<td>
-									<%
-										if (assignment.isAssigned()) {
-									%> <%-- The expand/unexpand button; initially in collapsed mode --%> <a id="a_<%=personID%>"
-									href="javascript:toggleExtraInfo(<%=personID%>, true);">
-										<div class="expandIcon" id="icon_<%=personID%>"></div>
-								</a> <%
- 	}
- %>
+							<tr class="tableContent">							
+								<td align="center">
+								
+								<input 
+								name="resource" 
+								id="material_<%=materialID%>" 
+								value="<%=materialID%>" 
+								type="checkbox"
+								<%=assignment.getIsAssignedCheckedAttribute()%> 
+								onClick="assignmentCheckboxClicked('<%=materialID%>', '<%=timeZoneId%>')"
+								<%=(scheduleEntry.isFromShare() ? " readonly disabled=\"true\"" : "")%>
+								/>
+									
 								</td>
-								<td align="center"><input name="resource" id="resource_<%=personID%>" value="<%=personID%>" type="checkbox"
-									<%=assignment.getIsAssignedCheckedAttribute()%> onClick="assignmentCheckboxClicked('<%=personID%>', '<%=timeZoneId%>')"
-									<%=(scheduleEntry.isFromShare() ? " readonly disabled=\"true\"" : "")%>></td>
-								<td class="assignuser-name"><label for="resource_<%=personID%>"><%=assignment.getDisplayName()%></label></td>
-								<td align="center"><a
-									href='javascript:showResourceAllocation(<%=personID%>, <%=assignment != null && !Validator.isBlankOrNull(assignment.getResourceAllocationTime()) ? assignment.getResourceAllocationTime()
-							: String.valueOf((new Date()).getTime())%>)'>
-										<img src="<%=SessionManager.getJSPRootURL()%>/images/schedule/constraint.gif" border="0">
-								</a></td>
+								<td class="assignuser-name">
+									<label for="resource_<%=personID%>"><%=assignment.getDisplayName()%>
+									</label>
+								</td>
+								<td align="center">								
+									<a	href='javascript:showResourceAllocation(<%=personID%>, <%=assignment != null && !Validator.isBlankOrNull(assignment.getResourceAllocationTime()) ? assignment.getResourceAllocationTime()
+																				: String.valueOf((new Date()).getTime())%>)'>
+											<img src="<%=SessionManager.getJSPRootURL()%>/images/schedule/constraint.gif" border="0">
+									</a>
+								</td>
 							</tr>
 							<%
 								}
