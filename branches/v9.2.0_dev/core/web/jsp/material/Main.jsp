@@ -148,7 +148,7 @@ function popupHelp(page) {
 				<tr>
 					<td>&nbsp;</td>
 					<td class="tableContent"><pnet-xml:transform scope="session" stylesheet="/material/xsl/materials-list.xsl"
-							content="<%=ServiceFactory.getInstance().getMaterialService().getMaterials().getXML()%>" /></td>
+							content="<%=ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(user.getCurrentSpace().getID()).getXML()%>" /></td>
 					<td>&nbsp;</td>
 				</tr>
 			</table>
