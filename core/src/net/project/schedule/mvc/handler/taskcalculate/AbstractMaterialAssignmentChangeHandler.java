@@ -139,11 +139,10 @@ abstract class AbstractMaterialAssignmentChangeHandler extends Handler {
             throw new ControllerException("Specified schedule entry ID " + scheduleEntryID + " differs from session schedule entry " + scheduleEntry.getID());
         }
 
-        // Get the ID and timezone of the resource being added / removed
-        String resourceID = request.getParameter("resourceID");
-        String timeZoneId = request.getParameter("timeZoneId");
-        if (Validator.isBlankOrNull(resourceID) || Validator.isBlankOrNull(timeZoneId)) {
-            throw new ControllerException("Missing request parameter resourceID or timeZoneId");
+        // Get the ID of the material being added / removed
+        String materialID = request.getParameter("materialID");
+        if (Validator.isBlankOrNull(materialID)) {
+            throw new ControllerException("Missing request parameter materialID");
         }
 
         // Construct a map of resourceID to max allocation percentage
@@ -152,13 +151,13 @@ abstract class AbstractMaterialAssignmentChangeHandler extends Handler {
         Map oldAssignmentPercentages = getCurrentAssignmentPercentages(scheduleEntry.getAssignments());
 
         // Now actual perform the change
-        doHandleRequest(request, schedule, scheduleEntry, resourceID, timeZoneId, errorReporter);
+        doHandleRequest(request, schedule, scheduleEntry, materialID, errorReporter);
 
         // Only add the results if no errors were found
         if (!errorReporter.errorsFound()) {
             model.put("scheduleEntry", scheduleEntry);
             model.put("assignmentRoster", getSessionVar("assignmentRoster"));
-            model.put("oldAssignmentPercentages", oldAssignmentPercentages);
+            model.put("oldMaterialAssignment", oldAssignmentPercentages);
             model.put("maxAllocationMap", maxAllocationMap);
 
         }
@@ -179,7 +178,7 @@ abstract class AbstractMaterialAssignmentChangeHandler extends Handler {
      * @param errorReporter
      * @throws ControllerException
      */
-    protected abstract void doHandleRequest(HttpServletRequest request, Schedule schedule, ScheduleEntry scheduleEntry, String resourceID, String timeZoneId, ErrorReporter errorReporter) throws ControllerException;
+    protected abstract void doHandleRequest(HttpServletRequest request, Schedule schedule, ScheduleEntry scheduleEntry, String materialID, ErrorReporter errorReporter) throws ControllerException;
 
 
     /**

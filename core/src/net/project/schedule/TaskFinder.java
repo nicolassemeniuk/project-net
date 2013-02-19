@@ -579,7 +579,7 @@ public class TaskFinder extends Finder {
      * @param taskToPopulate a <code>Task</code> object that will be populated
      * with data if the task if found.
      */
-    protected boolean findByID(String id, ScheduleEntry taskToPopulate, boolean loadActiveTasksOnly, boolean loadAssignments) throws PersistenceException {
+    protected boolean findByID(String id, ScheduleEntry taskToPopulate, boolean loadActiveTasksOnly, boolean loadAssignments, boolean loadMaterialAssignments) throws PersistenceException {
         this.showActiveTasksOnly = loadActiveTasksOnly;
         clearWhereClauses();
         addWhereClause(" t.task_id = " + id);

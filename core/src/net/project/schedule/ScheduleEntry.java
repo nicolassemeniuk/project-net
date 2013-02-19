@@ -64,6 +64,7 @@ import net.project.form.assignment.FormAssignment;
 import net.project.gui.html.HTMLOption;
 import net.project.hibernate.service.ServiceFactory;
 import net.project.link.ILinkableObject;
+import net.project.material.AssignmentMaterialList;
 import net.project.notification.EventCodes;
 import net.project.persistence.IXMLPersistence;
 import net.project.persistence.PersistenceException;
@@ -315,6 +316,10 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
     /** Field that deal with assignees */
     private boolean assigneesLoaded = false;
     private AssignmentList assignments = new AssignmentList();
+    
+    /** Field to store material assignation */
+    private boolean materialAssigneesLoaded = false;
+    private AssignmentMaterialList materialAssignments = new AssignmentMaterialList();
 
     /** Allow notifications to be turned off, which will greatly speed imports. */
     boolean sendNotifications = true;
@@ -466,6 +471,7 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
         this.deadline = null;
         this.spaceID = null;
         this.assignments.clear();
+        this.materialAssignments.clear();
         this.percentComplete = null;
         this.isMilestone = false;
         this.sharedObjectID = null;
@@ -2557,6 +2563,10 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
         assignmentsManager.loadAssigneesForObject();
         addAssignments(assignmentsManager.getAssignments());
     }
+    
+    public void loadMaterialAssignments(){
+    	
+    }
 
     /**
      * Adds all the assignments in the specified collection to this task.
@@ -3371,7 +3381,7 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 		this.isLoaded = false;
 		this.predecessorList.clear();
 		TaskFinder tf = new TaskFinder();
-		this.isLoaded = tf.findByID(this.id, this, false, true);
+		this.isLoaded = tf.findByID(this.id, this, false, true, true);
 		if (!isLoaded()) {
 			throw new PersistenceException("could not load task");
         }
