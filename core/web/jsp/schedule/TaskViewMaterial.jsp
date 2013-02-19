@@ -13,6 +13,7 @@
  * If not, see http://www.gnu.org/licenses/gpl-3.0.html
 --%>
 
+<%@page import="net.project.schedule.MaterialAssignmentHelper"%>
 <%@ page contentType="text/html; charset=UTF-8" info="Task View" language="java" errorPage="/errors.jsp"
 	import="java.net.URLDecoder,
             java.net.URLEncoder,
@@ -34,7 +35,7 @@
             net.project.schedule.AssignmentsHelper,
             java.util.Collection,
             net.project.util.DateFormat,
-            net.project.schedule.IMaterialAssignmentsHelper,
+            net.project.schedule.MaterialAssignmentsHelper,
             net.project.chargecode.ChargeCodeManager,
             net.project.hibernate.service.ServiceFactory,
 			net.project.hibernate.model.PnChargeCode,
@@ -69,13 +70,16 @@
 
 	//Determine if we need to show the information icon box by default
 	boolean showInfoBox = scheduleEntry.isCriticalPath() || overallocatedResourcesExist.booleanValue();
-
-	assignmentsHelper.init(request, assignmentRoster, assignmentMap);
+	
 	//load the assignies for the space
 	roster.setSpace(user.getCurrentSpace());
 	roster.load();
-	Integer spaceId = Integer.valueOf(user.getCurrentSpace().getID());
-
+			
+	String spaceId = String.valueOf(user.getCurrentSpace().getID());
+	String objectId = scheduleEntry.getID();
+	materialAssignmentsHelper.setSpaceId(spaceId);
+	materialAssignmentsHelper.setObjectId(objectId);
+	materialAssignmentsHelper.load();
 %>
 
 <template:getDoctype />
@@ -279,23 +283,20 @@ function getWorkHours(workValue, workUnits) {
 //     document.getElementById('extraRow_' + personID).className = 'tableContent ' + rowClass;
 // }
 
-function assignmentCheckboxClicked(resourceID, timeZoneId) {
+function assignmentCheckboxClicked(materialID) {
     // Make sure the user knows that they've modified the page
     turnOnModifiedIcon();
 
     var mode;
-    var checkboxElement = document.getElementById('resource_' + resourceID);
-    if (checkboxElement.checked) {
+    var checkboxElement = document.getElementById('material_' + materialID);
+    if(checkboxElement.checked)
         mode = "add";
-        setAvailability(resourceID, true);
-    } else {
+    else
         mode = "remove";
-        setAvailability(resourceID, false);
-    }
 
-    var url = "<%=SessionManager.getJSPRootURL()%>/servlet/ScheduleController/TaskCalculate/AssignmentAddRemove?module=<%=Module.SCHEDULE%>&action=<%=Action.VIEW%>&id=<%=scheduleEntry.getID()%>";
+    var url = "<%=SessionManager.getJSPRootURL()%>/servlet/ScheduleController/TaskCalculate/AssignmentMaterialAddRemove?module=<%=Module.SCHEDULE%>&action=<%=Action.VIEW%>&id=<%=scheduleEntry.getID()%>";
 
-    var responseText = invoke(url + "&resourceID=" + resourceID + "&timeZoneId=" + timeZoneId + "&mode=" + mode + constructMaxAllocParameters(resourceID));
+    var responseText = invoke(url + "&resourceID=" + resourceID + "&mode=" + mode + constructMaxAllocParameters(resourceID));
     if(responseText.indexOf("flagError") > -1) { //if there is an error we restore back!!
         if (checkboxElement.checked) {
             checkboxElement.checked = false;
@@ -414,20 +415,6 @@ function setTimeQuantity(resourceID, amount, unitsID) {
 	document.getElementById("assignment_work_unitshidden_" + resourceID).value = unitsID;
     document.getElementById("assignment_work_" + resourceID).value = amount;
     setSelectedValue(document.getElementById("assignment_work_units_" + resourceID), unitsID);
-}
-
-<%-- Enable / disable editable items for specified resource --%>
-function setAvailability(resourceID, isEnabled) {
-    var isDisabled = !isEnabled;
-    document.getElementById("percent_" + resourceID).disabled = isDisabled;
-    document.getElementById("assignment_work_" + resourceID).disabled = isDisabled;
-    document.getElementById("assignment_work_units_" + resourceID).disabled = isDisabled;
-    document.getElementById("primary_owner_" + resourceID).disabled = isDisabled;
-    //document.getElementById("status_" + resourceID).disabled = isDisabled;
-    document.getElementById("role_" + resourceID).disabled = isDisabled;
-    if(document.getElementById("chargecode_" + resourceID)){
-	    document.getElementById("chargecode_" + resourceID).disabled = isDisabled;
-    }
 }
 
 </script>
@@ -668,11 +655,11 @@ function setAvailability(resourceID, isEnabled) {
 // 										String disabledString = (assignment.isAssigned() ? "" : "disabled");
 // 										String timeZoneId = assignment.getTimeZone().getID();
 										
-								for (Iterator<Material> it = materialAssignmentsHelper.getMaterials().iterator(); it.hasNext();) {
-										IAssignmentHelper assignment = (IAssignmentHelper) it.next();
-										String materialID = assignment.getPersonID();
-										String disabledString = (assignment.isAssigned() ? "" : "disabled");
-										String timeZoneId = assignment.getTimeZone().getID();		
+								for (Iterator<MaterialAssignmentHelper> it = materialAssignmentsHelper.getMaterialsAssigned().iterator(); it.hasNext();) {
+									MaterialAssignmentHelper assignment = it.next();
+									String materialID = assignment.getMaterial().getMaterialId();
+									String disabledString = (assignment.isAssigned() ? "" : "disabled");
+								
 										
 							%>
 							<tr class="tableContent">							
@@ -683,19 +670,19 @@ function setAvailability(resourceID, isEnabled) {
 								id="material_<%=materialID%>" 
 								value="<%=materialID%>" 
 								type="checkbox"
-								<%=assignment.getIsAssignedCheckedAttribute()%> 
-								onClick="assignmentCheckboxClicked('<%=materialID%>', '<%=timeZoneId%>')"
+								<%=assignment.isAssignedMaterialChecked()%> 
+<%--  								onClick="assignmentCheckboxClicked('<%=materialID%>', '<%=timeZoneId%>')"  --%>
 								<%=(scheduleEntry.isFromShare() ? " readonly disabled=\"true\"" : "")%>
 								/>
 									
 								</td>
 								<td class="assignuser-name">
-									<label for="resource_<%=personID%>"><%=assignment.getDisplayName()%>
-									</label>
+									<label for="resource_<%=materialID%>"><%=assignment.getDisplayName()%></label>
+	
+
 								</td>
 								<td align="center">								
-									<a	href='javascript:showResourceAllocation(<%=personID%>, <%=assignment != null && !Validator.isBlankOrNull(assignment.getResourceAllocationTime()) ? assignment.getResourceAllocationTime()
-																				: String.valueOf((new Date()).getTime())%>)'>
+									<a	href='javascript:showResourceAllocation(<%=materialID%>, "")'>
 											<img src="<%=SessionManager.getJSPRootURL()%>/images/schedule/constraint.gif" border="0">
 									</a>
 								</td>

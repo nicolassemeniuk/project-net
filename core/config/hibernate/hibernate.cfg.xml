@@ -22,6 +22,7 @@
 		<mapping resource="net/project/hibernate/model/PnAgendaItem.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnApplicationSpace.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnAssignment.hbm.xml"/>
+		<mapping resource="net/project/hibernate/model/PnAssignmentMaterial.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnAssignmentWork.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnAuthenticator.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnAuthenticatorType.hbm.xml"/>

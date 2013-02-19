@@ -7,7 +7,7 @@
 -- Enterprise
 
 
-select * from PN_PROPERTY a where a.PROPERTY like '%prm.schedule.taskview.resources.assign.person.column%';
+select * from PN_PROPERTY a where a.PROPERTY like '%prm.schedule.taskview.resources.assign.workingcalendar.column%';
 
 
 
@@ -20,8 +20,8 @@ insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskedit.material.cannotassignonshared.message','Materials cannot be added to shares.','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskedit.material.assignor.label','Assignor','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material.channel.assign.title','Assign Materials to a Task','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.resources.assign.person.column','Material','A',0,1,null);
-
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material.assign.material.column','Material','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material.assign.workingcalendar.column','Utilization<br>Summary','A',0,1,null);
 
 
 
