@@ -20,6 +20,7 @@
 				<value>net.project.hibernate.model.PnAgendaItem</value>
 				<value>net.project.hibernate.model.PnApplicationSpace</value>
 				<value>net.project.hibernate.model.PnAssignment</value>
+				<value>net.project.hibernate.model.PnAssignmentMaterial</value>
 				<value>net.project.hibernate.model.PnAssignmentWork</value>
 				<value>net.project.hibernate.model.PnAuthenticator</value>
 				<value>net.project.hibernate.model.PnAuthenticatorType</value>

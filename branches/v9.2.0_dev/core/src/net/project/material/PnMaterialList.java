@@ -8,13 +8,11 @@ import net.project.hibernate.model.PnMaterial;
 
 public class PnMaterialList extends ArrayList<PnMaterial> {
 	
-	public PnMaterialList()
-	{
+	public PnMaterialList()	{
 		super();
 	}
 	
-	public PnMaterialList(Collection<PnMaterial> collection)
-	{
+	public PnMaterialList(Collection<PnMaterial> collection){
 		super(collection);
 	}
 

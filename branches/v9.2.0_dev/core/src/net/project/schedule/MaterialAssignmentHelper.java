@@ -7,6 +7,10 @@ public class MaterialAssignmentHelper {
 	Material material;
 	Boolean assigned;	
 	
+	public MaterialAssignmentHelper(Material material, Boolean assigned){
+		this.material = material;
+		this.assigned = assigned;
+	}	
 	
 	public Material getMaterial() {
 		return material;
@@ -21,6 +25,21 @@ public class MaterialAssignmentHelper {
 		this.assigned = assigned;
 	}
 	
+	public boolean isAssigned()
+	{
+		return this.assigned;
+	}
 	
-
+	public String getDisplayName()
+	{
+		return material.getName();
+	}
+	
+	public String isAssignedMaterialChecked()
+	{
+		if(assigned)
+			return "checked";
+		else
+			return "";
+	}
 }

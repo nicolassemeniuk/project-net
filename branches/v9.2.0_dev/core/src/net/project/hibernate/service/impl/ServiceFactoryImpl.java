@@ -799,6 +799,11 @@ public class ServiceFactoryImpl extends ServiceFactory {
     	return (IPnSpaceHasMaterialService) beanFactory.getBean("pnSpaceHasMaterialService");
     }
 	
+	@Override
+    public IPnAssignmentMaterialService getPnAssignmentMaterialService(){
+    	return (IPnAssignmentMaterialService) beanFactory.getBean("pnAssignmentMaterialService");
+    }
+	
 	
 	@Override
 	public IMaterialService getMaterialService(){
