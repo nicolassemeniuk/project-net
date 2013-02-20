@@ -69,10 +69,10 @@
     <!-- @nicolas -->
     <!-- Material Handler -->
     <Handler url="/TaskView/Material">
-        <Class>net.project.schedule.mvc.handler.taskview.TaskMaterialHandler</Class>
+        <Class>net.project.schedule.mvc.handler.taskview.TaskMaterialAssignmentHandler</Class>
     </Handler>   
     <Handler url="/TaskView/MaterialProcessing">
-        <Class>net.project.schedule.mvc.handler.taskview.TaskMaterialProcessingHandler</Class>
+        <Class>net.project.schedule.mvc.handler.taskview.TaskMaterialAssignmentProcessingHandler</Class>
     </Handler>   
  
     <Handler url="/TaskView/History">

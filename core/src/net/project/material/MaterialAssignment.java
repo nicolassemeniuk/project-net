@@ -7,7 +7,7 @@ import java.util.Date;
 import net.project.hibernate.model.PnAssignmentMaterial;
 import net.project.hibernate.service.ServiceFactory;
 
-public class AssignmentMaterial implements Serializable{
+public class MaterialAssignment implements Serializable{
 	
 	private String spaceId;
 	private String objectId;
@@ -21,8 +21,18 @@ public class AssignmentMaterial implements Serializable{
 	private String modifiedBy;
 	private String assignorId;
 	
-	public AssignmentMaterial(){
-		
+	public MaterialAssignment(){		
+	}
+	
+	public MaterialAssignment(PnAssignmentMaterial assignedMaterial){
+		this.percentAssigned = assignedMaterial.getPercentAllocated();
+		this.recordStatus = assignedMaterial.getRecordStatus();
+		this.startDate = assignedMaterial.getStartDate();
+		this.endDate = assignedMaterial.getEndDate();
+		this.dateCreated = assignedMaterial.getDateCreated();
+		this.modifiedDate = assignedMaterial.getModifiedDate();
+		this.modifiedBy = String.valueOf(assignedMaterial.getModifiedBy());
+		this.assignorId = String.valueOf(assignedMaterial.getPnAssignor().getPersonId());	
 	}
 	
 	public void load(){

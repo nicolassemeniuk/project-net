@@ -21,6 +21,7 @@ import java.util.TimeZone;
 
 import net.project.calendar.workingtime.IWorkingTimeCalendarProvider;
 import net.project.calendar.workingtime.NoWorkingTimeException;
+import net.project.material.MaterialAssignment;
 import net.project.persistence.PersistenceException;
 import net.project.resource.ScheduleEntryAssignment;
 import net.project.schedule.Schedule;
@@ -315,6 +316,10 @@ public class ScheduleEntryCalculator {
 		assignmentAdder.addAssignment(newPercentageDecimal);
 //		assignmentAdder.calculateWorkComplete();
 	}
+	
+	public void assignmentMaterialAdded(MaterialAssignment assignment){
+		this.scheduleEntry.getMaterialAssignments().add(assignment);
+	}
 
 	/**
 	 * Indicates that the assignment was removed from the current schedule
@@ -345,6 +350,10 @@ public class ScheduleEntryCalculator {
 	 */
 	public void assignmentRemoved(ScheduleEntryAssignment assignment) {
 		assignmentRemoved(assignment, scheduleEntry.getTaskCalculationType());
+	}
+	
+	public void assignmentMaterialRemoved(MaterialAssignment assignment){
+		this.scheduleEntry.getMaterialAssignments().removeAssignment(assignment);
 	}
 
 	/**

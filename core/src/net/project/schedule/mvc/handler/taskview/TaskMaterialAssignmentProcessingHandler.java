@@ -18,8 +18,6 @@
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -27,55 +25,58 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.project.base.Module;
 import net.project.base.property.PropertyProvider;
-import net.project.notification.DeliveryException;
-import net.project.notification.NotificationException;
 import net.project.resource.RosterBean;
 import net.project.resource.ScheduleEntryAssignment;
 import net.project.schedule.Schedule;
 import net.project.schedule.ScheduleEntry;
-import net.project.schedule.TaskAssignmentNotification;
 import net.project.security.Action;
 import net.project.security.SessionManager;
 import net.project.security.User;
 import net.project.util.ErrorReporter;
 
 /**
- * Provides a handler for processing task assignments.
- *
- * @author Tim Morrow
- * @since Version 7.7.1
+ * Provides a handler for processing task material assignments.
  */
-public class TaskMaterialProcessingHandler extends AbstractTaskAssignmentHandler {
+public class TaskMaterialAssignmentProcessingHandler extends AbstractTaskAssignmentHandler {
 
-    public TaskMaterialProcessingHandler(HttpServletRequest request) {
+    public TaskMaterialAssignmentProcessingHandler(HttpServletRequest request) {
         super(request);
     }
 
-    public Map handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public Map<String, ErrorReporter> handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
         // We specifically do not call the super.handleRequest() method since it reloads the
         // schedule entry
-        Map model = new HashMap();
+        Map<String, ErrorReporter> model = new HashMap<String, ErrorReporter>();
         ErrorReporter errorReporter = new ErrorReporter();
         model.put("errorReporter", errorReporter);
 
+        Schedule schedule = (Schedule) getSessionVar("schedule");
         ScheduleEntry scheduleEntry = (ScheduleEntry) getSessionVar("scheduleEntry");
         User user = (User) getSessionVar("user");
+        String theAction = request.getParameter("theAction");
+        
+        
         RosterBean roster = (RosterBean) getSessionVar("roster");
+        
+        
         if (roster == null) {
             roster = new RosterBean();
             request.getSession().setAttribute("roster", roster);
         }
-        Schedule schedule = (Schedule) getSessionVar("schedule");
+        
+        
 
-        String theAction = request.getParameter("theAction");
+
+
         if (theAction.equals("submit") || theAction.equals("update") || theAction.equals("overallocation")) {
             // Grab the assignment list; note that it already includes the assignmentMap
             // with correct % allocation and work
             // Only Owner, Status and Role are needed to be updated
-            Map assignmentMap = scheduleEntry.getAssignmentList().getAssignmentMap();
+            Map<?, ?> assignmentMap = scheduleEntry.getAssignmentList().getAssignmentMap();
 
             String[] resourceIDs = request.getParameterValues("resource");
             String assignorId = request.getParameter("assignorUser");
+            
             if(assignorId == null)
                 assignorId = user.getID();
 
@@ -83,7 +84,7 @@ public class TaskMaterialProcessingHandler extends AbstractTaskAssignmentHandler
             if (resourceIDs != null) {
                 String primaryOwnerID = request.getParameter("primary_owner");
 
-                for (Iterator iterator = Arrays.asList(resourceIDs).iterator(); iterator.hasNext();) {
+                for (Iterator<String> iterator = Arrays.asList(resourceIDs).iterator(); iterator.hasNext();) {
                     String resourceID = (String) iterator.next();
                     ScheduleEntryAssignment assignment = (ScheduleEntryAssignment) assignmentMap.get(resourceID);
                     if (assignment == null) {
@@ -109,24 +110,6 @@ public class TaskMaterialProcessingHandler extends AbstractTaskAssignmentHandler
                 // May have changed due to modified assignments
                 // This will store the assignments too.
                 scheduleEntry.store(true, schedule);
-
-                // Now send the notifications
-                if (PropertyProvider.getBoolean("prm.schedule.taskassignments.notification.enabled", true)) {
-                    try {
-                        sendNotifications(scheduleEntry, user, roster, errorReporter);
-                    } catch (Exception e) {
-                        //sjmittal catch it as we still have to calculate end points
-                    }
-                }
-
-                //Recalculating will force the start date and end date of the
-                //assignmentMap to be shown.  If this wasn't done, the start date
-                //and end dates of assignmentMap probably wouldn't be correct.
-                //sjmittal: not needed as already done in scheduleEntry.store(true, schedule); above 
-//              if (schedule.isAutocalculateTaskEndpoints()) {
-//                  schedule.recalculateTaskTimes();
-//              }
-
                 //Reload the schedule entry to make sure it gets the latest stuff
                 String id = scheduleEntry.getID();
                 scheduleEntry.clear();
@@ -164,59 +147,5 @@ public class TaskMaterialProcessingHandler extends AbstractTaskAssignmentHandler
         return model;
     }
 
-    /**
-     * Sends notifications to newly added assignments.
-     * <p/>
-     * When delivery errors occur (for example, sending email), error reporter is update.
-     * @param scheduleEntry the schedule entry about which assignments will be notified of
-     * their assignment to
-     * @param user the current user performing the assignments
-     * @param roster the roster used for locating resource names in the event of errors
-     * @param errorReporter the error report to which to add errors
-     * @throws NotificationException if a non-delivery notification exception occurred
-     */
-    private void sendNotifications(ScheduleEntry scheduleEntry, User user, RosterBean roster, ErrorReporter errorReporter) throws NotificationException {
-
-        DeliveryException firstDeliveryException = null;
-        List failedResourceNames = new LinkedList();
-
-        for (Iterator it = scheduleEntry.getAssignmentList().getAssignments().iterator(); it.hasNext();) {
-            ScheduleEntryAssignment assignment = (ScheduleEntryAssignment)it.next();
-
-            // Only send notification if person not already assigned
-            if (!assignmentManager.isUserInAssignmentList(assignment.getPersonID())) {
-                TaskAssignmentNotification notification = new TaskAssignmentNotification();
-                notification.initialize (scheduleEntry, assignment, user);
-                //Author: Avinash Bhamare,  Date: 31st Mar 2006
-                //bfd-2997 : passing parameter assignment to new method getVCalendarForUser
-                notification.attach(new net.project.calendar.vcal.VCalAttachment(scheduleEntry.getVCalendarForUser(assignment)));
-                try {
-                    notification.post();
-                } catch (DeliveryException e) {
-                    // Problem delivering email, possibly due to bad email configuration
-                    // We have to look up roster by any ID since resourceIDs may yet to have registered
-                    if (firstDeliveryException == null) {
-                        firstDeliveryException = e;
-                    }
-                    failedResourceNames.add(roster.getAnyPerson(assignment.getPersonID()).getDisplayName());
-                }
-            }
-        }
-
-        if (firstDeliveryException != null) {
-            // There was an error
-            // Format the names of the failed resources
-            StringBuffer failedResourceNamesFormatted = new StringBuffer();
-            for (Iterator iterator = failedResourceNames.iterator(); iterator.hasNext();) {
-                String name = (String) iterator.next();
-                if (failedResourceNamesFormatted.length() > 0) {
-                    failedResourceNamesFormatted.append(", ");
-                }
-                failedResourceNamesFormatted.append(name);
-            }
-
-            // Document the error, using only the first exception, but all the names
-            errorReporter.addError(PropertyProvider.get("prm.schedule.taskview.resources.error.notification.message", failedResourceNamesFormatted.toString(), firstDeliveryException.formatOriginalCauseMessage()));
-        }
-    }
+  
 }
