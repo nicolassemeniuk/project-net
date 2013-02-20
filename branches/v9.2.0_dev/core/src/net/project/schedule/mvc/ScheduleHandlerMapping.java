@@ -75,7 +75,7 @@ import net.project.schedule.mvc.handler.taskview.TaskAssignmentHandler;
 import net.project.schedule.mvc.handler.taskview.TaskAssignmentProcessingHandler;
 import net.project.schedule.mvc.handler.taskview.TaskDependencyHandler;
 import net.project.schedule.mvc.handler.taskview.TaskHistoryHandler;
-import net.project.schedule.mvc.handler.taskview.TaskMaterialHandler;
+import net.project.schedule.mvc.handler.taskview.TaskMaterialAssignmentHandler;
 import net.project.schedule.mvc.handler.taskview.TaskViewHandler;
 import net.project.schedule.mvc.handler.workingtime.WorkingTimeCreateHandler;
 import net.project.schedule.mvc.handler.workingtime.WorkingTimeEditDateHandler;
@@ -126,7 +126,7 @@ class ScheduleHandlerMapping extends HandlerMapping {
             return new TaskAssignmentHandler(request);
             //@nicolas added
         } else if (pathInfo.equalsIgnoreCase("/TaskView/Materials")) {
-            return new TaskMaterialHandler(request);
+            return new TaskMaterialAssignmentHandler(request);
         } else if (pathInfo.equalsIgnoreCase("/TaskView/AssignmentsProcessing")) {
             return new TaskAssignmentProcessingHandler(request);
         } else if (pathInfo.equalsIgnoreCase("/TaskView/AssignmentModifyPercent")) {

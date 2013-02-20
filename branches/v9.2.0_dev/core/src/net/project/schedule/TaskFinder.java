@@ -600,6 +600,9 @@ public class TaskFinder extends Finder {
             if (loadAssignments) {
                 taskToPopulate.loadAssignments();
             }
+            if (loadMaterialAssignments){
+            	taskToPopulate.loadMaterialAssignments();
+            }
         } catch (SQLException sqle) {
         	Logger.getLogger(TaskFinder.class).debug("An unexpected SQL Exception has occurred: " + sqle);
             throw new PersistenceException("Unable to load task", sqle);

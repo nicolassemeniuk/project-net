@@ -64,7 +64,8 @@ import net.project.form.assignment.FormAssignment;
 import net.project.gui.html.HTMLOption;
 import net.project.hibernate.service.ServiceFactory;
 import net.project.link.ILinkableObject;
-import net.project.material.AssignmentMaterialList;
+import net.project.material.MaterialAssignment;
+import net.project.material.MaterialAssignmentList;
 import net.project.notification.EventCodes;
 import net.project.persistence.IXMLPersistence;
 import net.project.persistence.PersistenceException;
@@ -81,7 +82,6 @@ import net.project.util.HTMLUtils;
 import net.project.util.Node;
 import net.project.util.NodeFactory;
 import net.project.util.NumberFormat;
-import net.project.util.StringUtils;
 import net.project.util.TemplateFormatter;
 import net.project.util.TextFormatter;
 import net.project.util.TimeQuantity;
@@ -319,7 +319,7 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
     
     /** Field to store material assignation */
     private boolean materialAssigneesLoaded = false;
-    private AssignmentMaterialList materialAssignments = new AssignmentMaterialList();
+    private MaterialAssignmentList materialAssignments = new MaterialAssignmentList();
 
     /** Allow notifications to be turned off, which will greatly speed imports. */
     boolean sendNotifications = true;
@@ -494,7 +494,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      *
      * @return String the task database id
      */
-    public String getID() {
+    @Override
+	public String getID() {
         return this.id;
     }
 
@@ -503,7 +504,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      *
      * @param id the task database id
      */
-    public void setID(String id) {
+    @Override
+	public void setID(String id) {
         if ((this.id == null) || (!this.id.equals(id))) {
             this.id = id;
             this.predecessorList.setTaskID(id);
@@ -553,7 +555,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      * @return a <code>String</code> value containing the id of the space that
      * the task belongs to.
      */
-    public String getSpaceID() {
+    @Override
+	public String getSpaceID() {
         return this.spaceID;
     }
 
@@ -569,7 +572,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      * @return the id of the task type
      * @see #getTaskType()
      */
-    public String getType() {
+    @Override
+	public String getType() {
         return getTaskType().getID();
     }
 
@@ -601,7 +605,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      * @return String the name
      * @since 03/00
      */
-    public String getName() {
+    @Override
+	public String getName() {
         return this.name;
     }
 
@@ -612,7 +617,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 	 * @return a <code>String</code> containing the task name, unless the task
 	 *         name is longer than 40 characters.
 	 */
-    public String getNameMaxLength40() {
+    @Override
+	public String getNameMaxLength40() {
         return TextFormatter.truncateString(this.name, 40);
     }
 
@@ -631,7 +637,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      *
      * @return String the description
      */
-    public String getDescription() {
+    @Override
+	public String getDescription() {
         return this.description;
     }
 
@@ -640,7 +647,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      *
      * @return String the URL.
      */
-    public String getURL() {
+    @Override
+	public String getURL() {
         return URLFactory.makeURL(this.id, ObjectType.TASK);
     }
 
@@ -715,8 +723,14 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
     public void setActualStartTimeD(Date actualStartTime) {
         actualStart = actualStartTime;
     }
+    
+    
 
-    public Date getActualStartTime() {
+    public void setMaterialAssigneesLoaded(boolean materialAssigneesLoaded) {
+		this.materialAssigneesLoaded = materialAssigneesLoaded;
+	}
+
+	public Date getActualStartTime() {
         return actualStart;
     }
 
@@ -861,7 +875,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      * @return a <code>java.util.Date</code> object which contains the planned
      * start time as a date object
      */
-    public java.util.Date getStartTime() {
+    @Override
+	public java.util.Date getStartTime() {
         return this.startTime;
     }
 
@@ -871,7 +886,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      * @return a <code>java.util.Date</code> value containing the planned end
      * time.
      */
-    public java.util.Date getEndTime() {
+    @Override
+	public java.util.Date getEndTime() {
         return this.endTime;
     }
 
@@ -947,7 +963,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      * @return a <code>TimeQuantity</code> containing the total amount of work
      * required to complete this task from start to finish.
      */
-    public TimeQuantity getWorkTQ() {
+    @Override
+	public TimeQuantity getWorkTQ() {
         return work;
     }
 
@@ -1494,7 +1511,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      * Returns this task's current record status.
      * @return the record status
      */
-    public RecordStatus getRecordStatus() {
+    @Override
+	public RecordStatus getRecordStatus() {
         return this.recordStatus;
     }
 
@@ -1608,7 +1626,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      * <code>TaskDependency</code> objects.
      * @throws net.project.persistence.PersistenceException if there is trouble loading the dependencies from the database.
      */
-    public PredecessorList getDependencies() throws PersistenceException {
+    @Deprecated
+	public PredecessorList getDependencies() throws PersistenceException {
         return getPredecessors();
     }
 
@@ -1659,7 +1678,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      * <code>TaskDependency</code> objects,
      * @throws net.project.persistence.PersistenceException if there is a problem loading the dependent tasks from the database.
      */
-    public SuccessorList getDependentTasks() throws PersistenceException {
+    @Deprecated
+	public SuccessorList getDependentTasks() throws PersistenceException {
         return getSuccessors();
     }
 
@@ -1706,9 +1726,16 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 
         return this.comments;
     }
+    
+    
 
     
-    public void addToJSONStore(final NodeFactory factory, final PersonalPropertyMap propertyMap, final IWorkingTimeCalendarProvider provider, final boolean forFlatView, final boolean childrenVisible) {
+    public boolean isMaterialAssigneesLoaded() {
+		return materialAssigneesLoaded;
+	}
+
+	@Override
+	public void addToJSONStore(final NodeFactory factory, final PersonalPropertyMap propertyMap, final IWorkingTimeCalendarProvider provider, final boolean forFlatView, final boolean childrenVisible) {
         final Node newNode = factory.nextNode();
         final Map map = newNode.getMap();
         //sachin: note formatting is done in default date format as the dates are handled in javacript
@@ -1846,7 +1873,7 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
         newNode.set("treeVisibility", childrenVisible);
        
         // Determine whether this newNode will be added to received root
-        if(!forFlatView && StringUtils.isNumeric(this.parentTaskID)) {
+        if(!forFlatView && org.apache.commons.lang.StringUtils.isNumeric(this.parentTaskID)) {
             int parentTaskId = Integer.parseInt(this.parentTaskID);
             List<Node> nodes = factory.getNodes();
             for (Node targetParent : nodes) {
@@ -1886,7 +1913,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      *
      * @return XML representation
      */
-    public String getXMLBody() {
+    @Override
+	public String getXMLBody() {
         final DateFormat df = DateFormat.getInstance();
         StringBuilder xml = new StringBuilder();
         xml.append("<" + getType() + ">\n"); // use the real task type
@@ -2109,7 +2137,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      *
      * @return XML representation
      */
-    public String getXML() {
+    @Override
+	public String getXML() {
         return (IXMLPersistence.XML_VERSION + getXMLBody());
     }
 
@@ -2250,6 +2279,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
     public void setShareReadOnly(boolean shareReadOnly) {
         isShareReadOnly = shareReadOnly;
     }
+    
+    
 
     /**
      * This method returns all schedules that this task is a member in.
@@ -2491,7 +2522,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      *
      * @return the VCalendar representation of this Task
      */
-    public VCalendar getVCalendar() {
+    @Override
+	public VCalendar getVCalendar() {
         VCalendar vcal = new VCalendar();
 
         // Give it a name for attachment purposes
@@ -2513,7 +2545,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      *
      * @return the VCalendarEntity representaiton of this Task (a vEvent)
      */
-    public net.project.calendar.vcal.VCalendarEntity getVCalendarEntity() {
+    @Override
+	public net.project.calendar.vcal.VCalendarEntity getVCalendarEntity() {
 
         VEvent event = new VEvent();
 
@@ -2535,7 +2568,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      * @return A <code>String</code> variable containing a list of resource names
      * assigned to this task.
      */
-    public String getAssigneeString() throws PersistenceException {
+    @SuppressWarnings("rawtypes")
+	public String getAssigneeString() throws PersistenceException {
         if (!isAssigneesLoaded()) {
             loadAssignments();
             setAssigneesLoaded(true);
@@ -2557,17 +2591,13 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
         return assigneeString.toString();
     }
 
-    void loadAssignments() throws PersistenceException {
+    public void loadAssignments() throws PersistenceException {
         AssignmentManager assignmentsManager = new AssignmentManager();
         assignmentsManager.setObjectID(getID());
         assignmentsManager.loadAssigneesForObject();
         addAssignments(assignmentsManager.getAssignments());
     }
     
-    public void loadMaterialAssignments(){
-    	
-    }
-
     /**
      * Adds all the assignments in the specified collection to this task.
      * <p>
@@ -2576,10 +2606,17 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      * @param assignments the assignments to add; each element must be
      * an <code>Assignment</code>
      */
-    public void addAssignments(Collection assignments) {
+    @SuppressWarnings("rawtypes")
+	public void addAssignments(Collection assignments) {
         this.assignments.clear();
         this.assignments.addAllAssignments(assignments);
         setAssigneesLoaded(true);
+    }
+    
+    public void loadMaterialAssignments(){
+    	this.materialAssignments.clear();
+    	this.materialAssignments.load(getSpaceID(), getID());
+    	setMaterialAssigneesLoaded(true);
     }
 
     /**
@@ -2606,7 +2643,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      * @return an unmodifiable collection where each element is a
      * <code>{@link ScheduleEntryAssignment}</code>.
      */
-    public Collection getAssignments() {
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+	public Collection getAssignments() {
         return Collections.unmodifiableCollection(this.assignments.getAssignments());
     }
 
@@ -2649,7 +2687,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      * @param o the task to compare
      * @return true if the specified task has the same ID; false otherwise
      */
-    public boolean equals(Object o) {
+    @Override
+	public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof ScheduleEntry)) return false;
 
@@ -2667,7 +2706,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
         return true;
     }
 
-    public int hashCode() {
+    @Override
+	public int hashCode() {
         return (id != null ? id.hashCode() : 0);
     }
 
@@ -2692,7 +2732,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      *
      * @return  a string representation of the object.
      */
-    public String toString() {
+    @Override
+	public String toString() {
         return (name == null ? "Unnamed Task" : name) + "(id:" + id + ",start:" + startTime + ",end:" + endTime + ")";
     }
 
@@ -3059,7 +3100,9 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      * schedule is required which provides the default schedule working time
      * calendar
      */
-    public void store() throws PersistenceException {
+    @Deprecated
+	@Override
+	public void store() throws PersistenceException {
         Schedule schedule = new Schedule();
         schedule.setTimeZone(SessionManager.getUser().getTimeZone());
         store(false, schedule);
@@ -3077,7 +3120,9 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      * schedule is required which provides the default schedule working time
      * calendar
      */
-    public void store(DBBean db) throws SQLException {
+    @Deprecated
+	@Override
+	public void store(DBBean db) throws SQLException {
         Schedule schedule = new Schedule();
         schedule.setTimeZone(SessionManager.getUser().getTimeZone());
         try {
@@ -3104,7 +3149,7 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
             store(autocalculateDates, schedule, db);
             db.commit();
             // store the id of charge code applied on this task along with id of task. 
-            if(StringUtils.isNotEmpty(this.chargeCodeId)){
+            if(org.apache.commons.lang.StringUtils.isNotEmpty(this.chargeCodeId)){
             	ServiceFactory.getInstance().getPnObjectHasChargeCodeService().save(Integer.valueOf(this.id), Integer.valueOf(chargeCodeId), Integer.valueOf(SessionManager.getUser().getCurrentSpace().getID()));
             }
 
@@ -3377,6 +3422,7 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 	 * @throws net.project.persistence.PersistenceException
 	 *             if there is a problem loading the task
 	 */
+	@Override
 	public void load() throws PersistenceException {
 		this.isLoaded = false;
 		this.predecessorList.clear();
@@ -3604,7 +3650,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 	 *             if the task_id has not been set prior to calling the
 	 *             <code>remove()</code> method.
 	 */
-    public void remove() throws PersistenceException {
+    @Override
+	public void remove() throws PersistenceException {
         remove(false, "No", "0");
     }
 
@@ -3632,7 +3679,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
         return se;
     }
 
-    public Object clone() {
+    @Override
+	public Object clone() {
         ScheduleEntry clone = ScheduleEntryFactory.createFromType(getTaskType());
         setFieldsFromScheduleEntry(clone);
 
@@ -3689,6 +3737,7 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 		se.sendNotifications = this.sendNotifications;
 		se.ignoreTimePortionOfDate = this.ignoreTimePortionOfDate;
 		se.assigneesLoaded = this.assigneesLoaded;
+		se.materialAssigneesLoaded = this.materialAssigneesLoaded;
 		se.sharedObjectID = this.sharedObjectID;
 		se.sharingSpaceName = this.sharingSpaceName;
 		se.sharingSpaceID = this.sharingSpaceID;
@@ -3712,6 +3761,10 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 		for (Iterator it = this.assignments.iterator(); it.hasNext();) {
 			ScheduleEntryAssignment assignment = (ScheduleEntryAssignment) it.next();
 			se.assignments.addAssignment((ScheduleEntryAssignment) assignment.clone());
+		}
+		
+		for(MaterialAssignment material : this.materialAssignments){
+			se.materialAssignments.add(material);
 		}
 	}
 
@@ -4118,4 +4171,14 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 		WikiModel wikiModel = new WikiModel(AddonConfiguration.DEFAULT_CONFIGURATION, null, null);
 		return wikiModel.render(this.description);
 	}
+
+	public MaterialAssignmentList getMaterialAssignments() {
+		return materialAssignments;
+	}
+
+	public void setMaterialAssignments(MaterialAssignmentList materialAssignments) {
+		this.materialAssignments = materialAssignments;
+	}
+	
+	
 }

@@ -15,11 +15,7 @@
 
  package net.project.schedule.mvc.handler.taskcalculate;
 
-import java.math.BigDecimal;
-import java.util.Collection;
-import java.util.Enumeration;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -30,10 +26,9 @@ import net.project.base.PnetException;
 import net.project.base.mvc.ControllerException;
 import net.project.base.mvc.Handler;
 import net.project.base.mvc.IView;
-import net.project.resource.ScheduleEntryAssignment;
 import net.project.schedule.Schedule;
 import net.project.schedule.ScheduleEntry;
-import net.project.schedule.mvc.view.taskcalculate.AssignmentChangeView;
+import net.project.schedule.mvc.view.taskcalculate.MaterialAssignmentChangeView;
 import net.project.security.AccessVerifier;
 import net.project.security.Action;
 import net.project.security.AuthorizationFailedException;
@@ -43,10 +38,7 @@ import net.project.util.Validator;
 import org.apache.log4j.Logger;
 
 /**
- * Provides a base class for handlers performing round-trips when assignments change.
- *
- * @author Tim Morrow
- * @since Version 7.7.0
+ * Provides a base class for handlers performing round-trips when material assignments change.
  */
 abstract class AbstractMaterialAssignmentChangeHandler extends Handler {
 
@@ -71,7 +63,7 @@ abstract class AbstractMaterialAssignmentChangeHandler extends Handler {
      * @return the view
      */
     public IView getView() {
-        return new AssignmentChangeView();
+        return new MaterialAssignmentChangeView();
     }
 
     /**
@@ -109,9 +101,9 @@ abstract class AbstractMaterialAssignmentChangeHandler extends Handler {
      * @return the model map
      * @throws Exception
      */
-    public Map handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public Map<String, Object> handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        Map model = new HashMap();
+        Map<String, Object> model = new HashMap<String, Object>();
         ErrorReporter errorReporter = new ErrorReporter();
         model.put("errorReporter", errorReporter);
 
@@ -124,9 +116,9 @@ abstract class AbstractMaterialAssignmentChangeHandler extends Handler {
         // Get the current schedule from the session
         Schedule schedule = (Schedule) request.getSession().getAttribute("schedule");
         schedule.reloadIfNeeded();
-        if (schedule == null) {
-            throw new ControllerException("Missing session attribute schedule");
-        }
+//        if (schedule == null) {
+//            throw new ControllerException("Missing session attribute schedule");
+//        }
 
         // Get the ID of the schedule entry on which security was checked
         // And make sure that is the one being editied
@@ -146,9 +138,9 @@ abstract class AbstractMaterialAssignmentChangeHandler extends Handler {
         }
 
         // Construct a map of resourceID to max allocation percentage
-        Map maxAllocationMap = parseMaxAllocations(request);
+//        Map<String, BigDecimal> maxAllocationMap = parseMaxAllocations(request);
         // Save current assignment percentages
-        Map oldAssignmentPercentages = getCurrentAssignmentPercentages(scheduleEntry.getAssignments());
+//        Map<String, BigDecimal> oldAssignmentPercentages = getCurrentAssignmentPercentages(scheduleEntry.getAssignments());
 
         // Now actual perform the change
         doHandleRequest(request, schedule, scheduleEntry, materialID, errorReporter);
@@ -156,9 +148,8 @@ abstract class AbstractMaterialAssignmentChangeHandler extends Handler {
         // Only add the results if no errors were found
         if (!errorReporter.errorsFound()) {
             model.put("scheduleEntry", scheduleEntry);
-            model.put("assignmentRoster", getSessionVar("assignmentRoster"));
-            model.put("oldMaterialAssignment", oldAssignmentPercentages);
-            model.put("maxAllocationMap", maxAllocationMap);
+//            model.put("oldMaterialAssignment", oldAssignmentPercentages);
+//            model.put("maxAllocationMap", maxAllocationMap);
 
         }
 
@@ -188,14 +179,14 @@ abstract class AbstractMaterialAssignmentChangeHandler extends Handler {
      * element a <code>BigDecimal</code> representing the percentage assigned decimal
      * value fetched through {@link net.project.resource.ScheduleEntryAssignment#getPercentAssignedDecimal()}
      */
-    private static Map getCurrentAssignmentPercentages(Collection assignments) {
-        Map assignmentPercentages = new HashMap(assignments.size());
-        for (Iterator iterator = assignments.iterator(); iterator.hasNext();) {
-            ScheduleEntryAssignment nextAssignment = (ScheduleEntryAssignment) iterator.next();
-            assignmentPercentages.put(nextAssignment.getPersonID(), nextAssignment.getPercentAssignedDecimal());
-        }
-        return assignmentPercentages;
-    }
+//    private static Map<String, BigDecimal> getCurrentAssignmentPercentages(Collection<?> assignments) {
+//        Map<String, BigDecimal> assignmentPercentages = new HashMap<String, BigDecimal>(assignments.size());
+//        for (Iterator<?> iterator = assignments.iterator(); iterator.hasNext();) {
+//            ScheduleEntryAssignment nextAssignment = (ScheduleEntryAssignment) iterator.next();
+//            assignmentPercentages.put(nextAssignment.getPersonID(), nextAssignment.getPercentAssignedDecimal());
+//        }
+//        return assignmentPercentages;
+//    }
 
     /**
      * Parses from the request the current max allocation values of a subset of resources.
@@ -207,31 +198,31 @@ abstract class AbstractMaterialAssignmentChangeHandler extends Handler {
      * @return a map where each key is a <code>String</code> resourceID and each element is a
      * <code>BigDecimal</code> maximum percentage allocated
      */
-    private static Map parseMaxAllocations(HttpServletRequest request) {
-        // Parse max allocations
-        Map maxAllocationMap = new HashMap();
-        for (Enumeration e = request.getParameterNames(); e.hasMoreElements(); ) {
-            String parameterName = (String) e.nextElement();
-
-            if (parameterName.startsWith("max_alloc_value_")) {
-                String allocResourceID = parameterName.substring("max_alloc_value_".length());
-                BigDecimal maxAllocDecimal = new BigDecimal(request.getParameter(parameterName));
-
-                // Now store in map
-                maxAllocationMap.put(allocResourceID, maxAllocDecimal);
-            }
-        }
-
-        if (LOGGER.isDebugEnabled()) {
-            StringBuffer output = new StringBuffer("Max allocations: ");
-            for (Iterator iterator = maxAllocationMap.keySet().iterator(); iterator.hasNext();) {
-                String resourceID = (String) iterator.next();
-                output.append(resourceID).append("=").append(maxAllocationMap.get(resourceID)).append(" ");
-            }
-            LOGGER.debug(output.toString());
-        }
-
-        return maxAllocationMap;
-    }
+//    private static Map<String, BigDecimal> parseMaxAllocations(HttpServletRequest request) {
+//        // Parse max allocations
+//        Map<String, BigDecimal> maxAllocationMap = new HashMap<String, BigDecimal>();
+//        for (Enumeration<?> e = request.getParameterNames(); e.hasMoreElements(); ) {
+//            String parameterName = (String) e.nextElement();
+//
+//            if (parameterName.startsWith("max_alloc_value_")) {
+//                String allocResourceID = parameterName.substring("max_alloc_value_".length());
+//                BigDecimal maxAllocDecimal = new BigDecimal(request.getParameter(parameterName));
+//
+//                // Now store in map
+//                maxAllocationMap.put(allocResourceID, maxAllocDecimal);
+//            }
+//        }
+//
+//        if (LOGGER.isDebugEnabled()) {
+//            StringBuffer output = new StringBuffer("Max allocations: ");
+//            for (Iterator<String> iterator = maxAllocationMap.keySet().iterator(); iterator.hasNext();) {
+//                String resourceID = (String) iterator.next();
+//                output.append(resourceID).append("=").append(maxAllocationMap.get(resourceID)).append(" ");
+//            }
+//            LOGGER.debug(output.toString());
+//        }
+//
+//        return maxAllocationMap;
+//    }
 
 }

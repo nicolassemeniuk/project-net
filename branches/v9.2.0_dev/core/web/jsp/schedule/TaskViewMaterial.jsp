@@ -48,14 +48,13 @@
 
 <!-- Lista de Materials -->
 <jsp:useBean id="materialAssignmentsHelper" class="net.project.schedule.MaterialAssignmentsHelper" scope="page" />
-
-
 <jsp:useBean id="roster" class="net.project.resource.RosterBean" scope="session" />
+
+
 <jsp:useBean id="refLink" class="java.lang.String" scope="request" />
 <jsp:useBean id="refLinkEncoded" class="java.lang.String" scope="request" />
 <jsp:useBean id="assignments" type="java.util.List" scope="request" />
 <jsp:useBean id="assignmentMap" type="java.util.Map" scope="request" />
-<jsp:useBean id="assignmentRoster" type="net.project.resource.AssignmentRoster" scope="request" />
 <jsp:useBean id="overallocatedResourcesExist" type="java.lang.Boolean" scope="request" />
 <jsp:useBean id="errorReporter" class="net.project.util.ErrorReporter" scope="request" />
 
@@ -71,15 +70,7 @@
 	//Determine if we need to show the information icon box by default
 	boolean showInfoBox = scheduleEntry.isCriticalPath() || overallocatedResourcesExist.booleanValue();
 	
-	//load the assignies for the space
-	roster.setSpace(user.getCurrentSpace());
-	roster.load();
-			
-	String spaceId = String.valueOf(user.getCurrentSpace().getID());
-	String objectId = scheduleEntry.getID();
-	materialAssignmentsHelper.setSpaceId(spaceId);
-	materialAssignmentsHelper.setObjectId(objectId);
-	materialAssignmentsHelper.load();
+
 %>
 
 <template:getDoctype />
@@ -337,50 +328,31 @@ function invoke(url) {
    Constructs parameter list of current max allocation for all assigned resources and
    the specified resource (it may have just been unchecked)
 --%>
-function constructMaxAllocParameters(resourceID) {
-    var parameters = "";
+// function constructMaxAllocParameters(resourceID) {
+//     var parameters = "";
 
-    if (!theForm.resource.length) {
-        // Only one resource
-        var maxAllocValue = document.getElementById("max_alloc_value_" + theForm.resource.value).value;
-        parameters += "&max_alloc_value_" + theForm.resource.value + "=" + maxAllocValue;
-    } else {
-        for (var i = 0; i < theForm.resource.length; i++) {
-            if (theForm.resource[i].checked || theForm.resource[i].value == resourceID) {
-                // Currently assigned, or being assigned / unassigned
-                var maxAllocValue = document.getElementById("max_alloc_value_" + theForm.resource[i].value).value;
-                parameters += "&max_alloc_value_" + theForm.resource[i].value + "=" + maxAllocValue;
-            }
-        }
-    }
+//     if (!theForm.resource.length) {
+//         // Only one resource
+//         var maxAllocValue = document.getElementById("max_alloc_value_" + theForm.resource.value).value;
+//         parameters += "&max_alloc_value_" + theForm.resource.value + "=" + maxAllocValue;
+//     } else {
+//         for (var i = 0; i < theForm.resource.length; i++) {
+//             if (theForm.resource[i].checked || theForm.resource[i].value == resourceID) {
+//                 // Currently assigned, or being assigned / unassigned
+//                 var maxAllocValue = document.getElementById("max_alloc_value_" + theForm.resource[i].value).value;
+//                 parameters += "&max_alloc_value_" + theForm.resource[i].value + "=" + maxAllocValue;
+//             }
+//         }
+//     }
 
-    return parameters;
-}
+//     return parameters;
+// }
 
 <%-- Invoked by eval from server-side calculations --%>
 function flagError(errorText) {
     document.getElementById("errorLocationID").innerHTML += (errorText + "<br/>");
     goSubmit = false;
     
-}
-function setTaskDuration(displayValue) {
-    document.getElementById("durationFormatted").innerHTML = displayValue;
-}
-
-function setTaskWork(displayValue) {
-    document.getElementById("workFormatted").innerHTML = displayValue;
-}
-
-function setTaskStartDate(displayDate) {
-    document.getElementById("startTimeString").innerHTML = displayDate;
-}
-
-function setTaskEndDate(displayDate) {
-    document.getElementById("endTimeString").innerHTML = displayDate;
-}
-
-function setTaskWorkComplete(displayValue) {
-    document.getElementById("workCompleteFormatted").innerHTML = displayValue;
 }
 
 function setAssignmentValues(resourceID, percentageAssigned, workAmount, workUnitsID, workComplete, maxPercentString, maxPercentValue, isOverallocated) {
@@ -655,11 +627,9 @@ function setTimeQuantity(resourceID, amount, unitsID) {
 // 										String disabledString = (assignment.isAssigned() ? "" : "disabled");
 // 										String timeZoneId = assignment.getTimeZone().getID();
 										
-								for (Iterator<MaterialAssignmentHelper> it = materialAssignmentsHelper.getMaterialsAssigned().iterator(); it.hasNext();) {
-									MaterialAssignmentHelper assignment = it.next();
+								for (MaterialAssignmentHelper assignment : materialAssignmentsHelper.getMaterialsAssigned()) {									
 									String materialID = assignment.getMaterial().getMaterialId();
-									String disabledString = (assignment.isAssigned() ? "" : "disabled");
-								
+									String disabledString = (assignment.isAssigned() ? "" : "disabled");								
 										
 							%>
 							<tr class="tableContent">							
@@ -710,7 +680,6 @@ function setTimeQuantity(resourceID, amount, unitsID) {
 		<tb:toolbar style="action" showLabels="true" bottomFixed="true">
 			<tb:band name="action">
 				<tb:button type="cancel" labelToken="prm.schedule.taskview.returntotasklist.label" show="false" />
-				<tb:button type="update" />
 				<tb:button type="submit" />
 			</tb:band>
 		</tb:toolbar>
