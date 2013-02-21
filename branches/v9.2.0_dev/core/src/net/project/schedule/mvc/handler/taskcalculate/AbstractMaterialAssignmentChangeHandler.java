@@ -148,6 +148,7 @@ abstract class AbstractMaterialAssignmentChangeHandler extends Handler {
         // Only add the results if no errors were found
         if (!errorReporter.errorsFound()) {
             model.put("scheduleEntry", scheduleEntry);
+            model.put("overallocatedMaterialsExist", scheduleEntry.getMaterialAssignments().overAssignationExists());
 //            model.put("oldMaterialAssignment", oldAssignmentPercentages);
 //            model.put("maxAllocationMap", maxAllocationMap);
 

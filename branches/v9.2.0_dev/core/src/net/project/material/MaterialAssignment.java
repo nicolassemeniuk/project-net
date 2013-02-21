@@ -6,9 +6,10 @@ import java.util.Date;
 
 import net.project.hibernate.model.PnAssignmentMaterial;
 import net.project.hibernate.service.ServiceFactory;
+import net.project.util.time.ITimeRangeValue;
 
-public class MaterialAssignment implements Serializable{
-	
+public class MaterialAssignment implements Serializable, ITimeRangeValue {
+
 	private String spaceId;
 	private String objectId;
 	private String materialId;
@@ -20,11 +21,14 @@ public class MaterialAssignment implements Serializable{
 	private Date modifiedDate;
 	private String modifiedBy;
 	private String assignorId;
-	
-	public MaterialAssignment(){		
+
+	/** true if it's overassigned */
+	private Boolean overassigned;
+
+	public MaterialAssignment() {
 	}
-	
-	public MaterialAssignment(PnAssignmentMaterial assignedMaterial){
+
+	public MaterialAssignment(PnAssignmentMaterial assignedMaterial) {
 		this.percentAssigned = assignedMaterial.getPercentAllocated();
 		this.recordStatus = assignedMaterial.getRecordStatus();
 		this.startDate = assignedMaterial.getStartDate();
@@ -32,11 +36,13 @@ public class MaterialAssignment implements Serializable{
 		this.dateCreated = assignedMaterial.getDateCreated();
 		this.modifiedDate = assignedMaterial.getModifiedDate();
 		this.modifiedBy = String.valueOf(assignedMaterial.getModifiedBy());
-		this.assignorId = String.valueOf(assignedMaterial.getPnAssignor().getPersonId());	
+		this.assignorId = String.valueOf(assignedMaterial.getPnAssignor().getPersonId());
+		this.overassigned = ServiceFactory.getInstance().getPnAssignmentMaterialService().isOverassigned(startDate, endDate, spaceId, materialId, objectId);
 	}
-	
-	public void load(){
-		PnAssignmentMaterial assignedMaterial = ServiceFactory.getInstance().getPnAssignmentMaterialService().getAssignmentMaterial(spaceId, materialId, objectId);
+
+	public void load() {
+		PnAssignmentMaterial assignedMaterial = ServiceFactory.getInstance().getPnAssignmentMaterialService()
+				.getAssignmentMaterial(spaceId, materialId, objectId);
 		this.percentAssigned = assignedMaterial.getPercentAllocated();
 		this.recordStatus = assignedMaterial.getRecordStatus();
 		this.startDate = assignedMaterial.getStartDate();
@@ -44,7 +50,8 @@ public class MaterialAssignment implements Serializable{
 		this.dateCreated = assignedMaterial.getDateCreated();
 		this.modifiedDate = assignedMaterial.getModifiedDate();
 		this.modifiedBy = String.valueOf(assignedMaterial.getModifiedBy());
-		this.assignorId = String.valueOf(assignedMaterial.getPnAssignor().getPersonId());		
+		this.assignorId = String.valueOf(assignedMaterial.getPnAssignor().getPersonId());
+		this.overassigned = ServiceFactory.getInstance().getPnAssignmentMaterialService().isOverassigned(startDate, endDate, spaceId, materialId, objectId);
 	}
 
 	public String getSpaceId() {
@@ -91,6 +98,10 @@ public class MaterialAssignment implements Serializable{
 		return assignorId;
 	}
 
+	public Boolean getOverassigned() {
+		return overassigned;
+	}
+
 	public void setSpaceId(String spaceId) {
 		this.spaceId = spaceId;
 	}
@@ -134,7 +145,20 @@ public class MaterialAssignment implements Serializable{
 	public void setAssignorId(String assignorId) {
 		this.assignorId = assignorId;
 	}
-	
-	
+
+
+	public void setOverassigned(Boolean overassigned) {
+		this.overassigned = overassigned;
+	}
+
+	/**
+	 * This has to be because we implement the ITimeRangeValue interface. In our
+	 * case we don't need the allocation value, because a material can only be
+	 * assigned to one task at a time. So we return 100%.
+	 */
+	@Override
+	public BigDecimal getValue() {
+		return BigDecimal.valueOf(100.00);
+	}
 
 }

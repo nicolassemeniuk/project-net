@@ -55,4 +55,39 @@ public class PnAssignmentMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<P
 		return result;
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public PnAssignmentMaterialList getAssignmentsForMaterial(Integer spaceId, Integer materialId) {
+		PnAssignmentMaterialList result = new PnAssignmentMaterialList();
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();			
+			result = new PnAssignmentMaterialList(session.createCriteria(PnSpaceHasMaterial.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).add(Restrictions.eq("comp_id.materialId", materialId)).list());
+			session.close();
+		} catch (Exception e) {
+			log.error("Error occurred while getting the list of assigned materials " + e.getMessage());
+			e.printStackTrace();
+		}
+		
+		return result;
+
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public PnAssignmentMaterialList getAssignmentsForMaterial(Integer spaceId, Integer materialId, Integer objectId) {
+		PnAssignmentMaterialList result = new PnAssignmentMaterialList();
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();			
+			result = new PnAssignmentMaterialList(session.createCriteria(PnSpaceHasMaterial.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).add(Restrictions.eq("comp_id.materialId", materialId)).add(Restrictions.ne("comp_id.objectId", objectId)).list());
+			session.close();
+		} catch (Exception e) {
+			log.error("Error occurred while getting the list of assigned materials " + e.getMessage());
+			e.printStackTrace();
+		}
+		
+		return result;
+	}
+
 }
