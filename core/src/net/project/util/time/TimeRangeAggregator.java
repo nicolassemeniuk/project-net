@@ -189,17 +189,13 @@ public class TimeRangeAggregator {
 	}
 
 	private boolean isConcurrent(Date testStart, Date testEnd, Date valueStart, Date valueEnd) {
-		return ((testStart.after(valueStart) && testStart.before(valueEnd)) || // XX[XXX
-																				// ]
-				(testEnd.after(valueStart) && testEnd.before(valueEnd)) || // [
-																			// XX]XXX
+		return ((testStart.after(valueStart) && testStart.before(valueEnd)) || // XX[XXX]
+				(testEnd.after(valueStart) && testEnd.before(valueEnd)) || // [ XX]XXX
 				(testStart.equals(valueStart) && testEnd.equals(valueEnd)) || // [XXXXXX]
-				(testStart.before(valueStart) && testEnd.after(valueEnd)) || // [
-																				// XXX
-																				// ]
+				(testStart.before(valueStart) && testEnd.after(valueEnd)) || // [XXX]
 				(testStart.after(valueStart) && testEnd.before(valueEnd)) || // XX[XX]XX
 				(testStart.equals(valueStart)) || // [XXXX ]
-		(testEnd.equals(valueEnd))); // [ XXXXX]
+				(testEnd.equals(valueEnd))); // [ XXXXX]
 	}
 
 	private boolean isConcurrent(Date testStart, Date testEnd, TimeRangeNode node) {
