@@ -25,14 +25,10 @@
             net.project.security.SessionManager,
             net.project.space.SpaceTypes,
             net.project.util.Validator,
-            net.project.resource.AssignmentStatus,
             net.project.resource.Roster,
-            net.project.resource.ScheduleEntryAssignment,
             net.project.util.NumberFormat,
             java.util.Iterator,
             java.util.Date,
-            net.project.resource.Assignment,
-            net.project.schedule.AssignmentsHelper,
             java.util.Collection,
             net.project.util.DateFormat,
             net.project.schedule.MaterialAssignmentsHelper,
@@ -53,9 +49,7 @@
 
 <jsp:useBean id="refLink" class="java.lang.String" scope="request" />
 <jsp:useBean id="refLinkEncoded" class="java.lang.String" scope="request" />
-<jsp:useBean id="assignments" type="java.util.List" scope="request" />
-<jsp:useBean id="assignmentMap" type="java.util.Map" scope="request" />
-<jsp:useBean id="overallocatedResourcesExist" type="java.lang.Boolean" scope="request" />
+<jsp:useBean id="overallocatedMaterialsExist" type="java.lang.Boolean" scope="request" />
 <jsp:useBean id="errorReporter" class="net.project.util.ErrorReporter" scope="request" />
 
 
@@ -68,7 +62,7 @@
 	refLinkEncoded = refLinkEncoded != null	&& refLinkEncoded.length() > 0	? refLinkEncoded	: java.net.URLEncoder.encode(refLink, SessionManager.getCharacterEncoding());
 
 	//Determine if we need to show the information icon box by default
-	boolean showInfoBox = scheduleEntry.isCriticalPath() || overallocatedResourcesExist.booleanValue();
+	boolean showInfoBox = scheduleEntry.isCriticalPath() || overallocatedMaterialsExist.booleanValue();
 	
 	//load the assignies for the space
 	roster.setSpace(user.getCurrentSpace());
@@ -130,7 +124,7 @@ function setup() {
 }
 
 function cancel() {
-	self.document.location = JSPRootURL +"<%=refLink%>";
+	self.document.location = JSPRootURL + "<%=refLink%>";
 }
 
 function modify() {
@@ -482,7 +476,7 @@ function setTimeQuantity(resourceID, amount, unitsID) {
 								<td><img src="<%=SessionManager.getJSPRootURL()%>/images/schedule/critical_path.gif" border="0"></td>
 								<td><display:get name="prm.schedule.taskview.material.oncriticalpath.message" /></td>
 							</tr>
-							<tr id="overallocatedResourcesIcon" class="<%=(overallocatedResourcesExist.booleanValue() ? "tableContent" : "hidden")%>">
+							<tr id="overallocatedResourcesIcon" class="<%=(overallocatedMaterialsExist.booleanValue() ? "tableContent" : "hidden")%>">
 								<td><img src="<%=SessionManager.getJSPRootURL()%>/images/check_red.gif" border="0"></td>
 								<td><display:get name="prm.schedule.taskview.material.overallocatedmaterials.message" />&nbsp;<a href="javascript:fixOverallocations();"><display:get
 											name="prm.schedule.taskview.resources.lookforfixes.message" /></a></td>
@@ -628,17 +622,10 @@ function setTimeQuantity(resourceID, amount, unitsID) {
 								<td colspan="10" class="headerSep"></td>
 							</tr>
 
-							<%
-// 								for (Iterator it = assignmentsHelper.getAssignments().iterator(); it.hasNext();) {
-// 										IAssignmentHelper assignment = (IAssignmentHelper) it.next();
-// 										String materialID = assignment.getPersonID();
-// 										String disabledString = (assignment.isAssigned() ? "" : "disabled");
-// 										String timeZoneId = assignment.getTimeZone().getID();
-										
+							<%									
 								for (MaterialAssignmentHelper assignment : materialAssignmentsHelper.getMaterialsAssigned()) {									
 									String materialID = assignment.getMaterial().getMaterialId();
-									String disabledString = (assignment.isAssigned() ? "" : "disabled");								
-										
+									String disabledString = (assignment.isAssigned() ? "" : "disabled");												
 							%>
 							<tr class="tableContent">							
 								<td align="center">
