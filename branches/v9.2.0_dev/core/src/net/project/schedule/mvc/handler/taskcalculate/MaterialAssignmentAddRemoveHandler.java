@@ -86,6 +86,9 @@ public class MaterialAssignmentAddRemoveHandler extends AbstractMaterialAssignme
             assignment.setModifiedDate(new Date());
             assignment.setAssignorId(user.getID());
             
+            //TODO revisar que esta nueva  asignación a agregar a la tarea
+            //no esté en conflicto con las asignaciones ya existentes.
+            assignment.setOverassigned(true);
             calc.assignmentMaterialAdded(assignment);
         } else {                                                
             // When removing, the assignment must be in the list of assignments

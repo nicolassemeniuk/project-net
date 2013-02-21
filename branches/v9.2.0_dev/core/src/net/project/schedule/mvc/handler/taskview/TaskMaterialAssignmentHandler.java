@@ -64,12 +64,7 @@ public class TaskMaterialAssignmentHandler extends AbstractTaskMaterialAssignmen
 	public Map<String, Object> handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Map<String, Object> model = super.handleRequest(request, response);
 		ScheduleEntry scheduleEntry = (ScheduleEntry) model.get("scheduleEntry");
-
-		// TODO acá hay que comparar con lo que está en memoria, porque todavía
-		// no tenemos guardados los cambios en la base de datos, por lo tanto
-		// hacer scheduleEntry.getMaterialAssignments().overAssignationExists()
-		// no funciona.
-		model.put("overallocatedMaterialsExist", false);
+		model.put("overallocatedMaterialsExist", scheduleEntry.getMaterialAssignments().overAssignationExists());
 		return model;
 	}
 
