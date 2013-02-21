@@ -99,7 +99,7 @@ import org.apache.log4j.Logger;
  * This class is related to {@link net.project.schedule.IScheduleEntry} in that
  * this class provides the "writable" version of that interface.
  *
- * @author Carlos Montemuiño
+ * @author Carlos Montemuiï¿½o
  * @author Matthew Flower
  * @since Version 7.6
  */
@@ -3763,9 +3763,14 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 			se.assignments.addAssignment((ScheduleEntryAssignment) assignment.clone());
 		}
 		
+		for(Iterator<MaterialAssignment> iterator = materialAssignments.getIterator(); iterator.hasNext();)
+			se.materialAssignments.add(iterator.next());			
+		
+		/*
 		for(MaterialAssignment material : this.materialAssignments){
 			se.materialAssignments.add(material);
 		}
+		*/
 	}
 
     /**

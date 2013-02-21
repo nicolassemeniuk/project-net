@@ -73,9 +73,6 @@ public class TaskMaterialAssignmentHandler extends AbstractTaskAssignmentHandler
 	public Map<String, Object> handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
         Map<String, Object> model = super.handleRequest(request, response);
         ScheduleEntry scheduleEntry = (ScheduleEntry)model.get("scheduleEntry");
-        User user = (User) model.get("user");
-        RosterBean roster = (RosterBean) model.get("roster");
-        MaterialAssignmentsHelper materialAssignmentsHelper = (MaterialAssignmentsHelper) model.get("materialAssignmentsHelper"); 
 
         //HAY QUE PONER UN ROSTER DE MATERIALES materialRoster
         //La bandera de sobreutilizacion no debe estar porque no podemos sobreutilizar un material
@@ -85,24 +82,12 @@ public class TaskMaterialAssignmentHandler extends AbstractTaskAssignmentHandler
         //Put the assignment roster in the session so the worker (which updates
         //the page in real time) doesn't have to do any database access.
         request.getSession().setAttribute("assignmentRoster", assignmentRoster);
-
-    	//load the assignies for the space
-    	roster.setSpace(user.getCurrentSpace());
-    	roster.load();
-    			
-    	String spaceId = String.valueOf(user.getCurrentSpace().getID());
-    	String objectId = scheduleEntry.getID();
-    	materialAssignmentsHelper.setSpaceId(spaceId);
-    	materialAssignmentsHelper.setObjectId(objectId);
-    	materialAssignmentsHelper.load();        
         
         //Put some variables in the model so the page can access them.
         model.put("assignments", assignmentManager.getAssignments());
         model.put("assignmentMap", assignmentManager.getAssignmentMap());
         model.put("overallocatedResourcesExist", Boolean.valueOf(overAllocatedResourcesExist));
         model.put("assignmentRoster", assignmentRoster);
-        model.put("materialAssignmentsHelper", materialAssignmentsHelper);
-        model.put("roster", roster);
 
         return model;
     }
