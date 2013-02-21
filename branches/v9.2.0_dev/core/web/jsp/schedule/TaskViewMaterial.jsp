@@ -70,7 +70,15 @@
 	//Determine if we need to show the information icon box by default
 	boolean showInfoBox = scheduleEntry.isCriticalPath() || overallocatedResourcesExist.booleanValue();
 	
-
+	//load the assignies for the space
+	roster.setSpace(user.getCurrentSpace());
+	roster.load();
+			
+	String spaceId = String.valueOf(user.getCurrentSpace().getID());
+	String objectId = scheduleEntry.getID();
+	materialAssignmentsHelper.setSpaceId(spaceId);
+	materialAssignmentsHelper.setObjectId(objectId);
+	materialAssignmentsHelper.load();   
 %>
 
 <template:getDoctype />
