@@ -27,6 +27,7 @@ public class Material implements Serializable, IJDBCPersistence {
 	{
 		if(material != null)
 		{
+			materialId = String.valueOf(material.getMaterialId());	
 			name = material.getMaterialName();
 			description = material.getMaterialDescription();
 			cost = String.valueOf(material.getMaterialCost());
