@@ -73,8 +73,10 @@
     </Handler>   
     <Handler url="/TaskView/MaterialProcessing">
         <Class>net.project.schedule.mvc.handler.taskview.TaskMaterialAssignmentProcessingHandler</Class>
-    </Handler>   
- 
+    </Handler>
+    <Handler url="/TaskCalculate/MaterialAssignmentAddRemove">
+        <Class>net.project.schedule.mvc.handler.taskcalculate.MaterialAssignmentAddRemoveHandler</Class>
+    </Handler>
     <Handler url="/TaskView/History">
         <Class>net.project.schedule.mvc.handler.taskview.TaskHistoryHandler</Class>
     </Handler>

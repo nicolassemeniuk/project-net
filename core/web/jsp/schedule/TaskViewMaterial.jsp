@@ -287,9 +287,9 @@ function assignmentCheckboxClicked(materialID) {
     else
         mode = "remove";
 
-    var url = "<%=SessionManager.getJSPRootURL()%>/servlet/ScheduleController/TaskCalculate/AssignmentMaterialAddRemove?module=<%=Module.SCHEDULE%>&action=<%=Action.VIEW%>&id=<%=scheduleEntry.getID()%>";
+    var url = "<%=SessionManager.getJSPRootURL()%>/servlet/ScheduleController/TaskCalculate/MaterialAssignmentAddRemove?module=<%=Module.SCHEDULE%>&action=<%=Action.VIEW%>&id=<%=scheduleEntry.getID()%>";
 
-    var responseText = invoke(url + "&resourceID=" + resourceID + "&mode=" + mode + constructMaxAllocParameters(resourceID));
+    var responseText = invoke(url + "&materialID=" + materialID + "&mode=" + mode);
     if(responseText.indexOf("flagError") > -1) { //if there is an error we restore back!!
         if (checkboxElement.checked) {
             checkboxElement.checked = false;
@@ -636,7 +636,7 @@ function setTimeQuantity(resourceID, amount, unitsID) {
 								value="<%=materialID%>" 
 								type="checkbox"
 								<%=assignment.isAssignedMaterialChecked()%> 
-<%--  								onClick="assignmentCheckboxClicked('<%=materialID%>', '<%=timeZoneId%>')"  --%>
+  								onClick="assignmentCheckboxClicked('<%=materialID%>')"
 								<%=(scheduleEntry.isFromShare() ? " readonly disabled=\"true\"" : "")%>
 								/>
 									
