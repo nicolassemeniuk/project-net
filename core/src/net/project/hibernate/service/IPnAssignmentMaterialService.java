@@ -44,7 +44,6 @@ public interface IPnAssignmentMaterialService {
 	 * @return a list of assignments for that Material in that space.
 	 */
 	public PnAssignmentMaterialList getAssignmentsForMaterial(String spaceId, String materialId);
-	
 
 	/**
 	 * Returns if a material is over assigned. This means that the material is
@@ -68,5 +67,23 @@ public interface IPnAssignmentMaterialService {
 	 *         day. False otherwise.
 	 */
 	public boolean isOverassigned(Date startDate, Date endDate, String spaceId, String materialId, String objectId);
+
+	/**
+	 * Returns if a material is over assigned. This means that the material is
+	 * on more than one task at the same time (day). We use this method when we
+	 * create a new assignment. What we do is obtain if a new
+	 * assignment conflicts with existent assignments for that material.
+	 * 
+	 * @param startDate
+	 *            the initial date we have to compare to other assignments.
+	 * @param endDate
+	 *            the final date we have to compare to other assignments.
+	 * @param spaceId
+	 *            the id from the Space the Material is assigned to.
+	 * @param materialId
+	 *            the id from the Material we want to obtain the assignments.
+	 * @return true in case the Material new dates for the assignment conflicts with existent assignments.
+	 */
+	public boolean isOverassigned(Date startDate, Date endDate, String spaceId, String materialId);
 
 }

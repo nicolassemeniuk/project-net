@@ -3,7 +3,6 @@ package net.project.hibernate.dao.impl;
 import net.project.hibernate.dao.IPnAssignmentMaterialDAO;
 import net.project.hibernate.model.PnAssignmentMaterial;
 import net.project.hibernate.model.PnAssignmentMaterialPK;
-import net.project.hibernate.model.PnSpaceHasMaterial;
 import net.project.material.PnAssignmentMaterialList;
 
 import org.apache.log4j.Logger;
@@ -45,7 +44,7 @@ public class PnAssignmentMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<P
 		try {
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
 			Session session = factory.openSession();			
-			result = new PnAssignmentMaterialList(session.createCriteria(PnSpaceHasMaterial.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).add(Restrictions.eq("comp_id.objectId", objectId)).list());
+			result = new PnAssignmentMaterialList(session.createCriteria(PnAssignmentMaterial.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).add(Restrictions.eq("comp_id.objectId", objectId)).list());
 			session.close();
 		} catch (Exception e) {
 			log.error("Error occurred while getting the list of assigned materials " + e.getMessage());
@@ -62,7 +61,7 @@ public class PnAssignmentMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<P
 		try {
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
 			Session session = factory.openSession();			
-			result = new PnAssignmentMaterialList(session.createCriteria(PnSpaceHasMaterial.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).add(Restrictions.eq("comp_id.materialId", materialId)).list());
+			result = new PnAssignmentMaterialList(session.createCriteria(PnAssignmentMaterial.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).add(Restrictions.eq("comp_id.materialId", materialId)).list());
 			session.close();
 		} catch (Exception e) {
 			log.error("Error occurred while getting the list of assigned materials " + e.getMessage());
@@ -80,7 +79,7 @@ public class PnAssignmentMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<P
 		try {
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
 			Session session = factory.openSession();			
-			result = new PnAssignmentMaterialList(session.createCriteria(PnSpaceHasMaterial.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).add(Restrictions.eq("comp_id.materialId", materialId)).add(Restrictions.ne("comp_id.objectId", objectId)).list());
+			result = new PnAssignmentMaterialList(session.createCriteria(PnAssignmentMaterial.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).add(Restrictions.eq("comp_id.materialId", materialId)).add(Restrictions.ne("comp_id.objectId", objectId)).list());
 			session.close();
 		} catch (Exception e) {
 			log.error("Error occurred while getting the list of assigned materials " + e.getMessage());
