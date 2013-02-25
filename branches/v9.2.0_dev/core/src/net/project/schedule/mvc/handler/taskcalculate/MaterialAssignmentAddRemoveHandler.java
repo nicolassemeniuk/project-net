@@ -21,6 +21,7 @@ import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 
 import net.project.base.mvc.ControllerException;
+import net.project.hibernate.service.ServiceFactory;
 import net.project.material.MaterialAssignment;
 import net.project.persistence.PersistenceException;
 import net.project.schedule.Schedule;
@@ -86,9 +87,8 @@ public class MaterialAssignmentAddRemoveHandler extends AbstractMaterialAssignme
             assignment.setModifiedDate(new Date());
             assignment.setAssignorId(user.getID());
             
-            //TODO revisar que esta nueva  asignación a agregar a la tarea
-            //no esté en conflicto con las asignaciones ya existentes.
-            assignment.setOverassigned(true);
+            //Check if this assignment is in conflict with existing assignments.
+            assignment.setOverassigned(ServiceFactory.getInstance().getPnAssignmentMaterialService().isOverassigned(assignment.getStartDate(), assignment.getEndDate(), assignment.getSpaceId(), assignment.getMaterialId()));            
             calc.assignmentMaterialAdded(assignment);
         } else {                                                
             // When removing, the assignment must be in the list of assignments

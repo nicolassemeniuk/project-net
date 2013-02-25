@@ -46,6 +46,20 @@ public class PnAssignmentMaterialServiceImpl implements IPnAssignmentMaterialSer
 		
 		return aggregator.existConcurrent(startDate, endDate);
 	}
+
+	@Override
+	public boolean isOverassigned(Date startDate, Date endDate, String spaceId, String materialId) {
+		PnAssignmentMaterialList assignments = pnMaterialDAO.getAssignmentsForMaterial(Integer.valueOf(spaceId), Integer.valueOf(materialId));
+		TimeRangeAggregator aggregator = new TimeRangeAggregator();
+		
+		//we add all assignments to the TimeRangeAggregator.
+		for(PnAssignmentMaterial assignment : assignments){
+			MaterialAssignment materialAssignment = new MaterialAssignment(assignment);
+			aggregator.insert(materialAssignment);
+		}
+		
+		return aggregator.existConcurrent(startDate, endDate);
+	}
 	
 	
 	

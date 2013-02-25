@@ -12,6 +12,7 @@ public class MaterialAssignmentList implements Serializable {
 	private ArrayList<MaterialAssignment> materialAssignments = new ArrayList<MaterialAssignment>();
 
 	public void MaterialAssignmenList() {
+		materialAssignments = new ArrayList<MaterialAssignment>();
 	}
 
 	public void load(String spaceId, String objectId) {
