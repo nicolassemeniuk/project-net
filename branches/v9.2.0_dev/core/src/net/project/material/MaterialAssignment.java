@@ -5,8 +5,6 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 import net.project.hibernate.model.PnMaterialAssignment;
-import net.project.hibernate.model.PnMaterialAssignmentPK;
-import net.project.hibernate.model.PnPerson;
 import net.project.hibernate.service.ServiceFactory;
 import net.project.util.time.ITimeRangeValue;
 
@@ -181,21 +179,4 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 		return clone;
 	}
 
-	public PnMaterialAssignment getPnMaterialAssignment() {
-		PnMaterialAssignment materialAssignment = new PnMaterialAssignment();
-		PnMaterialAssignmentPK compId = new PnMaterialAssignmentPK(Integer.valueOf(spaceId), Integer.valueOf(materialId), Integer.valueOf(objectId));
-		PnPerson assignor = ServiceFactory.getInstance().getPnPersonService().getPerson(Integer.valueOf(this.getAssignorId()));
-
-		materialAssignment.setComp_id(compId);
-		materialAssignment.setPnAssignor(assignor);
-		materialAssignment.setDateCreated(this.getDateCreated());
-		materialAssignment.setEndDate(this.getEndDate());
-		materialAssignment.setModifiedBy(Integer.valueOf(this.getModifiedBy()));
-		materialAssignment.setModifiedDate(this.getModifiedDate());
-		materialAssignment.setPercentAllocated(this.getPercentAssigned());
-		materialAssignment.setRecordStatus(this.getRecordStatus());
-		materialAssignment.setStartDate(this.getStartDate());
-
-		return materialAssignment;
-	}
 }

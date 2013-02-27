@@ -17,7 +17,6 @@
 
 import info.bliki.wiki.model.WikiModel;
 
-import net.project.material.PnMaterialAssignmentList;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.SQLException;
@@ -3396,8 +3395,7 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
     
     private void storeMaterialAssignments()
     {
-    	PnMaterialAssignmentList assignments = materialAssignments.getPnMaterialAssignmentList();
-    	ServiceFactory.getInstance().getPnMaterialAssignmentService().saveMaterialAssignments(assignments);
+    	ServiceFactory.getInstance().getPnMaterialAssignmentService().saveMaterialAssignments(materialAssignments);
     }
 
     private void storeDependencies(DBBean db) throws SQLException, PersistenceException {

@@ -4,8 +4,12 @@ import java.util.Date;
 
 import net.project.hibernate.dao.IPnAssignmentMaterialDAO;
 import net.project.hibernate.model.PnMaterialAssignment;
+import net.project.hibernate.model.PnMaterialAssignmentPK;
+import net.project.hibernate.model.PnPerson;
 import net.project.hibernate.service.IPnMaterialAssignmentService;
+import net.project.hibernate.service.ServiceFactory;
 import net.project.material.MaterialAssignment;
+import net.project.material.MaterialAssignmentList;
 import net.project.material.PnMaterialAssignmentList;
 import net.project.util.time.TimeRangeAggregator;
 
@@ -62,9 +66,28 @@ public class PnMaterialAssignmentServiceImpl implements IPnMaterialAssignmentSer
 	}
 
 	@Override
-	public void saveMaterialAssignments(PnMaterialAssignmentList materialAssignments)
+	public void saveMaterialAssignments(MaterialAssignmentList materialAssignments)
 	{
-		for(PnMaterialAssignment assignment : materialAssignments)		
-			pnMaterialAssignmentDAO.createOrUpdate(assignment);
+		for(MaterialAssignment assignment : materialAssignments){
+			PnMaterialAssignment newAssignment = new PnMaterialAssignment();
+			PnPerson assignor = ServiceFactory.getInstance().getPnPersonService().getPerson(Integer.valueOf(assignment.getAssignorId()));
+			PnMaterialAssignmentPK newAssignmentPK = new PnMaterialAssignmentPK();
+			newAssignmentPK.setSpaceId(Integer.valueOf(assignment.getSpaceId()));
+			newAssignmentPK.setMaterialId(Integer.valueOf(assignment.getMaterialId()));
+			newAssignmentPK.setObjectId(Integer.valueOf(assignment.getObjectId()));
+			
+			newAssignment.setComp_id(newAssignmentPK);
+			newAssignment.setPnAssignor(assignor);
+			newAssignment.setRecordStatus("A");
+			newAssignment.setDateCreated(assignment.getDateCreated());
+			newAssignment.setStartDate(assignment.getStartDate());
+			newAssignment.setEndDate(assignment.getEndDate());
+			newAssignment.setModifiedBy(Integer.valueOf(assignment.getModifiedBy()));
+			newAssignment.setModifiedDate(assignment.getModifiedDate());
+			newAssignment.setPercentAllocated(assignment.getPercentAssigned());
+			pnMaterialAssignmentDAO.createOrUpdate(newAssignment);
+		}
+	
+
 	}
 }

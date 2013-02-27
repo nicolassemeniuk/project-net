@@ -3,6 +3,7 @@ package net.project.hibernate.service;
 import java.util.Date;
 
 import net.project.hibernate.model.PnMaterialAssignment;
+import net.project.material.MaterialAssignmentList;
 import net.project.material.PnMaterialAssignmentList;
 
 public interface IPnMaterialAssignmentService {
@@ -88,7 +89,7 @@ public interface IPnMaterialAssignmentService {
 
 	/**
 	 * Saves or updates a list of material assignments on the database.
-	 * @param materialAssignmentsList a List representing material assignments.
+	 * @param materialAssignments a List representing material assignments.
 	 */
-	public void saveMaterialAssignments(PnMaterialAssignmentList materialAssignmentsList);
+	public void saveMaterialAssignments(MaterialAssignmentList materialAssignments);
 }

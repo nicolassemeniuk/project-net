@@ -7,7 +7,7 @@ import java.util.Iterator;
 import net.project.hibernate.model.PnMaterialAssignment;
 import net.project.hibernate.service.ServiceFactory;
 
-public class MaterialAssignmentList implements Serializable {
+public class MaterialAssignmentList implements Serializable, Iterable<MaterialAssignment> {
 
 	private ArrayList<MaterialAssignment> materialAssignments = new ArrayList<MaterialAssignment>();
 
@@ -61,10 +61,11 @@ public class MaterialAssignmentList implements Serializable {
 		return false;
 	}
 
-	public PnMaterialAssignmentList getPnMaterialAssignmentList() {
-		PnMaterialAssignmentList materialList = new PnMaterialAssignmentList();
-		for (MaterialAssignment assignment : materialAssignments)
-			materialList.add(assignment.getPnMaterialAssignment());
-		return materialList;
+	@Override
+	public Iterator<MaterialAssignment> iterator() {
+		return this.materialAssignments.iterator();
 	}
+	
+	
+
 }
