@@ -16,26 +16,26 @@ import org.springframework.stereotype.Service;
 public class PnMaterialAssignmentServiceImpl implements IPnMaterialAssignmentService {
 	
 	@Autowired
-	private IPnAssignmentMaterialDAO pnMaterialDAO;
+	private IPnAssignmentMaterialDAO pnMaterialAssignmentDAO;
 
 	@Override
 	public PnMaterialAssignment getMaterialAssignment(String spaceId, String materialId, String objectId) {
-		return pnMaterialDAO.getPnAssignmentMaterial(Integer.valueOf(spaceId), Integer.valueOf(materialId), Integer.valueOf(objectId));
+		return pnMaterialAssignmentDAO.getPnAssignmentMaterial(Integer.valueOf(spaceId), Integer.valueOf(materialId), Integer.valueOf(objectId));
 	}
 
 	@Override
 	public PnMaterialAssignmentList getMaterialsAssignment(String spaceId, String objectId) {
-		return pnMaterialDAO.getAssignments(Integer.valueOf(spaceId), Integer.valueOf(objectId));
+		return pnMaterialAssignmentDAO.getAssignments(Integer.valueOf(spaceId), Integer.valueOf(objectId));
 	}
 
 	@Override
 	public PnMaterialAssignmentList getAssignmentsForMaterial(String spaceId, String materialId) {
-		return pnMaterialDAO.getAssignmentsForMaterial(Integer.valueOf(spaceId), Integer.valueOf(materialId));
+		return pnMaterialAssignmentDAO.getAssignmentsForMaterial(Integer.valueOf(spaceId), Integer.valueOf(materialId));
 	}
 
 	@Override
 	public boolean isOverassigned(Date startDate, Date endDate, String spaceId, String materialId, String objectId) {
-		PnMaterialAssignmentList assignments = pnMaterialDAO.getAssignmentsForMaterial(Integer.valueOf(spaceId), Integer.valueOf(materialId), Integer.valueOf(objectId));
+		PnMaterialAssignmentList assignments = pnMaterialAssignmentDAO.getAssignmentsForMaterial(Integer.valueOf(spaceId), Integer.valueOf(materialId), Integer.valueOf(objectId));
 		TimeRangeAggregator aggregator = new TimeRangeAggregator();
 		
 		//we add all assignments to the TimeRangeAggregator.
@@ -49,7 +49,7 @@ public class PnMaterialAssignmentServiceImpl implements IPnMaterialAssignmentSer
 
 	@Override
 	public boolean isOverassigned(Date startDate, Date endDate, String spaceId, String materialId) {
-		PnMaterialAssignmentList assignments = pnMaterialDAO.getAssignmentsForMaterial(Integer.valueOf(spaceId), Integer.valueOf(materialId));
+		PnMaterialAssignmentList assignments = pnMaterialAssignmentDAO.getAssignmentsForMaterial(Integer.valueOf(spaceId), Integer.valueOf(materialId));
 		TimeRangeAggregator aggregator = new TimeRangeAggregator();
 		
 		//we add all assignments to the TimeRangeAggregator.
@@ -65,6 +65,6 @@ public class PnMaterialAssignmentServiceImpl implements IPnMaterialAssignmentSer
 	public void saveMaterialAssignments(PnMaterialAssignmentList materialAssignments)
 	{
 		for(PnMaterialAssignment assignment : materialAssignments)		
-			pnMaterialDAO.createOrUpdate(assignment);
+			pnMaterialAssignmentDAO.createOrUpdate(assignment);
 	}
 }
