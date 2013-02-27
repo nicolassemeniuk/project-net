@@ -17,6 +17,7 @@
 
 import info.bliki.wiki.model.WikiModel;
 
+import net.project.material.PnAssignmentMaterialList;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.SQLException;
@@ -3391,6 +3392,12 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 
         assignments.store(db);
     }
+    
+    private void storeMaterialAssignments()
+    {
+    	PnAssignmentMaterialList assignments = materialAssignments.getPnMaterialAssignmentList();
+    	ServiceFactory.getInstance().getPnAssignmentMaterialService()
+    }
 
     private void storeDependencies(DBBean db) throws SQLException, PersistenceException {
         getPredecessors().store(db);
@@ -3764,13 +3771,10 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 		}
 		
 		for(Iterator<MaterialAssignment> iterator = materialAssignments.getIterator(); iterator.hasNext();)
-			se.materialAssignments.add(iterator.next());			
-		
-		/*
-		for(MaterialAssignment material : this.materialAssignments){
-			se.materialAssignments.add(material);
+		{
+			MaterialAssignment materialAssignment = iterator.next();
+			se.materialAssignments.add((MaterialAssignment) materialAssignment.clone());				
 		}
-		*/
 	}
 
     /**

@@ -86,4 +86,5 @@ public interface IPnAssignmentMaterialService {
 	 */
 	public boolean isOverassigned(Date startDate, Date endDate, String spaceId, String materialId);
 
+	public void saveMaterialAssignments(PnAssignmentMaterialList materialAssignments);
 }

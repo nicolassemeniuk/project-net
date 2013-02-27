@@ -60,9 +60,11 @@ public class PnAssignmentMaterialServiceImpl implements IPnAssignmentMaterialSer
 		
 		return aggregator.existConcurrent(startDate, endDate);
 	}
-	
-	
-	
-	
 
+	@Override
+	public void saveMaterialAssignments(PnAssignmentMaterialList materialAssignments)
+	{
+		for(PnAssignmentMaterial assignment : materialAssignments)		
+			pnMaterialDAO.createOrUpdate(assignment);
+	}
 }

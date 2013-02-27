@@ -161,4 +161,44 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 		return BigDecimal.valueOf(100.00);
 	}
 
+	
+	public Object clone()
+	{
+        MaterialAssignment clone = new MaterialAssignment();
+        
+        clone.setAssignorId(this.getAssignorId());
+        clone.setDateCreated(this.getDateCreated());
+        clone.setEndDate(this.getEndDate());
+        clone.setMaterialId(this.getMaterialId());
+        clone.setModifiedBy(this.getModifiedBy());
+        clone.setModifiedDate(this.getModifiedDate());
+        clone.setObjectId(this.getObjectId());
+        clone.setOverassigned(this.getOverassigned());
+        clone.setPercentAssigned(this.getPercentAssigned());
+        clone.setRecordStatus(this.getRecordStatus());
+        clone.setSpaceId(this.getSpaceId());
+        clone.setStartDate(this.getStartDate());
+        
+        return clone;
+	}
+
+	public PnAssignmentMaterial getPnMaterialAssignment()
+	{
+		PnAssignmentMaterial materialAssignment = new PnAssignmentMaterial();
+		
+		materialAssignment.setAssignorId(Integer.valueOf(this.getAssignorId()));
+		materialAssignment.setDateCreated(this.getDateCreated());
+		materialAssignment.setEndDate(this.getEndDate());
+		materialAssignment.setMaterialId(this.getMaterialId());
+		materialAssignment.setModifiedBy(this.getModifiedBy());
+		materialAssignment.setModifiedDate(this.getModifiedDate());
+		materialAssignment.setObjectId(this.getObjectId());
+		materialAssignment.setOverassigned(this.getOverassigned());
+		materialAssignment.setPercentAssigned(this.getPercentAssigned());
+		materialAssignment.setRecordStatus(this.getRecordStatus());
+		materialAssignment.setSpaceId(this.getSpaceId());
+		materialAssignment.setStartDate(this.getStartDate());		
+				
+		return materialAssignment;
+	}	
 }
