@@ -85,6 +85,7 @@ public class MaterialAssignmentAddRemoveHandler extends AbstractMaterialAssignme
             assignment.setEndDate(scheduleEntry.getEndTime());
             assignment.setDateCreated(new Date());
             assignment.setModifiedDate(new Date());
+            assignment.setModifiedBy(user.getID());
             assignment.setAssignorId(user.getID());
             
             //Check if this assignment is in conflict with existing assignments.
