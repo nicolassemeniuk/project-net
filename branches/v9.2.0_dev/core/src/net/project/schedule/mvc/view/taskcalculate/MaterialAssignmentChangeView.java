@@ -187,10 +187,9 @@ public class MaterialAssignmentChangeView extends AbstractJavaScriptView {
 //                    overallocatedValue + ");\n");
 //        }
 //
-//        //Turn overallocation flag on
-//        javascript.append("overallocationExist(").append(Boolean.valueOf(overAllocationExists).toString()).append(");\n");
-
-        javascript.append("overallocationExist(\"true\");\n");        
+        //Turn overallocation flag on
+        Boolean overAllocationExists = entry.getMaterialAssignments().overAssignationExists();
+        javascript.append("overallocationExist(").append(Boolean.valueOf(overAllocationExists).toString()).append(");\n");
         
         return javascript.toString();
     }

@@ -25,6 +25,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import net.project.base.Module;
 import net.project.base.property.PropertyProvider;
+import net.project.material.MaterialAssignment;
 import net.project.resource.RosterBean;
 import net.project.resource.ScheduleEntryAssignment;
 import net.project.schedule.Schedule;
@@ -54,56 +55,14 @@ public class TaskMaterialAssignmentProcessingHandler extends AbstractTaskAssignm
         ScheduleEntry scheduleEntry = (ScheduleEntry) getSessionVar("scheduleEntry");
         User user = (User) getSessionVar("user");
         String theAction = request.getParameter("theAction");
-        
-        
-        RosterBean roster = (RosterBean) getSessionVar("roster");
-        
-        
-        if (roster == null) {
-            roster = new RosterBean();
-            request.getSession().setAttribute("roster", roster);
-        }
-        
-        
-
-
-
+                
         if (theAction.equals("submit") || theAction.equals("update") || theAction.equals("overallocation")) {
-            // Grab the assignment list; note that it already includes the assignmentMap
-            // with correct % allocation and work
-            // Only Owner, Status and Role are needed to be updated
-            Map<?, ?> assignmentMap = scheduleEntry.getAssignmentList().getAssignmentMap();
-
-            String[] resourceIDs = request.getParameterValues("resource");
             String assignorId = request.getParameter("assignorUser");
-            
             if(assignorId == null)
                 assignorId = user.getID();
 
-            // First Update all the assignments for the specified resourceIDs
-            if (resourceIDs != null) {
-                String primaryOwnerID = request.getParameter("primary_owner");
-
-                for (Iterator<String> iterator = Arrays.asList(resourceIDs).iterator(); iterator.hasNext();) {
-                    String resourceID = (String) iterator.next();
-                    ScheduleEntryAssignment assignment = (ScheduleEntryAssignment) assignmentMap.get(resourceID);
-                    if (assignment == null) {
-                        // Hmm... A checked resource is not listed in the assignments
-                        // This means there was a problem with the round-trip error handling
-                        errorReporter.addError(PropertyProvider.get("prm.schedule.taskview.resources.error.invalidstate.message"));
-                        break;
-                    } else {
-                        assignment.setSpaceID(user.getCurrentSpace().getID());
-                        assignment.setPersonRole(request.getParameter("role_" + resourceID));
-                        assignment.setStatusID(request.getParameter("status_" + resourceID));
-                        if (assignment.getPersonID().equals(primaryOwnerID)) {
-                            assignment.setPrimaryOwner(true);
-                        }
-                        assignment.setAssignorID(assignorId);
-                        assignment.setTimeZone(roster.getAnyPerson(assignment.getPersonID()).getTimeZone());
-                    }
-                }
-            }
+            for(Iterator<MaterialAssignment> it = scheduleEntry.getMaterialAssignments().getIterator(); it.hasNext();)
+            	it.next().setAssignorId(assignorId);
 
             if (!errorReporter.errorsFound()) {
                 // We have to store the schedule entry, since work, dates and duration

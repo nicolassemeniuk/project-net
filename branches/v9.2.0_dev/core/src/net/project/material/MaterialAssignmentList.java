@@ -6,6 +6,7 @@ import java.util.Iterator;
 
 import net.project.hibernate.model.PnAssignmentMaterial;
 import net.project.hibernate.service.ServiceFactory;
+import net.project.resource.ScheduleEntryAssignment;
 
 public class MaterialAssignmentList implements Serializable {
 
@@ -59,5 +60,15 @@ public class MaterialAssignmentList implements Serializable {
 			}
 		}
 		return false;
+	}
+
+	public PnAssignmentMaterialList getPnMaterialAssignmentList()
+	{
+		PnAssignmentMaterialList materialList = new PnAssignmentMaterialList(); 
+		
+		for(MaterialAssignment assignment : materialAssignments)
+			materialList.add(MaterialAssignment.getPnMaterialAssignment());
+		
+		return materialList;
 	}
 }

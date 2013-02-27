@@ -14,5 +14,4 @@ public class PnAssignmentMaterialList extends ArrayList<PnAssignmentMaterial> {
 	public PnAssignmentMaterialList(Collection<PnAssignmentMaterial> collection){
 		super(collection);
 	}
-
 }
