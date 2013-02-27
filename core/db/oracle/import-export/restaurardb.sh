@@ -2,7 +2,7 @@
 #: Title		: Restaurar/Cargar la base de datos inicial
 #: Date			: 18/07/2012
 #: Author		: Ramiro Savoie
-#: Version		: 0.1
+#: Version		: 0.5
 #: Description		: Borra la base de datos de Project.net, si existe y carga una inicial.
 #:			  Presupone que los scripts estan en /opt/pnet/ con las rutas ya configuradas
 #: Options		:
@@ -20,5 +20,8 @@ cd /opt/pnet/v9.2.05_OS/database/create-scripts/versions/9.2.0/new
 
 sudo service tomcat6 start
 
-# Para que ya vaya arrancando los Beans
-wget --delete-after  'http://localhost:9090/pnet'
+echo 'Durmiendo 1 minuto mientras arranca el Tomcat'
+sleep 1m
+
+# Para que vaya inicializando las caches de Hibernate
+wget --delete-after 'http://localhost:9090/pnet/LoginProcessing.jsp' --user-agent=Mozilla/5.0 --post-data "language=en&theAction=submit&J_USERNAME=appadmin&J_PASSWORD=appadmin&userDomain=1000"
