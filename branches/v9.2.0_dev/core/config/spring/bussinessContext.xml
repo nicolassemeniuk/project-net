@@ -140,7 +140,7 @@
 				<value>net.project.hibernate.model.PnLicenseStatusReason</value>
 				<value>net.project.hibernate.model.PnLoginHistory</value>
 				<value>net.project.hibernate.model.PnMaterial</value>
-				<value>net.project.hibernate.model.PnAssignmentMaterial</value>
+				<value>net.project.hibernate.model.PnMaterialAssignment</value>
 				<value>net.project.hibernate.model.PnMaterialType</value>
 				<value>net.project.hibernate.model.PnMeeting</value>
 				<value>net.project.hibernate.model.PnMethodologyInIndustry</value>
