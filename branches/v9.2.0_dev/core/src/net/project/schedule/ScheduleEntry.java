@@ -17,7 +17,7 @@
 
 import info.bliki.wiki.model.WikiModel;
 
-import net.project.material.PnAssignmentMaterialList;
+import net.project.material.PnMaterialAssignmentList;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.SQLException;
@@ -3308,6 +3308,7 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 		storeComment(db);
 		storeDependencies(db);
 		storeAssignments(db, autocalculateDates);
+		storeMaterialAssignments();
 		
 		// bfd: 2362: Creating a task gets logged twice in task history
         //TaskEndpointCalculation makes sendNotifications before again calling
@@ -3395,8 +3396,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
     
     private void storeMaterialAssignments()
     {
-    	PnAssignmentMaterialList assignments = materialAssignments.getPnMaterialAssignmentList();
-    	ServiceFactory.getInstance().getPnAssignmentMaterialService()
+    	PnMaterialAssignmentList assignments = materialAssignments.getPnMaterialAssignmentList();
+    	ServiceFactory.getInstance().getPnMaterialAssignmentService().saveMaterialAssignments(assignments);
     }
 
     private void storeDependencies(DBBean db) throws SQLException, PersistenceException {

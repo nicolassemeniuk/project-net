@@ -14,10 +14,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "PN_ASSIGNMENT_MATERIAL")
-public class PnAssignmentMaterial {
+@Table(name = "PN_MATERIAL_ASSIGNMENT")
+public class PnMaterialAssignment {
 	
-	private PnAssignmentMaterialPK comp_id;
+	private PnMaterialAssignmentPK comp_id;
 	
 	private BigDecimal percentAllocated;	
 
@@ -35,7 +35,7 @@ public class PnAssignmentMaterial {
 
 	private PnPerson pnAssignor;
 	
-	public PnAssignmentMaterial() {
+	public PnMaterialAssignment() {
 	}
 
 	@EmbeddedId
@@ -43,7 +43,7 @@ public class PnAssignmentMaterial {
 			@AttributeOverride(name = "spaceId", column = @Column(name = "SPACE_ID", nullable = false, length = 20)),
 			@AttributeOverride(name = "personId", column = @Column(name = "PERSON_ID", nullable = false, length = 20)),
 			@AttributeOverride(name = "objectId", column = @Column(name = "OBJECT_ID", nullable = false, length = 20)) })
-	public PnAssignmentMaterialPK getComp_id() {
+	public PnMaterialAssignmentPK getComp_id() {
 		return comp_id;
 	}
 
@@ -88,7 +88,7 @@ public class PnAssignmentMaterial {
 		return pnAssignor;
 	}
 
-	public void setComp_id(PnAssignmentMaterialPK comp_id) {
+	public void setComp_id(PnMaterialAssignmentPK comp_id) {
 		this.comp_id = comp_id;
 	}
 

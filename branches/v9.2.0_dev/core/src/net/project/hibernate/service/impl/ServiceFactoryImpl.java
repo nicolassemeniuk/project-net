@@ -800,8 +800,8 @@ public class ServiceFactoryImpl extends ServiceFactory {
     }
 	
 	@Override
-    public IPnAssignmentMaterialService getPnAssignmentMaterialService(){
-    	return (IPnAssignmentMaterialService) beanFactory.getBean("pnAssignmentMaterialService");
+    public IPnMaterialAssignmentService getPnMaterialAssignmentService(){
+    	return (IPnMaterialAssignmentService) beanFactory.getBean("pnMaterialAssignmentService");
     }
 	
 	

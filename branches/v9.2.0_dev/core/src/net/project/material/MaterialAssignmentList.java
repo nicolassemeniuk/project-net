@@ -4,9 +4,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import net.project.hibernate.model.PnAssignmentMaterial;
+import net.project.hibernate.model.PnMaterialAssignment;
 import net.project.hibernate.service.ServiceFactory;
-import net.project.resource.ScheduleEntryAssignment;
 
 public class MaterialAssignmentList implements Serializable {
 
@@ -17,8 +16,8 @@ public class MaterialAssignmentList implements Serializable {
 	}
 
 	public void load(String spaceId, String objectId) {
-		PnAssignmentMaterialList assignmentList = ServiceFactory.getInstance().getPnAssignmentMaterialService().getAssignmentMaterials(spaceId, objectId);
-		for (PnAssignmentMaterial assignee : assignmentList) {
+		PnMaterialAssignmentList assignmentList = ServiceFactory.getInstance().getPnMaterialAssignmentService().getMaterialsAssignment(spaceId, objectId);
+		for (PnMaterialAssignment assignee : assignmentList) {
 			materialAssignments.add(new MaterialAssignment(assignee));
 		}
 	}
@@ -52,8 +51,8 @@ public class MaterialAssignmentList implements Serializable {
 	public Iterator<MaterialAssignment> getIterator() {
 		return materialAssignments.iterator();
 	}
-	
-	public boolean overAssignationExists(){
+
+	public boolean overAssignationExists() {
 		for (MaterialAssignment asignee : materialAssignments) {
 			if (asignee.getOverassigned()) {
 				return true;
@@ -62,13 +61,10 @@ public class MaterialAssignmentList implements Serializable {
 		return false;
 	}
 
-	public PnAssignmentMaterialList getPnMaterialAssignmentList()
-	{
-		PnAssignmentMaterialList materialList = new PnAssignmentMaterialList(); 
-		
-		for(MaterialAssignment assignment : materialAssignments)
-			materialList.add(MaterialAssignment.getPnMaterialAssignment());
-		
+	public PnMaterialAssignmentList getPnMaterialAssignmentList() {
+		PnMaterialAssignmentList materialList = new PnMaterialAssignmentList();
+		for (MaterialAssignment assignment : materialAssignments)
+			materialList.add(assignment.getPnMaterialAssignment());
 		return materialList;
 	}
 }

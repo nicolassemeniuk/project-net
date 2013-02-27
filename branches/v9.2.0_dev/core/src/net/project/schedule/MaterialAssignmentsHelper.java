@@ -3,11 +3,11 @@ package net.project.schedule;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import net.project.hibernate.model.PnAssignmentMaterial;
+import net.project.hibernate.model.PnMaterialAssignment;
 import net.project.hibernate.model.PnMaterial;
 import net.project.hibernate.service.ServiceFactory;
 import net.project.material.Material;
-import net.project.material.PnAssignmentMaterialList;
+import net.project.material.PnMaterialAssignmentList;
 import net.project.material.PnMaterialList;
 
 public class MaterialAssignmentsHelper {
@@ -30,12 +30,12 @@ public class MaterialAssignmentsHelper {
 	
 	public void load(){
 		PnMaterialList materials = ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(spaceId);
-		PnAssignmentMaterialList assignmentList = ServiceFactory.getInstance().getPnAssignmentMaterialService().getAssignmentMaterials(spaceId, objectId);
+		PnMaterialAssignmentList assignmentList = ServiceFactory.getInstance().getPnMaterialAssignmentService().getMaterialsAssignment(spaceId, objectId);
 		for(Iterator<PnMaterial> iterator = materials.iterator(); iterator.hasNext();){
 			Material material =  new Material(iterator.next());
 			
 			boolean assigned = false;			
-			for(Iterator<PnAssignmentMaterial> innerIterator = assignmentList.iterator(); innerIterator.hasNext();)
+			for(Iterator<PnMaterialAssignment> innerIterator = assignmentList.iterator(); innerIterator.hasNext();)
 			{
 				if(innerIterator.next().getComp_id().getMaterialId() == Integer.valueOf(material.getMaterialId()))
 				{
