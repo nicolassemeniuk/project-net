@@ -22,7 +22,6 @@
 		<mapping resource="net/project/hibernate/model/PnAgendaItem.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnApplicationSpace.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnAssignment.hbm.xml"/>
-		<mapping resource="net/project/hibernate/model/PnAssignmentMaterial.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnAssignmentWork.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnAuthenticator.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnAuthenticatorType.hbm.xml"/>
@@ -142,6 +141,7 @@
 		<mapping resource="net/project/hibernate/model/PnLicenseStatusReason.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnLoginHistory.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnMaterial.hbm.xml"/>
+		<mapping resource="net/project/hibernate/model/PnMaterialAssignment.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnMaterialType.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnMeeting.hbm.xml"/>
 		<mapping resource="net/project/hibernate/model/PnMethodologyInIndustry.hbm.xml"/>

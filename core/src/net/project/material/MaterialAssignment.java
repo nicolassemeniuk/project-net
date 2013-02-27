@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import net.project.hibernate.model.PnAssignmentMaterial;
+import net.project.hibernate.model.PnMaterialAssignment;
+import net.project.hibernate.model.PnMaterialAssignmentPK;
+import net.project.hibernate.model.PnPerson;
 import net.project.hibernate.service.ServiceFactory;
 import net.project.util.time.ITimeRangeValue;
 
@@ -28,7 +30,7 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 	public MaterialAssignment() {
 	}
 
-	public MaterialAssignment(PnAssignmentMaterial assignedMaterial) {
+	public MaterialAssignment(PnMaterialAssignment assignedMaterial) {
 		this.percentAssigned = assignedMaterial.getPercentAllocated();
 		this.recordStatus = assignedMaterial.getRecordStatus();
 		this.startDate = assignedMaterial.getStartDate();
@@ -37,12 +39,12 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 		this.modifiedDate = assignedMaterial.getModifiedDate();
 		this.modifiedBy = String.valueOf(assignedMaterial.getModifiedBy());
 		this.assignorId = String.valueOf(assignedMaterial.getPnAssignor().getPersonId());
-		this.overassigned = ServiceFactory.getInstance().getPnAssignmentMaterialService().isOverassigned(startDate, endDate, spaceId, materialId, objectId);
+		this.overassigned = ServiceFactory.getInstance().getPnMaterialAssignmentService().isOverassigned(startDate, endDate, spaceId, materialId, objectId);
 	}
 
 	public void load() {
-		PnAssignmentMaterial assignedMaterial = ServiceFactory.getInstance().getPnAssignmentMaterialService()
-				.getAssignmentMaterial(spaceId, materialId, objectId);
+		PnMaterialAssignment assignedMaterial = ServiceFactory.getInstance().getPnMaterialAssignmentService()
+				.getMaterialAssignment(spaceId, materialId, objectId);
 		this.percentAssigned = assignedMaterial.getPercentAllocated();
 		this.recordStatus = assignedMaterial.getRecordStatus();
 		this.startDate = assignedMaterial.getStartDate();
@@ -51,7 +53,7 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 		this.modifiedDate = assignedMaterial.getModifiedDate();
 		this.modifiedBy = String.valueOf(assignedMaterial.getModifiedBy());
 		this.assignorId = String.valueOf(assignedMaterial.getPnAssignor().getPersonId());
-		this.overassigned = ServiceFactory.getInstance().getPnAssignmentMaterialService().isOverassigned(startDate, endDate, spaceId, materialId, objectId);
+		this.overassigned = ServiceFactory.getInstance().getPnMaterialAssignmentService().isOverassigned(startDate, endDate, spaceId, materialId, objectId);
 	}
 
 	public String getSpaceId() {
@@ -146,7 +148,6 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 		this.assignorId = assignorId;
 	}
 
-
 	public void setOverassigned(Boolean overassigned) {
 		this.overassigned = overassigned;
 	}
@@ -161,44 +162,40 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 		return BigDecimal.valueOf(100.00);
 	}
 
-	
-	public Object clone()
-	{
-        MaterialAssignment clone = new MaterialAssignment();
-        
-        clone.setAssignorId(this.getAssignorId());
-        clone.setDateCreated(this.getDateCreated());
-        clone.setEndDate(this.getEndDate());
-        clone.setMaterialId(this.getMaterialId());
-        clone.setModifiedBy(this.getModifiedBy());
-        clone.setModifiedDate(this.getModifiedDate());
-        clone.setObjectId(this.getObjectId());
-        clone.setOverassigned(this.getOverassigned());
-        clone.setPercentAssigned(this.getPercentAssigned());
-        clone.setRecordStatus(this.getRecordStatus());
-        clone.setSpaceId(this.getSpaceId());
-        clone.setStartDate(this.getStartDate());
-        
-        return clone;
+	public Object clone() {
+		MaterialAssignment clone = new MaterialAssignment();
+
+		clone.setAssignorId(this.getAssignorId());
+		clone.setDateCreated(this.getDateCreated());
+		clone.setEndDate(this.getEndDate());
+		clone.setMaterialId(this.getMaterialId());
+		clone.setModifiedBy(this.getModifiedBy());
+		clone.setModifiedDate(this.getModifiedDate());
+		clone.setObjectId(this.getObjectId());
+		clone.setOverassigned(this.getOverassigned());
+		clone.setPercentAssigned(this.getPercentAssigned());
+		clone.setRecordStatus(this.getRecordStatus());
+		clone.setSpaceId(this.getSpaceId());
+		clone.setStartDate(this.getStartDate());
+
+		return clone;
 	}
 
-	public PnAssignmentMaterial getPnMaterialAssignment()
-	{
-		PnAssignmentMaterial materialAssignment = new PnAssignmentMaterial();
-		
-		materialAssignment.setAssignorId(Integer.valueOf(this.getAssignorId()));
+	public PnMaterialAssignment getPnMaterialAssignment() {
+		PnMaterialAssignment materialAssignment = new PnMaterialAssignment();
+		PnMaterialAssignmentPK compId = new PnMaterialAssignmentPK(Integer.valueOf(spaceId), Integer.valueOf(materialId), Integer.valueOf(objectId));
+		PnPerson assignor = ServiceFactory.getInstance().getPnPersonService().getPerson(Integer.valueOf(this.getAssignorId()));
+
+		materialAssignment.setComp_id(compId);
+		materialAssignment.setPnAssignor(assignor);
 		materialAssignment.setDateCreated(this.getDateCreated());
 		materialAssignment.setEndDate(this.getEndDate());
-		materialAssignment.setMaterialId(this.getMaterialId());
-		materialAssignment.setModifiedBy(this.getModifiedBy());
+		materialAssignment.setModifiedBy(Integer.valueOf(this.getModifiedBy()));
 		materialAssignment.setModifiedDate(this.getModifiedDate());
-		materialAssignment.setObjectId(this.getObjectId());
-		materialAssignment.setOverassigned(this.getOverassigned());
-		materialAssignment.setPercentAssigned(this.getPercentAssigned());
+		materialAssignment.setPercentAllocated(this.getPercentAssigned());
 		materialAssignment.setRecordStatus(this.getRecordStatus());
-		materialAssignment.setSpaceId(this.getSpaceId());
-		materialAssignment.setStartDate(this.getStartDate());		
-				
+		materialAssignment.setStartDate(this.getStartDate());
+
 		return materialAssignment;
-	}	
+	}
 }

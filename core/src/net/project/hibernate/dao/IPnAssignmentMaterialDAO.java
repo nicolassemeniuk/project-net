@@ -1,14 +1,14 @@
 package net.project.hibernate.dao;
 
-import net.project.hibernate.model.PnAssignmentMaterial;
-import net.project.hibernate.model.PnAssignmentMaterialPK;
-import net.project.material.PnAssignmentMaterialList;
+import net.project.hibernate.model.PnMaterialAssignment;
+import net.project.hibernate.model.PnMaterialAssignmentPK;
+import net.project.material.PnMaterialAssignmentList;
 
-public interface IPnAssignmentMaterialDAO extends IDAO<PnAssignmentMaterial, PnAssignmentMaterialPK> {
+public interface IPnAssignmentMaterialDAO extends IDAO<PnMaterialAssignment, PnMaterialAssignmentPK> {
 
-	public PnAssignmentMaterial getPnAssignmentMaterial(Integer spaceId, Integer materialId, Integer objectId);
+	public PnMaterialAssignment getPnAssignmentMaterial(Integer spaceId, Integer materialId, Integer objectId);
 
-	public PnAssignmentMaterialList getAssignments(Integer spaceId, Integer objectId);
+	public PnMaterialAssignmentList getAssignments(Integer spaceId, Integer objectId);
 
 	/**
 	 * This method returns a list of assignments for a material in a space.
@@ -19,7 +19,7 @@ public interface IPnAssignmentMaterialDAO extends IDAO<PnAssignmentMaterial, PnA
 	 *            the Id from the Material we want to obtain the assignments.
 	 * @return a list of assignments.
 	 */
-	public PnAssignmentMaterialList getAssignmentsForMaterial(Integer spaceId, Integer materialId);
+	public PnMaterialAssignmentList getAssignmentsForMaterial(Integer spaceId, Integer materialId);
 
 	/**
 	 * This method returns a list of assignments for a Material in a Space.
@@ -34,6 +34,6 @@ public interface IPnAssignmentMaterialDAO extends IDAO<PnAssignmentMaterial, PnA
 	 *            the list.
 	 * @return a list of assignments.
 	 */
-	public PnAssignmentMaterialList getAssignmentsForMaterial(Integer spaceId, Integer materialId, Integer objectId);
+	public PnMaterialAssignmentList getAssignmentsForMaterial(Integer spaceId, Integer materialId, Integer objectId);
 
 }

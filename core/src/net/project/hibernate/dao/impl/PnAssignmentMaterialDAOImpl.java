@@ -1,9 +1,9 @@
 package net.project.hibernate.dao.impl;
 
 import net.project.hibernate.dao.IPnAssignmentMaterialDAO;
-import net.project.hibernate.model.PnAssignmentMaterial;
-import net.project.hibernate.model.PnAssignmentMaterialPK;
-import net.project.material.PnAssignmentMaterialList;
+import net.project.hibernate.model.PnMaterialAssignment;
+import net.project.hibernate.model.PnMaterialAssignmentPK;
+import net.project.material.PnMaterialAssignmentList;
 
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
@@ -14,23 +14,23 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Repository
-public class PnAssignmentMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<PnAssignmentMaterial, PnAssignmentMaterialPK> implements IPnAssignmentMaterialDAO {
+public class PnAssignmentMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<PnMaterialAssignment, PnMaterialAssignmentPK> implements IPnAssignmentMaterialDAO {
 	
 	private static Logger log = Logger.getLogger(PnMaterialDAOImpl.class);
 
 	public PnAssignmentMaterialDAOImpl() {
-		super(PnAssignmentMaterial.class);
+		super(PnMaterialAssignment.class);
 	}
 
 	@Override
-	public PnAssignmentMaterial getPnAssignmentMaterial(Integer spaceId, Integer materialId, Integer objectId) {
+	public PnMaterialAssignment getPnAssignmentMaterial(Integer spaceId, Integer materialId, Integer objectId) {
 		try {
-			PnAssignmentMaterialPK key = new PnAssignmentMaterialPK(spaceId, materialId, objectId);
+			PnMaterialAssignmentPK key = new PnMaterialAssignmentPK(spaceId, materialId, objectId);
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
 			Session session = factory.openSession();
-			PnAssignmentMaterial pnAssignmentMaterial = (PnAssignmentMaterial) session.get(PnAssignmentMaterial.class, key);
+			PnMaterialAssignment pnMaterialAssignment = (PnMaterialAssignment) session.get(PnMaterialAssignment.class, key);
 			session.close();
-			return pnAssignmentMaterial;
+			return pnMaterialAssignment;
 		} catch (Exception e) {
 			log.error("Error occurred while getting assigned material by space, material and id " + e.getMessage());
 		}
@@ -39,12 +39,12 @@ public class PnAssignmentMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<P
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public PnAssignmentMaterialList getAssignments(Integer spaceId, Integer objectId) {
-		PnAssignmentMaterialList result = new PnAssignmentMaterialList();
+	public PnMaterialAssignmentList getAssignments(Integer spaceId, Integer objectId) {
+		PnMaterialAssignmentList result = new PnMaterialAssignmentList();
 		try {
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
 			Session session = factory.openSession();			
-			result = new PnAssignmentMaterialList(session.createCriteria(PnAssignmentMaterial.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).add(Restrictions.eq("comp_id.objectId", objectId)).list());
+			result = new PnMaterialAssignmentList(session.createCriteria(PnMaterialAssignment.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).add(Restrictions.eq("comp_id.objectId", objectId)).list());
 			session.close();
 		} catch (Exception e) {
 			log.error("Error occurred while getting the list of assigned materials " + e.getMessage());
@@ -56,12 +56,12 @@ public class PnAssignmentMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<P
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public PnAssignmentMaterialList getAssignmentsForMaterial(Integer spaceId, Integer materialId) {
-		PnAssignmentMaterialList result = new PnAssignmentMaterialList();
+	public PnMaterialAssignmentList getAssignmentsForMaterial(Integer spaceId, Integer materialId) {
+		PnMaterialAssignmentList result = new PnMaterialAssignmentList();
 		try {
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
 			Session session = factory.openSession();			
-			result = new PnAssignmentMaterialList(session.createCriteria(PnAssignmentMaterial.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).add(Restrictions.eq("comp_id.materialId", materialId)).list());
+			result = new PnMaterialAssignmentList(session.createCriteria(PnMaterialAssignment.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).add(Restrictions.eq("comp_id.materialId", materialId)).list());
 			session.close();
 		} catch (Exception e) {
 			log.error("Error occurred while getting the list of assigned materials " + e.getMessage());
@@ -74,12 +74,12 @@ public class PnAssignmentMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<P
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public PnAssignmentMaterialList getAssignmentsForMaterial(Integer spaceId, Integer materialId, Integer objectId) {
-		PnAssignmentMaterialList result = new PnAssignmentMaterialList();
+	public PnMaterialAssignmentList getAssignmentsForMaterial(Integer spaceId, Integer materialId, Integer objectId) {
+		PnMaterialAssignmentList result = new PnMaterialAssignmentList();
 		try {
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
 			Session session = factory.openSession();			
-			result = new PnAssignmentMaterialList(session.createCriteria(PnAssignmentMaterial.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).add(Restrictions.eq("comp_id.materialId", materialId)).add(Restrictions.ne("comp_id.objectId", objectId)).list());
+			result = new PnMaterialAssignmentList(session.createCriteria(PnMaterialAssignment.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).add(Restrictions.eq("comp_id.materialId", materialId)).add(Restrictions.ne("comp_id.objectId", objectId)).list());
 			session.close();
 		} catch (Exception e) {
 			log.error("Error occurred while getting the list of assigned materials " + e.getMessage());

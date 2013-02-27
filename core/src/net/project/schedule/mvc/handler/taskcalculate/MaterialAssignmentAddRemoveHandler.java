@@ -88,7 +88,7 @@ public class MaterialAssignmentAddRemoveHandler extends AbstractMaterialAssignme
             assignment.setAssignorId(user.getID());
             
             //Check if this assignment is in conflict with existing assignments.
-            assignment.setOverassigned(ServiceFactory.getInstance().getPnAssignmentMaterialService().isOverassigned(assignment.getStartDate(), assignment.getEndDate(), assignment.getSpaceId(), assignment.getMaterialId()));            
+            assignment.setOverassigned(ServiceFactory.getInstance().getPnMaterialAssignmentService().isOverassigned(assignment.getStartDate(), assignment.getEndDate(), assignment.getSpaceId(), assignment.getMaterialId()));            
             calc.assignmentMaterialAdded(assignment);
         } else {                                                
             // When removing, the assignment must be in the list of assignments

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 
-public class PnAssignmentMaterialPK implements Serializable {
+public class PnMaterialAssignmentPK implements Serializable {
 	
 	private Integer spaceId;
 
@@ -12,10 +12,10 @@ public class PnAssignmentMaterialPK implements Serializable {
 
 	private Integer objectId;
 
-	public PnAssignmentMaterialPK() {
+	public PnMaterialAssignmentPK() {
 	}
 
-	public PnAssignmentMaterialPK(Integer spaceId, Integer materialId, Integer objectId) {
+	public PnMaterialAssignmentPK(Integer spaceId, Integer materialId, Integer objectId) {
 		this.spaceId = spaceId;
 		this.materialId = materialId;
 		this.objectId = objectId;

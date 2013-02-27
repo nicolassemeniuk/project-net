@@ -382,7 +382,7 @@ public abstract class ServiceFactory {
     
     public abstract IPnSpaceHasMaterialService getPnSpaceHasMaterialService();
     
-    public abstract IPnAssignmentMaterialService getPnAssignmentMaterialService();
+    public abstract IPnMaterialAssignmentService getPnMaterialAssignmentService();
     
     public abstract IMaterialService getMaterialService();
     

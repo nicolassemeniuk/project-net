@@ -2,10 +2,10 @@ package net.project.hibernate.service;
 
 import java.util.Date;
 
-import net.project.hibernate.model.PnAssignmentMaterial;
-import net.project.material.PnAssignmentMaterialList;
+import net.project.hibernate.model.PnMaterialAssignment;
+import net.project.material.PnMaterialAssignmentList;
 
-public interface IPnAssignmentMaterialService {
+public interface IPnMaterialAssignmentService {
 
 	/**
 	 * Returns an assigned Material object given an certain Space, Material and
@@ -19,7 +19,7 @@ public interface IPnAssignmentMaterialService {
 	 *            the Id from the object.
 	 * @return an Assignment from a material.
 	 */
-	public PnAssignmentMaterial getAssignmentMaterial(String spaceId, String materialId, String objectId);
+	public PnMaterialAssignment getMaterialAssignment(String spaceId, String materialId, String objectId);
 
 	/**
 	 * Returns the assigned Materials from that Space and Object.
@@ -30,7 +30,7 @@ public interface IPnAssignmentMaterialService {
 	 *            the Id from the Object.
 	 * @return a list of assignments.
 	 */
-	public PnAssignmentMaterialList getAssignmentMaterials(String spaceId, String objectId);
+	public PnMaterialAssignmentList getMaterialsAssignment(String spaceId, String objectId);
 
 	/**
 	 * 
@@ -43,7 +43,7 @@ public interface IPnAssignmentMaterialService {
 	 *            the id from the Space the Material is assigned to.
 	 * @return a list of assignments for that Material in that space.
 	 */
-	public PnAssignmentMaterialList getAssignmentsForMaterial(String spaceId, String materialId);
+	public PnMaterialAssignmentList getAssignmentsForMaterial(String spaceId, String materialId);
 
 	/**
 	 * Returns if a material is over assigned. This means that the material is
@@ -86,5 +86,9 @@ public interface IPnAssignmentMaterialService {
 	 */
 	public boolean isOverassigned(Date startDate, Date endDate, String spaceId, String materialId);
 
-	public void saveMaterialAssignments(PnAssignmentMaterialList materialAssignments);
+	/**
+	 * Saves or updates a list of material assignments on the database.
+	 * @param materialAssignmentsList a List representing material assignments.
+	 */
+	public void saveMaterialAssignments(PnMaterialAssignmentList materialAssignmentsList);
 }
