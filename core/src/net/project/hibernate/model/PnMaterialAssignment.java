@@ -8,14 +8,13 @@ import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "PN_MATERIAL_ASSIGNMENT")
-public class PnMaterialAssignment {
+public class PnMaterialAssignment{
 	
 	private PnMaterialAssignmentPK comp_id;
 	
@@ -41,7 +40,7 @@ public class PnMaterialAssignment {
 	@EmbeddedId
 	@AttributeOverrides( {
 			@AttributeOverride(name = "spaceId", column = @Column(name = "SPACE_ID", nullable = false, length = 20)),
-			@AttributeOverride(name = "personId", column = @Column(name = "PERSON_ID", nullable = false, length = 20)),
+			@AttributeOverride(name = "materialId", column = @Column(name = "MATERIAL_ID", nullable = false, length = 20)),
 			@AttributeOverride(name = "objectId", column = @Column(name = "OBJECT_ID", nullable = false, length = 20)) })
 	public PnMaterialAssignmentPK getComp_id() {
 		return comp_id;
@@ -82,8 +81,8 @@ public class PnMaterialAssignment {
 		return modifiedBy;
 	}
 
-	@ManyToOne(fetch = FetchType.LAZY, targetEntity = PnPerson.class)
-	@JoinColumn(name = "ASSIGNOR_ID", insertable = false, updatable = false)
+	@ManyToOne(targetEntity = PnPerson.class)
+	@JoinColumn(name = "ASSIGNOR_ID")
 	public PnPerson getPnAssignor() {
 		return pnAssignor;
 	}
@@ -123,7 +122,6 @@ public class PnMaterialAssignment {
 	public void setPnAssignor(PnPerson pnAssignor) {
 		this.pnAssignor = pnAssignor;
 	}
-	
-	
+
 
 }

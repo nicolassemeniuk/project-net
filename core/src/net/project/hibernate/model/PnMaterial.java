@@ -2,7 +2,12 @@ package net.project.hibernate.model;
 
 import java.io.Serializable;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "PN_MATERIAL")
@@ -98,8 +103,6 @@ public class PnMaterial implements Serializable {
 	public void setRecordStatus(String recordStatus) {
 		this.recordStatus = recordStatus;
 	}
-	
-	
 	
 	
 

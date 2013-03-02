@@ -84,8 +84,9 @@ public class MaterialAssignmentAddRemoveHandler extends AbstractMaterialAssignme
             assignment.setStartDate(scheduleEntry.getStartTime());
             assignment.setEndDate(scheduleEntry.getEndTime());
             assignment.setDateCreated(new Date());
-            assignment.setModifiedDate(new Date());
             assignment.setModifiedBy(user.getID());
+            assignment.setModifiedDate(new Date());
+            assignment.setModifiedDate(new Date());
             assignment.setAssignorId(user.getID());
             
             //Check if this assignment is in conflict with existing assignments.
@@ -94,7 +95,11 @@ public class MaterialAssignmentAddRemoveHandler extends AbstractMaterialAssignme
         } else {                                                
             // When removing, the assignment must be in the list of assignments
         	MaterialAssignment assignment = scheduleEntry.getMaterialAssignments().getAssignedMaterial(materialId);
-            calc.assignmentMaterialRemoved(assignment);
+        	assignment.setRecordStatus("D");
+            assignment.setModifiedBy(user.getID());        	
+        	assignment.setModifiedDate(new Date());
+        	assignment.setModifiedDate(new Date());
+            //calc.assignmentMaterialRemoved(assignment);
         }
 
         try {

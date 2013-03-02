@@ -44,8 +44,10 @@ public class PnMaterialAssignmentServiceImpl implements IPnMaterialAssignmentSer
 		
 		//we add all assignments to the TimeRangeAggregator.
 		for(PnMaterialAssignment assignment : assignments){
-			MaterialAssignment materialAssignment = new MaterialAssignment(assignment);
-			aggregator.insert(materialAssignment);
+			MaterialAssignment newMaterialAssignment = new MaterialAssignment();
+			newMaterialAssignment.setEndDate(assignment.getEndDate());
+			newMaterialAssignment.setStartDate(assignment.getStartDate());
+			aggregator.insert(newMaterialAssignment);
 		}
 		
 		return aggregator.existConcurrent(startDate, endDate);
@@ -78,7 +80,7 @@ public class PnMaterialAssignmentServiceImpl implements IPnMaterialAssignmentSer
 			
 			newAssignment.setComp_id(newAssignmentPK);
 			newAssignment.setPnAssignor(assignor);
-			newAssignment.setRecordStatus("A");
+			newAssignment.setRecordStatus(assignment.getRecordStatus());
 			newAssignment.setDateCreated(assignment.getDateCreated());
 			newAssignment.setStartDate(assignment.getStartDate());
 			newAssignment.setEndDate(assignment.getEndDate());

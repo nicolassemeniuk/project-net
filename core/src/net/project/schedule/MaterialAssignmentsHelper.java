@@ -37,8 +37,11 @@ public class MaterialAssignmentsHelper {
 			boolean assigned = false;			
 			for(Iterator<PnMaterialAssignment> innerIterator = assignmentList.iterator(); innerIterator.hasNext();)
 			{
-				if(innerIterator.next().getComp_id().getMaterialId() == Integer.valueOf(material.getMaterialId()))
-				{
+				PnMaterialAssignment assignment = innerIterator.next();
+				Integer id = assignment.getComp_id().getMaterialId();
+				Integer id2 = Integer.valueOf(material.getMaterialId());
+				String status = assignment.getRecordStatus();
+				if(id.equals(id2) && status.equals("A")){
 					assigned = true;
 					break;
 				}

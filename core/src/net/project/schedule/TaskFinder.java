@@ -91,6 +91,9 @@ public class TaskFinder extends Finder {
     private MultiMap successorMap;
     /** Indicates whether to pre load assignments before loading tasks. */
     private boolean preloadAssignments = false;
+    /** Indicates whether to pre load material assignments before loading tasks. */
+    private boolean preloadMaterialAssignments = false;
+    
     /** A multimap of task_id to task assignments. */
     private MultiMap assignmentMap;
     /** The space ID for which items are to be preloaded. */
@@ -261,8 +264,15 @@ public class TaskFinder extends Finder {
         preloadSpaceID = spaceID;
         loadAssignments();
     }
+    
 
-    /**
+    public void preloadMaterialAssignments(String spaceID) throws PersistenceException {
+        preloadMaterialAssignments = true;
+        preloadSpaceID = spaceID;
+        loadMaterialAssignments();
+    }
+
+	/**
      * Given a list of Tasks just loaded by this task finder, populate all of
      * the children of the summary tasks.  This will only work properly if all
      * of the schedule entries in a space were loaded.
@@ -566,7 +576,7 @@ public class TaskFinder extends Finder {
         //result sets.  The effect should be negligible on small result sets
         preloadDependencies(spaceID);
         preloadAssignments(spaceID);
-
+        preloadMaterialAssignments(spaceID);
         clearWhereClauses();
         addWhereClause(" shp.space_id = " + spaceID);
         return loadFromDB();
@@ -907,6 +917,12 @@ public class TaskFinder extends Finder {
             assignmentMap.put(assn.getObjectID(), assn);
         }
     }
+    
+    
+    private void loadMaterialAssignments() {
+		
+		
+	}
 
     /**
      * Returns a collection of <code>ScheduleEntryAssignment</code>s where
