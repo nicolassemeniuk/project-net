@@ -15,7 +15,6 @@
 
  package net.project.schedule.mvc.handler.taskview;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -24,10 +23,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import net.project.base.Module;
-import net.project.base.property.PropertyProvider;
 import net.project.material.MaterialAssignment;
-import net.project.resource.RosterBean;
-import net.project.resource.ScheduleEntryAssignment;
 import net.project.schedule.Schedule;
 import net.project.schedule.ScheduleEntry;
 import net.project.security.Action;

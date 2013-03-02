@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Transient;
+
 import net.project.hibernate.model.PnMaterialAssignment;
 import net.project.hibernate.service.ServiceFactory;
 import net.project.util.time.ITimeRangeValue;
@@ -29,6 +31,9 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 	}
 
 	public MaterialAssignment(PnMaterialAssignment assignedMaterial) {
+		this.spaceId = String.valueOf(assignedMaterial.getComp_id().getSpaceId());
+		this.objectId = String.valueOf(assignedMaterial.getComp_id().getObjectId());
+		this.materialId = String.valueOf(assignedMaterial.getComp_id().getMaterialId());
 		this.percentAssigned = assignedMaterial.getPercentAllocated();
 		this.recordStatus = assignedMaterial.getRecordStatus();
 		this.startDate = assignedMaterial.getStartDate();
@@ -43,6 +48,9 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 	public void load() {
 		PnMaterialAssignment assignedMaterial = ServiceFactory.getInstance().getPnMaterialAssignmentService()
 				.getMaterialAssignment(spaceId, materialId, objectId);
+		this.spaceId = String.valueOf(assignedMaterial.getComp_id().getSpaceId());
+		this.objectId = String.valueOf(assignedMaterial.getComp_id().getObjectId());
+		this.materialId = String.valueOf(assignedMaterial.getComp_id().getMaterialId());
 		this.percentAssigned = assignedMaterial.getPercentAllocated();
 		this.recordStatus = assignedMaterial.getRecordStatus();
 		this.startDate = assignedMaterial.getStartDate();
@@ -178,5 +186,4 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 
 		return clone;
 	}
-
 }
