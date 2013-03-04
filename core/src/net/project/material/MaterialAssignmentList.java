@@ -54,7 +54,7 @@ public class MaterialAssignmentList implements Serializable, Iterable<MaterialAs
 
 	public boolean overAssignationExists() {
 		for (MaterialAssignment asignee : materialAssignments) {
-			if (asignee.getOverassigned()) {
+			if (asignee.getOverassigned() && asignee.getRecordStatus().equals("A")) {
 				return true;
 			}
 		}
