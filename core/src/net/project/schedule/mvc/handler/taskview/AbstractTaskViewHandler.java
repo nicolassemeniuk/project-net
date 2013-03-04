@@ -132,7 +132,7 @@ public abstract class AbstractTaskViewHandler extends Handler {
         ScheduleEntry entry;
 
         //Always reload the task
-        entry = new TaskFinder().findObjectByID(id, true, true);
+        entry = new TaskFinder().findObjectByID(id, true, true, true);
         request.getSession().setAttribute("scheduleEntry", entry);
 
         return entry;

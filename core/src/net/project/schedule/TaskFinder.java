@@ -455,8 +455,8 @@ public class TaskFinder extends Finder {
      * database.  This should mostly be of the unexpected error ilk, this shouldn't
      * normally happen.
      */
-    public ScheduleEntry findObjectByID(String id, boolean isLoadPredecessors, boolean isLoadAssignments) throws PersistenceException {
-        List tasks = findByID(id, isLoadPredecessors, isLoadAssignments);
+    public ScheduleEntry findObjectByID(String id, boolean isLoadPredecessors, boolean isLoadAssignments, boolean isLoadMaterialAssignments) throws PersistenceException {
+        List tasks = findByID(id, isLoadPredecessors, isLoadAssignments, isLoadMaterialAssignments);
         return (ScheduleEntry) getAssertedSingleResult(tasks, "id = " + id);
     }
 
@@ -512,7 +512,7 @@ public class TaskFinder extends Finder {
      * database.  This should mostly be of the unexpected error ilk, this shouldn't
      * normally happen.
      */
-    public List findByID(String id, boolean loadPredecessors, boolean loadAssignments) throws PersistenceException {
+    public List findByID(String id, boolean loadPredecessors, boolean loadAssignments, boolean loadMaterialsAssignments) throws PersistenceException {
         List entries = findByID(id);
 
         //If an entry was found we should preload predecessors and assignments.
@@ -524,6 +524,8 @@ public class TaskFinder extends Finder {
             if (loadAssignments) {
                 se.loadAssignments();
             }
+            if(loadMaterialsAssignments)
+            	se.loadMaterialAssignments();
         }
 
         return entries;

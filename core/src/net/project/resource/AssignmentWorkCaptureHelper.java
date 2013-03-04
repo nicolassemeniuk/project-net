@@ -1384,7 +1384,7 @@ public class AssignmentWorkCaptureHelper {
 	        ScheduleEntry entry = (ScheduleEntry) taskCache.get(taskID);
 
 	        if (entry == null) {
-	            entry = finder.findObjectByID(taskID, false, true);
+	            entry = finder.findObjectByID(taskID, false, true, true);
 	            taskCache.put(taskID, entry);
 	        }
 

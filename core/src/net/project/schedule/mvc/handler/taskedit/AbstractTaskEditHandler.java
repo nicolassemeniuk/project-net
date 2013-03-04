@@ -178,7 +178,7 @@ public abstract class AbstractTaskEditHandler extends Handler {
             //Always reload the task, even though it might already be loaded
             //by the schedule.  This will prevent us from updating the
             //database with stale information.
-            scheduleEntry = new TaskFinder().findObjectByID(id, true, true);
+            scheduleEntry = new TaskFinder().findObjectByID(id, true, true, true);
             request.getSession().setAttribute("scheduleEntry", scheduleEntry);
         } else {
             TaskType type = scheduleEntry.getTaskType();

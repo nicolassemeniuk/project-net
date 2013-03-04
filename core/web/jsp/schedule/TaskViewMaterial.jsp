@@ -613,7 +613,7 @@ function setTimeQuantity(resourceID, amount, unitsID) {
 								</td>
 							</tr>
 							<tr class="tableHeader">
-								<td colspan="2"></td>
+								<td colspan="1"></td>
 								<td><display:get name="prm.schedule.taskview.material.assign.material.column" /></td>
 								<td align="center"><display:get name="prm.schedule.taskview.material.assign.workingcalendar.column" /></td>
 							</tr>

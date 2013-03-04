@@ -643,7 +643,7 @@ public abstract class AbstractTaskEditProcessingHandler extends Handler {
             entry = ScheduleEntryFactory.createFromType(TaskType.TASK);
         } else {
             TaskFinder tf = new TaskFinder();
-            entry = tf.findObjectByID(id, true, true);
+            entry = tf.findObjectByID(id, true, true, true);
         }
         return entry;
     }
