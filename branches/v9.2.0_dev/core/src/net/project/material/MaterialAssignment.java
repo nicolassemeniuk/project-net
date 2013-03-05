@@ -26,6 +26,7 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 
 	/** true if it's overassigned */
 	private Boolean overassigned;
+	private String materialName;
 
 	public MaterialAssignment() {
 	}
@@ -43,6 +44,7 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 		this.modifiedBy = String.valueOf(assignedMaterial.getModifiedBy());
 		this.assignorId = String.valueOf(assignedMaterial.getPnAssignor().getPersonId());
 		this.overassigned = ServiceFactory.getInstance().getPnMaterialAssignmentService().isOverassigned(startDate, endDate, spaceId, materialId, objectId);
+		this.materialName = ServiceFactory.getInstance().getPnMaterialService().getMaterial(Integer.valueOf(materialId)).getMaterialName();
 	}
 
 	public void load() {
@@ -60,6 +62,7 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 		this.modifiedBy = String.valueOf(assignedMaterial.getModifiedBy());
 		this.assignorId = String.valueOf(assignedMaterial.getPnAssignor().getPersonId());
 		this.overassigned = ServiceFactory.getInstance().getPnMaterialAssignmentService().isOverassigned(startDate, endDate, spaceId, materialId, objectId);
+		this.materialName = ServiceFactory.getInstance().getPnMaterialService().getMaterial(Integer.valueOf(materialId)).getMaterialName();
 	}
 
 	public String getSpaceId() {
@@ -157,6 +160,16 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 	public void setOverassigned(Boolean overassigned) {
 		this.overassigned = overassigned;
 	}
+	
+	public String getMaterialName()
+	{
+		return materialName;
+	}
+
+	public void setMaterialName(String materialName)
+	{
+		this.materialName = materialName;
+	}
 
 	/**
 	 * This has to be because we implement the ITimeRangeValue interface. In our
@@ -183,6 +196,7 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 		clone.setRecordStatus(this.getRecordStatus());
 		clone.setSpaceId(this.getSpaceId());
 		clone.setStartDate(this.getStartDate());
+		clone.setMaterialName(this.getMaterialName());
 
 		return clone;
 	}

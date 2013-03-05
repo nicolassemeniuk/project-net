@@ -343,6 +343,43 @@ function aClose() {
     phide("resPopup");
 }
 
+function mPopup(assignments) {
+    var newHTML = "";
+    newHTML = newHTML + "<table class='popup' cellpadding='0' cellspacing='0'>";
+    newHTML = newHTML + "  <tr><td>";
+    newHTML = newHTML + "    <table class='popupTitle' width='100%'>";
+    newHTML = newHTML + "      <tr><td><b>";
+    //--> 
+    newHTML = newHTML + "      		<t:Message value='prm.schedule.main.materialassignments'/>";
+    <!--//
+    newHTML = newHTML + "      </b></td></tr>";
+    newHTML = newHTML + "    </table>";
+    newHTML = newHTML + "  </td></tr>";
+    newHTML = newHTML + "  <tr><td>";
+    newHTML = newHTML + "    <table class='popupBody' width='100%' id='depContent'>";
+    newHTML = newHTML + "      <tr class='tableHeader'><td>";
+    //-->
+    newHTML = newHTML + "      		<t:Message value='prm.schedule.taskview.material.assign.material.column'/>";
+    <!--//
+    newHTML = newHTML + "      </td></tr>";
+    newHTML = newHTML + "      <tr class='headerSep'><td colspan='1'></td></tr>";
+    var rows = assignments.split("|");
+    for (var i = 0; i < rows.length; i++) {
+      newHTML = newHTML + "      <tr><td>"+rows[i]+"</td></tr>";
+      newHTML = newHTML + "      <tr><td colspan='1' class='rowSep'></td></tr>";
+    }
+    newHTML = newHTML + "    </table>";
+    newHTML = newHTML + "  </td></tr>";
+    newHTML = newHTML + "</table>";
+
+    document.getElementById("matPopup").innerHTML = newHTML;
+    pup("matPopup");
+}
+
+function mClose() {
+    phide("matPopup");
+}
+
 function changeSelection() {
     changeCheckedState(theForm.selected, theForm.changeCheckedState.checked);
 }
@@ -777,6 +814,9 @@ document.onclick = function(e) {
 
 <!-- Resources Popup -->
 <div id="resPopup" class="schedule-popup"></div>
+
+<!-- Resources Popup -->
+<div id="matPopup" class="schedule-popup"></div>
 
 <div id="pnettabset" class="tap5c_tab-set">
 <div onselectstart="return false" class="tap5c_tab-set-panel activated disableSelection" id="panel_Schedule" onclick="activate_tab('panel_Schedule');"><div class="tab-text"><t:Message value="prm.schedule.taskview.tab.schedule.caption"/></div></div>

@@ -102,6 +102,14 @@ public class ScheduleDecorator {
 			return null;
 	}
 	
+	public String getHasMaterialAssignmentImage() {
+		if (propertyMap.propertyExists("hasMaterialAssignmentImage"))
+			return propertyMap.getProperty("hasMaterialAssignmentImage");
+		else
+			return SessionManager.getJSPRootURL() + "/images/post.gif";
+
+	}
+	
 	public String getSharingProjectTitle(){
 		return PropertyProvider.get("prm.schedule.list.sharingproject.title");
 	}
