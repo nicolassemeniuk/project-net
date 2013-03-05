@@ -65,6 +65,16 @@ public class MaterialAssignmentList implements Serializable, Iterable<MaterialAs
 	public Iterator<MaterialAssignment> iterator() {
 		return this.materialAssignments.iterator();
 	}
+
+	public boolean hasActive()
+	{
+		for (MaterialAssignment asignee : materialAssignments) {
+			if (asignee.getRecordStatus().equals("A"))
+				return true;
+		}
+		
+		return false;
+	}
 	
 	
 

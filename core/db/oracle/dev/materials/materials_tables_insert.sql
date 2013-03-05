@@ -63,6 +63,8 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.main.module.histo
 --Material main
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.authorizationfailed.message','Access to Material Workspace denied','A',0,1,null);
 
+-- Workplan
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.main.materialassignments','Materials','A',0,1,null);
 
 -- Propiedades para la vista de nuevo material
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.materialnamerequired.message','Material Name is a required field','A',0,1,null);

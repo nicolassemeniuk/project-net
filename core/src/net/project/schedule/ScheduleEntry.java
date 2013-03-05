@@ -2130,6 +2130,22 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
         }
         return tooltip;
     }
+    
+    public String getMaterialAssignmentsTooltip() {
+        String tooltip = "";
+        NumberFormat nf = NumberFormat.getInstance();
+        for (Iterator<MaterialAssignment> it = getMaterialAssignments().iterator(); it.hasNext();) {
+        	MaterialAssignment materialAssignment = it.next();
+            if (materialAssignment.getMaterialName() != null) {
+                tooltip += materialAssignment.getMaterialName().replaceAll("\\|", "&#166;");
+            }
+  
+            if (it.hasNext()) {
+                tooltip += "|";
+            }
+        }
+        return tooltip;
+    }    
 
     /**
      * Converts the object to XML representation. This method returns the
@@ -4019,6 +4035,10 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
     public boolean isHasAssignments(){
     	return getAssignmentList().size() > 0;
     }
+    
+    public boolean isHasMaterialAssignments(){
+    	return getMaterialAssignments().hasActive();
+    }    
     
     public boolean isHasDependencies(){
     	return !getPredecessorsNoLazyLoad().isEmpty();

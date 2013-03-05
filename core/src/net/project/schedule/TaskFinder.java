@@ -923,7 +923,6 @@ public class TaskFinder extends Finder {
     
     private void loadMaterialAssignments() {
 		
-		
 	}
 
     /**
