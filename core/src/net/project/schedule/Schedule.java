@@ -1764,7 +1764,7 @@ public class Schedule implements IJDBCPersistence, IXMLPersistence, IExportableO
      */
     public void loadAll(DBBean db) throws SQLException {
         load(db);
-        loadEntries(true, true, db);
+        loadEntries(true, true, true, db);
     }
 
     /**
@@ -1894,7 +1894,7 @@ public class Schedule implements IJDBCPersistence, IXMLPersistence, IExportableO
      * schedule entries
      */
     public void loadEntries(TaskType[] entryType) throws PersistenceException {
-        loadEntries(entryType, true, true);
+        loadEntries(entryType, true, true, true);
     }
 
     /**
@@ -1910,10 +1910,10 @@ public class Schedule implements IJDBCPersistence, IXMLPersistence, IExportableO
      * @throws PersistenceException if there is a problem loading the
      * schedule entries
      */
-    public void loadEntries(TaskType[] entryType, boolean isLoadDependencies, boolean isLoadAssignments) throws PersistenceException {
+    public void loadEntries(TaskType[] entryType, boolean isLoadDependencies, boolean isLoadAssignments, boolean isLoadMaterialAssignments) throws PersistenceException {
         FinderFilter existingFilter = finderFilterList.deepSearch("type");
         setTaskType(entryType);
-        loadEntries(isLoadDependencies, isLoadAssignments);
+        loadEntries(isLoadDependencies, isLoadAssignments, isLoadMaterialAssignments);
 
         //Now restore the original type filter
         if (existingFilter != null) {
@@ -1927,7 +1927,7 @@ public class Schedule implements IJDBCPersistence, IXMLPersistence, IExportableO
      * Loads schedule entries for the specified types of schedule entries.
      */
     public void loadEntries() throws PersistenceException {
-        loadEntries(true, true);
+        loadEntries(true, true, true);
     }
 
     /**
@@ -1942,10 +1942,10 @@ public class Schedule implements IJDBCPersistence, IXMLPersistence, IExportableO
      * @throws PersistenceException if there is a problem loading the
      * schedule entries
      */
-    public void loadEntries(boolean isLoadDependencies, boolean isLoadAssignments) throws PersistenceException {
+    public void loadEntries(boolean isLoadDependencies, boolean isLoadAssignments, boolean isLoadMaterialAssignments) throws PersistenceException {
         DBBean db = new DBBean();
         try {
-            loadEntries(isLoadDependencies, isLoadAssignments, db);
+            loadEntries(isLoadDependencies, isLoadAssignments, isLoadMaterialAssignments, db);
         } catch (SQLException sqle) {
             throw new PersistenceException(sqle);
         } finally {
@@ -1966,7 +1966,7 @@ public class Schedule implements IJDBCPersistence, IXMLPersistence, IExportableO
      * @throws SQLException if there is a problem loading the
      * schedule entries
      */
-    public void loadEntries(boolean isLoadDependencies, boolean isLoadAssignments, DBBean db) throws SQLException {
+    public void loadEntries(boolean isLoadDependencies, boolean isLoadAssignments, boolean isLoadMaterialAssignments, DBBean db) throws SQLException {
         this.taskList.clear();
 
         TaskFinder tf = new TaskFinder();
@@ -1975,7 +1975,7 @@ public class Schedule implements IJDBCPersistence, IXMLPersistence, IExportableO
         tf.addFinderFilterList(finderFilterList);
         tf.addFinderListener(finderListener);
 
-        List taskList = tf.findScheduleEntries(space.getID(), getFilterOpenItemsOnly(), hierarchyView, getMaximumEntries(), isLoadDependencies, isLoadAssignments, db);
+        List taskList = tf.findScheduleEntries(space.getID(), getFilterOpenItemsOnly(), hierarchyView, getMaximumEntries(), isLoadDependencies, isLoadAssignments, isLoadMaterialAssignments, db);
 
         this.taskList.addAll(taskList);
         this.taskList.calculateHierarchyLevel();

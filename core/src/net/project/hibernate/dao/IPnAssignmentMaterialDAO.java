@@ -36,4 +36,5 @@ public interface IPnAssignmentMaterialDAO extends IDAO<PnMaterialAssignment, PnM
 	 */
 	public PnMaterialAssignmentList getAssignmentsForMaterial(Integer spaceId, Integer materialId, Integer objectId);
 
+	public PnMaterialAssignmentList getAssignments(Integer valueOf);
 }

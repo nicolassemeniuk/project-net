@@ -227,7 +227,7 @@ public class MoveStartDateForward implements IOverallocationResolution {
 
             if (testEntry == null) {
                 //Force reload of schedule
-                schedule.loadEntries(true, true);
+                schedule.loadEntries(true, true, true);
                 testEntry = (ScheduleEntry)schedule.getEntryMap().get(scheduleEntry.getID());
             }
             testEntry.setConstraintType(TaskConstraintType.MUST_START_ON);

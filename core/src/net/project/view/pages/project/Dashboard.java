@@ -993,7 +993,7 @@ public class Dashboard extends BasePage {
 		    // We avoid loading dependencies and assignments to improve
 		    // performance; we don't care about those
 		    schedule.setHierarchyView(Schedule.HIERARCHY_VIEW_EXPANDED);
-		    schedule.loadEntries(new TaskType[] {TaskType.MILESTONE}, false, false);
+		    schedule.loadEntries(new TaskType[] {TaskType.MILESTONE}, false, false, false);
 		    
 		    // Reset settings
 		    schedule.clearFinderFilterList();

@@ -53,6 +53,24 @@ public class PnAssignmentMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<P
 		
 		return result;
 	}
+	
+	@SuppressWarnings("unchecked")	
+	@Override
+	public PnMaterialAssignmentList getAssignments(Integer spaceId)
+	{
+		PnMaterialAssignmentList result = new PnMaterialAssignmentList();
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();			
+			result = new PnMaterialAssignmentList(session.createCriteria(PnMaterialAssignment.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).list());
+			session.close();
+		} catch (Exception e) {
+			log.error("Error occurred while getting the list of assigned materials " + e.getMessage());
+			e.printStackTrace();
+		}
+		
+		return result;
+	}	
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -88,5 +106,4 @@ public class PnAssignmentMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<P
 		
 		return result;
 	}
-
 }

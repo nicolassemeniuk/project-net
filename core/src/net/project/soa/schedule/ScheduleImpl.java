@@ -53,7 +53,7 @@ public class ScheduleImpl extends Schedule implements ISchedule {
 	    // We avoid loading dependencies and assignments to improve
 	    // performance; we don't care about those
 	    schedule.setHierarchyView(Schedule.HIERARCHY_VIEW_EXPANDED);
-	    schedule.loadEntries(new TaskType[] {TaskType.MILESTONE}, false, false);
+	    schedule.loadEntries(new TaskType[] {TaskType.MILESTONE}, false, false, false);
 	
 	    // Reset settings
 	    schedule.clearFinderFilterList();
@@ -76,7 +76,7 @@ public class ScheduleImpl extends Schedule implements ISchedule {
 	    schedule.setHierarchyView(Schedule.HIERARCHY_VIEW_EXPANDED);
 	    try{
 		    // load the schedule
-	    	schedule.loadEntries(new TaskType[] {TaskType.TASK}, false, false);
+	    	schedule.loadEntries(new TaskType[] {TaskType.TASK}, false, false, false);
 	    }catch(Exception ex){
 	    	return null;
 	    }
@@ -100,7 +100,7 @@ public class ScheduleImpl extends Schedule implements ISchedule {
 	    schedule.setHierarchyView(Schedule.HIERARCHY_VIEW_EXPANDED);
 	    try{
 		    // load the schedule
-	    	schedule.loadEntries(new TaskType[] {TaskType.SUMMARY}, false, false);
+	    	schedule.loadEntries(new TaskType[] {TaskType.SUMMARY}, false, false, false);
 	    }catch(Exception ex){
 	    	return null;
 	    }

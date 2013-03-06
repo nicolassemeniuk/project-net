@@ -74,24 +74,37 @@ public class MaterialAssignmentAddRemoveHandler extends AbstractMaterialAssignme
         ScheduleEntryCalculator calc = new ScheduleEntryCalculator(scheduleEntry, schedule.getWorkingTimeCalendarProvider());
 
         if (isAddAssignmentMaterial) {
-            // When adding, create a new assignment
-        	MaterialAssignment assignment = new MaterialAssignment();
-            assignment.setSpaceId(scheduleEntry.getSpaceID());
-            assignment.setObjectId(scheduleEntry.getID());
-        	assignment.setMaterialId(materialId);
-            assignment.setPercentAssigned(BigDecimal.valueOf(100.00));
-            assignment.setRecordStatus("A");
-            assignment.setStartDate(scheduleEntry.getStartTime());
-            assignment.setEndDate(scheduleEntry.getEndTime());
-            assignment.setDateCreated(new Date());
-            assignment.setModifiedBy(user.getID());
-            assignment.setModifiedDate(new Date());
-            assignment.setModifiedDate(new Date());
-            assignment.setAssignorId(user.getID());
-            
-            //Check if this assignment is in conflict with existing assignments.
-            assignment.setOverassigned(ServiceFactory.getInstance().getPnMaterialAssignmentService().isOverassigned(assignment.getStartDate(), assignment.getEndDate(), assignment.getSpaceId(), assignment.getMaterialId()));            
-            calc.assignmentMaterialAdded(assignment);
+        	
+        	if(calc.existsMaterialAssignment(materialId))
+        	{
+        		MaterialAssignment assignment = calc.getMaterialAssignment(materialId);
+                assignment.setRecordStatus("A");        		
+                assignment.setModifiedBy(user.getID());
+                assignment.setModifiedDate(new Date());        		
+                assignment.setAssignorId(user.getID());
+        	}
+        	else
+        	{
+                // Doesn't exists, create a new assignment
+            	MaterialAssignment assignment = new MaterialAssignment();
+                assignment.setSpaceId(scheduleEntry.getSpaceID());
+                assignment.setObjectId(scheduleEntry.getID());
+            	assignment.setMaterialId(materialId);
+                assignment.setPercentAssigned(BigDecimal.valueOf(100.00));
+                assignment.setRecordStatus("A");
+                assignment.setStartDate(scheduleEntry.getStartTime());
+                assignment.setEndDate(scheduleEntry.getEndTime());
+                assignment.setDateCreated(new Date());
+                assignment.setModifiedBy(user.getID());
+                assignment.setModifiedDate(new Date());
+                assignment.setAssignorId(user.getID());
+                
+                //Check if this assignment is in conflict with existing assignments.
+                assignment.setOverassigned(ServiceFactory.getInstance().getPnMaterialAssignmentService().isOverassigned(assignment.getStartDate(), assignment.getEndDate(), assignment.getSpaceId(), assignment.getMaterialId()));            
+                
+                calc.assignmentMaterialAdded(assignment);        		
+        	}
+
         } else {                                                
             // When removing, the assignment must be in the list of assignments
         	MaterialAssignment assignment = scheduleEntry.getMaterialAssignments().getAssignedMaterial(materialId);

@@ -321,6 +321,10 @@ public class ScheduleEntryCalculator {
 		this.scheduleEntry.getMaterialAssignments().add(assignment);
 	}
 
+	public boolean existsMaterialAssignment(String materialID)
+	{
+		return this.scheduleEntry.getMaterialAssignments().containsDisabled(materialID);
+	}
 	/**
 	 * Indicates that the assignment was removed from the current schedule
 	 * entry.
@@ -406,5 +410,10 @@ public class ScheduleEntryCalculator {
 	public void endDateChanged(Schedule schedule, Date date, TimeZone timeZone) {
 		ScheduleEntryConstraintModifier modifier = new ScheduleEntryConstraintModifier(schedule, scheduleEntry);
 		modifier.endDateChanged(date, timeZone);
+	}
+
+	public MaterialAssignment getMaterialAssignment(String materialId)
+	{
+		return this.scheduleEntry.getMaterialAssignments().getAssignedMaterial(materialId);
 	}
 }

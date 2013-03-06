@@ -41,6 +41,7 @@ import net.project.security.SessionManager;
 import net.project.space.Space;
 import net.project.space.SpaceFactory;
 import net.project.util.CollectionUtils;
+import net.project.view.pages.directory.LoadMembers;
 
 import org.apache.log4j.Logger;
 
@@ -197,6 +198,7 @@ public class ScheduleFinder extends Finder {
     private int typesToLoad = LOAD_ALL;
     private boolean loadTaskAssignments = true;
     private boolean loadTaskDependencies = true;
+    private boolean loadTaskMaterialAssignments = true;
 
     private FinderListener listener = new FinderListenerAdapter() {
         /**
@@ -461,7 +463,7 @@ public class ScheduleFinder extends Finder {
             TaskType[] typesArray = new TaskType[taskTypes.size()];
 
             try {
-                schedule.loadEntries((TaskType[])taskTypes.toArray(typesArray), loadTaskDependencies, loadTaskAssignments);
+                schedule.loadEntries((TaskType[])taskTypes.toArray(typesArray), loadTaskDependencies, loadTaskAssignments, loadTaskMaterialAssignments);
             } catch (PersistenceException e) {
                 logger.error("Unable to load entries for schedule.", e);
                 throw new PnetRuntimeException("Unable to load entries for schedule.", e);
