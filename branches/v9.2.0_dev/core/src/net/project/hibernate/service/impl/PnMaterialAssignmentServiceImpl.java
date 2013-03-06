@@ -33,6 +33,12 @@ public class PnMaterialAssignmentServiceImpl implements IPnMaterialAssignmentSer
 	}
 
 	@Override
+	public PnMaterialAssignmentList getMaterialsAssignment(String spaceId)
+	{
+		return pnMaterialAssignmentDAO.getAssignments(Integer.valueOf(spaceId));
+	}	
+	
+	@Override
 	public PnMaterialAssignmentList getAssignmentsForMaterial(String spaceId, String materialId) {
 		return pnMaterialAssignmentDAO.getAssignmentsForMaterial(Integer.valueOf(spaceId), Integer.valueOf(materialId));
 	}

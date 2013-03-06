@@ -27,12 +27,16 @@ import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
 
+import javax.xml.rpc.ServiceFactory;
+
 import net.project.base.RecordStatus;
 import net.project.base.finder.ColumnDefinition;
 import net.project.base.finder.Finder;
 import net.project.calendar.PnCalendar;
 import net.project.database.DBBean;
 import net.project.database.DatabaseUtils;
+import net.project.material.MaterialAssignment;
+import net.project.material.MaterialAssignmentList;
 import net.project.persistence.PersistenceException;
 import net.project.resource.AssignmentManager;
 import net.project.resource.AssignmentType;
@@ -96,6 +100,10 @@ public class TaskFinder extends Finder {
     
     /** A multimap of task_id to task assignments. */
     private MultiMap assignmentMap;
+    
+    /** A multimap of task_id to task material assignments. */
+    private MultiMap materialAssignmentMap;
+    
     /** The space ID for which items are to be preloaded. */
     private String preloadSpaceID;
 
@@ -649,7 +657,7 @@ public class TaskFinder extends Finder {
      * @throws SQLException if there is a problem loading the schedule
      * entries.
      */
-    public List findScheduleEntries(String spaceID, boolean filterActiveItemsOnly, int hierarchyView, int maximumEntries, boolean isLoadDependencies, boolean isLoadAssignments, DBBean db) throws SQLException {
+    public List findScheduleEntries(String spaceID, boolean filterActiveItemsOnly, int hierarchyView, int maximumEntries, boolean isLoadDependencies, boolean isLoadAssignments, boolean isLoadMaterialAssignments, DBBean db) throws SQLException {
 
         clearWhereClauses();
 
@@ -663,6 +671,9 @@ public class TaskFinder extends Finder {
             if (isLoadAssignments) {
                 preloadAssignments(spaceID);
             }
+            if (isLoadMaterialAssignments) {
+                preloadMaterialAssignments(spaceID);
+            }            
         } catch (PersistenceException e) {
             Logger.getLogger(TaskFinder.class).error("Unable to preload assignments or dependencies", e);
             throw new SQLException("Unable to load assignments or dependencies");
@@ -806,6 +817,11 @@ public class TaskFinder extends Finder {
             task.addAssignments(findAssignmentByTaskID(task.getID()));
             task.setAssigneesLoaded(true);
         }
+        
+        if(preloadMaterialAssignments){
+        	task.addMaterialAssignments(findMaterialAssignmentByTaskID(task.getID()));
+        	task.setMaterialAssigneesLoaded(true);
+        }
 
         task.setRecordStatus(RecordStatus.findByID(result.getString(RECORD_STATUS_COL_ID)));
         task.setWBS(result.getString(WBS));
@@ -922,6 +938,14 @@ public class TaskFinder extends Finder {
     
     
     private void loadMaterialAssignments() {
+		MaterialAssignmentList materialAssignmentList = new MaterialAssignmentList();
+		materialAssignmentList.load(preloadSpaceID);
+		
+        materialAssignmentMap = new MultiHashMap(materialAssignmentList.size());
+        
+        for(MaterialAssignment assignment : materialAssignmentList){
+        	materialAssignmentMap.put(assignment.getObjectId(), assignment);
+        }
 		
 	}
 
@@ -939,6 +963,20 @@ public class TaskFinder extends Finder {
             toReturn = (Collection)assignmentMap.get(taskID);
             if (toReturn == null) {
                 toReturn = Collections.EMPTY_LIST;
+            }
+        }
+
+        return toReturn;
+    }
+    
+
+    private MaterialAssignmentList findMaterialAssignmentByTaskID(String taskID) {
+    	MaterialAssignmentList toReturn = new MaterialAssignmentList();
+
+        if (materialAssignmentMap != null) {
+            Collection<MaterialAssignment> collect = (Collection<MaterialAssignment>)materialAssignmentMap.get(taskID);
+            for(MaterialAssignment material : collect){
+            	toReturn.add(material);
             }
         }
 

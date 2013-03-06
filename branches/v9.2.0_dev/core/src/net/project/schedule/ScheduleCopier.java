@@ -73,7 +73,7 @@ public class ScheduleCopier {
 		schedule.setSpace(SpaceFactory.constructSpaceFromID(this.fromSpaceID));
 		schedule.load();
 		schedule.setTaskType(TaskType.ALL);
-		schedule.loadEntries(true, true);
+		schedule.loadEntries(true, true, true);
 		try {
 			// Remember the default calendar
 			String currentDefaultCalendarID = schedule.getDefaultCalendarID();

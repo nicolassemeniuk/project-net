@@ -15,6 +15,13 @@ public class MaterialAssignmentList implements Serializable, Iterable<MaterialAs
 		materialAssignments = new ArrayList<MaterialAssignment>();
 	}
 
+	public void load(String spaceId) {
+		PnMaterialAssignmentList assignmentList = ServiceFactory.getInstance().getPnMaterialAssignmentService().getMaterialsAssignment(spaceId);
+		for (PnMaterialAssignment assignee : assignmentList) {
+			materialAssignments.add(new MaterialAssignment(assignee));
+		}
+	}	
+	
 	public void load(String spaceId, String objectId) {
 		PnMaterialAssignmentList assignmentList = ServiceFactory.getInstance().getPnMaterialAssignmentService().getMaterialsAssignment(spaceId, objectId);
 		for (PnMaterialAssignment assignee : assignmentList) {
@@ -43,7 +50,21 @@ public class MaterialAssignmentList implements Serializable, Iterable<MaterialAs
 	public void clear() {
 		materialAssignments.clear();
 	}
+	
+	public Integer size(){
+		return materialAssignments.size();
+	}
 
+	public boolean containsDisabled(String materialID)
+	{
+		for(MaterialAssignment assignment : materialAssignments){
+			if(assignment.getMaterialId().equals(materialID) && assignment.getRecordStatus().equals("D"))
+				return true;
+		}
+		
+		return false;
+	}
+	
 	public void add(MaterialAssignment materialAssignment) {
 		materialAssignments.add(materialAssignment);
 	}

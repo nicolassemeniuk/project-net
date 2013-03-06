@@ -420,6 +420,7 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      * to display applied charge code name in work plan two pane view under charge code header.
      */
     private String chargeCodeName = null;
+	private boolean materialAssignmentsLoaded;
 
     //public boolean worker = true;
     /**
@@ -2614,6 +2615,12 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
         addAssignments(assignmentsManager.getAssignments());
     }
     
+    public void loadMaterialAssignments(){
+    	this.materialAssignments.clear();
+    	this.materialAssignments.load(getSpaceID(), getID());
+    	setMaterialAssigneesLoaded(true);
+    }
+    
     /**
      * Adds all the assignments in the specified collection to this task.
      * <p>
@@ -2629,11 +2636,13 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
         setAssigneesLoaded(true);
     }
     
-    public void loadMaterialAssignments(){
+    public void addMaterialAssignments(MaterialAssignmentList assignments){
     	this.materialAssignments.clear();
-    	this.materialAssignments.load(getSpaceID(), getID());
+    	this.materialAssignments = assignments;
     	setMaterialAssigneesLoaded(true);
     }
+    
+
 
     /**
      * Adds the specified assignment to this task.
@@ -2809,6 +2818,14 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
         if (assigneesLoaded) {
             assignments.setLastSavedState();
         }
+    }
+    
+    public void setMaterialAssignmentssLoaded(boolean materialAssignmentsLoaded) {
+        this.materialAssignmentsLoaded = materialAssignmentsLoaded;
+//
+//        if (materialAssignmentsLoaded) {
+//            assignments.setLastSavedState();
+//        }
     }
 
     /**

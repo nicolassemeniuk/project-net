@@ -92,4 +92,6 @@ public interface IPnMaterialAssignmentService {
 	 * @param materialAssignments a List representing material assignments.
 	 */
 	public void saveMaterialAssignments(MaterialAssignmentList materialAssignments);
+
+	public PnMaterialAssignmentList getMaterialsAssignment(String spaceId);
 }
