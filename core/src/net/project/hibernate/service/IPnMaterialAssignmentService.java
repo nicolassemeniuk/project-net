@@ -115,11 +115,7 @@ public interface IPnMaterialAssignmentService {
 	 *            a List representing material assignments.
 	 */
 	public void saveMaterialAssignments(MaterialAssignmentList materialAssignments);
-<<<<<<< .mine
-
-
-=======
 
 	public PnMaterialAssignmentList getMaterialsAssignment(String spaceId);
->>>>>>> .r60
+
 }

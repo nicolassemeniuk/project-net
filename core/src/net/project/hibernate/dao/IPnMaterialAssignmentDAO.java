@@ -6,7 +6,7 @@ import net.project.hibernate.model.PnMaterialAssignment;
 import net.project.hibernate.model.PnMaterialAssignmentPK;
 import net.project.material.PnMaterialAssignmentList;
 
-public interface IPnAssignmentMaterialDAO extends IDAO<PnMaterialAssignment, PnMaterialAssignmentPK> {
+public interface IPnMaterialAssignmentDAO extends IDAO<PnMaterialAssignment, PnMaterialAssignmentPK> {
 
 	public PnMaterialAssignment getPnAssignmentMaterial(Integer spaceId, Integer materialId, Integer objectId);
 
@@ -55,4 +55,6 @@ public interface IPnAssignmentMaterialDAO extends IDAO<PnMaterialAssignment, PnM
 	 */
 	public PnMaterialAssignmentList getAssignmentsForMaterial(String materialId);
 
+	public PnMaterialAssignmentList getAssignments(Integer materialId); 
+	
 }
