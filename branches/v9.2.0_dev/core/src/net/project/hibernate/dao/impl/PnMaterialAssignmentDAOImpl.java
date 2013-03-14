@@ -1,5 +1,7 @@
 package net.project.hibernate.dao.impl;
 
+import java.util.Date;
+
 import net.project.hibernate.dao.IPnAssignmentMaterialDAO;
 import net.project.hibernate.model.PnMaterialAssignment;
 import net.project.hibernate.model.PnMaterialAssignmentPK;
@@ -14,11 +16,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Repository
-public class PnAssignmentMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<PnMaterialAssignment, PnMaterialAssignmentPK> implements IPnAssignmentMaterialDAO {
-	
+public class PnMaterialAssignmentDAOImpl extends AbstractHibernateAnnotatedDAO<PnMaterialAssignment, PnMaterialAssignmentPK> implements
+		IPnAssignmentMaterialDAO {
+
 	private static Logger log = Logger.getLogger(PnMaterialDAOImpl.class);
 
-	public PnAssignmentMaterialDAOImpl() {
+	public PnMaterialAssignmentDAOImpl() {
 		super(PnMaterialAssignment.class);
 	}
 
@@ -43,34 +46,17 @@ public class PnAssignmentMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<P
 		PnMaterialAssignmentList result = new PnMaterialAssignmentList();
 		try {
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
-			Session session = factory.openSession();			
-			result = new PnMaterialAssignmentList(session.createCriteria(PnMaterialAssignment.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).add(Restrictions.eq("comp_id.objectId", objectId)).list());
+			Session session = factory.openSession();
+			result = new PnMaterialAssignmentList(session.createCriteria(PnMaterialAssignment.class).add(Restrictions.eq("comp_id.spaceId", spaceId))
+					.add(Restrictions.eq("comp_id.objectId", objectId)).list());
 			session.close();
 		} catch (Exception e) {
 			log.error("Error occurred while getting the list of assigned materials " + e.getMessage());
 			e.printStackTrace();
 		}
-		
+
 		return result;
 	}
-	
-	@SuppressWarnings("unchecked")	
-	@Override
-	public PnMaterialAssignmentList getAssignments(Integer spaceId)
-	{
-		PnMaterialAssignmentList result = new PnMaterialAssignmentList();
-		try {
-			SessionFactory factory = getHibernateTemplate().getSessionFactory();
-			Session session = factory.openSession();			
-			result = new PnMaterialAssignmentList(session.createCriteria(PnMaterialAssignment.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).list());
-			session.close();
-		} catch (Exception e) {
-			log.error("Error occurred while getting the list of assigned materials " + e.getMessage());
-			e.printStackTrace();
-		}
-		
-		return result;
-	}	
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -78,14 +64,15 @@ public class PnAssignmentMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<P
 		PnMaterialAssignmentList result = new PnMaterialAssignmentList();
 		try {
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
-			Session session = factory.openSession();			
-			result = new PnMaterialAssignmentList(session.createCriteria(PnMaterialAssignment.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).add(Restrictions.eq("comp_id.materialId", materialId)).list());
+			Session session = factory.openSession();
+			result = new PnMaterialAssignmentList(session.createCriteria(PnMaterialAssignment.class).add(Restrictions.eq("comp_id.spaceId", spaceId))
+					.add(Restrictions.eq("comp_id.materialId", materialId)).list());
 			session.close();
 		} catch (Exception e) {
 			log.error("Error occurred while getting the list of assigned materials " + e.getMessage());
 			e.printStackTrace();
 		}
-		
+
 		return result;
 
 	}
@@ -96,14 +83,52 @@ public class PnAssignmentMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<P
 		PnMaterialAssignmentList result = new PnMaterialAssignmentList();
 		try {
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
-			Session session = factory.openSession();			
-			result = new PnMaterialAssignmentList(session.createCriteria(PnMaterialAssignment.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).add(Restrictions.eq("comp_id.materialId", materialId)).add(Restrictions.not(Restrictions.eq("comp_id.objectId", objectId))).list());
+			Session session = factory.openSession();
+			result = new PnMaterialAssignmentList(session.createCriteria(PnMaterialAssignment.class).add(Restrictions.eq("comp_id.spaceId", spaceId))
+					.add(Restrictions.eq("comp_id.materialId", materialId)).add(Restrictions.not(Restrictions.eq("comp_id.objectId", objectId))).list());
 			session.close();
 		} catch (Exception e) {
 			log.error("Error occurred while getting the list of assigned materials " + e.getMessage());
 			e.printStackTrace();
 		}
-		
+
 		return result;
 	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public PnMaterialAssignmentList getAssignmentsForMaterial(Integer materialId, Date startDate, Date endDate) {
+		PnMaterialAssignmentList result = new PnMaterialAssignmentList();
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+			result = new PnMaterialAssignmentList(session.createCriteria(PnMaterialAssignment.class).add(Restrictions.eq("comp_id.materialId", materialId))
+					.add(Restrictions.ge("startDate", startDate)).add(Restrictions.le("endDate", endDate)).list());
+			session.close();
+		} catch (Exception e) {
+			log.error("Error occurred while getting the list of assigned materials " + e.getMessage());
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public PnMaterialAssignmentList getAssignmentsForMaterial(String materialId) {
+		PnMaterialAssignmentList result = new PnMaterialAssignmentList();
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+			result = new PnMaterialAssignmentList(session.createCriteria(PnMaterialAssignment.class).add(Restrictions.eq("comp_id.materialId", materialId))
+					.list());
+			session.close();
+		} catch (Exception e) {
+			log.error("Error occurred while getting the list of assigned materials " + e.getMessage());
+			e.printStackTrace();
+		}
+
+		return result;
+	}
+
 }

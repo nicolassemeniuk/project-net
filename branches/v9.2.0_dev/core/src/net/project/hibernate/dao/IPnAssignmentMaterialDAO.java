@@ -1,5 +1,7 @@
 package net.project.hibernate.dao;
 
+import java.util.Date;
+
 import net.project.hibernate.model.PnMaterialAssignment;
 import net.project.hibernate.model.PnMaterialAssignmentPK;
 import net.project.material.PnMaterialAssignmentList;
@@ -36,5 +38,21 @@ public interface IPnAssignmentMaterialDAO extends IDAO<PnMaterialAssignment, PnM
 	 */
 	public PnMaterialAssignmentList getAssignmentsForMaterial(Integer spaceId, Integer materialId, Integer objectId);
 
-	public PnMaterialAssignmentList getAssignments(Integer valueOf);
+	/**
+	 * This method returns a list of assignments for a material in a range of dates.
+	 * @param materialId
+	 *            the Id from the Material we want to obtain the assignments.
+	 * @param startDate the beginning date for the range.
+	 * @param endDate the end date for the range.
+	 * @return a list of assignments.
+	 */
+	public PnMaterialAssignmentList getAssignmentsForMaterial(Integer materialId, Date startDate, Date endDate);
+
+	/**
+	 * This method returns a list of assignments for a material.
+	 * @param materialId the Id from the Material we want to obtain the assignments.
+	 * @return a list of assignments.
+	 */
+	public PnMaterialAssignmentList getAssignmentsForMaterial(String materialId);
+
 }
