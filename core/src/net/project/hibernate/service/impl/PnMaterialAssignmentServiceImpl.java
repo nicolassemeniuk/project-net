@@ -101,4 +101,14 @@ public class PnMaterialAssignmentServiceImpl implements IPnMaterialAssignmentSer
 	
 
 	}
+
+	@Override
+	public PnMaterialAssignmentList getAssignmentsForMaterial(String materialId, Date startDate, Date endDate) {
+		return pnMaterialAssignmentDAO.getAssignmentsForMaterial(Integer.valueOf(materialId), startDate, endDate);
+	}
+
+	@Override
+	public PnMaterialAssignmentList getAssignmentsForMaterial(String materialId) {
+		return pnMaterialAssignmentDAO.getAssignmentsForMaterial(materialId);
+	}
 }

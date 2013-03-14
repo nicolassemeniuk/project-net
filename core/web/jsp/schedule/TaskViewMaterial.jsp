@@ -176,8 +176,7 @@ function update() {
 }
 
 function remove(){
-    if(!verifySelection(theForm, "single", '<%=PropertyProvider
-					.get("prm.schedule.taskview.resources.assignment.remove.noselection.error.message")%>')) return;
+    if(!verifySelection(theForm, "single", '<%=PropertyProvider.get("prm.schedule.taskview.resources.assignment.remove.noselection.error.message")%>')) return;
     theAction("deleteAssignment");
     theForm.submit();
 }
@@ -193,88 +192,22 @@ function turnOnModifiedIcon() {
 }
 
 // Get the value in hours
-function getWorkHours(workValue, workUnits) {
-	if (workUnits == 4) {
-		return workValue;
-	}else if (workUnits == 8) {
-		return workValue * 8;
-	}else if (workUnits == 16) {
-		return workValue * 40;
-	}else { return workValue}
+// function getWorkHours(workValue, workUnits) {
+// 	if (workUnits == 4) {
+// 		return workValue;
+// 	}else if (workUnits == 8) {
+// 		return workValue * 8;
+// 	}else if (workUnits == 16) {
+// 		return workValue * 40;
+// 	}else { return workValue}
+// }
+
+function showResourceAllocation(materialID, startDate) {
+    var url = '<%=SessionManager.getJSPRootURL()+"/material/MaterialAllocations.jsp?module=260&materialID="%>'+
+        materialID + '&startDate=' + startDate;
+
+    openwin_large('resource_allocation', url);
 }
-
-// function assignPercentChanged(resourceID, timeZoneId) {
-//     if (ignoreOnChangeEvents) return;
-
-//     // Make sure the user knows that they've modified the page
-//     turnOnModifiedIcon();
-
-<%--     var url = "<%=SessionManager.getJSPRootURL()%>/servlet/ScheduleController/TaskView/AssignmentModifyPercent?module=<%=Module.SCHEDULE%>&action=<%=Action.VIEW%>&id=<%=scheduleEntry.getID()%>"; --%>
-
-//     var percentValue = document.getElementById("percent_" + resourceID).value.replace(/%/g,"");
-//     invoke(url + "&resourceID=" + resourceID + "&timeZoneId=" + timeZoneId + "&percentValue=" + percentValue + constructMaxAllocParameters());
-// }
-
-// function assignmentWorkChanged(resourceID, timeZoneId) {
-//     if (ignoreOnChangeEvents) return;
-
-<%--     var url = "<%=SessionManager.getJSPRootURL()%>/servlet/ScheduleController/TaskView/AssignmentModifyWork?module=<%=Module.SCHEDULE%>&action=<%=Action.VIEW%>&id=<%=scheduleEntry.getID()%>"; --%>
-
-//     var workAmount = document.getElementById("assignment_work_" + resourceID).value;
-//     var workUnitsID = getSelectedValue(document.getElementById("assignment_work_units_" + resourceID));
-// 	var workValue = getWorkHours(parseFloat(workAmount), parseInt(workUnitsID));
-// 	var workCompleteValue = document.getElementById("assignment_work_completehidden_" + resourceID).value;
-// 	if (workCompleteValue > workValue) {				
-<%-- 		errorHandler( document.getElementById("assignment_work_" + resourceID), '<%=PropertyProvider.get("prm.schedule.taskedit.error.moreworkcomplete.message")%>'); --%>
-// 		document.getElementById("assignment_work_" + resourceID).value = document.getElementById("assignment_workhidden_" + resourceID).value;
-// 		setSelectedValue(document.getElementById("assignment_work_units_" + resourceID), document.getElementById("assignment_work_unitshidden_" + resourceID).value);
-// 	} else {
-// 		// Make sure the user knows that they've modified the page
-// 		turnOnModifiedIcon();
-// 		invoke(url + "&resourceID=" + resourceID + "&timeZoneId=" + timeZoneId + "&workAmount=" + workAmount + "&workUnitsID=" + workUnitsID + constructMaxAllocParameters());
-// 	}
-// }
-
-// function fixOverallocations() {
-//     if (modified) {
-<%--     	Ext.MessageBox.confirm('<%=PropertyProvider.get("prm.global.extconfirm.title")%>', '<%=PropertyProvider.get("prm.schedule.taskview.resources.savebeforefixes.message")%>', function(btn) {  --%>
-// 			if(btn == 'yes'){ 
-// 				theAction("overallocation");
-//             	theForm.submit();
-// 			}else{
-// 		 		return false;
-// 			}
-// 		});
-//     } else { 
-//         //Attempt to look for other ways to complete this task that don't cause
-//         //overallocation.
-<%--         self.location = '<%=SessionManager.getJSPRootURL()%>/servlet/ScheduleController/TaskView/FixOverallocations?module=<%=Module.SCHEDULE%>&action=<%=Action.VIEW%>&id=<%=scheduleEntry.getID()%>'; --%>
-//     }
-// }
-
-// function showResourceAllocation(personID, startDate) {
-<%--     var url = '<%=SessionManager.getJSPRootURL()+"/resource/ResourceAllocations.jsp?module=140&personID="%>'+ --%>
-//         personID + '&startDate=' + startDate;
-
-//     openwin_large('resource_allocation', url);
-// }
-
-// function toggleExtraInfo(personID, isShow) {
-//     var iconClass;
-//     var rowClass;
-
-//     if (isShow) {
-//         iconClass = 'unexpandIcon';
-//         rowClass = 'visible';
-//     } else {
-//         iconClass = 'expandIcon';
-//         rowClass = 'hidden';
-//     }
-
-//     document.getElementById('a_' + personID).setAttribute('href', 'javascript:toggleExtraInfo(' + personID + ', ' + !isShow + ');');
-//     document.getElementById('icon_' + personID).className = iconClass;
-//     document.getElementById('extraRow_' + personID).className = 'tableContent ' + rowClass;
-// }
 
 function assignmentCheckboxClicked(materialID) {
     // Make sure the user knows that they've modified the page
@@ -326,30 +259,6 @@ function invoke(url) {
     return responseText;
 }
 
-<%--
-   Constructs parameter list of current max allocation for all assigned resources and
-   the specified resource (it may have just been unchecked)
---%>
-// function constructMaxAllocParameters(resourceID) {
-//     var parameters = "";
-
-//     if (!theForm.resource.length) {
-//         // Only one resource
-//         var maxAllocValue = document.getElementById("max_alloc_value_" + theForm.resource.value).value;
-//         parameters += "&max_alloc_value_" + theForm.resource.value + "=" + maxAllocValue;
-//     } else {
-//         for (var i = 0; i < theForm.resource.length; i++) {
-//             if (theForm.resource[i].checked || theForm.resource[i].value == resourceID) {
-//                 // Currently assigned, or being assigned / unassigned
-//                 var maxAllocValue = document.getElementById("max_alloc_value_" + theForm.resource[i].value).value;
-//                 parameters += "&max_alloc_value_" + theForm.resource[i].value + "=" + maxAllocValue;
-//             }
-//         }
-//     }
-
-//     return parameters;
-// }
-
 <%-- Invoked by eval from server-side calculations --%>
 function flagError(errorText) {
     document.getElementById("errorLocationID").innerHTML += (errorText + "<br/>");
@@ -357,39 +266,32 @@ function flagError(errorText) {
     
 }
 
-function setAssignmentValues(resourceID, percentageAssigned, workAmount, workUnitsID, workComplete, maxPercentString, maxPercentValue, isOverallocated) {
-    document.getElementById("percent_" + resourceID).value = percentageAssigned;
-    setTimeQuantity(resourceID, workAmount, workUnitsID);
-    document.getElementById("work_complete_" + resourceID).innerHTML = workComplete;
+// function setAssignmentValues(resourceID, percentageAssigned, workAmount, workUnitsID, workComplete, maxPercentString, maxPercentValue, isOverallocated) {
+//     document.getElementById("percent_" + resourceID).value = percentageAssigned;
+//     setTimeQuantity(resourceID, workAmount, workUnitsID);
+//     document.getElementById("work_complete_" + resourceID).innerHTML = workComplete;
 
-    if (maxPercentString != null) {
-        // Change in max percent
-        var maxPercentField = document.getElementById("max_allocation_" + resourceID);
-        maxPercentField.innerHTML = maxPercentString;
-        maxPercentField.color = (isOverallocated ? "red" : "black");
-        document.getElementById("max_alloc_value_" + resourceID).value = maxPercentValue;
-    }
+//     if (maxPercentString != null) {
+//         // Change in max percent
+//         var maxPercentField = document.getElementById("max_allocation_" + resourceID);
+//         maxPercentField.innerHTML = maxPercentString;
+//         maxPercentField.color = (isOverallocated ? "red" : "black");
+//         document.getElementById("max_alloc_value_" + resourceID).value = maxPercentValue;
+//     }
 
-}
+// }
 
-//When we use the "back" button, called from setup.
-function overallocationExist(exist) {
-    if (exist) {
-        document.getElementById('overallocatedResourcesIcon').className = 'tableContent';
-        theForm.overallocated.value = 'true';
-    } else {
-        document.getElementById('overallocatedResourcesIcon').className = 'hidden';
-        theForm.overallocated.value = 'false';
-    }
-}
-<%-- End of eval functions --%>
+// //When we use the "back" button, called from setup.
+// function overallocationExist(exist) {
+//     if (exist) {
+//         document.getElementById('overallocatedResourcesIcon').className = 'tableContent';
+//         theForm.overallocated.value = 'true';
+//     } else {
+//         document.getElementById('overallocatedResourcesIcon').className = 'hidden';
+//         theForm.overallocated.value = 'false';
+//     }
+// }
 
-function setTimeQuantity(resourceID, amount, unitsID) {
-	document.getElementById("assignment_workhidden_" + resourceID).value = amount;
-	document.getElementById("assignment_work_unitshidden_" + resourceID).value = unitsID;
-    document.getElementById("assignment_work_" + resourceID).value = amount;
-    setSelectedValue(document.getElementById("assignment_work_units_" + resourceID), unitsID);
-}
 
 </script>
 
@@ -647,7 +549,7 @@ function setTimeQuantity(resourceID, amount, unitsID) {
 
 								</td>
 								<td align="center">								
-									<a	href='javascript:showResourceAllocation(<%=materialID%>, "")'>
+									<a	href='javascript:showResourceAllocation(<%=materialID%>, <%=String.valueOf((new Date()).getTime())%>)'>
 											<img src="<%=SessionManager.getJSPRootURL()%>/images/schedule/constraint.gif" border="0">
 									</a>
 								</td>

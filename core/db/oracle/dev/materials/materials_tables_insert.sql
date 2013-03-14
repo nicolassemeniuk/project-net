@@ -7,9 +7,17 @@
 -- Enterprise
 
 
-select * from PN_PROPERTY a where a.PROPERTY like '%prm.schedule.taskview.resources.assign.workingcalendar.column%';
+select * from PN_PROPERTY a where a.PROPERTY like '%prm.resource.allocation.resourcelistfor.label%';
 
+-- update pn_property set Property_value='1' where pn_property.property = 'prm.enterprise.isenabled'
+-- insert into PN_PROPERTY values (2000,'en','boolean','prm.enterprise.isenabled','1','A',0,0,null);
 
+-- Insercion de una propiedad
+-- insert into PN_PROPERTY values (2000,'en','text','propiedad','valor','A',0,1,null);
+
+-- MaterialAllocation
+insert into PN_PROPERTY values (2000,'en','text','prm.material.allocation.materialcalendarsfor.label','Utilization Calendars for {0}','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.allocation.materiallistfor.label','Material Assignments for {0}','A',0,1,null);
 
 -- Propiedades de TaskView Materials (materiales de la tarea).
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material.cantassignmentmaterial.message','You cannot assign a material in a template!','A',0,1,null);
@@ -23,13 +31,6 @@ insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material.assign.material.column','Material','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material.assign.workingcalendar.column','Utilization<br>Summary','A',0,1,null);
 
-
-
--- update pn_property set Property_value='1' where pn_property.property = 'prm.enterprise.isenabled'
--- insert into PN_PROPERTY values (2000,'en','boolean','prm.enterprise.isenabled','1','A',0,0,null);
-
--- Insercion de una propiedad
--- insert into PN_PROPERTY values (2000,'en','text','propiedad','valor','A',0,1,null);
 
 insert into PN_PROPERTY values (2000,'en','text','prm.application.nav.space.material','Materials','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.space.spacetypes.materials.name','Materials','A',0,1,null);
