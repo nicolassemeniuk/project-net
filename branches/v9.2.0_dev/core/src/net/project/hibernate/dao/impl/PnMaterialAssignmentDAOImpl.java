@@ -2,7 +2,7 @@ package net.project.hibernate.dao.impl;
 
 import java.util.Date;
 
-import net.project.hibernate.dao.IPnAssignmentMaterialDAO;
+import net.project.hibernate.dao.IPnMaterialAssignmentDAO;
 import net.project.hibernate.model.PnMaterialAssignment;
 import net.project.hibernate.model.PnMaterialAssignmentPK;
 import net.project.material.PnMaterialAssignmentList;
@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Transactional
 @Repository
 public class PnMaterialAssignmentDAOImpl extends AbstractHibernateAnnotatedDAO<PnMaterialAssignment, PnMaterialAssignmentPK> implements
-		IPnAssignmentMaterialDAO {
+		IPnMaterialAssignmentDAO {
 
 	private static Logger log = Logger.getLogger(PnMaterialDAOImpl.class);
 
@@ -129,6 +129,24 @@ public class PnMaterialAssignmentDAOImpl extends AbstractHibernateAnnotatedDAO<P
 		}
 
 		return result;
-	}
+	}	 
+	 
+    @SuppressWarnings("unchecked")
+    @Override
+    public PnMaterialAssignmentList getAssignments(Integer spaceId)
+    {
+        PnMaterialAssignmentList result = new PnMaterialAssignmentList();
+        try {
+            SessionFactory factory = getHibernateTemplate().getSessionFactory();
+            Session session = factory.openSession();
+            result = new PnMaterialAssignmentList(session.createCriteria(PnMaterialAssignment.class).add(Restrictions.eq("comp_id.spaceId", spaceId)).list());
+            session.close();
+        } catch (Exception e) {
+            log.error("Error occurred while getting the list of assigned materials " + e.getMessage());
+            e.printStackTrace();
+        }
+
+        return result;
+    }
 
 }

@@ -2,7 +2,7 @@ package net.project.hibernate.service.impl;
 
 import java.util.Date;
 
-import net.project.hibernate.dao.IPnAssignmentMaterialDAO;
+import net.project.hibernate.dao.IPnMaterialAssignmentDAO;
 import net.project.hibernate.model.PnMaterialAssignment;
 import net.project.hibernate.model.PnMaterialAssignmentPK;
 import net.project.hibernate.model.PnPerson;
@@ -20,7 +20,7 @@ import org.springframework.stereotype.Service;
 public class PnMaterialAssignmentServiceImpl implements IPnMaterialAssignmentService {
 	
 	@Autowired
-	private IPnAssignmentMaterialDAO pnMaterialAssignmentDAO;
+	private IPnMaterialAssignmentDAO pnMaterialAssignmentDAO;
 
 	@Override
 	public PnMaterialAssignment getMaterialAssignment(String spaceId, String materialId, String objectId) {
