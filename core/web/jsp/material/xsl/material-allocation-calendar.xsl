@@ -32,7 +32,7 @@
                         <xsl:attribute name="href">
                             <xsl:text>MaterialResourceAllocations.jsp?module=260&amp;startDate=</xsl:text>
                             <xsl:value-of select="$prevMonth"/>
-                            <xsl:text>&amp;personID=</xsl:text>
+                            <xsl:text>&amp;materialID=</xsl:text>
                             <xsl:value-of select="$materialID"/>
                         </xsl:attribute>
                         <img src="../images/icons/prev_page_sm.gif" border="0"/>
@@ -44,7 +44,7 @@
                         <xsl:attribute name="href">
                             <xsl:text>MaterialResourceAllocations.jsp?module=260&amp;startDate=</xsl:text>
                             <xsl:value-of select="$nextMonth"/>
-                            <xsl:text>&amp;personID=</xsl:text>
+                            <xsl:text>&amp;materialID=</xsl:text>
                             <xsl:value-of select="$materialID"/>
                         </xsl:attribute>
                         <img src="../images/icons/next_page_sm.gif" border="0"/>

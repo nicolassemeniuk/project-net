@@ -16,9 +16,9 @@ import net.project.util.time.TimeRangeAggregator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service(value="pnMaterialAssignmentService")
+@Service(value = "pnMaterialAssignmentService")
 public class PnMaterialAssignmentServiceImpl implements IPnMaterialAssignmentService {
-	
+
 	@Autowired
 	private IPnMaterialAssignmentDAO pnMaterialAssignmentDAO;
 
@@ -33,11 +33,10 @@ public class PnMaterialAssignmentServiceImpl implements IPnMaterialAssignmentSer
 	}
 
 	@Override
-	public PnMaterialAssignmentList getMaterialsAssignment(String spaceId)
-	{
+	public PnMaterialAssignmentList getMaterialsAssignment(String spaceId) {
 		return pnMaterialAssignmentDAO.getAssignments(Integer.valueOf(spaceId));
-	}	
-	
+	}
+
 	@Override
 	public PnMaterialAssignmentList getAssignmentsForMaterial(String spaceId, String materialId) {
 		return pnMaterialAssignmentDAO.getAssignmentsForMaterial(Integer.valueOf(spaceId), Integer.valueOf(materialId));
@@ -45,19 +44,20 @@ public class PnMaterialAssignmentServiceImpl implements IPnMaterialAssignmentSer
 
 	@Override
 	public boolean isOverassigned(Date startDate, Date endDate, String spaceId, String materialId, String objectId) {
-		PnMaterialAssignmentList assignments = pnMaterialAssignmentDAO.getAssignmentsForMaterial(Integer.valueOf(spaceId), Integer.valueOf(materialId), Integer.valueOf(objectId));
+		PnMaterialAssignmentList assignments = pnMaterialAssignmentDAO.getAssignments(Integer.valueOf(spaceId), Integer.valueOf(materialId),
+				Integer.valueOf(objectId));
 		TimeRangeAggregator aggregator = new TimeRangeAggregator();
-		
-		//we add all assignments to the TimeRangeAggregator.
-		for(PnMaterialAssignment assignment : assignments){
-			if(assignment.getRecordStatus().equals("A")){
+
+		// we add all assignments to the TimeRangeAggregator.
+		for (PnMaterialAssignment assignment : assignments) {
+			if (assignment.getRecordStatus().equals("A")) {
 				MaterialAssignment newMaterialAssignment = new MaterialAssignment();
 				newMaterialAssignment.setEndDate(assignment.getEndDate());
 				newMaterialAssignment.setStartDate(assignment.getStartDate());
 				aggregator.insert(newMaterialAssignment);
 			}
 		}
-		
+
 		return aggregator.existConcurrent(startDate, endDate);
 	}
 
@@ -65,28 +65,27 @@ public class PnMaterialAssignmentServiceImpl implements IPnMaterialAssignmentSer
 	public boolean isOverassigned(Date startDate, Date endDate, String spaceId, String materialId) {
 		PnMaterialAssignmentList assignments = pnMaterialAssignmentDAO.getAssignmentsForMaterial(Integer.valueOf(spaceId), Integer.valueOf(materialId));
 		TimeRangeAggregator aggregator = new TimeRangeAggregator();
-		
-		//we add all assignments to the TimeRangeAggregator.
-		for(PnMaterialAssignment assignment : assignments){
+
+		// we add all assignments to the TimeRangeAggregator.
+		for (PnMaterialAssignment assignment : assignments) {
 			MaterialAssignment materialAssignment = new MaterialAssignment(assignment);
-			if(materialAssignment.getRecordStatus().equals("A"))
+			if (materialAssignment.getRecordStatus().equals("A"))
 				aggregator.insert(materialAssignment);
 		}
-		
+
 		return aggregator.existConcurrent(startDate, endDate);
 	}
 
 	@Override
-	public void saveMaterialAssignments(MaterialAssignmentList materialAssignments)
-	{
-		for(MaterialAssignment assignment : materialAssignments){
+	public void saveMaterialAssignments(MaterialAssignmentList materialAssignments) {
+		for (MaterialAssignment assignment : materialAssignments) {
 			PnMaterialAssignment newAssignment = new PnMaterialAssignment();
 			PnPerson assignor = ServiceFactory.getInstance().getPnPersonService().getPerson(Integer.valueOf(assignment.getAssignorId()));
 			PnMaterialAssignmentPK newAssignmentPK = new PnMaterialAssignmentPK();
 			newAssignmentPK.setSpaceId(Integer.valueOf(assignment.getSpaceId()));
 			newAssignmentPK.setMaterialId(Integer.valueOf(assignment.getMaterialId()));
 			newAssignmentPK.setObjectId(Integer.valueOf(assignment.getObjectId()));
-			
+
 			newAssignment.setComp_id(newAssignmentPK);
 			newAssignment.setPnAssignor(assignor);
 			newAssignment.setRecordStatus(assignment.getRecordStatus());
@@ -98,7 +97,6 @@ public class PnMaterialAssignmentServiceImpl implements IPnMaterialAssignmentSer
 			newAssignment.setPercentAllocated(assignment.getPercentAssigned());
 			pnMaterialAssignmentDAO.createOrUpdate(newAssignment);
 		}
-	
 
 	}
 
@@ -109,6 +107,6 @@ public class PnMaterialAssignmentServiceImpl implements IPnMaterialAssignmentSer
 
 	@Override
 	public PnMaterialAssignmentList getAssignmentsForMaterial(String materialId) {
-		return pnMaterialAssignmentDAO.getAssignmentsForMaterial(materialId);
+		return pnMaterialAssignmentDAO.getAssignmentsForMaterial(Integer.valueOf(materialId));
 	}
 }

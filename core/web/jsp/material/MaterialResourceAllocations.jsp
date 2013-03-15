@@ -98,9 +98,9 @@ function cancel() {
     <channel:insert name="ResourceCalendar" title='<%=PropertyProvider.get("prm.material.allocation.materialcalendarsfor.label", material.getName())%>'
         minimizable="false" closeable="false" row="1" column="1"
         include="/material/include/MaterialAllocationCalendar.jsp"/>
-    <channel:insert name="ResourceAllocationList" title='<%=PropertyProvider.get("prm.material.allocation.materiallistfor.label", material.getName())%>'
-        minimizable="false" closeable="false" row="2" column="1"
-        include="/material/include/MaterialAllocationList.jsp"/>
+<%--     <channel:insert name="ResourceAllocationList" title='<%=PropertyProvider.get("prm.material.allocation.materiallistfor.label", material.getName())%>' --%>
+<!--         minimizable="false" closeable="false" row="2" column="1" -->
+<!--         include="/material/include/MaterialAllocationList.jsp"/> -->
 </channel:channel>
 
 <tb:toolbar style="action" showLabels="true" width="97%">
