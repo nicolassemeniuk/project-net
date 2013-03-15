@@ -27,7 +27,7 @@
     language="java"
     errorPage="/errors.jsp"
     import="net.project.calendar.PnCalendar,
-            net.project.resource.ResourceAllocationCalendar,
+            net.project.material.MaterialResourceAllocationCalendar,
             java.util.Date,
             net.project.base.Module"
 %>
@@ -39,7 +39,7 @@
 <jsp:useBean id="rc" class="net.project.material.MaterialResourceAllocationCalendar" scope="page"/>
 <jsp:useBean id="user" class="net.project.security.User" scope="session"/>
 
-<security:verifyAccess action="view" module="<%=Module.DIRECTORY%>"/>
+<security:verifyAccess action="view" module="<%=Module.MATERIAL%>"/>
 
 <%
     rc.setCalendar(new PnCalendar(user));

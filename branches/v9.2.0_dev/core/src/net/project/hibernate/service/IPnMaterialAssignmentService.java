@@ -35,18 +35,20 @@ public interface IPnMaterialAssignmentService {
 
 	/**
 	 * Returns all assignments for a Material
-	 * @param materialID the Id from the materials.
+	 * 
+	 * @param materialID
+	 *            the Id from the materials.
 	 * @return a List of assignments for that material.
 	 */
 	public PnMaterialAssignmentList getAssignmentsForMaterial(String materialID);
-	
+
 	/**
 	 * Returns all assignments for a Material between two dates.
 	 * 
 	 * @param materialId
 	 *            the Id from the material.
 	 * @param startDate
-	 *            the bottom date for the assignments.	 * 
+	 *            the bottom date for the assignments. *
 	 * @param endDate
 	 *            the upper date for the assignments.
 	 * @return a List of assignments for that material between those dates.

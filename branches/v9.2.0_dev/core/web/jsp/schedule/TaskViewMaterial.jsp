@@ -45,8 +45,6 @@
 <!-- Lista de Materials -->
 <jsp:useBean id="materialAssignmentsHelper" class="net.project.schedule.MaterialAssignmentsHelper" scope="page" />
 <jsp:useBean id="roster" class="net.project.resource.RosterBean" scope="session" />
-
-
 <jsp:useBean id="refLink" class="java.lang.String" scope="request" />
 <jsp:useBean id="refLinkEncoded" class="java.lang.String" scope="request" />
 <jsp:useBean id="overallocatedMaterialsExist" type="java.lang.Boolean" scope="request" />
@@ -203,10 +201,10 @@ function turnOnModifiedIcon() {
 // }
 
 function showResourceAllocation(materialID, startDate) {
-    var url = '<%=SessionManager.getJSPRootURL()+"/material/MaterialAllocations.jsp?module=260&materialID="%>'+
+    var url = '<%=SessionManager.getJSPRootURL()+"/material/MaterialResourceAllocations.jsp?module=260&materialID="%>'+
         materialID + '&startDate=' + startDate;
 
-    openwin_large('resource_allocation', url);
+    openwin_large('material_resource_allocation', url);
 }
 
 function assignmentCheckboxClicked(materialID) {
@@ -281,16 +279,16 @@ function flagError(errorText) {
 
 // }
 
-// //When we use the "back" button, called from setup.
-// function overallocationExist(exist) {
-//     if (exist) {
-//         document.getElementById('overallocatedResourcesIcon').className = 'tableContent';
-//         theForm.overallocated.value = 'true';
-//     } else {
-//         document.getElementById('overallocatedResourcesIcon').className = 'hidden';
-//         theForm.overallocated.value = 'false';
-//     }
-// }
+//When we use the "back" button, called from setup.
+function overallocationExist(exist) {
+    if (exist) {
+        document.getElementById('overallocatedResourcesIcon').className = 'tableContent';
+        theForm.overallocated.value = 'true';
+    } else {
+        document.getElementById('overallocatedResourcesIcon').className = 'hidden';
+        theForm.overallocated.value = 'false';
+    }
+}
 
 
 </script>

@@ -28,8 +28,10 @@ public class MaterialResourceAllocationList {
         PnMaterialAssignmentList assignments = ServiceFactory.getInstance().getPnMaterialAssignmentService().getAssignmentsForMaterial(materialID);
         
         for(PnMaterialAssignment assignment : assignments){
-          MaterialAllocation allocation = new MaterialAllocation(assignment.getStartDate(), assignment.getEndDate(), assignment.getPercentAllocated());
-          aggregator.insert(allocation);
+        	if(assignment.getRecordStatus().equals("A")){
+	          MaterialAllocation allocation = new MaterialAllocation(assignment.getStartDate(), assignment.getEndDate(), assignment.getPercentAllocated());
+	          aggregator.insert(allocation);
+        	}
         }
     }
 
