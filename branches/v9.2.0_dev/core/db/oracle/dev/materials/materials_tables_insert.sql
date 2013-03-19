@@ -7,7 +7,7 @@
 -- Enterprise
 
 
-select * from PN_PROPERTY a where a.PROPERTY like '%prm.resource.allocation.resourcelistfor.label%';
+select * from PN_PROPERTY a where a.PROPERTY like '%prm.resource.allocationlist.taskname.name%';
 
 -- update pn_property set Property_value='1' where pn_property.property = 'prm.enterprise.isenabled'
 -- insert into PN_PROPERTY values (2000,'en','boolean','prm.enterprise.isenabled','1','A',0,0,null);
@@ -18,6 +18,10 @@ select * from PN_PROPERTY a where a.PROPERTY like '%prm.resource.allocation.reso
 -- MaterialAllocation
 insert into PN_PROPERTY values (2000,'en','text','prm.material.allocation.materialcalendarsfor.label','Utilization Calendars for {0}','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.allocation.materiallistfor.label','Material Assignments for {0}','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.allocationlist.dates.name','Dates (s)','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.allocationlist.spacename.name','Workspace Name','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.allocationlist.percentassigned.name','% Assigned','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.allocationlist.taskname.name','Task Name','A',0,1,null);
 
 -- Propiedades de TaskView Materials (materiales de la tarea).
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material.cantassignmentmaterial.message','You cannot assign a material in a template!','A',0,1,null);

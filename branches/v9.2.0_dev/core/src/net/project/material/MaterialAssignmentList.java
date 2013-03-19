@@ -2,10 +2,12 @@ package net.project.material;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 
 import net.project.hibernate.model.PnMaterialAssignment;
 import net.project.hibernate.service.ServiceFactory;
+import net.project.persistence.IXMLPersistence;
 
 public class MaterialAssignmentList implements Serializable, Iterable<MaterialAssignment> {
 
@@ -24,6 +26,13 @@ public class MaterialAssignmentList implements Serializable, Iterable<MaterialAs
 	
 	public void load(String spaceId, String objectId) {
 		PnMaterialAssignmentList assignmentList = ServiceFactory.getInstance().getPnMaterialAssignmentService().getMaterialsAssignment(spaceId, objectId);
+		for (PnMaterialAssignment assignee : assignmentList) {
+			materialAssignments.add(new MaterialAssignment(assignee));
+		}
+	}
+	
+	public void load(String materialId, Date startDate, Date endDate){
+		PnMaterialAssignmentList assignmentList = ServiceFactory.getInstance().getPnMaterialAssignmentService().getAssignmentsForMaterial(materialId, startDate, endDate);
 		for (PnMaterialAssignment assignee : assignmentList) {
 			materialAssignments.add(new MaterialAssignment(assignee));
 		}
@@ -96,6 +105,34 @@ public class MaterialAssignmentList implements Serializable, Iterable<MaterialAs
 		
 		return false;
 	}
+	
+    /**
+     * Converts the object to XML representation.
+     * This method returns the object as XML text.
+     *
+     * @return XML representation
+     */
+    public String getXML() {
+        return (IXMLPersistence.XML_VERSION + getXMLBody());
+    }
+	
+    /**
+     * Converts the object to XML representation without the XML version tag.
+     * This method returns the object as XML text.
+     *
+     * @return XML representation
+     */
+    public String getXMLBody() {
+        StringBuffer xml = new StringBuffer();
+
+        xml.append("<assignment_list>\n");
+        for (int i = 0; i < materialAssignments.size(); i++)
+            xml.append(((MaterialAssignment) materialAssignments.get(i)).getXMLBody());
+        xml.append("</assignment_list>\n");
+        return xml.toString();
+    }
+    
+
 	
 	
 

@@ -4,11 +4,14 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import javax.persistence.Transient;
-
+import net.project.calendar.PnCalendar;
 import net.project.hibernate.model.PnMaterialAssignment;
+import net.project.hibernate.model.PnProjectSpace;
+import net.project.hibernate.model.PnTask;
 import net.project.hibernate.service.ServiceFactory;
+import net.project.security.SessionManager;
 import net.project.util.time.ITimeRangeValue;
+import net.project.xml.XMLUtils;
 
 public class MaterialAssignment implements Serializable, ITimeRangeValue {
 
@@ -27,6 +30,8 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 	/** true if it's overassigned */
 	private Boolean overassigned;
 	private String materialName;
+	private String taskName;
+	private String spaceName;
 
 	public MaterialAssignment() {
 	}
@@ -45,6 +50,11 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 		this.assignorId = String.valueOf(assignedMaterial.getPnAssignor().getPersonId());
 		this.overassigned = ServiceFactory.getInstance().getPnMaterialAssignmentService().isOverassigned(startDate, endDate, spaceId, materialId, objectId);
 		this.materialName = ServiceFactory.getInstance().getPnMaterialService().getMaterial(Integer.valueOf(materialId)).getMaterialName();
+		PnTask task = ServiceFactory.getInstance().getPnTaskService().getTaskById(Integer.valueOf(assignedMaterial.getComp_id().getObjectId()));
+		this.taskName = task.getTaskName();
+		PnProjectSpace space = ServiceFactory.getInstance().getPnProjectSpaceService()
+				.getProjectSpace(Integer.valueOf(assignedMaterial.getComp_id().getSpaceId()));
+		this.spaceName = space.getProjectName();
 	}
 
 	public void load() {
@@ -63,6 +73,11 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 		this.assignorId = String.valueOf(assignedMaterial.getPnAssignor().getPersonId());
 		this.overassigned = ServiceFactory.getInstance().getPnMaterialAssignmentService().isOverassigned(startDate, endDate, spaceId, materialId, objectId);
 		this.materialName = ServiceFactory.getInstance().getPnMaterialService().getMaterial(Integer.valueOf(materialId)).getMaterialName();
+		PnTask task = ServiceFactory.getInstance().getPnTaskService().getTaskById(Integer.valueOf(assignedMaterial.getComp_id().getObjectId()));
+		this.taskName = task.getTaskName();
+		PnProjectSpace space = ServiceFactory.getInstance().getPnProjectSpaceService()
+				.getProjectSpace(Integer.valueOf(assignedMaterial.getComp_id().getSpaceId()));
+		this.spaceName = space.getProjectName();
 	}
 
 	public String getSpaceId() {
@@ -160,14 +175,12 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 	public void setOverassigned(Boolean overassigned) {
 		this.overassigned = overassigned;
 	}
-	
-	public String getMaterialName()
-	{
+
+	public String getMaterialName() {
 		return materialName;
 	}
 
-	public void setMaterialName(String materialName)
-	{
+	public void setMaterialName(String materialName) {
 		this.materialName = materialName;
 	}
 
@@ -199,5 +212,42 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 		clone.setMaterialName(this.getMaterialName());
 
 		return clone;
+	}
+
+	/**
+	 * Converts the object to XML representation without the XML version tag.
+	 * This method returns the object as XML text.
+	 * 
+	 * @return XML representation
+	 */
+	public String getXMLBody() {
+		StringBuffer xml = new StringBuffer();
+		xml.append("<assignment>\n");
+		xml.append(getXMLElements());
+		xml.append("</assignment>\n");
+		return xml.toString();
+	}
+
+	/**
+	 * Returns the elements contained within an <code>&lt;Assignment&gt;</code>.
+	 * 
+	 * @return the XML elements
+	 */
+	protected String getXMLElements() {
+
+		StringBuffer xml = new StringBuffer();
+
+		xml.append("<object_name>" + XMLUtils.escape(taskName) + "</object_name>\n");
+		xml.append("<space_name>" + XMLUtils.escape(spaceName) + "</space_name>\n");
+		xml.append("<percent_assigned>" + XMLUtils.escape(String.valueOf(percentAssigned)) + "</percent_assigned>\n");
+		xml.append("<start_time>" + XMLUtils.formatISODateTime(getStartDate()) + "</start_time>");
+		xml.append("<end_time>" + XMLUtils.formatISODateTime(getEndDate()) + "</end_time>");
+		
+        PnCalendar cal = new PnCalendar(SessionManager.getUser());
+        if (getStartDate() != null && cal.startOfDay(getStartDate()).equals(cal.startOfDay(getEndDate()))) {
+            xml.append("<one_day_assignment/>");
+        }
+
+		return xml.toString();
 	}
 }
