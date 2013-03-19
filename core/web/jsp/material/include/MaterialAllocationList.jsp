@@ -26,25 +26,24 @@
     info=""
     language="java"
     errorPage="/errors.jsp"
-    import="net.project.base.Module,
-            net.project.resource.AssignmentType,
-            net.project.resource.AssignmentManager,
+    import="java.util.Date,
+            net.project.xml.XMLFormatter,
+            net.project.base.Module,
+            net.project.base.property.PropertyProvider,
+            net.project.material.MaterialAssignmentListBean,
             net.project.util.DateRange,
-            net.project.resource.AssignmentFinder"
+            java.util.Date,
+            net.project.util.Validator"
 %>
 <%@ include file="/base/taglibInclude.jsp"%>
-<jsp:useBean id="assignmentManagerBean" class="net.project.resource.AssignmentManagerBean" scope="page" />
+<jsp:useBean id="materialAssignmentList" class="net.project.material.MaterialAssignmentListBean" scope="page" />
 <jsp:useBean id="endMonth" class="java.util.Date" scope="request"/>
 <jsp:useBean id="startMonth" class="java.util.Date" scope="request"/>
 
-<security:verifyAccess action="view" module="<%=Module.DIRECTORY%>"/>
+<security:verifyAccess action="view" module="<%=Module.MATERIAL%>"/>
 
-<%
-    assignmentManagerBean.setPersonID(request.getParameter("personID"));
-    assignmentManagerBean.setAssignmentTypesFilter(new AssignmentType[] {AssignmentType.TASK});
-    assignmentManagerBean.setOrderBy(AssignmentFinder.START_DATE_COLUMN);
-    assignmentManagerBean.setAssignmentDateRange(new DateRange(startMonth, endMonth));
-    assignmentManagerBean.loadAssignments();
+<%    
+	materialAssignmentList.load(request.getParameter("materialID"), startMonth, endMonth);
 %>
 
 <html>
@@ -55,18 +54,13 @@
 <template:getSpaceCSS />
 
 <%-- Import Javascript --%>
-
 <script language="javascript" type="text/javascript">
 </script>
 
 </head>
-
 <body>
-
-<pnet-xml:transform name="assignmentManagerBean" scope="page" stylesheet="/resource/xsl/resource-allocation-list.xsl">
+<pnet-xml:transform name="materialAssignmentList" scope="page" stylesheet="/material/xsl/material-allocation-list.xsl">
 </pnet-xml:transform>
-
 <template:getSpaceJS />
 </body>
-
 </html>

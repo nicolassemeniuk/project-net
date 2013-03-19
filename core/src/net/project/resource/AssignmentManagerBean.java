@@ -64,7 +64,7 @@ public class AssignmentManagerBean extends AssignmentManager implements Serializ
      * This method will apply the stylesheet to the XML representation of the component and
      * return the resulting text.
      *
-     * @return presetation of the component
+     * @return presentation of the component
      */
     public String getPresentation() {
         XMLFormatter xml = new XMLFormatter();
