@@ -423,6 +423,41 @@ function resources() {
     }
 }
 
+//For assigning materials to tasks
+function materials() {
+    if ((theForm.selected) && (verifySelection(theForm, 'multiple', noSelectionErrorMessage ))) {
+		var alertMessage = notAllowedForImportedTask;
+		var showAlertMessage = false;
+        if (theForm.selected.length) {
+            for (var i = 0; i < theForm.selected.length; i++) {
+                if (theForm.selected[i].checked == true) {
+					if(true == isExternalTask(theForm.selected[i].value) ){
+						alertMessage = alertMessage + document.getElementById( 'tn_'+theForm.selected[i].value ).innerHTML + "\n";
+						showAlertMessage = true;
+					}
+                }
+            }
+        } else {
+			if(true == isExternalTask(theForm.selected.value)){
+				alertMessage = alertMessage + document.getElementById('tn_'+theForm.selected.value ).innerHTML + "\n";
+				showAlertMessage = true;
+			}
+        }
+		if(true == showAlertMessage){
+			extAlert(errorAlertTitle, alertMessage , Ext.MessageBox.ERROR);
+			return;
+		}
+
+        //Open the dialog box with the required information
+        resourcesWindow = openwin_dialog('material_dialog', 'about:blank', 350, 450, 'yes');
+        theForm.theAction.value = "/TaskList/AssignMaterialsDialog";
+        theForm.action.value = "2";
+        theForm.target = 'material_dialog';
+        theForm.submit();
+        theForm.target = '_self';
+    }
+}
+
 //after resource assignment complete
 function resourcesComplete() {
     resourcesWindow.close();

@@ -126,9 +126,10 @@ public class ActionBox {
 				if(type.equals("schedule")){
 					String[] scheduleActions = {ButtonType.TASK_UP.toString(),ButtonType.TASK_DOWN.toString(),
 							ButtonType.TASK_LEFT.toString(),ButtonType.TASK_RIGHT.toString(),
-							ButtonType.RESOURCES.toString(),ButtonType.LINK_TASKS.toString(),
-							ButtonType.UNLINK_TASKS.toString(),ButtonType.RECALCULATE.toString(),
-							ButtonType.PROPERTIES.toString(),ButtonType.EXPORT_PDF.toString()};
+							ButtonType.RESOURCES.toString(),ButtonType.MATERIALS.toString(),
+							ButtonType.LINK_TASKS.toString(),ButtonType.UNLINK_TASKS.toString(),
+							ButtonType.RECALCULATE.toString(),ButtonType.PROPERTIES.toString(),
+							ButtonType.EXPORT_PDF.toString()};
 					Band scheduletoolBand = toolbar.addBand(type);
 					if(StringUtils.isNotEmpty(typeTitle)){
 						scheduletoolBand.setGroupHeading(PropertyProvider.get(typeTitle));

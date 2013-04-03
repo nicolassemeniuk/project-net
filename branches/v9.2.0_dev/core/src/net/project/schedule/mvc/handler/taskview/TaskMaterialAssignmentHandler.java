@@ -28,7 +28,9 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.project.schedule.MaterialAssignmentsHelper;
 import net.project.schedule.ScheduleEntry;
+import net.project.security.User;
 
 /**
  * Class which does all of the logic required to load the TaskMaterials page.
@@ -65,6 +67,18 @@ public class TaskMaterialAssignmentHandler extends AbstractTaskMaterialAssignmen
 		Map<String, Object> model = super.handleRequest(request, response);
 		ScheduleEntry scheduleEntry = (ScheduleEntry) model.get("scheduleEntry");
 		model.put("overallocatedMaterialsExist", scheduleEntry.getMaterialAssignments().overAssignationExists());
+		
+        User user = (User)getSessionVar("user");
+    	String spaceId = String.valueOf(user.getCurrentSpace().getID());		
+		String objectId = scheduleEntry.getID();
+    	
+    	MaterialAssignmentsHelper materialAssignmentsHelper	= new MaterialAssignmentsHelper();
+    	materialAssignmentsHelper.setSpaceId(spaceId);
+    	materialAssignmentsHelper.setObjectId(objectId);
+    	materialAssignmentsHelper.load();           
+
+        model.put("materialAssignmentsHelper", materialAssignmentsHelper);   
+        
 		return model;
 	}
 

@@ -90,6 +90,7 @@ public class ButtonType implements Serializable, IXMLPersistence {
     public static final ButtonType PERCENTAGE = new ButtonType("percentage");
     public static final ButtonType CHOOSE_PHASE = new ButtonType("phase");
     public static final ButtonType RESOURCES = new ButtonType("resources");
+    public static final ButtonType MATERIALS = new ButtonType("materials");    
     public static final ButtonType CALENDAR = new ButtonType("calendar");
     
     // Button Type for Blog it image
