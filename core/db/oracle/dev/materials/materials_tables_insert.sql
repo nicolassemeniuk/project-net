@@ -68,8 +68,12 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.main.module.histo
 --Material main
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.authorizationfailed.message','Access to Material Workspace denied','A',0,1,null);
 
--- Workplan
-insert into PN_PROPERTY values (2000,'en','text','prm.schedule.main.materialassignments','Materials','A',0,1,null);
+-- Assign material dialog
+
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.assignmaterialsdialog.title','Materials','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.assignmaterialsdialog.addtoexisting','Add to Existing Material Assignments','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.assignmaterialsdialog.replaceexisting','Replace Existing Material Assignments','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.assignmaterialsdialog.materials','Materials','A',0,1,null);
 
 -- Propiedades para la vista de nuevo material
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.materialnamerequired.message','Material Name is a required field','A',0,1,null);
@@ -99,9 +103,13 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.ste
 insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.button.finish.label','Finish','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.option.disablematerial.label','Disable the Material for this Project Workspace','A',0,1,null);
 
-
-
-
+-- Workplan
+insert into PN_PROPERTY values (2000,'en','text','all.global.toolbar.standard.materials','Assign Material','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','all.global.toolbar.standard.materials.alt','Assign Material(s)','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','imagepath','all.global.toolbar.standard.materials.image.off','/images/icons/toolbar-gen-properties_off.gif','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','imagepath','all.global.toolbar.standard.materials.image.on','/images/icons/toolbar-gen-properties_on.gif','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','imagepath','all.global.toolbar.standard.materials.image.over','/images/icons/toolbar-rollover-properties.gif','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.main.materialassignments','Materials','A',0,1,null);
 
 /************************************************************************************
  * 				PN_OBJECT_TYPE

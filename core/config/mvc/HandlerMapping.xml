@@ -89,9 +89,15 @@
     <Handler url="/TaskList/AssignResourcesDialog">
         <Class>net.project.schedule.mvc.handler.tasklist.AssignResourcesHandler</Class>
     </Handler>
+    <Handler url="/TaskList/AssignMaterialsDialog">
+        <Class>net.project.schedule.mvc.handler.tasklist.AssignMaterialsHandler</Class>
+    </Handler>    
     <Handler url="/TaskList/AssignResourcesDialogProcessing">
         <Class>net.project.schedule.mvc.handler.tasklist.AssignResourcesDialogHandlerProcessing</Class>
     </Handler>
+    <Handler url="/TaskList/AssignMaterialsDialogProcessing">
+        <Class>net.project.schedule.mvc.handler.tasklist.AssignMaterialsDialogHandlerProcessing</Class>
+    </Handler>    
     <Handler url="/TaskList/DeleteTaskDialog">
         <Class>net.project.schedule.mvc.handler.tasklist.DeleteTaskDialogHandler</Class>
     </Handler>

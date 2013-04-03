@@ -111,7 +111,6 @@ public class MaterialAssignmentAddRemoveHandler extends AbstractMaterialAssignme
         	assignment.setRecordStatus("D");
             assignment.setModifiedBy(user.getID());        	
         	assignment.setModifiedDate(new Date());
-        	assignment.setModifiedDate(new Date());
             //calc.assignmentMaterialRemoved(assignment);
         }
 

@@ -2137,7 +2137,7 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
         NumberFormat nf = NumberFormat.getInstance();
         for (Iterator<MaterialAssignment> it = getMaterialAssignments().iterator(); it.hasNext();) {
         	MaterialAssignment materialAssignment = it.next();
-            if (materialAssignment.getMaterialName() != null) {
+            if (materialAssignment.getMaterialName() != null && materialAssignment.getRecordStatus().equals("A")) {
                 tooltip += materialAssignment.getMaterialName().replaceAll("\\|", "&#166;");
             }
   

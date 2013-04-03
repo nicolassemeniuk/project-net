@@ -43,7 +43,7 @@
 <jsp:useBean id="scheduleEntry" type="net.project.schedule.ScheduleEntry" scope="request" />
 
 <!-- Lista de Materials -->
-<jsp:useBean id="materialAssignmentsHelper" class="net.project.schedule.MaterialAssignmentsHelper" scope="page" />
+<jsp:useBean id="materialAssignmentsHelper" class="net.project.schedule.MaterialAssignmentsHelper" scope="request" />
 <jsp:useBean id="roster" class="net.project.resource.RosterBean" scope="session" />
 <jsp:useBean id="refLink" class="java.lang.String" scope="request" />
 <jsp:useBean id="refLinkEncoded" class="java.lang.String" scope="request" />
@@ -65,12 +65,6 @@
 	//load the assignies for the space
 	roster.setSpace(user.getCurrentSpace());
 	roster.load();
-			
-	String spaceId = String.valueOf(user.getCurrentSpace().getID());
-	String objectId = scheduleEntry.getID();
-	materialAssignmentsHelper.setSpaceId(spaceId);
-	materialAssignmentsHelper.setObjectId(objectId);
-	materialAssignmentsHelper.load();   
 %>
 
 <template:getDoctype />
