@@ -570,6 +570,7 @@ public class TaskEndpointCalculation {
             ScheduleEntryDateCalculator dateCalc = new ScheduleEntryDateCalculator(task, getCalendarProvider(task));
             if (newStartDate != null) {
                 dateCalc.addWorkAndupdateAssignmentDates(newStartDate);
+                dateCalc.updateMaterialAssignmentDates(newStartDate, newEndDate);
             }
 
             // If any assignment date changes, then we must update the task

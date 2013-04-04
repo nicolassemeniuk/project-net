@@ -21,6 +21,7 @@ import java.util.Iterator;
 import net.project.calendar.workingtime.IWorkingTimeCalendar;
 import net.project.calendar.workingtime.IWorkingTimeCalendarProvider;
 import net.project.calendar.workingtime.NoWorkingTimeException;
+import net.project.material.MaterialAssignment;
 import net.project.resource.ScheduleEntryAssignment;
 import net.project.schedule.calc.IDateCalculator;
 import net.project.util.TimeQuantity;
@@ -281,5 +282,13 @@ public class ScheduleEntryDateCalculator implements IDateCalculator {
     public boolean isAssignmentModified() {
         return this.isAssignmentModified;
     }
+
+	public void updateMaterialAssignmentDates(Date newStartDate, Date newEndDate) {
+		for(MaterialAssignment assignment : this.scheduleEntry.getMaterialAssignments()){
+			assignment.setStartDate(newStartDate);
+			assignment.setEndDate(newEndDate);
+		}
+		
+	}
 
 }

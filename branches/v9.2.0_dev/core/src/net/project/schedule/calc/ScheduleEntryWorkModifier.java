@@ -110,7 +110,7 @@ class ScheduleEntryWorkModifier {
      * Modifies the task work and assignment work and recalculates assignment percentages.
      * <p>
      * Task work is changed.  Assignment work and percentage is changed.
-     * Dutation is not changed unless duration is currently zero, in which case duration is recalculated
+     * Duration is not changed unless duration is currently zero, in which case duration is recalculated
      * based on the new work.
      * </p>
      * @param newWork the new task work value
@@ -266,7 +266,8 @@ class ScheduleEntryWorkModifier {
         } else {
             // Recalculate duration on existing assignments
             this.scheduleEntry.calculateDuration(this.workingTimeCalendarProvider);
-        }
+        }   
+
 
 
         if (isNullDates) {

@@ -2,6 +2,7 @@ package net.project.material;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Date;
 import java.util.Iterator;
 
 import net.project.hibernate.model.PnMaterial;
@@ -50,7 +51,8 @@ public class PnMaterialList extends ArrayList<PnMaterial> {
 	        	xml.append("<materialname>" + material.getMaterialName() + "</materialname>");
 	        	xml.append("<materialdescription>" + material.getMaterialDescription() + "</materialdescription>");
 	        	xml.append("<materialtype>" + material.getPnMaterialType().getMaterialTypeName() + "</materialtype>");
-	        	xml.append("<materialcost>" + material.getMaterialCost() + "</materialcost>");	        	
+	        	xml.append("<materialcost>" + material.getMaterialCost() + "</materialcost>");
+	        	xml.append("<currentdate>" + String.valueOf((new Date()).getTime()) + "</currentdate>");
         	xml.append("</materialspace>");         
         
         	xml.append("</value>");     
