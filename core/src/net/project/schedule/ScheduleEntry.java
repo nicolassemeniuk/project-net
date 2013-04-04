@@ -2419,7 +2419,9 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
     public void calculateEndDate(IWorkingTimeCalendarProvider workingTimeCalendarProvider) {
         if (getStartTime() != null) {
             ScheduleEntryDateCalculator dateCalc = new ScheduleEntryDateCalculator(this, workingTimeCalendarProvider);
-            setEndTimeD(dateCalc.addWorkAndupdateAssignmentDates(getStartTime()));
+            Date endDate = dateCalc.addWorkAndupdateAssignmentDates(getStartTime());
+            setEndTimeD(endDate);
+            dateCalc.updateMaterialAssignmentDates(getStartTime(), endDate);
         }
     }
 

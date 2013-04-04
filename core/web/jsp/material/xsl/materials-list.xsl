@@ -5,9 +5,8 @@
 	<xsl:output method="html" indent="yes" />
 
 	<xsl:variable name="maxDepth" select="//materials-list/maxdepth" />
-	<xsl:variable name="numCols" select="number($maxDepth + 1 + 4)" />
+	<xsl:variable name="numCols" select="number($maxDepth + 1 + 5)" />
 
-	<!-- TODO Parametrizar las cabeceras de tablas -->
 	<xsl:template match="materials-list">
 		<xsl:variable name="colspan" select="number($maxDepth + 1)" />
 		<table border="0" cellpadding="0" cellspacing="0" width="100%">
@@ -15,10 +14,10 @@
 				<td class="tableHeader" width="1%">
 					<xsl:text disable-output-escaping="yes"></xsl:text>
 				</td>
-				<td class="tableHeader" colspan="{$colspan}">Material</td>
-				<td class="tableHeader">Description</td>
-				<td class="tableHeader">Type</td>
-				<td class="tableHeader">Cost</td>
+				<td class="tableHeader" colspan="{$colspan}"><xsl:value-of select="display:get('prm.material.main.list.name')"/></td>
+				<td class="tableHeader"><xsl:value-of select="display:get('prm.material.main.list.description')"/></td>
+				<td class="tableHeader"><xsl:value-of select="display:get('prm.material.main.list.type')"/></td>
+				<td class="tableHeader"><xsl:value-of select="display:get('prm.material.main.list.cost')"/></td>
 			</tr>
 			<tr class="tableLine">
 				<td colspan="{$numCols}" class="tableLine">
@@ -57,7 +56,7 @@
 		</xsl:apply-templates>
 	</xsl:template>
 
-	<xsl:template match="materialspace">
+	<xsl:template match="materialspace" >
 		<xsl:param name="level" />
 		<xsl:variable name="colspan" select="number($maxDepth - $level + 1)" />
 
@@ -78,11 +77,10 @@
 				<xsl:with-param name="count" select="$level" />
 			</xsl:call-template>
 			<td colspan="{$colspan}" align="left">
-				<xsl:choose>
+				<xsl:choose >
 					<xsl:when test="../isowner = 1">
-						<!-- TODO Ver esta URL -->
-						<a href="../material/Main.jsp?id={materialid}">
-							<xsl:value-of select="materialname" />
+						<a href="../material/MaterialDetail.jsp?module=260&amp;id={materialid}" >
+							<xsl:value-of select="materialname" disable-output-escaping="yes"/>
 						</a>
 					</xsl:when>
 					<xsl:otherwise>
@@ -99,6 +97,12 @@
 			<td class="tableContent" align="left">
 				<xsl:value-of select="materialcost" />
 			</td>
+<!-- 			<td class="tableContent" align="center"> -->
+<!-- 				<a href="javascript:showResourceAllocation(<xsl:value-of select="materialname />, currentdate)"> -->
+<!-- 					<img src="../images/schedule/constraint.gif" border="0"/> -->
+<!-- 				</a> -->
+<!-- 			</td> -->
+			
 		</tr>
 		<tr class="tableLine">
 			<td colspan="{$numCols}">

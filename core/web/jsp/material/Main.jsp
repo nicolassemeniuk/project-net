@@ -89,6 +89,13 @@ function getSelectedValueLocal() {
 	}
 }
 
+function showResourceAllocation(materialID, startDate) {
+    var url = '<%=SessionManager.getJSPRootURL()+"/material/MaterialResourceAllocations.jsp?module=260&materialID="%>'+
+        materialID + '&startDate=' + startDate;
+
+    openwin_large('material_resource_allocation', url);
+}
+
 function reset() { 
 	self.document.location = JSPRootURL + "/material/MaterialPortfolio.jsp?module=<%=Module.MATERIAL%>&portfolio=true"; 
 }
