@@ -24,8 +24,10 @@
 <jsp:setProperty name="materialBean" property="*" />
 
 <%
+	if ((request.getParameter("consumable") == null) || (request.getParameter("consumable").equals("")))
+		materialBean.setConsumable(false);
+
 	ServiceFactory.getInstance().getMaterialService().updateMaterial(materialBean);
 
-	// TODO Ramiro Enviar la pantalla del material recien creado
 	response.sendRedirect(SessionManager.getJSPRootURL() + "/material/Main.jsp?module=" + Module.MATERIAL );
 %>
