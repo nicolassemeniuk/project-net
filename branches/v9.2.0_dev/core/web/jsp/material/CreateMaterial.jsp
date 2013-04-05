@@ -157,6 +157,15 @@
 						value='<c:out value="${materialBean.cost}">0.0</c:out>'></td>
 					<td nowrap class="tableContent" colspan="2">&nbsp;</td>
 				</tr>
+				
+				<%-- Material Consumable --%>
+				<tr align="left" class="addSpacingBottom">
+					<td>&nbsp;</td>
+					<td nowrap class="fieldNonRequired"><display:get name="prm.material.create.wizard.step1.consumable.label" />:&nbsp;</td>
+					<td nowrap class="tableContent" colspan="2">					
+					<input type="checkbox" name="consumable"></td>
+					<td nowrap class="tableContent" colspan="2">&nbsp;</td>
+				</tr>
 
 				<%-- Material Description --%>
 				<tr align="left" class="tableContent">
@@ -170,6 +179,9 @@
 						</textarea>
 					</td>
 				</tr>
+				
+
+				
 
 
 				<tr align="left" class="tableContent">
