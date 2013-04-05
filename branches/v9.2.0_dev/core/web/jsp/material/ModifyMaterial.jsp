@@ -178,7 +178,7 @@ if (id != null){
 														<td>&nbsp;</td>
 														<td nowrap class="fieldNonRequired"><display:get name="prm.material.viewmaterial.materialconsumable.label" />:&nbsp;</td>
 														<td nowrap class="tableContent" colspan="2">					
-														<input type="checkbox" name="consumable" value="true" <%=materialBean.getChecked()%> ></td>
+														<input type="checkbox" name="consumable" value="on" <%=materialBean.getChecked()%> ></td>
 														<td nowrap class="tableContent" colspan="2">&nbsp;</td>
 													</tr>
 
