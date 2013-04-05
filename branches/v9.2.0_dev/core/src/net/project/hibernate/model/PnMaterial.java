@@ -24,19 +24,22 @@ public class PnMaterial implements Serializable {
 	private Float materialCost;
 	
 	private String recordStatus;
+	
+	private String materialConsumable;
 
 	public static final String OBJECT_TYPE = "material";
 
 	public PnMaterial() {
 	}
 
-	public PnMaterial(Integer materialId, String materialName, String materialDescription, PnMaterialType materialType, Float materialCost, String recordStatus) {
+	public PnMaterial(Integer materialId, String materialName, String materialDescription, PnMaterialType materialType, Float materialCost, String recordStatus, String materialConsumable) {
 		this.materialId = materialId;
 		this.materialName = materialName;
 		this.materialDescription = materialDescription;
 		this.materialType = materialType;
 		this.materialCost = materialCost;
 		this.recordStatus = recordStatus;
+		this.materialConsumable = materialConsumable;
 	}
 	
 //	public PnMaterial(Integer materialId, String materialName, String materialDescription, Float materialCost) {
@@ -103,6 +106,17 @@ public class PnMaterial implements Serializable {
 	public void setRecordStatus(String recordStatus) {
 		this.recordStatus = recordStatus;
 	}
+
+	@Column(name = "MATERIAL_CONSUMABLE", nullable = false, length = 5)
+	public String getMaterialConsumable() {
+		return materialConsumable;
+	}
+
+	public void setMaterialConsumable(String materialConsumable) {
+		this.materialConsumable = materialConsumable;
+	}
+	
+	
 	
 	
 

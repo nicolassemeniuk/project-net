@@ -172,6 +172,15 @@ if (id != null){
 														</td>
 														<td nowrap class="tableContent" colspan="2">&nbsp;</td>
 													</tr>
+													
+													<%-- Material Consumable --%>
+													<tr align="left" class="addSpacingBottom">
+														<td>&nbsp;</td>
+														<td nowrap class="fieldNonRequired"><display:get name="prm.material.viewmaterial.materialconsumable.label" />:&nbsp;</td>
+														<td nowrap class="tableContent" colspan="2">					
+														<input type="checkbox" name="consumable" value="true" <%=materialBean.getChecked()%> ></td>
+														<td nowrap class="tableContent" colspan="2">&nbsp;</td>
+													</tr>
 
 													
 													<tr align="left">
