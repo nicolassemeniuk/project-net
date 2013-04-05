@@ -16,7 +16,7 @@ import net.project.material.PnMaterialList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service(value="pnMaterialService")
+@Service(value = "pnMaterialService")
 public class PnMaterialServiceImpl implements IPnMaterialService {
 
 	/**
@@ -24,13 +24,13 @@ public class PnMaterialServiceImpl implements IPnMaterialService {
 	 */
 	@Autowired
 	private IPnMaterialDAO pnMaterialDAO;
-	
+
 	@Autowired
 	private IPnMaterialTypeService materialTypeService;
-	
+
 	@Autowired
-	private IPnObjectService objectService;	
-	
+	private IPnObjectService objectService;
+
 	public void setPnMaterialDAO(IPnMaterialDAO pnMaterialDAO) {
 		this.pnMaterialDAO = pnMaterialDAO;
 	}
@@ -38,7 +38,7 @@ public class PnMaterialServiceImpl implements IPnMaterialService {
 	public IPnMaterialDAO getPnMaterialDAO() {
 		return pnMaterialDAO;
 	}
-	
+
 	@Override
 	public PnMaterial getMaterial(Integer materialId) {
 		return pnMaterialDAO.getMaterialById(materialId);
@@ -49,11 +49,12 @@ public class PnMaterialServiceImpl implements IPnMaterialService {
 		return pnMaterialDAO.getMaterials();
 	}
 
-	public Integer saveMaterial(MaterialBean materialBean) {		
+	public Integer saveMaterial(MaterialBean materialBean) {
 		// TODO Ramiro Chequear la tabla PN_DEFAULT_OBJECT_PERMISSION
-	    Integer materialObjectId = objectService.saveObject(new PnObject(PnMaterial.OBJECT_TYPE, new Integer(materialBean.getUser().getID()), new Date(System.currentTimeMillis()), "A"));	
-	    PnMaterialType materialType = materialTypeService.getMaterialTypeById(Integer.valueOf(materialBean.getMaterialTypeId()));
-	    
+		Integer materialObjectId = objectService.saveObject(new PnObject(PnMaterial.OBJECT_TYPE, new Integer(materialBean.getUser().getID()), new Date(System
+				.currentTimeMillis()), "A"));
+		PnMaterialType materialType = materialTypeService.getMaterialTypeById(Integer.valueOf(materialBean.getMaterialTypeId()));
+
 		PnMaterial pnMaterial = new PnMaterial();
 		pnMaterial.setMaterialName(materialBean.getName());
 		pnMaterial.setMaterialDescription(materialBean.getDescription());
@@ -61,6 +62,10 @@ public class PnMaterialServiceImpl implements IPnMaterialService {
 		pnMaterial.setPnMaterialType(materialType);
 		pnMaterial.setRecordStatus("A");
 		pnMaterial.setMaterialId(materialObjectId);
+		if (materialBean.getConsumable() != null)
+			pnMaterial.setMaterialConsumable(String.valueOf(materialBean.getConsumable()));
+		else
+			pnMaterial.setMaterialConsumable("false");
 		return this.pnMaterialDAO.create(pnMaterial);
 	}
 
@@ -69,16 +74,20 @@ public class PnMaterialServiceImpl implements IPnMaterialService {
 	}
 
 	public void updateMaterial(MaterialBean materialBean) {
-	    PnMaterialType materialType = materialTypeService.getMaterialTypeById(Integer.valueOf(materialBean.getMaterialTypeId()));		
+		PnMaterialType materialType = materialTypeService.getMaterialTypeById(Integer.valueOf(materialBean.getMaterialTypeId()));
 		PnMaterial pnMaterial = this.getMaterial(Integer.valueOf(materialBean.getMaterialId()));
-		
-		//If found, update
-		if(pnMaterial!=null){
+
+		// If found, update
+		if (pnMaterial != null) {
 			pnMaterial.setMaterialName(materialBean.getName());
 			pnMaterial.setMaterialDescription(materialBean.getDescription());
 			pnMaterial.setMaterialCost(Float.valueOf(materialBean.getCost()));
 			pnMaterial.setPnMaterialType(materialType);
-			pnMaterial.setRecordStatus("A");		
+			pnMaterial.setRecordStatus("A");
+			if (materialBean.getConsumable() != null)
+				pnMaterial.setMaterialConsumable(String.valueOf(materialBean.getConsumable()));
+			else
+				pnMaterial.setMaterialConsumable("false");
 			this.pnMaterialDAO.update(pnMaterial);
 		}
 	}
@@ -91,14 +100,12 @@ public class PnMaterialServiceImpl implements IPnMaterialService {
 	@Override
 	public void disableMaterial(Integer materialId) {
 		PnMaterial pnMaterial = this.getMaterial(materialId);
-		
-		//if found, disable
-		if(pnMaterial!=null){
-			pnMaterial.setRecordStatus("D");		
+
+		// if found, disable
+		if (pnMaterial != null) {
+			pnMaterial.setRecordStatus("D");
 			this.pnMaterialDAO.update(pnMaterial);
 		}
 	}
-	
-	
 
 }

@@ -47,10 +47,7 @@ public class MaterialServiceImpl implements IMaterialService {
 	
 	@Override
 	public PnMaterialList getMaterialsFromSpace(String spaceId){
-		PnMaterialList lista = materialService.getMaterials(this.spaceHasMaterialService.getMaterialsFromSpace(spaceId));
-		
-		String xml = lista.getXML();
-		return lista;
+		return materialService.getMaterials(this.spaceHasMaterialService.getMaterialsFromSpace(spaceId));
 	}
 	
 	@Override

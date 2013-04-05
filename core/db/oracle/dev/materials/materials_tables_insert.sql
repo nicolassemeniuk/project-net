@@ -82,18 +82,19 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.ste
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.righttitle.label','Material Identity','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.channel.generalinformation.title',null,'A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.name.label','Material Name','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.type.label','Material Type','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.cost.label','Material Cost','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.description.label','Material Description','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.type.label','Type','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.cost.label','Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.consumable.label','Consumable','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.description.label','Description','A',0,1,null);
 
 -- Propiedades para la vista de modificar material
 insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.namerequired.message','Material Name is a required field','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.descriptionlength.message','Description must be less than 200 characters','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.channel.modify.title','Modify Material','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.materialname.label','Material Name','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.materialtype.label','Material Type','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.materialcost.label','Material Cost','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.materialdescription.label','Material Description','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.materialtype.label','Type','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.materialcost.label','Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.materialdescription.label','Description','A',0,1,null);
 
 -- Propiedades para la vista de borrar material
 insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.title','Delete Material','A',0,1,null);
@@ -102,6 +103,14 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.ste
 insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.channel.selectoption','Select one of the following option(s)','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.button.finish.label','Finish','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.option.disablematerial.label','Disable the Material for this Project Workspace','A',0,1,null);
+
+-- Propiedades para la vista de ver material
+insert into PN_PROPERTY values (2000,'en','text','prm.material.viewmaterial.channel.modify.title','View Material','A',0,1,null);                                                  
+insert into PN_PROPERTY values (2000,'en','text','prm.material.viewmaterial.materialname.label','Material Name','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.viewmaterial.materialtype.label','Type','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.viewmaterial.materialcost.label','Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.viewmaterial.materialconsumable.label','Consumable','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.viewmaterial.materialdescription.label','Description','A',0,1,null);
 
 -- Workplan
 insert into PN_PROPERTY values (2000,'en','text','all.global.toolbar.standard.materials','Assign Material','A',0,1,null);

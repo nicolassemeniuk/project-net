@@ -96,9 +96,9 @@ if (id != null){
 	}
 
 	function validate(frm) {
-		if (!checkTextbox(frm.name,	'<display:get name="prm.material.modifymaterial.namerequired.message"/>'))
+		if (!checkTextbox(frm.name,	'<display:get name="prm.material.viewmaterial.namerequired.message"/>'))
 			return false;
-		if (!checkMaxLength(frm.description,200,'<display:get name="prm.material.modifymaterial.descriptionlength.message" />'))
+		if (!checkMaxLength(frm.description,200,'<display:get name="prm.material.viewmaterial.descriptionlength.message" />'))
 			return false;
 		return true;
 	}
@@ -146,7 +146,7 @@ if (id != null){
 
 													<tr align="left">
 														<td>&nbsp;</td>
-														<td nowrap class="fieldRequired"><display:get name="prm.material.modifymaterial.materialname.label" />:&nbsp;</td>
+														<td nowrap class="fieldRequired"><display:get name="prm.material.viewmaterial.materialname.label" />:&nbsp;</td>
 														<td nowrap class="tableContent" colspan="2">															
 															<c:out value="${materialBean.name}" />
 														</td>
@@ -155,31 +155,36 @@ if (id != null){
 													
 													<tr align="left">
 														<td>&nbsp;</td>
-														<td nowrap class="fieldRequired"><display:get name="prm.material.modifymaterial.materialtype.label" />:&nbsp;</td>
-														<td nowrap class="tableContent" colspan="2">
-															<select name="materialTypeId">
-																<%=domainList.getMaterialTypeListForMaterialModification(ServiceFactory.getInstance().getPnMaterialTypeService().getMaterialTypes(), materialBean.getMaterialTypeId())%>
-															</select></td>
+														<td nowrap class="fieldRequired"><display:get name="prm.material.viewmaterial.materialtype.label" />:&nbsp;</td>
+														<td nowrap class="tableContent" colspan="2">															
+																<c:out value="${materialBean.materialTypeName}" />
+															</td>
 														<td nowrap class="tableContent" colspan="2">&nbsp;</td>
 													</tr>
-
 													
 													<tr align="left" class="addSpacingBottom">
 														<td>&nbsp;</td>
-														<td nowrap class="fieldNonRequired"><display:get name="prm.material.modifymaterial.materialcost.label" />:&nbsp;</td>
+														<td nowrap class="fieldNonRequired"><display:get name="prm.material.viewmaterial.materialcost.label" />:&nbsp;</td>
 														<td nowrap class="tableContent" colspan="2">
-															<input type="number" name="cost" size="40" maxlength="80" value='<c:out value="${materialBean.cost}">0.0</c:out>'>
+															<c:out value="${materialBean.cost}">0.0</c:out>
 														</td>
+														<td nowrap class="tableContent" colspan="2">&nbsp;</td>
+													</tr>
+													
+													<%-- Material Consumable --%>
+													<tr align="left" class="addSpacingBottom">
+														<td>&nbsp;</td>
+														<td nowrap class="fieldNonRequired"><display:get name="prm.material.viewmaterial.materialconsumable.label" />:&nbsp;</td>
+														<td nowrap class="tableContent" colspan="2">					
+														<input type="checkbox" name="consumable" value='<c:out value="${materialBean.consumable}"/>'  <%=materialBean.getChecked()%> disabled></td>
 														<td nowrap class="tableContent" colspan="2">&nbsp;</td>
 													</tr>
 
 													
 													<tr align="left">
 														<td>&nbsp;</td>
-														<td nowrap colspan="5" class="fieldNonRequired"><display:get name="prm.material.modifymaterial.materialdescription.label" />:&nbsp;<br> 
-															<textarea name="description" cols="50" rows="3">
+														<td nowrap colspan="5" class="fieldNonRequired"><display:get name="prm.material.viewmaterial.materialdescription.label" />:&nbsp;<br> 
 																	<c:out value="${materialBean.description}"></c:out>
-															</textarea>
 														</td>
 													</tr>
 
@@ -195,9 +200,6 @@ if (id != null){
 
 
 								<tb:toolbar style="action" showLabels="true" bottomFixed="true">
-									<tb:band name="action">
-										<tb:button type="submit" />
-									</tb:band>
 								</tb:toolbar>
 		</form>
 	</div>
