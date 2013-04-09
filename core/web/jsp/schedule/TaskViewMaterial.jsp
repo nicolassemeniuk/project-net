@@ -529,7 +529,8 @@ function overallocationExist(exist) {
 								id="material_<%=materialID%>" 
 								value="<%=materialID%>" 
 								type="checkbox"
-								<%=assignment.isAssignedMaterialChecked()%> 
+								<%=assignment.isAssignedMaterialChecked()%>
+								<%=assignment.isAssignedMaterialEnabled()%> 
   								onClick="assignmentCheckboxClicked('<%=materialID%>')"
 								<%=(scheduleEntry.isFromShare() ? " readonly disabled=\"true\"" : "")%>
 								/>

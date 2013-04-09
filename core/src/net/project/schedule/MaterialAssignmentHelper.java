@@ -7,9 +7,16 @@ public class MaterialAssignmentHelper {
 	Material material;
 	Boolean assigned;	
 	
-	public MaterialAssignmentHelper(Material material, Boolean assigned){
+	/** This allow us to tell if we can assign the material or not,
+	 * if it's consumable and has been assigned, we can't assign it twice.
+	 * And this would be FALSE.
+	 */
+	Boolean enabledForAssignment;
+	
+	public MaterialAssignmentHelper(Material material, Boolean assigned, Boolean enabledForAssignment){
 		this.material = material;
 		this.assigned = assigned;
+		this.enabledForAssignment = enabledForAssignment;
 	}	
 	
 	public Material getMaterial() {
@@ -41,5 +48,13 @@ public class MaterialAssignmentHelper {
 			return "checked";
 		else
 			return "";
+	}
+	
+	public String isAssignedMaterialEnabled(){
+		if(enabledForAssignment)
+			return "";
+		else
+			return "disabled";
+		
 	}
 }
