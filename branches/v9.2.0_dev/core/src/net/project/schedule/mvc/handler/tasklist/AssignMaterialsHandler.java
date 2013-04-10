@@ -32,7 +32,9 @@ import net.project.base.PnetException;
 import net.project.base.mvc.Handler;
 import net.project.base.property.PropertyProvider;
 import net.project.database.DatabaseUtils;
+import net.project.material.MaterialAssignment;
 import net.project.resource.AssignmentRoster;
+import net.project.schedule.MaterialAssignmentHelper;
 import net.project.schedule.MaterialAssignmentsHelper;
 import net.project.schedule.Schedule;
 import net.project.schedule.ScheduleEntry;
@@ -115,12 +117,21 @@ public class AssignMaterialsHandler extends Handler {
     	
     	MaterialAssignmentsHelper materialAssignmentsHelper	= new MaterialAssignmentsHelper();
     	materialAssignmentsHelper.setSpaceId(spaceId);
-    	// TODO Ojo si hay varios IDs de tareas aca
     	if(newIDList.size() == 1)
         	materialAssignmentsHelper.setObjectId((String) newIDList.get(0));
 
-    	materialAssignmentsHelper.load();       		
-
+    	materialAssignmentsHelper.load();
+    	
+    	// If materialAssignmentsHelper contains consumable materials they can't be assigned
+    	if(newIDList.size() > 1)
+    	{
+    		ArrayList<MaterialAssignmentHelper> assignments = materialAssignmentsHelper.getMaterialsAssigned();
+    		
+    		for (MaterialAssignmentHelper assignment : assignments)
+    			if(assignment.getMaterial().getConsumable())
+    			assignment.setEnabledForAssignment(false);
+    	}
+    	
         model.put("materialAssignmentsHelper", materialAssignmentsHelper);    	
    	    	
         return model;

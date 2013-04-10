@@ -33,6 +33,7 @@ public class MaterialAssignmentsHelper {
 		
 		PnMaterialAssignmentList assignmentList;		
 		
+		// If objectId is not present load all material assignments for this space
 		if(this.objectId == null)
 			assignmentList = ServiceFactory.getInstance().getPnMaterialAssignmentService().getMaterialsAssignment(spaceId);
 		else
@@ -56,7 +57,7 @@ public class MaterialAssignmentsHelper {
 					String statusAssignment = assignmentMaterial.getRecordStatus();
 					
 					// Is the task we are in? is it active?
-					if (assignmentMaterial.getComp_id().getObjectId().equals(Integer.valueOf(objectId)) && statusAssignment.equals("A"))
+					if (objectId != null && assignmentMaterial.getComp_id().getObjectId().equals(Integer.valueOf(objectId)) && statusAssignment.equals("A"))
 						enabledForAssignment = true;
 					// Is assigned on other task (the assignation is ACTIVE)
 					else if (statusAssignment.equals("A"))
@@ -85,7 +86,7 @@ public class MaterialAssignmentsHelper {
 	public ArrayList<MaterialAssignmentHelper> getMaterialsAssigned() {
 		return materialsAssigned;
 	}
-
+	
 	public String getSpaceId() {
 		return spaceId;
 	}
