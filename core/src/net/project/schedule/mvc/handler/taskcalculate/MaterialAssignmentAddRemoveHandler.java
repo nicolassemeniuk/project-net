@@ -107,7 +107,7 @@ public class MaterialAssignmentAddRemoveHandler extends AbstractMaterialAssignme
 
         } else {                                                
             // When removing, the assignment must be in the list of assignments
-        	MaterialAssignment assignment = scheduleEntry.getMaterialAssignments().getAssignedMaterial(materialId);
+        	MaterialAssignment assignment = scheduleEntry.getMaterialAssignmentsList().getAssignedMaterial(materialId);
         	assignment.setRecordStatus("D");
             assignment.setModifiedBy(user.getID());        	
         	assignment.setModifiedDate(new Date());

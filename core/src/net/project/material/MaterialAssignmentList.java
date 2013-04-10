@@ -135,4 +135,19 @@ public class MaterialAssignmentList implements Serializable, Iterable<MaterialAs
 		return xml.toString();
 	}
 
+	public ArrayList<MaterialAssignment> getMaterialAssignments()
+	{
+		return materialAssignments;
+	}
+
+	public ArrayList<MaterialAssignment> getActiveMaterialAssignments()
+	{
+		ArrayList<MaterialAssignment> activeMaterials = new ArrayList<MaterialAssignment>();
+		
+		for (MaterialAssignment asignee : materialAssignments)
+			if (asignee.getRecordStatus().equals("A"))
+				activeMaterials.add(asignee);
+		
+		return activeMaterials;
+	}
 }

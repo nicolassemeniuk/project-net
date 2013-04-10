@@ -2135,7 +2135,7 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
     public String getMaterialAssignmentsTooltip() {
         String tooltip = "";
         NumberFormat nf = NumberFormat.getInstance();
-        for (Iterator<MaterialAssignment> it = getMaterialAssignments().iterator(); it.hasNext();) {
+        for (Iterator<MaterialAssignment> it = getMaterialAssignmentsList().iterator(); it.hasNext();) {
         	MaterialAssignment materialAssignment = it.next();
             if (materialAssignment.getMaterialName() != null && materialAssignment.getRecordStatus().equals("A")) {
                 tooltip += materialAssignment.getMaterialName().replaceAll("\\|", "&#166;");
@@ -2675,10 +2675,18 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
         return Collections.unmodifiableCollection(this.assignments.getAssignments());
     }
 
+	public ArrayList<MaterialAssignment> getActiveMaterialAssignments() {
+        return this.materialAssignments.getActiveMaterialAssignments();
+    } 	
+        
     public AssignmentList getAssignmentList() {
         return this.assignments;
     }
 
+	public MaterialAssignmentList getMaterialAssignmentsList() {
+		return this.materialAssignments;
+	}    
+    
     public void setAssignmentList(AssignmentList assignmentList) {
         this.assignments = assignmentList;
     }
@@ -4056,7 +4064,7 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
     }
     
     public boolean isHasMaterialAssignments(){
-    	return getMaterialAssignments().hasActive();
+    	return getMaterialAssignmentsList().hasActive();
     }    
     
     public boolean isHasDependencies(){
@@ -4219,13 +4227,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 		return wikiModel.render(this.description);
 	}
 
-	public MaterialAssignmentList getMaterialAssignments() {
-		return materialAssignments;
-	}
-
 	public void setMaterialAssignments(MaterialAssignmentList materialAssignments) {
 		this.materialAssignments = materialAssignments;
 	}
-	
-	
+
 }

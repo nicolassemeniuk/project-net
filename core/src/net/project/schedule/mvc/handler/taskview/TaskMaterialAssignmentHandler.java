@@ -66,7 +66,7 @@ public class TaskMaterialAssignmentHandler extends AbstractTaskMaterialAssignmen
 	public Map<String, Object> handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		Map<String, Object> model = super.handleRequest(request, response);
 		ScheduleEntry scheduleEntry = (ScheduleEntry) model.get("scheduleEntry");
-		model.put("overallocatedMaterialsExist", scheduleEntry.getMaterialAssignments().overAssignationExists());
+		model.put("overallocatedMaterialsExist", scheduleEntry.getMaterialAssignmentsList().overAssignationExists());
 		
         User user = (User)getSessionVar("user");
     	String spaceId = String.valueOf(user.getCurrentSpace().getID());		

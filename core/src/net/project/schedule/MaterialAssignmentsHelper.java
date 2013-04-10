@@ -30,7 +30,14 @@ public class MaterialAssignmentsHelper {
 
 	public void load() {
 		PnMaterialList materials = ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(spaceId);
-		PnMaterialAssignmentList assignmentList = ServiceFactory.getInstance().getPnMaterialAssignmentService().getMaterialsAssignment(spaceId, objectId);
+		
+		PnMaterialAssignmentList assignmentList;		
+		
+		if(this.objectId == null)
+			assignmentList = ServiceFactory.getInstance().getPnMaterialAssignmentService().getMaterialsAssignment(spaceId);
+		else
+			assignmentList = ServiceFactory.getInstance().getPnMaterialAssignmentService().getMaterialsAssignment(spaceId, objectId);
+	
 		for (Iterator<PnMaterial> iterator = materials.iterator(); iterator.hasNext();) {
 			Material material = new Material(iterator.next());
 

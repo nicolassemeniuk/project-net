@@ -116,8 +116,10 @@ public class AssignMaterialsHandler extends Handler {
     	MaterialAssignmentsHelper materialAssignmentsHelper	= new MaterialAssignmentsHelper();
     	materialAssignmentsHelper.setSpaceId(spaceId);
     	// TODO Ojo si hay varios IDs de tareas aca
-    	materialAssignmentsHelper.setObjectId((String) newIDList.get(0));
-    	materialAssignmentsHelper.load();           
+    	if(newIDList.size() == 1)
+        	materialAssignmentsHelper.setObjectId((String) newIDList.get(0));
+
+    	materialAssignmentsHelper.load();       		
 
         model.put("materialAssignmentsHelper", materialAssignmentsHelper);    	
    	    	

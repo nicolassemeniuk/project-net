@@ -57,7 +57,7 @@ public class TaskMaterialAssignmentProcessingHandler extends AbstractTaskAssignm
             if(assignorId == null)
                 assignorId = user.getID();
 
-            for(Iterator<MaterialAssignment> it = scheduleEntry.getMaterialAssignments().getIterator(); it.hasNext();)
+            for(Iterator<MaterialAssignment> it = scheduleEntry.getMaterialAssignmentsList().getIterator(); it.hasNext();)
             	it.next().setAssignorId(assignorId);
 
             if (!errorReporter.errorsFound()) {
