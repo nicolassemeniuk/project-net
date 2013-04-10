@@ -284,7 +284,7 @@ public class ScheduleEntryDateCalculator implements IDateCalculator {
     }
 
 	public void updateMaterialAssignmentDates(Date newStartDate, Date newEndDate) {
-		for(MaterialAssignment assignment : this.scheduleEntry.getMaterialAssignments()){
+		for(MaterialAssignment assignment : this.scheduleEntry.getMaterialAssignmentsList()){
 			assignment.setStartDate(newStartDate);
 			assignment.setEndDate(newEndDate);
 		}

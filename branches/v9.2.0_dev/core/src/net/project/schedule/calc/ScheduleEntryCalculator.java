@@ -318,12 +318,12 @@ public class ScheduleEntryCalculator {
 	}
 	
 	public void assignmentMaterialAdded(MaterialAssignment assignment){
-		this.scheduleEntry.getMaterialAssignments().add(assignment);
+		this.scheduleEntry.getMaterialAssignmentsList().add(assignment);
 	}
 
 	public boolean existsMaterialAssignment(String materialID)
 	{
-		return this.scheduleEntry.getMaterialAssignments().containsDisabled(materialID);
+		return this.scheduleEntry.getMaterialAssignmentsList().containsDisabled(materialID);
 	}
 	/**
 	 * Indicates that the assignment was removed from the current schedule
@@ -357,7 +357,7 @@ public class ScheduleEntryCalculator {
 	}
 	
 	public void assignmentMaterialRemoved(MaterialAssignment assignment){
-		this.scheduleEntry.getMaterialAssignments().removeAssignment(assignment);
+		this.scheduleEntry.getMaterialAssignmentsList().removeAssignment(assignment);
 	}
 
 	/**
@@ -414,6 +414,6 @@ public class ScheduleEntryCalculator {
 
 	public MaterialAssignment getMaterialAssignment(String materialId)
 	{
-		return this.scheduleEntry.getMaterialAssignments().getAssignedMaterial(materialId);
+		return this.scheduleEntry.getMaterialAssignmentsList().getAssignedMaterial(materialId);
 	}
 }

@@ -104,7 +104,7 @@ public class MaterialAssignmentChangeView extends AbstractJavaScriptView {
         StringBuffer javascript = new StringBuffer();
         
         //Turn overallocation flag on
-        Boolean overAllocationExists = entry.getMaterialAssignments().overAssignationExists();
+        Boolean overAllocationExists = entry.getMaterialAssignmentsList().overAssignationExists();
         javascript.append("overallocationExist(").append(Boolean.valueOf(overAllocationExists).toString()).append(");\n");
         
         return javascript.toString();

@@ -196,5 +196,33 @@
     </tr>
 	</#list>  
 	</#if>
+	
     <tr><td colspan="5">&nbsp;</td></tr>
+    
+	<tr align="left" class="channelHeader">
+		<td nowrap width=1%><img src="${token.getContext()}/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border=0></td>
+		<td nowrap class="channelHeader">${token.get("prm.schedule.taskview.materials.tab")}</td>
+		<td nowrap align="right" colspan="3"> <img src="${token.getContext()}/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border=0></td>
+	</tr>
+	
+	<tr><td colspan="5">&nbsp;</td></tr>
+	
+     <#if theObject.getMaterialAssignmentsList().isEmpty()>
+	 <tr>
+	 	<td>&nbsp;</td>
+	  	<td class="tableContent resourceTD" colspan="4">${token.get("prm.taskdetail.nomaterialassignments.message")} </td>
+	 </tr>
+	 <#else>
+	 <tr align="left" valign="top">
+        <td>&nbsp;</td>
+		<td nowrap class="tableHeader resourceTD">${token.get("prm.schedule.taskview.material.assign.material.column")} </td>
+     </tr>
+    <#list theObject.getActiveMaterialAssignments() as materialAssignment>
+    <tr align="left" valign="middle">
+        <td>&nbsp;</td>
+		<td class="tableContent resourceTD">${materialAssignment.getMaterialName()}</td>
+    </tr>
+	</#list>
+	</#if>
+    <tr><td colspan="5">&nbsp;</td></tr>    
 </table>

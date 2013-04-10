@@ -120,6 +120,9 @@ insert into PN_PROPERTY values (2000,'en','imagepath','all.global.toolbar.standa
 insert into PN_PROPERTY values (2000,'en','imagepath','all.global.toolbar.standard.materials.image.over','/images/icons/toolbar-rollover-properties.gif','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.main.materialassignments','Materials','A',0,1,null);
 
+-- Workplan details
+insert into PN_PROPERTY values (2000,'en','text','prm.taskdetail.nomaterialassignments.message','No materials assigned to this task','A',0,1,null);
+
 /************************************************************************************
  * 				PN_OBJECT_TYPE
  *			   Tipos de objetos

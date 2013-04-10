@@ -162,7 +162,7 @@ public class AssignMaterialsDialogHandlerProcessing extends TaskAssignmentProces
         for (Iterator iterator = scheduleEntries.iterator(); iterator.hasNext();)
         {
             ScheduleEntry scheduleEntry = (ScheduleEntry) iterator.next();        	
-            MaterialAssignmentList materialAssignmentList = scheduleEntry.getMaterialAssignments();
+            MaterialAssignmentList materialAssignmentList = scheduleEntry.getMaterialAssignmentsList();
         	// Add new material assignments
             ScheduleEntryCalculator calc = new ScheduleEntryCalculator(scheduleEntry, schedule.getWorkingTimeCalendarProvider());               
             
