@@ -207,7 +207,7 @@
 	
 	<tr><td colspan="5">&nbsp;</td></tr>
 	
-     <#if theObject.getMaterialAssignmentsList().isEmpty()>
+     <#if !theObject.getMaterialAssignmentsList().hasActive()>
 	 <tr>
 	 	<td>&nbsp;</td>
 	  	<td class="tableContent resourceTD" colspan="4">${token.get("prm.taskdetail.nomaterialassignments.message")} </td>

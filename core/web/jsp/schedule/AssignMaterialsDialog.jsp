@@ -166,7 +166,7 @@ function showMaterialAllocation(materialID) {
 %>
         <tr class="tableContent">
             <td></td>        
-            <td align="center"><input name="resource" id="<%=materialID%>" value="<%=materialID%>" type="checkbox" <%=assignment.isAssignedMaterialChecked()%> ></td>
+            <td align="center"><input name="resource" id="<%=materialID%>" value="<%=materialID%>" type="checkbox" <%=assignment.isAssignedMaterialChecked()%> <%=assignment.isAssignedMaterialEnabled()%>  ></td>
             <td><label for="<%=materialID%>"><%=assignment.getDisplayName()%></label></td>
             <td align="center"><a href='javascript:showMaterialAllocation(<%=materialID%>)'><img src="<%=SessionManager.getJSPRootURL()%>/images/schedule/constraint.gif" border="0"></a></td>
             <td></td>

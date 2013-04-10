@@ -57,4 +57,9 @@ public class MaterialAssignmentHelper {
 			return "disabled";
 		
 	}
+
+	public void setEnabledForAssignment(Boolean enabledForAssignment)
+	{
+		this.enabledForAssignment = enabledForAssignment;
+	}
 }
