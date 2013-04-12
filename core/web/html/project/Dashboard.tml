@@ -628,6 +628,49 @@
 			<!--END of PORTAL BLOCK -->
 		</t:parameter>
 	</t:if>
+	<t:if test="materialsCloseState">
+		<t:parameter name="else">
+			<!--PORTAL BLOCK -->
+			<div id="MsterialsWidget" class="portal-project-flex-block">
+			<div class="block-heading">
+			<div class="block-heading-end">
+				<table cellspacing="0" cellpadding="0" width="100%">
+					<tr>
+						<td width="86%">
+							<div class="heading"><t:message value="prm.project.dashboard.projectmaterials.channel.title" /></div>
+						</td>
+						<td class="channel-heading-end-project">
+							<span><a id="MaterialsLink"><img id="MaterialsImg" src="${jspRootURL}/images/project/dashboard_arrow-up.gif" title="${upTitle}" border="0" /></a>&nbsp;</span>
+							<span><a id="MaterialsCloseLink" href="javascript:saveState('ProjectSpace_Materials_','2');" ><img id="MaterialsCloseImg" src="${jspRootURL}/images/project/dashboard_close.gif" title="${closeTitle}" border="0" /></a></span>
+						</td>
+					</tr>
+				</table>
+			</div>
+			</div><!--block-heading end -->
+			<div id="MaterialsContent" class="block-content row-content">
+				<t:if test="hasMaterials">
+					<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content" name="tableWithEvenRowsWOH">
+					 <t:loop source="materialsList" value="material">	
+						<tr>
+							<td>
+								<a href="${jspRootURL}${material.url}">${material.name}</a>
+							</td>
+						</tr>
+					 </t:loop>
+					</table>
+					<t:parameter name="else">
+						<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content">
+							<tr>
+						   		<td><a href="${jspRootURL}${createMaterialsUrl}"><t:Message value="prm.project.dashboard.materials.link.title" /></a></td>
+							</tr>
+						</table>
+					</t:parameter>
+				</t:if>
+			</div><!--block-content end -->
+			</div><!--portal-project-flex-block class end -->
+			<!--END of PORTAL BLOCK -->
+		</t:parameter>
+	</t:if>		
 	<script language="javascript" type="text/javascript">getLastBlogIts(${projectId});</script>
 	<t:if test="lastChangesCloseState">
 		<t:parameter name="else">

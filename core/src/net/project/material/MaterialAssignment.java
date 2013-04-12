@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import net.project.base.Module;
 import net.project.calendar.PnCalendar;
 import net.project.hibernate.model.PnMaterialAssignment;
 import net.project.hibernate.model.PnProjectSpace;

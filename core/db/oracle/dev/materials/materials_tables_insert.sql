@@ -123,6 +123,10 @@ insert into PN_PROPERTY values (2000,'en','text','prm.schedule.main.materialassi
 -- Workplan details
 insert into PN_PROPERTY values (2000,'en','text','prm.taskdetail.nomaterialassignments.message','No materials assigned to this task','A',0,1,null);
 
+-- Dashboard
+insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.projectmaterials.channel.title','Project Materials','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.materials.link.title','Create a Material','A',0,1,null);
+
 /************************************************************************************
  * 				PN_OBJECT_TYPE
  *			   Tipos de objetos
