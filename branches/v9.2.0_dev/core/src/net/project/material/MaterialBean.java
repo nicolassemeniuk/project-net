@@ -2,6 +2,7 @@ package net.project.material;
 
 import java.io.Serializable;
 
+import net.project.base.Module;
 import net.project.space.Space;
 
 public class MaterialBean extends Material implements Serializable {
@@ -21,4 +22,8 @@ public class MaterialBean extends Material implements Serializable {
     	return this.space;
     }
 
+	public String getUrl()
+	{
+        return "/material/MaterialDetail.jsp?module=" + Module.MATERIAL + "&id=" + this.getMaterialId();		
+	}    
 }

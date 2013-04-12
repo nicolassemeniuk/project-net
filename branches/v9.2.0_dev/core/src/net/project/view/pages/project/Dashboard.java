@@ -44,6 +44,7 @@ import net.project.gui.history.History;
 import net.project.gui.history.HistoryException;
 import net.project.gui.history.ProjectLevel;
 import net.project.hibernate.constants.WeblogConstants;
+import net.project.hibernate.model.PnMaterial;
 import net.project.hibernate.model.PnPersonProperty;
 import net.project.hibernate.model.PnWeblog;
 import net.project.hibernate.model.PnWeblogEntry;
@@ -56,6 +57,10 @@ import net.project.hibernate.service.IBlogProvider;
 import net.project.hibernate.service.IPnAssignmentService;
 import net.project.hibernate.service.IPnProjectSpaceService;
 import net.project.hibernate.service.ServiceFactory;
+import net.project.material.MaterialAssignment;
+import net.project.material.MaterialAssignmentList;
+import net.project.material.MaterialBean;
+import net.project.material.PnMaterialList;
 import net.project.news.News;
 import net.project.news.NewsList;
 import net.project.news.NewsManager;
@@ -166,10 +171,16 @@ public class Dashboard extends BasePage {
 
 	@Persist
 	private List<NewsWrapper> newsList;
-
+	
 	private NewsWrapper news;
 
 	private boolean hasNews;
+	
+	private ArrayList<MaterialBean> materialsList;
+	
+	private MaterialBean material;		
+	
+	private boolean hasMaterials;	
 
 	@Persist
 	private List<ProjectSpaceWrapper> subprojects;
@@ -285,6 +296,8 @@ public class Dashboard extends BasePage {
 	
 	private boolean projectNewsState;
 	
+	private boolean materialsState;	
+	
 	private boolean projectSheduleState;
 	
 	private boolean projectLastChangesState;
@@ -310,6 +323,8 @@ public class Dashboard extends BasePage {
 	private final String PROJECT_SPACE_TEAMMATES = "ProjectSpace_TeamMembers_";
 
 	private final String PROJECT_SPACE_PROJECT_NEWS = "ProjectSpace_News_";
+	
+	private final String PROJECT_SPACE_MATERIALS = "ProjectSpace_Materials_";	
 
 	private final String PROJECT_SPACE_PROJECT_SCHEDULE = "ProjectSpace_Shedule_";
 
@@ -346,6 +361,8 @@ public class Dashboard extends BasePage {
 	private String discussionsCountMessage;
 	
 	private boolean newsCloseState;
+	
+	private boolean materialsCloseState;	
 
 	private boolean teamatesCloseState;
 
@@ -823,6 +840,21 @@ public class Dashboard extends BasePage {
 					newsList.add(newsWrapper);
 				}
 			}
+			
+			// load materials
+			materialsList = new ArrayList<MaterialBean>();			
+			PnMaterialList pnmaterialsList = ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(projectId);
+			for(PnMaterial pnMaterial : pnmaterialsList){
+				MaterialBean materialBean = new MaterialBean();
+				materialBean.setMaterialId(String.valueOf(pnMaterial.getMaterialId()));
+				materialBean.load();
+				materialsList.add(materialBean);
+			}
+			
+			if(materialsList.isEmpty())
+				hasMaterials = false;
+			else
+				hasMaterials = true;
 
 			// load subprojects
 			SpaceList spaceList = SpaceManager.getSubprojects(projectSpace);
@@ -929,6 +961,10 @@ public class Dashboard extends BasePage {
 			if (pnPersonProperty.getComp_id().getContext().equals(CHANNEL_PROPERTY_CONTEXT + PROJECT_SPACE_PROJECT_NEWS + spaceName)) {
 				projectNewsState = pnPersonProperty.getComp_id().getValue().equals(State.MINIMIZED.getID());
 				newsCloseState = pnPersonProperty.getComp_id().getValue().equals(State.CLOSED.getID());
+			}
+			if (pnPersonProperty.getComp_id().getContext().equals(CHANNEL_PROPERTY_CONTEXT + PROJECT_SPACE_MATERIALS + spaceName)) {
+				materialsState = pnPersonProperty.getComp_id().getValue().equals(State.MINIMIZED.getID());
+				materialsCloseState = pnPersonProperty.getComp_id().getValue().equals(State.CLOSED.getID());
 			}
 			if (pnPersonProperty.getComp_id().getContext().equals(CHANNEL_PROPERTY_CONTEXT + PROJECT_SPACE_PROJECT_SCHEDULE + spaceName)) {
 				projectSheduleState = pnPersonProperty.getComp_id().getValue().equals(State.MINIMIZED.getID());
@@ -1302,7 +1338,7 @@ public class Dashboard extends BasePage {
 	public List<NewsWrapper> getNewsList() {
 		return newsList;
 	}
-
+	
 	public void setNewsList(List<NewsWrapper> newsList) {
 		this.newsList = newsList;
 	}
@@ -1318,6 +1354,30 @@ public class Dashboard extends BasePage {
 	public boolean getHasNews() {
 		return hasNews;
 	}
+	
+	public ArrayList<MaterialBean> getMaterialsList()
+	{
+		return materialsList;
+	}
+
+	public void setMaterialsList(ArrayList<MaterialBean> materialsList)
+	{
+		this.materialsList = materialsList;
+	}
+
+	public MaterialBean getMaterial()
+	{
+		return material;
+	}
+
+	public void setMaterial(MaterialBean material)
+	{
+		this.material = material;
+	}
+
+	public boolean getHasMaterials() {
+		return hasMaterials;
+	}	
 
 	public List<ProjectSpaceWrapper> getSubprojects() {
 		return subprojects;
@@ -1583,6 +1643,10 @@ public class Dashboard extends BasePage {
 		return projectNewsState;
 	}
 
+	public boolean isMaterialsState() {
+		return materialsState;
+	}	
+	
 	public boolean isProjectSheduleState() {
 		return projectSheduleState;
 	}
@@ -1650,6 +1714,10 @@ public class Dashboard extends BasePage {
 	public boolean getNewsCloseState() {
 		return newsCloseState;
 	}
+	
+	public boolean getMaterialsCloseState() {
+		return materialsCloseState;
+	}	
 
 	public boolean getTeamatesCloseState() {
 		return teamatesCloseState;
@@ -1801,4 +1869,11 @@ public class Dashboard extends BasePage {
 		return "/news/NewsEdit.jsp?action=" + Action.CREATE + "&module=" + Module.NEWS + "&mode=create"; 
 	}
 	
+	/**
+	 * Method returns create material page link
+	 * @return String 
+	 */
+	public String getCreateMaterialsUrl(){
+		return "/material/Main.jsp?action=" + Action.CREATE + "&module=" + Module.MATERIAL; 
+	}	
 }
