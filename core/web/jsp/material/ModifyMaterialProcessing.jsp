@@ -24,10 +24,14 @@
 <jsp:setProperty name="materialBean" property="*" />
 
 <%
-	if ((request.getParameter("consumable") == null) || (request.getParameter("consumable").equals("")))
-		materialBean.setConsumable(false);
+	if (materialBean.getConsumableAndAssigned()) {
+		materialBean.setConsumable(true);
+	} else {
+		if ((request.getParameter("consumable") == null) || (request.getParameter("consumable").equals("")))
+			materialBean.setConsumable(false);
+	}
 
 	ServiceFactory.getInstance().getMaterialService().updateMaterial(materialBean);
 
-	response.sendRedirect(SessionManager.getJSPRootURL() + "/material/Main.jsp?module=" + Module.MATERIAL );
+	response.sendRedirect(SessionManager.getJSPRootURL() + "/material/Main.jsp?module=" + Module.MATERIAL);
 %>

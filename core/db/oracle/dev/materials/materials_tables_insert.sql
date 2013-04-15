@@ -7,13 +7,30 @@
 -- Enterprise
 
 
-select * from PN_PROPERTY a where a.PROPERTY like '%prm.resource.allocationlist.taskname.name%';
+select * from PN_PROPERTY a where a.PROPERTY like '%prm.project.report.projectstatusreport.xslpath%';
 
 -- update pn_property set Property_value='1' where pn_property.property = 'prm.enterprise.isenabled'
 -- insert into PN_PROPERTY values (2000,'en','boolean','prm.enterprise.isenabled','1','A',0,0,null);
 
 -- Insercion de una propiedad
 -- insert into PN_PROPERTY values (2000,'en','text','propiedad','valor','A',0,1,null);
+
+
+-- Reports
+insert into PN_PROPERTY values (2000,'en','text','prm.project.report.projectmaterialreport.name','Project Materials Report','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.report.projectmaterialreport.description','Lists the Materials in the Proyect','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.report.projectmaterialreport.xslpath','/report/xsl/projectmaterialreport.xsl','A',0,1,null);
+
+insert into PN_PROPERTY values (2000,'en','text','prm.material.report.materialname.name','Material Name','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.report.materialdescription.description','Description','A',0,1,null);
+
+insert into PN_PROPERTY values (2000,'en','text','prm.material.report.projectmaterialreport.grouping.default.name','No Grouping','A',0,1,null);
+
+
+--Report type and sequence
+insert into pn_space_type_has_report_type values('project','pmr');
+insert into pn_report_sequence values('pmr',11);
+
 
 -- MaterialAllocation
 insert into PN_PROPERTY values (2000,'en','text','prm.material.allocation.materialcalendarsfor.label','Utilization Calendars for {0}','A',0,1,null);
