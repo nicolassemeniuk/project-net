@@ -14,32 +14,30 @@
 --%>
 
 <%@ page contentType="text/html; charset=UTF-8" info="Material Modify Page" language="java" errorPage="/errors.jsp"
-    import="net.project.security.*,
+	import="net.project.security.*,
     			net.project.base.Module,
             	net.project.material.MaterialBean,
             	net.project.project.DomainListBean,
             	net.project.base.property.PropertyProvider,
-            	net.project.hibernate.service.ServiceFactory"
-%>
-<%@ include file="/base/taglibInclude.jsp" %>
+            	net.project.hibernate.service.ServiceFactory"%>
+<%@ include file="/base/taglibInclude.jsp"%>
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
 <jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
 <jsp:useBean id="materialBean" class="net.project.material.MaterialBean" scope="session" />
 <jsp:useBean id="domainList" class="net.project.project.DomainListBean" scope="page" />
 <%
-String id = request.getParameter("id");
-if (id != null){
-	materialBean.clear();
-	materialBean.setMaterialId(id);
-	materialBean.load();
-}
+	String id = request.getParameter("id");
+	if (id != null) {
+		materialBean.clear();
+		materialBean.setMaterialId(id);
+		materialBean.load();
+	}
 
+	boolean showInfoBox = materialBean.getConsumableAndAssigned();
 %>
 
-<security:verifyAccess action="modify"
-					   module="<%=net.project.base.Module.MATERIAL%>"
-					   objectID="<%=materialBean.getMaterialId()%>" /> 
-					   
+<security:verifyAccess action="modify" module="<%=net.project.base.Module.MATERIAL%>" objectID="<%=materialBean.getMaterialId()%>" />
+
 <template:getDoctype />
 
 <html>
@@ -48,7 +46,7 @@ if (id != null){
 <title><display:get name="prm.global.application.title" /></title>
 
 <%-- Import CSS --%>
-<template:getSpaceCSS/>
+<template:getSpaceCSS />
 
 <%-- Import Javascript --%>
 <template:import type="javascript" src="/src/checkComponentForms.js" />
@@ -113,10 +111,10 @@ if (id != null){
 	<tb:toolbar style="tooltitle" showAll="true" groupTitle="prm.application.nav.space.material">
 		<tb:setAttribute name="leftTitle">
 			<history:history>
-<%-- 			            <history:module display='<%=materialSpace.getName()%>' --%>
-<%--                             jspPage='<%=SessionManager.getJSPRootURL() + "/material/MaterialPortfolio.jsp"%>' --%>
-<%--                             queryString='<%="module=" + Module.MATERIAL_SPACE%> + "&portfolio=true" ' /> --%>
-			
+				<%-- 			            <history:module display='<%=materialSpace.getName()%>' --%>
+				<%--                             jspPage='<%=SessionManager.getJSPRootURL() + "/material/MaterialPortfolio.jsp"%>' --%>
+				<%--                             queryString='<%="module=" + Module.MATERIAL_SPACE%> + "&portfolio=true" ' /> --%>
+
 			</history:history>
 		</tb:setAttribute>
 		<tb:band name="standard">
@@ -127,87 +125,97 @@ if (id != null){
 	<div id='content'>
 
 		<form name="mainForm" method="POST" action="ModifyMaterialProcessing.jsp">
-			<input type="hidden" name="theAction"> 
-			<input type="hidden" name="action" value="<%=Action.MODIFY%>" /> 
-			<input type="hidden" name="module" value="<%=Module.MATERIAL%>" />
-			<input type="hidden" name="materialId" value="<%=materialBean.getMaterialId()%>" />
-			
+			<input type="hidden" name="theAction"> <input type="hidden" name="action" value="<%=Action.MODIFY%>" /> <input type="hidden" name="module"
+				value="<%=Module.MATERIAL%>" /> <input type="hidden" name="materialId" value="<%=materialBean.getMaterialId()%>" />
 
-								<table border=0 cellpadding=0 cellspacing=0 width="600">
-									<tr>
-										<td>
-											<div align="center">
-												<table border="0" align="left" cellpadding="0" cellspacing="0" width="100%">
-													<tr align="left" class="channelHeader">
-														<td width=1%><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border=0></td>
-														<td nowrap colspan="4" class="channelHeader"><display:get name="prm.material.modifymaterial.channel.modify.title" /></td>
-														<td width=1% align=right><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border=0></td>
-													</tr>
 
-													<tr align="left">
-														<td>&nbsp;</td>
-														<td nowrap class="fieldRequired"><display:get name="prm.material.modifymaterial.materialname.label" />:&nbsp;</td>
-														<td nowrap class="tableContent" colspan="2">
-															<input type="text" name="name" size="40" maxLength="80" value='<c:out value="${materialBean.name}" />'>
-														</td>
-														<td nowrap class="tableContent" colspan="2">&nbsp;</td>
-													</tr>
-													
-													<tr align="left">
-														<td>&nbsp;</td>
-														<td nowrap class="fieldNonRequired"><display:get name="prm.material.modifymaterial.materialtype.label" />:&nbsp;</td>
-														<td nowrap class="tableContent" colspan="2">
-															<select name="materialTypeId">
-																<%=domainList.getMaterialTypeListForMaterialModification(ServiceFactory.getInstance().getPnMaterialTypeService().getMaterialTypes(), materialBean.getMaterialTypeId())%>
-															</select></td>
-														<td nowrap class="tableContent" colspan="2">&nbsp;</td>
-													</tr>
+			<table border=0 cellpadding=0 cellspacing=0 width="600">
 
-													
-													<tr align="left" class="addSpacingBottom">
-														<td>&nbsp;</td>
-														<td nowrap class="fieldNonRequired"><display:get name="prm.material.modifymaterial.materialcost.label" />:&nbsp;</td>
-														<td nowrap class="tableContent" colspan="2">
-															<input type="number" name="cost" size="40" maxlength="80" value='<c:out value="${materialBean.cost}">0.0</c:out>'>
-														</td>
-														<td nowrap class="tableContent" colspan="2">&nbsp;</td>
-													</tr>
-													
-													<%-- Material Consumable --%>
-													<tr align="left" class="addSpacingBottom">
-														<td>&nbsp;</td>
-														<td nowrap class="fieldNonRequired"><display:get name="prm.material.viewmaterial.materialconsumable.label" />:&nbsp;</td>
-														<td nowrap class="tableContent" colspan="2">					
-														<input type="checkbox" name="consumable" value="on" <%=materialBean.getChecked()%> ></td>
-														<td nowrap class="tableContent" colspan="2">&nbsp;</td>
-													</tr>
 
-													
-													<tr align="left">
-														<td>&nbsp;</td>
-														<td nowrap colspan="5" class="fieldNonRequired"><display:get name="prm.material.modifymaterial.materialdescription.label" />:&nbsp;<br> 
-															<textarea name="description" cols="50" rows="3">
+
+
+
+				<tr>
+					<td>
+						<div align="center">
+							<table border="0" align="left" cellpadding="0" cellspacing="0" width="100%">
+
+								<tr align="left" class="channelHeader">
+									<td width=1%><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border=0></td>
+									<td nowrap colspan="4" class="channelHeader"><display:get name="prm.material.modifymaterial.channel.modify.title" /></td>
+									<td width=1% align=right><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border=0></td>
+								</tr>
+
+								<tr align="left">
+									<td>&nbsp;</td>
+									<td nowrap class="fieldRequired"><display:get name="prm.material.modifymaterial.materialname.label" />:&nbsp;</td>
+									<td nowrap class="tableContent" colspan="2"><input type="text" name="name" size="40" maxLength="80" value='<c:out value="${materialBean.name}" />'>
+									</td>
+									<td colspan="2" rowspan="4" valign="middle">
+										<!-- Information Icons Table -->
+										<table id="infoTable" border="0" class='<%=showInfoBox ? "informationTable" : "hidden"%>'>
+											<tr id="criticalPathIcon" class="<%=(materialBean.getConsumableAndAssigned() ? "tableContent" : "hidden")%>">
+												<td><img src="<%=SessionManager.getJSPRootURL()%>/images/check_red.gif" border="0"></td>
+												<td><display:get name="prm.material.modifymaterial.canteditwithassignments.label" /></td>
+											</tr>
+
+										</table>
+									</td>									
+								</tr>
+
+								<tr align="left">
+									<td>&nbsp;</td>
+									<td nowrap class="fieldNonRequired"><display:get name="prm.material.modifymaterial.materialtype.label" />:&nbsp;</td>
+									<td nowrap class="tableContent" colspan="2"><select name="materialTypeId">
+											<%=domainList.getMaterialTypeListForMaterialModification(ServiceFactory.getInstance().getPnMaterialTypeService().getMaterialTypes(),
+					materialBean.getMaterialTypeId())%>
+									</select></td>
+									<td nowrap class="tableContent" colspan="2">&nbsp;</td>
+								</tr>
+
+
+								<tr align="left" class="addSpacingBottom">
+									<td>&nbsp;</td>
+									<td nowrap class="fieldNonRequired"><display:get name="prm.material.modifymaterial.materialcost.label" />:&nbsp;</td>
+									<td nowrap class="tableContent" colspan="2"><input type="number" name="cost" size="40" maxlength="80"
+										value='<c:out value="${materialBean.cost}">0.0</c:out>'></td>
+									<td nowrap class="tableContent" colspan="2">&nbsp;</td>
+								</tr>
+
+
+								<%-- Material Consumable --%>
+								<tr align="left" class="addSpacingBottom">
+									<td>&nbsp;</td>
+									<td nowrap class="fieldNonRequired"><display:get name="prm.material.viewmaterial.materialconsumable.label" />:&nbsp;</td>
+									<td nowrap class="tableContent" colspan="2"><input type="checkbox" name="consumable" value="on" <%=materialBean.getChecked()%>  <%=materialBean.getConsumableAndAssigned() ? "disabled" : ""%>></td>
+									<td nowrap class="tableContent" colspan="2">&nbsp;</td>
+								</tr>
+
+
+								<tr align="left">
+									<td>&nbsp;</td>
+									<td nowrap colspan="5" class="fieldNonRequired"><display:get name="prm.material.modifymaterial.materialdescription.label" />:&nbsp;<br> <textarea
+											name="description" cols="50" rows="3">
 																	<c:out value="${materialBean.description}"></c:out>
-															</textarea>
-														</td>
-													</tr>
+															</textarea></td>
+								</tr>
 
-													<tr class="tableContent">
-														<td nowrap colspan="6" class="tableContent">&nbsp;</td>
-													</tr>
-												</table>
-											</div>
-										</td>
-									</tr>
-								</table>
-
+								<tr class="tableContent">
+									<td nowrap colspan="6" class="tableContent">&nbsp;</td>
+								</tr>
+							</table>
+						</div>
+					</td>
+				</tr>
+			</table>
 
 
-								<tb:toolbar style="action" showLabels="true" bottomFixed="true">
-									<tb:band name="action">
-										<tb:button type="submit" />
-									</tb:band>
-								</tb:toolbar>
+
+			<tb:toolbar style="action" showLabels="true" bottomFixed="true">
+				<tb:band name="action">
+					<tb:button type="submit" />
+				</tb:band>
+			</tb:toolbar>
 		</form>
 	</div>
 

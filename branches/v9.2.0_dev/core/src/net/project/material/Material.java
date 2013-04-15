@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.SQLException;
 
 import net.project.hibernate.model.PnMaterial;
+import net.project.hibernate.model.PnMaterialAssignment;
 import net.project.hibernate.service.ServiceFactory;
 import net.project.persistence.IJDBCPersistence;
 import net.project.persistence.PersistenceException;
@@ -20,6 +21,8 @@ public class Material implements Serializable, IJDBCPersistence {
 	protected String spaceID = null;
 	protected Boolean consumable = null;
 	protected User user = null;
+	
+	protected Boolean consumableAndAssigned = null;
 
 	public Material() {
 	}
@@ -33,6 +36,19 @@ public class Material implements Serializable, IJDBCPersistence {
 			materialTypeId = String.valueOf(material.getPnMaterialType().getMaterialTypeId());
 			materialTypeName = String.valueOf(material.getPnMaterialType().getMaterialTypeName());
 			consumable = Boolean.valueOf(material.getMaterialConsumable());
+			
+			consumableAndAssigned = new Boolean(false);
+			
+			if(consumable){
+				PnMaterialAssignmentList assignments = ServiceFactory.getInstance().getPnMaterialAssignmentService().getAssignmentsForMaterial(materialId);
+				for(PnMaterialAssignment assignment : assignments){
+					//If we have 1 active assignment, we have to block the modification
+					if(assignment.getRecordStatus()=="A"){
+						consumableAndAssigned = new Boolean(true);
+						break;
+					}
+				}
+			} 
 		}
 	}
 
@@ -113,6 +129,14 @@ public class Material implements Serializable, IJDBCPersistence {
 		this.consumable = consumable;
 	}
 	
+	public Boolean getConsumableAndAssigned() {
+		return consumableAndAssigned;
+	}
+
+	public void setConsumableAndAssigned(Boolean consumableAndAssigned) {
+		this.consumableAndAssigned = consumableAndAssigned;
+	}
+
 	public String getChecked(){
 		return consumable ? "checked" : "";
 	}
@@ -127,6 +151,19 @@ public class Material implements Serializable, IJDBCPersistence {
 			materialTypeId = String.valueOf(material.getPnMaterialType().getMaterialTypeId());
 			materialTypeName = String.valueOf(material.getPnMaterialType().getMaterialTypeName());
 			consumable = Boolean.valueOf(material.getMaterialConsumable());
+			
+			consumableAndAssigned = false;
+			
+			if(consumable){
+				PnMaterialAssignmentList assignments = ServiceFactory.getInstance().getPnMaterialAssignmentService().getAssignmentsForMaterial(materialId);
+				for(PnMaterialAssignment assignment : assignments){
+					//If we have 1 active assignment, we have to block the modification
+					if(assignment.getRecordStatus().equals("A")){
+						consumableAndAssigned = true;
+						break;
+					}
+				}
+			}
 		}
 	}
 
@@ -150,6 +187,7 @@ public class Material implements Serializable, IJDBCPersistence {
 		this.spaceID = null;
 		this.user = null;
 		this.consumable = null;
+		this.consumableAndAssigned = null;
 	}
 
 }
