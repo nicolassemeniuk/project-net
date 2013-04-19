@@ -170,7 +170,7 @@ function help() {
     <channel:insert name="ReportParameters" title='<%=PropertyProvider.get("prm.report.channel.showreportparameters.name")%>' minimizable="false" width="75%"
         closeable="false" row="5" column="2"
         include="/report/ShowReportParameters.jsp?module=310"/>
-<% if (!reportType.getID().equals("nur")) { %>        
+<% if (!reportType.getID().equals("nur")&&!(reportType.getID().equals("pmr"))) { %>        
     <channel:insert name="Main" title='<%=PropertyProvider.get("prm.report.channel.assignmenttype.name")%>' minimizable="false" width="100%"
         closeable="false" row="6" column="1"
         include="/report/assignmentType.jsp?module=310"/>        
