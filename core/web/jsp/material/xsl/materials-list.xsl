@@ -18,6 +18,7 @@
 				<td class="tableHeader"><xsl:value-of select="display:get('prm.material.main.list.description')"/></td>
 				<td class="tableHeader"><xsl:value-of select="display:get('prm.material.main.list.type')"/></td>
 				<td class="tableHeader"><xsl:value-of select="display:get('prm.material.main.list.cost')"/></td>
+				<td class="tableHeader">Consumable</td>				
 			</tr>
 			<tr class="tableLine">
 				<td colspan="{$numCols}" class="tableLine">
@@ -97,6 +98,18 @@
 			<td class="tableContent" align="left">
 				<xsl:value-of select="materialcost" />
 			</td>
+			<td class="tableContent" align="left">
+				<!-- <xsl:value-of select="materialconsumable" /> -->
+				<xsl:choose>
+					<xsl:when test="materialconsumable = 'true'">
+						<img src="../images/check_green.gif" />
+					</xsl:when>
+					<xsl:otherwise>
+						<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+					</xsl:otherwise>
+				</xsl:choose>				
+				
+			</td>			
 <!-- 			<td class="tableContent" align="center"> -->
 <!-- 				<a href="javascript:showResourceAllocation(<xsl:value-of select="materialname />, currentdate)"> -->
 <!-- 					<img src="../images/schedule/constraint.gif" border="0"/> -->

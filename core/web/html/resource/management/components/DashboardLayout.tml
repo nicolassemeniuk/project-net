@@ -201,6 +201,12 @@ function extAlert(title, msg, icon){
 		icon: icon
 	});
 }
+
+function showMaterialAllocation(materialID) {
+    var url = JSPRootURL + "/material/MaterialResourceAllocations.jsp?module=260&materialID="+materialID;
+
+    openwin_large('material_resource_allocation', url);
+}
 // -->
 </script>
 

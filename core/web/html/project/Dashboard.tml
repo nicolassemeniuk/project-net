@@ -650,11 +650,16 @@
 			<div id="MaterialsContent" class="block-content row-content">
 				<t:if test="hasMaterials">
 					<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content" name="tableWithEvenRowsWOH">
+					<tr class="table-header">
+					    <td class="cell-right-border"><t:Message value="prm.project.dashboard.projectmaterials.name.label" /></td>
+					    <td width="75" align="center"><t:Message value="prm.project.dashboard.projectmaterials.workingcalendar.label" /></td>
+				  	</tr>					
 					 <t:loop source="materialsList" value="material">	
 						<tr>
 							<td>
 								<a href="${jspRootURL}${material.url}">${material.name}</a>
 							</td>
+            				<td align="center"><a href="javascript:showMaterialAllocation(${material.materialId})"><img src="${jspRootURL}/images/schedule/constraint.gif" border="0" /></a></td>							
 						</tr>
 					 </t:loop>
 					</table>
