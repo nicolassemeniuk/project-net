@@ -149,6 +149,8 @@ insert into PN_PROPERTY values (2000,'en','text','prm.taskdetail.nomaterialassig
 -- Dashboard
 insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.projectmaterials.channel.title','Project Materials','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.materials.link.title','Create a Material','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.projectmaterials.name.label','Material','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.projectmaterials.workingcalendar.label','Utilization Summary','A',0,1,null);
 
 /************************************************************************************
  * 				PN_OBJECT_TYPE

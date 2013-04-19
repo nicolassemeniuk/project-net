@@ -52,6 +52,7 @@ public class PnMaterialList extends ArrayList<PnMaterial> {
 	        	xml.append("<materialdescription>" + material.getMaterialDescription() + "</materialdescription>");
 	        	xml.append("<materialtype>" + material.getPnMaterialType().getMaterialTypeName() + "</materialtype>");
 	        	xml.append("<materialcost>" + material.getMaterialCost() + "</materialcost>");
+	        	xml.append("<materialconsumable>" + material.getMaterialConsumable() + "</materialconsumable>");	        	
 	        	xml.append("<currentdate>" + String.valueOf((new Date()).getTime()) + "</currentdate>");
         	xml.append("</materialspace>");         
         
