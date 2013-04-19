@@ -26,11 +26,15 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.report.materialde
 
 insert into PN_PROPERTY values (2000,'en','text','prm.material.report.projectmaterialreport.grouping.default.name','No Grouping','A',0,1,null);
 
+insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.name','Name','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.description','Description','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.cost','Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.typeid','Type','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.consumable','Consumable','A',0,1,null);
 
 --Report type and sequence
 insert into pn_space_type_has_report_type values('project','pmr');
 insert into pn_report_sequence values('pmr',11);
-
 
 -- MaterialAllocation
 insert into PN_PROPERTY values (2000,'en','text','prm.material.allocation.materialcalendarsfor.label','Utilization Calendars for {0}','A',0,1,null);
@@ -112,6 +116,8 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.ma
 insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.materialtype.label','Type','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.materialcost.label','Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.materialdescription.label','Description','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.canteditwithassignments.label','This Material has assignments. To change the Consumable field remove all assignations.','A',0,1,null);
+
 
 -- Propiedades para la vista de borrar material
 insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.title','Delete Material','A',0,1,null);

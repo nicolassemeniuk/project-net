@@ -37,6 +37,7 @@ import net.project.business.report.projectstatus.ProjectStatusReport;
 import net.project.database.DBBean;
 import net.project.form.report.formitemsummaryreport.FormItemSummaryReport;
 import net.project.form.report.formitemtimeseries.FormItemTimeSeriesReport;
+import net.project.material.report.ProjectMaterialReport;
 import net.project.persistence.PersistenceException;
 import net.project.resource.report.businessworkcompleted.BusinessWorkCompletedReport;
 import net.project.resource.report.workcompleted.WorkCompletedReport;
@@ -180,6 +181,17 @@ public class ReportType {
         "prm.project.report.projectstatusreport.description",
         "prm.project.report.projectstatusreport.xslpath", 
 		ProjectStatusReports.class);
+    
+    /**
+     * Object describing the "Project Material Report" report.
+     */
+    public static final ReportType PROJECT_MATERIAL_REPORTS  = new ReportType("pmr",
+        "prm.project.report.projectmaterialreport.name",
+        "prm.project.report.projectmaterialreport.description",
+        "prm.project.report.projectmaterialreport.xslpath", 
+		ProjectMaterialReport.class);    
+    
+    
 
     /**
      * Get the report that corresponds to the report id passed in the id parameter.
