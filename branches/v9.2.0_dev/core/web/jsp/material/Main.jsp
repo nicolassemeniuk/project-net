@@ -19,13 +19,18 @@
                net.project.gui.toolbar.Button,
                net.project.gui.toolbar.ButtonType,
                net.project.base.Module,
-               net.project.material.MaterialBean,
+               net.project.material.MaterialBeanList,
 		       net.project.hibernate.service.ServiceFactory"%>
 <%@ include file="/base/taglibInclude.jsp"%>
 
-<jsp:useBean id="materialBean" class="net.project.material.MaterialBean" scope="session" />
+<jsp:useBean id="materialBeanList" class="net.project.material.MaterialBeanList" scope="session" />
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
 <jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
+
+<% 
+materialBeanList.setSpaceID(user.getCurrentSpace().getID());
+materialBeanList.load();
+%>
 
 <template:getDoctype />
 
@@ -155,7 +160,7 @@ function popupHelp(page) {
 				<tr>
 					<td>&nbsp;</td>
 					<td class="tableContent"><pnet-xml:transform scope="session" stylesheet="/material/xsl/materials-list.xsl"
-							content="<%=ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(user.getCurrentSpace().getID()).getXML()%>" /></td>
+							content="<%=materialBeanList.getXML()%>" /></td>
 					<td>&nbsp;</td>
 				</tr>
 			</table>
