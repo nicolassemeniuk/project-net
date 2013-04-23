@@ -7,7 +7,7 @@ import net.project.persistence.PersistenceException;
 
 public class MaterialTypeGrouping extends FinderGrouping {
 	
-    private static String GROUP_BY_TYPE_TOKEN = "prm.material.report.projectmaterialreport.grouping.bytype.name";
+    private static String GROUP_BY_TYPE_TOKEN = "prm.material.report.common.grouping.bytype.name";
 
     /**
      * Public constructor.
