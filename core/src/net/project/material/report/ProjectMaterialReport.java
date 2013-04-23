@@ -1,6 +1,8 @@
 package net.project.material.report;
 
+import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.net.URL;
 import java.sql.SQLException;
 
 import net.project.base.finder.GroupingIterator;
@@ -14,7 +16,9 @@ import net.project.report.ReportComponents;
 import net.project.report.ReportException;
 import net.project.report.ReportScope;
 import net.project.report.ReportType;
+import net.project.schedule.report.latetaskreport.LateTaskChart;
 import net.project.schedule.report.latetaskreport.LateTaskReport;
+import net.project.util.ImageUtils;
 import net.project.xml.document.XMLDocument;
 import net.project.xml.document.XMLDocumentException;
 
@@ -25,6 +29,7 @@ import com.lowagie.text.Cell;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.FontFactory;
+import com.lowagie.text.Image;
 import com.lowagie.text.Phrase;
 import com.lowagie.text.Rectangle;
 import com.lowagie.text.Table;
@@ -34,9 +39,18 @@ public class ProjectMaterialReport extends AbstractReport {
 	/** "Material Name" column name. */
 	private String MATERIAL_NAME = PropertyProvider.get("prm.material.report.materialname.name");
 	/** "Material Description" column name. */
-	private String MATERIAL_DESCRIPTION = PropertyProvider.get("prm.material.report.materialdescription.description");	
+	private String MATERIAL_DESCRIPTION = PropertyProvider.get("prm.material.report.materialdescription.name");	
+	/** "Material Description" column name. */
+	private String MATERIAL_COST = PropertyProvider.get("prm.material.report.materialcost.name");	
+	/** "Material Description" column name. */
+	private String MATERIAL_TYPE = PropertyProvider.get("prm.material.report.materialtype.name");	
+	/** "Material Description" column name. */
+	private String MATERIAL_CONSUMABLE = PropertyProvider.get("prm.material.report.materialconsumable.name");
+	
 	/** Label for the "Total Materials" field. */
 	private String TOTAL_MATERIALS = PropertyProvider.get("prm.material.report.totalmaterials.name");
+	/** Label for the "Total Cost" field. */
+	private String TOTAL_COST = PropertyProvider.get("prm.material.report.totalcost.name");
     /** Message shown when there are no detailed records to display. */
     private String NO_MATERIALS_FOUND = PropertyProvider.get("prm.material.report.nomaterialsfound.name"); //"No Materials Found";
 
@@ -46,6 +60,10 @@ public class ProjectMaterialReport extends AbstractReport {
      * while creating report."
      */
     private String UNEXPECTED_REPORT_ERROR_TOKEN = "prm.report.errors.unexpectedcreationerror.message";
+    /**
+     * Token pointing to: "Unexpected error populating chart parameters."
+     */
+    private String UNEXPECTED_CHARTING_ERROR_TOKEN = "prm.report.errors.populatechartparameterserror.message";
 
 	/**
 	 * Standard constructor which creates a FormItemSummaryReport.
@@ -90,47 +108,32 @@ public class ProjectMaterialReport extends AbstractReport {
         ProjectMaterialReportSummaryData summaryData = ((ProjectMaterialReportData)getData()).getSummaryData();
 
         //Create the table that will house the top summary section
-        Table summaryTable = ReportComponents.createSummaryTable(3, 6);
-        summaryTable.setWidths(new float[]{42f, 8f, 50f});
+        Table summaryTable = ReportComponents.createSummaryTable(2, 2);
+        summaryTable.setWidths(new float[]{42f, 50f});
 
-        //Add the first row of the cell.  This row differs from the others
-        //because it also contains the chart cell.  Seems how the chart cell will
-        //span all of the rows, the rest of the rows will only appear to have a
-        //single cell, even though they actually have two.
         summaryTable.addCell(ReportComponents.createSummaryCell(TOTAL_MATERIALS));
         summaryTable.addCell(ReportComponents.createSummaryCell(String.valueOf(summaryData.getTotalMaterials())));
 
-//        Cell chartCell = getChartCell();
-//
-//        chartCell.setBorder(Rectangle.NO_BORDER);
-//        chartCell.setRowspan(6);
-//        summaryTable.addCell(chartCell);
-//
-//        //Create the remaining rows.
-//        summaryTable.addCell(ReportComponents.createSummaryCell(TOTAL_NUMBER_OF_COMPLETED_TASKS));
-//        summaryTable.addCell(ReportComponents.createSummaryCell(String.valueOf(summaryData.getCompletedTaskCount())));
-//        summaryTable.addCell(ReportComponents.createSummaryCell(TOTAL_NUMBER_OF_OVERDUE_TASKS));
-//        summaryTable.addCell(ReportComponents.createSummaryCell(String.valueOf(summaryData.getOverdueTaskCount())));
-//        summaryTable.addCell(ReportComponents.createSummaryCell(TOTAL_NUMBER_OF_OVERDUE_MILESTONES));
-//        summaryTable.addCell(ReportComponents.createSummaryCell(String.valueOf(summaryData.getOverdueMilestoneCount())));
-//        summaryTable.addCell(ReportComponents.createSummaryCell(TASKS_COMPLETED_IN_LAST_7_DAYS));
-//        summaryTable.addCell(ReportComponents.createSummaryCell(String.valueOf(summaryData.getTaskCompletedInLast7DaysCount())));
-//        summaryTable.addCell(ReportComponents.createSummaryCell(TASKS_DUE_IN_NEXT_7_DAYS));
-//        summaryTable.addCell(ReportComponents.createSummaryCell(String.valueOf(summaryData.getTaskDueInNext7DaysCount())));
+        //Create the remaining rows.
+        summaryTable.addCell(ReportComponents.createSummaryCell(TOTAL_COST));
+        summaryTable.addCell(ReportComponents.createSummaryCell(String.valueOf(summaryData.getTotalCost())));
 
         return summaryTable;
     }
     
     private Table createDetailedSection() throws PersistenceException, DocumentException {
-        Table detailedTable = ReportComponents.createDetailedTable(2);
+        Table detailedTable = ReportComponents.createDetailedTable(5);
         //Note that the widths don't have to equal one hundred, they are just relative widths
-        detailedTable.setWidths(new int[]{20, 20});
+        detailedTable.setWidths(new int[]{8, 12, 5, 5, 5});
 
         //Add the header to the detailed section
         detailedTable.setDefaultCellBorder(Rectangle.BOTTOM);
         detailedTable.setDefaultCellBorderWidth(3);
         detailedTable.addCell(ReportComponents.createDetailedHeaderCell(MATERIAL_NAME));
         detailedTable.addCell(ReportComponents.createDetailedHeaderCell(MATERIAL_DESCRIPTION));
+        detailedTable.addCell(ReportComponents.createDetailedHeaderCell(MATERIAL_COST));
+        detailedTable.addCell(ReportComponents.createDetailedHeaderCell(MATERIAL_TYPE));
+        detailedTable.addCell(ReportComponents.createDetailedHeaderCell(MATERIAL_CONSUMABLE));
         detailedTable.endHeaders();
         detailedTable.setDefaultCellBorderWidth(1);
 
@@ -146,19 +149,24 @@ public class ProjectMaterialReport extends AbstractReport {
             while (materialIterator.hasNext()) {
                 MaterialBean currentMaterial = (MaterialBean)materialIterator.next();
 
-//                if ((materialIterator.isGroupChanged()) && (materialIterator.getGroupName() != null)) {
-//                    detailedTable.addCell(ReportComponents.createGroupChangeCell(materialIterator.getGroupName(), 8));
-//                }
+                if ((materialIterator.isGroupChanged()) && (materialIterator.getGroupName() != null)) {
+                    detailedTable.addCell(ReportComponents.createGroupChangeCell(materialIterator.getGroupName(), 5));
+                }
 
                 detailedTable.addCell(ReportComponents.createDetailedCell(currentMaterial.getName()));
                 detailedTable.addCell(ReportComponents.createDetailedCell(currentMaterial.getDescription().trim()));
+                detailedTable.addCell(ReportComponents.createDetailedCell(currentMaterial.getCost().trim()));
+                detailedTable.addCell(ReportComponents.createDetailedCell(currentMaterial.getMaterialTypeName().trim()));
+                if(currentMaterial.getConsumable()){
+                	detailedTable.addCell(ReportComponents.createDetailedCell("   *   "));
+                } else {
+                	detailedTable.addCell(ReportComponents.createDetailedCell("       "));
+                }
             }
         }
 
         return detailedTable;
-    }
-    
-    
+    } 
     
 
 	@Override

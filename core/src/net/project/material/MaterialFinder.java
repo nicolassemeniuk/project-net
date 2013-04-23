@@ -15,10 +15,12 @@ public class MaterialFinder extends Finder {
 	public static final ColumnDefinition COST_COLUMN = new ColumnDefinition("m.material_cost", "prm.material.columndefs.material.cost");
 	public static final ColumnDefinition TYPE_ID_COLUMN = new ColumnDefinition("m.material_type_id", "prm.material.columndefs.material.typeid");
 	public static final ColumnDefinition CONSUMABLE_COLUMN = new ColumnDefinition("m.material_consumable", "prm.material.columndefs.material.consumable");
+	public static final ColumnDefinition TYPE_NAME_COLUMN = new ColumnDefinition("mt.material_type_name", "prm.material.columndefs.material.type");
 	
-	private String BASE_SQL_STATEMENT = "select " + "  m.material_id, shm.space_id, m.material_name, m.material_description, m.material_cost, m.material_type_id  " +
-										" from pn_material m, pn_space_has_material shm " +
-										" where m.material_id = shm.material_id ";
+	
+	private String BASE_SQL_STATEMENT = "select " + "  m.material_id, shm.space_id, m.material_name, m.material_description, m.material_cost, m.material_type_id, mt.material_type_name, m.material_consumable  " +
+										" from pn_material m, pn_space_has_material shm, pn_material_type mt " +
+										" where m.material_id = shm.material_id AND m.material_type_id = mt.material_type_id ";
 	
 	private static int index = 0;
 	private static int MATERIAL_ID_COL_ID = ++index;
@@ -27,6 +29,8 @@ public class MaterialFinder extends Finder {
 	private static int MATERIAL_DESCRIPTION_COL_ID = ++index;
 	private static int MATERIAL_COST_COL_ID = ++index;
 	private static int MATERIAL_TYPE_ID = ++index;
+	private static int MATERIAL_TYPE_NAME_ID = ++index;
+	private static int MATERIAL_CONSUMABLE_ID = ++index;
 
 	@Override
 	protected String getBaseSQLStatement() {
@@ -47,6 +51,8 @@ public class MaterialFinder extends Finder {
 		material.setCost(result.getString(MATERIAL_COST_COL_ID));
 		material.setMaterialTypeId(result.getString(MATERIAL_TYPE_ID));
 		material.setSpaceID(result.getString(SPACE_ID_COL_ID));
+		material.setMaterialTypeName(result.getString(MATERIAL_TYPE_NAME_ID));
+		material.setConsumable(Boolean.valueOf(result.getString(MATERIAL_CONSUMABLE_ID)));
 	}
 	
 	public List findBySpaceId(String spaceID) throws PersistenceException{

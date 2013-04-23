@@ -7,7 +7,7 @@
 -- Enterprise
 
 
-select * from PN_PROPERTY a where a.PROPERTY like '%prm.project.report.projectstatusreport.xslpath%';
+select * from PN_PROPERTY a where a.PROPERTY like '%prm.schedule.report.common.grouping.byresource.name%';
 
 -- update pn_property set Property_value='1' where pn_property.property = 'prm.enterprise.isenabled'
 -- insert into PN_PROPERTY values (2000,'en','boolean','prm.enterprise.isenabled','1','A',0,0,null);
@@ -22,9 +22,16 @@ insert into PN_PROPERTY values (2000,'en','text','prm.project.report.projectmate
 insert into PN_PROPERTY values (2000,'en','text','prm.project.report.projectmaterialreport.xslpath','/report/xsl/projectmaterialreport.xsl','A',0,1,null);
 
 insert into PN_PROPERTY values (2000,'en','text','prm.material.report.materialname.name','Material Name','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.material.report.materialdescription.description','Description','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.report.materialdescription.name','Description','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.report.materialcost.name','Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.report.materialtype.name','Type','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.report.materialconsumable.name','Cons.','A',0,1,null);
+
+insert into PN_PROPERTY values (2000,'en','text','prm.material.report.totalmaterials.name','Total Number of Materials','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.report.totalcost.name','Total Cost of Materials','A',0,1,null);
 
 insert into PN_PROPERTY values (2000,'en','text','prm.material.report.projectmaterialreport.grouping.default.name','No Grouping','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.report.projectmaterialreport.grouping.bytype.name','Group By Type','A',0,1,null);
 
 insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.name','Name','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.description','Description','A',0,1,null);
