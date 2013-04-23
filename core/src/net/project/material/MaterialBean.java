@@ -6,12 +6,23 @@ import java.util.Date;
 
 import net.project.persistence.IXMLPersistence;
 import net.project.base.Module;
+import net.project.hibernate.model.PnMaterial;
 import net.project.space.Space;
 
 public class MaterialBean extends Material implements Serializable, IXMLPersistence {
 	
     /** Current space */
     private Space space;
+
+    public MaterialBean()
+    {
+    	super();
+    }    
+    
+    public MaterialBean(PnMaterial pnMaterial)
+    {
+    	super(pnMaterial);
+    }
     
     /**
      * Set the current space
@@ -34,33 +45,25 @@ public class MaterialBean extends Material implements Serializable, IXMLPersiste
 	}
 
 	@Override
-	public String getXMLBody() throws SQLException {
+	public String getXMLBody() throws SQLException
+	{
 		StringBuffer xml = new StringBuffer();
-		xml.append("<node>");
-    	xml.append("<value>");
-    	xml.append("<isowner>1</isowner>");   
-    
-    	xml.append("<materialspace>"); 
-        	xml.append("<materialid>" + this.getMaterialId() + "</materialid>");
-        	xml.append("<materialname>" + this.getName() + "</materialname>");
-        	xml.append("<materialdescription>" + this.getDescription() + "</materialdescription>");
-        	xml.append("<materialtype>" + this.getMaterialTypeName() + "</materialtype>");
-        	xml.append("<materialcost>" + this.getCost() + "</materialcost>");
-        	xml.append("<currentdate>" + String.valueOf((new Date()).getTime()) + "</currentdate>");
-    	xml.append("</materialspace>");         
-    
-    	xml.append("</value>");     
-    
-    	xml.append("<children>");
-    	xml.append("</children>");          
-    	xml.append("</node>");
+		
+    	xml.append("<material>"); 
+    	xml.append("<id>" + this.getMaterialId() + "</id>");
+    	xml.append("<name>" + this.getName() + "</name>");
+    	xml.append("<description>" + this.getDescription() + "</description>");
+    	xml.append("<type>" + this.getMaterialTypeName() + "</type>");
+    	xml.append("<cost>" + this.getCost() + "</cost>");
+    	xml.append("<consumable>" + this.getConsumable() + "</consumable>");	        	
+    	xml.append("<currentDate>" + String.valueOf((new Date()).getTime()) + "</currentDate>");
+    	xml.append("</material>");
     	
     	return xml.toString();
 	}
 	
-		public String getUrl()
+	public String getUrl()
 	{
         return "/material/MaterialDetail.jsp?module=" + Module.MATERIAL + "&id=" + this.getMaterialId();		
 	} 
-
 }
