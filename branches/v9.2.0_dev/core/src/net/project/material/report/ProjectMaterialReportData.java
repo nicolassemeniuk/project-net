@@ -1,12 +1,14 @@
 package net.project.material.report;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import net.project.base.finder.ColumnDefinition;
 import net.project.base.finder.EmptyFinderGrouping;
 import net.project.base.finder.FinderGrouping;
 import net.project.base.finder.FinderSorter;
 import net.project.base.property.PropertyProvider;
+import net.project.material.MaterialBean;
 import net.project.material.MaterialFinder;
 import net.project.persistence.PersistenceException;
 import net.project.report.SummaryDetailReportData;
@@ -38,7 +40,9 @@ public class ProjectMaterialReportData extends SummaryDetailReportData {
      */
     private void populateFinderGroupingList() {
         FinderGrouping defaultGrouper = new EmptyFinderGrouping("10", DEFAULT_GROUPING, true);
+        FinderGrouping typeGrouper = new MaterialTypeGrouping("20", false);
         groupingList.add(defaultGrouper);
+        groupingList.add(typeGrouper);
     }
     
     /**
@@ -47,7 +51,7 @@ public class ProjectMaterialReportData extends SummaryDetailReportData {
     private void populateFinderSorterList() {
         for (int i = 1; i < 4; i++) {
             FinderSorter fs = new FinderSorter(String.valueOf(i * 10),
-                new ColumnDefinition[]{MaterialFinder.NAME_COLUMN, MaterialFinder.TYPE_ID_COLUMN,
+                new ColumnDefinition[]{MaterialFinder.NAME_COLUMN, MaterialFinder.TYPE_NAME_COLUMN,
             						   MaterialFinder.COST_COLUMN},
             	MaterialFinder.NAME_COLUMN);
             sorterList.add(fs);
@@ -58,33 +62,24 @@ public class ProjectMaterialReportData extends SummaryDetailReportData {
 	public void load() throws PersistenceException, SQLException {
 		MaterialFinder mf = new MaterialFinder();
 		mf.addFinderSorterList(getSorterList());
-//        List grouping = this.getGroupingList().getSelectedGroupings();
-//        FinderGrouping selectedGroup = null;
-//        if(null!=grouping && grouping.size()>0){
-//        	selectedGroup = (FinderGrouping) grouping.get(0);
-//        }
+        List grouping = this.getGroupingList().getSelectedGroupings();
+        FinderGrouping selectedGroup = null;
+        if(null!=grouping && grouping.size()>0){
+        	selectedGroup = (FinderGrouping) grouping.get(0);
+        }
         detailedData = mf.findBySpaceId(getSpaceID());
-        summaryData = calculateTotalSummary();		
-		
-		
-		
-		
-//		detailedData = new ArrayList();
-//		PnMaterialList dataList = ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(getSpaceID());
-//		for(PnMaterial dataMaterial : dataList){
-//			MaterialBean material = new MaterialBean();
-//			material.setID(String.valueOf(dataMaterial.getMaterialId()));
-//			material.load();
-//			detailedData.add(material);
-//		}
-//		summaryData = calculateTotalSummary();
+        summaryData = calculateTotalSummary();			
 
 	}
 	
 	public ProjectMaterialReportSummaryData calculateTotalSummary(){
 		ProjectMaterialReportSummaryData summary = new ProjectMaterialReportSummaryData();
 		summary.setTotalMaterials(getDetailedData().size());
-		
+		float totalCost=0;
+		for(Object material : getDetailedData()){
+			totalCost += Float.valueOf(((MaterialBean) material).getCost());
+		}
+		summary.setTotalCost(totalCost);
 		return summary;		
 	}
 
