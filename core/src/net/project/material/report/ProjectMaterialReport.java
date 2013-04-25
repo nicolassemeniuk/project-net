@@ -1,14 +1,11 @@
 package net.project.material.report;
 
-import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.net.URL;
 import java.sql.SQLException;
 
 import net.project.base.finder.GroupingIterator;
 import net.project.base.property.PropertyProvider;
 import net.project.chart.ChartingException;
-import net.project.material.Material;
 import net.project.material.MaterialBean;
 import net.project.persistence.PersistenceException;
 import net.project.report.AbstractReport;
@@ -16,9 +13,7 @@ import net.project.report.ReportComponents;
 import net.project.report.ReportException;
 import net.project.report.ReportScope;
 import net.project.report.ReportType;
-import net.project.schedule.report.latetaskreport.LateTaskChart;
 import net.project.schedule.report.latetaskreport.LateTaskReport;
-import net.project.util.ImageUtils;
 import net.project.xml.document.XMLDocument;
 import net.project.xml.document.XMLDocumentException;
 
@@ -29,7 +24,6 @@ import com.lowagie.text.Cell;
 import com.lowagie.text.Document;
 import com.lowagie.text.DocumentException;
 import com.lowagie.text.FontFactory;
-import com.lowagie.text.Image;
 import com.lowagie.text.Phrase;
 import com.lowagie.text.Rectangle;
 import com.lowagie.text.Table;
@@ -60,10 +54,6 @@ public class ProjectMaterialReport extends AbstractReport {
      * while creating report."
      */
     private String UNEXPECTED_REPORT_ERROR_TOKEN = "prm.report.errors.unexpectedcreationerror.message";
-    /**
-     * Token pointing to: "Unexpected error populating chart parameters."
-     */
-    private String UNEXPECTED_CHARTING_ERROR_TOKEN = "prm.report.errors.populatechartparameterserror.message";
 
 	/**
 	 * Standard constructor which creates a FormItemSummaryReport.
@@ -187,6 +177,8 @@ public class ProjectMaterialReport extends AbstractReport {
 		ProjectMaterialReportSummaryData summaryData = ((ProjectMaterialReportData) getData()).getSummaryData();
 		doc.startElement("SummaryData");
 		doc.addElement("MaterialCount", new Integer(summaryData.getTotalMaterials()));
+		doc.addElement("MaterialTotalCost", new Float(summaryData.getTotalCost()));
+		
 		doc.endElement();
 
 		// Create the detailed data section

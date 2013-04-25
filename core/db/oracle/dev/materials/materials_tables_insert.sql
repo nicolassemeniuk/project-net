@@ -7,7 +7,7 @@
 -- Enterprise
 
 
-select * from PN_PROPERTY a where a.PROPERTY like '%prm.schedule.report.common.filter.showtasksassignedtome.name%';
+select * from PN_PROPERTY a where a.PROPERTY like '%prm.material.columndefs.materials.name%';
 
 -- update pn_property set Property_value='1' where pn_property.property = 'prm.enterprise.isenabled'
 -- insert into PN_PROPERTY values (2000,'en','boolean','prm.enterprise.isenabled','1','A',0,0,null);
@@ -38,13 +38,16 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.report.common.gro
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.report.projectmaterialreport.showallmaterials.name','Show All Materials','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.report.common.filter.consumable.name','Consumable','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.report.common.filter.notconsumable.name','No Consumable','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.report.common.reportsummary.name','Report Summary','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.report.common.reportsummary.name','Report Summary','A',0,1,null);
 
 
-
+insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.materials.name','Materials','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.name','Name','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.description','Description','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.cost','Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.typeid','Type','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.type','Type','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.consumable','Consumable','A',0,1,null);
 
 --Report type and sequence
