@@ -631,7 +631,7 @@
 	<t:if test="materialsCloseState">
 		<t:parameter name="else">
 			<!--PORTAL BLOCK -->
-			<div id="MsterialsWidget" class="portal-project-flex-block">
+			<div id="MaterialsWidget" class="portal-project-flex-block">
 			<div class="block-heading">
 			<div class="block-heading-end">
 				<table cellspacing="0" cellpadding="0" width="100%">
@@ -777,6 +777,7 @@
 	var phasesState = ${phasesState};
 	var subprojectsState = ${subprojectsState};
 	var teammatesState = ${teammatesState};
+	var materialsState = ${materialsState};	
 	var projectPieChartState = ${projectPieChartState};
 	var projectCompletionState = ${projectCompletionState};
 	

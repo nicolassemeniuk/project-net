@@ -20,6 +20,7 @@
 	var PROJECT_SPACE_MILESTONES = "ProjectSpace_Milestones_";
 	var PROJECT_SPACE_SUBPROJECTS = "ProjectSpace_subprojects_";
 	var PROJECT_SPACE_TEAMMATES = "ProjectSpace_TeamMembers_";
+	var PROJECT_SPACE_MATERIALS = "ProjectSpace_Materials_";	
 	var PROJECT_SPACE_PIE_CHART = "ProjectSpace_PieChart_";
 	var PROJECT_SPACE_PROJECT_COMPLETION = "ProjectSpace_ProjectCompletion_";
 	
@@ -65,6 +66,14 @@
 	}else{
 		maximize('TeammateContent','TeammateImg','TeammateLink',PROJECT_SPACE_TEAMMATES);
 	}
+	
+	//checking Materials state
+	
+	if( materialsState ){
+		minimize('MaterialsContent','MaterialsImg','MaterialsLink',PROJECT_SPACE_MATERIALS);
+	}else{
+		maximize('MaterialsContent','MaterialsImg','MaterialsLink',PROJECT_SPACE_MATERIALS);
+	}	
 	
 	//checking PieChart state
 	
@@ -133,6 +142,16 @@
 			  closeWidget('TeammateWidget','TeammateCloseImg','TeammateCloseLink',PROJECT_SPACE_TEAMMATES);
   			}
 		}
+		else if( context==PROJECT_SPACE_MATERIALS ){
+			balloon.hideTooltip(1);
+			if( value == 1 ){
+ 			  minimize('MaterialsContent','MaterialsImg','MaterialsLink',PROJECT_SPACE_MATERIALS);
+			}else if( value == 0 ){
+  			  maximize('MaterialsContent','MaterialsImg','MaterialsLink',PROJECT_SPACE_MATERIALS);
+  			}else if( value == 2 ) {
+ 			  closeWidget('MaterialsWidget','MaterialsCloseImg','MaterialsCloseLink',PROJECT_SPACE_MATERIALS);
+  			}
+		}		
 		else if( context==PROJECT_SPACE_PIE_CHART ){
 			if( value == 1 ){
 				minimize('PieChartContent','PieChartImg','PieChartLink',PROJECT_SPACE_PIE_CHART);

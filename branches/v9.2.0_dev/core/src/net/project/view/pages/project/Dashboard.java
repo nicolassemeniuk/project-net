@@ -387,6 +387,8 @@ public class Dashboard extends BasePage {
 	private final String TEAMMATES_TITLE = "Teammates Online";
 
 	private final String PROJECT_NEWS_TITLE = "Project News";
+	
+	private final String MATERIALS_TITLE = "Project Materials";	
 
 	private final String PROJECT_CHANGES_TITLE = "Last Changes Within 5 Days";
 
@@ -1071,6 +1073,7 @@ public class Dashboard extends BasePage {
 	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_SUBPROJECTS + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(SUBPROJECTS_TITLE, SessionManager.getCharacterEncoding()));
 	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_MEETINGS + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(MEETINGS_TITLE, SessionManager.getCharacterEncoding()));
 	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_PROJECT_NEWS + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(PROJECT_NEWS_TITLE, SessionManager.getCharacterEncoding()));
+	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_MATERIALS + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(MATERIALS_TITLE, SessionManager.getCharacterEncoding()));
 	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_TEAMMATES + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(TEAMMATES_TITLE, SessionManager.getCharacterEncoding()));
 	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_PROJECT_CHANGES + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(PROJECT_CHANGES_TITLE, SessionManager.getCharacterEncoding()));
 	            
