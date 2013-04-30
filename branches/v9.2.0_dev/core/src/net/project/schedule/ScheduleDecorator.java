@@ -106,8 +106,7 @@ public class ScheduleDecorator {
 		if (propertyMap.propertyExists("hasMaterialAssignmentImage"))
 			return propertyMap.getProperty("hasMaterialAssignmentImage");
 		else
-			return SessionManager.getJSPRootURL() + "/images/post.gif";
-
+			return SessionManager.getJSPRootURL() + "/images/screwdriver.png";
 	}
 	
 	public String getSharingProjectTitle(){
