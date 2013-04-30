@@ -89,7 +89,7 @@ function help() {
 			<td colspan="2" align="right" valign="bottom">&nbsp;</td>
 		</tr>
 		<tr>
-			<td align="left" class="pageTitle">'<%=PropertyProvider.get("prm.project.businessportfoliodelete.pagetitle")%>'
+			<td align="left" class="pageTitle">'<%=PropertyProvider.get("prm.material.delete.wizard.step1.pagetitle")%>'
 			</td>
 			<td align="right" class="pageTitle">'<%=PropertyProvider.get("prm.material.delete.wizard.step1.rightpagetitle")%>'
 			</td>

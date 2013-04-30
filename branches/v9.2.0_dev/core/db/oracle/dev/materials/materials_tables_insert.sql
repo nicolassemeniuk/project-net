@@ -7,7 +7,7 @@
 -- Enterprise
 
 
-select * from PN_PROPERTY a where a.PROPERTY like '%prm.material.columndefs.materials.name%';
+select * from PN_PROPERTY a where a.PROPERTY like '%prm.material.delete.wizard.step1.rightpagetitle%';
 
 -- update pn_property set Property_value='1' where pn_property.property = 'prm.enterprise.isenabled'
 -- insert into PN_PROPERTY values (2000,'en','boolean','prm.enterprise.isenabled','1','A',0,0,null);
@@ -110,13 +110,12 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.main.module.histo
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.authorizationfailed.message','Access to Material Workspace denied','A',0,1,null);
 
 -- Assign material dialog
-
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.assignmaterialsdialog.title','Materials','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.assignmaterialsdialog.addtoexisting','Add to Existing Material Assignments','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.assignmaterialsdialog.replaceexisting','Replace Existing Material Assignments','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.assignmaterialsdialog.materials','Materials','A',0,1,null);
 
--- Propiedades para la vista de nuevo material
+-- New Material
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.materialnamerequired.message','Material Name is a required field','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.materialdescriptionlength.message','Description must be less than 200 characters','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.lefttitle.label','Create New Material','A',0,1,null);
@@ -128,7 +127,7 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.ste
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.consumable.label','Consumable','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.description.label','Description','A',0,1,null);
 
--- Propiedades para la vista de modificar material
+-- Modify Material
 insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.namerequired.message','Material Name is a required field','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.descriptionlength.message','Description must be less than 200 characters','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.channel.modify.title','Modify Material','A',0,1,null);
@@ -138,8 +137,7 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.ma
 insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.materialdescription.label','Description','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.modifymaterial.canteditwithassignments.label','This Material has assignments. To change the Consumable field remove all assignations.','A',0,1,null);
 
-
--- Propiedades para la vista de borrar material
+-- Disable Material
 insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.title','Delete Material','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.pagetitle','Material Delete Wizard','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.rightpagetitle','Step 1','A',0,1,null);
