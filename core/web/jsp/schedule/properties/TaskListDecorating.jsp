@@ -154,6 +154,13 @@ function valueChanged(propertyName) {
     } else if (!properties.propertyExists("hasAssignmentImage")) {
         hasAssignmentImage = SessionManager.getJSPRootURL()+"/images/group_person_small.gif";
     }
+    
+    String hasMaterialAssignmentImage = "";
+    if (!Validator.isBlankOrNull(properties.getProperty("hasMaterialAssignmentImage"))) {
+    	hasMaterialAssignmentImage = properties.getProperty("hasMaterialAssignmentImage");
+    } else if (!properties.propertyExists("hasMaterialAssignmentImage")) {
+    	hasMaterialAssignmentImage = SessionManager.getJSPRootURL()+"/images/screwdriver.png";
+    }    
 
     String taskDependenciesExistImage = "";
     if (!Validator.isBlankOrNull(properties.getProperty("taskDependenciesExistImage"))) {
@@ -181,6 +188,7 @@ function valueChanged(propertyName) {
 <input type="hidden" name="isDateConstrainedImage"<%=(!Validator.isBlankOrNull(isDateConstrainedImage) ? " value=\""+isDateConstrainedImage+"\"" : "")%>>
 <input type="hidden" name="isCriticalPathImage"<%=(!Validator.isBlankOrNull(properties.getProperty("isCriticalPathImage")) ? " value=\""+properties.getProperty("isCriticalPathImage")+"\"" : "")%>>
 <input type="hidden" name="hasAssignmentImage"<%=(!Validator.isBlankOrNull(hasAssignmentImage) ? " value=\""+hasAssignmentImage+"\"" : "")%>>
+<input type="hidden" name="hasMaterialAssignmentImage"<%=(!Validator.isBlankOrNull(hasMaterialAssignmentImage) ? " value=\""+hasMaterialAssignmentImage+"\"" : "")%>>
 <input type="hidden" name="afterDeadlineImage"<%=(!Validator.isBlankOrNull(properties.getProperty("afterDeadlineImage")) ? " value=\""+properties.getProperty("afterDeadlineImage")+"\"" : "")%>>
 <input type="hidden" name="isExternalTaskImage"<%=(!Validator.isBlankOrNull(isExternalTaskImage) ? " value=\""+isExternalTaskImage+"\"" : "")%>>
 
@@ -308,6 +316,19 @@ function valueChanged(propertyName) {
     <td>
         <select name="hasAssignmentColor" onChange="valueChanged(this.name.substring(0, this.name.length-5));">
             <%=HTMLOptionList.makeHtmlOptionList(HTMLBackgroundColor.getAllColors(), HTMLBackgroundColor.getByClass(properties.getProperty("hasAssignmentColor")))%>
+        </select>
+    </td>
+</tr>
+<tr><td class="rowSep" colspan="4"></td></tr>
+<tr>
+    <td align="center"><input type="checkbox" name="hasMaterialAssignment" value="true"<%=(properties.propertyExists("hasMaterialAssignmentColor") || properties.propertyExists("hasMaterialAssignmentImage") ? " checked" : "")%>></td>
+    <td class="tableContent"><display:get name="prm.schedule.tasklistdecorating.hasMaterialAssigment.label"/></td>
+    <td nowrap valign="middle">
+        <input type="button" value="<%=PropertyProvider.get("prm.schedule.tasklistdecorating.selectimage.button")%>" onClick="selectImage('hasMaterialAssignmentImage')">&nbsp;<img id="hasMaterialAssignmentImageImg" src="<%=(!Validator.isBlankOrNull(hasMaterialAssignmentImage) ? hasMaterialAssignmentImage : SessionManager.getJSPRootURL()+"/images/spacers/trans.gif")%>" border="0">
+    </td>
+    <td>
+        <select name="hasMaterialAssignmentColor" onChange="valueChanged(this.name.substring(0, this.name.length-5));">
+            <%=HTMLOptionList.makeHtmlOptionList(HTMLBackgroundColor.getAllColors(), HTMLBackgroundColor.getByClass(properties.getProperty("hasMaterialAssignmentColor")))%>
         </select>
     </td>
 </tr>

@@ -81,6 +81,7 @@ function imageSelected(id) {
     <tr>
         <td><a href="javascript:imageSelected(15);"><img id="15" src="<%=SessionManager.getJSPRootURL()%>/images/check_red.gif" border="0"></a></td>
         <td><a href="javascript:imageSelected(16);"><img id="16" src="<%=SessionManager.getJSPRootURL()%>/images/schedule/externalTask.gif" border="0"></a></td>
+        <td><a href="javascript:imageSelected(17);"><img id="17" src="<%=SessionManager.getJSPRootURL()%>/images/screwdriver.png" border="0"></a></td>
     </tr>
 </table>
 </center>
