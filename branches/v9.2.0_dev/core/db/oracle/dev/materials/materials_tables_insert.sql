@@ -49,6 +49,8 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.materi
 insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.typeid','Type','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.type','Type','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.consumable','Consumable','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.consumable.yes','Yes','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.consumable.no','No','A',0,1,null);
 
 --Report type and sequence
 insert into pn_space_type_has_report_type values('project','pmr');

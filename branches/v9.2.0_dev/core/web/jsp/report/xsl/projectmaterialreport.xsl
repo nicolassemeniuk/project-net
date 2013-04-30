@@ -112,10 +112,11 @@
 </xsl:template>
 
 <xsl:template match="MaterialData">
+	<xsl:apply-templates select="Group"/>
     <xsl:apply-templates select="material"/>
 </xsl:template>
 
-<xsl:template match="material" >
+<xsl:template match="material" >	
 	<tr align="left" valign="middle" class="tableContent">
 		<td></td>
 		<td class="tableContent">
@@ -133,21 +134,20 @@
 		<td class="tableContent" align="left">
 			<xsl:choose>
 				<xsl:when test="consumable = 'true'">
-<!-- 					<img src="../images/check_green.gif" /> -->
-					<xsl:text disable-output-escaping="yes">yes</xsl:text>
+					<xsl:text disable-output-escaping="yes"><xsl:value-of select="display:get('prm.material.columndefs.material.consumable.yes')"/></xsl:text>
 				</xsl:when>
 				<xsl:otherwise>
-					<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
+					<xsl:text disable-output-escaping="yes"><xsl:value-of select="display:get('prm.material.columndefs.material.consumable.no')"/></xsl:text>
 				</xsl:otherwise>
 			</xsl:choose>				
 		</td>
 		<td></td> 			
 	</tr>
 	 
-	<tr class="tableLine">				
-		<td colspan="5">
-			<img src="../images/spacers/trans.gif" width="1" height="1" border="0" />
-		</td>		
+	<tr class="tableLine">
+		<td></td>				
+		<td colspan="5" class="tableLine"><img src="../images/spacers/trans.gif" width="1" height="1" border="0" /></td>		
+		<td></td>
 	</tr>
 	 
 </xsl:template>
