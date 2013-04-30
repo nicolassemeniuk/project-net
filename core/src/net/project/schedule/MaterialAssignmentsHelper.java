@@ -30,63 +30,71 @@ public class MaterialAssignmentsHelper {
 
 	public void load() {
 		PnMaterialList materials = ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(spaceId);
-		
-		PnMaterialAssignmentList assignmentList;		
-		
-		// If objectId is not present load all material assignments for this space
-		if(this.objectId == null)
+
+		PnMaterialAssignmentList assignmentList;
+
+		// If objectId is not present load all material assignments for this
+		// space
+		if (this.objectId == null)
 			assignmentList = ServiceFactory.getInstance().getPnMaterialAssignmentService().getMaterialsAssignment(spaceId);
 		else
 			assignmentList = ServiceFactory.getInstance().getPnMaterialAssignmentService().getMaterialsAssignment(spaceId, objectId);
-	
-		for (Iterator<PnMaterial> iterator = materials.iterator(); iterator.hasNext();) {
-			Material material = new Material(iterator.next());
 
-			boolean assigned = false;
-			boolean enabledForAssignment = true;
+		for (PnMaterial pnMaterial : materials) {
 
-			// Obtain ALL the assignments for the material
-			PnMaterialAssignmentList assignmentsForMaterial = ServiceFactory.getInstance().getPnMaterialAssignmentService()
-					.getAssignmentsForMaterial(material.getMaterialId());
+			//Only the active Materials
+			if (pnMaterial.getRecordStatus().equals("A")) {
+				Material material = new Material(pnMaterial);
 
-			// Is consumable and there are any assignments for that material?
-			if (material.getConsumable() && assignmentsForMaterial.size() > 0) {
+				boolean assigned = false;
+				boolean enabledForAssignment = true;
 
-				for (PnMaterialAssignment assignmentMaterial : assignmentsForMaterial) {
-					
-					String statusAssignment = assignmentMaterial.getRecordStatus();
-					
-					// Is the task we are in? is it active?
-					if (objectId != null && assignmentMaterial.getComp_id().getObjectId().equals(Integer.valueOf(objectId)) && statusAssignment.equals("A"))
-						enabledForAssignment = true;
-					// Is assigned on other task (the assignation is ACTIVE)
-					else if (statusAssignment.equals("A"))
-						enabledForAssignment = false;
+				// Obtain ALL the assignments for the material
+				PnMaterialAssignmentList assignmentsForMaterial = ServiceFactory.getInstance().getPnMaterialAssignmentService()
+						.getAssignmentsForMaterial(material.getMaterialId());
+
+				// Is consumable and there are any assignments for that
+				// material?
+				if (material.getConsumable() && assignmentsForMaterial.size() > 0) {
+
+					for (PnMaterialAssignment assignmentMaterial : assignmentsForMaterial) {
+
+						String statusAssignment = assignmentMaterial.getRecordStatus();
+
+						// Is the task we are in? is it active?
+						if (objectId != null && assignmentMaterial.getComp_id().getObjectId().equals(Integer.valueOf(objectId)) && statusAssignment.equals("A"))
+							enabledForAssignment = true;
+						// Is assigned on other task (the assignation is ACTIVE)
+						else if (statusAssignment.equals("A"))
+							enabledForAssignment = false;
+					}
+				} else {
+					enabledForAssignment = true;
 				}
-			} else {
-				enabledForAssignment = true;
+
+				for (Iterator<PnMaterialAssignment> innerIterator = assignmentList.iterator(); innerIterator.hasNext();) {
+					PnMaterialAssignment assignment = innerIterator.next();
+					Integer id = assignment.getComp_id().getMaterialId();
+					Integer id2 = Integer.valueOf(material.getMaterialId());
+					String status = assignment.getRecordStatus();
+					if (id.equals(id2) && status.equals("A")) {
+						assigned = true;
+						break;
+					}
+				}
+
+				MaterialAssignmentHelper assignment = new MaterialAssignmentHelper(material, assigned, enabledForAssignment);
+				materialsAssigned.add(assignment);
+
 			}
 
-			for (Iterator<PnMaterialAssignment> innerIterator = assignmentList.iterator(); innerIterator.hasNext();) {
-				PnMaterialAssignment assignment = innerIterator.next();
-				Integer id = assignment.getComp_id().getMaterialId();
-				Integer id2 = Integer.valueOf(material.getMaterialId());
-				String status = assignment.getRecordStatus();
-				if (id.equals(id2) && status.equals("A")) {
-					assigned = true;
-					break;
-				}
-			}
-
-			MaterialAssignmentHelper assignment = new MaterialAssignmentHelper(material, assigned, enabledForAssignment);
-			materialsAssigned.add(assignment);
 		}
 	}
 
 	public ArrayList<MaterialAssignmentHelper> getMaterialsAssigned() {
 		return materialsAssigned;
 	}
-	
+
 	public String getSpaceId() {
 		return spaceId;
 	}

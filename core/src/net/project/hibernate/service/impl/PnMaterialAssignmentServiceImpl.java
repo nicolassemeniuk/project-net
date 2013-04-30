@@ -109,4 +109,14 @@ public class PnMaterialAssignmentServiceImpl implements IPnMaterialAssignmentSer
 	public PnMaterialAssignmentList getAssignmentsForMaterial(String materialId) {
 		return pnMaterialAssignmentDAO.getAssignmentsForMaterial(Integer.valueOf(materialId));
 	}
+
+	@Override
+	public void disableAssignments(String materialId) {
+		PnMaterialAssignmentList assignments = getAssignmentsForMaterial(materialId);
+		for(PnMaterialAssignment assignment : assignments){
+			assignment.setRecordStatus("D");		
+			pnMaterialAssignmentDAO.update(assignment);
+		}	
+		
+	}
 }

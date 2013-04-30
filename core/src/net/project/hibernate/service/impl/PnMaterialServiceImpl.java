@@ -7,6 +7,7 @@ import net.project.hibernate.dao.IPnMaterialDAO;
 import net.project.hibernate.model.PnMaterial;
 import net.project.hibernate.model.PnMaterialType;
 import net.project.hibernate.model.PnObject;
+import net.project.hibernate.service.IPnMaterialAssignmentService;
 import net.project.hibernate.service.IPnMaterialService;
 import net.project.hibernate.service.IPnMaterialTypeService;
 import net.project.hibernate.service.IPnObjectService;
@@ -30,6 +31,9 @@ public class PnMaterialServiceImpl implements IPnMaterialService {
 
 	@Autowired
 	private IPnObjectService objectService;
+	
+	@Autowired
+	private IPnMaterialAssignmentService materialAssignmentService;
 
 	public void setPnMaterialDAO(IPnMaterialDAO pnMaterialDAO) {
 		this.pnMaterialDAO = pnMaterialDAO;
@@ -50,7 +54,6 @@ public class PnMaterialServiceImpl implements IPnMaterialService {
 	}
 
 	public Integer saveMaterial(MaterialBean materialBean) {
-		// TODO Ramiro Chequear la tabla PN_DEFAULT_OBJECT_PERMISSION
 		Integer materialObjectId = objectService.saveObject(new PnObject(PnMaterial.OBJECT_TYPE, new Integer(materialBean.getUser().getID()), new Date(System
 				.currentTimeMillis()), "A"));
 		PnMaterialType materialType = materialTypeService.getMaterialTypeById(Integer.valueOf(materialBean.getMaterialTypeId()));
@@ -105,6 +108,8 @@ public class PnMaterialServiceImpl implements IPnMaterialService {
 		if (pnMaterial != null) {
 			pnMaterial.setRecordStatus("D");
 			this.pnMaterialDAO.update(pnMaterial);
+			//Disable this material assignments
+			this.materialAssignmentService.disableAssignments(String.valueOf(pnMaterial.getMaterialId()));
 		}
 	}
 

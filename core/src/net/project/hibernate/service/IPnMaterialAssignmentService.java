@@ -120,4 +120,12 @@ public interface IPnMaterialAssignmentService {
 
 	public PnMaterialAssignmentList getMaterialsAssignment(String spaceId);
 
+	/**
+	 * Disable ALL the assignments for the material.
+	 * 
+	 * @param materialId
+	 *            the id from the Material we want to disable the assignments.
+	 */
+	public void disableAssignments(String materialId);
+
 }
