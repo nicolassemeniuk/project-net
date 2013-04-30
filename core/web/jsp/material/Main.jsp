@@ -23,13 +23,15 @@
 		       net.project.hibernate.service.ServiceFactory"%>
 <%@ include file="/base/taglibInclude.jsp"%>
 
-<jsp:useBean id="materialBeanList" class="net.project.material.MaterialBeanList" scope="session" />
+<jsp:useBean id="materialBeanList" class="net.project.material.MaterialBeanList" scope="page" />
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
 <jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
 
 <% 
-materialBeanList.setSpaceID(user.getCurrentSpace().getID());
-materialBeanList.load();
+// 	if(!materialBeanList.getIsLoaded()){
+		materialBeanList.setSpaceID(user.getCurrentSpace().getID());
+		materialBeanList.load();
+// 	}
 %>
 
 <template:getDoctype />

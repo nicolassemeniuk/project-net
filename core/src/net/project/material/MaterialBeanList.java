@@ -11,6 +11,8 @@ public class MaterialBeanList extends ArrayList<MaterialBean>
 {
     /** Current space */
     private String spaceID;
+    
+    private Boolean isLoaded=false;
 	
 	public MaterialBeanList()
 	{
@@ -22,6 +24,15 @@ public class MaterialBeanList extends ArrayList<MaterialBean>
 		this.spaceID = spaceID;
 	}
 	
+	
+	public Boolean getIsLoaded() {
+		return isLoaded;
+	}
+
+	public void setIsLoaded(Boolean isLoaded) {
+		this.isLoaded = isLoaded;
+	}
+
 	public void load()
 	{
 		PnMaterialList materialList = ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(this.spaceID);
@@ -31,6 +42,7 @@ public class MaterialBeanList extends ArrayList<MaterialBean>
    			MaterialBean materialBean = new MaterialBean(iterator.next()); 
    			this.add(materialBean);
 		}		
+   		this.isLoaded=true;
 	}
 	
 	/**
