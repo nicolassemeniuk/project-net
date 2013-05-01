@@ -52,7 +52,7 @@ public class MaterialBean extends Material implements Serializable, IXMLPersiste
     	xml.append("<material>"); 
     	xml.append("<id>" + this.getMaterialId() + "</id>");
     	xml.append("<name>" + this.getName() + "</name>");
-    	xml.append("<description>" + this.getDescription() + "</description>");
+    	xml.append("<description>" + (this.getDescription() != null ? this.getDescription() : "" ) + "</description>");
     	xml.append("<type>" + this.getMaterialTypeName() + "</type>");
     	xml.append("<cost>" + this.getCost() + "</cost>");
     	xml.append("<consumable>" + this.getConsumable() + "</consumable>");	        	

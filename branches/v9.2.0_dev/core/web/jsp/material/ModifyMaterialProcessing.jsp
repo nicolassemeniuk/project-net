@@ -31,6 +31,11 @@
 			materialBean.setConsumable(false);
 	}
 
+	if ((request.getParameter("description") == null) || (request.getParameter("description").equals("")))
+		materialBean.setDescription("");
+	else
+		materialBean.setDescription(request.getParameter("description").trim());
+
 	ServiceFactory.getInstance().getMaterialService().updateMaterial(materialBean);
 
 	response.sendRedirect(SessionManager.getJSPRootURL() + "/material/Main.jsp?module=" + Module.MATERIAL);

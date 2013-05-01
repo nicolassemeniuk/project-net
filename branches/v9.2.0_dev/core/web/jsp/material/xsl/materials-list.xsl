@@ -10,10 +10,10 @@
 					<xsl:text disable-output-escaping="yes"></xsl:text>
 				</td>
 				<td class="tableHeader" colspan="2"><xsl:value-of select="display:get('prm.material.main.list.name')"/></td>
-				<td class="tableHeader"><xsl:value-of select="display:get('prm.material.main.list.description')"/></td>
 				<td class="tableHeader"><xsl:value-of select="display:get('prm.material.main.list.type')"/></td>
 				<td class="tableHeader"><xsl:value-of select="display:get('prm.material.main.list.cost')"/></td>
-				<td class="tableHeader">Consumable</td>				
+				<td class="tableHeader" align="center" ><xsl:value-of select="display:get('prm.material.main.list.consumable')"/></td>				
+				<td class="tableHeader"><xsl:value-of select="display:get('prm.material.main.list.description')"/></td>				
 			</tr>
 			<tr class="tableLine">
 				<td colspan="7" class="tableLine">
@@ -37,15 +37,12 @@
 			</a>			
 			</td>
 			<td class="tableContent" align="left">
-				<xsl:value-of select="description" />
-			</td>
-			<td class="tableContent" align="left">
 				<xsl:value-of select="type" />
 			</td>
 			<td class="tableContent" align="left">
 				<xsl:value-of select="cost" />
 			</td>
-			<td class="tableContent" align="left">
+			<td class="tableContent" align="center">
 				<xsl:choose>
 					<xsl:when test="consumable = 'true'">
 						<img src="../images/check_green.gif" />
@@ -54,7 +51,10 @@
 						<xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
 					</xsl:otherwise>
 				</xsl:choose>				
-			</td>			
+			</td>
+			<td class="tableContent" align="left">
+				<xsl:value-of select="description" />
+			</td>
 		</tr>
 		<tr class="tableLine">
 			<td colspan="7">

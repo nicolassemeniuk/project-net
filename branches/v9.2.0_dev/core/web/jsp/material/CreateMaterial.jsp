@@ -86,12 +86,13 @@
 	}
 
 	function validate() {
-		if (!checkTextbox(theForm.name,'<display:get name="prm.material.create.wizard.step1.materialnamerequired.message" />')) {
+		if (!checkTextbox(theForm.name,'<display:get name="prm.material.create.wizard.step1.materialnamerequired.message" />'))
 			return false;
-		}
-		if (!checkMaxLength(theForm.description,200,'<display:get name="prm.material.create.wizard.step1.materialdescriptionlength.message"/>')){
+		if (!checkMaxLength(theForm.name,40,'<display:get name="prm.material.create.wizard.step1.materialnamelength.message"/>'))
 			return false;
-		}
+		if (!checkMaxLength(theForm.description,240,'<display:get name="prm.material.create.wizard.step1.materialdescriptionlength.message"/>'))
+			return false;
+		
 		return true;
 	}
 </script>
@@ -135,7 +136,7 @@
 				<tr align="left" class="addSpacingBottom">
 					<td>&nbsp;</td>
 					<td nowrap class="fieldRequired" width="20%"><display:get name="prm.material.create.wizard.step1.name.label" />:&nbsp;</td>
-					<td nowrap class="tableContent" colspan="2"><input type="text" name="name" size="40" maxlength="80" value='<c:out value="${materialBean.name}"/>'>
+					<td nowrap class="tableContent" colspan="2"><input type="text" name="name" size="40" maxlength="40" value='<c:out value="${materialBean.name}"/>'>
 					<td nowrap class="tableContent" colspan="2">&nbsp;</td>
 				</tr>
 
@@ -174,13 +175,9 @@
 				<tr align="left">
 					<td>&nbsp;</td>
 					<td nowrap colspan="5" class="fieldNonRequired"><display:get name="prm.material.create.wizard.step1.description.label" />:&nbsp;<br> 
-						<textarea name="description" cols="50" rows="3" ><c:out value="${materialBean.description}"></c:out></textarea>
+						<textarea name="description" cols="80" rows="3" maxlength="240" ><c:out value="${materialBean.description}"></c:out></textarea>
 					</td>
 				</tr>
-<!-- 				wrap="virtual" -->
-
-				
-
 
 				<tr align="left" class="tableContent">
 					<td nowrap colspan="6" class="tableContent">&nbsp;</td>
