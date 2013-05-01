@@ -28,9 +28,10 @@
 <%
 	materialBean.setUser(user);
 
-	if ((request.getParameter("description") == null) || (request.getParameter("description").equals(""))) {
+	if ((request.getParameter("description") == null) || (request.getParameter("description").equals("")))
 		materialBean.setDescription("");
-	}
+	else
+		materialBean.setDescription(request.getParameter("description").trim());		
 
 	ServiceFactory.getInstance().getMaterialService().saveMaterial(materialBean);
 

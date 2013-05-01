@@ -108,6 +108,11 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.main.module.histo
 
 --Material main
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.authorizationfailed.message','Access to Material Workspace denied','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.list.name','Material','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.list.type','Type','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.list.cost','Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.list.consumable','Consumable','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.list.description','Description','A',0,1,null);
 
 -- Assign material dialog
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.assignmaterialsdialog.title','Materials','A',0,1,null);
@@ -117,7 +122,8 @@ insert into PN_PROPERTY values (2000,'en','text','prm.schedule.assignmaterialsdi
 
 -- New Material
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.materialnamerequired.message','Material Name is a required field','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.materialdescriptionlength.message','Description must be less than 200 characters','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.materialnamelength.message','Material name must be less than 40 characters','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.materialdescriptionlength.message','Description must be less than 240 characters','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.lefttitle.label','Create New Material','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.righttitle.label','Material Identity','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.channel.generalinformation.title',null,'A',0,1,null);

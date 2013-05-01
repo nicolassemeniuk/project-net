@@ -96,8 +96,11 @@
 	function validate(frm) {
 		if (!checkTextbox(frm.name,	'<display:get name="prm.material.modifymaterial.namerequired.message"/>'))
 			return false;
-		if (!checkMaxLength(frm.description,200,'<display:get name="prm.material.modifymaterial.descriptionlength.message" />'))
+		if (!checkMaxLength(theForm.name,40,'<display:get name="prm.material.create.wizard.step1.materialnamelength.message"/>'))
 			return false;
+		if (!checkMaxLength(frm.description,240,'<display:get name="prm.material.modifymaterial.descriptionlength.message" />'))
+			return false;
+		
 		return true;
 	}
 </script>
@@ -149,7 +152,7 @@
 								<tr align="left">
 									<td>&nbsp;</td>
 									<td nowrap class="fieldRequired"><display:get name="prm.material.modifymaterial.materialname.label" />:&nbsp;</td>
-									<td nowrap class="tableContent" colspan="2"><input type="text" name="name" size="40" maxLength="80" value='<c:out value="${materialBean.name}" />'>
+									<td nowrap class="tableContent" colspan="2"><input type="text" name="name" size="40" maxLength="40" value='<c:out value="${materialBean.name}" />'>
 									</td>
 									<td colspan="2" rowspan="4" valign="middle">
 										<!-- Information Icons Table -->
@@ -194,10 +197,9 @@
 
 								<tr align="left">
 									<td>&nbsp;</td>
-									<td nowrap colspan="5" class="fieldNonRequired"><display:get name="prm.material.modifymaterial.materialdescription.label" />:&nbsp;<br> <textarea
-											name="description" cols="50" rows="3">
-																	<c:out value="${materialBean.description}"></c:out>
-															</textarea></td>
+									<td nowrap colspan="5" class="fieldNonRequired"><display:get name="prm.material.modifymaterial.materialdescription.label" />:&nbsp;<br> 
+									<textarea name="description" cols="80" rows="3" maxlength="240"><c:out value="${materialBean.description}"></c:out></textarea>
+									</td>
 								</tr>
 
 								<tr class="tableContent">
