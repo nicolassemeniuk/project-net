@@ -7,8 +7,9 @@
 -- Enterprise
 
 
-select * from PN_PROPERTY a where a.PROPERTY like '%prm.resource.allocation.legend.none.name%';
+select * from PN_PROPERTY a where a.PROPERTY like '%prm.material.create.wizard.step1.channel.generalinformation.title%';
 
+delete from PN_PROPERTY a where a.PROPERTY like '%prm.material.create.wizard.step1.channel.generalinformation.title%';
 -- update pn_property set Property_value='1' where pn_property.property = 'prm.enterprise.isenabled'
 -- insert into PN_PROPERTY values (2000,'en','boolean','prm.enterprise.isenabled','1','A',0,0,null);
 
@@ -122,6 +123,7 @@ insert into PN_PROPERTY values (2000,'en','text','prm.schedule.assignmaterialsdi
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.assignmaterialsdialog.materials','Materials','A',0,1,null);
 
 -- New Material
+insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.channel.generalinformation.title','General Information   FIELDS IN BLACK ARE REQUIRED','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.title.label','Material','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.materialnamerequired.message','Material Name is a required field','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.materialnamelength.message','Material name must be less than 40 characters','A',0,1,null);
