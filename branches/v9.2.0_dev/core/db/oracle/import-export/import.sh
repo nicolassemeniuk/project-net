@@ -1,39 +1,62 @@
 #!/bin/sh
-#: Title		: Script para importar la bases de datos
-#: Date			: 13/11/2012
-#: Author		: Ramiro Savoie
-#: Version		: 0.5
-#: Description		:
+#: Title		: import
+#: Date			: 01/05/2013
+#: Author		: Ramiro Savoie, Nicolás Semeniuk
+#: Version		: 0.6
+#: Description	: Script to import the Project.net database and document vault
 #: Options		:
 
-# No puede borrarse un usuario si esta conectado
+# Can't erase a connected user
 sudo service tomcat6 stop
 
-# Limpia los datos que ya se encuentren en la base de datos
+# Clean the current database data
 sqlplus system/system@XE @clean_and_create_users.sql
 
-# TODO Hacer un chequeo de existencia del archivo y parametrizar la ruta
-tar zxf pnet_db_dump.dmp.tar.gz
-tar zxf pnet_user_db_dump.dmp.tar.gz
-# pnet: usuario propietario del esquema
+# TODO parametrizar la ruta
+if [ -f pnet_db_dump.dmp.tar.gz ]
+then
+	tar zxf pnet_db_dump.dmp.tar.gz
+else
+	printf "\033[31m \n%s \033[0m \n" "The file to uncompress is not found, file: pnet_db_dump.dmp.tar.gz"
+	exit
+fi
+
+if [ -f pnet_user_db_dump.dmp.tar.gz ]
+then
+	tar zxf pnet_user_db_dump.dmp.tar.gz
+else
+	printf "\033[31m \n%s \033[0m \n" "The file to uncompress is not found, file: pnet_user_db_dump.dmp.tar.gz"
+	exit
+fi
+
+# pnet: owner user of the scheme
 imp userid=pnet/pnet@XE file=pnet_db_dump.dmp fromuser=pnet touser=pnet log=pnet_restore.log
-# pnet_user: usuario que accede a los datos del esquema
+# pnet_user: user that has access to the scheme data
 imp userid=pnet_user/pnet_user@XE file=pnet_user_db_dump.dmp fromuser=pnet_user touser=pnet_user log=pnet_user_restore.log
 
-# Por si hubo errores al generar algunas vistas
+# In case there was errors generating the views
 sqlplus pnet/pnet@XE @compile_views.sql
 
-printf "\033[31m \n%s \033[0m \n" "Backup de la base de datos restaurado"
+printf "\033[31m \n%s \033[0m \n" "Database restored"
 
-# TODO Hacer un chequeo de existencia del archivo y parametrizar la ruta
-tar zxf docVault.tar.gz
+# TODO parametrizar la ruta
+if [ -f docVault.tar.gz ]
+then
+	tar zxf docVault.tar.gz
+else
+	printf "\033[31m \n%s \033[0m \n" "The file to uncompress is not found, file: docVault.tar.gz"
+	exit
+fi
+
 sudo cp -R docVault /opt/pnet/
 
-printf "\033[31m \n%s \033[0m \n" "Backup del document vault restaurado"
+printf "\033[31m \n%s \033[0m \n" "Document Vault restored"
+
+printf "\033[31m \n%s \033[0m \n" "Import Completed!"
 
 sudo service tomcat6 start
 
-printf "\033[31m \n%s \033[0m \n" "Durmiendo 1 minuto mientras arranca el Tomcat"
+printf "\033[31m \n%s \033[0m \n" "Waiting 1 minute to start Tomcat"
 sleep 1m
 
 # Para que vaya inicializando las caches de Hibernate
