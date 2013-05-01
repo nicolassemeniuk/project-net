@@ -1,56 +1,56 @@
 @echo off
-:: Title			: Restaurar Base de datos de Project.net
-:: Date			: 24/11/2012
+:: Title		: import
+:: Date			: 01/05/2013
 :: Author		: Nicolás Semeniuk
-:: Version		: 0.1
-:: Description		: Script para restaurar la base de datos de Project.net
+:: Version		: 0.2
+:: Description	: Script to import the Project.net database and document vault
 :: Options		: 
 
 echo -----------------------------------------------------------------------
-echo 	Script para importar la BD de Project.net
+echo 	Script to import Project.net database
 echo -----------------------------------------------------------------------
 echo -----------------------------------------------------------------------
 
-:: Seleccionar la carpeta donde estan los archivos
-set /p folder= Por favor, ingrese la carpeta donde se encuentran los archivos:
-set /p clean_and_create_users_dir= Por favor, ingrese la carpeta donde se encuentran el archivo clean_and_create_users.sql:
-set /p compile_views_dir= Por favor, ingrese la carpeta donde se encuentran el archivo compile_views.sql:
+:: Select the folders where the files are
+set /p folder= Please, insert the folder where the backup files are (e.g. C:\Backup_pnet_db_XXXX-XX-XX):
+set /p clean_and_create_users_dir= Please, insert the folder where the file clean_and_create_users.sql is:
+set /p compile_views_dir= Please, insert the folder where the file compile_views.sql is:
+set /p doc_vault= Please, insert the path where the current installation Document Vault is (e.g. C:\docvault):
 
-:: Cambiar ubicacion
+:: Change location
 cd %folder%
 
-:: Limpia los datos que ya se encuentren en la base de datos
 echo -----------------------------------------------------------------------
-echo Limpiando datos de la base de datos...
+echo Cleaning Database Data...
 echo -----------------------------------------------------------------------
 sqlplus system/system@XE @%clean_and_create_users_dir%\clean_and_create_users.sql
 
 echo -----------------------------------------------------------------------
-echo Descomprimiendo archivos...
+echo Decompressing Files...
 echo -----------------------------------------------------------------------
 7za e pnet_db_dump.7z 
 7za e pnet_user_db_dump.7z 
 
 echo -----------------------------------------------------------------------
-echo Restaurando la base de datos...
+echo Restoring Database...
 echo -----------------------------------------------------------------------
 set NLS_LANG=AMERICAN_AMERICA.AL32UTF8
 imp userid=pnet/pnet@XE file=pnet_db_dump.dmp fromuser=pnet touser=pnet log=pnet_restore.log
 imp userid=pnet_user/pnet_user@XE file=pnet_user_db_dump.dmp fromuser=pnet_user touser=pnet_user log=pnet_user_restore.log
 
 echo -----------------------------------------------------------------------
-echo Compilando vistas...
+echo Compiling views...
 echo -----------------------------------------------------------------------
-:: Por si hubo errores al generar algunas vistas
+:: In case there was errors generating the views
 sqlplus pnet/pnet@XE @%compile_views_dir%\compile_views.sql
 
 echo -----------------------------------------------------------------------
-echo Restaurando documentos...
+echo Restoring Document Vault...
 echo -----------------------------------------------------------------------
-7za e docVault.7z -oC:\docVault -r
+7za e docVault.7z -o%doc_vault% -r
 
 echo -----------------------------------------------------------------------
-echo Restauracion Terminada!
+echo Import Completed!
 echo -----------------------------------------------------------------------
 
 pause

@@ -1,56 +1,72 @@
 @echo off
-:: Title		: Exportar base de datos.
-:: Date			: 24/11/2012
+:: Title		: export
+:: Date			: 01/05/2013
 :: Author		: Marcelo Insaurralde, Nicolás Semeniuk
-:: Version		: 0.1
-:: Description	: Script para exportar la bases de datos y el document vault.
+:: Version		: 0.2
+:: Description	: Script to export the Project.net database and document vault
 :: Options		:
 
 echo -----------------------------------------------------------------------
-echo 	Script para exportar la BD de Project.net
-echo -----------------------------------------------------------------------
+echo 	Script to export Project.net database
 echo -----------------------------------------------------------------------
 
 echo -----------------------------------------------------------------------
-echo Deteniendo Tomcat
+echo Creating Directory
 echo -----------------------------------------------------------------------
-net stop Tomcat6
-
-echo -----------------------------------------------------------------------
-echo Creando Directorio
-echo -----------------------------------------------------------------------
-:: Crear una carpeta con la fecha de hoy.
+:: Create a Backup folder with today's date.
 for /f "tokens=1-4 delims=/ " %%a in ('date /t') do (set mydate=%%c-%%b-%%a)
 mkdir C:\Backup_pnet_db_%mydate%
 cd C:\Backup_pnet_db_%mydate%
 
-:: Exportar BD.
 echo -----------------------------------------------------------------------
-echo Exportando la Base de Datos....
+echo 	The backups files will be created on the path: 
+echo			C:\Backup_pnet_db_%mydate%
+echo -----------------------------------------------------------------------
+
+set /p doc_vault= Please, insert the path where the Document Vault is (e.g. C:\docvault):
+
+echo -----------------------------------------------------------------------
+echo Stopping Tomcat...
+echo -----------------------------------------------------------------------
+net stop Tomcat6
+
+::Database
+::--------------------------------------------------------------------------
+
+echo -----------------------------------------------------------------------
+echo Exporting Database....
 echo -----------------------------------------------------------------------
 set NLS_LANG=AMERICAN_AMERICA.AL32UTF8
 exp userid=pnet/pnet@XE file=pnet_db_dump.dmp owner=pnet log=pnet_dump.log
 exp userid=pnet_user/pnet_user@XE file=pnet_user_db_dump.dmp owner=pnet_user log=pnet_user_dump.log
+echo -----------------------------------------------------------------------
+echo Database Backup Ready.
+echo -----------------------------------------------------------------------
 
 echo -----------------------------------------------------------------------
-echo Backup de la base de datos listo.
+echo Compressing Database Files...
 echo -----------------------------------------------------------------------
-
-echo -----------------------------------------------------------------------
-echo Comprimiendo Archivos...
-echo -----------------------------------------------------------------------
-::Base de datos
 7za a -t7z pnet_db_dump.7z pnet_db_dump.dmp
 del pnet_db_dump.dmp
-
 7za a -t7z pnet_user_db_dump.7z pnet_user_db_dump.dmp
 del pnet_user_db_dump.dmp
+echo -----------------------------------------------------------------------
+echo Database Files Compressed.
+echo -----------------------------------------------------------------------
 
-::Documentos
-7za a -t7z docVault.7z C:\docVault
+::Documents
+::--------------------------------------------------------------------------
 
 echo -----------------------------------------------------------------------
-echo Backup de Base de Datos y Documentos Listo.
+echo Compressing Document Vault Files...
+echo -----------------------------------------------------------------------
+7za a -t7z docVault.7z %doc_vault%
+echo -----------------------------------------------------------------------
+echo Document Vault Files Compressed.
+echo -----------------------------------------------------------------------
+
+echo -----------------------------------------------------------------------
+echo Export Completed!
 echo -----------------------------------------------------------------------
 
 pause
