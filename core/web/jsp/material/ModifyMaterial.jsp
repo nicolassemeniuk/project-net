@@ -56,49 +56,45 @@
 <template:import type="javascript" src="/src/errorHandler.js" />
 
 <script language="javascript">
-        var theForm;
-        var errorMsg;
-        var JSPRootURL = "<%=SessionManager.getJSPRootURL()%>";
+	var theForm;
+	var isLoaded = false;
+	var JSPRootURL = '<%=SessionManager.getJSPRootURL()%>';    
+	var currentSpaceTypeForBlog = 'project';
+	var currentSpaceIdForBlog = '<%=SessionManager.getUser().getID()%>';
 
 	function setup() {
-		theForm = self.document.mainForm;
+		theForm = self.document.modifyMaterial;
 		isLoaded = true;
 	}
 
 	function cancel() {
-		var theLocation = JSPRootURL + "/material/Main.jsp";
-		self.document.location = theLocation;
-	}
-
-	function reset() {
-		theForm.reset();
+		self.document.location = JSPRootURL + "/material/Main.jsp?module=<%=net.project.base.Module.MATERIAL%>";
 	}
 
 	function submit() {
-		if (validate(document.mainForm)) {
+		if (validate(document.modifyMaterial)) {
 			theAction("submit");
 			theForm.submit();
 		}
 	}
-
-	function isValidDigit(num) {
-		if ((num != null) && (num != "")) {
-			var digits = "0123456789-. ";
-			for ( var i = 0; i < num.length; i++) {
-				if (digits.indexOf(num.charAt(i)) == -1) {
-					return false;
-				}
-			}
-		}
-		return true;
+	
+	function reset() {
+		theForm.reset();
 	}
 
-	function validate(frm) {
-		if (!checkTextbox(frm.name,	'<display:get name="prm.material.modifymaterial.namerequired.message"/>'))
+	function help() {
+		var helplocation = JSPRootURL + "/help/Help.jsp?page=material_modify";
+		openwin_help(helplocation);
+	}	
+	
+	function validate() {
+		if (!checkTextbox(theForm.name,'<display:get name="prm.material.create.wizard.step1.materialnamerequired.message" />'))
 			return false;
 		if (!checkMaxLength(theForm.name,40,'<display:get name="prm.material.create.wizard.step1.materialnamelength.message"/>'))
 			return false;
-		if (!checkMaxLength(frm.description,240,'<display:get name="prm.material.modifymaterial.descriptionlength.message" />'))
+		if (!checkMaxLength(theForm.description,240,'<display:get name="prm.material.create.wizard.step1.materialdescriptionlength.message"/>'))
+			return false;
+		if (!checkNumeric(theForm.cost, '<display:get name="prm.material.create.wizard.step1.materialcostformat.message"/>'))
 			return false;
 		
 		return true;
@@ -111,49 +107,36 @@
 	<template:getSpaceMainMenu />
 	<template:getSpaceNavBar />
 
-	<tb:toolbar style="tooltitle" showAll="true" groupTitle="prm.application.nav.space.material">
+	<tb:toolbar style="tooltitle" showAll="true" groupTitle="prm.material.modifymaterial.title.label">
 		<tb:setAttribute name="leftTitle">
-			<history:history>
-				<%-- 			            <history:module display='<%=materialSpace.getName()%>' --%>
-				<%--                             jspPage='<%=SessionManager.getJSPRootURL() + "/material/MaterialPortfolio.jsp"%>' --%>
-				<%--                             queryString='<%="module=" + Module.MATERIAL_SPACE%> + "&portfolio=true" ' /> --%>
-
-			</history:history>
 		</tb:setAttribute>
 		<tb:band name="standard">
-			<!--tb:button type="security" /-->
 		</tb:band>
 	</tb:toolbar>
 
 	<div id='content'>
-
-		<form name="mainForm" method="POST" action="ModifyMaterialProcessing.jsp">
+		<form name="modifyMaterial" method="POST" action="ModifyMaterialProcessing.jsp">
 			<input type="hidden" name="theAction"> <input type="hidden" name="action" value="<%=Action.MODIFY%>" /> <input type="hidden" name="module"
 				value="<%=Module.MATERIAL%>" /> <input type="hidden" name="materialId" value="<%=materialBean.getMaterialId()%>" />
 
-
 			<table border=0 cellpadding=0 cellspacing=0 width="600">
-
-
-
-
-
 				<tr>
 					<td>
 						<div align="center">
 							<table border="0" align="left" cellpadding="0" cellspacing="0" width="100%">
-
 								<tr align="left" class="channelHeader">
 									<td width=1%><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border=0></td>
 									<td nowrap colspan="4" class="channelHeader"><display:get name="prm.material.modifymaterial.channel.modify.title" /></td>
 									<td width=1% align=right><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border=0></td>
 								</tr>
 
+								<%-- Material Name --%>
 								<tr align="left">
 									<td>&nbsp;</td>
 									<td nowrap class="fieldRequired"><display:get name="prm.material.modifymaterial.materialname.label" />:&nbsp;</td>
 									<td nowrap class="tableContent" colspan="2"><input type="text" name="name" size="40" maxLength="40" value='<c:out value="${materialBean.name}" />'>
 									</td>
+									
 									<td colspan="2" rowspan="4" valign="middle">
 										<!-- Information Icons Table -->
 										<table id="infoTable" border="0" class='<%=showInfoBox ? "informationTable" : "hidden"%>'>
@@ -166,25 +149,24 @@
 									</td>									
 								</tr>
 
+								<%-- Material Type --%>
 								<tr align="left">
 									<td>&nbsp;</td>
 									<td nowrap class="fieldNonRequired"><display:get name="prm.material.modifymaterial.materialtype.label" />:&nbsp;</td>
 									<td nowrap class="tableContent" colspan="2"><select name="materialTypeId">
-											<%=domainList.getMaterialTypeListForMaterialModification(ServiceFactory.getInstance().getPnMaterialTypeService().getMaterialTypes(),
-					materialBean.getMaterialTypeId())%>
+									<%=domainList.getMaterialTypeListForMaterialModification(ServiceFactory.getInstance().getPnMaterialTypeService().getMaterialTypes(), materialBean.getMaterialTypeId()) %>
 									</select></td>
 									<td nowrap class="tableContent" colspan="2">&nbsp;</td>
 								</tr>
 
-
+								<%-- Material Cost --%>
 								<tr align="left" class="addSpacingBottom">
 									<td>&nbsp;</td>
 									<td nowrap class="fieldNonRequired"><display:get name="prm.material.modifymaterial.materialcost.label" />:&nbsp;</td>
-									<td nowrap class="tableContent" colspan="2"><input type="number" name="cost" size="40" maxlength="80"
+									<td nowrap class="tableContent" colspan="2"><input type="number" name="cost" size="40" maxlength="14"
 										value='<c:out value="${materialBean.cost}">0.0</c:out>'></td>
 									<td nowrap class="tableContent" colspan="2">&nbsp;</td>
 								</tr>
-
 
 								<%-- Material Consumable --%>
 								<tr align="left" class="addSpacingBottom">
@@ -194,7 +176,7 @@
 									<td nowrap class="tableContent" colspan="2">&nbsp;</td>
 								</tr>
 
-
+								<%-- Material Description --%>
 								<tr align="left">
 									<td>&nbsp;</td>
 									<td nowrap colspan="5" class="fieldNonRequired"><display:get name="prm.material.modifymaterial.materialdescription.label" />:&nbsp;<br> 
@@ -211,10 +193,9 @@
 				</tr>
 			</table>
 
-
-
 			<tb:toolbar style="action" showLabels="true" bottomFixed="true">
 				<tb:band name="action">
+					<tb:button type="cancel" />				
 					<tb:button type="submit" />
 				</tb:band>
 			</tb:toolbar>

@@ -47,7 +47,6 @@
 <template:import type="javascript" src="/src/checkLength.js" />
 <template:getSpaceJS space="project" />
 <script language="javascript">
-
     var theForm;
     var isLoaded = false;
     var JSPRootURL = '<%=SessionManager.getJSPRootURL()%>';    
@@ -55,17 +54,11 @@
     var currentSpaceIdForBlog = '<%=SessionManager.getUser().getID()%>';
     
 	function setup() {
-		load_menu('<%=user.getCurrentSpace().getID()%>');
-	
 		theForm = self.document.forms[0];
 		isLoaded = true;
-		if(theForm.parentSpaceID.value != ''){
-			theForm.parentSpaceID.disabled = true;
-		}
 	}
 
 	function cancel() {
-		// TODO Aqui en un futuro se podria retornar al material padre
 		self.document.location = JSPRootURL + "/material/Main.jsp?module=<%=net.project.base.Module.MATERIAL%>";
 	}
 
@@ -92,6 +85,8 @@
 			return false;
 		if (!checkMaxLength(theForm.description,240,'<display:get name="prm.material.create.wizard.step1.materialdescriptionlength.message"/>'))
 			return false;
+		if (!checkNumeric(theForm.cost, '<display:get name="prm.material.create.wizard.step1.materialcostformat.message"/>'))
+			return false;
 		
 		return true;
 	}
@@ -102,9 +97,9 @@
 	<template:getSpaceMainMenu />
 	<template:getSpaceNavBar />
 
-	<tb:toolbar style="tooltitle" groupTitle="prm.application.nav.space.material" showAll="true"
+	<tb:toolbar style="tooltitle" groupTitle="prm.material.create.wizard.step1.title.label" showAll="true"
 		leftTitle='<%=PropertyProvider.get("prm.material.create.wizard.step1.lefttitle.label")%>'
-		rightTitle='<%=PropertyProvider.get("prm.material.create.wizard.step1.righttitle.label")%>' space="material">
+		rightTitle='<%=PropertyProvider.get("prm.material.create.wizard.step1.righttitle.label")%>'>
 		<tb:band name="standard">
 		</tb:band>
 	</tb:toolbar>
@@ -154,7 +149,7 @@
 				<tr align="left" class="addSpacingBottom">
 					<td>&nbsp;</td>
 					<td nowrap class="fieldNonRequired"><display:get name="prm.material.create.wizard.step1.cost.label" />:&nbsp;</td>
-					<td nowrap class="tableContent" colspan="2"><input type="number" name="cost" size="40" maxlength="80"
+					<td nowrap class="tableContent" colspan="2"><input type="number" name="cost" size="40" maxlength="14"
 						value='<c:out value="${materialBean.cost}">0.0</c:out>'></td>
 					<td nowrap class="tableContent" colspan="2">&nbsp;</td>
 				</tr>
@@ -182,11 +177,8 @@
 				<tr align="left" class="tableContent">
 					<td nowrap colspan="6" class="tableContent">&nbsp;</td>
 				</tr>
-
 			</table>
-
 			<br clear="all">
-
 	<%-----------------------------------------------------------------------------------------------------------
     -- Action Bar                                                                                         
 	--------------------------------------------------------------------------------------------------------%>
