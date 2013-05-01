@@ -112,19 +112,15 @@
                 </tr>
                 <tr>
                     <td width="1%" class="none legendColorCell"><img src="../images/spacers/trans.gif" height="15" width="15" border="0"/></td>
-                    <td class="tableContent"><xsl:value-of select="display:get('prm.resource.allocation.legend.none.name')"/></td>
-                </tr>
-                <tr>
-                    <td width="1%" class="some legendColorCell"><img src="../images/spacers/trans.gif" height="15" width="15" border="0"/></td>
-                    <td class="tableContent"><xsl:value-of select="display:get('prm.resource.allocation.legend.some.name')"/></td>
+                    <td class="tableContent"><xsl:value-of select="display:get('prm.material.allocation.legend.none.name')"/></td>
                 </tr>
                 <tr>
                     <td width="1%" class="full legendColorCell"><img src="../images/spacers/trans.gif" height="15" width="15" border="0"/></td>
-                    <td class="tableContent"><xsl:value-of select="display:get('prm.resource.allocation.legend.full.name')"/></td>
+                    <td class="tableContent"><xsl:value-of select="display:get('prm.material.allocation.legend.full.name')"/></td>
                 </tr>
                 <tr>
                     <td width="1%" class="over legendColorCell"><img src="../images/spacers/trans.gif" height="15" width="15" border="0"/></td>
-                    <td class="tableContent"><xsl:value-of select="display:get('prm.resource.allocation.legend.over.name')"/></td>
+                    <td class="tableContent"><xsl:value-of select="display:get('prm.material.allocation.legend.over.name')"/></td>
                 </tr>
             </table>
         </td>

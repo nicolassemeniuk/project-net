@@ -140,7 +140,7 @@ if (id != null){
 												<table border="0" align="left" cellpadding="0" cellspacing="0" width="100%">
 													<tr align="left" class="channelHeader">
 														<td width=1%><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border=0></td>
-														<td nowrap colspan="4" class="channelHeader"><display:get name="prm.material.modifymaterial.channel.modify.title" /></td>
+														<td nowrap colspan="4" class="channelHeader"><display:get name="prm.material.viewmaterial.channel.view.title" /></td>
 														<td width=1% align=right><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border=0></td>
 													</tr>
 

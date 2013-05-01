@@ -1,9 +1,9 @@
 /* Dummy inserts */
-INSERT INTO PN_MATERIAL_TYPE values (1,'License','A');
-INSERT INTO PN_MATERIAL_TYPE values (2,'Computer','A');
-INSERT INTO PN_MATERIAL_TYPE values (3,'Conference room','A');
-INSERT INTO PN_MATERIAL_TYPE values (4,'Construction Material','A');
-INSERT INTO PN_MATERIAL_TYPE values (5,'Car','A');
+INSERT INTO PN_MATERIAL_TYPE values (1,'Construction','A');
+INSERT INTO PN_MATERIAL_TYPE values (2,'Electronics','A');
+INSERT INTO PN_MATERIAL_TYPE values (3,'Disposable','A');
+INSERT INTO PN_MATERIAL_TYPE values (4,'Machinery','A');
+INSERT INTO PN_MATERIAL_TYPE values (5,'Other','A');
 
 INSERT INTO PN_MATERIAL values (1,'Material 1','Este es el primer material',1,5000.00,'A');
 INSERT INTO PN_MATERIAL values (2,'Material 2','Este es el segundo material',3,215.00,'A');
