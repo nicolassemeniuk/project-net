@@ -15,16 +15,20 @@
 
 <%@ page contentType="text/html; charset=UTF-8" info="Material Modify Page" language="java" errorPage="/errors.jsp"
 	import="net.project.security.*,
-    			net.project.base.Module,
             	net.project.material.MaterialBean,
             	net.project.project.DomainListBean,
             	net.project.base.property.PropertyProvider,
-            	net.project.hibernate.service.ServiceFactory"%>
+            	net.project.hibernate.service.ServiceFactory,
+				net.project.base.Module"%>
 <%@ include file="/base/taglibInclude.jsp"%>
+
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
 <jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
 <jsp:useBean id="materialBean" class="net.project.material.MaterialBean" scope="session" />
 <jsp:useBean id="domainList" class="net.project.project.DomainListBean" scope="page" />
+
+<security:verifyAccess action="modify" module="<%=net.project.base.Module.MATERIAL%>" objectID="<%=materialBean.getMaterialId()%>" />
+
 <%
 	String id = request.getParameter("id");
 	if (id != null) {
@@ -36,13 +40,9 @@
 	boolean showInfoBox = materialBean.getConsumableAndAssigned();
 %>
 
-<security:verifyAccess action="modify" module="<%=net.project.base.Module.MATERIAL%>" objectID="<%=materialBean.getMaterialId()%>" />
-
 <template:getDoctype />
-
 <html>
 <head>
-<META http-equiv="expires" content="0">
 <title><display:get name="prm.global.application.title" /></title>
 
 <%-- Import CSS --%>
@@ -50,20 +50,18 @@
 
 <%-- Import Javascript --%>
 <template:import type="javascript" src="/src/checkComponentForms.js" />
-<template:import type="javascript" src="/src/checkLength.js" />
-<template:import type="javascript" src="/src/checkUrl.js" />
-<template:import type="javascript" src="/src/checkAlphaNumeric.js" />
 <template:import type="javascript" src="/src/errorHandler.js" />
+<template:import type="javascript" src="/src/checkLength.js" />
 
 <script language="javascript">
-	var theForm;
-	var isLoaded = false;
-	var JSPRootURL = '<%=SessionManager.getJSPRootURL()%>';    
+    var theForm;
+    var isLoaded = false;
+    var JSPRootURL = '<%=SessionManager.getJSPRootURL()%>';    
 	var currentSpaceTypeForBlog = 'project';
-	var currentSpaceIdForBlog = '<%=SessionManager.getUser().getID()%>';
-
+    var currentSpaceIdForBlog = '<%=SessionManager.getUser().getID()%>';
+    
 	function setup() {
-		theForm = self.document.modifyMaterial;
+		theForm = self.document.forms[0];
 		isLoaded = true;
 	}
 
@@ -72,12 +70,12 @@
 	}
 
 	function submit() {
-		if (validate(document.modifyMaterial)) {
+		if (validate()) {
 			theAction("submit");
 			theForm.submit();
 		}
 	}
-	
+
 	function reset() {
 		theForm.reset();
 	}
@@ -85,8 +83,8 @@
 	function help() {
 		var helplocation = JSPRootURL + "/help/Help.jsp?page=material_modify";
 		openwin_help(helplocation);
-	}	
-	
+	}
+
 	function validate() {
 		if (!checkTextbox(theForm.name,'<display:get name="prm.material.create.wizard.step1.materialnamerequired.message" />'))
 			return false;
@@ -100,7 +98,6 @@
 		return true;
 	}
 </script>
-
 </head>
 
 <body class="main" bgcolor="#FFFFFF" onLoad="setup();" id="bodyWithFixedAreasSupport">
@@ -109,6 +106,7 @@
 
 	<tb:toolbar style="tooltitle" showAll="true" groupTitle="prm.material.modifymaterial.title.label">
 		<tb:setAttribute name="leftTitle">
+			<history:history />
 		</tb:setAttribute>
 		<tb:band name="standard">
 		</tb:band>

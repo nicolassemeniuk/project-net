@@ -14,24 +14,24 @@
 --%>
 
 <%@ page contentType="text/html; charset=UTF-8" info="New Material Wizard" language="java" errorPage="/errors.jsp"
-	import="net.project.base.property.PropertyProvider,
+	import="net.project.security.*,
             net.project.material.MaterialBean,
-            net.project.methodology.MethodologyProvider,
             net.project.project.DomainListBean,
-            net.project.security.*, 
+			net.project.base.property.PropertyProvider,
+			net.project.hibernate.service.ServiceFactory,
             net.project.space.Space,
             net.project.space.SpaceRelationship,
-            net.project.util.JSPUtils,
-            net.project.hibernate.service.ServiceFactory"%>
-
+            net.project.util.JSPUtils"%>
 <%@ include file="/base/taglibInclude.jsp"%>
 
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
-<jsp:useBean id="materialBean" class="net.project.material.MaterialBean" scope="session" />
 <jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
+<jsp:useBean id="materialBean" class="net.project.material.MaterialBean" scope="session" />
 <jsp:useBean id="domainList" class="net.project.project.DomainListBean" scope="page" />
-<jsp:useBean id="methodologyProvider" class="net.project.methodology.MethodologyProvider" scope="page" />
-
+<%
+	// Initialize Bean
+	materialBean.clear();
+%>
 
 <template:getDoctype />
 <html>
@@ -45,7 +45,7 @@
 <template:import type="javascript" src="/src/checkComponentForms.js" />
 <template:import type="javascript" src="/src/errorHandler.js" />
 <template:import type="javascript" src="/src/checkLength.js" />
-<template:getSpaceJS space="project" />
+
 <script language="javascript">
     var theForm;
     var isLoaded = false;
@@ -105,13 +105,6 @@
 	</tb:toolbar>
 
 	<div id='content'>
-
-	<%--------------------------------------------------------------------------------------------------------------------------------------------------------------------
-	--  Configure beans                                                                                                                                          
-	----------------------------------------------------------------------------------------------------------------------------------------------------------------%>
-		<%
-			materialBean.clear();
-		%>
 
 		<form method="post" action="CreateMaterialProcessing.jsp" name="createMaterial">
 			<input type="hidden" name="theAction"> <input type="hidden" name="module" value="<%=securityProvider.getCheckedModuleID()%>">
@@ -178,19 +171,16 @@
 					<td nowrap colspan="6" class="tableContent">&nbsp;</td>
 				</tr>
 			</table>
-			<br clear="all">
-	<%-----------------------------------------------------------------------------------------------------------
-    -- Action Bar                                                                                         
-	--------------------------------------------------------------------------------------------------------%>
+
 			<tb:toolbar style="action" showLabels="true" bottomFixed="true">
 				<tb:band name="action">
-					<tb:button type="cancel" />
-					<tb:button type="finish" function="javascript:submit();" />
+					<tb:button type="cancel" />				
+					<tb:button type="submit" />
 				</tb:band>
 			</tb:toolbar>
-
 		</form>
+	</div>
 
-		<%@ include file="/help/include_outside/footer.jsp"%>
+	<%@ include file="/help/include_outside/footer.jsp"%>
 </body>
 </html>
