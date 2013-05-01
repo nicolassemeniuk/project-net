@@ -35,7 +35,8 @@ public class MaterialAssignmentList implements Serializable, Iterable<MaterialAs
 		PnMaterialAssignmentList assignmentList = ServiceFactory.getInstance().getPnMaterialAssignmentService()
 				.getAssignmentsForMaterial(materialId, startDate, endDate);
 		for (PnMaterialAssignment assignee : assignmentList) {
-			materialAssignments.add(new MaterialAssignment(assignee));
+			if(assignee.getRecordStatus().equals("A"))
+				materialAssignments.add(new MaterialAssignment(assignee));
 		}
 	}
 
