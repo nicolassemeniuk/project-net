@@ -110,7 +110,7 @@ if (id != null){
 	<template:getSpaceMainMenu />
 	<template:getSpaceNavBar />
 
-	<tb:toolbar style="tooltitle" showAll="true" groupTitle="prm.application.nav.space.material">
+	<tb:toolbar style="tooltitle" showAll="true" groupTitle="prm.material.main.title">
 		<tb:setAttribute name="leftTitle">
 			<history:history>
 <%-- 			            <history:module display='<%=materialSpace.getName()%>' --%>
