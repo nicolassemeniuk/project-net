@@ -70,6 +70,7 @@
         <td></td>    
         <td class="tableHeader" align="left" width="40%"><xsl:value-of select="display:get('prm.material.report.totalmaterials.name')"/></td>
         <td class="tableContent" align="left" width="9%"><xsl:value-of select="MaterialCount"/></td>
+        <td class="chartCell" width="49%" align="center" rowspan="5"><xsl:if test="ChartURL"><img src="{ChartURL}"/></xsl:if></td>
         <td></td>    
     </tr>    
     <tr>
@@ -117,7 +118,7 @@
 </xsl:template>
 
 <xsl:template match="material" >	
-	<tr align="left" valign="middle" class="tableContent">
+	<tr>
 		<td></td>
 		<td class="tableContent">
 			<xsl:value-of select="name" disable-output-escaping="yes"/>
@@ -144,7 +145,7 @@
 		<td></td> 			
 	</tr>
 	 
-	<tr class="tableLine">
+	<tr>
 		<td></td>				
 		<td colspan="5" class="tableLine"><img src="../images/spacers/trans.gif" width="1" height="1" border="0" /></td>		
 		<td></td>

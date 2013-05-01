@@ -170,6 +170,9 @@ insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.material
 insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.projectmaterials.name.label','Material','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.projectmaterials.workingcalendar.label','Utilization Summary','A',0,1,null);
 
+-- Schedule Properties
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.tasklistdecorating.hasMaterialAssigment.label','Task has one or more material assignments','A',0,1,null);
+
 /************************************************************************************
  * 				PN_OBJECT_TYPE
  *			   Tipos de objetos
