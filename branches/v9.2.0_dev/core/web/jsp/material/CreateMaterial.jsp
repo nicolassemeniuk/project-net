@@ -34,6 +34,7 @@
 %>
 
 <template:getDoctype />
+
 <html>
 <head>
 <title><display:get name="prm.global.application.title" /></title>
@@ -105,78 +106,82 @@
 	</tb:toolbar>
 
 	<div id='content'>
-
 		<form method="post" action="CreateMaterialProcessing.jsp" name="createMaterial">
-			<input type="hidden" name="theAction"> <input type="hidden" name="module" value="<%=securityProvider.getCheckedModuleID()%>">
+			<input type="hidden" name="theAction">
+			<input type="hidden" name="module" value="<%=securityProvider.getCheckedModuleID()%>">
 			<input type="hidden" name="spaceID" value='<%=user.getCurrentSpace().getID()%>' />
 			<table border="0" align="left" width="600" cellpadding="0" cellspacing="0">
 				<tr align="left" class="channelHeader">
-					<td width=1%><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border=0></td>
-					<td nowrap colspan="4" class="channelHeader"><display:get name="prm.material.create.wizard.step1.channel.generalinformation.title" /></td>
-					<td width=1% align=right><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border=0></td>
-				</tr>
-
-				<tr align="left" class="tableContent">
-					<td nowrap colspan="6" class="tableContent">&nbsp;</td>
-				</tr>
-
-				<%-- Material Name --%>
-				<tr align="left" class="addSpacingBottom">
-					<td>&nbsp;</td>
-					<td nowrap class="fieldRequired" width="20%"><display:get name="prm.material.create.wizard.step1.name.label" />:&nbsp;</td>
-					<td nowrap class="tableContent" colspan="2"><input type="text" name="name" size="40" maxlength="40" value='<c:out value="${materialBean.name}"/>'>
-					<td nowrap class="tableContent" colspan="2">&nbsp;</td>
-				</tr>
-
-				<%-- Material Type --%>
-				<tr align="left" class="addSpacingBottom">
-					<td>&nbsp;</td>
-					<td nowrap class="fieldRequired"><display:get name="prm.material.create.wizard.step1.type.label" />:&nbsp;</td>
-					<td class="tableContent" colspan="2"><select name="materialTypeId">
-						<%=domainList.getMaterialTypeListForMaterialCreation(ServiceFactory.getInstance().getPnMaterialTypeService().getMaterialTypes())%>
-					</select></td>
-					<td nowrap class="tableContent" colspan="2">&nbsp;</td>
-				</tr>
-
-				<%-- Material Cost --%>
-				<tr align="left" class="addSpacingBottom">
-					<td>&nbsp;</td>
-					<td nowrap class="fieldNonRequired"><display:get name="prm.material.create.wizard.step1.cost.label" />:&nbsp;</td>
-					<td nowrap class="tableContent" colspan="2"><input type="number" name="cost" size="40" maxlength="14"
-						value='<c:out value="${materialBean.cost}">0.0</c:out>'></td>
-					<td nowrap class="tableContent" colspan="2">&nbsp;</td>
-				</tr>
-				
-				<%-- Material Consumable --%>
-				<tr align="left" class="addSpacingBottom">
-					<td>&nbsp;</td>
-					<td nowrap class="fieldNonRequired"><display:get name="prm.material.create.wizard.step1.consumable.label" />:&nbsp;</td>
-					<td nowrap class="tableContent" colspan="2">					
-					<input type="checkbox" name="consumable"></td>
-					<td nowrap class="tableContent" colspan="2">&nbsp;</td>
-				</tr>
-
-				<%-- Material Description --%>
-				<tr align="left" class="tableContent">
-					<td nowrap colspan="6" class="tableContent">&nbsp;</td>
-				</tr>
-				<tr align="left">
-					<td>&nbsp;</td>
-					<td nowrap colspan="5" class="fieldNonRequired"><display:get name="prm.material.create.wizard.step1.description.label" />:&nbsp;<br> 
-						<textarea name="description" cols="80" rows="3" maxlength="240" ><c:out value="${materialBean.description}"></c:out></textarea>
+					<td width=1%>
+						<img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border=0>
+					</td>
+					<td nowrap colspan="4" class="channelHeader">
+						<display:get name="prm.material.create.wizard.step1.channel.generalinformation.title" />
+					</td>
+					<td width=1% align=right>
+						<img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border=0>
 					</td>
 				</tr>
-
 				<tr align="left" class="tableContent">
 					<td nowrap colspan="6" class="tableContent">&nbsp;</td>
 				</tr>
+				<%-- Material Name --%>
+					<tr align="left" class="addSpacingBottom">
+						<td>&nbsp;</td>
+						<td nowrap class="fieldRequired" width="20%">
+							<display:get name="prm.material.create.wizard.step1.name.label" />:&nbsp;</td>
+						<td nowrap class="tableContent" colspan="2">
+							<input type="text" name="name" size="40" maxlength="40" value='<c:out value="${materialBean.name}"/>'>
+							<td nowrap class="tableContent" colspan="2">&nbsp;</td>
+					</tr>
+					<%-- Material Type --%>
+						<tr align="left" class="addSpacingBottom">
+							<td>&nbsp;</td>
+							<td nowrap class="fieldRequired">
+								<display:get name="prm.material.create.wizard.step1.type.label" />:&nbsp;</td>
+							<td class="tableContent" colspan="2">
+								<select name="materialTypeId">
+									<%=domainList.getMaterialTypeListForMaterialCreation(ServiceFactory.getInstance().getPnMaterialTypeService().getMaterialTypes())%>
+								</select>
+							</td>
+							<td nowrap class="tableContent" colspan="2">&nbsp;</td>
+						</tr>
+						<%-- Material Cost --%>
+							<tr align="left" class="addSpacingBottom">
+								<td>&nbsp;</td>
+								<td nowrap class="fieldNonRequired">
+									<display:get name="prm.material.create.wizard.step1.cost.label" />:&nbsp;</td>
+								<td nowrap class="tableContent" colspan="2">
+									<input type="number" name="cost" size="40" maxlength="14" value='<c:out value="${materialBean.cost}">0.0</c:out>'>
+								</td>
+								<td nowrap class="tableContent" colspan="2">&nbsp;</td>
+							</tr>
+							<%-- Material Consumable --%>
+								<tr align="left" class="addSpacingBottom">
+									<td>&nbsp;</td>
+									<td nowrap class="fieldNonRequired">
+										<display:get name="prm.material.create.wizard.step1.consumable.label" />:&nbsp;</td>
+									<td nowrap class="tableContent" colspan="2">
+										<input type="checkbox" name="consumable">
+									</td>
+									<td nowrap class="tableContent" colspan="2">&nbsp;</td>
+								</tr>
+								<%-- Material Description --%>
+									<tr align="left">
+										<td>&nbsp;</td>
+										<td nowrap colspan="5" class="fieldNonRequired">
+											<display:get name="prm.material.create.wizard.step1.description.label" />:&nbsp;
+											<br>
+											<textarea name="description" cols="80" rows="3" maxlength="240">
+												<c:out value="${materialBean.description}"></c:out>
+											</textarea>
+										</td>
+									</tr>
 			</table>
-
 			<tb:toolbar style="action" showLabels="true" bottomFixed="true">
 				<tb:band name="action">
-					<tb:button type="cancel" />				
-					<tb:button type="submit" />
-				</tb:band>
+					<tb:button type="cancel" />
+					<tb:button type="submit" /></tb:band>
 			</tb:toolbar>
 		</form>
 	</div>
