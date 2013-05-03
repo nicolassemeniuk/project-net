@@ -15,19 +15,17 @@
 
 <%@ page contentType="text/html; charset=UTF-8" info="Material Modify Page" language="java" errorPage="/errors.jsp"
 	import="net.project.security.*,
-            	net.project.material.MaterialBean,
-            	net.project.project.DomainListBean,
-            	net.project.base.property.PropertyProvider,
-            	net.project.hibernate.service.ServiceFactory,
-				net.project.base.Module"%>
+            net.project.material.MaterialBean,
+            net.project.project.DomainListBean,
+            net.project.base.property.PropertyProvider,
+            net.project.hibernate.service.ServiceFactory,
+			net.project.base.Module"%>
 <%@ include file="/base/taglibInclude.jsp"%>
 
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
 <jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
 <jsp:useBean id="materialBean" class="net.project.material.MaterialBean" scope="session" />
 <jsp:useBean id="domainList" class="net.project.project.DomainListBean" scope="page" />
-
-<security:verifyAccess action="modify" module="<%=net.project.base.Module.MATERIAL%>" objectID="<%=materialBean.getMaterialId()%>" />
 
 <%
 	// Initialize Bean
@@ -41,6 +39,8 @@
 
 	boolean showInfoBox = materialBean.getConsumableAndAssigned();
 %>
+
+<security:verifyAccess action="modify" module="<%=net.project.base.Module.MATERIAL%>" objectID="<%=materialBean.getMaterialId()%>" />
 
 <template:getDoctype />
 <html>

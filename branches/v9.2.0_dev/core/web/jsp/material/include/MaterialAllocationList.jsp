@@ -13,19 +13,7 @@
  * If not, see http://www.gnu.org/licenses/gpl-3.0.html
 --%>
 
-<%--------------------------------------------------------------------
-|
-|    $RCSfile$
-|   $Revision: 18397 $
-|       $Date: 2008-11-21 10:47:28 -0200 (vie, 21 nov 2008) $
-|     $Author: umesha $
-|
-|--------------------------------------------------------------------%>
-<%@ page
-    contentType="text/html; charset=UTF-8"
-    info=""
-    language="java"
-    errorPage="/errors.jsp"
+<%@ page contentType="text/html; charset=UTF-8" info="Material Allocation List"  language="java" errorPage="/errors.jsp"
     import="java.util.Date,
             net.project.xml.XMLFormatter,
             net.project.base.Module,
@@ -33,9 +21,9 @@
             net.project.material.MaterialAssignmentListBean,
             net.project.util.DateRange,
             java.util.Date,
-            net.project.util.Validator"
-%>
+            net.project.util.Validator"%>
 <%@ include file="/base/taglibInclude.jsp"%>
+
 <jsp:useBean id="materialAssignmentList" class="net.project.material.MaterialAssignmentListBean" scope="page" />
 <jsp:useBean id="endMonth" class="java.util.Date" scope="request"/>
 <jsp:useBean id="startMonth" class="java.util.Date" scope="request"/>
@@ -53,14 +41,10 @@
 <%-- Import CSS --%>
 <template:getSpaceCSS />
 
-<%-- Import Javascript --%>
-<script language="javascript" type="text/javascript">
-</script>
-
 </head>
 <body>
-<pnet-xml:transform name="materialAssignmentList" scope="page" stylesheet="/material/xsl/material-allocation-list.xsl">
-</pnet-xml:transform>
-<template:getSpaceJS />
+	<pnet-xml:transform name="materialAssignmentList" scope="page" stylesheet="/material/xsl/material-allocation-list.xsl">
+	</pnet-xml:transform>
+	<template:getSpaceJS />
 </body>
 </html>

@@ -13,32 +13,18 @@
  * If not, see http://www.gnu.org/licenses/gpl-3.0.html
 --%>
 
-<%--------------------------------------------------------------------
-|
-|    $RCSfile$
-|    $Revision: 13532 $
-|    $Date: 2004-10-22 23:37:37 +0530 (Fri, 22 Oct 2004) $
-|
-|--------------------------------------------------------------------%>
 <%@ page contentType="text/html; charset=UTF-8" info="Material Delete" language="java" errorPage="/errors.jsp"
-	import="net.project.base.property.PropertyProvider,
-            net.project.security.*,
+	import="net.project.security.*,
+			net.project.base.property.PropertyProvider,
             net.project.base.Module,
             net.project.material.Material,
             net.project.hibernate.service.ServiceFactory"%>
 <%@ include file="/base/taglibInclude.jsp"%>
+
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
 
-<template:getDoctype />
-
-<html>
-<head>
-
-<title><%=PropertyProvider.get("prm.material.delete.wizard.step1.title")%></title>
-
-<security:verifyAccess action="delete" module="<%=Module.MATERIAL%>" />
 <%
-		
+
 	if (request.getParameter("selected") != null && !request.getParameter("selected").trim().equals("")) {
 		Material material = new Material();
 		material.setMaterialId(request.getParameter("selected"));
@@ -47,36 +33,46 @@
 	}	
 	
 %>
-<template:getSpaceCSS space="project" />
+
+<security:verifyAccess action="delete" module="<%=Module.MATERIAL%>" />
+
+<template:getDoctype />
+<html>
+<head>
+<title><%=PropertyProvider.get("prm.material.delete.wizard.step1.title")%></title>
+
+<%-- Import CSS --%>
+<template:getSpaceCSS />
 
 <script language="javascript">
-    var theForm;
-    var isLoaded = false;
-    var JSPRootURL = '<%=SessionManager.getJSPRootURL()%>';    
-
-function setup(){
-	theForm = self.document.forms[0];
-	isLoaded = true;
-}
-
-// do a  redirect on canceling
-function cancel(){ 
-	self.close(); 
-}
-
-function finish() {
-	if(verifySelection(theForm, 'multiple', '<%=PropertyProvider.get("prm.global.javascript.verifyselection.noselection.error.message")%>')){
-		theForm.module.value='<%=net.project.base.Module.MATERIAL%>';
-		theForm.action.value ='<%=Action.DELETE%>';
-		theForm.submit();
+	var theForm;
+	var isLoaded = false;
+	var JSPRootURL = '<%=SessionManager.getJSPRootURL()%>';    
+	var currentSpaceTypeForBlog = 'project';
+	var currentSpaceIdForBlog = '<%=SessionManager.getUser().getID()%>';
+	
+	function setup() {
+		theForm = self.document.forms[0];
+		isLoaded = true;
 	}
-}
 
-function help() {
-	var helplocation = JSPRootURL + "/help/Help.jsp?page=materials&section=delete";
-	openwin_help(helplocation);
-}
+	// do a  redirect on canceling
+	function cancel(){ 
+		self.close(); 
+	}
 
+	function finish() {
+		if(verifySelection(theForm, 'multiple', '<%=PropertyProvider.get("prm.global.javascript.verifyselection.noselection.error.message")%>')){
+			theForm.module.value='<%=net.project.base.Module.MATERIAL%>';
+			theForm.action.value ='<%=Action.DELETE%>';
+			theForm.submit();
+		}
+	}
+
+	function help() {
+		var helplocation = JSPRootURL + "/help/Help.jsp?page=material_delete";
+		openwin_help(helplocation);
+	}
 </script>
 </head>
 
