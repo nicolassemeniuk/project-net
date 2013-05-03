@@ -13,25 +13,14 @@
  * If not, see http://www.gnu.org/licenses/gpl-3.0.html
 --%>
 
-<%--------------------------------------------------------------------
-|
-|    $RCSfile$
-|   $Revision: 18397 $
-|       $Date: 2008-11-21 10:47:28 -0200 (vie, 21 nov 2008) $
-|     $Author: umesha $
-|
-|--------------------------------------------------------------------%>
-<%@ page
-    contentType="text/html; charset=UTF-8"
-    info=""
-    language="java"
-    errorPage="/errors.jsp"
-    import="net.project.calendar.PnCalendar,
+<%@ page contentType="text/html; charset=UTF-8" info="Material Resource Allocation Calendar" language="java" errorPage="/errors.jsp"
+	import="net.project.calendar.PnCalendar,
             net.project.material.MaterialResourceAllocationCalendar,
             java.util.Date,
             net.project.base.Module"
 %>
 <%@ include file="/base/taglibInclude.jsp"%>
+
 <jsp:useBean id="endMonth" class="java.util.Date" scope="request"/>
 <jsp:useBean id="startMonth" class="java.util.Date" scope="request"/>
 <jsp:useBean id="prevMonth" class="java.util.Date" scope="request"/>
@@ -54,16 +43,14 @@
 <%-- Import CSS --%>
 <template:getSpaceCSS />
 
-
 </head>
 <body>
+	<pnet-xml:transform name="rc" scope="page" stylesheet="/material/xsl/material-allocation-calendar.xsl">
+		<pnet-xml:property name="nextMonth" value="<%=String.valueOf(nextMonth.getTime())%>"/>
+		<pnet-xml:property name="prevMonth" value="<%=String.valueOf(prevMonth.getTime())%>"/>
+		<pnet-xml:property name="materialID" value='<%=request.getParameter("materialID")%>'/>
+	</pnet-xml:transform>
 
-<pnet-xml:transform name="rc" scope="page" stylesheet="/material/xsl/material-allocation-calendar.xsl">
-    <pnet-xml:property name="nextMonth" value="<%=String.valueOf(nextMonth.getTime())%>"/>
-    <pnet-xml:property name="prevMonth" value="<%=String.valueOf(prevMonth.getTime())%>"/>
-    <pnet-xml:property name="materialID" value='<%=request.getParameter("materialID")%>'/>
-</pnet-xml:transform>
-
-<template:getSpaceJS />
+	<template:getSpaceJS />
 </body>
 </html>

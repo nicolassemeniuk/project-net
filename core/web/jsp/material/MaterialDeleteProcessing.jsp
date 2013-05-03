@@ -13,13 +13,6 @@
  * If not, see http://www.gnu.org/licenses/gpl-3.0.html
 --%>
 
-<%--------------------------------------------------------------------
-|
-|    $RCSfile$
-|   $Revision: 10578 $
-|       $Date: 2003-02-25 00:59:34 +0530 (Tue, 25 Feb 2003) $
-|
-|--------------------------------------------------------------------%>
 <%@ page contentType="text/html; charset=UTF-8" info="Process Material Delete" language="java" errorPage="/errors.jsp"
 	import="net.project.security.*, 
     		net.project.base.Module,
@@ -39,7 +32,6 @@
 	}
 
 	out.println("<script language=\"javascript\">");
-	//out.println("opener.location.reload(true);");
 	out.println("opener.location='" + SessionManager.getJSPRootURL() + "/material/Main.jsp?module=" + Module.MATERIAL+ "';");
 	out.println("self.close();");
 	out.println("</script>");
