@@ -87,8 +87,10 @@
 		<tr>
 			<td align="left" class="pageTitle">'<%=PropertyProvider.get("prm.material.delete.wizard.step1.pagetitle")%>'
 			</td>
+			<!--
 			<td align="right" class="pageTitle">'<%=PropertyProvider.get("prm.material.delete.wizard.step1.rightpagetitle")%>'
 			</td>
+			-->
 		</tr>
 	</table>
 

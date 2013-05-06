@@ -12,15 +12,16 @@
  * You should have received a copy of the GNU General Public License along with Project.net.
  * If not, see http://www.gnu.org/licenses/gpl-3.0.html
 --%>
+
 <%@ page contentType="text/html; charset=UTF-8" info="Material List" language="java" errorPage="/errors.jsp"
-	import="net.project.base.property.PropertyProvider,
-               net.project.security.*, 
-               net.project.util.NumberFormat,
-               net.project.gui.toolbar.Button,
-               net.project.gui.toolbar.ButtonType,
-               net.project.base.Module,
-               net.project.material.MaterialBeanList,
-		       net.project.hibernate.service.ServiceFactory"%>
+	import="net.project.security.*,
+			net.project.base.property.PropertyProvider,
+            net.project.util.NumberFormat,
+            net.project.gui.toolbar.Button,
+			net.project.gui.toolbar.ButtonType,
+            net.project.base.Module,
+            net.project.material.MaterialBeanList,
+			net.project.hibernate.service.ServiceFactory"%>
 <%@ include file="/base/taglibInclude.jsp"%>
 
 <jsp:useBean id="materialBeanList" class="net.project.material.MaterialBeanList" scope="page" />
@@ -28,17 +29,13 @@
 <jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
 
 <% 
-// 	if(!materialBeanList.getIsLoaded()){
 		materialBeanList.setSpaceID(user.getCurrentSpace().getID());
 		materialBeanList.load();
-// 	}
 %>
 
 <template:getDoctype />
-
 <html>
 <head>
-
 <title><display:get name="prm.global.application.title" /></title>
 
 <%-- Import CSS --%>
@@ -48,89 +45,89 @@
 <template:getSpaceJS space="project" />
 
 <script language="javascript">
-var theForm;
-var isLoaded = false;
-var JSPRootURL = '<%=SessionManager.getJSPRootURL()%>';  
-
-function setup() {
-   theForm = self.document.forms[0];
-   isLoaded = true;
-}
-
-function create (){
-	var theLocation = JSPRootURL + "/material/CreateMaterial.jsp?module=<%=Module.MATERIAL%>"+"&action=<%=Action.CREATE%>";
-	self.document.location = theLocation;
-}
-
-function modify(){
-	if (verifySelection(theForm, 'multiple', '<%=PropertyProvider.get("prm.global.javascript.verifyselection.noselection.error.message")%>')){ 
-		var theLocation = JSPRootURL+"/material/ModifyMaterial.jsp?id=" + getSelectedValueLocal() + "&module=<%=Module.MATERIAL%>&action=<%=Action.MODIFY%>";
-		self.document.location=theLocation;
+	var theForm;
+	var isLoaded = false;
+	var JSPRootURL = '<%=SessionManager.getJSPRootURL()%>';    
+	var currentSpaceTypeForBlog = 'project';
+	var currentSpaceIdForBlog = '<%=SessionManager.getUser().getID()%>';
+	
+	function setup() {
+		theForm = self.document.forms[0];
+		isLoaded = true;
 	}
-}
 
-function remove(){
-	if(verifySelection(theForm, 'multiple', '<%=PropertyProvider
-					.get("prm.global.javascript.verifyselection.noselection.error.message")%>')){
-		var redirect_url = JSPRootURL + "/material/MaterialDelete.jsp?selected="+ getSelection(theForm) + "&module=<%=Module.MATERIAL%>"+"&action=<%=Action.DELETE%>";
-		console.log(redirect_url);		
-		var link_win = openwin_linker(redirect_url);
-		link_win.focus();
-	}	
-}
+	function create (){
+		var theLocation = JSPRootURL + "/material/CreateMaterial.jsp?module=<%=Module.MATERIAL%>"+"&action=<%=Action.CREATE%>";
+		self.document.location = theLocation;
+	}
 
-function getSelectedValueLocal() {
-	var field = theForm.elements["selected"];
-	if(!field) {
-		field = document.getElementById('channelIFrame').contentWindow.document.getElementById('iFrameForm').elements['selected'];
-		var idval = field.value;
-		for (var i = 0; i < field.length; i++) {
-			if (field[i].checked == true) {
-				idval = field[i].value;
-				break;
-			}
+	function modify(){
+		if (verifySelection(theForm, 'multiple', '<%=PropertyProvider.get("prm.global.javascript.verifyselection.noselection.error.message")%>')){ 
+			var theLocation = JSPRootURL+"/material/ModifyMaterial.jsp?id=" + getSelectedValueLocal() + "&module=<%=Module.MATERIAL%>&action=<%=Action.MODIFY%>";
+			self.document.location=theLocation;
 		}
-  			return idval;
-	} else {
-		return getSelection(theForm);
 	}
-}
 
-function showResourceAllocation(materialID, startDate) {
-    var url = '<%=SessionManager.getJSPRootURL()+"/material/MaterialResourceAllocations.jsp?module=260&materialID="%>'+
-        materialID + '&startDate=' + startDate;
+	function remove(){
+		if(verifySelection(theForm, 'multiple', '<%=PropertyProvider
+						.get("prm.global.javascript.verifyselection.noselection.error.message")%>')){
+			var redirect_url = JSPRootURL + "/material/MaterialDelete.jsp?selected="+ getSelection(theForm) + "&module=<%=Module.MATERIAL%>"+"&action=<%=Action.DELETE%>";
+			console.log(redirect_url);		
+			var link_win = openwin_linker(redirect_url);
+			link_win.focus();
+		}	
+	}
 
-    openwin_large('material_resource_allocation', url);
-}
+	function getSelectedValueLocal() {
+		var field = theForm.elements["selected"];
+		if(!field) {
+			field = document.getElementById('channelIFrame').contentWindow.document.getElementById('iFrameForm').elements['selected'];
+			var idval = field.value;
+			for (var i = 0; i < field.length; i++) {
+				if (field[i].checked == true) {
+					idval = field[i].value;
+					break;
+				}
+			}
+	  			return idval;
+		} else {
+			return getSelection(theForm);
+		}
+	}
 
-function reset() { 
-	self.document.location = JSPRootURL + "/material/MaterialPortfolio.jsp?module=<%=Module.MATERIAL%>&portfolio=true"; 
-}
+	function showResourceAllocation(materialID, startDate) {
+		var url = '<%=SessionManager.getJSPRootURL()+"/material/MaterialResourceAllocations.jsp?module=260&materialID="%>'+
+		    materialID + '&startDate=' + startDate;
 
-function search() { 
-	self.document.location = JSPRootURL + "/search/SearchController.jsp?module=<%=Module.MATERIAL%>&action=<%=Action.VIEW%>";
-}
+		openwin_large('material_resource_allocation', url);
+	}
 
-function help() {
-		var helplocation = JSPRootURL + "/help/Help.jsp?page=material_main";
-		openwin_help(helplocation);
-}
+	function reset() { 
+		self.document.location = JSPRootURL + "/material/MaterialPortfolio.jsp?module=<%=Module.MATERIAL%>&portfolio=true"; 
+	}
 
-function refresh(parameters) {
-		var refreshLocation = JSPRootURL + "/material/Main.jsp?Module=<%=Module.MATERIAL%>"	+ parameters;
-		self.document.location = refreshLocation;
-}
+	function search() { 
+		self.document.location = JSPRootURL + "/search/SearchController.jsp?module=<%=Module.MATERIAL%>&action=<%=Action.VIEW%>";
+	}
 
-function popupHelp(page) {
-		var helplocation = JSPRootURL + "/help/Help.jsp?page=" + page;
-		openwin_help(helplocation);
-}
+	function help() {
+			var helplocation = JSPRootURL + "/help/Help.jsp?page=material_main";
+			openwin_help(helplocation);
+	}
+
+	function refresh(parameters) {
+			var refreshLocation = JSPRootURL + "/material/Main.jsp?Module=<%=Module.MATERIAL%>"	+ parameters;
+			self.document.location = refreshLocation;
+	}
+
+	function popupHelp(page) {
+			var helplocation = JSPRootURL + "/help/Help.jsp?page=" + page;
+			openwin_help(helplocation);
+	}
 </script>
-
-
-
 </head>
-<body onLoad="setup();" class="main" id='bodyWithFixedAreasSupport'>
+
+<body onLoad="setup();" class="main" id="bodyWithFixedAreasSupport">
 	<template:getSpaceMainMenu />
 	<template:getSpaceNavBar />
 
@@ -149,26 +146,30 @@ function popupHelp(page) {
 	</tb:toolbar>
 
 	<div id='content'>
-
-		<form action="" method="post">
+		<form name="materialList" action="#" method="POST">
 			<input type="hidden" name="theAction">
-
 			<table border="0" cellpadding="0" cellspacing="0" width="100%">
 				<tr align=left class="channelHeader">
-					<td width="1%"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border=0></td>
-					<td class="channelHeader"><display:get name="prm.material.main.channel.title" /></td>
-					<td width="1%" align=right><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border=0></td>
+					<td width="1%">
+						<img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border=0>
+					</td>
+					<td class="channelHeader">
+						<display:get name="prm.material.main.channel.title" />
+					</td>
+					<td width="1%" align=right>
+						<img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border=0>
+					</td>
 				</tr>
 				<tr>
 					<td>&nbsp;</td>
-					<td class="tableContent"><pnet-xml:transform scope="session" stylesheet="/material/xsl/materials-list.xsl"
-							content="<%=materialBeanList.getXML()%>" /></td>
+					<td class="tableContent">
+						<pnet-xml:transform scope="session" stylesheet="/material/xsl/materials-list.xsl" content="<%=materialBeanList.getXML()%>" />
+					</td>
 					<td>&nbsp;</td>
 				</tr>
 			</table>
-
 		</form>
-		<%@ include file="/help/include_outside/footer.jsp"%>
+	</div>
+	<%@ include file="/help/include_outside/footer.jsp"%>
 </body>
 </html>
-
