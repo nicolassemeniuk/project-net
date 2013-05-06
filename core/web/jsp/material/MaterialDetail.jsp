@@ -28,8 +28,6 @@
 <jsp:useBean id="materialBean" class="net.project.material.MaterialBean" scope="session" />
 <jsp:useBean id="domainList" class="net.project.project.DomainListBean" scope="page" />
 
-<security:verifyAccess action="view" module="<%=net.project.base.Module.MATERIAL%>" objectID="<%=materialBean.getMaterialId()%>" />
-
 <%
 	// Initialize Bean
 	String id = request.getParameter("id");
@@ -40,6 +38,8 @@
 		materialBean.load();
 	}
 %>
+
+<security:verifyAccess action="view" module="<%=net.project.base.Module.MATERIAL%>" objectID="<%=materialBean.getMaterialId()%>" />
 
 <template:getDoctype />
 <html>
@@ -61,6 +61,19 @@
 		isLoaded = true;
 	}
 
+	function modify(){
+		var theLocation = JSPRootURL+"/material/ModifyMaterial.jsp?id=" + <%=materialBean.getMaterialId()%> + "&module=<%=Module.MATERIAL%>&action=<%=Action.MODIFY%>";
+		self.document.location=theLocation;
+	}
+
+	
+	function remove(){
+			var redirect_url = JSPRootURL + "/material/MaterialDelete.jsp?selected="+ <%=materialBean.getMaterialId()%> + "&module=<%=Module.MATERIAL%>"+"&action=<%=Action.DELETE%>";
+			console.log(redirect_url);		
+			var link_win = openwin_linker(redirect_url);
+			link_win.focus();
+	}	
+	
 	function cancel() {
 		self.document.location = JSPRootURL + "/material/Main.jsp?module=<%=net.project.base.Module.MATERIAL%>";
 	}
@@ -76,6 +89,8 @@
 			<history:history />
 		</tb:setAttribute>
 		<tb:band name="standard">
+			<tb:button type="modify" label='<%= PropertyProvider.get("prm.material.main.modify.button.tooltip")%>' />
+			<tb:button type="remove" label='<%= PropertyProvider.get("prm.material.main.remove.button.tooltip")%>' />
 		</tb:band>
 	</tb:toolbar>
 

@@ -102,7 +102,7 @@
 </script>
 </head>
 
-<body class="main" bgcolor="#FFFFFF" onLoad="setup();" id="bodyWithFixedAreasSupport">
+<body onLoad="setup();" class="main" id="bodyWithFixedAreasSupport">
 	<template:getSpaceMainMenu />
 	<template:getSpaceNavBar />
 
@@ -196,9 +196,7 @@
 														<td nowrap colspan="5" class="fieldNonRequired">
 															<display:get name="prm.material.modifymaterial.materialdescription.label" />:&nbsp;
 															<br>
-															<textarea name="description" cols="80" rows="3" maxlength="240">
-																<c:out value="${materialBean.description}"></c:out>
-															</textarea>
+															<textarea name="description" cols="80" rows="3" maxlength="240"><c:out value="${materialBean.description}"></c:out></textarea>
 														</td>
 													</tr>
 							</table>

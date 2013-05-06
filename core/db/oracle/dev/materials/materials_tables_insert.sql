@@ -52,11 +52,12 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.materi
 insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.consumable.yes','Yes','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.consumable.no','No','A',0,1,null);
 
---Report type and sequence
+-- Report type and sequence
 insert into pn_space_type_has_report_type values('project','pmr');
 insert into pn_report_sequence values('pmr',11);
 
--- MaterialAllocation
+-- Material allocation
+insert into PN_PROPERTY values (2000,'en','text','prm.material.allocation.title','Material Assignments','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.allocation.materialcalendarsfor.label','Utilization Calendars for {0}','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.allocation.materiallistfor.label','Material Assignments for {0}','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.allocationlist.dates.name','Dates (s)','A',0,1,null);
