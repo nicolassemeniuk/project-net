@@ -144,7 +144,10 @@ public class ProjectMaterialReport extends AbstractReport {
                 }
 
                 detailedTable.addCell(ReportComponents.createDetailedCell(currentMaterial.getName()));
-                detailedTable.addCell(ReportComponents.createDetailedCell(currentMaterial.getDescription().trim()));
+                if(currentMaterial.getDescription() == null)
+                	detailedTable.addCell(ReportComponents.createDetailedCell(""));
+                else
+                	detailedTable.addCell(ReportComponents.createDetailedCell(currentMaterial.getDescription().trim()));
                 detailedTable.addCell(ReportComponents.createDetailedCell(currentMaterial.getCost().trim()));
                 detailedTable.addCell(ReportComponents.createDetailedCell(currentMaterial.getMaterialTypeName().trim()));
                 if(currentMaterial.getConsumable()){
