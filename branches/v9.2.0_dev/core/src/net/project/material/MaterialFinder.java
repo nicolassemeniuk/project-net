@@ -20,7 +20,8 @@ public class MaterialFinder extends Finder {
 	
 	private String BASE_SQL_STATEMENT = "select " + "  m.material_id, shm.space_id, m.material_name, m.material_description, m.material_cost, m.material_type_id, mt.material_type_name, m.material_consumable  " +
 										" from pn_material m, pn_space_has_material shm, pn_material_type mt " +
-										" where m.material_id = shm.material_id AND m.material_type_id = mt.material_type_id ";
+										" where m.material_id = shm.material_id AND m.material_type_id = mt.material_type_id AND" +
+										" m.record_status = 'A' ";
 	
 	private static int index = 0;
 	private static int MATERIAL_ID_COL_ID = ++index;
