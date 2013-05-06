@@ -60,6 +60,7 @@ import net.project.hibernate.service.ServiceFactory;
 import net.project.material.MaterialAssignment;
 import net.project.material.MaterialAssignmentList;
 import net.project.material.MaterialBean;
+import net.project.material.MaterialBeanList;
 import net.project.material.PnMaterialList;
 import net.project.news.News;
 import net.project.news.NewsList;
@@ -176,7 +177,7 @@ public class Dashboard extends BasePage {
 
 	private boolean hasNews;
 	
-	private ArrayList<MaterialBean> materialsList;
+	private MaterialBeanList materialsList;
 	
 	private MaterialBean material;		
 	
@@ -844,14 +845,9 @@ public class Dashboard extends BasePage {
 			}
 			
 			// load materials
-			materialsList = new ArrayList<MaterialBean>();			
-			PnMaterialList pnmaterialsList = ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(projectId);
-			for(PnMaterial pnMaterial : pnmaterialsList){
-				MaterialBean materialBean = new MaterialBean();
-				materialBean.setMaterialId(String.valueOf(pnMaterial.getMaterialId()));
-				materialBean.load();
-				materialsList.add(materialBean);
-			}
+			materialsList = new MaterialBeanList();
+			materialsList.setSpaceID(projectId);
+			materialsList.load();
 			
 			if(materialsList.isEmpty())
 				hasMaterials = false;
@@ -1358,12 +1354,12 @@ public class Dashboard extends BasePage {
 		return hasNews;
 	}
 	
-	public ArrayList<MaterialBean> getMaterialsList()
+	public MaterialBeanList getMaterialsList()
 	{
 		return materialsList;
 	}
 
-	public void setMaterialsList(ArrayList<MaterialBean> materialsList)
+	public void setMaterialsList(MaterialBeanList materialsList)
 	{
 		this.materialsList = materialsList;
 	}
