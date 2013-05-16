@@ -652,13 +652,14 @@ Quick Help:
         </copy>
     </target>
 
-    <target name="clean" depends="init">
+    <target name="clean" depends="init,prepare-dist-tomcat">
 		  <delete includeemptydirs="true">
 			    <fileset dir="${build.dir}" includes="**/*"/>
 				<fileset dir="${unit-test.dir}/bin" includes="**/*"/>
 				<fileset dir="${unit-test.dir}/test-report" includes="**/*"/>
 		  		<fileset dir="${build.test.acceptance}" includes="**/*"/>
 			  	<fileset dir="${dir.test.acceptance}/test-report" includes="**/*"/>  
+	        	<fileset dir="${dist.tomcat.dir}" includes="**/*" />
 		  </delete>
     </target>
 
