@@ -44,6 +44,7 @@ boolean isPersonalMenuSelected = false;
 boolean isBusinessMenuSelected = false;
 boolean isProjectMenuSelected = false;
 boolean isResourceMenuSelected = false;
+boolean isFinancialMenuSelected = false;
 
 String spaceString = request.getParameter("s");
 if(spaceString != null)
@@ -57,6 +58,8 @@ else if("project".equals(spaceString))
 	isProjectMenuSelected = true;
 else if("resources".equals(spaceString))
 	isResourceMenuSelected = true;
+else if("financial".equals(spaceString))
+	isFinancialMenuSelected = true;	
 
 String personalPage = (String) session.getAttribute("prm.global.login");
 if(StringUtils.isEmpty(personalPage)) {
@@ -334,6 +337,18 @@ function writeSpaceMenu() {
 		<%}%> 
 	menuString += "	</div> </td> ";
 	</display:if>
+	
+	<display:if name="prm.financial.isenabled">
+	menuString += "	<td width='90px' nowrap='nowrap'> <div class='menu-one'> ";
+		<% if (isFinancialMenuSelected) { %>
+			menuString += "	<div class='menu-one-selected-financial'> ";
+		<%}%> 
+	menuString += "		<a href='<%=SessionManager.getJSPRootURL()%>/financial/FinancialPortfolio.jsp?module=<%=Module.FINANCIAL_SPACE%>&portfolio=true' class='menu-financial'><%=PropertyProvider.get("prm.application.nav.space.financial")%></a> ";
+	    <% if (isFinancialMenuSelected) { %>
+			menuString += "	</div> ";
+		<%}%> 
+	menuString += "	</div> </td> ";
+	</display:if>	
 	
 	menuString += " </tr> </table>";
 	

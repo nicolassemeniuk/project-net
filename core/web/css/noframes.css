@@ -190,6 +190,9 @@ padding-right: 1px;
 div.menu-one div.menu-one-selected-resources {
 margin-left: -1px;
 }
+div.menu-one div.menu-one-selected-financial {
+margin-left: -2px;
+}
 
 .menu-one-selected-projects {
 	background: url('jspRootUrl/images/menu/projects/projects-back.png') no-repeat top;
@@ -213,8 +216,16 @@ margin-left: -1px;
 	padding-top: 0px;
 
 }
+.menu-one-selected-financial {
+	background: url('jspRootUrl/images/menu/financial/financial-back.png') no-repeat top;
+	width: 102px;
+	text-align: center;
+	height: 24px;
+	padding-top: 0px;
 
+}
 
+div.menu-one-selected-financial a, div.menu-one-selected-financial a:hover,
 div.menu-one-selected-projects a, div.menu-one-selected-projects a:hover,
 div.menu-one-selected-business a, div.menu-one-selected-business a:hover,
 div.menu-one-selected-personal a, div.menu-one-selected-personal a:hover,
@@ -239,6 +250,12 @@ a:hover.menu-personal{
 	color: #444444;
 }
 a:hover.menu-resources{
+
+	padding-bottom: 4px;
+	color: #444444;
+}
+
+a:hover.menu-financial{
 
 	padding-bottom: 4px;
 	color: #444444;
@@ -300,6 +317,42 @@ table.menu-subpersonal {
 }
 .menu-subpersonal-end {
 	background: url('jspRootUrl/images/menu/personal/personal-right.png') no-repeat right;
+	width: 19px;
+	height: 19px;
+	top: 0px;
+	right: -19px;	
+}
+
+/* SUB FINANCIAL */
+.menu-subfinancial {
+	height: 19px;
+	background: url('jspRootUrl/images/menu/financial/financial-bg.png') no-repeat top right;
+	font-family: Trebuchet MS;
+	font-size: 13px; /*float: left;*/
+	top: 66px;
+	left: 0px;
+	position: absolute;
+	padding-right: 10px;
+	white-space: nowrap;
+	z-index: 10;
+	vertical-align: middle;
+}
+table.menu-subfinancial {
+	width: 1000px; /* financial tab submenu width */
+}
+.menu-subfinancial span {
+	margin-right: 12px;
+}
+.menu-subfinancial span a, .menu-subfinancial span a:visited {
+	color: #4e3a58;
+	text-decoration: none;
+}
+.menu-subfinancial span a:hover {
+	text-decoration: none;
+	color: #7E5f8E;
+}
+.menu-subfinancial-end {
+	background: url('jspRootUrl/images/menu/financial/financial-right.png') no-repeat right;
 	width: 19px;
 	height: 19px;
 	top: 0px;
@@ -452,6 +505,7 @@ table.menu-subadmin {
 }
 
 /* Sub SELECTED Links */
+.menu-subfinancial span a.selected, .menu-subfinancial span a.selected:visited, .menu-subfinancial span a.selected:hover,
 .menu-subprojects span a.selected, .menu-subprojects span a.selected:visited, .menu-subprojects span a.selected:hover,
 .menu-subbusiness span a.selected, .menu-subbusiness span a.selected:visited, .menu-subbusiness span a.selected:hover,
 .menu-subpersonal span a.selected, .menu-subpersonal span a.selected:visited, .menu-subpersonal span a.selected:hover,
@@ -519,6 +573,20 @@ table.menu-subadmin {
 	font-size: 18px;
 	white-space: nowrap;
 	overflow:hidden;
+}
+
+/* FINANCIAL Left Heading */
+#leftheading-financial {
+	background: url('jspRootUrl/images/menu/financial/leftheading-financial.png') no-repeat;
+	width: 174px;
+	height: 23px;
+	padding-left: 14px;
+	margin-top: 4px;
+	position: absolute;
+	font-family: Tahoma, Trebuchet;
+	font-size: 18px;
+	white-space: nowrap;
+	overflow: auto;
 }
 
 /* ADMIN Left Heading */
@@ -789,6 +857,17 @@ ul.dropdown li div a
     color: #33CC00;
 }
 
+/*For FINANCIAL*/
+.menu-subfinancial ul.dropdown li div {
+	border: 1px solid #FFB8AA;
+	background: #FFDFD8;
+}
+.menu-subfinancial ul.dropdown li div a, div.menu-subfinancial ul.dropdown li div a:visited {
+	color: #FF6D63;
+}
+.menu-subfinancial ul.dropdown li div a:hover {
+	color: #FF3B38;
+}
 
 /*For PROJECT*/
 

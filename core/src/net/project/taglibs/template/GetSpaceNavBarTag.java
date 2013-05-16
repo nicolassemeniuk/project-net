@@ -88,6 +88,8 @@ public class GetSpaceNavBarTag extends TagSupport {
             return "project";
         } else if (spaceType.equals(ISpaceTypes.BUSINESS_SPACE)) {
             return "business";
+        } else if (spaceType.equals(ISpaceTypes.FINANCIAL_SPACE)) {
+            return "financial";            
         } else if (spaceType.equals(ISpaceTypes.METHODOLOGY_SPACE)) {
             return "methodology";
         } else if (spaceType.equals(ISpaceTypes.APPLICATION_SPACE)) {
@@ -108,6 +110,8 @@ public class GetSpaceNavBarTag extends TagSupport {
             return "project";
         } else if ("business".equals(_space)) {
             return "business";
+        } else if ("financial".equals(_space)) {
+        	return "financial";            
         } else if ("methodology".equals(_space)) {
             return "methodology";
         } else if ("application".equals(_space)) {

@@ -1,0 +1,349 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+/* MAIN */
+
+body.mainNoBGC {
+	
+}
+
+a {
+	
+}
+
+.instructions {
+	background-color: #FFFFFF;
+	color: #996633;
+}
+
+a.channelNoUnderline {
+	
+}
+
+.channelHeader {
+	background-color: #AB80C1;
+	color: #000000;
+}
+
+.channelHeaderDarker {
+	background-color: #996633;
+	color: #FFFFFF;
+	font-weight: bold;
+}
+
+.channelContent {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+.white {
+	
+}
+
+.calendar {
+	color: #000000;
+}
+
+.calToday {
+	color: #FF0000;
+	background-color: #ffffcc;
+	border: 1px solid #FFEFA5;
+}
+
+.pageTitle {
+	color: #996633;
+}
+
+.label {
+	color: #996633;
+}
+
+.actionBar {
+	color: #000000;
+	background-image: url('../images/financial/actionbar-background.gif');
+	background-repeat: repeat-x;
+}
+
+.actionContentReq {
+	color: #000000;
+}
+
+.actionContentNotReq {
+	color: #999999;
+}
+
+.tableFilterHeader {
+	background-color: #CCCCCC ! IMPORTANT;
+	color: #333399;
+}
+
+.tableFilterContent {
+	background-color: #CCCCCC ! IMPORTANT;
+}
+
+.tableFilterControl {
+	margin: 2px;
+}
+
+.rowSep {
+	background-color: #FFEFA5;
+	padding: 0px;
+	height: 1px;
+	border-collapse: collapse;
+}
+
+.headerSep {
+	background-color: #FFEFA5;
+	padding: 0px;
+	height: 2px;
+	border-collapse: collapse;
+}
+
+.rowHighlight {
+	background-color: #FFEFA5;
+}
+
+/* BANNER */
+body.banner {
+	background-repeat: no-repeat;
+}
+
+.bannerLink1 {
+	color: #000000;
+}
+
+.bannerLink2 {
+	color: #FFFFFF;
+}
+
+.userId {
+	color: #FFFFFF;
+}
+
+/* LEFT NAV */
+div#leftframe {
+	/*background-image: url('../images/personal/background-leftnav.gif');*/
+	background-repeat: repeat-y;
+}
+
+.leftNavHeader {
+	color: #000000;
+}
+
+.leftNavLink {
+	color: #000000;
+}
+
+.vertLine {
+	
+}
+
+.vertNoLine {
+	
+}
+
+/* LEGACY */
+.tableHeader {
+	background-color: #FFFFFF;
+	color: #996633;
+}
+
+.tableLine {
+	background-color: transparent;
+}
+
+.tableContent {
+	background-color: #FFFFFF;
+	color: #000000;
+}
+
+.tableContentHighlight {
+	background-color: #FFEAAA;
+	color: #000000;
+}
+
+.tableContentNoBGC {
+	color: #000000;
+}
+
+.tableContentFontOnly {
+	
+}
+
+/* FORMS */
+.fieldRequired {
+	color: #000000;
+}
+
+.fieldNonRequired {
+	color: #666666;
+}
+
+.fieldWithError {
+	color: #FF0000;
+}
+
+.warningTextRed {
+	color: #FF0000;
+}
+
+.errorMessage {
+	color: #FF0000;
+}
+
+.successMessage {
+	color: #FF0000;
+}
+
+/* New css class for dashboard */
+.dashboard-even {
+	background: #fffcdd;
+}
+
+.two-pane-right-top {
+	border-bottom: 1px solid #EED765;
+	border-left: 1px solid #EED765;
+	background-color: #FEF5C7;
+	padding: 5px 0px 5px 15px;
+	font-size: 11px;
+	text-align: left;
+	color: #999999;
+}
+
+.scrollHeader {
+	color: #EED765;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+#hidePopup {
+	background-image: url('../images/personal/dashboard_close.gif');
+	background-repeat: no-repeat;
+	background-position: right;
+	height: 20px;
+	width: 20px;
+}
+
+#lessButton {
+	background-image: url('../images/personal/less_option.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 10px;
+}
+
+#moreButton {
+	background-image: url('../images/personal/more_option.png');
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 10px;
+}
+
+#table-lines {
+	position: relative;
+	left: 0;
+	top: 0;
+	border-style: solid;
+	border-width: 3px;
+	border-color: #FFEFA5;
+}
+
+.top_left {
+	background: #cccccc url('../images/personal/top_left.png') left top
+		no-repeat;
+	width: 6px;
+}
+
+.top_m {
+	background: url('../images/personal/top_m.png') center top repeat-x;
+	font-size: 14px;
+	font-weight: bold;
+	height: 18px;
+}
+
+.top_right {
+	background: #cccccc url('../images/personal/top_right.png') right top
+		no-repeat;
+	width: 6px;
+}
+
+.m_left {
+	background: url('../images/personal/m_left.png') left top repeat-y;
+}
+
+.mid {
+	background: url('../images/personal/top_m.png') bottom right repeat-x;
+}
+
+.m_right {
+	background: url('../images/personal/m_right.png') right top repeat-y;
+}
+
+.bottom_left {
+	background: #cccccc url('../images/personal/bottom_left.png') left top
+		no-repeat;
+	height: 36px;
+}
+
+.bottom_m {
+	background: url('../images/personal/bottom_m.png') center top repeat-x;
+}
+
+.bottom_right {
+	background: #cccccc url('../images/personal/bottom_right.png') right top
+		no-repeat;
+}
+
+.bar {
+	background: url('../images/personal/notify_hbar.png') center top
+		repeat-x;
+	height: 15px;
+}
+
+.editNotifyHeader {
+	border-bottom: 1px solid Silver;
+	color: #F2B600;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	width: 95%;
+}
+
+.notification-itemName {
+	background-color: #FEF5C7;
+	border-bottom: solid 1px #FFD973;
+	font-size: 12px;
+	font-weight: bold;
+	height: 30px;
+	padding-left: 30px;
+	vertical-align: middle;
+	width: 99%;
+}
+
+.progress-bar-container {
+	background-color: #F6F6F6;
+	border: 1px solid #D7D7D7;
+	margin: 2px;
+	height: 15px;
+	width: 100px;
+	font-size: 11px;
+	overflow: hidden;
+}
+
+.progress-line {
+	background-color: #64D23F;
+	margin: 1px;
+	text-align: center;
+	height: 12px;
+}

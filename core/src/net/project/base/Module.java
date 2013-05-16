@@ -46,6 +46,7 @@ public class Module implements java.io.Serializable {
     public static final int PROJECT_SPACE = 150;
     public static final int PERSONAL_SPACE = 160;
     public static final int BUSINESS_SPACE = 170;
+    public static final int FINANCIAL_SPACE = 175;
     public static final int SECURITY = 180;
     public static final int METHODOLOGY_SPACE = 190;
     public static final int WORKFLOW = 200;    
@@ -125,6 +126,8 @@ public class Module implements java.io.Serializable {
             return ENTERPRISE_SPACE;
         } else if (spaceType.equals(ISpaceTypes.RESOURCES_SPACE)) {
         	return RESOURCES_SPACE;
+        } else if (spaceType.equals(ISpaceTypes.FINANCIAL_SPACE)) {
+        	return FINANCIAL_SPACE;        	
         } else {
             return -1;
         }

@@ -22,6 +22,7 @@ import net.project.business.BusinessSpace;
 import net.project.configuration.ConfigurationSpace;
 import net.project.database.DBBean;
 import net.project.enterprise.EnterpriseSpace;
+import net.project.financial.FinancialSpace;
 import net.project.methodology.MethodologySpace;
 import net.project.persistence.PersistenceException;
 import net.project.project.ProjectSpace;
@@ -46,6 +47,8 @@ public abstract class SpaceFactory implements ISpaceTypes {
             return new PersonalSpace();
         } else if (BUSINESS_SPACE.equals(spaceTypeName)) {
             return new BusinessSpace();
+        } else if (FINANCIAL_SPACE.equals(spaceTypeName)) {
+        	return new FinancialSpace();            
         } else if (METHODOLOGY_SPACE.equals(spaceTypeName)) {
             return new MethodologySpace();
         } else if (APPLICATION_SPACE.equals(spaceTypeName)) {
@@ -112,6 +115,8 @@ public abstract class SpaceFactory implements ISpaceTypes {
             space = new PersonalSpace(spaceID);
         } else if (BUSINESS_SPACE.equals(spaceTypeName)) {
             space = new BusinessSpace(spaceID);
+        } else if (FINANCIAL_SPACE.equals(spaceTypeName)) {
+            space = new FinancialSpace(spaceID);            
         } else if (METHODOLOGY_SPACE.equals(spaceTypeName)) {
             space = new MethodologySpace(spaceID);
         } else if (APPLICATION_SPACE.equals(spaceTypeName)) {

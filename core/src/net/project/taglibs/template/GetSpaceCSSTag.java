@@ -272,6 +272,9 @@ public class GetSpaceCSSTag extends TagSupport {
         } else if (spaceType.equals(Space.BUSINESS_SPACE)) {
             this.path = PropertyProvider.get("prm.global.css.business");
 
+        } else if (spaceType.equals(Space.FINANCIAL_SPACE)) {
+            this.path = PropertyProvider.get("prm.global.css.financial");                
+            
         } else if (spaceType.equals(Space.METHODOLOGY_SPACE)) {
             this.path = PropertyProvider.get("prm.global.css.methodology");
 
@@ -313,6 +316,8 @@ public class GetSpaceCSSTag extends TagSupport {
             return "project";
         } else if (spaceType.equals(ISpaceTypes.BUSINESS_SPACE)) {
             return "business";
+        } else if (spaceType.equals(ISpaceTypes.FINANCIAL_SPACE)) {
+        	return "financial";            
         } else if (spaceType.equals(ISpaceTypes.METHODOLOGY_SPACE)) {
             return "methodology";
         } else if (spaceType.equals(ISpaceTypes.APPLICATION_SPACE)) {
@@ -349,6 +354,9 @@ public class GetSpaceCSSTag extends TagSupport {
         } else if (spaceType.equals(Space.BUSINESS_SPACE)) {
             this.space = "business";
 
+        } else if (spaceType.equals(Space.FINANCIAL_SPACE)) {
+        	this.space = "financial";            
+            
         } else if (spaceType.equals(Space.METHODOLOGY_SPACE)) {
             this.space = "methodology";
 
