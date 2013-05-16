@@ -46,6 +46,7 @@ public class SpaceTypes implements ISpaceTypes {
     public static final SpaceType GENERIC = new SpaceType(ISpaceTypes.GENERIC_SPACE,"@prm.space.spacetypes.generic.name");
     public static final SpaceType PROJECT = new SpaceType(ISpaceTypes.PROJECT_SPACE,"@prm.space.spacetypes.project.name");
     public static final SpaceType ENTERPRISE = new SpaceType(ISpaceTypes.ENTERPRISE_SPACE,"@prm.space.spacetypes.enterprise.name");
+    public static final SpaceType FINANCIAL = new SpaceType(ISpaceTypes.FINANCIAL_SPACE,"@prm.space.spacetypes.financial.name");    
 
     /**
      * Add a new space type to PRM.

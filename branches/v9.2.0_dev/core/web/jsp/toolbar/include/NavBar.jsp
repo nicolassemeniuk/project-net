@@ -39,6 +39,9 @@
 		pageContext.include("/business/include/NavBar.jsp");
     } else if (user.getCurrentSpace().getType().equals(Space.PROJECT_SPACE)) {
 		pageContext.include("/project/include/NavBar.jsp");
+		//@ramiro
+    } else if (user.getCurrentSpace().getType().equals(Space.FINANCIAL_SPACE)) {
+		pageContext.include("/financial/include/NavBar.jsp");		
     } else {
 		pageContext.include("/personal/include/NavBar.jsp");
     }

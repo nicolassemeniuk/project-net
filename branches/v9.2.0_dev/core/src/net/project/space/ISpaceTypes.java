@@ -38,6 +38,9 @@ public interface ISpaceTypes
 
     /* A business workspace */
     public static final String BUSINESS_SPACE = "business";
+
+    /* A financial workspace */
+    public static final String FINANCIAL_SPACE = "financial";
     
     /** provides a workspace for managing methodology templates. */
     public static final String METHODOLOGY_SPACE = "methodology";
