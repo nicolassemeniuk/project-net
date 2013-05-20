@@ -173,9 +173,10 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
     private ColorCode financialStatusColorCode = null;
 
     /**
-     * The improvment of the financial status.
+     * The improvement of the financial status.
      */
     private ImprovementCode financialStatusImprovementCode = null;
+ 
 
     /**
      * Budgeted total cost.
@@ -355,7 +356,7 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
         setImprovementCode(source.getImprovementCode());
         setCurrentStatusDescription(source.getCurrentStatusDescription());
         setFinancialStatusColorCode(source.getFinancialStatusColorCode());
-        setFinancialStatusImprovementCode(source.getFinancialStatusImprovementCode());
+        setFinancialStatusImprovementCode(source.getFinancialStatusImprovementCode());        
         setBudgetedTotalCost(source.getBudgetedTotalCost());
         setCurrentEstimatedTotalCost(source.getCurrentEstimatedTotalCost());
         setActualCostToDate(source.getActualCostToDate());
@@ -1225,9 +1226,10 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
      */
     public ImprovementCode getFinancialStatusImprovementCode() {
         return this.financialStatusImprovementCode;
-    }
+    }    
 
-    /**
+
+	/**
      * Specifies the budgeted total cost for this project.
      * 
      * @param budgetedTotalCost
