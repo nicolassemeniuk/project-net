@@ -39,18 +39,10 @@ public class PnMaterialTypeDAOImpl extends AbstractHibernateAnnotatedDAO<PnMater
 	public PnMaterialTypeList getMaterialTypes() {
 		PnMaterialTypeList result = new PnMaterialTypeList();
 		try {
-			// HibernateTemplate.initialize(PnMaterial pnMaterial);
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
 			Session session = factory.openSession();
 			result = new PnMaterialTypeList(session.createQuery("FROM PnMaterialType").list());
 			session.close();
-			// String sql =
-			// "select distinct new PnMaterial(m.materialId, m.materialName, m.materialDescription, m.materialCost) from PnMaterial m, PnMaterialType mt where "
-			// +
-			// "m.materialTypeId = mt.materialTypeId";
-			// Query query =
-			// getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery(sql);
-			// result = new PnMaterialList(query.list());
 		} catch (Exception e) {
 			log.error("Error occurred while getting the list of material types " + e.getMessage());
 			e.printStackTrace();

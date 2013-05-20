@@ -17,22 +17,35 @@ package net.project.financial;
 
 import java.io.Serializable;
 
+import net.project.hibernate.model.PnFinancialSpace;
+import net.project.persistence.IXMLPersistence;
 import net.project.persistence.PersistenceException;
+import net.project.security.User;
 import net.project.space.ISpaceTypes;
 import net.project.space.Space;
 import net.project.space.SpaceTypes;
 
-import org.apache.log4j.Logger;
-
 /**
  * A Financial Workspace.
  */
-public class FinancialSpace extends Space implements Serializable {
+public class FinancialSpace extends Space implements Serializable, IXMLPersistence {
+	
+	protected Integer financialSpaceId = null;
+	protected String financialSpaceName = null;
+	protected User user = null;
+	
 
 	/**
 	 * Creates a new FinancialSpace.
 	 */
 	public FinancialSpace() {
+		setType(ISpaceTypes.FINANCIAL_SPACE);
+		this.spaceType = SpaceTypes.FINANCIAL;
+	}
+	
+	public FinancialSpace(PnFinancialSpace pnFinancialSpace){
+		this.financialSpaceId = pnFinancialSpace.getFinancialSpaceId();
+		this.financialSpaceName = pnFinancialSpace.getFinancialSpaceName();
 		setType(ISpaceTypes.FINANCIAL_SPACE);
 		this.spaceType = SpaceTypes.FINANCIAL;
 	}
@@ -45,6 +58,32 @@ public class FinancialSpace extends Space implements Serializable {
 		super(financialSpaceId);
 		setType(ISpaceTypes.FINANCIAL_SPACE);
 		this.spaceType = SpaceTypes.FINANCIAL;
+	}
+	
+	
+
+	public Integer getFinancialSpaceId() {
+		return financialSpaceId;
+	}
+
+	public void setFinancialSpaceId(Integer financialSpaceId) {
+		this.financialSpaceId = financialSpaceId;
+	}
+
+	public String getFinancialSpaceName() {
+		return financialSpaceName;
+	}
+
+	public void setFinancialSpaceName(String financialSpaceName) {
+		this.financialSpaceName = financialSpaceName;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	/**************************************************************************************************
