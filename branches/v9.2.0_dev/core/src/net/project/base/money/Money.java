@@ -188,7 +188,7 @@ public class Money {
     /**
      * Creates an Money object with value 0 and currency USD.
      */
-    private Money() {
+    public Money() {
         this(new BigDecimal("0"), Currency.getInstance("USD"));
     }
 
