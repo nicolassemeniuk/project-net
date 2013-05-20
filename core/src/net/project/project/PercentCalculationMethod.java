@@ -25,7 +25,7 @@ import java.io.Serializable;
  */
 public class PercentCalculationMethod implements Serializable {
 
-    /** ID represented the caluculation method */
+    /** ID represented the calculation method */
     private String id;
 
     /** String constant representing manual completion type.
