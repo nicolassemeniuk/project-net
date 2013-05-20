@@ -142,6 +142,15 @@ function setup() {
 		selectRadio(theForm.percentCalculationMethod, '<%=PercentCalculationMethod.MANUAL.getID()%>');
 		changeProgressMethod('<%=PercentCalculationMethod.MANUAL.getID()%>');
 	}
+	
+	var costCalculationMethod = document.getElementById("costCalculationMethod");
+	if(costCalculationMethod == "manual"){
+		selectRadio(theForm.costCalculationMethod, 'manual');
+		enableCostTextFields(false);
+	}else{
+		selectRadio(theForm.costCalculationMethod, 'automatic');
+	}
+	
 	this.focus();
 }
 
@@ -161,6 +170,12 @@ function setProgressRequiredFields (required) {
 <%-- bfd 3273: Overall Completion option box behaves incorrectly when select on and off --%>
        // self.document.getElementById("project.manual.percentComplete").className = cssClass;
         self.document.getElementById("percentComplete").disabled = isFieldDisabled;
+}
+
+function enableCostTextFields(val){
+	document.EDITPROJ.actualCostToDate_value.disabled=!val;
+	document.EDITPROJ.currentEstimatedTotalCost_value.disabled=!val;
+	document.EDITPROJ.estimatedROI.disabled=!val;
 }
 
 function cancel() {
@@ -341,12 +356,13 @@ function isNumeric(val){
     }
 %>
 
-<form method="post" action="<%=SessionManager.getJSPRootURL()%>/project/ProjectEditProcessing.jsp" >
+<form method="post" action="<%=SessionManager.getJSPRootURL()%>/project/ProjectEditProcessing.jsp" name="EDITPROJ" >
 <input type="hidden" name="module" value="<%= net.project.base.Module.PROJECT_SPACE %>">
 <input type="hidden" name="action" value="<%= net.project.security.Action.MODIFY %>">
 <input type="hidden" name="referer" value="<%=referer%>">
 <input type="hidden" name="theAction">
 <input type="hidden" id="calculationMethod" value="<%=projectSpace.getPercentCalculationMethod().getID()%>"/>
+<input type="hidden" id="costCalculationMethod" value="<%=projectSpace.getMetaData().getProperty("CostCalculationMethod")%>"/>
 
 <table border="0"  align="left" width="97%" cellpadding="0" cellspacing="0">
 
@@ -819,10 +835,11 @@ Financial Status
 ------------------------------------------------------------------------------%>
 <tr class="channelHeader">
 <td width="1%"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width="8" height="15" alt="" border="0"></td>
-<td class="channelHeader" colspan="2"><nobr><display:get name="prm.project.propertiesedit.channel.financialstatus.title" /></nobr></td>
+<td class="channelHeader" colspan="2"><nobr><display:get name="prm.project.propertiesedit.channel.finanacialcompletion.title" /></nobr></td>
 <td align="right" width="1%"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width="8" height="15" alt="" border="0"></td>
 </tr>
-    <%-- Default Currency Code --%>
+
+   <%-- Default Currency Code --%>
 <tr align="left">
 <td>&nbsp;</td>
 <td class="fieldRequired"><display:get name="prm.project.properties.defaultcurrency.label" /></td>
@@ -844,6 +861,14 @@ Financial Status
 </td>
 <td>&nbsp;</td>
 </tr>
+<%-- Cost Center --%>
+<tr align="left">
+<td>&nbsp;</td>
+<td class="fieldNonRequired"><display:get name="prm.project.propertiesedit.costcenter.label" /></td>
+<td class="tableContent">
+<input type="text" name="costCenter" size="40" maxlength="1000" value="<c:out value="${projectSpace.costCenter}"/>">
+</td>
+<td>&nbsp;</td>
 <%-- Budgeted Total Cost --%>
 <tr align="left">
 <td>&nbsp;</td>
@@ -853,44 +878,109 @@ Financial Status
         </td>
         <td>&nbsp;</td>
 </tr>
-<%-- Current Estimated Total Cost --%>
-<tr align="left">
-<td>&nbsp;</td>
-<td class="fieldNonRequired"><display:get name="prm.project.propertiesedit.currentestimatedtotalcost.label" /></td>
-<td class="tableContent">
-        <input:money name="currentEstimatedTotalCost" money="<%=projectSpace.getCurrentEstimatedTotalCost()%>" currency="<%=projectSpace.getDefaultCurrency()%>"/>
-        </td>
-        <td>&nbsp;</td>
-</tr>
-<%-- Actual Cost To Date--%>
-<tr align="left">
-<td>&nbsp;</td>
-<td class="fieldNonRequired"><display:get name="prm.project.propertiesedit.actualcosttodate.label" /></td>
-<td class="tableContent">
-        <input:money name="actualCostToDate" money="<%=projectSpace.getActualCostToDate()%>" currency="<%=projectSpace.getDefaultCurrency()%>" />
-        </td>
-        <td>&nbsp;</td>
-</tr>
-<%-- Estimated ROI --%>
-<tr align="left">
-<td>&nbsp;</td>
-<td class="fieldNonRequired"><display:get name="prm.project.propertiesedit.estimatedroi.label" /></td>
-<td class="tableContent">
-		<input type="text" name="estimatedROI" size="40" maxlength="1000" value="<%
-		if (projectSpace.getEstimatedROI() != null && projectSpace.getEstimatedROI().getValue() != null)
-			out.print(projectSpace.getEstimatedROI().getValue());
-		%>"/>%
-		</td>
-        <td>&nbsp;</td>
-</tr>
-<%-- Cost Center --%>
-<tr align="left">
-<td>&nbsp;</td>
-<td class="fieldNonRequired"><display:get name="prm.project.propertiesedit.costcenter.label" /></td>
-<td class="tableContent">
-<input type="text" name="costCenter" size="40" maxlength="1000" value="<c:out value="${projectSpace.costCenter}"/>">
-</td>
-<td>&nbsp;</td>
+
+<tr><td colspan="4">&nbsp;</td></tr>
+
+		<tr align="left">
+			<td>&nbsp;</td>
+			
+			<td valign="top" class="fieldRequired">
+				<display:get name="prm.project.create.wizard.costcompletion.select" />
+			</td>
+			
+			<td class="tableContent">
+			
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td class="tableContent" width="1%">
+							<input type="radio" checked onclick="enableCostTextFields(false)" name="MetaCostCalculationMethod" value="automatic" >&nbsp;
+						</td>
+						<td class="tableContent" valign="top">
+						 	<span id="project.schedule.percentComplete"><display:get name="prm.project.create.wizard.completion.projectcosts.label"/></span>
+						</td>
+					</tr>
+					
+					<tr>
+						<td class="tableContent">&nbsp;</td>
+						<td class="tableContent"><display:get name="prm.project.create.wizard.completion.projectcosts.description"/>
+						</td>
+					</tr>
+					
+					<tr>
+						<td colspan="4">&nbsp;</td>
+					</tr>
+					
+					<tr>
+						<td class="tableContent" width="1%">
+							<input type="radio" onclick="enableCostTextFields(true)" name="MetaCostCalculationMethod" value="manual">&nbsp;
+						</td>						
+						<td class="tableContent" valign="top">
+							<span id="project.manual.percentComplete">
+								<display:get name="prm.project.create.wizard.costs.label" />
+							</span>				
+						</td>
+						
+					</tr>	
+					
+					<%-- Current Estimated Total Cost --%>
+					<tr align="left">
+						<td>&nbsp;</td>
+						<td class="fieldNonRequired">
+							<display:get name="prm.project.create.wizard.currentestimatedtotalcost.label" />:&nbsp;
+						</td>						
+						<td class="tableContent">
+					        <input:money name="currentEstimatedTotalCost" money="<%=projectSpace.getCurrentEstimatedTotalCost()%>" currency="<%=projectSpace.getDefaultCurrency()%>" disabled="true"/>
+				        </td>
+					   	<td>&nbsp;</td>
+					</tr>
+					
+					<%-- Actual Cost To Date--%>
+					<tr align="left">
+						<td>&nbsp;</td>
+						<td class="fieldNonRequired">
+							<display:get name="prm.project.create.wizard.actualcosttodate.label" />:&nbsp;
+						</td>						
+						<td class="tableContent">
+						        <input:money name="actualCostToDate" money="<%=projectSpace.getActualCostToDate() %>" currency="<%=projectSpace.getDefaultCurrency()%>" disabled="true"/>
+				        </td>
+				        <td>&nbsp;</td>
+					</tr>
+					
+					<%-- Estimated ROI --%>
+					<tr align="left">
+						<td>&nbsp;</td>
+						<td class="fieldNonRequired">
+							<display:get name="prm.project.create.wizard.estimatedroi.label" />:&nbsp;
+						</td>
+
+						<td class="tableContent">
+								<input type="text" name="estimatedROI" size="40" maxlength="1000" disabled="true" 
+									value="<%
+												if (projectSpace.getEstimatedROI() != null && projectSpace.getEstimatedROI().getValue() != null)
+															out.print(projectSpace.getEstimatedROI().getValue());
+											%>"/>%
+						</td>
+				        <td>&nbsp;</td>
+					</tr>
+					
+						
+				</table>
+			
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+
+
+
+
+
+
+
+
+
+ 
+
+
 </tr>
 
 

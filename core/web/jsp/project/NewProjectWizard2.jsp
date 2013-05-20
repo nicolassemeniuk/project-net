@@ -15,7 +15,7 @@
 
 <%@ page
     contentType="text/html; charset=UTF-8"
-    info="New Project Wizard -- page 1"
+    info="New Project Wizard -- page 2"
     language="java"
     errorPage="/errors.jsp"
     import="net.project.project.*,
@@ -28,6 +28,9 @@
     			net.project.methodology.MethodologyProvider,
 				net.project.base.property.PropertyProvider,
 	            net.project.code.ColorCode,
+	            net.project.util.Currency,
+	            net.project.base.money.Money,
+	            net.project.project.CostCalculationMethod,
     	        net.project.code.ImprovementCode"
 %>
 
@@ -108,19 +111,23 @@ function submit() {
     	theForm.submit();
 }
 
-function back() {
+function back(){
     self.document.location = JSPRootURL + "/project/NewProjectWizard0.jsp?module=<%= module %>";
 }
 
-function help()
-{
+function help(){
 	var helplocation=JSPRootURL+"/help/Help.jsp?page=project_portfolio&section=create";
 	openwin_help(helplocation);
 }
 
-function enableTextField(val)
-{
+function enableTextField(val){
 	document.CREATEPROJ.percentComplete.disabled=val;
+}
+
+function enableCostTextFields(val){
+	document.CREATEPROJ.actualCostToDate_value.disabled=!val;
+	document.CREATEPROJ.currentEstimatedTotalCost_value.disabled=!val;
+	document.CREATEPROJ.estimatedROI.disabled=!val;
 }
 
 <%
@@ -336,55 +343,64 @@ function preselectTemplate(methodologyId) {
 	<%------------------------------------------------------------------------------
     Project Completion Section
     ------------------------------------------------------------------------------%>
-    <tr><td colspan="4">&nbsp;</td></tr>
+    <tr>
+    	<td colspan="4">&nbsp;</td>
+    </tr>
 
     <tr class="channelHeader">
-    <td width="1%"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border="0"></td>
-    <td nowrap class="channelHeader" colspan="2"><nobr><display:get name="prm.project.propertiesedit.completion.section" /></nobr></td>
-    <td align=right width="1%"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border="0"></td>
-    </tr>
-
-        <tr><td colspan="4">&nbsp;</td></tr>
-
-    <tr align="left">
-    <td>&nbsp;</td>
-    <td valign="top" class="fieldRequired"><display:get name="@prm.project.propertiesedit.completion.select" /></td>
-    <td class="tableContent">
-    <table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr>
-    <td class="tableContent" width="1%">
-    <input type="radio" name="percentCalculationMethod" checked onclick="enableTextField(true)" value="<%=PercentCalculationMethod.SCHEDULE.getID()%>">&nbsp;
-    </td>
-    <td class="tableContent">
-    <display:get name="prm.project.propertiesedit.completion.schedule.label"/>
-    </td>
-    </tr>
-    <tr>
-    <td class="tableContent">&nbsp;</td>
-    <td class="tableContent">
-    <display:get name="prm.project.propertiesedit.completion.schedule.description"/>
-    </td>
+    	<td width="1%"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border="0"></td>
+    	<td nowrap class="channelHeader" colspan="2"><nobr><display:get name="prm.project.propertiesedit.completion.section" /></nobr></td>
+    	<td align=right width="1%"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border="0"></td>
     </tr>
 
     <tr><td colspan="4">&nbsp;</td></tr>
 
-    <tr>
-    <td class="tableContent" width="1%">
-    <input type="radio" name="percentCalculationMethod" onclick="enableTextField(false)" value="<%=PercentCalculationMethod.MANUAL.getID()%>">&nbsp;
-    </td>
-    <td class="tableContent"><display:get name="prm.project.propertiesedit.completion.label" />
-    <input type="text" name="percentComplete" size="5" maxlength="3" disabled="true" value="<jsp:getProperty name="projectWizard" property="percentComplete" />"> %
-    </td>
-    </tr>
-    <tr>
-    <td class="tableContent"></td>
-    <td class="tableContent">
-    <display:get name="prm.project.propertiesedit.completion.description"/>
-    </td>
-    </tr>
-    </table>
-    </td>
-    <td>&nbsp;</td>
+    <tr align="left">
+	    <td>&nbsp;</td>
+	    
+	    <td valign="top" class="fieldRequired">
+	    	<display:get name="@prm.project.propertiesedit.completion.select" />
+	    </td>
+	    
+	    <td class="tableContent">
+		    <table width="100%" border="0" cellpadding="0" cellspacing="0">
+		    
+		    <tr>
+			    <td class="tableContent" width="1%">
+			    	<input type="radio" name="percentCalculationMethod" checked onclick="enableTextField(true)" value="<%=PercentCalculationMethod.SCHEDULE.getID()%>">&nbsp;
+			    </td>
+			    <td class="tableContent">
+			    <display:get name="prm.project.propertiesedit.completion.schedule.label"/>
+			    </td>
+		    </tr>
+		    
+		    <tr>
+		    <td class="tableContent">&nbsp;</td>
+		    <td class="tableContent">
+		    <display:get name="prm.project.propertiesedit.completion.schedule.description"/>
+		    </td>
+		    </tr>
+		
+		    <tr><td colspan="4">&nbsp;</td></tr>
+		
+		    <tr>
+		    <td class="tableContent" width="1%">
+		    <input type="radio" name="percentCalculationMethod" onclick="enableTextField(false)" value="<%=PercentCalculationMethod.MANUAL.getID()%>">&nbsp;
+		    </td>
+		    <td class="tableContent"><display:get name="prm.project.propertiesedit.completion.label" />
+		    <input type="text" name="percentComplete" size="5" maxlength="3" disabled="true" value="<jsp:getProperty name="projectWizard" property="percentComplete" />"> %
+		    </td>
+		    </tr>
+		    <tr>
+		    <td class="tableContent"></td>
+		    <td class="tableContent">
+		    <display:get name="prm.project.propertiesedit.completion.description"/>
+		    </td>
+		    </tr>
+		    </table>
+	    </td>
+	    <td>&nbsp;</td>
+	    
     </tr>
 
 
@@ -455,12 +471,20 @@ function preselectTemplate(methodologyId) {
             <td nowrap colspan="5">&nbsp;</td>
           </tr>
 
-<%-- Project Status --%>
+
+
+			<%----------------------------------------- 
+						Project Status 
+			------------------------------------------%>
+
 		<tr align="left" class="channelHeader">
 			<td width=1%><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border=0></td>
-			<td nowrap colspan="3" class="channelHeader"><strong><display:get name="prm.project.create.wizard.projectstatus.heading" /></strong></td>
+			<td nowrap colspan="3" class="channelHeader"><nobr><display:get name="prm.project.create.wizard.projectstatus.heading" /></nobr></td>
 			<td width=1% align=right><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border=0></td>
 		</tr>
+		
+			<tr><td colspan="4">&nbsp;</td></tr>
+		
 		<tr align="left">
             <td nowrap class="fieldRequired" colspan="2"><display:get name="prm.project.create.wizard.status" />:&nbsp;</td>
             <td nowrap colspan="3">
@@ -487,6 +511,155 @@ function preselectTemplate(methodologyId) {
             </td>
             <td>&nbsp;</td>
         </tr>
+        
+        <tr><td colspan="4">&nbsp;</td></tr>
+        
+	<%------------------------------------------------------------------------------
+							Financial Status
+	------------------------------------------------------------------------------%>
+		<tr class="channelHeader">
+			<td width="1%"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width="8" height="15" alt="" border="0"></td>
+			<td class="channelHeader" colspan="2"><nobr><display:get name="prm.project.create.wizard.financialcalculation.heading" /></nobr></td>
+			<td align="right" width="1%"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width="8" height="15" alt="" border="0"></td>
+		</tr>
+		
+		<tr><td>&nbsp;</td></tr>
+		
+		<%-- Default Currency Code --%>
+        <tr align="left" class="addSpacingBottom">
+            <td colspan="2" class="fieldRequired" nowrap="nowrap">
+            	<display:get name="prm.project.create.wizard.defaultcurrency" />:&nbsp;</td>
+            <td colspan="3">
+                <select name="defaultCurrencyCode">
+                    <option value=""><display:get name="prm.project.create.wizard.defaultcurrency.select.option.empty" /></option>
+                    <%=Currency.getHtmlOptionList(projectWizard.getDefaultCurrencyCode())%>
+                </select>
+            </td>
+         </tr>
+
+		 <%-- Meta: Type of Expense --%>
+		<tr align="left" class="addSpacingBottom">
+			<td nowrap colspan="2" class="fieldNonRequired"><display:get name="prm.project.create.wizard.meta.typeofexpense" />:&nbsp;</td>
+			<td nowrap colspan="3">
+				<select name="MetaTypeOfExpense">
+					<%= domainList.getValuesOptionListForProperty( new Integer(7), null) %>
+				</select>
+			</td>
+		</tr>
+		
+		<%-- Cost Center --%>
+		<tr align="left" class="addSpacingBottom">			
+			<td colspan="2" class="fieldNonRequired" nowrap="nowrap">
+				<display:get name="prm.project.create.wizard.costcenter.label" />:&nbsp;</td>
+			</td>
+			<td class="tableContent">
+				<input type="text" name="costCenter" size="40" maxlength="1000" value="">
+			</td>			
+		</tr>
+		
+		<%-- Budgeted Total Cost --%>
+		<tr align="left" class="addSpacingBottom">
+			<td colspan="2" class="fieldNonRequired" nowrap="nowrap">
+				<display:get name="prm.project.create.wizard.budgetedtotalcost.label" />:&nbsp;</td>
+			</td>
+			<td class="tableContent">
+				<input:money name="budgetedTotalCost" money="<%=new Money()%>" currency="<%=Currency.getSystemDefaultCurrency()%>"/>
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+		
+		<tr><td>&nbsp;</td></tr>
+		
+		<tr align="left">
+			<td>&nbsp;</td>
+			
+			<td valign="top" class="fieldRequired">
+				<display:get name="prm.project.create.wizard.costcompletion.select" />
+			</td>
+			
+			<td class="tableContent">
+			
+				<table width="100%" border="0" cellpadding="0" cellspacing="0">
+					<tr>
+						<td class="tableContent" width="1%">
+							<input type="radio" checked onclick="enableCostTextFields(false)" name="MetaCostCalculationMethod" value="automatic" >&nbsp;
+						</td>
+						<td class="tableContent" valign="top">
+						 	<span id="project.schedule.percentComplete"><display:get name="prm.project.create.wizard.completion.projectcosts.label"/></span>
+						</td>
+					</tr>
+					
+					<tr>
+						<td class="tableContent">&nbsp;</td>
+						<td class="tableContent"><display:get name="prm.project.create.wizard.completion.projectcosts.description"/>
+						</td>
+					</tr>
+					
+					<tr>
+						<td colspan="4">&nbsp;</td>
+					</tr>
+					
+					<tr>
+						<td class="tableContent" width="1%">
+							<input type="radio" onclick="enableCostTextFields(true)" name="MetaCostCalculationMethod" value="manual">&nbsp;
+						</td>						
+						<td class="tableContent" valign="top">
+							<span id="project.manual.percentComplete">
+								<display:get name="prm.project.create.wizard.costs.label" />
+							</span>				
+						</td>
+						
+					</tr>	
+					
+					<%-- Current Estimated Total Cost --%>
+					<tr align="left">
+						<td>&nbsp;</td>
+						<td class="fieldNonRequired">
+							<display:get name="prm.project.create.wizard.currentestimatedtotalcost.label" />:&nbsp;
+						</td>						
+						<td class="tableContent">
+					        <input:money name="currentEstimatedTotalCost" money="<%=new Money()%>" currency="<%=Currency.getSystemDefaultCurrency()%>" disabled="true"/>
+				        </td>
+					   	<td>&nbsp;</td>
+					</tr>
+					
+					<%-- Actual Cost To Date--%>
+					<tr align="left">
+						<td>&nbsp;</td>
+						<td class="fieldNonRequired">
+							<display:get name="prm.project.create.wizard.actualcosttodate.label" />:&nbsp;
+						</td>						
+						<td class="tableContent">
+						        <input:money name="actualCostToDate" money="<%=new Money()%>" currency="<%=Currency.getSystemDefaultCurrency()%>" disabled="true"/>
+				        </td>
+				        <td>&nbsp;</td>
+					</tr>
+					
+					<%-- Estimated ROI --%>
+					<tr align="left">
+						<td>&nbsp;</td>
+						<td class="fieldNonRequired">
+							<display:get name="prm.project.create.wizard.estimatedroi.label" />:&nbsp;
+						</td>
+
+						<td class="tableContent">
+								<input type="text" name="estimatedROI" size="40" maxlength="1000" disabled="true"/>%
+						</td>
+				        <td>&nbsp;</td>
+					</tr>
+					
+						
+				</table>
+			
+			</td>
+			<td>&nbsp;</td>
+		</tr>
+		
+		<tr><td>&nbsp;</td></tr>
+        
+ 	<%------------------------------------------------------------------------------
+							Other Properties
+	------------------------------------------------------------------------------%>       
 
 
           <tr align="left" class="channelHeader">
@@ -494,8 +667,10 @@ function preselectTemplate(methodologyId) {
             <td nowrap colspan="3" class="channelHeader"><display:get name="prm.project.create.wizard.otherproperties.heading" /></td>
           <td width=1% align=right><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border=0></td>
           </tr>
+          
+          <tr><td>&nbsp;</td></tr>
 
-<%-- Project Start/End dates --%>
+		<%-- Project Start/End dates --%>
           <tr align="left">
             <td nowrap colspan="2" class="fieldNonRequired"><display:get name="prm.project.create.wizard.startdate" />:&nbsp;</td>
             <td nowrap colspan="3">
@@ -510,6 +685,9 @@ function preselectTemplate(methodologyId) {
 			<util:insertCalendarPopup fieldName="endDateString"/>
             </td>
           </tr>
+          
+          <tr><td>&nbsp;</td></tr>
+          
 </table>
 
 <br clear="all">
