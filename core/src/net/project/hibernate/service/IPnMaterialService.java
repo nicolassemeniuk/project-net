@@ -17,7 +17,7 @@ public interface IPnMaterialService {
 	
 	/**
 	 * Returns the list of materials.
-	 * @return
+	 * @return a list of materials.
 	 */
 	public PnMaterialList getMaterials();
 	

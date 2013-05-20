@@ -25,6 +25,10 @@ public class FinancialSpaceBean extends FinancialSpace implements Serializable {
 
     public static final String SPACE_ID = "29";
     
+    
+    
+    
+    
     /**
      * Constructor
      */

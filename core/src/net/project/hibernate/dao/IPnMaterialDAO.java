@@ -12,7 +12,5 @@ public interface IPnMaterialDAO extends IDAO<PnMaterial, Integer> {
 	public PnMaterialList getMaterials();
 	
 	public PnMaterialList getMaterials(List<Integer> materialsId);
-	
-	public void disableMaterial(PnMaterial material);
 		
 }

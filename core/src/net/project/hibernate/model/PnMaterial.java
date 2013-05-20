@@ -41,15 +41,6 @@ public class PnMaterial implements Serializable {
 		this.recordStatus = recordStatus;
 		this.materialConsumable = materialConsumable;
 	}
-	
-//	public PnMaterial(Integer materialId, String materialName, String materialDescription, Float materialCost) {
-//		this.materialId = materialId;
-//		this.materialName = materialName;
-//		this.materialDescription = materialDescription;
-//		this.materialType = new PnMaterialType(1, "Test");
-//		this.materialCost = materialCost;
-//		
-//	}
 
 	@Id
 	@Column(name = "MATERIAL_ID", nullable = false, length = 20)
