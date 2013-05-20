@@ -19,7 +19,7 @@
 <head>
 <%@ page
     contentType="text/html; charset=UTF-8"
-    info="New Project Wizard -- page 1"
+    info="New Project Wizard -- page 3"
     language="java"
     errorPage="/errors.jsp"
     import="net.project.project.*,
@@ -223,7 +223,7 @@ function goBack() {self.document.location = JSPRootURL + "/project/NewProjectWiz
 
         <tr align="left" class="channelHeader">
             <td width=1%><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border=0></td>
-            <td nowrap colspan="2" class="channelHeader"><strong><display:get name="prm.project.create.wizard.properties.heading" /></strong></td>
+            <td nowrap colspan="2" class="channelHeader"><display:get name="prm.project.create.wizard.properties.heading" /></td>
             <td width=1% align=right><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border=0></td>
         </tr>
 
@@ -305,12 +305,15 @@ function goBack() {self.document.location = JSPRootURL + "/project/NewProjectWiz
 			<td class="tableContent"><c:out value="${projectWizard.percentComplete}"/></td>
             <td>&nbsp;</td>
         </tr>
+        
+        
         <tr align="left">
             <td>&nbsp;</td>
             <td class="tableHeader"><display:get name="prm.project.create.wizard.defaultcurrency" /></td>
             <td class="tableContent"><%=net.project.util.Currency.getFullDisplayName(projectWizard.getDefaultCurrency())%></td>
             <td>&nbsp;</td>
         </tr>
+        
 <%-- Meta: Type of Expense --%>
 		<tr align="left">
 			<td>&nbsp;</td>
@@ -318,6 +321,44 @@ function goBack() {self.document.location = JSPRootURL + "/project/NewProjectWiz
 			<td class="tableContent"><%= projectWizard.getMetaData().getProperty("TypeOfExpense") %></td>
 			<td>&nbsp;</td>
 		</tr>
+
+<%-- <%if ((projectWizard.getCostCenter() != null) && !projectWizard.getCostCenter().equals("")){%> --%>
+		
+		<tr align="left">
+			<td>&nbsp;</td>
+			<td class="tableHeader"><display:get name="prm.project.create.wizard.costcenter" /></td>
+			<td class="tableContent"><%= projectWizard.getCostCenter() %></td>
+			<td>&nbsp;</td>
+		</tr>
+		
+<%-- <%}else{%> --%>
+
+<!-- 		<tr align="left"> -->
+<!-- 			<td>&nbsp;</td> -->
+<!-- 			<td class="tableHeader"><display:get name="prm.project.create.wizard.costcenter" /></td> -->
+<!-- 			<td class="tableContent"><display:get name="prm.project.create.wizard.costcenter.none" /></td> -->
+<!-- 			<td>&nbsp;</td> -->
+<!-- 		</tr> -->
+		
+<%-- <%}%>		 --%>
+
+		<tr align="left">
+			<td>&nbsp;</td>
+			<td class="tableHeader"><display:get name="prm.project.create.wizard.budgetedtotalcost" /></td>			
+			<td class="tableContent"><output:money money="<%=projectWizard.getBudgetedTotalCost()%>" currency="<%=projectWizard.getDefaultCurrency()%>" /></td>
+			<td>&nbsp;</td>
+		</tr>		
+
+		
+        <tr><td class="tableContent" colspan="4">&nbsp;</td></tr>
+
+        <tr align="left" class="channelHeader">
+            <td width=1%><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border=0></td>
+            <td nowrap colspan="2" class="channelHeader"><display:get name="prm.project.create.wizard.otherproperties.heading" /></td>
+            <td width=1% align=right><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border=0></td>
+        </tr>		
+		
+		
         <tr align="left">
             <td>&nbsp;</td>
             <td class="tableHeader"><display:get name="prm.project.create.wizard.startdate" /></td>

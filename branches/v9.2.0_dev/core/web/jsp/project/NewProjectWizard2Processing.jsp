@@ -64,13 +64,28 @@
     <jsp:setProperty name="projectWizard" property="visibility"
                      value='<%=net.project.project.ProjectVisibility.findByID(request.getParameter("visibilityID"))%>' />
     <jsp:setProperty name="projectWizard" property="percentComplete" />
+    <jsp:setProperty name="projectWizard" property="costCenter" />
     <jsp:setProperty name="projectWizard" property="defaultCurrencyCode" />
+    <jsp:setProperty name="projectWizard" property="budgetedTotalCost"
+                 value='<%=net.project.base.money.Money.parseFromRequest("budgetedTotalCost", user, request)%>' />
+                 <jsp:setProperty name="projectWizard" property="currentEstimatedTotalCost"
+                 value='<%=net.project.base.money.Money.parseFromRequest("currentEstimatedTotalCost", user, request)%>' />
+<jsp:setProperty name="projectWizard" property="actualCostToDate"
+                 value='<%=net.project.base.money.Money.parseFromRequest("actualCostToDate", user, request)%>' />
+                 
 
 <%
     projectWizard.setPercentCalculationMethod(request.getParameter("percentCalculationMethod"));
 
-%>
-<%
+	if ((request.getParameter("costCenter") == null) || (request.getParameter("costCenter").equals(""))) {
+		projectWizard.setCostCenter("");
+	}
+	try {
+		projectWizard.setEstimatedROI(new net.project.base.money.Money(request.getParameter("estimatedROI")));
+	} catch (Exception e) {
+		projectWizard.setEstimatedROI(net.project.base.money.Money.EMPTY);
+	}
+
     // Validate the parent project selection
     boolean isInvalidParentProject;
 
@@ -116,6 +131,8 @@
         // No Parent Project ID, so they can create this project space
         isInvalidOwnerBusiness = false;
     }
+    
+
 
     // Validate the entered dates 
     boolean isInvalidStartDate = true;
