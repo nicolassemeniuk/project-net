@@ -106,6 +106,9 @@ public class ObjectType implements java.io.Serializable {
 
     // net.project.business
     public static final String BUSINESS = "business";
+    
+    // net.project.financial
+    public static final String FINANCIAL = "financial";    
 
     // News Module
     public static final String NEWS = "news";

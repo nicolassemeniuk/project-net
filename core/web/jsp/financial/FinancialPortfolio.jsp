@@ -57,8 +57,10 @@
 
 <body class="main" id='bodyWithFixedAreasSupport' onLoad="setup();">
 	<template:getSpaceMainMenu />
+	<!--  
 	<template:getSpaceNavBar />
-
+	-->
+	
 	<tb:toolbar style="tooltitle" groupTitle="prm.financial.financialportfolio.title" showAll="true" showSpaceDetails="false" space="financial">
 		<tb:band name="standard">
 		</tb:band>
@@ -85,61 +87,61 @@
 <td colspan="6" class="tableLine"><img src="../images/spacers/trans.gif" width="1" height="2" border="0"></td>
 </tr>
 <tr align="left" valign="middle" class="tableContent">
-<td class="tableContent"><input type="radio" name="selected" value="6218" id="Vitrax"></td><td colspan="2" align="left"><a href="../financial/Main.jsp?id=6218">Vitrax</a></td><td class="tableContent" align="left">Amoblamientos</td><td class="tableContent" align="left">0</td><td class="tableContent" align="left">14</td>
+<td class="tableContent"><input type="radio" name="selected" value="6218" id="Vitrax"></td><td colspan="2" align="left"><a href="<%=SessionManager.getJSPRootURL()%>/financial/Main.jsp?page=<%=SessionManager.getJSPRootURL()%>/financial/Dashboard?id=10000">Vitrax</a></td><td class="tableContent" align="left">Amoblamientos</td><td class="tableContent" align="left">0</td><td class="tableContent" align="left">14</td>
 </tr>
 <tr class="tableLine">
 <td colspan="6"><img src="../images/spacers/trans.gif" width="1" height="1" border="0"></td>
 </tr>
 <tr align="left" valign="middle" class="tableContent">
-<td class="tableContent"><input type="radio" name="selected" value="6361" id="Compras"></td><td class="tableContent" align="left" width="2%"><img src="../images/ReplyArrow.gif"></td><td colspan="1" align="left"><a href="../financial/Main.jsp?id=6361">Compras</a></td><td class="tableContent" align="left">Actividad auxiliar</td><td class="tableContent" align="left">0</td><td class="tableContent" align="left">2</td>
+<td class="tableContent"><input type="radio" name="selected" value="6361" id="Compras"></td><td class="tableContent" align="left" width="2%"><img src="../images/ReplyArrow.gif"></td><td colspan="1" align="left"><a href="../financial/Dashboard?id=10000">Compras</a></td><td class="tableContent" align="left">Actividad auxiliar</td><td class="tableContent" align="left">0</td><td class="tableContent" align="left">2</td>
 </tr>
 <tr class="tableLine">
 <td colspan="6"><img src="../images/spacers/trans.gif" width="1" height="1" border="0"></td>
 </tr>
 <tr align="left" valign="middle" class="tableContent">
-<td class="tableContent"><input type="radio" name="selected" value="6348" id="Desarrollo de tecnologías"></td><td class="tableContent" align="left" width="2%"><img src="../images/ReplyArrow.gif"></td><td colspan="1" align="left"><a href="../financial/Main.jsp?id=6348">Desarrollo de tecnologías</a></td><td class="tableContent" align="left">Actividad auxiliar</td><td class="tableContent" align="left">0</td><td class="tableContent" align="left">4</td>
+<td class="tableContent"><input type="radio" name="selected" value="6348" id="Desarrollo de tecnologías"></td><td class="tableContent" align="left" width="2%"><img src="../images/ReplyArrow.gif"></td><td colspan="1" align="left"><a href="../financial/Dashboard?id=10000">Desarrollo de tecnologías</a></td><td class="tableContent" align="left">Actividad auxiliar</td><td class="tableContent" align="left">0</td><td class="tableContent" align="left">4</td>
 </tr>
 <tr class="tableLine">
 <td colspan="6"><img src="../images/spacers/trans.gif" width="1" height="1" border="0"></td>
 </tr>
 <tr align="left" valign="middle" class="tableContent">
-<td class="tableContent"><input type="radio" name="selected" value="6321" id="Infraestructura empresarial"></td><td class="tableContent" align="left" width="2%"><img src="../images/ReplyArrow.gif"></td><td colspan="1" align="left"><a href="../financial/Main.jsp?id=6321">Infraestructura empresarial</a></td><td class="tableContent" align="left">Actividad auxiliar</td><td class="tableContent" align="left">0</td><td class="tableContent" align="left">1</td>
+<td class="tableContent"><input type="radio" name="selected" value="6321" id="Infraestructura empresarial"></td><td class="tableContent" align="left" width="2%"><img src="../images/ReplyArrow.gif"></td><td colspan="1" align="left"><a href="../financial/Dashboard?id=10000">Infraestructura empresarial</a></td><td class="tableContent" align="left">Actividad auxiliar</td><td class="tableContent" align="left">0</td><td class="tableContent" align="left">1</td>
 </tr>
 <tr class="tableLine">
 <td colspan="6"><img src="../images/spacers/trans.gif" width="1" height="1" border="0"></td>
 </tr>
 <tr align="left" valign="middle" class="tableContent">
-<td class="tableContent"><input type="radio" name="selected" value="6282" id="Logística externa"></td><td class="tableContent" align="left" width="2%"><img src="../images/ReplyArrow.gif"></td><td colspan="1" align="left"><a href="../financial/Main.jsp?id=6282">Logística externa</a></td><td class="tableContent" align="left">Actividad primaria</td><td class="tableContent" align="left">0</td><td class="tableContent" align="left">3</td>
+<td class="tableContent"><input type="radio" name="selected" value="6282" id="Logística externa"></td><td class="tableContent" align="left" width="2%"><img src="../images/ReplyArrow.gif"></td><td colspan="1" align="left"><a href="../financial/Dashboard?id=10000">Logística externa</a></td><td class="tableContent" align="left">Actividad primaria</td><td class="tableContent" align="left">0</td><td class="tableContent" align="left">3</td>
 </tr>
 <tr class="tableLine">
 <td colspan="6"><img src="../images/spacers/trans.gif" width="1" height="1" border="0"></td>
 </tr>
 <tr align="left" valign="middle" class="tableContent">
-<td class="tableContent"><input type="radio" name="selected" value="6256" id="Logística interna"></td><td class="tableContent" align="left" width="2%"><img src="../images/ReplyArrow.gif"></td><td colspan="1" align="left"><a href="../financial/Main.jsp?id=6256">Logística interna</a></td><td class="tableContent" align="left">Actividad primaria</td><td class="tableContent" align="left">0</td><td class="tableContent" align="left">3</td>
+<td class="tableContent"><input type="radio" name="selected" value="6256" id="Logística interna"></td><td class="tableContent" align="left" width="2%"><img src="../images/ReplyArrow.gif"></td><td colspan="1" align="left"><a href="../financial/Dashboard?id=10000">Logística interna</a></td><td class="tableContent" align="left">Actividad primaria</td><td class="tableContent" align="left">0</td><td class="tableContent" align="left">3</td>
 </tr>
 <tr class="tableLine">
 <td colspan="6"><img src="../images/spacers/trans.gif" width="1" height="1" border="0"></td>
 </tr>
 <tr align="left" valign="middle" class="tableContent">
-<td class="tableContent"><input type="radio" name="selected" value="6295" id="Marketing y ventas"></td><td class="tableContent" align="left" width="2%"><img src="../images/ReplyArrow.gif"></td><td colspan="1" align="left"><a href="../financial/Main.jsp?id=6295">Marketing y ventas</a></td><td class="tableContent" align="left">Actividad primaria</td><td class="tableContent" align="left">1</td><td class="tableContent" align="left">5</td>
+<td class="tableContent"><input type="radio" name="selected" value="6295" id="Marketing y ventas"></td><td class="tableContent" align="left" width="2%"><img src="../images/ReplyArrow.gif"></td><td colspan="1" align="left"><a href="../financial/Dashboard?id=10000">Marketing y ventas</a></td><td class="tableContent" align="left">Actividad primaria</td><td class="tableContent" align="left">1</td><td class="tableContent" align="left">5</td>
 </tr>
 <tr class="tableLine">
 <td colspan="6"><img src="../images/spacers/trans.gif" width="1" height="1" border="0"></td>
 </tr>
 <tr align="left" valign="middle" class="tableContent">
-<td class="tableContent"><input type="radio" name="selected" value="6269" id="Producción"></td><td class="tableContent" align="left" width="2%"><img src="../images/ReplyArrow.gif"></td><td colspan="1" align="left"><a href="../financial/Main.jsp?id=6269">Producción</a></td><td class="tableContent" align="left">Actividad primaria</td><td class="tableContent" align="left">0</td><td class="tableContent" align="left">2</td>
+<td class="tableContent"><input type="radio" name="selected" value="6269" id="Producción"></td><td class="tableContent" align="left" width="2%"><img src="../images/ReplyArrow.gif"></td><td colspan="1" align="left"><a href="../financial/Dashboard?id=10000">Producción</a></td><td class="tableContent" align="left">Actividad primaria</td><td class="tableContent" align="left">0</td><td class="tableContent" align="left">2</td>
 </tr>
 <tr class="tableLine">
 <td colspan="6"><img src="../images/spacers/trans.gif" width="1" height="1" border="0"></td>
 </tr>
 <tr align="left" valign="middle" class="tableContent">
-<td class="tableContent"><input type="radio" name="selected" value="6334" id="Recursos humanos"></td><td class="tableContent" align="left" width="2%"><img src="../images/ReplyArrow.gif"></td><td colspan="1" align="left"><a href="../financial/Main.jsp?id=6334">Recursos humanos</a></td><td class="tableContent" align="left">Actividad auxiliar</td><td class="tableContent" align="left">0</td><td class="tableContent" align="left">2</td>
+<td class="tableContent"><input type="radio" name="selected" value="6334" id="Recursos humanos"></td><td class="tableContent" align="left" width="2%"><img src="../images/ReplyArrow.gif"></td><td colspan="1" align="left"><a href="../financial/Dashboard?id=10000">Recursos humanos</a></td><td class="tableContent" align="left">Actividad auxiliar</td><td class="tableContent" align="left">0</td><td class="tableContent" align="left">2</td>
 </tr>
 <tr class="tableLine">
 <td colspan="6"><img src="../images/spacers/trans.gif" width="1" height="1" border="0"></td>
 </tr>
 <tr align="left" valign="middle" class="tableContent">
-<td class="tableContent"><input type="radio" name="selected" value="6308" id="Servicio posventa"></td><td class="tableContent" align="left" width="2%"><img src="../images/ReplyArrow.gif"></td><td colspan="1" align="left"><a href="../financial/Main.jsp?id=6308">Servicio posventa</a></td><td class="tableContent" align="left">Actividad primaria</td><td class="tableContent" align="left">0</td><td class="tableContent" align="left">1</td>
+<td class="tableContent"><input type="radio" name="selected" value="6308" id="Servicio posventa"></td><td class="tableContent" align="left" width="2%"><img src="../images/ReplyArrow.gif"></td><td colspan="1" align="left"><a href="../financial/Dashboard?id=10000">Servicio posventa</a></td><td class="tableContent" align="left">Actividad primaria</td><td class="tableContent" align="left">0</td><td class="tableContent" align="left">1</td>
 </tr>
 <tr class="tableLine">
 <td colspan="6"><img src="../images/spacers/trans.gif" width="1" height="1" border="0"></td>

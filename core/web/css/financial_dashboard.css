@@ -1,0 +1,43 @@
+/*
+ * Copyright 2000-2009 Project.net Inc.
+ *
+ * This file is part of Project.net.
+ * Project.net is free software: you can redistribute it and/or modify it under the terms of 
+ * the GNU General Public License as published by the Free Software Foundation, version 3 of the License.
+ * 
+ * Project.net is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; 
+ * without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. 
+ * See the GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License along with Project.net.
+ * If not, see http://www.gnu.org/licenses/gpl-3.0.html
+ */
+
+div#financial_separator {
+	width: 100%;
+	height: 10px;
+}
+
+/* FINANCIAL Dashboard */
+.financial-title {
+	font-family: Tahoma;
+	font-size: 14px;
+	font-weight: normal;
+	padding-left: 14px;
+	margin-top: 4px;
+	margin-bottom: 2px;
+	float: left;
+	width: 180px;
+	color: Navy;
+}
+.financial-logo {
+	padding-left: 14px;
+	float: left;
+	width: 120px;
+	height: auto;
+	overflow: hidden;
+	vertical-align: top;
+	text-align: left;
+}
+
+/* End FINANCIAL Dashboard */
