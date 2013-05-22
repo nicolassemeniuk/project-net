@@ -30,6 +30,7 @@ import net.project.base.SessionNotInitializedException;
 import net.project.base.property.PropertyProvider;
 import net.project.business.BusinessSpaceBean;
 import net.project.configuration.ConfigurationSpaceManager;
+import net.project.financial.FinancialSpaceBean;
 import net.project.gui.history.History;
 import net.project.gui.history.HistoryLevel;
 import net.project.methodology.MethodologySpaceBean;
@@ -262,6 +263,7 @@ public class ServletSecurityProvider {
         addIgnoredServlet("methodology/Main.jsp");
         addIgnoredServlet("enterprise/Main.jsp");
         addIgnoredServlet("resources/Main.jsp");
+        addIgnoredServlet("financial/Dashboard");        
         
         //For Resources Tab : This needs to be revisited once 
         //we decide final list of reports in 8.4.0
@@ -667,6 +669,14 @@ public class ServletSecurityProvider {
 		            	if(projectHistoryLevel != null){
 		            		projectHistoryLevel.setShow(false);
 		            	}
+		            }
+	            } else if (params.getSpaceType().equals(Space.FINANCIAL_SPACE)) {
+	            	space = new FinancialSpaceBean();
+		            space.setID(params.getSID());
+		            space.load();
+		            request.getSession().setAttribute("financialSpace", (FinancialSpaceBean)space);
+		            if(projectHistoryLevel != null){
+		            	projectHistoryLevel.setDisplay(space.getName());
 		            }
 	            } else if (params.getSpaceType().equals(Space.METHODOLOGY_SPACE)) {
 	            	space = new MethodologySpaceBean();

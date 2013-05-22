@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<head>
+	<title><t:Message value="prm.global.application.title" /></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel='SHORTCUT ICON' type="text/css" href="${jSPRootURL}/images/favicon.ico" />
+	<!-- Linking all css files only here. These are used for blog pages developed in Tapestry 5 -->
+	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/global.css?${versionNumber}"/>
+	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/fonts.css?${versionNumber}"/>
+	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/noframes.css?${versionNumber}"/>
+	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/financial_dashboard.css?${versionNumber}"/>	
+	<!-- Common Styles for the Ext widgets -->
+	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/src/extjs/resources/css/ext-all.css?${versionNumber}"/>
+	<style type="text/css">
+	  a.tt { 
+	    background-color:lightsteelblue;
+	    text-decoration:none;
+	  }
+	  .hidden {
+	    display:none;
+	  }
+	  pre {
+	    background-color:gainsboro;
+	    padding:10px;
+	    margin-left:20px;
+	    margin-right:20px;
+	    font-family:courier;
+	    font-size:90%;
+	  }
+	  b.y { background-color:yellow }
+	</style>
+	<!-- Ext JS's -->
+	<script language="javascript" src="${jSPRootURL}/src/window_functions.js?${versionNumber}"></script>
+	<script type="text/javascript" src="${jSPRootURL}/src/extjs/adapter/ext/ext-base.js?${versionNumber}"></script>
+	<script type="text/javascript" src="${jSPRootURL}/src/extjs/ext-all.js?${versionNumber}"></script>
+	<script type="text/javascript" src="${jSPRootURL}/src/util.js?${versionNumber}"></script>
+	<script type="text/javascript" src="${jSPRootURL}/src/menu/dropdown.js?${versionNumber}"></script>
+	<script language="javascript" src="${jSPRootURL}/toolbar/include/Main.jsp?s=financial&amp;i=${userId}${currentSpaceId}" />
+	<script language="javascript" src="${jSPRootURL}/financial/include/NavBar.jsp?s=financial&amp;i=${userId}${currentSpaceId}" />
+	<script type="text/javascript" src="${JSPRootURL}/src/sessionHook.js?${versionNumber}" />
+	<script language="javascript">
+	    var theForm;
+	    var isLoaded = false;
+	    var JSPRootURL = '${jSPRootURL}';    
+
+		function help() {
+		    var helplocation=JSPRootURL+"/help/Help.jsp?page=financial_summary";
+		    openwin_help(helplocation);
+		}
+		
+		function main_toolbar_logout() {
+		    self.location=JSPRootURL+"/Logout.jsp";
+		}
+		function extAlert(title, msg, icon){
+			Ext.MessageBox.show({
+				title: title,
+				msg: msg,
+				buttons: Ext.MessageBox.OK,
+				icon: icon
+			});
+		}
+	</script>
+</head>
+<body class="main" onload="applyColorToEvenRows();">
+	<script language="javascript" type="text/javascript"> writeSpaceMenu(); writeSpaceNavBarMenu(); </script>
+    <div id="financial_separator"></div>
+    <t:body />
+</body>
+</html>

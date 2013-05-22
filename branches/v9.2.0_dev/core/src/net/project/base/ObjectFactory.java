@@ -91,6 +91,8 @@ public class ObjectFactory {
             return true;
         else if (objectType.equalsIgnoreCase(ObjectType.BUSINESS))
             return true;    	
+        else if (objectType.equalsIgnoreCase(ObjectType.FINANCIAL))
+            return true;    	        
         else if (objectType.equalsIgnoreCase(ObjectType.APPLICATION))
             return true;
         else if (objectType.equalsIgnoreCase(ObjectType.CONFIGURATION))
