@@ -55,5 +55,11 @@ public class FinancialSpaceBean extends FinancialSpace implements Serializable {
     {
     	return "Vitrax";
     }
+    
+    // TODO MOCK
+    public String getName()
+    {
+    	return "Vitrax";
+    }    
 }
 

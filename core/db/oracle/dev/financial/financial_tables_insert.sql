@@ -47,3 +47,13 @@ insert into PN_PROPERTY values (2000,'en','text','prm.global.financial.objecttyp
 -- Dashboard
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.dashboard.isenabled','1','A',0,0,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.title','Dashboard','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.toolbox.title','Toolbox','A',0,1,null);
+
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.main.modify.button.tooltip','Edit Financial','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.main.properties.button.tooltip','View Properties','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.main.personalize.button.tooltip','Personalize Page','A',0,1,null);
+
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.goto.title','Go to','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.goto.reports.label','Reports','A',0,1,null);
+
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.channel.title','Projects','A',0,1,null);
