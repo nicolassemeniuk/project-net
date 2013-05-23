@@ -1,6 +1,6 @@
 package net.project.hibernate.service;
 
-import net.project.financial.FinancialSpaceBean;
+import net.project.financial.FinancialCreateWizard;
 import net.project.hibernate.model.PnFinancialSpace;
 
 public interface IPnFinancialSpaceService {
@@ -10,7 +10,7 @@ public interface IPnFinancialSpaceService {
 	 * @param financialSpaceBean the financial space to save.
 	 * @return the id from the new financial space.
 	 */
-	public Integer saveFinancialSpace(FinancialSpaceBean financialSpaceBean);
+	public Integer saveFinancialSpace(FinancialCreateWizard financialSpaceBean);
 
 	/**
 	 * Obtain a financial space from an id.

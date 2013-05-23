@@ -20,7 +20,6 @@ import java.io.Serializable;
 import net.project.hibernate.model.PnFinancialSpace;
 import net.project.persistence.IXMLPersistence;
 import net.project.persistence.PersistenceException;
-import net.project.security.User;
 import net.project.space.ISpaceTypes;
 import net.project.space.Space;
 import net.project.space.SpaceTypes;
@@ -29,10 +28,7 @@ import net.project.space.SpaceTypes;
  * A Financial Workspace.
  */
 public class FinancialSpace extends Space implements Serializable, IXMLPersistence {
-	
-	protected Integer financialSpaceId = null;
-	protected String financialSpaceName = null;
-	protected User user = null;
+
 	
 
 	/**
@@ -44,8 +40,8 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 	}
 	
 	public FinancialSpace(PnFinancialSpace pnFinancialSpace){
-		this.financialSpaceId = pnFinancialSpace.getFinancialSpaceId();
-		this.financialSpaceName = pnFinancialSpace.getFinancialSpaceName();
+		this.name = pnFinancialSpace.getFinancialSpaceName();
+		this.spaceID = String.valueOf(pnFinancialSpace.getFinancialSpaceId());
 		setType(ISpaceTypes.FINANCIAL_SPACE);
 		this.spaceType = SpaceTypes.FINANCIAL;
 	}
@@ -59,32 +55,7 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 		setType(ISpaceTypes.FINANCIAL_SPACE);
 		this.spaceType = SpaceTypes.FINANCIAL;
 	}
-	
-	
 
-	public Integer getFinancialSpaceId() {
-		return financialSpaceId;
-	}
-
-	public void setFinancialSpaceId(Integer financialSpaceId) {
-		this.financialSpaceId = financialSpaceId;
-	}
-
-	public String getFinancialSpaceName() {
-		return financialSpaceName;
-	}
-
-	public void setFinancialSpaceName(String financialSpaceName) {
-		this.financialSpaceName = financialSpaceName;
-	}
-
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 	/**************************************************************************************************
 	 * Implementing IJDBCPersistence
@@ -100,7 +71,7 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 	@Override
 	public void store() throws PersistenceException
 	{
-		// TODO Auto-generated method stub
+        
 		
 	}
 
