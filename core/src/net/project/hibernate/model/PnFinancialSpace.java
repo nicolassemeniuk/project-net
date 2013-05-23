@@ -17,7 +17,7 @@ public class PnFinancialSpace implements Serializable {
 	
 	private String recordStatus;
 	
-	public static final String OBJECT_TYPE = "financial_space";
+	public static final String OBJECT_TYPE = "financial";
 	
 	public PnFinancialSpace(){
 		

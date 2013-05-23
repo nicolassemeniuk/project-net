@@ -2,7 +2,7 @@ package net.project.hibernate.service.impl;
 
 import java.sql.Date;
 
-import net.project.financial.FinancialSpaceBean;
+import net.project.financial.FinancialCreateWizard;
 import net.project.hibernate.dao.IPnFinancialSpaceDAO;
 import net.project.hibernate.model.PnFinancialSpace;
 import net.project.hibernate.model.PnObject;
@@ -26,12 +26,14 @@ public class PnFinancialSpaceService implements IPnFinancialSpaceService {
 		return this.pnFinancialSpaceDAO.getFinancialSpaceById(financialSpaceId);
 	}
 	
-	public Integer saveFinancialSpace(FinancialSpaceBean financialSpaceBean){
-		Integer materialObjectId = objectService.saveObject(new PnObject(PnFinancialSpace.OBJECT_TYPE, new Integer(financialSpaceBean.getUser().getID()), new Date(System
-				.currentTimeMillis()), "A"));
+	public Integer saveFinancialSpace(FinancialCreateWizard financialSpace){
+		PnObject pn = new PnObject(PnFinancialSpace.OBJECT_TYPE, new Integer(financialSpace.getUser().getID()), new Date(System
+				.currentTimeMillis()), "A");
+		
+		Integer materialObjectId = objectService.saveObject(pn);
 
 		PnFinancialSpace pnFinancialSpace = new PnFinancialSpace();
-		pnFinancialSpace.setFinancialSpaceName(financialSpaceBean.getName());
+		pnFinancialSpace.setFinancialSpaceName(financialSpace.getName());
 		pnFinancialSpace.setRecordStatus("A");
 		pnFinancialSpace.setFinancialSpaceId(materialObjectId);
 		return this.pnFinancialSpaceDAO.create(pnFinancialSpace);

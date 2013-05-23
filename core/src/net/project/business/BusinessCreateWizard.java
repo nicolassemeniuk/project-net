@@ -101,11 +101,25 @@ public class BusinessCreateWizard extends BusinessSpace {
 
             //invite the business owner to the businees
             inviteOwner(db);
-
+            
+            
+//            //create the financial space and the association
+//            FinancialCreateWizard financialSpace = new FinancialCreateWizard();
+//            financialSpace.setName(getName());
+//            financialSpace.setUser(user);
+//            financialSpace.setRelationship(SpaceRelationship.OWNERSHIP);
+//            financialSpace.setOwnerSpaceID(spaceID);
+//            Integer financialSpaceId = ServiceFactory.getInstance().getPnFinancialSpaceService().saveFinancialSpace(financialSpace);
+//            financialSpace.setID(String.valueOf(financialSpaceId));
+//            SpaceManager.addRelationship(db, this, financialSpace, financialSpace.getRelationship());
+            
             db.commit();
 
             //clear out for new business
             clear();
+            
+
+            
 
         } catch (SQLException e) {
             try {

@@ -809,6 +809,11 @@ public class ServiceFactoryImpl extends ServiceFactory {
 	public IMaterialService getMaterialService(){
 		return (IMaterialService) beanFactory.getBean("materialService");
 	}
+
+	@Override
+	public IPnFinancialSpaceService getPnFinancialSpaceService() {
+		return (IPnFinancialSpaceService) beanFactory.getBean("pnFinancialSpaceService");
+	}
 	
 
     
