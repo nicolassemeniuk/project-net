@@ -15,6 +15,7 @@
 package net.project.view.pages.financial;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -48,6 +49,7 @@ import net.project.security.User;
 import net.project.space.Space;
 import net.project.space.SpaceManager;
 import net.project.util.DateFormat;
+import net.project.util.HttpUtils;
 import net.project.util.StringUtils;
 import net.project.view.pages.base.BasePage;
 
@@ -63,9 +65,22 @@ public class Dashboard extends BasePage {
 	
 	private boolean financialLogo;
 	
-	private String parentURL;
+	private boolean actionsIconEnabled;	
+	
+	private boolean blogEnabled;
+	
+	private String closeTitle;
+	
+	private String upTitle;
+	
+	private String downTitle;		
 	
 	// variables for minimize maximize functionality
+	
+	private boolean projectsState;	
+	
+	private boolean projectsCloseState;	
+
 	@Persist
 	private String spaceName;	
 	
@@ -75,16 +90,19 @@ public class Dashboard extends BasePage {
 	
 	private final String PROPERTY = "state";
 	
-	private final String CHANNEL_PROPERTY_CONTEXT = "net.project.channel.";	
+	private final String CHANNEL_PROPERTY_CONTEXT = "net.project.channel.";
+	
+	private final String FINANCIAL_SPACE_PROJECTS = "FinancialSpace_Projects_";	
 	
 	@Persist
 	private String financialId;	
 	
+	// Tooltips
 	@Property
 	private String blogitTooltip;
 	
 	@Property
-	private String editProjectTooltip;
+	private String editFinancialTooltip;
 	
 	@Property
 	private String viewPropertiesTooltip;
@@ -97,17 +115,21 @@ public class Dashboard extends BasePage {
 	@Inject
 	private RequestGlobals requestGlobals;	
 	
-	// TODO Hacer un metodo para esto
-	private String personalizeLink = "about:blank";
-	
 	/**
 	 * Method to initialize tokens 
 	 */
 	public void initializeTokens() {
+        actionsIconEnabled = PropertyProvider.getBoolean("prm.global.actions.icon.isenabled");
+        blogEnabled = PropertyProvider.getBoolean("prm.blog.isenabled");        		
+		
+		closeTitle = PropertyProvider.get("all.global.channelbarbutton.title.close");
+		upTitle = PropertyProvider.get("all.global.channelbarbutton.title.minimize");
+		downTitle = PropertyProvider.get("all.global.channelbarbutton.title.maximize");      
+        
 		blogitTooltip = PropertyProvider.get("all.global.toolbar.standard.blogit");
-		editProjectTooltip = PropertyProvider.get("prm.project.main.modify.button.tooltip");
-		viewPropertiesTooltip = PropertyProvider.get("prm.project.main.properties.button.tooltip");
-		personalizePageTooltip = PropertyProvider.get("prm.project.main.personalize.button.tooltip");
+		editFinancialTooltip = PropertyProvider.get("prm.financial.main.modify.button.tooltip");
+		viewPropertiesTooltip = PropertyProvider.get("prm.financial.main.properties.button.tooltip");
+		personalizePageTooltip = PropertyProvider.get("prm.financial.main.personalize.button.tooltip");
 	}		
 	
 	/**
@@ -208,10 +230,10 @@ public class Dashboard extends BasePage {
 		}
 		
 		for (PnPersonProperty pnPersonProperty : personProperties) {
-//			if (pnPersonProperty.getComp_id().getContext().equals(CHANNEL_PROPERTY_CONTEXT + PROJECT_SPACE_MEETINGS + spaceName)) {
-//				meetingsState = pnPersonProperty.getComp_id().getValue().equals(State.MINIMIZED.getID());
-//				meetingsCloseState = pnPersonProperty.getComp_id().getValue().equals(State.CLOSED.getID());
-//			}
+			if (pnPersonProperty.getComp_id().getContext().equals(CHANNEL_PROPERTY_CONTEXT + FINANCIAL_SPACE_PROJECTS + spaceName)){
+				projectsState = pnPersonProperty.getComp_id().getValue().equals(State.MINIMIZED.getID());
+				projectsCloseState = pnPersonProperty.getComp_id().getValue().equals(State.CLOSED.getID());
+			}	
 		}
 	}
 	
@@ -246,7 +268,6 @@ public class Dashboard extends BasePage {
 				financialId = id;
 			}
 			
-        	parentURL = "about:blank";
 			moduleId = Module.FINANCIAL_SPACE;
 			financialName = financialSpace.getFinancialSpaceName();
 
@@ -262,28 +283,10 @@ public class Dashboard extends BasePage {
 		}			
 	}
 	 
-	public String getSubprojectsUrl() {
-		return "/project/subproject/Main.jsp?module="+Module.PROJECT_SPACE;
-	}
-	
 	public String getReportsUrl() {
 		return "/report/Main.jsp?module="+Module.REPORT;
 	}
 	
-	public String getNewsUrl() {
-		return "/news/Main.jsp?module="+Module.NEWS;
-	}
-
-	public static Logger getLog()
-	{
-		return log;
-	}
-
-	public static void setLog(Logger log)
-	{
-		Dashboard.log = log;
-	}
-
 	public FinancialSpaceBean getFinancialSpace()
 	{
 		return financialSpace;
@@ -297,16 +300,6 @@ public class Dashboard extends BasePage {
 	public String getFinancialName()
 	{
 		return financialName;
-	}
-
-	public String getParentURL()
-	{
-		return parentURL;
-	}
-
-	public void setParentURL(String parentURL)
-	{
-		this.parentURL = parentURL;
 	}
 
 	public String getSpaceName()
@@ -369,15 +362,46 @@ public class Dashboard extends BasePage {
 		this.requestGlobals = requestGlobals;
 	}
 
-	public String getPersonalizeLink()
-	{
-		return personalizeLink;
-	}
-
-	public void setPersonalizeLink(String personalizeLink)
-	{
-		this.personalizeLink = personalizeLink;
-	}
+	/**
+     * Returns the String to insert a "Personalize" link at the bottom of the page.
+     * @return HTML proving a link to CustomizeChannels.jsp
+     */
+    public String getPersonalizeLink() {
+    	StringBuffer url = new StringBuffer();
+//    	try {
+//		    	PersonProperty settings = new PersonProperty();
+//		    	settings.setScope(ScopeType.SPACE.makeScope(SessionManager.getUser()));
+//		        String qs = HttpUtils.getRedirectParameterString(requestGlobals.getHTTPServletRequest());
+//		        
+//		        if (qs != null) {
+//					qs = "?" + qs;
+//				} else {
+//					qs = "";
+//				}
+//        
+//            	url.append(SessionManager.getJSPRootURL()).append("/channel/CustomizeChannels.jsp?referer=").append(URLEncoder.encode(getJSPRootURL()+ requestGlobals.getHTTPServletRequest().getServletPath() + qs));
+//
+//	            // Add the scope so that it is build into personalize link
+//	            url.append("&").append(settings.getScope().formatRequestParameters());
+//	
+//	            // Need to add id and name of every widget
+//	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_PIE_CHART+ projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(BAR_CHART_TITLE, SessionManager.getCharacterEncoding()));
+//	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_PROJECT_COMPLETION + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(PROJECT_COMPLETION_TITLE, SessionManager.getCharacterEncoding()));
+//	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_PHASES + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(PHASES_TITLE, SessionManager.getCharacterEncoding()));
+//	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_SUBPROJECTS + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(SUBPROJECTS_TITLE, SessionManager.getCharacterEncoding()));
+//	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_MEETINGS + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(MEETINGS_TITLE, SessionManager.getCharacterEncoding()));
+//	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_PROJECT_NEWS + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(PROJECT_NEWS_TITLE, SessionManager.getCharacterEncoding()));
+//	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_MATERIALS + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(MATERIALS_TITLE, SessionManager.getCharacterEncoding()));
+//	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_TEAMMATES + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(TEAMMATES_TITLE, SessionManager.getCharacterEncoding()));
+//	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_PROJECT_CHANGES + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(PROJECT_CHANGES_TITLE, SessionManager.getCharacterEncoding()));
+//	            
+//	        } catch (Exception e) {
+//	            log.error(e.getMessage()); 
+//	        }
+    	
+    	url.append("about:blank");
+        return url.toString();
+    }
 
 	public String getPROPERTY()
 	{
@@ -389,7 +413,19 @@ public class Dashboard extends BasePage {
 		return CHANNEL_PROPERTY_CONTEXT;
 	}
 
-	public boolean getFinancialLogo()
+	public String getCloseTitle() {
+		return closeTitle;
+	}
+
+	public String getUpTitle() {
+		return upTitle;
+	}
+	
+	public String getDownTitle() {
+		return downTitle;
+	}	
+	
+	public boolean isFinancialLogo()
 	{
 		return financialLogo;
 	}
@@ -397,5 +433,25 @@ public class Dashboard extends BasePage {
 	public String getLogoUrl()
 	{
 		return logoUrl;
-	}	
+	}
+
+	public boolean isActionsIconEnabled()
+	{
+		return actionsIconEnabled;
+	}
+	
+	public boolean isBlogEnabled()
+	{
+		return blogEnabled;
+	}
+
+	public boolean isProjectsCloseState()
+	{
+		return projectsCloseState;
+	}
+
+	public boolean isProjectsState()
+	{
+		return projectsState;
+	}
 }
