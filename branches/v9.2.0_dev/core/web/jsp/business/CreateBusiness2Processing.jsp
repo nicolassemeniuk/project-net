@@ -18,13 +18,18 @@
     info="New Business Processing 2"
     language="java"
     errorPage="/errors.jsp"
-    import="net.project.business.BusinessCreateWizard,net.project.methodology.MethodologyProvider,net.project.security.User,net.project.security.SessionManager"
+    import="net.project.business.BusinessCreateWizard,
+    		net.project.methodology.MethodologyProvider,
+    		net.project.security.User,
+    		net.project.security.SessionManager,
+    		net.project.hibernate.model.PnMethodologySpace,
+    		net.project.hibernate.service.ServiceFactory,
+    		net.project.space.SpaceRelationship"
 %>
 
-
-<%@page import="net.project.hibernate.model.PnMethodologySpace"%>
-<%@page import="net.project.hibernate.service.ServiceFactory"%><jsp:useBean id="businessWizard" class="net.project.business.BusinessCreateWizard" scope="session" />
+<jsp:useBean id="businessWizard" class="net.project.business.BusinessCreateWizard" scope="session" />
 <jsp:useBean id="methodologyProvider" class="net.project.methodology.MethodologyProvider" scope="page" /> 
+<jsp:useBean id="financialWizard" class="net.project.financial.FinancialCreateWizard" scope="page" /> 
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
 <jsp:setProperty name="businessWizard" property="*" />
 
@@ -63,7 +68,15 @@
 %>
 	
 <%
+	financialWizard.setName(businessWizard.getName());
+	financialWizard.setUser(user);
+	financialWizard.setOwnerSpaceID(businessWizard.getID());
+	financialWizard.setRelatedSpace(businessWizard);
+	financialWizard.setRelationship(SpaceRelationship.OWNERSHIP);
+	
 	businessWizard.store();
+	financialWizard.store();
+
 
 	// Apply the Methodology
 	if (businessWizard.getMethodologyID() != null && (!businessWizard.getMethodologyID().equals(""))) {
