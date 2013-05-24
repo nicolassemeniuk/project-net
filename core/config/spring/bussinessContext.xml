@@ -109,6 +109,7 @@
 				<value>net.project.hibernate.model.PnEventType</value>
 				<value>net.project.hibernate.model.PnFacility</value>
 				<value>net.project.hibernate.model.PnFinderIngredient</value>
+				<value>net.project.hibernate.model.PnFinancialSpace</value>
 				<value>net.project.hibernate.model.PnFormsActionLookup</value>
 				<value>net.project.hibernate.model.PnFormsHistory</value>
 				<value>net.project.hibernate.model.PnGate</value>
