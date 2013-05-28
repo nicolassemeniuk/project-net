@@ -17,12 +17,8 @@ package net.project.hibernate.dao;
 import net.project.hibernate.model.PnSpaceHasSpace;
 import net.project.hibernate.model.PnSpaceHasSpacePK;
 
-/**
- * Created by IntelliJ IDEA.
- * User: Oleg
- * Date: 19.05.2007
- * Time: 15:56:15
- * To change this template use File | Settings | File Templates.
- */
 public interface IPnSpaceHasSpaceDAO extends IDAO<PnSpaceHasSpace, PnSpaceHasSpacePK> {
+	
+	public PnSpaceHasSpace getRelatedFinancialSpace(Integer spaceID);
+	
 }

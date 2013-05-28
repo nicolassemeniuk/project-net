@@ -13,6 +13,7 @@
  * If not, see http://www.gnu.org/licenses/gpl-3.0.html
 --%>
 
+<%@page import="org.apache.cxf.bus.BusState"%>
 <%@ page
     contentType="text/html; charset=UTF-8"
     info="New Business Processing 2"
@@ -24,7 +25,8 @@
     		net.project.security.SessionManager,
     		net.project.hibernate.model.PnMethodologySpace,
     		net.project.hibernate.service.ServiceFactory,
-    		net.project.space.SpaceRelationship"
+    		net.project.space.SpaceRelationship,
+    		net.project.hibernate.model.PnSpaceHasSpace"
 %>
 
 <jsp:useBean id="businessWizard" class="net.project.business.BusinessCreateWizard" scope="session" />
@@ -68,12 +70,26 @@
 %>
 	
 <%
+	//The name is the same as the business
 	financialWizard.setName(businessWizard.getName());
 	financialWizard.setUser(user);
-	financialWizard.setOwnerSpaceID(businessWizard.getID());
-	financialWizard.setRelatedOwnerSpace(businessWizard);
-	financialWizard.setOwnerRelationship(SpaceRelationship.INFORMATION_PROVIDER);
 	
+	//Set the financial space/business space relational data
+	financialWizard.setRelatedSpaceID(businessWizard.getID());
+	financialWizard.setRelatedSpace(businessWizard);
+	financialWizard.setRelationship(SpaceRelationship.FINANCIAL);
+	
+	PnSpaceHasSpace spaceHasSpace = null;
+	
+	//If the business has a parent space Id, find the financial space related to that business space.
+	if(businessWizard.getParentSpaceID()!=null && !businessWizard.getParentSpaceID().equals("")){
+		spaceHasSpace = ServiceFactory.getInstance().getPnSpaceHasSpaceService().getFinancialRelatedSpace(Integer.valueOf(businessWizard.getParentSpaceID()));
+	} 
+	
+	//If found, set that financial space has sub-space of the new created financial space.
+	if(spaceHasSpace!=null){
+		financialWizard.setParentSpaceID(String.valueOf(spaceHasSpace.getComp_id().getChildSpaceId()));
+	}
 	
 	
 	businessWizard.store();

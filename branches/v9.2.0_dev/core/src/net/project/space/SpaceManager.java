@@ -175,6 +175,10 @@ public class SpaceManager {
     public static void addSuperBusinessRelationship(DBBean db, Space superBusiness, Space subbusiness) throws SQLException {
         addRelationship(db, superBusiness, subbusiness, SpaceRelationship.SUBSPACE);
     }
+    
+    public static void addSuperFinancialRelationship(DBBean db, Space superFinancial, Space subFinancial) throws SQLException {
+    	addRelationship(db, superFinancial, subFinancial, SpaceRelationship.SUBSPACE);
+    }
 
     /*
      *  Create a ownership relationship.  The type of the ownership is determined by the space types passed.

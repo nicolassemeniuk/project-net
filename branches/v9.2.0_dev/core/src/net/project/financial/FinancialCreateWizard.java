@@ -1,7 +1,6 @@
 package net.project.financial;
 
 import java.sql.SQLException;
-import java.sql.Types;
 
 import net.project.base.PnetException;
 import net.project.database.DBBean;
@@ -15,10 +14,29 @@ import net.project.space.SpaceRelationship;
 
 public class FinancialCreateWizard extends FinancialSpace {
 
+	/**
+	 * Related business space
+	 */
 	private Space relatedSpace;
+	
+	/**
+	 * Related business relationship
+	 */
 	private SpaceRelationship relationship;
+	
+	/**
+	 * Related financial super-space
+	 */
 	private Space relatedOwnerSpace;
+	
+	/**
+	 * Financial super-space relationship
+	 */
 	private SpaceRelationship ownerRelationship;
+	
+	/**
+	 * The user creator of this space.
+	 */
 	protected User user = null;
 
 	public User getUser() {
@@ -85,10 +103,23 @@ public class FinancialCreateWizard extends FinancialSpace {
 	        db.executeCallable();
 			
 			inviteOwner(db);
-	        
-			SpaceManager.addRelationship(db, this.getRelatedOwnerSpace(), this, this.getOwnerRelationship());
-			SpaceManager.addRelationship(db, this.getRelatedSpace(), this, this.getRelationship());
-						
+			
+	        // Update relationship to parent financial space
+	        if ((getParentSpaceID() != null) && !getParentSpaceID().equals("")) {
+	        	FinancialSpace parentSpace = new FinancialSpace();
+	            parentSpace.setID(getParentSpaceID());
+	            SpaceManager.addSuperFinancialRelationship(db, parentSpace, this);   
+
+	        } else if ((relatedOwnerSpace != null) && (ownerRelationship != null))	{
+	        	SpaceManager.addRelationship(db, this.getRelatedOwnerSpace(), this, this.getOwnerRelationship());
+	        }
+	        	
+	        //Update relationship to related business
+        	if ((relatedSpace != null) && (relationship != null)){
+	        	SpaceManager.addRelationship(db, this.getRelatedSpace(), this, this.getRelationship());
+	        }
+
+			
 			db.commit();
 
 		} catch (SQLException e) {

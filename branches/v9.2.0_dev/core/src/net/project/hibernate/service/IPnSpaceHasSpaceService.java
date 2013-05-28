@@ -21,4 +21,6 @@ import net.project.hibernate.service.filters.IPnSpaceHasSpaceFilter;
 
 public interface IPnSpaceHasSpaceService {
    public List<PnSpaceHasSpace> findByFilter(IPnSpaceHasSpaceFilter filter);
+   
+   public PnSpaceHasSpace getFinancialRelatedSpace(Integer spaceID);
 }

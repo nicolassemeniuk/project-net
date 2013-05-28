@@ -35,6 +35,7 @@ import java.util.Iterator;
  * SpaceRelationship.OWNERSHIP
  * SpaceRelationship.SUBSPACE
  * SpaceRelationship.MASTER
+ * SpaceRelationship.FINANCIAL
  * </code></pre>
  * 
  * And methods are called as follows (for example):
@@ -155,4 +156,6 @@ public class SpaceRelationship {
      * information_consumers have access to the form and can enter data.
      */
     public static final SpaceRelationship INFORMATION_PROVIDER = new SpaceRelationship("information_consumer", "information_provider");
+    
+    public static final SpaceRelationship FINANCIAL = new SpaceRelationship("financial_business", "financial_financial");
 }
