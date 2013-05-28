@@ -144,11 +144,11 @@ function setup() {
 	}
 	
 	var costCalculationMethod = document.getElementById("costCalculationMethod");
-	if(costCalculationMethod == "manual"){
-		selectRadio(theForm.costCalculationMethod, 'manual');
-		enableCostTextFields(false);
+	if(costCalculationMethod.value == "manual"){
+		selectRadio(theForm.MetaCostCalculationMethod, 'manual');
+		enableCostTextFields(true);
 	}else{
-		selectRadio(theForm.costCalculationMethod, 'automatic');
+		selectRadio(theForm.MetaCostCalculationMethod, 'automatic');
 	}
 	
 	this.focus();

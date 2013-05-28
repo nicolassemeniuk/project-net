@@ -76,7 +76,7 @@ function writeSpaceNavBarMenu() {
 
 <display:if name="@prm.financial.dashboard.isenabled">
 	menuString += "<li>";
-	menuString += "	<span><display:get name='@prm.global.tool.dashboard.name' href='<%=base + "/financial/Main.jsp?module=175" %>'/></span>";
+	menuString += "	<span><display:get name='@prm.global.tool.dashboard.name' href='<%=base + "/financial/Dashboard?id=" + user.getCurrentSpace().getID() %>'/></span>";
 	menuString += "</li>";
 </display:if>
 
