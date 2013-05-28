@@ -38,8 +38,8 @@
 	<script type="text/javascript" src="${jSPRootURL}/src/menu/dropdown.js?${versionNumber}"></script>
 	<script language="javascript" src="${jSPRootURL}/toolbar/include/Main.jsp?s=financial&amp;i=${userId}${currentSpaceId}" />
 	<script language="javascript" src="${jSPRootURL}/financial/include/NavBar.jsp?s=financial&amp;i=${userId}${currentSpaceId}" />
+	<script type="text/javascript" src="${jSPRootURL}/src/blogit.js?${versionNumber}"></script>	
 	<script type="text/javascript" src="${JSPRootURL}/src/sessionHook.js?${versionNumber}" />
-	<script type="text/javascript" src="${jSPRootURL}/src/blogit.js?${versionNumber}"></script>
 	<script language="javascript">
 	    var theForm;
 	    var isLoaded = false;

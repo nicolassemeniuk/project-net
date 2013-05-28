@@ -36,6 +36,7 @@ import net.project.document.Document;
 import net.project.document.DocumentManagerBean;
 import net.project.document.handler.DocumentHandler;
 import net.project.document.handler.DocumentHandlerFactory;
+import net.project.financial.FinancialSpaceBean;
 import net.project.hibernate.service.IPnPersonService;
 import net.project.hibernate.service.ServiceFactory;
 import net.project.persistence.PersistenceException;
@@ -55,7 +56,7 @@ public class PhotoServlet extends HttpServlet {
     
     // Actions to view user's image and logo images of business and project
     public enum ImageViewActions {
-        BLOGO, PLOGO;
+        BLOGO, PLOGO, FLOGO;
         
         public static ImageViewActions get(String v) {
             try {
@@ -123,6 +124,10 @@ public class PhotoServlet extends HttpServlet {
                     ProjectSpaceBean projectSpace = (ProjectSpaceBean)request.getSession().getAttribute("projectSpace");
                     if (projectSpace != null && id.equals(projectSpace.getID()))
                         imageID = projectSpace.getProjectLogoID();
+                } else if (imageViewActions == ImageViewActions.FLOGO) { // get financial's logo id from financial id
+                    FinancialSpaceBean financialSpace = (FinancialSpaceBean)request.getSession().getAttribute("financialSpace");
+                    if (financialSpace != null && id.equals(financialSpace.getID()))
+                        imageID = financialSpace.getFinancialLogoID();                    
                 } else if (StringUtils.isEmpty(logoType)) {
                     // get the person's image id from user's id 
                     imageID = pnPersonService.getImageIdByPersonId(Integer.valueOf(id)).toString();

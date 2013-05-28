@@ -269,11 +269,11 @@ public class Dashboard extends BasePage
 			}
 			
 			moduleId = Module.FINANCIAL_SPACE;
-			financialName = financialSpace.getFinancialSpaceName();
+			financialName = financialSpace.getName();
 
 			if (financialSpace.getFinancialLogoID() != null) {
 				financialLogo = true;
-				logoUrl = getJSPRootURL()+"/servlet/photo?id=" + /*financialSpace.getID()*/ 6607 + "&logoType=plogo&module=" + Module.DOCUMENT;
+				logoUrl = getJSPRootURL()+"/servlet/photo?id=" + financialSpace.getID() + "&logoType=flogo&module=" + Module.DOCUMENT;
 			} else {
 				financialLogo = false;
 			}			

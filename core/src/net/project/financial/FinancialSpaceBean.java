@@ -26,11 +26,26 @@ public class FinancialSpaceBean extends FinancialSpace implements Serializable {
     public static final String SPACE_ID = "29";
      
     /**
+     * The id of this FinancialSpace's logo.
+     */
+
+    private String financialLogoID = null;    	
+   
+    /**
      * Constructor
      */
     public FinancialSpaceBean() {
         super(SPACE_ID);
     }   
    
+    /**
+     * Returns the id of this financial's logo.
+     * 
+     * @return the id of the financial logo
+     * @see #setFinancialLogoID
+     */
+    public String getFinancialLogoID() {
+        return this.financialLogoID;
+    }
 }
 
