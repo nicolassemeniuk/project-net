@@ -30,7 +30,6 @@
 	            net.project.code.ColorCode,
 	            net.project.util.Currency,
 	            net.project.base.money.Money,
-	            net.project.project.CostCalculationMethod,
     	        net.project.code.ImprovementCode"
 %>
 
@@ -202,7 +201,7 @@ function preselectTemplate(methodologyId) {
 	<input type="hidden" name="theAction">
 	<input type="hidden" name="parent" value='<%=request.getParameter("parentSpaceID") %>' >
 
-	<table border="0" align="left" width="600" cellpadding="0" cellspacing="0">
+	<table border="0" align="left" width="700" cellpadding="0" cellspacing="0">
           <tr align="left" class="channelHeader">
             <td width=1%><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border=0></td>
             <td nowrap colspan="3" class="channelHeader" align="left">&nbsp;<display:get name="prm.project.create.wizard.description.heading" />&nbsp;&nbsp;<display:get name="prm.global.display.requiredfield" /></td>
@@ -643,7 +642,7 @@ function preselectTemplate(methodologyId) {
 						</td>
 
 						<td class="tableContent">
-								<input type="text" name="estimatedROI" size="40" maxlength="1000" disabled="true"/>%
+								<input type="text" name="estimatedROI" size="20" maxlength="1000" disabled="true"/>%
 						</td>
 				        <td>&nbsp;</td>
 					</tr>
