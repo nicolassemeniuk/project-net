@@ -71,8 +71,10 @@
 	financialWizard.setName(businessWizard.getName());
 	financialWizard.setUser(user);
 	financialWizard.setOwnerSpaceID(businessWizard.getID());
-	financialWizard.setRelatedSpace(businessWizard);
-	financialWizard.setRelationship(SpaceRelationship.OWNERSHIP);
+	financialWizard.setRelatedOwnerSpace(businessWizard);
+	financialWizard.setOwnerRelationship(SpaceRelationship.INFORMATION_PROVIDER);
+	
+	
 	
 	businessWizard.store();
 	financialWizard.store();

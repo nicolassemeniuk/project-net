@@ -23,6 +23,8 @@ import net.project.persistence.PersistenceException;
 import net.project.space.ISpaceTypes;
 import net.project.space.Space;
 import net.project.space.SpaceTypes;
+import net.project.xml.document.XMLDocument;
+import net.project.xml.document.XMLDocumentException;
 
 /**
  * A Financial Workspace.
@@ -85,15 +87,42 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 	@Override
 	public String getXML()
 	{
-		// TODO Auto-generated method stub
-		return null;
+        return getXMLDocument().getXMLString();
 	}
 
 	@Override
 	public String getXMLBody()
 	{
-		// TODO Auto-generated method stub
-		return null;
+        return getXMLDocument().getXMLBodyString();
 	}
+	
+    /**
+     * Returns the XML for this BusinessSpace.
+     * 
+     * @return the XML
+     */
+    protected XMLDocument getXMLDocument() {
+
+        XMLDocument doc = new XMLDocument();
+
+        try {
+
+            doc.startElement("FinancialSpace");
+            doc.addElement("financialID", getID());
+            doc.addElement("name", getName());
+            doc.addElement("description", getDescription());
+            doc.addElement("parentSpaceID", getParentSpaceID());
+            doc.addElement("ownerSpaceID", getOwnerSpaceID());
+            doc.addElement("numProjects", "0");
+            doc.addElement("numMembers", "0");
+            doc.endElement();
+
+        } catch (XMLDocumentException e) {
+            // Do nothing
+            // Return partially constructed document
+        }
+
+        return doc;
+    }
 
 }

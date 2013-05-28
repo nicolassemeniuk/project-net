@@ -17,6 +17,8 @@ public class FinancialCreateWizard extends FinancialSpace {
 
 	private Space relatedSpace;
 	private SpaceRelationship relationship;
+	private Space relatedOwnerSpace;
+	private SpaceRelationship ownerRelationship;
 	protected User user = null;
 
 	public User getUser() {
@@ -41,6 +43,22 @@ public class FinancialCreateWizard extends FinancialSpace {
 
 	public void setRelationship(SpaceRelationship relationship) {
 		this.relationship = relationship;
+	}
+		
+	public Space getRelatedOwnerSpace() {
+		return relatedOwnerSpace;
+	}
+
+	public void setRelatedOwnerSpace(Space relatedOwnerSpace) {
+		this.relatedOwnerSpace = relatedOwnerSpace;
+	}
+
+	public SpaceRelationship getOwnerRelationship() {
+		return ownerRelationship;
+	}
+
+	public void setOwnerRelationship(SpaceRelationship ownerRelationship) {
+		this.ownerRelationship = ownerRelationship;
 	}
 
 	public void store() throws PersistenceException {
@@ -68,6 +86,7 @@ public class FinancialCreateWizard extends FinancialSpace {
 			
 			inviteOwner(db);
 	        
+			SpaceManager.addRelationship(db, this.getRelatedOwnerSpace(), this, this.getOwnerRelationship());
 			SpaceManager.addRelationship(db, this.getRelatedSpace(), this, this.getRelationship());
 						
 			db.commit();

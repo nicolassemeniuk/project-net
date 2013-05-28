@@ -52,9 +52,14 @@ public abstract class Space implements ISpaceTypes, IHTMLOption, Serializable {
     protected String parentSpaceID = null;
 
     /**
-     * the id of the space that ownes this space
+     * the id of the space that owns this space
      */
     protected String ownerSpaceID = null;
+    
+    /**
+     * the id of the space that is related to this space
+     */
+    protected String relatedSpaceID = null;
 
     /**
      * the name of the space.  Project_name, business_name, etc.
@@ -120,6 +125,7 @@ public abstract class Space implements ISpaceTypes, IHTMLOption, Serializable {
         this.spaceID = source.spaceID;
         this.parentSpaceID = source.parentSpaceID;
         this.ownerSpaceID = source.ownerSpaceID;
+        this.relatedSpaceID = source.relatedSpaceID;
         this.name = source.name;
         this.description = source.description;
         this.recordStatus = source.recordStatus;
@@ -410,11 +416,21 @@ public abstract class Space implements ISpaceTypes, IHTMLOption, Serializable {
         return this.ownerSpaceID;
     }
 
+    public String getRelatedSpaceID() {
+		return relatedSpaceID;
+	}
 
+
+	public void setRelatedSpaceID(String relatedSpaceID) {
+		this.relatedSpaceID = relatedSpaceID;
+	}    
 
     /* -------------------------------  Implementing IJDBCPersistence  ------------------------------- */
 
-    public abstract void load() throws net.project.persistence.PersistenceException;
+
+
+
+	public abstract void load() throws net.project.persistence.PersistenceException;
 
     public abstract void store() throws net.project.persistence.PersistenceException;
 

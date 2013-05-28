@@ -23,43 +23,14 @@ import java.io.Serializable;
  */
 public class FinancialSpaceBean extends FinancialSpace implements Serializable {
 
-    // public static final String SPACE_ID = "29";
-    
-    /**
-     * The id of this FinancialSpace's logo.
-     */
-    
-    // TODO MOCK
-    private String financialLogoID = "6607";    	
-    // private String financialLogoID = null;    
+    public static final String SPACE_ID = "29";
      
     /**
      * Constructor
      */
     public FinancialSpaceBean() {
-        super("10000");
-    }
-    
-    /**
-     * Returns the id of this financial's logo.
-     * 
-     * @return the id of the financial logo
-     * @see #setProjectLogoID
-     */
-    public String getFinancialLogoID() {
-        return this.financialLogoID;
-    }
-    
-    // TODO MOCK
-    public String getFinancialSpaceName()
-    {
-    	return "Vitrax";
-    }
-    
-    // TODO MOCK
-    public String getName()
-    {
-    	return "Vitrax";
-    }    
+        super(SPACE_ID);
+    }   
+   
 }
 

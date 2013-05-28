@@ -25,9 +25,6 @@
 
 <jsp:useBean id="businessWizard" class="net.project.business.BusinessCreateWizard" scope="session" />
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
-
-
-
 <jsp:setProperty name="businessWizard" property="*" />
 
 <%  
