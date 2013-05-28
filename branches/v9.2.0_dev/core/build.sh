@@ -21,7 +21,7 @@
 # Clear the CLASSPATH
 # The build classpath is specified in build.xml; Ant will add its own classes.
 # Add external dependencies (usually optional Ant tasks) to the classpath
-set CLASSPATH="../test/unit-test/lib/junit.jar"
+# set CLASSPATH="../test/unit-test/lib/junit.jar"
 
 # Execute the build
 ../tools/ant/bin/ant -emacs $* -f build.xml
