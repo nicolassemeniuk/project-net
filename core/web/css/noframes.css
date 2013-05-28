@@ -1613,6 +1613,41 @@ div.spacer-for-toolbox {
 	border-left: 1px solid #b9e0a6;
 	border-right: 1px solid #b9e0a6;
 }
+
+/* For Financial dashboard */
+.portal-financial-flex-block {
+	width: auto;
+	height: auto;
+	margin-bottom: 15px;
+}
+.portal-financial-flex-block .block-heading-end {
+	background: url(jspRootUrl/images/financial/dashboard_left-corner.gif) no-repeat left;
+	height: 23px;
+}
+.portal-financial-flex-block .block-heading {
+	background: #AB80C1 url(jspRootUrl/images/financial/dashboard_right-corner.gif) no-repeat right;	
+	height: 23px;
+	border-bottom: 2px solid #AB80C1;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.portal-financial-flex-block .block-content {
+	width: auto;
+	height: auto;
+	border-bottom: 1px solid #AB80C1;
+	border-left: 1px solid #AB80C1;
+	border-right: 1px solid #AB80C1;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.channel-heading-end-financial {
+	background: #AB80C1 url(jspRootUrl/images/financial/dashboard_right-corner.gif) no-repeat right;	
+	height: 23px;
+	white-space: nowrap;
+	overflow: hidden;
+	padding-right: 5px;
+	text-align: right;
+}
 /* For Configuration */
 .portal-configuration-flex-block {
 	width: 100%;

@@ -37,7 +37,7 @@
 	// Minimize div with changing image source, content display and title.
 	function minimize(divId,imgId,linkId,context){
 		document.getElementById(divId).style.display='none';
-	    document.getElementById(imgId).src=JSPRootURL+'/images/project/dashboard_arrow-down.gif';
+	    document.getElementById(imgId).src=JSPRootURL+'/images/financial/dashboard_arrow-down.gif';
 	    document.getElementById(linkId).href= "javascript:saveState('"+context+"','0');";
   	    document.getElementById(imgId).title = downTitle;
 	}
@@ -48,7 +48,7 @@
 			document.getElementById(divId).style.display='block';
 		}
 		if( document.getElementById(imgId) != null){
-	 	   document.getElementById(imgId).src=JSPRootURL+'/images/project/dashboard_arrow-up.gif';	    
+	 	   document.getElementById(imgId).src=JSPRootURL+'/images/financial/dashboard_arrow-up.gif';	    
 	 	}
 	 	if(document.getElementById(linkId) != null){
 		    document.getElementById(linkId).href= "javascript:saveState('"+context+"','1');";	    
@@ -61,7 +61,7 @@
 	// Closing div with changing image source, content display and title
 	function closeWidget(divId,imgId,linkId,context){
 		document.getElementById(divId).style.display='none';
-	    document.getElementById(imgId).src=JSPRootURL+'/images/project/dashboard_close.gif' 	    
+	    document.getElementById(imgId).src=JSPRootURL+'/images/financial/dashboard_close.gif' 	    
 	    document.getElementById(linkId).href= "javascript:saveState('"+context+"','2');";
    	    document.getElementById(imgId).title = closeTitle;
 	}
@@ -69,7 +69,7 @@
 	// Show div with changing image source, content display and title
 	function showWidget(divId,imgId,linkId,context){
 		document.getElementById(divId).style.display='block';
-	    document.getElementById(imgId).src=JSPRootURL+'/images/project/dashboard_close.gif' 	    
+	    document.getElementById(imgId).src=JSPRootURL+'/images/financial/dashboard_close.gif' 	    
 	    document.getElementById(linkId).href= "javascript:saveState('"+context+"','2');";
 	    document.getElementById(imgId).title = closeTitle;
 	}

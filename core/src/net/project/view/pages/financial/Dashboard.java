@@ -36,26 +36,24 @@ import net.project.channel.ScopeType;
 import net.project.channel.State;
 import net.project.financial.FinancialSpaceBean;
 import net.project.hibernate.model.PnPersonProperty;
-import net.project.hibernate.model.project_space.ProjectSchedule;
-import net.project.hibernate.service.IPnProjectSpaceService;
 import net.project.hibernate.service.ServiceFactory;
 import net.project.persistence.PersistenceException;
-import net.project.project.ProjectSpace;
-import net.project.project.ProjectSpaceBean;
 import net.project.resource.PersonProperty;
 import net.project.security.SecurityProvider;
 import net.project.security.SessionManager;
-import net.project.security.User;
 import net.project.space.Space;
-import net.project.space.SpaceManager;
-import net.project.util.DateFormat;
 import net.project.util.HttpUtils;
 import net.project.util.StringUtils;
 import net.project.view.pages.base.BasePage;
 
-public class Dashboard extends BasePage {
+public class Dashboard extends BasePage
+{
+	@Inject
+	private RequestGlobals requestGlobals;	
 	
 	private static Logger log = logger;	
+
+	private Integer moduleId;	
 	
 	private FinancialSpaceBean financialSpace;	
 	
@@ -65,22 +63,24 @@ public class Dashboard extends BasePage {
 	
 	private boolean financialLogo;
 	
+	// Left navbar
 	private boolean actionsIconEnabled;	
 	
 	private boolean blogEnabled;
 	
+	// Variables for minimize maximize functionality
 	private String closeTitle;
 	
 	private String upTitle;
 	
-	private String downTitle;		
+	private String downTitle;
 	
-	// variables for minimize maximize functionality
-	
+	// Projects channel	
 	private boolean projectsState;	
 	
 	private boolean projectsCloseState;	
 
+	// Context initialization
 	@Persist
 	private String spaceName;	
 	
@@ -93,6 +93,8 @@ public class Dashboard extends BasePage {
 	private final String CHANNEL_PROPERTY_CONTEXT = "net.project.channel.";
 	
 	private final String FINANCIAL_SPACE_PROJECTS = "FinancialSpace_Projects_";	
+	
+	private final String FINANCIAL_SPACE_PROJECTS_TITLE = "Projects";	
 	
 	@Persist
 	private String financialId;	
@@ -110,13 +112,8 @@ public class Dashboard extends BasePage {
 	@Property
 	private String personalizePageTooltip;	
 
-	private Integer moduleId = 175;	
-	
-	@Inject
-	private RequestGlobals requestGlobals;	
-	
 	/**
-	 * Method to initialize tokens 
+	 * Method to initialize tokens.
 	 */
 	public void initializeTokens() {
         actionsIconEnabled = PropertyProvider.getBoolean("prm.global.actions.icon.isenabled");
@@ -133,7 +130,7 @@ public class Dashboard extends BasePage {
 	}		
 	
 	/**
-	* Method for setting current financial space as user's current space
+	* Method for setting current financial space as user's current space.
 	*/
 	 private void setUserCurrentSpace(){
 		FinancialSpaceBean financial = (FinancialSpaceBean) requestGlobals.getHTTPServletRequest().getSession().getAttribute("financialSpace");
@@ -147,12 +144,12 @@ public class Dashboard extends BasePage {
 				financial.load();	
 			}
 		} catch (PersistenceException pnetEx) {
-			log.error("Error occured while loading project space : "+pnetEx.getMessage());
+			log.error("Error occured while loading financial space : "+pnetEx.getMessage());
 		}
 		try {
 			SessionManager.getUser().setCurrentSpace(financial);
 		} catch (PnetException pnetEx) {
-			log.error("Error occured while setting project as current space : "+pnetEx.getMessage());
+			log.error("Error occured while setting financial as current space : "+pnetEx.getMessage());
 		}
 		financialSpace = financial;
 	}	
@@ -237,7 +234,10 @@ public class Dashboard extends BasePage {
 		}
 	}
 	
-	//Method for saving the channel state in pnPersonProperty table
+	/**
+	 * Method for saving the channel state in pnPersonProperty table.
+	 * @param request
+	 */
 	private void replaceContextState(HttpServletRequest request) {
 		String value = request.getParameter("value");
 		String contextSuffix = request.getParameter("context");
@@ -257,7 +257,7 @@ public class Dashboard extends BasePage {
 	}	
 	
 	/**
-	 * Seting up values before page render
+	 * Seting up values before page render.
 	 */
 	@SetupRender
 	void setValues() {
@@ -282,84 +282,15 @@ public class Dashboard extends BasePage {
 			log.error("Error occurred while getting dash board data: "+e.getMessage());
 		}			
 	}
-	 
-	public String getReportsUrl() {
-		return "/report/Main.jsp?module="+Module.REPORT;
-	}
 	
-	public FinancialSpaceBean getFinancialSpace()
-	{
-		return financialSpace;
-	}
-
-	public void setFinancialSpace(FinancialSpaceBean financialSpace)
-	{
-		this.financialSpace = financialSpace;
-	}
-
 	public String getFinancialName()
 	{
 		return financialName;
-	}
-
-	public String getSpaceName()
+	}	
+	
+	public String getReportsUrl()
 	{
-		return spaceName;
-	}
-
-	public void setSpaceName(String spaceName)
-	{
-		this.spaceName = spaceName;
-	}
-
-	public Integer getSpaceId()
-	{
-		return spaceId;
-	}
-
-	public void setSpaceId(Integer spaceId)
-	{
-		this.spaceId = spaceId;
-	}
-
-	public Integer getPersonId()
-	{
-		return personId;
-	}
-
-	public void setPersonId(Integer personId)
-	{
-		this.personId = personId;
-	}
-
-	public String getFinancialId()
-	{
-		return financialId;
-	}
-
-	public void setFinancialId(String financialId)
-	{
-		this.financialId = financialId;
-	}
-
-	public Integer getModuleId()
-	{
-		return moduleId;
-	}
-
-	public void setModuleId(Integer moduleId)
-	{
-		this.moduleId = moduleId;
-	}
-
-	public RequestGlobals getRequestGlobals()
-	{
-		return requestGlobals;
-	}
-
-	public void setRequestGlobals(RequestGlobals requestGlobals)
-	{
-		this.requestGlobals = requestGlobals;
+		return "/report/Main.jsp?module="+Module.REPORT;
 	}
 
 	/**
@@ -368,73 +299,42 @@ public class Dashboard extends BasePage {
      */
     public String getPersonalizeLink() {
     	StringBuffer url = new StringBuffer();
-//    	try {
-//		    	PersonProperty settings = new PersonProperty();
-//		    	settings.setScope(ScopeType.SPACE.makeScope(SessionManager.getUser()));
-//		        String qs = HttpUtils.getRedirectParameterString(requestGlobals.getHTTPServletRequest());
-//		        
-//		        if (qs != null) {
-//					qs = "?" + qs;
-//				} else {
-//					qs = "";
-//				}
-//        
-//            	url.append(SessionManager.getJSPRootURL()).append("/channel/CustomizeChannels.jsp?referer=").append(URLEncoder.encode(getJSPRootURL()+ requestGlobals.getHTTPServletRequest().getServletPath() + qs));
-//
-//	            // Add the scope so that it is build into personalize link
-//	            url.append("&").append(settings.getScope().formatRequestParameters());
-//	
-//	            // Need to add id and name of every widget
-//	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_PIE_CHART+ projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(BAR_CHART_TITLE, SessionManager.getCharacterEncoding()));
-//	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_PROJECT_COMPLETION + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(PROJECT_COMPLETION_TITLE, SessionManager.getCharacterEncoding()));
-//	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_PHASES + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(PHASES_TITLE, SessionManager.getCharacterEncoding()));
-//	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_SUBPROJECTS + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(SUBPROJECTS_TITLE, SessionManager.getCharacterEncoding()));
-//	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_MEETINGS + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(MEETINGS_TITLE, SessionManager.getCharacterEncoding()));
-//	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_PROJECT_NEWS + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(PROJECT_NEWS_TITLE, SessionManager.getCharacterEncoding()));
-//	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_MATERIALS + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(MATERIALS_TITLE, SessionManager.getCharacterEncoding()));
-//	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_TEAMMATES + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(TEAMMATES_TITLE, SessionManager.getCharacterEncoding()));
-//	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_PROJECT_CHANGES + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(PROJECT_CHANGES_TITLE, SessionManager.getCharacterEncoding()));
-//	            
-//	        } catch (Exception e) {
-//	            log.error(e.getMessage()); 
-//	        }
-    	
-    	url.append("about:blank");
+    	try {
+		    	PersonProperty settings = new PersonProperty();
+		    	settings.setScope(ScopeType.SPACE.makeScope(SessionManager.getUser()));
+		        String qs = HttpUtils.getRedirectParameterString(requestGlobals.getHTTPServletRequest());
+		        
+		        if (qs != null) {
+					qs = "?" + qs;
+				} else {
+					qs = "";
+				}
+        
+            	url.append(SessionManager.getJSPRootURL()).append("/channel/CustomizeChannels.jsp?referer=").append(URLEncoder.encode(getJSPRootURL()+ requestGlobals.getHTTPServletRequest().getServletPath() + qs));
+
+	            // Add the scope so that it is build into personalize link
+	            url.append("&").append(settings.getScope().formatRequestParameters());
+	
+	            // Need to add id and name of every widget
+	            url.append("&name=").append(URLEncoder.encode(FINANCIAL_SPACE_PROJECTS+ financialSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(FINANCIAL_SPACE_PROJECTS_TITLE, SessionManager.getCharacterEncoding()));
+	            
+	        } catch (Exception e) {
+	            log.error(e.getMessage()); 
+	        }
+
         return url.toString();
     }
-
-	public String getPROPERTY()
-	{
-		return PROPERTY;
-	}
-
-	public String getCHANNEL_PROPERTY_CONTEXT()
-	{
-		return CHANNEL_PROPERTY_CONTEXT;
-	}
-
-	public String getCloseTitle() {
-		return closeTitle;
-	}
-
-	public String getUpTitle() {
-		return upTitle;
-	}
 	
-	public String getDownTitle() {
-		return downTitle;
+	public String getLogoUrl()
+	{
+		return logoUrl;
 	}	
-	
+
 	public boolean isFinancialLogo()
 	{
 		return financialLogo;
 	}
 	
-	public String getLogoUrl()
-	{
-		return logoUrl;
-	}
-
 	public boolean isActionsIconEnabled()
 	{
 		return actionsIconEnabled;
@@ -445,6 +345,21 @@ public class Dashboard extends BasePage {
 		return blogEnabled;
 	}
 
+	public String getCloseTitle()
+	{
+		return closeTitle;
+	}
+
+	public String getUpTitle()
+	{
+		return upTitle;
+	}
+	
+	public String getDownTitle()
+	{
+		return downTitle;
+	}		
+	
 	public boolean isProjectsCloseState()
 	{
 		return projectsCloseState;
