@@ -1,6 +1,9 @@
 package net.project.hibernate.service;
 
+import java.util.Collection;
+
 import net.project.financial.FinancialCreateWizard;
+import net.project.financial.PnFinancialSpaceList;
 import net.project.hibernate.model.PnFinancialSpace;
 
 public interface IPnFinancialSpaceService {
@@ -18,6 +21,8 @@ public interface IPnFinancialSpaceService {
 	 * @return a financial space.
 	 */
 	public PnFinancialSpace getFinancialSpace(Integer financialSpaceId);
+
+	public PnFinancialSpaceList getFinancialSpacesByIds(Collection additionalSpaceIDCollection);
 	
 	
 }

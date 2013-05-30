@@ -1,5 +1,8 @@
 package net.project.hibernate.dao.impl;
 
+import java.util.Collection;
+
+import net.project.financial.PnFinancialSpaceList;
 import net.project.hibernate.dao.IPnFinancialSpaceDAO;
 import net.project.hibernate.model.PnFinancialSpace;
 import net.project.hibernate.model.PnMaterial;
@@ -38,5 +41,23 @@ public class PnFinancialSpaceDAOImpl extends AbstractHibernateAnnotatedDAO<PnFin
 		}
 		return null;
 	}
+
+	@Override
+	public PnFinancialSpaceList getFinancialSpacesByIds(Collection additionalSpaceIDCollection) {
+		PnFinancialSpaceList result = new PnFinancialSpaceList();
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+			Criteria criteria = session.createCriteria(PnFinancialSpace.class);
+			criteria.add(Restrictions.in("financialSpaceId", additionalSpaceIDCollection));
+			result = new PnFinancialSpaceList(criteria.list());
+			session.close();
+		} catch (Exception e) {
+			log.error("Error occurred while getting the list of financial spaces " + e.getMessage());
+		}
+		return result;
+	}
+	
+	
 
 }

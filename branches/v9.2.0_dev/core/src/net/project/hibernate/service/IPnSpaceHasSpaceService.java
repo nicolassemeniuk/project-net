@@ -23,4 +23,6 @@ public interface IPnSpaceHasSpaceService {
    public List<PnSpaceHasSpace> findByFilter(IPnSpaceHasSpaceFilter filter);
    
    public PnSpaceHasSpace getFinancialRelatedSpace(Integer spaceID);
+   
+   public Integer getParentSpaceID(Integer spaceID);
 }

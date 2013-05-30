@@ -14,6 +14,7 @@
 */
 package net.project.hibernate.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Hibernate;
@@ -71,4 +72,11 @@ public class PnSpaceHasPersonServiceImpl implements IPnSpaceHasPersonService {
 	public boolean doesPersonExistsInSpace(Integer personId, Integer spaceId) {
 		return pnSpaceHasPersonDAO.doesPersonExistsInSpace(personId, spaceId);
 	}
+
+	@Override
+	public List<Integer> getSpacesFromPerson(Integer personID) {
+		return pnSpaceHasPersonDAO.getSpacesFromPerson(personID);
+	}
+	
+	
 }

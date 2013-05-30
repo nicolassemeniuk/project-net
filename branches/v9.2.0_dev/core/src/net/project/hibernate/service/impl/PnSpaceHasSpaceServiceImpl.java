@@ -65,4 +65,9 @@ public class PnSpaceHasSpaceServiceImpl implements IPnSpaceHasSpaceService {
 	public PnSpaceHasSpace getFinancialRelatedSpace(Integer spaceID) {
 		return pnSpaceHasSpaceDAO.getRelatedFinancialSpace(spaceID);
 	}
+
+	@Override
+	public Integer getParentSpaceID(Integer spaceID) {
+		return pnSpaceHasSpaceDAO.getParentSpaceID(spaceID);
+	}
 }

@@ -23,6 +23,7 @@ import org.apache.log4j.Logger;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
+import org.hibernate.criterion.Property;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -50,6 +51,22 @@ public class PnSpaceHasSpaceDAOImpl extends AbstractHibernateAnnotatedDAO<PnSpac
 			log.error(e.getMessage());
 		}
 		return spaceHasSpace;
+	}
+
+	@Override
+	public Integer getParentSpaceID(Integer spaceID) {
+		Integer parentSpaceID = 0;
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+			parentSpaceID = (Integer) session.createCriteria(PnSpaceHasSpace.class).add(Restrictions.eq("comp_id.childSpaceId", spaceID))
+					.add(Restrictions.eq("relationshipChildToParent", SpaceRelationship.FINANCIAL.getNameChildToParent())).setProjection(Property.forName("comp_id.parentSpaceId")).uniqueResult();
+			session.close();
+		} catch (HibernateException e) {
+			log.error(e.getMessage());
+		}
+		
+		return parentSpaceID;
 	}
 
 }

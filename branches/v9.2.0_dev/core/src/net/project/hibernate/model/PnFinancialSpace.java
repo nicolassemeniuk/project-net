@@ -11,9 +11,9 @@ import javax.persistence.Table;
 @Table(name = "PN_FINANCIAL_SPACE")
 public class PnFinancialSpace implements Serializable {
 	
-	private Integer financialId;
+	private Integer financialSpaceId;
 
-	private String financialName;
+	private String financialSpaceName;
 	
 	private String recordStatus;
 	
@@ -24,27 +24,27 @@ public class PnFinancialSpace implements Serializable {
 	}
 	
 	public PnFinancialSpace(Integer financialId, String financialName){
-		this.financialId = financialId;
-		this.financialName = financialName;
+		this.financialSpaceId = financialId;
+		this.financialSpaceName = financialName;
 	}
 
 	@Id
 	@Column(name = "FINANCIAL_SPACE_ID", nullable = false, length = 20)
 	public Integer getFinancialSpaceId() {
-		return financialId;
+		return financialSpaceId;
 	}
 
 	public void setFinancialSpaceId(Integer financialId) {
-		this.financialId = financialId;
+		this.financialSpaceId = financialId;
 	}
 
 	@Column(name = "FINANCIAL_SPACE_NAME", nullable = false, length = 40)
 	public String getFinancialSpaceName() {
-		return financialName;
+		return financialSpaceName;
 	}
 
 	public void setFinancialSpaceName(String financialName) {
-		this.financialName = financialName;
+		this.financialSpaceName = financialName;
 	}
 	
 	@Column(name = "RECORD_STATUS", nullable = false, length = 1)
