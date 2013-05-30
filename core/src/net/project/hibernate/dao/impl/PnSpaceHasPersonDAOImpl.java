@@ -18,16 +18,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 import net.project.hibernate.dao.IPnSpaceHasPersonDAO;
+import net.project.hibernate.model.PnSpaceHasMaterial;
 import net.project.hibernate.model.PnSpaceHasPerson;
 import net.project.hibernate.model.PnSpaceHasPersonPK;
 
+import org.apache.log4j.Logger;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
+import org.hibernate.SessionFactory;
+import org.hibernate.classic.Session;
+import org.hibernate.criterion.Property;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 @Transactional 
 @Repository 
 public class PnSpaceHasPersonDAOImpl extends AbstractHibernateAnnotatedDAO<PnSpaceHasPerson, PnSpaceHasPersonPK> implements IPnSpaceHasPersonDAO {
+	
+	private static Logger log = Logger.getLogger(PnSpaceHasPersonDAOImpl.class);
 
 	public PnSpaceHasPersonDAOImpl() {
 		super(PnSpaceHasPerson.class);
@@ -85,5 +94,20 @@ public class PnSpaceHasPersonDAOImpl extends AbstractHibernateAnnotatedDAO<PnSpa
 			e.printStackTrace();
 		}
 		return exists;
+	}
+
+	@Override
+	public List<Integer> getSpacesFromPerson(Integer personID) {
+		List<Integer> idList = new ArrayList<Integer>();
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+			idList = session.createCriteria(PnSpaceHasPerson.class).add(Restrictions.eq("comp_id.personId", personID))
+					.setProjection(Property.forName("comp_id.spaceId")).list();
+			session.close();			
+		} catch (HibernateException e) {
+			log.error(e.getMessage());
+		}
+		return idList;
 	}
 }

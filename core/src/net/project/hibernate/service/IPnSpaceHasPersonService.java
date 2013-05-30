@@ -14,6 +14,7 @@
 */
 package net.project.hibernate.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import net.project.hibernate.model.PnSpaceHasPerson;
@@ -58,4 +59,6 @@ public interface IPnSpaceHasPersonService {
 	public List<PnSpaceHasPerson> getSpaceHasPersonByProjectandPerson(Integer spaceIds[], Integer personId);
 	
 	public boolean doesPersonExistsInSpace(Integer personId, Integer spaceId);
+
+	public List<Integer> getSpacesFromPerson(Integer personID);
 }

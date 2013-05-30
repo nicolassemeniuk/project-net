@@ -18,8 +18,10 @@ package net.project.financial;
 import java.io.Serializable;
 
 import net.project.hibernate.model.PnFinancialSpace;
+import net.project.hibernate.service.ServiceFactory;
 import net.project.persistence.IXMLPersistence;
 import net.project.persistence.PersistenceException;
+import net.project.portfolio.IPortfolioEntry;
 import net.project.space.ISpaceTypes;
 import net.project.space.Space;
 import net.project.space.SpaceTypes;
@@ -29,9 +31,8 @@ import net.project.xml.document.XMLDocumentException;
 /**
  * A Financial Workspace.
  */
-public class FinancialSpace extends Space implements Serializable, IXMLPersistence {
+public class FinancialSpace extends Space implements Serializable, IXMLPersistence, IPortfolioEntry {
 
-	
 
 	/**
 	 * Creates a new FinancialSpace.
@@ -41,11 +42,17 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 		this.spaceType = SpaceTypes.FINANCIAL;
 	}
 	
+	/**
+	 * Creates a financial space based on an existing PnFinancialSpace from the database.
+	 * @param pnFinancialSpace obtained from the database.
+	 */
+	
 	public FinancialSpace(PnFinancialSpace pnFinancialSpace){
 		this.name = pnFinancialSpace.getFinancialSpaceName();
 		this.spaceID = String.valueOf(pnFinancialSpace.getFinancialSpaceId());
 		setType(ISpaceTypes.FINANCIAL_SPACE);
 		this.spaceType = SpaceTypes.FINANCIAL;
+		this.parentSpaceID = String.valueOf(ServiceFactory.getInstance().getPnSpaceHasSpaceService().getParentSpaceID(Integer.valueOf(spaceID)));
 	}
 
 	/**

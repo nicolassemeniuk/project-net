@@ -14,6 +14,7 @@
 */
 package net.project.hibernate.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import net.project.hibernate.model.PnSpaceHasPerson;
@@ -28,4 +29,6 @@ public interface IPnSpaceHasPersonDAO extends IDAO<PnSpaceHasPerson, PnSpaceHasP
 	public List<PnSpaceHasPerson> getSpaceHasPersonByProjectandPerson(Integer spaceIds[], Integer personId);
 	
 	public boolean doesPersonExistsInSpace(Integer personId, Integer spaceId);
+
+	public List<Integer> getSpacesFromPerson(Integer personID);
 }
