@@ -15,7 +15,7 @@
 
 <%@ page
     contentType="text/html; charset=UTF-8"
-    info="Business Space" 
+    info="Financial Space Directory Setup" 
     language="java" 
     errorPage="/errors.jsp"
     import="net.project.financial.FinancialMemberWizard,
