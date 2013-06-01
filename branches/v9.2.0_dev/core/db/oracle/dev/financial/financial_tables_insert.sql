@@ -58,7 +58,6 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.goto.r
 
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.channel.title','Projects','A',0,1,null);
 
-
-
-
-insert into PN_PROPERTY values (2000,'en','text','prm.financial.directorysetup.title','Directory Setup','A',0,1,null);
+-- Directory
+insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.directory.isenabled','1','A',0,0,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.nav.directory','Directory','A',0,1,null);

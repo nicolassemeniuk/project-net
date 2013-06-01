@@ -15,8 +15,10 @@
 
 <%@ page contentType="text/html; charset=UTF-8" info="Personal Financial Portfolio List" language="java" errorPage="/errors.jsp"
 	import="net.project.security.*,
+            net.project.base.Module,	
 			net.project.base.property.PropertyProvider,
             net.project.space.Space,
+            net.project.space.PersonalSpaceBean,
             net.project.space.SpaceRelationship,
             net.project.util.JSPUtils"%>
 <%@ include file="/base/taglibInclude.jsp"%>
@@ -25,6 +27,7 @@
 <jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
 <jsp:useBean id="financialPortfolio" class="net.project.portfolio.FinancialPortfolioBean" scope="session" />
 <jsp:useBean id="financialSpace" class="net.project.financial.FinancialSpaceBean" scope="session" />
+<jsp:useBean id="personalSpace" class="net.project.space.PersonalSpaceBean" scope="session" />
 
 <template:getDoctype />
 
@@ -35,6 +38,21 @@
     // No security validation is necessary since the portfolio is loaded via the user bean
     // Switch to personal space if not currently in Personal, Business or Project space
     
+    int currentModule = 0;
+    Space currentSpace = user.getCurrentSpace();
+    if (currentSpace.isTypeOf(Space.PERSONAL_SPACE)) {
+        currentModule = Module.PERSONAL_SPACE;
+    } else if (currentSpace.isTypeOf(Space.BUSINESS_SPACE)) {
+        currentModule = Module.BUSINESS_SPACE;
+    } else if (currentSpace.isTypeOf(Space.PROJECT_SPACE)) {
+        currentModule = Module.PROJECT_SPACE;
+    } else if (currentSpace.isTypeOf(Space.FINANCIAL_SPACE)) {
+        currentModule = Module.FINANCIAL_SPACE;        
+    } else {
+        user.setCurrentSpace(personalSpace);
+        // docManager.getNavigator().put("TopContainerReturnTo", SessionManager.getJSPRootURL() + "/personal/Main.jsp");
+        currentModule = Module.PERSONAL_SPACE;
+    }    
 
     financialPortfolio.clear();
 	financialPortfolio.setUser(user);
@@ -53,7 +71,8 @@
 <script language="javascript">
     var theForm;
     var isLoaded = false;
-    var JSPRootURL = '<%=SessionManager.getJSPRootURL()%>';    
+    var JSPRootURL = '<%=SessionManager.getJSPRootURL()%>';
+    var moduleId = <%=currentModule%>;    
 	var currentSpaceTypeForBlog = 'financial';
     var currentSpaceIdForBlog = '<%=SessionManager.getUser().getID()%>';
     

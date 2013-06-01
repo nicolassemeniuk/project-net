@@ -80,6 +80,14 @@ function writeSpaceNavBarMenu() {
 	menuString += "</li>";
 </display:if>
 
+<display:if name="@prm.financial.directory.isenabled">
+	menuString += "<li>";
+	menuString += "	<span>";
+	menuString += " 	<display:get name='@prm.financial.nav.directory' href='<%=base + "/financial/DirectorySetup.jsp?module="+Module.DIRECTORY+"&id="+user.getCurrentSpace().getID()%>'/>";
+	menuString += "	</span>";
+	menuString += "</li>";
+</display:if>
+
 <display:if name="@prm.financial.document.isenabled">
 	menuString += "<li>";
 	menuString += "	<span>";

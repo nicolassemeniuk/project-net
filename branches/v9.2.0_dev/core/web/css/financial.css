@@ -347,3 +347,26 @@ div#leftframe {
 	text-align: center;
 	height: 12px;
 }
+
+/* Financial Directory */
+.left_tab {
+	background:#AB80C1 url(../images/directory/active_financial.gif) left no-repeat;
+	width: 130px;
+	height: 20px;
+	text-align: center;
+	font-size: 12px;
+	font-weight: bold;
+}
+.left_tab.a:hover {
+	text-decoration: none;r
+}
+.right_tab {
+	background: url(../images/directory/deactive_financial_no-line.gif) left no-repeat;
+	width: 130px;
+	height: 20px;
+	text-align: center;
+	font-size: 12px;
+}
+.UMTableBorder {
+	border:1px solid #AB80C1;
+}
