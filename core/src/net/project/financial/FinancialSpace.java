@@ -73,7 +73,14 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 	@Override
 	public void load() throws PersistenceException
 	{
-		// TODO Auto-generated method stub
+		if(spaceID!=null){
+			PnFinancialSpace pnFinancialSpace = ServiceFactory.getInstance().getPnFinancialSpaceService().getFinancialSpace(Integer.valueOf(spaceID));
+			this.name = pnFinancialSpace.getFinancialSpaceName();
+			this.spaceID = String.valueOf(pnFinancialSpace.getFinancialSpaceId());
+			setType(ISpaceTypes.FINANCIAL_SPACE);
+			this.spaceType = SpaceTypes.FINANCIAL;
+			this.parentSpaceID = String.valueOf(ServiceFactory.getInstance().getPnSpaceHasSpaceService().getParentSpaceID(Integer.valueOf(spaceID)));
+		}
 		
 	}
 
