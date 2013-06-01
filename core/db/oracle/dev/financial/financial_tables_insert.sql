@@ -1,5 +1,5 @@
 
-select * from PN_PROPERTY a where a.PROPERTY like '%prm.project.propertiesedit.channel.financialstatus.title%';
+select * from PN_PROPERTY a where a.PROPERTY like '%prm.directory.roles.groupedit.rolesnotaccessible.message%';
 
 -- Project Create
 insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.financialcalculation.heading','Project Finance Calculation Method','A',0,1,null);
@@ -57,3 +57,8 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.goto.t
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.goto.reports.label','Reports','A',0,1,null);
 
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.channel.title','Projects','A',0,1,null);
+
+
+
+
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.directorysetup.title','Directory Setup','A',0,1,null);
