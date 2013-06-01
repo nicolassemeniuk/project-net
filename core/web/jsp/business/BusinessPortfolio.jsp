@@ -58,6 +58,8 @@
         currentModule = Module.BUSINESS_SPACE;
     } else if (currentSpace.isTypeOf(Space.PROJECT_SPACE)) {
         currentModule = Module.PROJECT_SPACE;
+    } else if (currentSpace.isTypeOf(Space.FINANCIAL_SPACE)) {
+        currentModule = Module.FINANCIAL_SPACE;        
     } else {
         user.setCurrentSpace(personalSpace);
         docManager.getNavigator().put("TopContainerReturnTo", SessionManager.getJSPRootURL() + "/personal/Main.jsp");
