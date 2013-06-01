@@ -30,10 +30,10 @@ public class PnFinancialSpaceDAOImpl extends AbstractHibernateAnnotatedDAO<PnFin
 		try {
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
 			Session session = factory.openSession();
-			Criteria criteria = session.createCriteria(PnMaterial.class);
+			Criteria criteria = session.createCriteria(PnFinancialSpace.class);
 			criteria.add(Restrictions.ne("recordStatus", "D"));
+			criteria.add(Restrictions.eq("financialSpaceId", financialSpaceId));
 			PnFinancialSpace pnFinancialSpace = (PnFinancialSpace) criteria.uniqueResult();
-			//PnFinancialSpace pnFinancialSpace = (PnFinancialSpace) session.get(PnFinancialSpace.class, financialSpaceId);
 			session.close();
 			return pnFinancialSpace;
 		} catch (Exception e) {
