@@ -81,9 +81,11 @@
 	// Set user's current space to this Financial
     user.setCurrentSpace(financialSpace);
 	
-	String forwardTo = request.getParameter("page");
-	if (forwardTo != null) {
-	    response.sendRedirect(URLDecoder.decode(SpaceURLFactory.constructForwardFromSpaceURL(forwardTo), SessionManager.getCharacterEncoding())+"&id="+financialSpace.getID());
-	    return;
-    }
+	String redirect = request.getParameter("page");
+	if(redirect.equals("dashboard"))
+	{
+		String forwardTo = SessionManager.getJSPRootURL() + "/financial/Dashboard?module=175&id="+financialSpace.getID();
+	    response.sendRedirect(URLDecoder.decode(SpaceURLFactory.constructForwardFromSpaceURL(forwardTo), SessionManager.getCharacterEncoding()));
+	    return;		
+	}
 %>

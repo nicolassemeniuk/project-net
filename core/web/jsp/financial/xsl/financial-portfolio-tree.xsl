@@ -80,7 +80,7 @@
     <td colspan="{$colspan}" align="left">
         <xsl:choose>
             <xsl:when test="../IsMember = 1">
-                <a href="../financial/Main.jsp?module=175?id={financialID}"><xsl:value-of select="name"/></a>
+                <a href="../financial/Main.jsp?module=175&amp;page=dashboard&amp;id={financialID}"><xsl:value-of select="name"/></a>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:value-of select="name" />

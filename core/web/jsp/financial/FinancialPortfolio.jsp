@@ -71,9 +71,6 @@
 
 <body class="main" id='bodyWithFixedAreasSupport' onLoad="setup();">
 	<template:getSpaceMainMenu />
-	<!--  
-	<template:getSpaceNavBar />
-	-->
 	
 	<tb:toolbar style="tooltitle" groupTitle="prm.financial.financialportfolio.title" showAll="true" showSpaceDetails="false" space="financial">
 		<tb:band name="standard">

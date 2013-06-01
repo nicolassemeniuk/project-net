@@ -211,6 +211,7 @@ public class ServletSecurityProvider {
         addIgnoreAuthenticationJSP("business/NavBar.jsp");
         addIgnoreAuthenticationJSP("admin/NavBar.jsp");
         addIgnoreAuthenticationJSP("business/include/NavBar.jsp");
+        addIgnoreAuthenticationJSP("financial/include/NavBar.jsp");
         addIgnoreAuthenticationJSP("admin/include/NavBar.jsp");
         addIgnoreAuthenticationJSP("configuration/NavBar.jsp");
         addIgnoreAuthenticationJSP("configuration/include/NavBar.jsp");
@@ -227,6 +228,7 @@ public class ServletSecurityProvider {
         addIgnoredServlet("personal/Main.jsp");
         addIgnoredServlet("portfolio/PersonalPortfolio.jsp");   // displays projects user is member of
         addIgnoredServlet("business/BusinessPortfolio.jsp");    // displays businesses a user is member of
+        addIgnoredServlet("financial/FinancialPortfolio.jsp");    // displays financials a user is member of        
         addIgnoredServlet("portfolio/ConfigurationPortfolio.jsp"); // displays configurations a user is member of
         addIgnoredServlet("project/RemoveProjectProcessing.jsp"); // user can only remove himself, no need for check
         addIgnoredServlet("project/ProjectRegister.jsp");
