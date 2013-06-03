@@ -126,7 +126,7 @@ function enableTextField(val){
 function enableCostTextFields(val){
 	document.CREATEPROJ.actualCostToDate_value.disabled=!val;
 	document.CREATEPROJ.currentEstimatedTotalCost_value.disabled=!val;
-	document.CREATEPROJ.estimatedROI.disabled=!val;
+	document.CREATEPROJ.estimatedROI_value.disabled=!val;
 }
 
 <%
@@ -275,27 +275,6 @@ function preselectTemplate(methodologyId) {
               </select><%-- <a href="javascript:methodologyBrowser()">Methodology Browser</a>--%>
            </td>
         </tr>
-
-<%-- Default Currency Code --%>
-          <tr align="left" class="addSpacingBottom">
-            <td colspan="2" class="fieldRequired" nowrap="nowrap"><display:get name="prm.project.create.wizard.defaultcurrency" />:&nbsp;</td>
-            <td colspan="3">
-                <select name="defaultCurrencyCode">
-                    <option value=""><display:get name="prm.project.create.wizard.defaultcurrency.select.option.empty" /></option>
-                    <%=net.project.util.Currency.getHtmlOptionList(projectWizard.getDefaultCurrencyCode())%>
-                </select>
-            </td>
-          </tr>
-
-<%-- Meta: Type of Expense --%>
-			<tr align="left" class="addSpacingBottom">
-				<td nowrap colspan="2" class="fieldNonRequired"><display:get name="prm.project.create.wizard.meta.typeofexpense" />:&nbsp;</td>
-				<td nowrap colspan="3">
-					<select name="MetaTypeOfExpense">
-						<%= domainList.getValuesOptionListForProperty( new Integer(7), null) %>
-					</select>
-				</td>
-			</tr>
 
 <%-- Meta: Project Manager --%>
 			<tr align="left" class="addSpacingBottom">
@@ -642,7 +621,7 @@ function preselectTemplate(methodologyId) {
 						</td>
 
 						<td class="tableContent">
-								<input type="text" name="estimatedROI" size="20" maxlength="1000" disabled="true"/>%
+								<input type="text" name="estimatedROI_value" size="20" maxlength="1000" disabled="true"/>%
 						</td>
 				        <td>&nbsp;</td>
 					</tr>

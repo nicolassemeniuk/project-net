@@ -91,14 +91,9 @@
                  value='<%=net.project.code.ColorCode.findByID(request.getParameter("financialStatusColorCodeID"))%>' />
 <jsp:setProperty name="projectSpace" property="financialStatusImprovementCode"
                  value='<%=net.project.code.ImprovementCode.findByID(request.getParameter("financialStatusImprovementCodeID"))%>' />
-<jsp:setProperty name="projectSpace" property="budgetedTotalCost"
-                 value='<%=net.project.base.money.Money.parseFromRequest("budgetedTotalCost", user, request)%>' />
-<jsp:setProperty name="projectSpace" property="currentEstimatedTotalCost"
-                 value='<%=net.project.base.money.Money.parseFromRequest("currentEstimatedTotalCost", user, request)%>' />
-<jsp:setProperty name="projectSpace" property="actualCostToDate"
-                 value='<%=net.project.base.money.Money.parseFromRequest("actualCostToDate", user, request)%>' />
-<%--<jsp:setProperty name="projectSpace" property="estimatedROI"--%>
-                 <%--value='<%=net.project.base.money.Money.parseFromRequest("estimatedROI", user, request)%>' />--%>
+<jsp:setProperty name="projectSpace" property="budgetedTotalCost" value='<%=net.project.base.money.Money.parseFromRequestDefaultCurrency("budgetedTotalCost", user, request)%>' />
+<jsp:setProperty name="projectSpace" property="currentEstimatedTotalCost" value='<%=net.project.base.money.Money.parseFromRequestDefaultCurrency("currentEstimatedTotalCost", user, request)%>' />
+<jsp:setProperty name="projectSpace" property="actualCostToDate" value='<%=net.project.base.money.Money.parseFromRequestDefaultCurrency("actualCostToDate", user, request)%>' />
 <jsp:setProperty name="projectSpace" property="scheduleStatusColorCode"
                  value='<%=net.project.code.ColorCode.findByID(request.getParameter("scheduleStatusColorCodeID"))%>' />
 <jsp:setProperty name="projectSpace" property="scheduleStatusImprovementCode"
@@ -122,7 +117,7 @@
 		    projectSpace.setCostCenter("");
 		}
 		try {
-			projectSpace.setEstimatedROI(new net.project.base.money.Money(request.getParameter("estimatedROI")));
+			projectSpace.setEstimatedROI(net.project.base.money.Money.parseFromRequestDefaultCurrency("estimatedROI", user, request));
 		} catch (Exception e) {
 			projectSpace.setEstimatedROI(net.project.base.money.Money.EMPTY);
 		}

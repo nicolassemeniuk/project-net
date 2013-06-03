@@ -66,12 +66,9 @@
     <jsp:setProperty name="projectWizard" property="percentComplete" />
     <jsp:setProperty name="projectWizard" property="costCenter" />
     <jsp:setProperty name="projectWizard" property="defaultCurrencyCode" />
-    <jsp:setProperty name="projectWizard" property="budgetedTotalCost"
-                 value='<%=net.project.base.money.Money.parseFromRequest("budgetedTotalCost", user, request)%>' />
-                 <jsp:setProperty name="projectWizard" property="currentEstimatedTotalCost"
-                 value='<%=net.project.base.money.Money.parseFromRequest("currentEstimatedTotalCost", user, request)%>' />
-<jsp:setProperty name="projectWizard" property="actualCostToDate"
-                 value='<%=net.project.base.money.Money.parseFromRequest("actualCostToDate", user, request)%>' />
+    <jsp:setProperty name="projectWizard" property="budgetedTotalCost" value='<%=net.project.base.money.Money.parseFromRequestDefaultCurrency("budgetedTotalCost", user, request)%>' />
+    <jsp:setProperty name="projectWizard" property="currentEstimatedTotalCost" value='<%=net.project.base.money.Money.parseFromRequestDefaultCurrency("currentEstimatedTotalCost", user, request)%>' />
+	<jsp:setProperty name="projectWizard" property="actualCostToDate" value='<%=net.project.base.money.Money.parseFromRequestDefaultCurrency("actualCostToDate", user, request)%>' />
                  
 
 <%
@@ -81,7 +78,7 @@
 		projectWizard.setCostCenter("");
 	}
 	try {
-		projectWizard.setEstimatedROI(new net.project.base.money.Money(request.getParameter("estimatedROI")));
+		projectWizard.setEstimatedROI(net.project.base.money.Money.parseFromRequestDefaultCurrency("estimatedROI", user, request));
 	} catch (Exception e) {
 		projectWizard.setEstimatedROI(net.project.base.money.Money.EMPTY);
 	}

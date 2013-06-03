@@ -175,7 +175,7 @@ function setProgressRequiredFields (required) {
 function enableCostTextFields(val){
 	document.EDITPROJ.actualCostToDate_value.disabled=!val;
 	document.EDITPROJ.currentEstimatedTotalCost_value.disabled=!val;
-	document.EDITPROJ.estimatedROI.disabled=!val;
+	document.EDITPROJ.estimatedROI_value.disabled=!val;
 }
 
 function cancel() {
@@ -225,10 +225,10 @@ if(!isNumeric(theForm.currentEstimatedTotalCost_value.value))
     return errorHandler(theForm.currentEstimatedTotalCost_value,'<display:get name="prm.project.propertiesedit.currentEstimatedTotalCostshouldbenumber.message" />');
 if(!isNumeric(theForm.actualCostToDate_value.value))
     return errorHandler(theForm.actualCostToDate_value,'<display:get name="prm.project.propertiesedit.actualCostToDateshouldbenumber.message" />');
-if(!isNumericWithNegative(theForm.estimatedROI.value))
-    return errorHandler(theForm.estimatedROI,'<display:get name="prm.project.propertiesedit.estimatedROIshouldbenumber.message" />');
-if((theForm.estimatedROI.value>9999 || theForm.estimatedROI.value<-9999))
-	return errorHandler(theForm.estimatedROI,'<display:get name="prm.project.propertiesedit.estimatedROIshouldbebetweennumbers.message" />')
+if(!isNumericWithNegative(theForm.estimatedROI_value.value))
+    return errorHandler(theForm.estimatedROI_value,'<display:get name="prm.project.propertiesedit.estimatedROIshouldbenumber.message" />');
+if((theForm.estimatedROI_value.value>9999 || theForm.estimatedROI_value.value<-9999))
+	return errorHandler(theForm.estimatedROI_value,'<display:get name="prm.project.propertiesedit.estimatedROIshouldbebetweennumbers.message" />')
 return true;
 }
 
@@ -954,7 +954,7 @@ Financial Status
 						</td>
 
 						<td class="tableContent">
-								<input type="text" name="estimatedROI" size="40" maxlength="1000" disabled="true" 
+								<input type="text" name="estimatedROI_value" size="40" maxlength="1000" disabled="true" 
 									value="<%
 												if (projectSpace.getEstimatedROI() != null && projectSpace.getEstimatedROI().getValue() != null)
 															out.print(projectSpace.getEstimatedROI().getValue());

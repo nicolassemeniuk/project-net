@@ -147,6 +147,30 @@ public class Money {
 
         return parsedMoney;
     }
+    
+    public static Money parseFromRequestDefaultCurrency(String inputFieldName, User user, HttpServletRequest request)
+            throws InvalidValueException, InvalidCurrencyException {
+        Money parsedMoney = null;
+
+        String valueParameterName = inputFieldName + "_value";
+        String currencyCodeParameterName = "defaultCurrencyCode";
+
+        String value = request.getParameter(valueParameterName);
+        String currencyCode = request.getParameter(currencyCodeParameterName);
+
+        if ((value == null || value.trim().length() == 0) ||
+                currencyCode == null || currencyCode.trim().length() == 0) {
+
+            parsedMoney = EMPTY;
+
+        } else {
+            parsedMoney = parse(value, currencyCode, user);
+
+        }
+
+        return parsedMoney;
+    }    
+    
 
     /**
      * Returns the Currency for the specified currency code,
