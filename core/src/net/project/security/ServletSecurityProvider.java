@@ -211,6 +211,7 @@ public class ServletSecurityProvider {
         addIgnoreAuthenticationJSP("business/NavBar.jsp");
         addIgnoreAuthenticationJSP("admin/NavBar.jsp");
         addIgnoreAuthenticationJSP("business/include/NavBar.jsp");
+        addIgnoreAuthenticationJSP("financial/NavBar.jsp");        
         addIgnoreAuthenticationJSP("financial/include/NavBar.jsp");
         addIgnoreAuthenticationJSP("admin/include/NavBar.jsp");
         addIgnoreAuthenticationJSP("configuration/NavBar.jsp");
@@ -265,6 +266,7 @@ public class ServletSecurityProvider {
         addIgnoredServlet("methodology/Main.jsp");
         addIgnoredServlet("enterprise/Main.jsp");
         addIgnoredServlet("resources/Main.jsp");
+        addIgnoredServlet("financial/Main.jsp");           
         addIgnoredServlet("financial/Dashboard");        
         
         //For Resources Tab : This needs to be revisited once 
