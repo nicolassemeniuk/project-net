@@ -1,0 +1,161 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<t:FinancialDashboardLayout xmlns:t="http://tapestry.apache.org/schema/tapestry_5_0_0.xsd">
+<div style="margin-top: 80px;">
+    <form method="post" action="${jspRootURL}/financial/MainProcessing.jsp">   
+    <input type="hidden" name="theAction"/>
+    
+    <table border="0" cellpadding="0" cellspacing="0"> <tr> <td valign="top"> <!-- Start of left navbar column -->
+    
+	<div id="left-navbar">
+		<div id="leftheading-financial" style="position: relative; margin-top: 15px;"><t:Message value="prm.financial.dashboard.title"/></div>
+		<div class="financial-title">${financialName}</div> <br />
+		<t:if test="financialLogo">
+			<div class="financial-logo"><img src="${logoUrl}" alt="financial-photo" width="110" /></div>
+			<br clear="all"/>
+		</t:if>
+		<div class="spacer-for-toolbox"></div>
+		
+		<!-- Tool Box -->
+		<div class='toolbox-heading'><t:Message value="prm.financial.dashboard.toolbox.title"/></div>
+		<div id="toolbox-item" class="toolbox-item">
+			
+			<t:if test="actionsIconEnabled">
+				<t:if test="blogEnabled">
+					<span id="blog-ItEnabled">
+						<a onmouseover=" document.imgblogit.src = '${jspRootURL}/images/icons/toolbar-gen-blogit_over.gif'" onmouseout=" document.imgblogit.src = '${jspRootURL}/images/icons/toolbar-gen-blogit_on.gif'" href="javascript:blogit();">
+							<img hspace="0" border="0" name="imgblogit" src="${jspRootURL}/images/icons/toolbar-gen-blogit_on.gif" title="${blogitTooltip}" alt="${blogitTooltip}"/>
+							<t:Message value="all.global.toolbar.standard.blogit" />
+						</a>
+					</span><br />
+				</t:if>
+				<span>
+					<a onmouseover=" document.imgmodify.src = '${jspRootURL}/images/icons/toolbar-rollover-modify.gif'" onmouseout=" document.imgmodify.src = '${jspRootURL}/images/icons/toolbar-gen-modify_on.gif'" href="javascript:modify();">
+						<img hspace="0" border="0" name="imgmodify" src="${jspRootURL}/images/icons/toolbar-gen-modify_on.gif" title="${editFinancialTooltip}" alt="${editFinancialTooltip}"/>
+						<t:Message value="prm.financial.main.modify.button.tooltip" />
+					</a>
+				</span><br />
+				<span>
+					<a onmouseover=" document.imgproperties.src = '${jspRootURL}/images/icons/toolbar-rollover-properties.gif'" onmouseout=" document.imgproperties.src = '${jspRootURL}/images/icons/toolbar-gen-properties_on.gif'" href="javascript:properties();">
+						<img hspace="0" border="0" name="imgproperties" src="${jspRootURL}/images/icons/toolbar-gen-properties_on.gif" title="${viewPropertiesTooltip}" alt="${viewPropertiesTooltip}"/>
+						<t:Message value="prm.financial.main.properties.button.tooltip" />
+					</a>
+				</span><br />
+	            <span>
+					<a onmouseover=" document.personalizepage.src = '${jspRootURL}/images/icons/project-personalize-page_over.gif'" onmouseout=" document.personalizepage.src = '${jspRootURL}/images/icons/project-personalize-page_on.gif'" href="javascript:personalizePage('${personalizeLink}');">
+						<img hspace="0" border="0" name="personalizepage" src="${jspRootURL}/images/icons/project-personalize-page_on.gif" title="${personalizePageTooltip}" alt="${personalizePageTooltip}"/>
+						<t:Message value="prm.financial.main.personalize.button.tooltip" />
+					</a>
+				</span><br />
+	            <t:parameter name="else">
+					<t:if test="blogEnabled">
+						<span id="blog-ItEnabled">
+							<a href="javascript:blogit();">
+								<t:Message value="all.global.toolbar.standard.blogit" />
+							</a>
+						</span><br />
+					</t:if>
+				<span>
+					<a href="javascript:modify();">
+						<t:Message value="prm.financial.main.modify.button.tooltip" />
+					</a>
+				</span><br />
+				<span>
+					<a href="javascript:properties();">
+						<t:Message value="prm.financial.main.properties.button.tooltip" />
+					</a>
+				</span><br />
+	            <span>
+	            	<a href="javascript:personalizePage('${personalizeLink}');">
+	            		<t:Message value="prm.financial.main.personalize.button.tooltip" />
+	            	</a>
+	            </span><br />
+	            </t:parameter>
+            </t:if>
+		</div>
+		<div id="toolbox-heading" class="toolbox-heading"><t:Message value="prm.financial.dashboard.goto.title" /></div>
+		<div id="toolbox-item" class="toolbox-item">
+			<span><a href="${jspRootURL}${reportsUrl}"><t:Message value="prm.financial.dashboard.goto.reports.label" /></a></span><br/>
+		</div>
+	</div>
+		
+	</td> <!-- End of left navbar -->
+	<td valign="top" width="100%"> <!-- Start of Content column --> <br />
+	<div id="content">
+		<table width="100%">
+			<tr>
+			<td  valign="top" width="48%"> <!-- Start of left column -->
+			<t:if test="projectsCloseState">
+				<t:parameter name="else">
+					<!-- PORTAL BLOCK -->
+					<div id="ProjectsWidget" class="portal-financial-flex-block">
+						<div class="block-heading">
+							<div class="block-heading-end">
+								<table cellspacing="0" cellpadding="0" width="100%">
+									<tr>
+										<td width="92%">
+											<div class="heading"><t:Message value="prm.financial.dashboard.projects.channel.title" /></div>
+										</td>
+										<td class="channel-heading-end-financial">
+											<span><a id="ProjectsLink"><img id="ProjectsImg" src="${jspRootURL}/images/financial/dashboard_arrow-up.gif" title="${upTitle}" border="0" /></a>&nbsp;</span>
+											<span><a id="ProjectsCloseLink" href="javascript:saveState('FinancialSpace_Projects_','2');"><img id="ProjectsCloseImg" src="${jspRootURL}/images/financial/dashboard_close.gif" title="${closeTitle}" border="0" /></a></span>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div><!--block-heading end -->
+						<div id="ProjectsContent" class="block-content">
+							<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content" name="tableWithEvenRows">
+							  <tr class="table-header">
+							    <td width="60" class="cell-right-border">&nbsp;</td>
+							    <td width="90" class="cell-right-border"><t:Message value="prm.project.dashboard.projectcompletion.start.label" /></td>
+							    <td class="cell-right-border"><t:Message value="prm.project.dashboard.projectcompletion.finish.label" /></td>
+							    <td class="cell-right-border"><t:Message value="prm.project.dashboard.projectcompletion.completion.label" /></td>
+							    <td width="15"><t:Message value="prm.project.dashboard.overallstatus.label" /></td>
+							    <td width="15"><t:Message value="prm.project.dashboard.financialstatus.label" /></td>
+							    <td width="15"><t:Message value="prm.project.dashboard.schedulestatus.label" /></td>
+							    <td width="15"><t:Message value="prm.project.dashboard.resourcestatus.label" /></td>
+							  </tr>
+							  <tr>
+							    <td width="60" class="over-table"><t:Message value="prm.project.dashboard.projectcompletion.planned.label" /></td>
+							    <td width="90">01/01/2013</td>
+							    <td>10/10/2013</td>
+							    <td>&nbsp;</td>
+							    <td width="15">&nbsp;</td>
+							    <td width="15">&nbsp;</td>
+							    <td width="15">&nbsp;</td>
+							    <td width="15">&nbsp;</td>
+							  </tr>
+							</table>
+						</div><!--block-content end -->
+					</div><!--portal-project-flex-block class end -->
+					<!--END of PORTAL BLOCK -->
+				</t:parameter>
+			</t:if>			
+			</td>  <!-- End of left column -->
+			<td width="1%"></td> <!-- Space in between two columns -->
+			<td valign="top" width="48%"> <!-- Start of right Column -->
+			</td>
+			</tr>
+		</table> <!-- End of Inner Table with left and right column -->
+</div> <!-- content div end -->	
+</td> </tr> </table> <!-- End of Table with left navbar and content div -->
+</form>
+</div>
+  <script language="javascript" type="text/javascript">
+	var downTitle = '${downTitle}';
+	var upTitle = '${upTitle}';
+	var closeTitle = '${closeTitle}';
+	
+	//Getting Channel State
+	var projectsState = ${projectsState};
+	
+	var projectsCloseState = ${projectsCloseState};
+
+	function personalizePage(customizePageLink)
+	{
+		window.document.location.href =  customizePageLink;
+	}
+  </script>
+  <script language="javascript" src = "${jSPRootURL}/src/FinancialDashboardchannels.js" />
+</t:FinancialDashboardLayout>
