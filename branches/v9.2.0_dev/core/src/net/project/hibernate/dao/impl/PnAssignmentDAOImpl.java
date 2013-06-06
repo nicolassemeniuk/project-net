@@ -24,17 +24,23 @@ import java.util.List;
 import net.project.hibernate.dao.IPnAssignmentDAO;
 import net.project.hibernate.model.PnAssignment;
 import net.project.hibernate.model.PnAssignmentPK;
+import net.project.hibernate.model.PnMaterial;
 import net.project.hibernate.model.PnPerson;
 import net.project.hibernate.model.PnProjectSpace;
 import net.project.hibernate.model.PnTask;
 import net.project.hibernate.model.project_space.Teammate;
 import net.project.hibernate.model.resource_reports.ReportUser;
 import net.project.hibernate.model.resource_reports.ReportUserProjects;
+import net.project.material.PnMaterialList;
 import net.project.resource.AssignmentStatus;
 import net.project.resource.PersonStatus;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.SessionFactory;
+import org.hibernate.classic.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -1131,7 +1137,7 @@ public class PnAssignmentDAOImpl extends AbstractHibernateAnnotatedDAO<PnAssignm
 	}
 	
 	/**
-	 * Get assignment for spacified objectId and personId. 
+	 * Get assignment for specific objectId and personId. 
 	 * @param objectId
 	 * @param userId
 	 * @return PnAssignment.
@@ -1152,6 +1158,22 @@ public class PnAssignmentDAOImpl extends AbstractHibernateAnnotatedDAO<PnAssignm
 			e.printStackTrace();
 		}
 		return assignment;
+	}
+
+	@Override
+	public List<PnAssignment> getAssignmentList(Integer projectId) {
+		List<PnAssignment> result = new ArrayList<PnAssignment>();
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+			Criteria criteria = session.createCriteria(PnAssignment.class);
+			criteria.add(Restrictions.eq("comp_id.spaceId", projectId));
+			result = criteria.list();
+			session.close();
+		} catch (Exception e) {
+			log.error("Error occurred while getting the list of assignments " + e.getMessage());
+		}
+		return result;
 	}
 
 }

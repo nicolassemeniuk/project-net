@@ -1,7 +1,6 @@
 package net.project.hibernate.service.impl;
 
 import net.project.hibernate.dao.IPnMaterialTypeDAO;
-import net.project.hibernate.model.PnMaterial;
 import net.project.hibernate.model.PnMaterialType;
 import net.project.hibernate.service.IPnMaterialTypeService;
 import net.project.material.PnMaterialTypeList;
@@ -36,22 +35,6 @@ public class PnMaterialTypeServiceImpl implements IPnMaterialTypeService {
 		return pnMaterialTypeDAO.getMaterialTypes();
 	}
 
-	@Override
-	public Integer saveMaterialType(PnMaterial pnMaterial) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
-	@Override
-	public void deleteMaterialType(PnMaterial pnMaterial) {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void updateMaterialType(PnMaterial pnMaterial) {
-		// TODO Auto-generated method stub
-
-	}
 
 }

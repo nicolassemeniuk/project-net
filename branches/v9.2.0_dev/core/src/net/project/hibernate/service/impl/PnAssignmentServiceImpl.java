@@ -109,6 +109,11 @@ public class PnAssignmentServiceImpl implements IPnAssignmentService {
 		return this.pnAssignmentDAO.getAssigmentsList(personIds, startDate, endDate);
 	}
 	
+
+	public List<PnAssignment> getAssigmentsListForProject(Integer projectId){
+		return this.pnAssignmentDAO.getAssignmentList(projectId);
+	}
+	
 	
 	/* (non-Javadoc) 
 	 * @see net.project.hibernate.service.IPnAssignmentService#getAssigmentsList(java.lang.Integer, java.lang.Integer[], java.util.Date)

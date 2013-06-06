@@ -24,7 +24,6 @@ public class MaterialServiceImpl implements IMaterialService {
 	@Autowired
 	private IPnSpaceHasMaterialService spaceHasMaterialService;
 	
-
 	@Autowired
 	private IPnObjectService objectService;	
 
