@@ -196,6 +196,7 @@
 				<value>net.project.hibernate.model.PnPersonPicksSpam</value>
 				<value>net.project.hibernate.model.PnPersonProfile</value>
 				<value>net.project.hibernate.model.PnPersonProperty</value>
+				<value>net.project.hibernate.model.PnPersonSalary</value>
 				<value>net.project.hibernate.model.PnPersonSkillComment</value>
 				<value>net.project.hibernate.model.PnPersonSurvey</value>
 				<value>net.project.hibernate.model.PnPersonUsedSkill</value>
