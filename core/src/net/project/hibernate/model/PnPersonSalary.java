@@ -5,6 +5,8 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -26,7 +28,8 @@ public class PnPersonSalary implements Serializable {
 	}
 
 	@Id
-	@Column(name = "PERSON_ID", nullable = false, length = 20)
+	@ManyToOne(targetEntity = PnPerson.class)
+	@JoinColumn(name = "PERSON_ID")
 	public Integer getPersonId() {
 		return personId;
 	}
