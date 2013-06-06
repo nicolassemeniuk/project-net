@@ -2,6 +2,7 @@ package net.project.hibernate.dao.impl;
 
 import net.project.hibernate.dao.IPnPersonSalaryDAO;
 import net.project.hibernate.model.PnPersonSalary;
+import net.project.hibernate.model.PnPersonSalaryPK;
 
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
@@ -11,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Transactional
 @Repository
-public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPersonSalary, Integer> implements IPnPersonSalaryDAO {
+public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPersonSalary, PnPersonSalaryPK> implements IPnPersonSalaryDAO {
 
 	private static Logger log = Logger.getLogger(PnMaterialDAOImpl.class);
 
@@ -22,15 +23,16 @@ public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPerso
 	@Override
 	public PnPersonSalary getPersonSalary(Integer personID) {
 		try {
+			PnPersonSalaryPK pk = new PnPersonSalaryPK(personID);
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
 			Session session = factory.openSession();
 
-			PnPersonSalary pnPersonSalary = (PnPersonSalary) session.get(PnPersonSalary.class, personID);
+			PnPersonSalary pnPersonSalary = (PnPersonSalary) session.get(PnPersonSalary.class, pk);
 			session.close();
 			if(pnPersonSalary!=null){
 				return pnPersonSalary;
-			} else {
-				return new PnPersonSalary(personID, new Float(0.00));
+			} else {				
+				return new PnPersonSalary(pk, new Float(0.00));
 			}
 			
 		} catch (Exception e) {

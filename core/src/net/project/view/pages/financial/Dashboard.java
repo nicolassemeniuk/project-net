@@ -16,6 +16,7 @@ package net.project.view.pages.financial;
 
 import java.io.IOException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -32,6 +33,7 @@ import org.slf4j.Logger;
 import net.project.base.Module;
 import net.project.base.PnetException;
 import net.project.base.property.PropertyProvider;
+import net.project.business.BusinessSpace;
 import net.project.channel.ScopeType;
 import net.project.channel.State;
 import net.project.financial.FinancialSpaceBean;
@@ -45,6 +47,9 @@ import net.project.space.Space;
 import net.project.util.HttpUtils;
 import net.project.util.StringUtils;
 import net.project.view.pages.base.BasePage;
+import net.project.portfolio.IPortfolioEntry;
+import net.project.portfolio.ProjectPortfolio;
+import net.project.project.ProjectSpace;
 
 public class Dashboard extends BasePage
 {
@@ -62,6 +67,12 @@ public class Dashboard extends BasePage
 	private String logoUrl;
 	
 	private boolean financialLogo;
+	
+	private ArrayList<ProjectSpace> projectList;
+	
+	private ProjectSpace project;		
+	
+	private boolean hasProjects;	
 	
 	// Left navbar
 	private boolean actionsIconEnabled;	
@@ -271,6 +282,29 @@ public class Dashboard extends BasePage
 			moduleId = Module.FINANCIAL_SPACE;
 			financialName = financialSpace.getName();
 
+			BusinessSpace businessSpace = new BusinessSpace(financialSpace.getRelatedSpaceID());
+			businessSpace.load();
+			ProjectPortfolio projectPortfolio = new ProjectPortfolio();
+			projectPortfolio.clear();
+			projectPortfolio.setID(businessSpace.getProjectPortfolioID("owner"));
+			projectPortfolio.setProjectMembersOnly(true);
+			projectPortfolio.load();
+			
+			projectList = new ArrayList<ProjectSpace>();
+			for(Object entry : projectPortfolio)
+			{
+				IPortfolioEntry portfolioEntry = (IPortfolioEntry) entry;
+				ProjectSpace projectSpace = new ProjectSpace();
+				projectSpace.setID(portfolioEntry.getID());
+				projectSpace.load();
+				projectList.add(projectSpace);
+			}
+			
+			if(projectList.isEmpty())
+				hasProjects = false;
+			else
+				hasProjects = true;			
+			
 			if (financialSpace.getFinancialLogoID() != null) {
 				financialLogo = true;
 				logoUrl = getJSPRootURL()+"/servlet/photo?id=" + financialSpace.getID() + "&logoType=flogo&module=" + Module.DOCUMENT;
@@ -325,6 +359,26 @@ public class Dashboard extends BasePage
         return url.toString();
     }
 	
+    public ArrayList<ProjectSpace> getProjectList()
+	{
+		return projectList;
+	}
+
+	public ProjectSpace getProject()
+	{
+		return project;
+	}
+
+	public void setProject(ProjectSpace project)
+	{
+		this.project = project;
+	}
+	
+	public boolean isHasProjects()
+	{
+		return hasProjects;
+	}
+
 	public String getLogoUrl()
 	{
 		return logoUrl;

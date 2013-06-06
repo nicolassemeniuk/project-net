@@ -181,7 +181,7 @@ public class Dashboard extends BasePage {
 	
 	private MaterialBean material;		
 	
-	private boolean hasMaterials;	
+	private boolean hasMaterials;
 
 	@Persist
 	private List<ProjectSpaceWrapper> subprojects;
