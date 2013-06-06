@@ -2,18 +2,18 @@ package net.project.hibernate.model;
 
 import java.io.Serializable;
 
+import javax.persistence.AttributeOverride;
+import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "PN_PERSON_SALARY")
 public class PnPersonSalary implements Serializable {
 	
-	private Integer personId;
+	private PnPersonSalaryPK comp_id;
 	
 	private Float costByHour;
 	
@@ -21,21 +21,22 @@ public class PnPersonSalary implements Serializable {
 		
 	}
 
-	public PnPersonSalary(Integer personId, Float costByHour) {
+	public PnPersonSalary(PnPersonSalaryPK comp_id, Float costByHour) {
 		super();
-		this.personId = personId;
+		this.comp_id = comp_id;
 		this.costByHour = costByHour;
 	}
 
-	@Id
-	@ManyToOne(targetEntity = PnPerson.class)
-	@JoinColumn(name = "PERSON_ID")
-	public Integer getPersonId() {
-		return personId;
+	@EmbeddedId
+	@AttributeOverrides( {
+			@AttributeOverride(name = "personId", column = @Column(name = "PERSON_ID", nullable = false, length = 20)) })
+	
+	public PnPersonSalaryPK getComp_id() {
+		return comp_id;
 	}
 
-	public void setPersonId(Integer personId) {
-		this.personId = personId;
+	public void setComp_id(PnPersonSalaryPK comp_id) {
+		this.comp_id = comp_id;
 	}
 
 	@Column(name = "COST_BY_HOUR", nullable = false, length = 22)
