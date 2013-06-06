@@ -38,6 +38,7 @@ import net.project.code.ImprovementCode;
 import net.project.database.DBBean;
 import net.project.events.EventType;
 import net.project.form.FormManager;
+import net.project.hibernate.service.ServiceFactory;
 import net.project.methodology.MethodologyProvider;
 import net.project.notification.EventCodes;
 import net.project.persistence.IJDBCPersistence;
@@ -1276,7 +1277,16 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
      * @see #setCurrentEstimatedTotalCost
      */
     public Money getCurrentEstimatedTotalCost() {
-        return this.currentEstimatedTotalCost;
+    	try{
+    	if(this.metaData.getProperty("costCalculationMethod")=="manual")
+    		return this.currentEstimatedTotalCost;
+    	else{
+    		Float cost = ServiceFactory.getInstance().getProjectFinancialService().calculateEstimatedTotalCost(spaceID);
+    		return new Money(String.valueOf(cost),getDefaultCurrency());
+    	}
+    	}catch(NoSuchPropertyException e){
+    		return new Money();
+    	}
     }
 
     /**
