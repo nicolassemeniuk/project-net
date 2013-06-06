@@ -6,7 +6,11 @@ import net.project.hibernate.model.PnPersonSalary;
 import org.apache.log4j.Logger;
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional
+@Repository
 public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPersonSalary, Integer> implements IPnPersonSalaryDAO {
 
 	private static Logger log = Logger.getLogger(PnMaterialDAOImpl.class);
