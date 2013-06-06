@@ -1275,16 +1275,14 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 	 */
 	public Money getCurrentEstimatedTotalCost() {
 		try {
-			if (metaData != null) {
-				if (metaData.getProperty("costCalculationMethod").equals("manual"))
-					return this.currentEstimatedTotalCost;
-				else {
-					Float cost = ServiceFactory.getInstance().getProjectFinancialService().calculateEstimatedTotalCost(spaceID);
-					return new Money(String.valueOf(cost), getDefaultCurrency());
-				}
-			} else {
-				return new Money();
+
+			if (getMetaData().getProperty("costCalculationMethod").equals("manual"))
+				return this.currentEstimatedTotalCost;
+			else {
+				Float cost = ServiceFactory.getInstance().getProjectFinancialService().calculateEstimatedTotalCost(spaceID);
+				return new Money(String.valueOf(cost), getDefaultCurrency());
 			}
+
 		} catch (NoSuchPropertyException e) {
 			return new Money();
 		}
