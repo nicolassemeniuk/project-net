@@ -6,6 +6,12 @@ import net.project.hibernate.model.PnSpaceHasMaterial;
 
 public interface IPnSpaceHasMaterialService {
 	
+	/**
+	 * Obtain a space/material relation.
+	 * @param spaceId the id from the space.
+	 * @param MaterialId the id from the material.
+	 * @return a space/material relation.
+	 */
 	public PnSpaceHasMaterial getPnSpaceHasMaterial(String spaceId,
 			String MaterialId);
 

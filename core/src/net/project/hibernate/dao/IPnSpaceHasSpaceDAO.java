@@ -19,8 +19,10 @@ import net.project.hibernate.model.PnSpaceHasSpacePK;
 
 public interface IPnSpaceHasSpaceDAO extends IDAO<PnSpaceHasSpace, PnSpaceHasSpacePK> {
 	
-	public PnSpaceHasSpace getRelatedFinancialSpace(Integer spaceID);
+	public PnSpaceHasSpace getFinancialRelatedSpace(Integer spaceID);
 
 	public Integer getParentSpaceID(Integer spaceID);
+
+	public PnSpaceHasSpace getBusinessRelatedSpace(Integer spaceID);
 	
 }

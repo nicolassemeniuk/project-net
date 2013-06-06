@@ -147,5 +147,7 @@ public interface IPnAssignmentDAO extends IDAO<PnAssignment, PnAssignmentPK> {
 	 * @return PnAssignment.
 	 */
 	public PnAssignment getPersonAssignmentForObject(Integer objectId, Integer personId);
+
+	public List<PnAssignment> getAssignmentList(Integer projectId);
 }
 

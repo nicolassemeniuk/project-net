@@ -24,5 +24,7 @@ public interface IPnSpaceHasSpaceService {
    
    public PnSpaceHasSpace getFinancialRelatedSpace(Integer spaceID);
    
+   public PnSpaceHasSpace getBusinessRelatedSpace (Integer spaceID);
+   
    public Integer getParentSpaceID(Integer spaceID);
 }

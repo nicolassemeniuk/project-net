@@ -39,12 +39,27 @@ public class PnSpaceHasSpaceDAOImpl extends AbstractHibernateAnnotatedDAO<PnSpac
 	}
 
 	@Override
-	public PnSpaceHasSpace getRelatedFinancialSpace(Integer spaceID) {
+	public PnSpaceHasSpace getFinancialRelatedSpace(Integer spaceID) {
 		PnSpaceHasSpace spaceHasSpace = new PnSpaceHasSpace();
 		try {
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
 			Session session = factory.openSession();
 			spaceHasSpace = (PnSpaceHasSpace) session.createCriteria(PnSpaceHasSpace.class).add(Restrictions.eq("comp_id.parentSpaceId", spaceID))
+					.add(Restrictions.eq("relationshipParentToChild", SpaceRelationship.FINANCIAL.getNameParentToChild())).uniqueResult();
+			session.close();
+		} catch (HibernateException e) {
+			log.error(e.getMessage());
+		}
+		return spaceHasSpace;
+	}
+	
+	@Override
+	public PnSpaceHasSpace getBusinessRelatedSpace(Integer spaceID) {
+		PnSpaceHasSpace spaceHasSpace = new PnSpaceHasSpace();
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+			spaceHasSpace = (PnSpaceHasSpace) session.createCriteria(PnSpaceHasSpace.class).add(Restrictions.eq("comp_id.childSpaceId", spaceID))
 					.add(Restrictions.eq("relationshipParentToChild", SpaceRelationship.FINANCIAL.getNameParentToChild())).uniqueResult();
 			session.close();
 		} catch (HibernateException e) {
@@ -68,5 +83,7 @@ public class PnSpaceHasSpaceDAOImpl extends AbstractHibernateAnnotatedDAO<PnSpac
 		
 		return parentSpaceID;
 	}
+
+
 
 }

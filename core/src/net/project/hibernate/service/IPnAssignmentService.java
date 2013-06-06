@@ -30,6 +30,13 @@ public interface IPnAssignmentService {
 	
 	public List<PnAssignment> getCurrentAssigmentsListForProject(Integer projectId, Integer[] personIds, Date date);
 	
+	/**
+	 * Obtain the list of all assignments from a project.
+	 * @param projectId the id from the project.
+	 * @return a list of assignments.
+	 */
+	public List<PnAssignment> getAssigmentsListForProject(Integer projectId);
+	
 	@Deprecated
 	public List<ReportUser> getWorkSumByMonthForUsers(Integer[] personIds, Integer[] projectIds, Date startDate, Date endDate);
 	
