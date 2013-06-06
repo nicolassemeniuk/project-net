@@ -391,6 +391,8 @@ public abstract class ServiceFactory {
     public abstract IPnFinancialSpaceService getPnFinancialSpaceService();
     
     public abstract IPnPersonSalaryService getPnPersonSalaryService();
+    
+    public abstract IProjectFinancialService getProjectFinancialService();
 
     public void setBeanFactory(BeanFactory beanFactory) {
         this.beanFactory = beanFactory;
