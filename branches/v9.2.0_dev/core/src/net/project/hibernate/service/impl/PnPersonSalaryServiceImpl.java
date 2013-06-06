@@ -17,7 +17,7 @@ public class PnPersonSalaryServiceImpl implements IPnPersonSalaryService {
 	private IPnPersonSalaryDAO pnPersonSalaryDAO;
 
 	@Override
-	public PnPersonSalary getPersonSalary(Integer personID) {
+	public PnPersonSalary getPersonSalary(Integer personID) {		
 		return this.pnPersonSalaryDAO.getPersonSalary(personID);
 	}
 

@@ -1,10 +1,11 @@
 package net.project.hibernate.model;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 @Embeddable
-public class PnPersonSalaryPK {
+public class PnPersonSalaryPK implements Serializable {
 
 	private Integer personId;
 
