@@ -359,7 +359,7 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
         setFinancialStatusColorCode(source.getFinancialStatusColorCode());
         setFinancialStatusImprovementCode(source.getFinancialStatusImprovementCode());        
         setBudgetedTotalCost(source.getBudgetedTotalCost());
-        setCurrentEstimatedTotalCost(source.getCurrentEstimatedTotalCost());
+        setCurrentEstimatedTotalCost(source.currentEstimatedTotalCost);
         setActualCostToDate(source.getActualCostToDate());
         setEstimatedROI(source.getEstimatedROI());
         setCostCenter(source.getCostCenter());
