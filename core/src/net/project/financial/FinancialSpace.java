@@ -53,7 +53,7 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 		setType(ISpaceTypes.FINANCIAL_SPACE);
 		this.spaceType = SpaceTypes.FINANCIAL;
 		this.parentSpaceID = String.valueOf(ServiceFactory.getInstance().getPnSpaceHasSpaceService().getParentSpaceID(Integer.valueOf(spaceID)));
-		this.relatedSpaceID = String.valueOf(ServiceFactory.getInstance().getPnSpaceHasSpaceService().getBusinessRelatedSpace(Integer.valueOf(spaceID)));
+		this.relatedSpaceID = String.valueOf(ServiceFactory.getInstance().getPnSpaceHasSpaceService().getBusinessRelatedSpace(Integer.valueOf(spaceID)).getComp_id().getParentSpaceId());
 	}
 
 	/**
@@ -81,7 +81,7 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 			setType(ISpaceTypes.FINANCIAL_SPACE);
 			this.spaceType = SpaceTypes.FINANCIAL;
 			this.parentSpaceID = String.valueOf(ServiceFactory.getInstance().getPnSpaceHasSpaceService().getParentSpaceID(Integer.valueOf(spaceID)));
-			this.relatedSpaceID = String.valueOf(ServiceFactory.getInstance().getPnSpaceHasSpaceService().getBusinessRelatedSpace(Integer.valueOf(spaceID)));
+			this.relatedSpaceID = String.valueOf(ServiceFactory.getInstance().getPnSpaceHasSpaceService().getBusinessRelatedSpace(Integer.valueOf(spaceID)).getComp_id().getParentSpaceId());
 		}
 		
 	}
