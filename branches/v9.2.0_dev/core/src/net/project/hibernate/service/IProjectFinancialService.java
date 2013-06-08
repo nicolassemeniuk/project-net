@@ -1,6 +1,5 @@
 package net.project.hibernate.service;
 
-import net.project.base.money.Money;
 
 public interface IProjectFinancialService {
 	
@@ -11,7 +10,7 @@ public interface IProjectFinancialService {
 	 * @return a Money value representing the cost.
 	 */
 	
-	public Money calculateActualCostToDate(String spaceID);
+	public Float calculateActualCostToDate(String spaceID);
 	
 	/**
 	 * Obtain the calculated estimated cost from a certain project. This means to sum all of the tasks and

@@ -51,6 +51,11 @@ public class PnTaskServiceImpl implements IPnTaskService {
 		return pnTaskDAO.getTasksByProjectId(projectId);
 	}
 	
+	@Override
+	public List<PnTask> getCompletedTasksByProjectId(Integer projectId) {
+		return pnTaskDAO.getCompletedTasksByProjectId(projectId);
+	}
+	
 	/* (non-Javadoc)
 	 * @see net.project.hibernate.service.IPnTaskService#getTaskDetailsById(java.lang.Integer)
 	 */
@@ -75,5 +80,7 @@ public class PnTaskServiceImpl implements IPnTaskService {
 	public PnTask getTaskWithRecordStatus(Integer taskId){
 		return pnTaskDAO.getTaskWithRecordStatus(taskId);
 	}
+
+
 	
 }

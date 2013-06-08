@@ -1310,7 +1310,18 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 	 * @see #setActualCostToDate
 	 */
 	public Money getActualCostToDate() {
-		return this.actualCostToDate;
+		try {
+
+			if (getMetaData().getProperty("CostCalculationMethod").equals("manual"))
+				return this.actualCostToDate;
+			else {
+				Float cost = ServiceFactory.getInstance().getProjectFinancialService().calculateActualCostToDate(spaceID);
+				return new Money(String.valueOf(cost), getDefaultCurrency());
+			}
+
+		} catch (NoSuchPropertyException e) {
+			return new Money();
+		}		
 	}
 
 	/**

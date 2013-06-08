@@ -29,8 +29,7 @@ public class PnPersonSalary implements Serializable {
 
 	@EmbeddedId
 	@AttributeOverrides( {
-			@AttributeOverride(name = "personId", column = @Column(name = "PERSON_ID", nullable = false, length = 20)) })
-	
+			@AttributeOverride(name = "personId", column = @Column(name = "PERSON_ID", nullable = false, length = 20)) })	
 	public PnPersonSalaryPK getComp_id() {
 		return comp_id;
 	}
