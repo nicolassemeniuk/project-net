@@ -370,3 +370,32 @@ div#leftframe {
 .UMTableBorder {
 	border:1px solid #AB80C1;
 }
+
+.UMTopBorder {
+	border-top:1px solid #AB80C1;
+}
+
+.UMTableSemiBorder {
+	border-left:1px solid #AB80C1;
+	border-right:1px solid #AB80C1;
+	border-bottom:1px solid #AB80C1;
+}
+
+.inviteMemberSearch {
+	font-family:Arial,Helvetica,sans-serif;
+	background: #AB80C1;
+	float: left;
+}
+
+.businessMembersTitle {
+	background: #AB80C1;
+	color: Black;
+	font-family: Arial,Helvetica,sans-serif;
+	font-size: 12px;
+	padding-left:5px;
+	border-bottom:1px solid #AB80C1;
+}
+
+#sendMailBlockTop {
+	background: #F3F3FA url(../images/filter-top.gif) no-repeat scroll center top;
+}

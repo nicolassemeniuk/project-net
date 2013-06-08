@@ -26,7 +26,7 @@ if('${space}' != ''){
 var spaceForNavbar = '${user.currentSpace.Type}';
 var personAndSpaceId = '${user.id}${user.currentSpace.id}';
 <!-- //
-if(spaceType == 'project' || spaceType == 'personal') {
+if(spaceType == 'project' || spaceType == 'personal' || spaceType == 'financial') {
 //-->
 	var selectProject = '<t:Message value="all.global.blogit.selectproject.errormessage"/>';
 	var noProjectInList = '<t:Message value="all.global.blogit.noprojectInlist.errormessage"/>';
@@ -65,6 +65,8 @@ if(spaceType == 'business'){
 	document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\""+JSPRootURL+"/styles/personal.css?"+VERSION_NUMBER+"\"/>");
 } else if(spaceType == 'project' || spaceType == 'methodology'){
 	document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\""+JSPRootURL+"/styles/project.css?"+VERSION_NUMBER+"\"/>");
+} else if(spaceType == 'financial'){
+	document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\""+JSPRootURL+"/styles/financial.css?"+VERSION_NUMBER+"\"/>");	
 } else if(spaceType == 'application'){
 	document.write("<link rel=\"stylesheet\" type=\"text/css\" href=\""+JSPRootURL+"/styles/application.css?"+VERSION_NUMBER+"\"/>");
 }
@@ -92,6 +94,8 @@ var serverRequestFailed = '<t:Message value="prm.global.requestfailed.error.mess
 		navbarURL = JSPRootURL+"/project/include/NavBar.jsp?s=project&amp;i="+personAndSpaceId;
 	} else if(spaceForNavbar == 'business'){
 		navbarURL = JSPRootURL+"/business/include/NavBar.jsp?s=business&amp;i="+personAndSpaceId;
+	} else if(spaceForNavbar == 'financial'){
+		navbarURL = JSPRootURL+"/financial/include/NavBar.jsp?s=financial&amp;i="+personAndSpaceId;		
 	} else if(spaceForNavbar == 'application'){
 		navbarURL = JSPRootURL+"/admin/include/NavBar.jsp?s=admin&amp;i="+personAndSpaceId;
 	} else if(spaceForNavbar == 'methodology'){

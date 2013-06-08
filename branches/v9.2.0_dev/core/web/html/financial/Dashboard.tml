@@ -108,22 +108,22 @@
 							<t:if test="hasProjects">						
 							<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content" name="tableWithEvenRows">
 								<tr class="table-header">
-								    <td width="50">Project</td>
-								    <td width="15">Cost Center</td>								    
-								    <td width="15">Budgeted Total Cost</td>
-								    <td width="15">Current Estimated Total Cost</td>
-								    <td width="15">Actual Cost To Date</td>
-								    <td width="15">Estimated ROI</td>
+								    <td>Project</td>
+								    <td width="80">Cost Center</td>								    
+								    <td width="80">Budgeted Total Cost</td>
+								    <td width="110">Current Estimated Total Cost</td>
+								    <td width="100">Actual Cost To Date</td>
+								    <td width="90">Estimated ROI</td>
 									<!-- <td width="15"><t:Message value="prm.project.dashboard.overallstatus.label" /></td> -->
 							 	</tr>
 							 	<t:loop source="projectList" value="project">	
 									<tr>
 										<td>${project.name}</td>
-										<td></td>
-										<td></td>
+										<td>${project.costCenter}</td>
+										<td>${project.budgetedTotalCost.value}</td>
 										<td>${project.currentEstimatedTotalCost.value}</td>
-										<td></td>
-										<td></td>										
+										<td>${project.actualCostToDate}</td>
+										<td>${project.estimatedROI}</td>										
 									</tr>
 							 	</t:loop>
 							</table>
