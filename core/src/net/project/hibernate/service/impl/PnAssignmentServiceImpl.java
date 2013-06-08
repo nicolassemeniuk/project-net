@@ -846,4 +846,9 @@ public class PnAssignmentServiceImpl implements IPnAssignmentService {
 		}
 		return completeList;
 	}
+
+	@Override
+	public List<PnAssignment> getAssigmentsByObjectId(Integer objectID) {
+		return pnAssignmentDAO.getAssignmentsByObjectId(objectID);
+	}
  }

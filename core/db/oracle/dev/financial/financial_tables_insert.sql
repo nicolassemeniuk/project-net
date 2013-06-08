@@ -1,5 +1,5 @@
 
-select * from PN_PROPERTY a where a.PROPERTY like '%prm.directory.roles.groupedit.rolesnotaccessible.message%';
+select * from PN_PROPERTY a where a.PROPERTY like '%prm.global.taskcompletedpercentage%';
 
 -- Project Create
 insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.financialcalculation.heading','Project Finance Calculation Method','A',0,1,null);
@@ -61,3 +61,9 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projec
 -- Directory
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.directory.isenabled','1','A',0,0,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.nav.directory','Directory','A',0,1,null);
+
+
+
+
+--Completed Task Percentage
+insert into PN_PROPERTY values (2000,'en','text','prm.global.taskcompletedpercentage','100','A',0,0,null);

@@ -143,4 +143,12 @@ public interface IPnAssignmentService {
 	 * @return PnAssignment.
 	 */
 	public PnAssignment getPersonAssignmentForObject(Integer objectId, Integer personId);
+
+	
+	/**
+	 * Get all the person assignments for a certain object.
+	 * @param objectID the id of the object.
+	 * @return a list of Assignments.
+	 */
+	public List<PnAssignment> getAssigmentsByObjectId(Integer objectID);
 }

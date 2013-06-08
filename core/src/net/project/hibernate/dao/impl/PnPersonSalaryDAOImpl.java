@@ -22,12 +22,15 @@ public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPerso
 	
 	@Override
 	public PnPersonSalary getPersonSalary(Integer personID) {
+		PnPersonSalaryPK pk = new PnPersonSalaryPK(personID);
+		PnPersonSalary pnPersonSalary = null;		
+		
 		try {
-			PnPersonSalaryPK pk = new PnPersonSalaryPK(personID);
+			
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
 			Session session = factory.openSession();
 
-			PnPersonSalary pnPersonSalary = (PnPersonSalary) session.get(PnPersonSalary.class, pk);
+			pnPersonSalary = (PnPersonSalary) session.get(PnPersonSalary.class, pk);
 			session.close();
 			if(pnPersonSalary!=null){
 				return pnPersonSalary;
@@ -38,7 +41,8 @@ public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPerso
 		} catch (Exception e) {
 			log.error("Error occurred while getting a person salary by person id " + e.getMessage());
 		}
-		return null;
+		return pnPersonSalary;
+		
 	}
 
 }

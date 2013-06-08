@@ -4,15 +4,18 @@ import java.math.BigDecimal;
 import java.text.ParseException;
 import java.util.List;
 
-import net.project.base.money.Money;
 import net.project.hibernate.model.PnAssignment;
 import net.project.hibernate.model.PnMaterial;
+import net.project.hibernate.model.PnMaterialAssignment;
 import net.project.hibernate.model.PnPersonSalary;
+import net.project.hibernate.model.PnTask;
 import net.project.hibernate.service.IPnAssignmentService;
+import net.project.hibernate.service.IPnMaterialAssignmentService;
 import net.project.hibernate.service.IPnMaterialService;
 import net.project.hibernate.service.IPnSpaceHasMaterialService;
 import net.project.hibernate.service.IProjectFinancialService;
 import net.project.hibernate.service.ServiceFactory;
+import net.project.material.PnMaterialAssignmentList;
 import net.project.material.PnMaterialList;
 import net.project.util.TimeQuantity;
 
@@ -27,6 +30,9 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 
 	@Autowired
 	private IPnSpaceHasMaterialService spaceHasMaterialService;
+
+	@Autowired
+	private IPnMaterialAssignmentService materialAssignmentService;
 
 	@Autowired
 	private IPnAssignmentService assignmentService;
@@ -48,8 +54,41 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 	}
 
 	@Override
-	public Money calculateActualCostToDate(String spaceID) {
-		// TODO Auto-generated method stub
+	public Float calculateActualCostToDate(String spaceID) {
+		Float totalMaterialCost = new Float(0.00);
+		Float totalResourcesCost = new Float(0.00);
+
+		// Obtain the completed tasks for the space.
+		List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getCompletedTasksByProjectId(Integer.valueOf(spaceID));
+
+		try {
+			for (PnTask task : tasks) {
+
+				// Get persons assignments for the task
+				List<PnAssignment> assignmentsOfTask = assignmentService.getAssigmentsByObjectId(task.getTaskId());
+				for (PnAssignment assignmentOfTask : assignmentsOfTask) {
+					TimeQuantity workQuantity = TimeQuantity.parse(String.valueOf(assignmentOfTask.getWork()), String.valueOf(assignmentOfTask.getWorkUnits()));
+					BigDecimal workAmount = workQuantity.converToHours();
+
+					Integer id = assignmentOfTask.getComp_id().getPersonId();
+					PnPersonSalary personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalary(id);
+					totalResourcesCost += workAmount.floatValue() * personSalary.getCostByHour();
+				}
+
+				// Obtain the materials from the task.
+				PnMaterialAssignmentList materialAssignmentsOfTask = materialAssignmentService
+						.getMaterialsAssignment(spaceID, String.valueOf(task.getTaskId()));
+				for (PnMaterialAssignment materialAssignmentOfTask : materialAssignmentsOfTask) {
+					PnMaterial materialFromTask = materialService.getMaterial(materialAssignmentOfTask.getComp_id().getMaterialId());
+					totalMaterialCost += materialFromTask.getMaterialCost();
+				}
+
+			}
+
+			return totalMaterialCost + totalResourcesCost;
+		} catch (ParseException e) {
+			// TODO handle error.
+		}
 		return null;
 	}
 
@@ -82,7 +121,6 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 		} catch (ParseException e) {
 			// TODO handle error.
 		}
-		// TODO Auto-generated method stub
 		return null;
 	}
 

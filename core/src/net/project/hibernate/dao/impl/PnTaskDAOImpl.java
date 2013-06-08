@@ -19,11 +19,17 @@ package net.project.hibernate.dao.impl;
 
 import java.util.List;
 
+import net.project.base.property.PropertyProvider;
 import net.project.hibernate.dao.IPnTaskDAO;
+import net.project.hibernate.model.PnFinancialSpace;
 import net.project.hibernate.model.PnTask;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.Query;
+import org.hibernate.SessionFactory;
+import org.hibernate.classic.Session;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -148,6 +154,30 @@ public class PnTaskDAOImpl extends AbstractHibernateAnnotatedDAO<PnTask, Integer
 			log.error("Error occurred while getting task details by task id : "+e.getMessage());
 		}
 		return task;		
+	}
+
+	@Override
+	public List<PnTask> getCompletedTasksByProjectId(Integer projectId) {
+		List<PnTask> tasks = null;
+		Integer percentComplete = PropertyProvider.getInt("prm.global.taskcompletedpercentage");
+		
+		String sql = " SELECT new PnTask(t.taskId, t.taskName, t.taskDesc, t.duration, t.dateStart, t.dateFinish, t.workPercentComplete) " +
+					" FROM PnTask t, PnPlan pp, PnPlanHasTask pht, PnSpaceHasPlan shp, PnProjectSpace ps " +
+					" WHERE shp.comp_id.spaceId = ps.projectId AND shp.comp_id.planId = pp.planId " +
+					" AND pht.comp_id.taskId = t.taskId AND pp.planId = pht.comp_id.planId " +
+					" AND ps.projectId = :projectId AND t.recordStatus = 'A' " +
+					" AND t.percentComplete = :percentComplete " +
+					" ORDER BY t.seq ";
+		try{
+			Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery(sql);
+			query.setInteger("projectId", projectId);
+			query.setInteger("percentComplete", percentComplete);
+			tasks = query.list();			
+		} catch(Exception e){
+			log.error("Error occurred while getting tasks by project id : "+e.getMessage());
+			e.printStackTrace();
+		}
+		return tasks;
 	}
 	
 }
