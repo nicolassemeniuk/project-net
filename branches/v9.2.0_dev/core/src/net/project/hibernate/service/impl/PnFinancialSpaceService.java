@@ -36,6 +36,7 @@ public class PnFinancialSpaceService implements IPnFinancialSpaceService {
 
 		PnFinancialSpace pnFinancialSpace = new PnFinancialSpace();
 		pnFinancialSpace.setFinancialSpaceName(financialSpace.getName());
+		pnFinancialSpace.setFinancialSpaceDescription(financialSpace.getDescription());
 		pnFinancialSpace.setRecordStatus("A");
 		pnFinancialSpace.setFinancialSpaceId(materialObjectId);
 		return this.pnFinancialSpaceDAO.create(pnFinancialSpace);
