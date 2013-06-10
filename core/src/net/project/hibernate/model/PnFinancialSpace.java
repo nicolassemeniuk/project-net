@@ -15,6 +15,8 @@ public class PnFinancialSpace implements Serializable {
 
 	private String financialSpaceName;
 	
+	private String financialSpaceDescription;
+	
 	private String recordStatus;
 	
 	public static final String OBJECT_TYPE = "financial";
@@ -23,9 +25,10 @@ public class PnFinancialSpace implements Serializable {
 		
 	}
 	
-	public PnFinancialSpace(Integer financialId, String financialName){
+	public PnFinancialSpace(Integer financialId, String financialName, String financialSpaceDescription){
 		this.financialSpaceId = financialId;
 		this.financialSpaceName = financialName;
+		this.financialSpaceDescription = financialSpaceDescription;
 	}
 
 	@Id
@@ -46,6 +49,16 @@ public class PnFinancialSpace implements Serializable {
 	public void setFinancialSpaceName(String financialName) {
 		this.financialSpaceName = financialName;
 	}
+	
+	@Column(name = "FINANCIAL_SPACE_DESCRIPTION", nullable = false, length = 240)
+	public String getFinancialSpaceDescription() {
+		return financialSpaceDescription;
+	}
+
+	public void setFinancialSpaceDescription(String financialDescription) {
+		this.financialSpaceDescription = financialDescription;
+	}
+	
 	
 	@Column(name = "RECORD_STATUS", nullable = false, length = 1)
 	public String getRecordStatus() {
