@@ -17,10 +17,15 @@ CREATE TABLE PN_FINANCIAL_SPACE (
 CREATE OR REPLACE SYNONYM PNET_USER.PN_FINANCIAL_SPACE FOR PNET.PN_FINANCIAL_SPACE;
 
 CREATE TABLE PN_PERSON_SALARY (
+  PERSON_SALARY_ID number(20),
   PERSON_ID number(20),
+  START_DATE date,
+  END_DATE date,
   COST_BY_HOUR number(20,2),
+  RECORD_STATUS varchar(1),
   constraint PERSON_SALARY_PK primary key (PERSON_ID),
-  constraint PERSON_SALARY_FK FOREIGN KEY (PERSON_ID) REFERENCES PN_PERSON(PERSON_ID)
+  constraint PERSON_SALARY_FK FOREIGN KEY (PERSON_ID) REFERENCES PN_PERSON(PERSON_ID),
+  constraint RECORD_STATUS_PS1 check (RECORD_STATUS in ('A','D'))
 );
 CREATE OR REPLACE SYNONYM PNET_USER.PN_PERSON_SALARY FOR PNET.PN_PERSON_SALARY;
 
@@ -187,7 +192,7 @@ BEGIN
       FROM
           pn_module
       WHERE
-          module_id IN (10, 20, 30, 70, 110, 140, 170, 180, 190, 200, 210, 310, 330, 340, 390);
+          module_id IN (10, 20, 30, 70, 110, 140, 170, 180, 190, 200, 210, 270, 310, 330, 340, 390);
   
       -- Disable below mentioned modules for the time-being  
       UPDATE pn_space_has_module SET is_active = '0' WHERE  space_id = i_financial_id AND module_id IN (90 , 100 , 120 , 210 ) ;

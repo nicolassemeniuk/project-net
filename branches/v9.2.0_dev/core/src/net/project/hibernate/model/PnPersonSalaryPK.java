@@ -11,38 +11,38 @@ import org.apache.commons.lang.builder.ToStringBuilder;
 @Embeddable
 public class PnPersonSalaryPK implements Serializable {
 
-	private Integer personId;
+	private Integer personSalaryId;
 
 	public PnPersonSalaryPK() {
 	}
 
-	public PnPersonSalaryPK(Integer personId) {
+	public PnPersonSalaryPK(Integer personSalaryId) {
 		super();
-		this.personId = personId;
+		this.personSalaryId = personSalaryId;
 	}
 
-	@Column(name = "PERSON_ID", nullable = false, length = 20)
-	public Integer getPersonId() {
-		return this.personId;
+	@Column(name = "PERSON_SALARY_ID", nullable = false, length = 20)
+	public Integer getPersonSalaryId() {
+		return this.personSalaryId;
 	}
 
-	public void setPersonId(Integer personId) {
-		this.personId = personId;
+	public void setPersonSalaryId(Integer personSalaryId) {
+		this.personSalaryId = personSalaryId;
 	}
 
 	public String toString() {
-		return new ToStringBuilder(this).append("personId", getPersonId()).toString();
+		return new ToStringBuilder(this).append("personSalaryId", getPersonSalaryId()).toString();
 	}
 
 	public boolean equals(Object other) {
 		if (!(other instanceof PnSpaceHasPersonPK))
 			return false;
 		PnSpaceHasPersonPK castOther = (PnSpaceHasPersonPK) other;
-		return new EqualsBuilder().append(this.getPersonId(), castOther.getPersonId()).isEquals();
+		return new EqualsBuilder().append(this.getPersonSalaryId(), castOther.getPersonId()).isEquals();
 	}
 
 	public int hashCode() {
-		return new HashCodeBuilder().append(getPersonId()).toHashCode();
+		return new HashCodeBuilder().append(getPersonSalaryId()).toHashCode();
 	}
 
 }
