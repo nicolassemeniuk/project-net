@@ -84,7 +84,13 @@
 	String redirect = request.getParameter("page");
 	if(redirect.equals("dashboard"))
 	{
-		String forwardTo = SessionManager.getJSPRootURL() + "/financial/Dashboard?module=175&id="+financialSpace.getID();
+		String forwardTo = SessionManager.getJSPRootURL() + "/financial/Dashboard?module=" + Module.FINANCIAL_SPACE + "&id="+financialSpace.getID();
+	    response.sendRedirect(URLDecoder.decode(SpaceURLFactory.constructForwardFromSpaceURL(forwardTo), SessionManager.getCharacterEncoding()));
+	    return;		
+	}
+	else if(redirect.equals("setup"))
+	{
+		String forwardTo = SessionManager.getJSPRootURL() + "/financial/Setup.jsp?module=" + Module.FINANCIAL_SPACE + "&id="+financialSpace.getID();
 	    response.sendRedirect(URLDecoder.decode(SpaceURLFactory.constructForwardFromSpaceURL(forwardTo), SessionManager.getCharacterEncoding()));
 	    return;		
 	}

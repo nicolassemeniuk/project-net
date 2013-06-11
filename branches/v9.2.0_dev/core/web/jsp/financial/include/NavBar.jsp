@@ -65,9 +65,24 @@
     //left nav bar.  It can be reloaded whenever we enter the personal space normally.
     boolean bLoadMenu = true; //(user.getCurrentSpace().getType().equals(Space.PERSONAL_SPACE));
     String loadMenu = new Boolean(bLoadMenu).toString();
-       
+    
+    String currentID = null;
+    String currentSpaceType = null;
+
+    boolean isPortfolio = (request.getParameter("portfolio") != null && request.getParameter("portfolio").equals("true"));
+    if (isPortfolio)
+        bLoadMenu = false;
+    else
+    {
+        // We are loading while viewing a space
+        // Only display if there is a current space and it is a business space
+        currentID = user.getCurrentSpace().getID();
+        currentSpaceType = user.getCurrentSpace().getType();
+    }    
+    
     if(bLoadMenu){
 %>
+
 
 function writeSpaceNavBarMenu() {
 	var menuString = "";
@@ -88,10 +103,10 @@ function writeSpaceNavBarMenu() {
 	menuString += "</li>";
 </display:if>
 
-<display:if name="@prm.financial.document.isenabled">
+<display:if name="@prm.financial.salary.isenabled">
 	menuString += "<li>";
 	menuString += "	<span>";
-	menuString += "		<a href='<%=base+"/document/Main.jsp?module="+Module.DOCUMENT%>' onmouseover=\"mopen('mdocument')\" onmouseout='mclosetime()'><propertyProvider:propertyProvider value="@prm.financial.nav.document" /></a>";
+	menuString += " 	<display:get name='@prm.financial.nav.salary' href='<%=base + "/financial/Salary.jsp?module="+Module.SALARY+"&id="+user.getCurrentSpace().getID()%>'/>";
 	menuString += "	</span>";
 	menuString += "</li>";
 </display:if>
@@ -99,7 +114,7 @@ function writeSpaceNavBarMenu() {
 <display:if name="@prm.financial.setup.isenabled">
 	menuString += " <li>";
 	menuString += " 	<span>";
-	menuString += " 	<display:get name='@prm.financial.nav.setup' href='<%=base + "/financial/Main.jsp?id="+"&page="+base+"/financial/Setup.jsp?module="+Module.FINANCIAL_SPACE%>'/>";
+	menuString += " 	<display:get name='@prm.financial.nav.setup' href='<%=base + "/financial/Main.jsp?id="+currentID+"&page=setup"%>'/>";
 	menuString += " 	</span>";
 	menuString += " </li>";
 </display:if>

@@ -45,6 +45,7 @@ insert into PN_OBJECT_TYPE values ('financial','pn_financial_space','@prm.global
 insert into PN_PROPERTY values (2000,'en','text','prm.global.financial.objecttype.financial','Financial','A',0,1,null);
 
 -- Dashboard
+insert into PN_PROPERTY values (2000,'en','text','prm.financialspace.module.description', 'Dashboard','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.dashboard.isenabled','1','A',0,0,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.title','Dashboard','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.toolbox.title','Toolbox','A',0,1,null);
@@ -57,13 +58,34 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.goto.t
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.goto.reports.label','Reports','A',0,1,null);
 
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.channel.title','Projects','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.noprojects.label','There are no projects on this business','A',0,1,null);
 
 -- Directory
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.directory.isenabled','1','A',0,0,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.nav.directory','Directory','A',0,1,null);
 
+-- Salary
+insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.salary.isenabled','1','A',0,0,null);
+insert into PN_MODULE values (270,'salary','@prm.salary.module.description', 1, null);
+insert into PN_PROPERTY values (2000,'en','text','prm.salary.module.description','Salary','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.nav.salary','Salary','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.modify.button.tooltip','Modify Salary','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.tab.salary.title','Salary','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.roster.search.label','Search','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.tab.participants.title','Participants','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.title','Salary','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.authorizationfailed.message','Failed security validation','A',0,1,null);
 
-
+-- Setup
+insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.setup.isenabled','1','A',0,0,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.nav.setup','Setup','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.setup.module.history','Setup','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.setup.channel.financialadministrator.title','Financial Administrator Settings','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.setup.directory.isenabled','1','A',0,0,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.setup.directory.link','People and Roles','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.setup.directory.label','Add or remove, people and roles in this financial','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.setup.securitysettings.link','Security','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.setup.securitysettings.label','Edit security settings for this financial','A',0,1,null);
 
 --Completed Task Percentage
 insert into PN_PROPERTY values (2000,'en','text','prm.global.taskcompletedpercentage','100','A',0,0,null);
