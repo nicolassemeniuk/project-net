@@ -43,7 +43,8 @@ public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPerso
 			criteria.add(Restrictions.eq("personId", personID));
 			//criteria.setProjection(Projections.max("startDate"));
 			List<PnPersonSalary> salaries = criteria.list();
-			pnPersonSalary = salaries.get(salaries.size()-1);
+			if(salaries.size()>0)
+				pnPersonSalary = salaries.get(salaries.size()-1);
 			session.close();			
 			
 			if(pnPersonSalary != null){

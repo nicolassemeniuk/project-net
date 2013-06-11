@@ -32,6 +32,7 @@ import net.project.base.property.PropertyProvider;
 import net.project.calendar.PnCalendar;
 import net.project.database.DBBean;
 import net.project.gui.html.IHTMLOption;
+import net.project.hibernate.service.ServiceFactory;
 import net.project.persistence.IJDBCPersistence;
 import net.project.persistence.IXMLPersistence;
 import net.project.persistence.PersistenceException;
@@ -158,6 +159,12 @@ public class Person implements IResource, IJDBCPersistence, IXMLPersistence, jav
     public boolean isOnline = false;
     /** ID of the person's domain record */
     protected int domaninID;
+    
+    
+    /* ------------------------------- Salary  ------------------------------- */
+    
+    public PersonSalary salary = null;
+ 
 
     /* ------------------------------- Constructor(s)  ------------------------------- */
 
@@ -886,6 +893,9 @@ public class Person implements IResource, IJDBCPersistence, IXMLPersistence, jav
         xml.append("<RosterEntryType>" + getRosterEntryType() + "</RosterEntryType>\n");
         
         xml.append("<domain_id>" + getDomaninID() + "</domain_id>\n");
+        
+        xml.append("<cost_by_hour>" + getSalary().getCostByHour() + "</cost_by_hour>\n");
+        
 
         if (this.address != null)
             xml.append (this.address.getXMLBody());
@@ -1055,7 +1065,12 @@ public class Person implements IResource, IJDBCPersistence, IXMLPersistence, jav
         if (lastLoginTimestamp != null) {
             this.lastLogin = new Date(lastLoginTimestamp.getTime());
         }
-        this.domaninID = result.getInt("domain_id");;
+        this.domaninID = result.getInt("domain_id");
+        
+        this.salary = new PersonSalary(personID);
+        
+        
+        
     }
 
     public static String getDisplayName (String email) {
@@ -1282,6 +1297,16 @@ public class Person implements IResource, IJDBCPersistence, IXMLPersistence, jav
 	public void setDomaninID(int domaninID) {
 		this.domaninID = domaninID;
 	}
+
+	public PersonSalary getSalary() {
+		return salary;
+	}
+
+	public void setSalary(PersonSalary salary) {
+		this.salary = salary;
+	}
+	
+	
 	
 	
 }

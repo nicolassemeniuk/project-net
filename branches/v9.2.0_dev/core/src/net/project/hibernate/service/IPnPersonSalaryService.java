@@ -7,6 +7,11 @@ public interface IPnPersonSalaryService {
 	
 	public Integer savePersonSalary(PersonSalaryBean personSalary);
 	
+	/**
+	 * Obtain the actual salary for a person.
+	 * @param personID the id of the person.
+	 * @return a person actual salary.
+	 */
 	public PnPersonSalary getPersonSalaryByPersonId(Integer personID);
 
 	/**

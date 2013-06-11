@@ -3,7 +3,6 @@ package net.project.hibernate.service.impl;
 import java.sql.Date;
 
 import net.project.hibernate.dao.IPnPersonSalaryDAO;
-import net.project.hibernate.model.PnMaterial;
 import net.project.hibernate.model.PnObject;
 import net.project.hibernate.model.PnPersonSalary;
 import net.project.hibernate.model.PnPersonSalaryPK;
@@ -30,6 +29,11 @@ public class PnPersonSalaryServiceImpl implements IPnPersonSalaryService {
 	public PnPersonSalary getPersonSalaryByPersonId(Integer personID) {		
 		return this.pnPersonSalaryDAO.getPersonSalaryByPersonId(personID);
 	}
+	
+	@Override
+	public PnPersonSalary getPersonSalary(String personSalaryId) {
+		return this.pnPersonSalaryDAO.getPersonSalaryById(Integer.valueOf(personSalaryId));
+	}
 
 	@Override
 	public Integer savePersonSalary(PersonSalaryBean personSalary) {
@@ -50,10 +54,6 @@ public class PnPersonSalaryServiceImpl implements IPnPersonSalaryService {
 		return pk.getPersonSalaryId();
 	}
 
-	@Override
-	public PnPersonSalary getPersonSalary(String personSalaryId) {
-		//TODO
-		return null;
-	}
+
 
 }
