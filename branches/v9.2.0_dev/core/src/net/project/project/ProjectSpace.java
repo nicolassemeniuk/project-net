@@ -2195,32 +2195,32 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 		} else {
 			stmt.setString(++index, getFinancialStatusImprovementCode().getID());
 		}
-		if (getBudgetedTotalCost() == null) {
+		if (budgetedTotalCost == null) {
 			stmt.setNull(++index, java.sql.Types.NUMERIC);
 			stmt.setNull(++index, java.sql.Types.VARCHAR);
 		} else {
-			stmt.setDouble(++index, getBudgetedTotalCost().getValue().doubleValue());
+			stmt.setDouble(++index, budgetedTotalCost.getValue().doubleValue());
 			stmt.setString(++index, getBudgetedTotalCost().getCurrency().getCurrencyCode());
 		}
-		if (getCurrentEstimatedTotalCost() == null) {
+		if (currentEstimatedTotalCost == null) {
 			stmt.setNull(++index, java.sql.Types.NUMERIC);
 			stmt.setNull(++index, java.sql.Types.VARCHAR);
 		} else {
-			stmt.setDouble(++index, getCurrentEstimatedTotalCost().getValue().doubleValue());
+			stmt.setDouble(++index, currentEstimatedTotalCost.getValue().doubleValue());
 			stmt.setString(++index, getCurrentEstimatedTotalCost().getCurrency().getCurrencyCode());
 		}
-		if (getActualCostToDate() == null) {
+		if (actualCostToDate == null) {
 			stmt.setNull(++index, java.sql.Types.NUMERIC);
 			stmt.setNull(++index, java.sql.Types.VARCHAR);
 		} else {
-			stmt.setDouble(++index, getActualCostToDate().getValue().doubleValue());
+			stmt.setDouble(++index, actualCostToDate.getValue().doubleValue());
 			stmt.setString(++index, getActualCostToDate().getCurrency().getCurrencyCode());
 		}
-		if (getEstimatedROI() == null) {
+		if (estimatedROI == null) {
 			stmt.setNull(++index, java.sql.Types.NUMERIC);
 			stmt.setNull(++index, java.sql.Types.VARCHAR);
 		} else {
-			stmt.setDouble(++index, getEstimatedROI().getValue().doubleValue());
+			stmt.setDouble(++index, estimatedROI.getValue().doubleValue());
 			stmt.setString(++index, getEstimatedROI().getCurrency().getCurrencyCode());
 		}
 		stmt.setString(++index, getCostCenter());
