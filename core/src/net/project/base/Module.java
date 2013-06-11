@@ -56,6 +56,7 @@ public class Module implements java.io.Serializable {
     public static final int APPLICATION_SPACE = 240;
     public static final int CONFIGURATION_SPACE = 250;
     public static final int MATERIAL = 260;
+    public static final int SALARY = 270;    
     /** User Authentication Domain */
     public static final int DOMAIN = 300;
     public static final int REPORT = 310;

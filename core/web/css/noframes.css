@@ -2064,6 +2064,19 @@ color: Gray;}
 	font-weight: bold;
 }
 
+.financial-setup-header {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 15px;
+	font-weight: bold;
+	width: 95%;
+	border-bottom: 1px dotted Silver;
+	margin-top: 15px;
+	margin-bottom: 0px;
+	color: #6f557c;
+	white-space: nowrap;
+	float: left;
+}
+
 /* Styles for system messages */
 div#loadingDiv, div#actionDiv {
 	background: #f8f8c8;

@@ -17,6 +17,11 @@ package net.project.financial;
 
 import java.io.Serializable;
 
+import org.apache.log4j.Logger;
+
+import net.project.business.BusinessSpace;
+import net.project.persistence.PersistenceException;
+
 
 /**
  * This Bean provides properties and methods for a Personal Space.
@@ -42,10 +47,24 @@ public class FinancialSpaceBean extends FinancialSpace implements Serializable {
      * Returns the id of this financial's logo.
      * 
      * @return the id of the financial logo
-     * @see #setFinancialLogoID
      */
-    public String getFinancialLogoID() {
-        return this.financialLogoID;
+    public String getFinancialLogoID()
+    {
+    	if(financialLogoID == null)
+    	{
+    		try
+    		{
+            	BusinessSpace relatedBusiness = new BusinessSpace(this.relatedSpaceID);
+            	relatedBusiness.load();
+            	this.financialLogoID = relatedBusiness.getLogoID();
+    		}
+    		catch(PersistenceException exception)
+    		{
+            	Logger.getLogger(FinancialSpaceBean.class).error("FinancialSpaceBean.getFinancialLogoID threw an PersistenceException: " + exception);
+    		}
+    	}
+    	
+    	return this.financialLogoID;    	
     }
 }
 

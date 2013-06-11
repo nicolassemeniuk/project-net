@@ -37,7 +37,7 @@
      session.putValue ("spaceInvitationWizard", memberWizard);
 
      // set a number of properties which will be used by the directory module
-     pageContextManager.setProperty ("space.main.url", SessionManager.getJSPRootURL() + "/finacial/Dashboard");
+     pageContextManager.setProperty ("space.main.url", SessionManager.getJSPRootURL() + "/financial/Dashboard");
 	 pageContextManager.setProperty ("space.invite.acceptrequired.url", 
 	SessionManager.getJSPRootURL() + 
 	"/financial/FinancialRegister.jsp" + 
