@@ -5,6 +5,8 @@ import net.project.hibernate.model.PnPersonSalaryPK;
 
 public interface IPnPersonSalaryDAO extends IDAO<PnPersonSalary, PnPersonSalaryPK> {
 	
-	public PnPersonSalary getPersonSalary(Integer personID);
+	public PnPersonSalary getPersonSalaryByPersonId(Integer personID);
+	
+	public PnPersonSalary getPersonSalaryById(Integer personSalaryID);
 
 }

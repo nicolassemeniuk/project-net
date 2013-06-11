@@ -98,6 +98,8 @@ public class ObjectType implements java.io.Serializable {
 
     // net.project.resource.person
     public static final String PERSON = "person";
+    
+    public static final String SALARY = "salary";
 
     // net.project.project
     public static final String PROJECT = "project";

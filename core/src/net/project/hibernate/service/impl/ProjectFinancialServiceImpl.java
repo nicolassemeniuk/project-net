@@ -71,7 +71,7 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 					BigDecimal workAmount = workQuantity.converToHours();
 
 					Integer id = assignmentOfTask.getComp_id().getPersonId();
-					PnPersonSalary personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalary(id);
+					PnPersonSalary personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryByPersonId(id);
 					totalResourcesCost += workAmount.floatValue() * personSalary.getCostByHour();
 				}
 
@@ -113,7 +113,7 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 				BigDecimal workAmount = workQuantity.converToHours();
 
 				Integer id = assignmentFromProject.getComp_id().getPersonId();
-				PnPersonSalary personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalary(id);
+				PnPersonSalary personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryByPersonId(id);
 				totalResourcesCost += workAmount.floatValue() * personSalary.getCostByHour();
 			}
 
