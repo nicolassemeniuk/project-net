@@ -32,8 +32,8 @@ public class PersonSalary {
 		this.recordStatus = recordStatus;
 	}
 	
-	public PersonSalary(String personSalaryId){
-		PnPersonSalary pnPersonSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalary(personSalaryId);
+	public PersonSalary(String personId){
+		PnPersonSalary pnPersonSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryByPersonId(Integer.valueOf(personId));
 		this.personSalaryId = String.valueOf(pnPersonSalary.getComp_id().getPersonSalaryId());
 		this.personId = String.valueOf(pnPersonSalary.getPersonId());
 		this.startDate = pnPersonSalary.getStartDate();

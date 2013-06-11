@@ -56,7 +56,7 @@ hide-achor-from-tab{text-decoration: none;}
 <%-- Import Javascript --%>
 <template:import type="javascript" src="/src/skypeCheck.js" />
 
-<%--	
+<% 	
 // Don't refresh roster is we are returning search results.
 String mode = request.getParameter("mode");
 if ( (mode == null) || ((mode != null) && !mode.equals("search")) ) {
@@ -67,8 +67,8 @@ if ( (mode == null) || ((mode != null) && !mode.equals("search")) ) {
     // of such a move has not been analyzed.  (PCD: 6/15/2002)
 	user.getCurrentSpace().getRoster().reload();
 }
---%>
 
+%>
 <%
 	if(StringUtils.isEmpty(id)){
 		id = user.getCurrentSpace().getID();
@@ -194,12 +194,12 @@ function searchButton() {
 			<tr>
 			<%-- Display the people in the roster. --%>
 				<td colspan="2">
-					<%-- Apply stylesheet to format project team roster --%>
-					<%--
-			        <pnet-xml:transform name="roster" scope="session" stylesheet="/roster/xsl/roster.xsl">
-			            <pnet-xml:property name="JSPRootURL" value="<%=SessionManager.getJSPRootURL()%>" />
-			        </pnet-xml:transform>
-			        --%>
+						<%-- 	Apply stylesheet to format project team roster --%>
+					
+			        <pnet-xml:transform name="roster" scope="session" stylesheet="/salary/xsl/salary.xsl">
+			            <pnet-xml:property name="JSPRootURL" value="<%=SessionManager.getJSPRootURL()%>" /> 
+ 			        </pnet-xml:transform> 
+
 				</td>
 			</tr>
 			<tr></tr>
