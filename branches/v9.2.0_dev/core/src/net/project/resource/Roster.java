@@ -65,7 +65,7 @@ public class Roster extends PersonList implements IXMLPersistence {
     private static final String PERSON_SELECT_COLUMNS = "select p.person_id, p.display_name, p.first_name, p.last_name, " +
             "p.middle_name, p.email, p.timezone_code, p.user_status, p.image_id, p.skype, u.last_login, u.username, " +
             "shp.responsibilities, shp.member_title, " +
-            "a.address_id, a.office_phone, a.fax_phone, a.mobile_phone, a.pager_phone, a.pager_email, a.website_url, u.domain_id,  ";
+            "a.address_id, a.office_phone, a.fax_phone, a.mobile_phone, a.pager_phone, a.pager_email, a.website_url, u.domain_id  ";
 
     /**
      * The last search key used for searching.
@@ -857,9 +857,9 @@ public class Roster extends PersonList implements IXMLPersistence {
         searchKey = key;
 
         query.append(PERSON_SELECT_COLUMNS);
-        query.append("from pn_space_has_person shp, pn_person_view p, pn_user_view u, pn_address a");
+        query.append("from pn_space_has_person shp, pn_person_view p, pn_user_view u, pn_address a ");
         query.append("where shp.space_id = ? ");
-        query.append("and p.person_id = shp.person_id and u.user_id(+) = p.person_id");
+        query.append("and p.person_id = shp.person_id and u.user_id(+) = p.person_id ");
         query.append("and p.address_id = a.address_id (+) and p.record_status = 'A' ");
 
         // First parameter is space id
