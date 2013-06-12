@@ -64,9 +64,9 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projec
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.directory.isenabled','1','A',0,0,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.nav.directory','Directory','A',0,1,null);
 
--- Salary
+-- Salary - Financial
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.salary.isenabled','1','A',0,0,null);
-insert into PN_MODULE values (270,'salary','@prm.salary.module.description', 1, null);
+insert into PN_MODULE values (270,'salary','@prm.salary.module.description', 0, null);
 insert into PN_PROPERTY values (2000,'en','text','prm.salary.module.description','Salary','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.nav.salary','Salary','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.modify.button.tooltip','Modify Salary','A',0,1,null);
@@ -75,6 +75,10 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.roster.se
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.tab.participants.title','Participants','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.title','Salary','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.authorizationfailed.message','Failed security validation','A',0,1,null);
+
+-- Salary - Personal
+insert into PN_PROPERTY values (2000,'en','boolean','prm.personal.salary.isenabled','1','A',0,0,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.nav.salary','Salary','A',0,1,null);
 
 -- Setup
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.setup.isenabled','1','A',0,0,null);
