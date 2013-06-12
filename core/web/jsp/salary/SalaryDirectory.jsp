@@ -15,7 +15,7 @@
 
 <%@ page
     contentType="text/html; charset=UTF-8"
-    info="Directory" 
+    info="Salary Directory" 
     language="java" 
     errorPage="/errors.jsp"
     import="net.project.security.User,
@@ -153,7 +153,7 @@ function searchButton() {
 	<td id="leftPane" valign="top">
 	<table border="0" cellspacing="0" cellpadding="0">
 		      <tr>
-		        <td width="130" class="left_tab"><a href="<%=SessionManager.getJSPRootURL() + "/financial/Salary.jsp?module=" + Module.SALARY%>" style="text-decoration: none;">
+		        <td width="130" class="left_tab"><a href="<%=SessionManager.getJSPRootURL() + "/salary/Salary.jsp?module=" + Module.SALARY%>" style="text-decoration: none;">
 		        	<span class="active_tab"><%=PropertyProvider.get("prm.financial.salary.tab.salary.title")%></span></a></td>
 		        <td>&nbsp;</td>
 		      </tr>
@@ -162,7 +162,7 @@ function searchButton() {
 	</tr>
 	</table>
 	<div class="block-content UMTableBorder" style="padding-right:2px;overflow-x:auto;">
-	<form method="post" action="<%=SessionManager.getJSPRootURL()%>/financial/SalaryProcessing.jsp">
+	<form method="post" action="<%=SessionManager.getJSPRootURL()%>/salary/SalaryDirectoryProcessing.jsp">
 		<input type="hidden" name="theAction">
 		<input type="hidden" name="module" value="<%=Module.SALARY%>">
 	    <input type="hidden" name="action" value="<%=Action.VIEW%>">

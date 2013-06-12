@@ -150,6 +150,14 @@ function writeSpaceNavBarMenu() {
 	menuString += "</li>";
 </display:if>
 
+<display:if name="@prm.personal.salary.isenabled">
+	menuString += "<li>";
+	menuString += "	<span>";
+	menuString += "	<display:get name='@prm.personal.nav.salary' href='<%=base + "/salary/Salary.jsp?module="  + Module.SALARY%>'/>";
+	menuString += "	</span>";
+	menuString += "</li>";
+</display:if>
+
 <display:if name="@prm.personal.setup.isenabled">
 	menuString += "<li>";
 	menuString += "	<span>";

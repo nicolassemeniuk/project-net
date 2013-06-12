@@ -106,7 +106,7 @@ function writeSpaceNavBarMenu() {
 <display:if name="@prm.financial.salary.isenabled">
 	menuString += "<li>";
 	menuString += "	<span>";
-	menuString += " 	<display:get name='@prm.financial.nav.salary' href='<%=base + "/financial/Salary.jsp?module="+Module.SALARY+"&id="+user.getCurrentSpace().getID()%>'/>";
+	menuString += " 	<display:get name='@prm.financial.nav.salary' href='<%=base + "/salary/SalaryDirectory.jsp?module="+Module.SALARY+"&id="+user.getCurrentSpace().getID()%>'/>";
 	menuString += "	</span>";
 	menuString += "</li>";
 </display:if>
