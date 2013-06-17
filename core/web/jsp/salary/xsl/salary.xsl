@@ -26,7 +26,7 @@
 </xsl:template>
 	
 	<xsl:template match="roster">
-		<table width="100%" border="0" cellspacing="0" cellpadding="0" vspace="0" style="overflow-x:auto">
+		<table class="compactTable" style="overflow-x:auto">
 		<tr class="table-header">
 			<td class="over-table"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></td>
 			<xsl:choose>

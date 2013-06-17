@@ -60,6 +60,10 @@ public class TabStripTag extends TagSupport {
      */
     private String width = null;
 
+    
+    /** Display all tabs together  */
+    private Boolean tabPresentation = false;      
+    
     /**
      * Start of tag.
      * @return {@link #EVAL_BODY_INCLUDE}
@@ -85,6 +89,7 @@ public class TabStripTag extends TagSupport {
             try {
                 //Set the width of the tab strip
                 tabStrip.setWidth(width);
+                tabStrip.setTabPresentation(tabPresentation);
 
                 // First print the tab strip
                 out.print(this.tabStrip.getPresentation());
@@ -166,4 +171,14 @@ public class TabStripTag extends TagSupport {
     public void setWidth(String width) {
         this.width = width;
     }
+    
+	public Boolean getTabPresentation()
+	{
+		return tabPresentation;
+	}
+
+	public void setTabPresentation(Boolean tabPresentation)
+	{
+		this.tabPresentation = tabPresentation;
+	}    
 }

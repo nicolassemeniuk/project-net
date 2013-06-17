@@ -60,6 +60,7 @@ hide-achor-from-tab{text-decoration: none;}
 // Don't refresh roster is we are returning search results.
 String mode = request.getParameter("mode");
 if ( (mode == null) || ((mode != null) && !mode.equals("search")) ) {
+	session.setAttribute("searchKey", "");	
 	roster.setSpace(user.getCurrentSpace());
 	roster.load();
     // also, every time we come to this page (when not returning search results), reload the space's instance of the roster also.
@@ -148,62 +149,29 @@ function searchButton() {
 		</tb:band>
 </tb:toolbar>
 <div id='content' style="padding-right:10px;padding-top:20px;">
-	<table width="100%" border="0" cellspacing="0" cellpadding="0" vspace="0">
-	<tr>
-	<td id="leftPane" valign="top">
-	<table border="0" cellspacing="0" cellpadding="0">
-		      <tr>
-		        <td width="130" class="left_tab"><a href="<%=SessionManager.getJSPRootURL() + "/salary/Salary.jsp?module=" + Module.SALARY%>" style="text-decoration: none;">
-		        	<span class="active_tab"><%=PropertyProvider.get("prm.financial.salary.tab.salary.title")%></span></a></td>
-		        <td>&nbsp;</td>
-		      </tr>
-	   </table>
-	</td>
-	</tr>
-	</table>
-	<div class="block-content UMTableBorder" style="padding-right:2px;overflow-x:auto;">
+
+	<tabSet:tabSet>
+	<tab:tabStrip tabPresentation="true">
+		<tab:tab label='Tab 1' href='<%=SessionManager.getJSPRootURL() + "/salary/SalaryDirectory.jsp?module=" + Module.SALARY%>' selected="true" />
+		<tab:tab label='Tab 2' href="#"  />
+		<tab:tab label='Tab 3' href="#"  />		
+	</tab:tabStrip>
+	</tabSet:tabSet>
+	<div class="UMTableBorder">
 	<form method="post" action="<%=SessionManager.getJSPRootURL()%>/salary/SalaryDirectoryProcessing.jsp">
 		<input type="hidden" name="theAction">
 		<input type="hidden" name="module" value="<%=Module.SALARY%>">
 	    <input type="hidden" name="action" value="<%=Action.VIEW%>">
-		<table width="100%" border="0" cellspacing="0" cellpadding="0" vspace="0">
-			<tr>
-			<td colspan="2" class="errorMessage">
-				<%net.project.persistence.PersistenceException ee = (net.project.persistence.PersistenceException)session.getAttribute("exception");
-				if(ee!=null) { 
-					out.println(ee.getMessage()+"\n");
-					session.removeAttribute("exception");
-				}%>
-			</td>
-			</tr>
-			<tr></tr>
-			<tr><td>&nbsp;</td></tr>
-			<tr>
-				<td class="tableHeader" nowrap>&nbsp;&nbsp;<%=PropertyProvider.get("prm.financial.salary.roster.search.label")%> 
-					<input type="text" name="key" value='<c:out value="${searchKey}"/>' size="40" maxlength="40" onKeyDown="if(event.keyCode==13) searchButton()">
-				</td>
-				<% if(Boolean.parseBoolean(PropertyProvider.get("prm.directory.directory.searchmode.isenabled"))){%>
-				<td><span class=tableContent><search:letter /></span></td>
-				<%}%>
-			</tr>	
-			<tr><td>&nbsp;</td></tr>
-			<tr>
-			<tr class="channelHeader">
-				<td class="channelHeader" colspan="2" style="height:20;padding-left: 7px;"><%=PropertyProvider.get("prm.financial.salary.tab.participants.title")%></td>
-			</tr>
-			<tr>
-			<%-- Display the people in the roster. --%>
-				<td colspan="2">
-						<%-- 	Apply stylesheet to format project team roster --%>
-					
-			        <pnet-xml:transform name="roster" scope="session" stylesheet="/salary/xsl/salary.xsl">
-			            <pnet-xml:property name="JSPRootURL" value="<%=SessionManager.getJSPRootURL()%>" /> 
- 			        </pnet-xml:transform> 
-
-				</td>
-			</tr>
-			<tr></tr>
-		</table>
+		<label for="searchField" class="labelSearchField"><%=PropertyProvider.get("prm.financial.salary.roster.search.label")%></label>
+		<input type="text" name="key" value="<%=session.getAttribute("searchKey")%>" size="40" maxlength="40" onKeyDown="if(event.keyCode==13) searchButton()" class="inputSearchField">
+		<div class="channelHeader channelHeaderTabSet">
+			<p><%=PropertyProvider.get("prm.financial.salary.tab.participants.title")%></p>
+		</div>
+		<div>	    
+        	<pnet-xml:transform name="roster" scope="session" stylesheet="/salary/xsl/salary.xsl">
+	            <pnet-xml:property name="JSPRootURL" value="<%=SessionManager.getJSPRootURL()%>" /> 
+		    </pnet-xml:transform> 
+		</div>
 	</form>
 	</div>
 </div>
