@@ -2096,3 +2096,22 @@ div#loadingDiv {
 div#actionDiv {
 	top: 85px;
 }
+
+/* Styles for custom components */
+
+.compactTable
+{
+	width: 100%;
+	border-collapse: collapse;
+	border-spacing: 0px;
+	border: none;	
+}
+
+/* TabSet */
+.tabSetHeader
+{
+	padding: 0;
+	border: none;	
+	border-collapse: separate;
+	border-spacing: 4px 0px;
+}

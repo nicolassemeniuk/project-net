@@ -48,6 +48,9 @@ public class TabStrip implements java.io.Serializable, IXMLPersistence {
     /** The width of the tab strip table. */
     private String width = null;
 
+    /** Display all tabs together */
+    private Boolean tabPresentation = false;          
+    
     /**
      * Creates a new Tab and adds it to this TabStrip's collection.
      * @return a new tab
@@ -64,7 +67,11 @@ public class TabStrip implements java.io.Serializable, IXMLPersistence {
      * @throws TabException if there is a problem creating the presentation
      */
     public String getPresentation() throws TabException {
-        return getDefaultPresentation();
+    	
+    	if(tabPresentation)
+    		return getAlternativePresentation();
+    	else
+    		return getDefaultPresentation();
     }
 
     /**
@@ -157,6 +164,42 @@ public class TabStrip implements java.io.Serializable, IXMLPersistence {
     }
 
     /**
+     * Draw tab strip with tab presentation
+     * @return the presentation string
+     */
+    private String getAlternativePresentation()
+    {
+        StringBuffer html = new StringBuffer();
+        html.append("<table class=\"tabSetHeader\">");
+        html.append("<tr>");
+        for (Iterator it = tabCollection.iterator(); it.hasNext(); )
+        {
+            Tab tab = (Tab) it.next();
+
+            // Only draw tab is display is true
+            if (tab.isDisplay())
+            {
+                if (tab.isSelected())
+                    html.append("<td class=\"tabBackground tabBackgroundActive\">")
+                    	.append("<a href=\""+ HTMLUtils.escape(tab.getHref()) + "\" style=\"text-decoration: none;\">")
+                    	.append("<span>" + HTMLUtils.escape(tab.getResolvedLabel()) + "</span>")                    		
+                    	.append("</a>")
+                        .append("</td>");
+                else
+                    html.append("<td class=\"tabBackground tabBackgroundDeActive\">")
+            			.append("<a href=\""+ HTMLUtils.escape(tab.getHref()) + "\" style=\"text-decoration: none;\">")
+            			.append("<span>" + HTMLUtils.escape(tab.getResolvedLabel()) + "</span>")                    		
+            			.append("</a>")
+            			.append("</td>");
+            }
+        }
+        html.append("</tr>");
+        html.append("</table>");
+
+        return html.toString();
+    }    
+    
+    /**
      * Returns the count of tabs that are currently being displayed.
      * @return the count of displayed tabs
      */
@@ -195,7 +238,17 @@ public class TabStrip implements java.io.Serializable, IXMLPersistence {
         this.width = width;
     }
 
-    /**
+	public Boolean getTabPresentation()
+	{
+		return tabPresentation;
+	}
+
+	public void setTabPresentation(Boolean tabPresentation)
+	{
+		this.tabPresentation = tabPresentation;
+	}
+
+	/**
      * Return tab strip XML body including version tag
      * @return the xml string
      */

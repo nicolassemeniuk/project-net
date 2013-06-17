@@ -46,7 +46,7 @@
 	if ((id.length() > 0) || 
         (module != net.project.base.Module.SALARY))
 	    throw new net.project.security.AuthorizationFailedException(PropertyProvider.get("prm.financial.salary.authorizationfailed.message"));
-
+	
 	// Toolbar Action: modify
 	if (request.getParameter("theAction").equals("modify"))
 	{
@@ -56,14 +56,18 @@
 	else //if (request.getParameter("theAction").equals("search"))
 	{
 		String key = request.getParameter("key");
+		session.setAttribute("searchKey", key);		
 		
 		// Roster.search takes nulls for wildcard.
 		if ((key == null) || key.equals("*") || key.equals(""))
+		{
 			key = null;
-		
+			session.setAttribute("searchKey", "");			
+		}
+				
 		roster.clear();	
 		roster.setSpace(user.getCurrentSpace());
 		roster.search(key);
-		pageContext.forward("/financial/Salary.jsp?module="+Module.SALARY + "&mode=search");
+		pageContext.forward("/salary/SalaryDirectory.jsp?module="+Module.SALARY + "&mode=search");
 	}
 %>

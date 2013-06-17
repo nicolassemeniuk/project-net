@@ -358,7 +358,7 @@ div#leftframe {
 	font-weight: bold;
 }
 .left_tab.a:hover {
-	text-decoration: none;r
+	text-decoration: none;
 }
 .right_tab {
 	background: url(../images/directory/deactive_financial_no-line.gif) left no-repeat;
@@ -398,4 +398,61 @@ div#leftframe {
 
 #sendMailBlockTop {
 	background: #F3F3FA url(../images/filter-top.gif) no-repeat scroll center top;
+}
+
+/* Styles for custom components */
+
+/* TabSet */
+.tabBackground
+{
+	width: 130px;
+	height: 20px;
+	text-align: center;
+	font-size: 12px;
+}
+
+.tabBackgroundActive
+{
+	background:#AB80C1 url(../images/directory/active_financial.gif) left no-repeat;
+	font-weight: bold;
+	color: black;	
+}
+
+.tabBackgroundDeactive
+{
+	background: url(../images/directory/deactive_financial_no-line.gif) left no-repeat;
+}
+
+.tabBackgroundActive span
+{
+	color: black;	
+}
+
+/*
+.tabBackgroundActive span a:hover
+{
+	text-decoration: none;
+}
+*/
+
+.labelSearchField
+{
+	font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 12px;
+	font-weight: bold;
+	height: 21px;	
+	color: #6f557c;
+	padding: 15px 5px;
+}
+
+.inputSearchField
+{
+	margin: 15px 0px;
+}
+
+.channelHeaderTabSet
+{
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 7px;
 }
