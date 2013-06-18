@@ -1,7 +1,7 @@
 package net.project.hibernate.service.impl;
 
 import java.sql.Date;
-import java.util.Collection;
+import java.util.ArrayList;
 
 import net.project.financial.FinancialCreateWizard;
 import net.project.financial.PnFinancialSpaceList;
@@ -43,7 +43,7 @@ public class PnFinancialSpaceService implements IPnFinancialSpaceService {
 	}
 
 	@Override
-	public PnFinancialSpaceList getFinancialSpacesByIds(Collection additionalSpaceIDCollection) {
+	public PnFinancialSpaceList getFinancialSpacesByIds(ArrayList<Integer> additionalSpaceIDCollection) {
 		return this.pnFinancialSpaceDAO.getFinancialSpacesByIds(additionalSpaceIDCollection);
 	}
 	

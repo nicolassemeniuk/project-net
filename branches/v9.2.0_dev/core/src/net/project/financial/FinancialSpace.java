@@ -51,8 +51,7 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 		this.spaceID = String.valueOf(pnFinancialSpace.getFinancialSpaceId());
 		this.name = pnFinancialSpace.getFinancialSpaceName();
 		this.description = pnFinancialSpace.getFinancialSpaceDescription();		
-		setType(ISpaceTypes.FINANCIAL_SPACE);
-		//this.spaceType = SpaceTypes.FINANCIAL;		
+		setType(ISpaceTypes.FINANCIAL_SPACE);			
 		this.parentSpaceID = String.valueOf(ServiceFactory.getInstance().getPnSpaceHasSpaceService().getParentSpaceID(Integer.valueOf(spaceID)));
 		this.relatedSpaceID = String.valueOf(ServiceFactory.getInstance().getPnSpaceHasSpaceService().getBusinessRelatedSpace(Integer.valueOf(spaceID)).getComp_id().getParentSpaceId());
 	}

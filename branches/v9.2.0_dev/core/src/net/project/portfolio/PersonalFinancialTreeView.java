@@ -8,11 +8,14 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import net.project.business.BusinessSpace;
 import net.project.financial.FinancialSpace;
 import net.project.financial.PnFinancialSpaceList;
 import net.project.hibernate.model.PnFinancialSpace;
 import net.project.hibernate.service.ServiceFactory;
 import net.project.persistence.PersistenceException;
+import net.project.portfolio.PortfolioTreeView.NameComparator;
+import net.project.portfolio.PortfolioTreeView.TreeEntry;
 import net.project.space.SpaceManager;
 import net.project.space.SpaceRelationship;
 
@@ -46,7 +49,15 @@ public class PersonalFinancialTreeView extends PortfolioTreeView {
         List allSpacesList = new ArrayList();
 
         if (!additionalSpaceIDCollection.isEmpty()) {
-        	PnFinancialSpaceList spaces = ServiceFactory.getInstance().getPnFinancialSpaceService().getFinancialSpacesByIds(additionalSpaceIDCollection);
+        	
+        	ArrayList<Integer> ids = new ArrayList<Integer>();
+        
+        	for(Object id : additionalSpaceIDCollection){
+        		ids.add(Integer.valueOf(id.toString()));
+        	}
+        		
+        	
+        	PnFinancialSpaceList spaces = ServiceFactory.getInstance().getPnFinancialSpaceService().getFinancialSpacesByIds(ids);
         	
         	for(PnFinancialSpace space : spaces){
         		FinancialSpace financialSpace = new FinancialSpace(space);
@@ -67,7 +78,7 @@ public class PersonalFinancialTreeView extends PortfolioTreeView {
 	}
 
 	@Override
-	protected void constructTree(Map allSpacesMap, Collection membershipSpaceIDCollection, Map childParentMap) {
+	protected void constructTree(Map allSpacesMap, Collection membershipSpaceIDCollection, Map childParentMap) {		
         // Iterate over all spaces building the tree structure
         // Add FinancialSpace objects to tree for each id
         // Add flag indicating whether member of space or not

@@ -74,7 +74,7 @@ public class PnSpaceHasPersonServiceImpl implements IPnSpaceHasPersonService {
 	}
 
 	@Override
-	public List<Integer> getSpacesFromPerson(Integer personID) {
+	public ArrayList<Integer> getSpacesFromPerson(Integer personID) {
 		return pnSpaceHasPersonDAO.getSpacesFromPerson(personID);
 	}
 	

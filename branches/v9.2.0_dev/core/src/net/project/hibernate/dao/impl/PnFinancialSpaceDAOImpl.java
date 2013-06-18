@@ -1,11 +1,10 @@
 package net.project.hibernate.dao.impl;
 
-import java.util.Collection;
+import java.util.ArrayList;
 
 import net.project.financial.PnFinancialSpaceList;
 import net.project.hibernate.dao.IPnFinancialSpaceDAO;
 import net.project.hibernate.model.PnFinancialSpace;
-import net.project.hibernate.model.PnMaterial;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
@@ -43,7 +42,7 @@ public class PnFinancialSpaceDAOImpl extends AbstractHibernateAnnotatedDAO<PnFin
 	}
 
 	@Override
-	public PnFinancialSpaceList getFinancialSpacesByIds(Collection additionalSpaceIDCollection) {
+	public PnFinancialSpaceList getFinancialSpacesByIds(ArrayList<Integer> additionalSpaceIDCollection) {
 		PnFinancialSpaceList result = new PnFinancialSpaceList();
 		try {
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();

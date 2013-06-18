@@ -57,7 +57,7 @@ public class FinancialPortfolio extends Portfolio implements IJDBCPersistence, I
     	if ((this.user != null) && (this.user.getID() != null)) {
             // Loads Financial Spaces that the user is a member of
             // There is no stored portfolio containing their membership,
-            // it is performed by lookin in PN_SPACE_HAS_PERSON
+            // it is performed by looking in PN_SPACE_HAS_PERSON
             loadForUser();
 
         } else {
