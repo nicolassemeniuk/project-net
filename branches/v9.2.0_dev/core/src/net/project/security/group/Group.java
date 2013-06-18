@@ -37,6 +37,7 @@ import net.project.persistence.PersistenceException;
 import net.project.resource.IRosterEntry;
 import net.project.resource.Person;
 import net.project.resource.PersonList;
+import net.project.resource.PersonSalary;
 import net.project.resource.RosterEntryType;
 import net.project.security.SessionManager;
 import net.project.security.User;
@@ -642,6 +643,7 @@ public abstract class Group implements IRosterEntry, IGroupMember, IXMLPersisten
                 person.setLastName(db.result.getString("last_name"));
                 person.setUserName(db.result.getString("username"));
                 person.setEmail(db.result.getString("email"));
+                person.setSalary(new PersonSalary(person.getID()));
                 members.add(person);
             }
 

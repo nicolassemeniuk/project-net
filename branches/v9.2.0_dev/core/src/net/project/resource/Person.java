@@ -1028,6 +1028,8 @@ public class Person implements IResource, IJDBCPersistence, IXMLPersistence, jav
                     this.address = new Address(this.addressID);
                     this.address.load();
                 }
+                
+                this.salary = new PersonSalary(personID);
 
                 this.isLoaded = true;
             }

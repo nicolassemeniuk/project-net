@@ -50,7 +50,7 @@ public interface IPnMaterialService {
 	public void updateMaterial(MaterialBean materialBean);
 
 	/**
-	 * Gets a List of Materials given a list of id's.
+	 * Gets a List of Materials given a list of id's. Retrieves the active materials.
 	 * 
 	 * @param materialsId
 	 *            a list of materials id's.

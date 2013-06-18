@@ -1,25 +1,20 @@
 package net.project.hibernate.dao.impl;
 
 import java.util.Date;
-import java.util.List;
 
 import net.project.hibernate.dao.IPnPersonSalaryDAO;
-import net.project.hibernate.model.PnMaterial;
 import net.project.hibernate.model.PnPersonSalary;
 import net.project.hibernate.model.PnPersonSalaryPK;
-import net.project.material.PnMaterialList;
+import net.project.resource.PnPersonSalaryList;
 
 import org.apache.log4j.Logger;
-import org.apache.xmlbeans.SystemProperties;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
-import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
 import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.DetachedCriteria;
-import org.hibernate.criterion.Projection;
-import org.hibernate.criterion.ProjectionList;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.Subqueries;
@@ -102,6 +97,27 @@ public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPerso
 
 		return pnPersonSalary;
 
+	}
+
+	@SuppressWarnings("unchecked")
+	@Override
+	public PnPersonSalaryList getPersonSalaries(Integer personId) {
+		PnPersonSalaryList result = new PnPersonSalaryList();
+		
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+			Criteria criteria = session.createCriteria(PnPersonSalary.class);
+			criteria.add(Restrictions.eq("personId", personId));
+			criteria.add(Restrictions.eq("recordStatus", "A"));
+			criteria.addOrder(Order.asc("startDate"));
+			result = new PnPersonSalaryList(criteria.list());
+			session.close();
+		} catch (Exception e) {
+			log.error("Error occurred while getting the list of salaries " + e.getMessage());
+		}
+		
+		return result;
 	}
 
 }

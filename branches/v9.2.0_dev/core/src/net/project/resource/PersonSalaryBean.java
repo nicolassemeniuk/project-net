@@ -1,10 +1,19 @@
 package net.project.resource;
 
+import java.io.Serializable;
+import java.sql.SQLException;
+
+import net.project.hibernate.model.PnPersonSalary;
+import net.project.persistence.IXMLPersistence;
 import net.project.security.User;
 
-public class PersonSalaryBean extends PersonSalary {
+public class PersonSalaryBean extends PersonSalary implements Serializable, IXMLPersistence {
 	
 	protected User user = null;
+	
+	public PersonSalaryBean(PnPersonSalary personSalary) {
+		super(personSalary);
+	}
 
 	public User getUser() {
 		return user;
@@ -12,6 +21,30 @@ public class PersonSalaryBean extends PersonSalary {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	@Override
+	public String getXML() throws SQLException {
+		StringBuffer xml = new StringBuffer();
+		xml.append("<?xml version=\"1.0\" ?>\n\n");
+		xml.append(getXMLBody());
+		return xml.toString();
+	}
+
+	@Override
+	public String getXMLBody() throws SQLException
+	{
+		StringBuffer xml = new StringBuffer();
+		
+    	xml.append("<personSalary>"); 
+    	xml.append("<id>" + this.getPersonSalaryId() + "</id>");
+    	xml.append("<person>" + this.getPersonId() + "</person>");
+    	xml.append("<startDate>" + this.getStartDate() + "</startDate>");
+    	xml.append("<endDate>" + (this.getEndDate() != null ? this.getEndDate() : "" ) + "</endDate>");
+    	xml.append("<costByHour>" + this.getCostByHour() + "</costByHour>");
+    	xml.append("</personSalary>");
+    	
+    	return xml.toString();
 	}
 	
 	

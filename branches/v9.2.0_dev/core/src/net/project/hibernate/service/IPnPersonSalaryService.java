@@ -4,6 +4,7 @@ import java.util.Date;
 
 import net.project.hibernate.model.PnPersonSalary;
 import net.project.resource.PersonSalaryBean;
+import net.project.resource.PnPersonSalaryList;
 
 public interface IPnPersonSalaryService {
 
@@ -18,7 +19,7 @@ public interface IPnPersonSalaryService {
 	 *            the id of the person.
 	 * @return a person current salary.
 	 */
-	public PnPersonSalary getCurrentPersonSalaryByPersonId(Integer personID);
+	public PnPersonSalary getCurrentPersonSalaryByPersonId(Integer personId);
 
 	/**
 	 * Obtain a person salary for a certain date.
@@ -30,5 +31,7 @@ public interface IPnPersonSalaryService {
 	 * @return the person salary for the period the date is in.
 	 */
 	public PnPersonSalary getPersonSalaryForDate(Integer personId, Date date);
+	
+	public PnPersonSalaryList getPersonSalaries(String personId);
 
 }

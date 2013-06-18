@@ -39,7 +39,7 @@ public interface IMaterialService {
 	public void updateMaterial(MaterialBean materialBean);
 
 	/**
-	 * Obtains the materials from a given space.
+	 * Obtains the materials from a given space. Retrieves the active materials.
 	 * 
 	 * @param spaceId
 	 *            the id of the space from wich we want to obtain the materials.
