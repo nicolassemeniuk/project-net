@@ -38,11 +38,8 @@ public class MaterialBeanList extends ArrayList<MaterialBean>
 		PnMaterialList materialList = ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(this.spaceID);
 		
 		for(PnMaterial material : materialList){
-			//Only the active ones
-			if(material.getRecordStatus().equals("A")){
 				MaterialBean materialBean = new MaterialBean(material);
 				this.add(materialBean);
-			}
 		}
 	
    		this.isLoaded=true;

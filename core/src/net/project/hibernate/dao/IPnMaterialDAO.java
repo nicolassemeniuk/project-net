@@ -24,7 +24,7 @@ public interface IPnMaterialDAO extends IDAO<PnMaterial, Integer> {
 	public PnMaterialList getMaterials();
 
 	/**
-	 * Get a list of materials from a list of materials Id's.
+	 * Get a list of materials from a list of materials Id's. Retrieves the active materials.
 	 * 
 	 * @param materialsId
 	 *            the ids of the materials we want to obtain.

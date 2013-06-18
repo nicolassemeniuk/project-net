@@ -9,6 +9,7 @@ import net.project.hibernate.model.PnPersonSalaryPK;
 import net.project.hibernate.service.IPnObjectService;
 import net.project.hibernate.service.IPnPersonSalaryService;
 import net.project.resource.PersonSalaryBean;
+import net.project.resource.PnPersonSalaryList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -52,6 +53,11 @@ public class PnPersonSalaryServiceImpl implements IPnPersonSalaryService {
 	@Override
 	public PnPersonSalary getPersonSalaryForDate(Integer personId, Date date) {
 		return this.pnPersonSalaryDAO.getPersonSalaryForDate(personId, date);
+	}
+
+	@Override
+	public PnPersonSalaryList getPersonSalaries(String personId) {
+		return this.pnPersonSalaryDAO.getPersonSalaries(Integer.valueOf(personId));
 	}
 
 

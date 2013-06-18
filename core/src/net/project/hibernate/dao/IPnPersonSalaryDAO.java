@@ -4,6 +4,7 @@ import java.util.Date;
 
 import net.project.hibernate.model.PnPersonSalary;
 import net.project.hibernate.model.PnPersonSalaryPK;
+import net.project.resource.PnPersonSalaryList;
 
 public interface IPnPersonSalaryDAO extends IDAO<PnPersonSalary, PnPersonSalaryPK> {
 
@@ -28,5 +29,7 @@ public interface IPnPersonSalaryDAO extends IDAO<PnPersonSalary, PnPersonSalaryP
 	 * @return the person salary for the period the date is in.
 	 */
 	public PnPersonSalary getPersonSalaryForDate(Integer personId, Date date);
+
+	public PnPersonSalaryList getPersonSalaries(Integer personId);
 
 }
