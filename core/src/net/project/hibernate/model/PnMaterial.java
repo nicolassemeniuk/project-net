@@ -31,6 +31,11 @@ public class PnMaterial implements Serializable {
 
 	public PnMaterial() {
 	}
+	
+	public PnMaterial(Integer materialId, Float materialCost){
+		this.materialId = materialId;
+		this.materialCost = materialCost;
+	}
 
 	public PnMaterial(Integer materialId, String materialName, String materialDescription, PnMaterialType materialType, Float materialCost, String recordStatus, String materialConsumable) {
 		this.materialId = materialId;

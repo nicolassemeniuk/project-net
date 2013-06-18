@@ -59,4 +59,6 @@ public interface IPnTaskService {
 	public Integer getProjectByTaskId(Integer taskId);
 
 	public PnTask getTaskWithRecordStatus(Integer taskId);
+	
+
 }

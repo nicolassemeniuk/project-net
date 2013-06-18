@@ -1,6 +1,6 @@
 package net.project.hibernate.service.impl;
 
-import java.sql.Date;
+import java.util.Date;
 
 import net.project.hibernate.dao.IPnPersonSalaryDAO;
 import net.project.hibernate.model.PnObject;
@@ -26,13 +26,8 @@ public class PnPersonSalaryServiceImpl implements IPnPersonSalaryService {
 	private IPnPersonSalaryDAO pnPersonSalaryDAO;
 
 	@Override
-	public PnPersonSalary getPersonSalaryByPersonId(Integer personID) {		
-		return this.pnPersonSalaryDAO.getPersonSalaryByPersonId(personID);
-	}
-	
-	@Override
-	public PnPersonSalary getPersonSalary(String personSalaryId) {
-		return this.pnPersonSalaryDAO.getPersonSalaryById(Integer.valueOf(personSalaryId));
+	public PnPersonSalary getCurrentPersonSalaryByPersonId(Integer personID) {		
+		return this.pnPersonSalaryDAO.getCurrentPersonSalaryByPersonId(personID);
 	}
 
 	@Override
@@ -52,6 +47,11 @@ public class PnPersonSalaryServiceImpl implements IPnPersonSalaryService {
 		PnPersonSalaryPK pk = this.pnPersonSalaryDAO.create(pnPersonSalary);
 		
 		return pk.getPersonSalaryId();
+	}
+
+	@Override
+	public PnPersonSalary getPersonSalaryForDate(Integer personId, Date date) {
+		return this.pnPersonSalaryDAO.getPersonSalaryForDate(personId, date);
 	}
 
 

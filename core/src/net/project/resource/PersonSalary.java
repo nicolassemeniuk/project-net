@@ -33,7 +33,7 @@ public class PersonSalary {
 	}
 	
 	public PersonSalary(String personId){
-		PnPersonSalary pnPersonSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryByPersonId(Integer.valueOf(personId));
+		PnPersonSalary pnPersonSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getCurrentPersonSalaryByPersonId(Integer.valueOf(personId));
 		this.personSalaryId = String.valueOf(pnPersonSalary.getComp_id().getPersonSalaryId());
 		this.personId = String.valueOf(pnPersonSalary.getPersonId());
 		this.startDate = pnPersonSalary.getStartDate();

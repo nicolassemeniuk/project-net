@@ -161,7 +161,7 @@ public class PnTaskDAOImpl extends AbstractHibernateAnnotatedDAO<PnTask, Integer
 		List<PnTask> tasks = null;
 		Integer percentComplete = PropertyProvider.getInt("prm.global.taskcompletedpercentage");
 		
-		String sql = " SELECT new PnTask(t.taskId, t.taskName, t.taskDesc, t.duration, t.dateStart, t.dateFinish, t.workPercentComplete) " +
+		String sql = " SELECT new PnTask(t.taskId, t.taskName, t.duration, t.dateStart, t.dateFinish, t.workPercentComplete, t.actualStart, t.actualFinish) " +
 					" FROM PnTask t, PnPlan pp, PnPlanHasTask pht, PnSpaceHasPlan shp, PnProjectSpace ps " +
 					" WHERE shp.comp_id.spaceId = ps.projectId AND shp.comp_id.planId = pp.planId " +
 					" AND pht.comp_id.taskId = t.taskId AND pp.planId = pht.comp_id.planId " +

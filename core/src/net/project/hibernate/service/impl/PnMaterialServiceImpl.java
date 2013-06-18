@@ -112,5 +112,10 @@ public class PnMaterialServiceImpl implements IPnMaterialService {
 			this.materialAssignmentService.disableAssignments(String.valueOf(pnMaterial.getMaterialId()));
 		}
 	}
+	
+	@Override
+	public PnMaterialList getMaterialsFromCompletedTasksOfSpace(Integer spaceID){
+		return this.pnMaterialDAO.getMaterialsFromCompletedTasksOfSpace(spaceID);
+	}
 
 }
