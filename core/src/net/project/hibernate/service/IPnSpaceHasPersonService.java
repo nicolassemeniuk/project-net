@@ -60,5 +60,5 @@ public interface IPnSpaceHasPersonService {
 	
 	public boolean doesPersonExistsInSpace(Integer personId, Integer spaceId);
 
-	public List<Integer> getSpacesFromPerson(Integer personID);
+	public ArrayList<Integer> getSpacesFromPerson(Integer personID);
 }

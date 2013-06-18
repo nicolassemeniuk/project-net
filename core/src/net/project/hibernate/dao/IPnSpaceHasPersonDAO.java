@@ -30,5 +30,5 @@ public interface IPnSpaceHasPersonDAO extends IDAO<PnSpaceHasPerson, PnSpaceHasP
 	
 	public boolean doesPersonExistsInSpace(Integer personId, Integer spaceId);
 
-	public List<Integer> getSpacesFromPerson(Integer personID);
+	public ArrayList<Integer> getSpacesFromPerson(Integer personID);
 }

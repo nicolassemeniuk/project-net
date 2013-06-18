@@ -1,6 +1,6 @@
 package net.project.hibernate.dao;
 
-import java.util.Collection;
+import java.util.ArrayList;
 
 import net.project.financial.PnFinancialSpaceList;
 import net.project.hibernate.model.PnFinancialSpace;
@@ -19,6 +19,6 @@ public interface IPnFinancialSpaceDAO extends IDAO<PnFinancialSpace, Integer> {
 	 * @param additionalSpaceIDCollection the collection of id's.
 	 * @return a list of financial spaces.
 	 */
-	public PnFinancialSpaceList getFinancialSpacesByIds(Collection additionalSpaceIDCollection);
+	public PnFinancialSpaceList getFinancialSpacesByIds(ArrayList<Integer> additionalSpaceIDCollection);
 
 }

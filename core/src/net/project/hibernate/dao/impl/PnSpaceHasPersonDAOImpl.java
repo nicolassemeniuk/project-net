@@ -97,12 +97,12 @@ public class PnSpaceHasPersonDAOImpl extends AbstractHibernateAnnotatedDAO<PnSpa
 	}
 
 	@Override
-	public List<Integer> getSpacesFromPerson(Integer personID) {
-		List<Integer> idList = new ArrayList<Integer>();
+	public ArrayList<Integer> getSpacesFromPerson(Integer personID) {
+		ArrayList<Integer> idList = new ArrayList<Integer>();
 		try {
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
 			Session session = factory.openSession();
-			idList = session.createCriteria(PnSpaceHasPerson.class).add(Restrictions.eq("comp_id.personId", personID))
+			idList = (ArrayList<Integer>) session.createCriteria(PnSpaceHasPerson.class).add(Restrictions.eq("comp_id.personId", personID))
 					.setProjection(Property.forName("comp_id.spaceId")).list();
 			session.close();			
 		} catch (HibernateException e) {
