@@ -10,6 +10,7 @@ import net.project.hibernate.model.PnPersonSalaryPK;
 import net.project.material.PnMaterialList;
 
 import org.apache.log4j.Logger;
+import org.apache.xmlbeans.SystemProperties;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
@@ -45,11 +46,13 @@ public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPerso
 
 			DetachedCriteria maxDateQuery = DetachedCriteria.forClass(PnPersonSalary.class);
 			maxDateQuery.add(Restrictions.eq("personId", personID));
+			maxDateQuery.add(Restrictions.le("startDate", new Date(System.currentTimeMillis())));
 			maxDateQuery.setProjection(Projections.max("startDate"));
 
 			Criteria criteria = session.createCriteria(PnPersonSalary.class);
 			criteria.add(Subqueries.propertyEq("startDate", maxDateQuery));
 			criteria.add(Restrictions.eq("personId", personID));
+			criteria.add(Restrictions.eq("recordStatus", "A"));
 
 			pnPersonSalary = (PnPersonSalary) criteria.uniqueResult();
 
