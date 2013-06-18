@@ -2,10 +2,12 @@ package net.project.hibernate.service.impl;
 
 import net.project.hibernate.model.PnMaterial;
 import net.project.hibernate.service.IMaterialService;
+import net.project.hibernate.service.IPnMaterialAssignmentService;
 import net.project.hibernate.service.IPnMaterialService;
 import net.project.hibernate.service.IPnMaterialTypeService;
 import net.project.hibernate.service.IPnObjectService;
 import net.project.hibernate.service.IPnSpaceHasMaterialService;
+import net.project.hibernate.service.IPnTaskService;
 import net.project.material.MaterialBean;
 import net.project.material.PnMaterialList;
 
@@ -23,6 +25,12 @@ public class MaterialServiceImpl implements IMaterialService {
 	
 	@Autowired
 	private IPnSpaceHasMaterialService spaceHasMaterialService;
+	
+	@Autowired
+	private IPnMaterialAssignmentService materialAssignmentService;
+	
+	@Autowired
+	private IPnTaskService taskService;
 	
 	@Autowired
 	private IPnObjectService objectService;	
@@ -73,5 +81,11 @@ public class MaterialServiceImpl implements IMaterialService {
 	public void disableMaterial(String materialId){
 		materialService.disableMaterial(Integer.valueOf(materialId));
 	}
+
+	@Override
+	public PnMaterialList getMaterialsFromCompletedTasksOfSpace(String spaceId) {
+		return materialService.getMaterialsFromCompletedTasksOfSpace(Integer.valueOf(spaceId));
+	}
+
 
 }

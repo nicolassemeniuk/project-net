@@ -23,7 +23,7 @@ CREATE TABLE PN_PERSON_SALARY (
   END_DATE date,
   COST_BY_HOUR number(20,2),
   RECORD_STATUS varchar(1),
-  constraint PERSON_SALARY_PK primary key (PERSON_ID),
+  constraint PERSON_SALARY_PK primary key (PERSON_SALARY_ID),
   constraint PERSON_SALARY_FK FOREIGN KEY (PERSON_ID) REFERENCES PN_PERSON(PERSON_ID),
   constraint RECORD_STATUS_PS1 check (RECORD_STATUS in ('A','D'))
 );

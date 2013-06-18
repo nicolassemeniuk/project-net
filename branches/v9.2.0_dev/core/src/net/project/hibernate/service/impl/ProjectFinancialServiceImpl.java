@@ -6,7 +6,6 @@ import java.util.List;
 
 import net.project.hibernate.model.PnAssignment;
 import net.project.hibernate.model.PnMaterial;
-import net.project.hibernate.model.PnMaterialAssignment;
 import net.project.hibernate.model.PnPersonSalary;
 import net.project.hibernate.model.PnTask;
 import net.project.hibernate.service.IPnAssignmentService;
@@ -15,7 +14,6 @@ import net.project.hibernate.service.IPnMaterialService;
 import net.project.hibernate.service.IPnSpaceHasMaterialService;
 import net.project.hibernate.service.IProjectFinancialService;
 import net.project.hibernate.service.ServiceFactory;
-import net.project.material.PnMaterialAssignmentList;
 import net.project.material.PnMaterialList;
 import net.project.util.TimeQuantity;
 
@@ -58,10 +56,11 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 		Float totalMaterialCost = new Float(0.00);
 		Float totalResourcesCost = new Float(0.00);
 
-		// Obtain the completed tasks for the space.
-		List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getCompletedTasksByProjectId(Integer.valueOf(spaceID));
-
 		try {
+			
+			// Obtain the completed tasks for the space.
+			List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getCompletedTasksByProjectId(Integer.valueOf(spaceID));
+			
 			for (PnTask task : tasks) {
 
 				// Get persons assignments for the task
@@ -71,18 +70,19 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 					BigDecimal workAmount = workQuantity.converToHours();
 
 					Integer id = assignmentOfTask.getComp_id().getPersonId();
-					PnPersonSalary personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryByPersonId(id);
+					PnPersonSalary personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryForDate(id, task.getActualFinish());
 					totalResourcesCost += workAmount.floatValue() * personSalary.getCostByHour();
 				}
 
-				// Obtain the materials from the task.
-				PnMaterialAssignmentList materialAssignmentsOfTask = materialAssignmentService
-						.getMaterialsAssignment(spaceID, String.valueOf(task.getTaskId()));
-				for (PnMaterialAssignment materialAssignmentOfTask : materialAssignmentsOfTask) {
-					PnMaterial materialFromTask = materialService.getMaterial(materialAssignmentOfTask.getComp_id().getMaterialId());
-					totalMaterialCost += materialFromTask.getMaterialCost();
-				}
 
+
+			}
+			
+			//Obtain the materials assigned to completed tasks on this project.			
+			PnMaterialList materials = ServiceFactory.getInstance().getMaterialService().getMaterialsFromCompletedTasksOfSpace(spaceID);
+			
+			for(PnMaterial material : materials){
+				totalMaterialCost += material.getMaterialCost();
 			}
 
 			return totalMaterialCost + totalResourcesCost;
@@ -113,7 +113,7 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 				BigDecimal workAmount = workQuantity.converToHours();
 
 				Integer id = assignmentFromProject.getComp_id().getPersonId();
-				PnPersonSalary personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryByPersonId(id);
+				PnPersonSalary personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryForDate(id, assignmentFromProject.getEndDate());
 				totalResourcesCost += workAmount.floatValue() * personSalary.getCostByHour();
 			}
 
