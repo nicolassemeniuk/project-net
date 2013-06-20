@@ -30,6 +30,7 @@ net.project.admin.ApplicationSpace,
 net.project.base.Module,
 net.project.business.BusinessDeleteWizard,
 net.project.business.BusinessSpace,
+net.project.financial.FinancialSpace,
 net.project.security.SessionManager,
 net.project.security.User"
  %>
@@ -47,12 +48,20 @@ String filter = request.getParameter("key") ;
 if(request.getParameter("theAction").equals("remove")){
 	BusinessSpace space = new BusinessSpace();
 	space.setID(request.getParameter("selected"));
+	space.load();
+	FinancialSpace financialSpace = new FinancialSpace();
+	financialSpace.setID(space.getRelatedSpaceID());
 	space.remove();
+	financialSpace.remove();
 }
 if(request.getParameter("theAction").equals("active")){
 	BusinessSpace space = new BusinessSpace();
 	space.setID(request.getParameter("selected"));
+	space.load();
+	FinancialSpace financialSpace = new FinancialSpace();
+	financialSpace.setID(space.getRelatedSpaceID());
 	space.activate();
+	financialSpace.activate();
 }
 
 response.sendRedirect(SessionManager.getJSPRootURL()+"/admin/workspace/WorkSpace.jsp?module=" + net.project.base.Module.APPLICATION_SPACE + "&action=" + net.project.security.Action.MODIFY + "&status="+status+"&filter="+filter +"&spaceType="+spaceType);

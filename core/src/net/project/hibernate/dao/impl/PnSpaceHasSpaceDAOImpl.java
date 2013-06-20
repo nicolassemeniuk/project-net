@@ -14,12 +14,15 @@
  */
 package net.project.hibernate.dao.impl;
 
+import java.util.ArrayList;
+
 import net.project.hibernate.dao.IPnSpaceHasSpaceDAO;
 import net.project.hibernate.model.PnSpaceHasSpace;
 import net.project.hibernate.model.PnSpaceHasSpacePK;
 import net.project.space.SpaceRelationship;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
@@ -39,28 +42,34 @@ public class PnSpaceHasSpaceDAOImpl extends AbstractHibernateAnnotatedDAO<PnSpac
 	}
 
 	@Override
-	public PnSpaceHasSpace getFinancialRelatedSpace(Integer spaceID) {
+	public PnSpaceHasSpace getFinancialRelatedToBusinessSpace(Integer businessSpaceID) {
 		PnSpaceHasSpace spaceHasSpace = new PnSpaceHasSpace();
 		try {
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
 			Session session = factory.openSession();
-			spaceHasSpace = (PnSpaceHasSpace) session.createCriteria(PnSpaceHasSpace.class).add(Restrictions.eq("comp_id.parentSpaceId", spaceID))
-					.add(Restrictions.eq("relationshipParentToChild", SpaceRelationship.FINANCIAL.getNameParentToChild())).uniqueResult();
+			Criteria criteria = session.createCriteria(PnSpaceHasSpace.class);
+			criteria.add(Restrictions.eq("comp_id.parentSpaceId", businessSpaceID));
+			criteria.add(Restrictions.eq("relationshipParentToChild", SpaceRelationship.FINANCIAL.getNameParentToChild()));
+			criteria.add(Restrictions.ne("recordStatus", "D"));
+			spaceHasSpace = (PnSpaceHasSpace) criteria.uniqueResult();
 			session.close();
 		} catch (HibernateException e) {
 			log.error(e.getMessage());
 		}
 		return spaceHasSpace;
 	}
-	
+
 	@Override
-	public PnSpaceHasSpace getBusinessRelatedSpace(Integer spaceID) {
+	public PnSpaceHasSpace getBusinessRelatedToFinancialSpace(Integer financialSpaceID) {
 		PnSpaceHasSpace spaceHasSpace = new PnSpaceHasSpace();
 		try {
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
 			Session session = factory.openSession();
-			spaceHasSpace = (PnSpaceHasSpace) session.createCriteria(PnSpaceHasSpace.class).add(Restrictions.eq("comp_id.childSpaceId", spaceID))
-					.add(Restrictions.eq("relationshipParentToChild", SpaceRelationship.FINANCIAL.getNameParentToChild())).uniqueResult();
+			Criteria criteria = session.createCriteria(PnSpaceHasSpace.class);
+			criteria.add(Restrictions.eq("comp_id.childSpaceId", financialSpaceID));
+			criteria.add(Restrictions.ne("recordStatus", "D"));
+			criteria.add(Restrictions.eq("relationshipParentToChild", SpaceRelationship.FINANCIAL.getNameParentToChild()));
+			spaceHasSpace = (PnSpaceHasSpace) criteria.uniqueResult();
 			session.close();
 		} catch (HibernateException e) {
 			log.error(e.getMessage());
@@ -74,16 +83,54 @@ public class PnSpaceHasSpaceDAOImpl extends AbstractHibernateAnnotatedDAO<PnSpac
 		try {
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
 			Session session = factory.openSession();
-			parentSpaceID = (Integer) session.createCriteria(PnSpaceHasSpace.class).add(Restrictions.eq("comp_id.childSpaceId", spaceID))
-					.add(Restrictions.eq("relationshipChildToParent", SpaceRelationship.FINANCIAL.getNameChildToParent())).setProjection(Property.forName("comp_id.parentSpaceId")).uniqueResult();
+			Criteria criteria = session.createCriteria(PnSpaceHasSpace.class);
+			criteria.add(Restrictions.eq("comp_id.childSpaceId", spaceID));
+			criteria.add(Restrictions.ne("recordStatus", "D"));
+			criteria.add(Restrictions.eq("relationshipChildToParent", SpaceRelationship.SUBSPACE.getNameChildToParent()));
+			criteria.setProjection(Property.forName("comp_id.parentSpaceId"));
+			parentSpaceID = (Integer) criteria.uniqueResult();
 			session.close();
 		} catch (HibernateException e) {
 			log.error(e.getMessage());
 		}
-		
+
 		return parentSpaceID;
 	}
 
+	@Override
+	public PnSpaceHasSpace getFinancialParentSpaceRelationship(Integer financialChildSpaceID) {
+		PnSpaceHasSpace spaceHasSpace = new PnSpaceHasSpace();
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+			Criteria criteria = session.createCriteria(PnSpaceHasSpace.class);
+			criteria.add(Restrictions.eq("comp_id.childSpaceId", financialChildSpaceID));
+			criteria.add(Restrictions.ne("recordStatus", "D"));
+			criteria.add(Restrictions.eq("relationshipParentToChild", SpaceRelationship.SUBSPACE.getNameParentToChild()));
+			spaceHasSpace = (PnSpaceHasSpace) criteria.uniqueResult();
+			session.close();
+		} catch (HibernateException e) {
+			log.error(e.getMessage());
+		}
+		return spaceHasSpace;
+	}
 
-
+	@SuppressWarnings("unchecked")
+	@Override
+	public ArrayList<PnSpaceHasSpace> getFinancialChildsSpaceRelationships(Integer financialParentSpaceID) {
+		ArrayList<PnSpaceHasSpace> spaceHasSpace = new ArrayList<PnSpaceHasSpace>();
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+			Criteria criteria = session.createCriteria(PnSpaceHasSpace.class);
+			criteria.add(Restrictions.eq("comp_id.parentSpaceId", financialParentSpaceID));
+			criteria.add(Restrictions.ne("recordStatus", "D"));
+			criteria.add(Restrictions.eq("relationshipParentToChild", SpaceRelationship.SUBSPACE.getNameParentToChild()));
+			spaceHasSpace = (ArrayList<PnSpaceHasSpace>)criteria.list();
+			session.close();
+		} catch (HibernateException e) {
+			log.error(e.getMessage());
+		}
+		return spaceHasSpace;
+	}
 }

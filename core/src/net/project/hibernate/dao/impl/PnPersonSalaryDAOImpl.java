@@ -12,7 +12,6 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
-import org.hibernate.criterion.Criterion;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Projections;
@@ -29,6 +28,21 @@ public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPerso
 
 	public PnPersonSalaryDAOImpl() {
 		super(PnPersonSalary.class);
+	}
+	
+	@Override
+	public PnPersonSalary getPersonSalaryById(Integer personSalaryId) {
+		PnPersonSalaryPK pk = new PnPersonSalaryPK(personSalaryId);
+		PnPersonSalary pnPersonSalary = new PnPersonSalary();
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+			pnPersonSalary=(PnPersonSalary) session.get(PnPersonSalary.class, pk);
+			session.close();
+		} catch (Exception e) {
+			log.error(e.getMessage());
+		}
+		return pnPersonSalary;
 	}
 
 	@Override
@@ -119,5 +133,7 @@ public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPerso
 		
 		return result;
 	}
+
+
 
 }

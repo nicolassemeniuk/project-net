@@ -83,4 +83,14 @@ public interface IPnProjectSpaceDAO extends IDAO<PnProjectSpace, Integer> {
 	 */
 	public boolean isRootProject(Integer spaceId);
 
+	/**
+	 * Obtain the budgeted total cost for the project.
+	 * 
+	 * @param spaceID
+	 *            the space from which we want to obtain the budgeted total
+	 *            cost.
+	 * @return a float value representing the cost.
+	 */
+	public Float getBudgetedTotalCost(Integer valueOf);
+
 }

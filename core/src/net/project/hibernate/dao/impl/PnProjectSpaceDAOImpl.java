@@ -37,10 +37,17 @@ import net.project.hibernate.model.project_space.ProjectPhase;
 import net.project.hibernate.model.project_space.ProjectSchedule;
 import net.project.project.PercentCalculationMethod;
 import net.project.schedule.TaskType;
+import net.project.space.SpaceRelationship;
 import net.project.util.NumberUtils;
 
 import org.apache.log4j.Logger;
+import org.hibernate.Criteria;
+import org.hibernate.HibernateException;
 import org.hibernate.Query;
+import org.hibernate.SessionFactory;
+import org.hibernate.classic.Session;
+import org.hibernate.criterion.Property;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -749,5 +756,24 @@ public class PnProjectSpaceDAOImpl extends AbstractHibernateAnnotatedDAO<PnProje
 			e.printStackTrace();
 		}
 		return result.isEmpty();
+	}
+
+	@Override
+	public Float getBudgetedTotalCost(Integer spaceID) {
+		Double budgetedTotalCost = new Double(0.0);
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+			Criteria criteria = session.createCriteria(PnProjectSpace.class);
+			criteria.add(Restrictions.eq("projectId", spaceID));
+			criteria.add(Restrictions.ne("recordStatus", "D"));			
+			criteria.setProjection(Property.forName("budgetedTotalCostValue"));
+			budgetedTotalCost = (Double) criteria.uniqueResult();
+			session.close();
+		} catch (HibernateException e) {
+			log.error(e.getMessage());
+		}
+
+		return budgetedTotalCost.floatValue();
 	}
 }

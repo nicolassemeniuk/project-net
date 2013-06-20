@@ -300,7 +300,14 @@ public class SpaceManager {
         removeParentRelationships(child, SpaceRelationship.SUBSPACE, ISpaceTypes.BUSINESS_SPACE);
     }
 
-
+    /* 
+     *  Remove all relationships to a super-business for this business space.  
+     *  Makes this business space a top-level (parentless) business space. 
+    */
+    public static void removeSuperFinancialRelationships(Space child)
+    {
+        removeParentRelationships(child, SpaceRelationship.SUBSPACE, ISpaceTypes.FINANCIAL_SPACE);
+    }
 
 
 

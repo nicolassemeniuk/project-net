@@ -9,6 +9,15 @@ import net.project.resource.PnPersonSalaryList;
 public interface IPnPersonSalaryDAO extends IDAO<PnPersonSalary, PnPersonSalaryPK> {
 
 	/**
+	 * Obtain a person salary by Id.
+	 * 
+	 * @param personSalaryId
+	 *            the id of the person salary object.
+	 * @return a person salary.
+	 */
+	public PnPersonSalary getPersonSalaryById(Integer personSalaryId);
+
+	/**
 	 * Obtain a person current salary by the person id. This means that the
 	 * salary returned is the one valid for the current date. The future
 	 * salaries in the salary history are not taking in count.
@@ -30,6 +39,13 @@ public interface IPnPersonSalaryDAO extends IDAO<PnPersonSalary, PnPersonSalaryP
 	 */
 	public PnPersonSalary getPersonSalaryForDate(Integer personId, Date date);
 
+	/**
+	 * Returns the historic list of salaries for a person.
+	 * 
+	 * @param personId
+	 *            the id of the person.
+	 * @return a list of all the salaries.
+	 */
 	public PnPersonSalaryList getPersonSalaries(Integer personId);
 
 }

@@ -23,6 +23,7 @@
 				net.project.base.property.PropertyProvider,
 				net.project.business.BusinessSpaceBean, 
 				net.project.business.BusinessSpace,
+				net.project.financial.FinancialSpaceBean,
 				net.project.space.SpaceManager,
 				net.project.document.DocumentManagerBean, 
 				net.project.channel.Channel,
@@ -43,6 +44,7 @@
 %>
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
 <jsp:useBean id="businessSpace" class="net.project.business.BusinessSpaceBean" scope="session" />
+<jsp:useBean id="financialSpace" class="net.project.financial.FinancialSpaceBean" scope="session" />
 <jsp:useBean id="docManager" class="net.project.document.DocumentManagerBean" scope="session" />
 <jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
 
@@ -97,6 +99,13 @@ if (id != null && businessSpace.getID() == null)
 		businessSpace.clear();
         businessSpace.setID(id);
         businessSpace.load();
+        
+		//Get financial related space
+		if(businessSpace.getRelatedSpaceID()!=null){
+	 		financialSpace = new FinancialSpaceBean();
+	 		financialSpace.setID(businessSpace.getRelatedSpaceID());
+	 		financialSpace.load();
+		}
     }
     else 
 	{
@@ -110,6 +119,15 @@ else
 {
     if (businessSpace.getID() != null)
         businessSpace.load();
+    
+		//Get financial related space
+		if(businessSpace.getRelatedSpaceID()!=null){
+	 		financialSpace = new FinancialSpaceBean();
+	 		financialSpace.setID(businessSpace.getRelatedSpaceID());
+	 		financialSpace.load();
+		}
+    
+    
     else
         throw new PnetException("No business space specified");
 }

@@ -11,6 +11,7 @@ import net.project.hibernate.model.PnTask;
 import net.project.hibernate.service.IPnAssignmentService;
 import net.project.hibernate.service.IPnMaterialAssignmentService;
 import net.project.hibernate.service.IPnMaterialService;
+import net.project.hibernate.service.IPnProjectSpaceService;
 import net.project.hibernate.service.IPnSpaceHasMaterialService;
 import net.project.hibernate.service.IProjectFinancialService;
 import net.project.hibernate.service.ServiceFactory;
@@ -34,6 +35,9 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 
 	@Autowired
 	private IPnAssignmentService assignmentService;
+	
+	@Autowired
+	private IPnProjectSpaceService projectSpaceService;
 
 	public IPnMaterialService getMaterialService() {
 		return materialService;
@@ -122,6 +126,11 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 			// TODO handle error.
 		}
 		return null;
+	}
+
+	@Override
+	public Float getBudgetedCost(String spaceID) {
+		return projectSpaceService.getBudgetedTotalCost(spaceID);
 	}
 
 }

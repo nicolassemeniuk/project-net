@@ -48,6 +48,7 @@ public class PnFinancialSpaceDAOImpl extends AbstractHibernateAnnotatedDAO<PnFin
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
 			Session session = factory.openSession();
 			Criteria criteria = session.createCriteria(PnFinancialSpace.class);
+			criteria.add(Restrictions.ne("recordStatus", "D"));
 			criteria.add(Restrictions.in("financialSpaceId", additionalSpaceIDCollection));
 			result = new PnFinancialSpaceList(criteria.list());
 			session.close();
@@ -56,6 +57,7 @@ public class PnFinancialSpaceDAOImpl extends AbstractHibernateAnnotatedDAO<PnFin
 		}
 		return result;
 	}
+
 	
 	
 
