@@ -44,8 +44,14 @@
 	if (request.getParameter("selected") != null && !request.getParameter("selected").trim().equals("")) {
 		Space space = SpaceFactory.constructSpaceFromID(request.getParameter("selected"));
 		space.load();
+		
+		//Load the financial related space
+		Space relatedSpace = SpaceFactory.constructSpaceFromID(request.getParameter(space.getRelatedSpaceID()));
+		relatedSpace.load();
+		
 		isBusinessDeleteEnabled = space.isUserSpaceAdministrator(user) ;
 		pageContext.setAttribute("space_to_disable" , space , pageContext.SESSION_SCOPE);
+		pageContext.setAttribute("related_space_to_disable" , relatedSpace , pageContext.SESSION_SCOPE);
 	}	
 	
 %>

@@ -33,6 +33,7 @@
             net.project.security.SessionManager,
             net.project.space.Space,
             net.project.space.PersonalSpaceBean,
+            net.project.financial.FinancialSpaceBean,
             net.project.base.property.PropertyProvider,
             net.project.document.DocumentManagerBean"
 %>
@@ -42,6 +43,7 @@
 <jsp:useBean id="docManager" class="net.project.document.DocumentManagerBean" scope="session" />
 <jsp:useBean id="businessPortfolio" class="net.project.portfolio.BusinessPortfolioBean" scope="session" />
 <jsp:useBean id="businessSpace" class="net.project.business.BusinessSpaceBean" scope="session" />
+<jsp:useBean id="financialSpace" class="net.project.financial.FinancialSpaceBean" scope="session" />
 <template:getDoctype />
 <html>
 <head>

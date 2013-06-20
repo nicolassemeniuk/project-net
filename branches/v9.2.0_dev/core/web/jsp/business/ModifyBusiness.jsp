@@ -20,6 +20,7 @@
     errorPage="/errors.jsp"
     import="net.project.security.User,
             	net.project.business.BusinessSpaceBean,
+            	net.project.financial.FinancialSpaceBean,
             	net.project.security.SessionManager,
             	net.project.security.SecurityProvider,
             	net.project.resource.ProfileCodes,
@@ -29,6 +30,7 @@
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
 <jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
 <jsp:useBean id="businessSpace" class="net.project.business.BusinessSpaceBean" scope="session" />
+<jsp:useBean id="financialSpace" class="net.project.financial.FinancialSpaceBean" scope="session" />
 <jsp:useBean id="profileCodes" class="net.project.resource.ProfileCodes" />
 <jsp:useBean id="domainList" class="net.project.project.DomainListBean" />
 

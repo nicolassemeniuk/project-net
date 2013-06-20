@@ -49,7 +49,7 @@ public class PnSpaceHasSpaceServiceImpl implements IPnSpaceHasSpaceService {
 
     public List<PnSpaceHasSpace> findByFilter(IPnSpaceHasSpaceFilter filter) {
         List<PnSpaceHasSpace> all = getPnSpaceHasSpaceDAO().findAll();
-        List<PnSpaceHasSpace> result = new ArrayList();
+        List<PnSpaceHasSpace> result = new ArrayList<PnSpaceHasSpace>();
         for (int i = 0, n = all.size(); i < n; i++) {
             PnSpaceHasSpace currentSpaceHasSpace = all.get(i);
             boolean needAdd = true;
@@ -62,17 +62,33 @@ public class PnSpaceHasSpaceServiceImpl implements IPnSpaceHasSpaceService {
     }
 
 	@Override
-	public PnSpaceHasSpace getFinancialRelatedSpace(Integer spaceID) {
-		return pnSpaceHasSpaceDAO.getFinancialRelatedSpace(spaceID);
+	public PnSpaceHasSpace getFinancialRelatedSpace(String spaceID) {
+		return pnSpaceHasSpaceDAO.getFinancialRelatedToBusinessSpace(Integer.valueOf(spaceID));
 	}
 
 	@Override
-	public Integer getParentSpaceID(Integer spaceID) {
-		return pnSpaceHasSpaceDAO.getParentSpaceID(spaceID);
+	public Integer getParentSpaceID(String spaceID) {
+		return pnSpaceHasSpaceDAO.getParentSpaceID(Integer.valueOf(spaceID));
 	}
 
 	@Override
-	public PnSpaceHasSpace getBusinessRelatedSpace(Integer spaceID) {
-		return pnSpaceHasSpaceDAO.getBusinessRelatedSpace(spaceID);
+	public PnSpaceHasSpace getBusinessRelatedSpace(String spaceID) {
+		return pnSpaceHasSpaceDAO.getBusinessRelatedToFinancialSpace(Integer.valueOf(spaceID));
+	}
+
+	@Override
+	public void update(PnSpaceHasSpace spaceHasSpace) {
+		pnSpaceHasSpaceDAO.update(spaceHasSpace);
+		
+	}
+	
+	@Override
+	public PnSpaceHasSpace getFinancialParentSpaceRelationship(String financialChildSpaceId) {
+		return pnSpaceHasSpaceDAO.getFinancialParentSpaceRelationship(Integer.valueOf(financialChildSpaceId));
+	}
+
+	@Override
+	public ArrayList<PnSpaceHasSpace> getFinancialChildsSpaceRelationships(String financialParentSpaceId) {
+		return pnSpaceHasSpaceDAO.getFinancialChildsSpaceRelationships(Integer.valueOf(financialParentSpaceId));
 	}
 }

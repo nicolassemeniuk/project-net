@@ -23,6 +23,7 @@
         <td class="tableHeader"><xsl:value-of select="display:get('prm.business.businessportfolio.businesstype.label')" /></td>
         <td class="tableHeader"><xsl:value-of select="display:get('prm.business.businessportfolio.projects.label')" /></td>
         <td class="tableHeader"><xsl:value-of select="display:get('prm.business.businessportfolio.people.label')" /></td>
+        <td class="tableHeader"><xsl:value-of select="display:get('prm.business.businessportfolio.people.label')" /></td>
     </tr>
     <tr class="tableLine">
         <td colspan="{$numCols}" class="tableLine"><img src="../images/spacers/trans.gif" width="1" height="2" border="0"/></td>
@@ -88,8 +89,9 @@
         </xsl:choose>
     </td>
     <td class="tableContent" align="left"><xsl:value-of select="description"/></td>
-    <td class="tableContent" align="left"><xsl:value-of select="format:formatNumber(numProjects)"/></td>
-    <td class="tableContent" align="left"><xsl:value-of select="format:formatNumber(numMembers)"/></td>
+    <td class="tableContent" align="left"><xsl:value-of select="format:formatNumber(totalActualCostToDate)"/></td>
+    <td class="tableContent" align="left"><xsl:value-of select="format:formatNumber(totalEstimatedCurrentCost)"/></td>
+    <td class="tableContent" align="left"><xsl:value-of select="format:formatNumber(totalBudgetedCost)"/></td>
 </tr>
 <tr class="tableLine">
     <td colspan="{$numCols}">

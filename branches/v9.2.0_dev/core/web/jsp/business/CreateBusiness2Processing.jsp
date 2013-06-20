@@ -87,7 +87,7 @@
 	
 	//If the business has a parent space Id, find the financial space related to that business space.
 	if(businessWizard.getParentSpaceID()!=null && !businessWizard.getParentSpaceID().equals("")){
-		spaceHasSpace = ServiceFactory.getInstance().getPnSpaceHasSpaceService().getFinancialRelatedSpace(Integer.valueOf(businessWizard.getParentSpaceID()));
+		spaceHasSpace = ServiceFactory.getInstance().getPnSpaceHasSpaceService().getFinancialRelatedSpace(businessWizard.getParentSpaceID());
 	} 
 	
 	//If found, set that financial space has sub-space of the new created financial space.

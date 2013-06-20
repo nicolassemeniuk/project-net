@@ -37,11 +37,13 @@
 	String selected = request.getParameter("selected");
 		
 	Space space = (Space) pageContext.getAttribute("space_to_disable" , pageContext.SESSION_SCOPE);
+	Space relatedSpace = (Space) pageContext.getAttribute("related_space_to_disable" , pageContext.SESSION_SCOPE);
 	
 	if(selected != null  && selected.equals("business") && space != null){
 	
 		if(space.isUserSpaceAdministrator(user))
 			space.remove();
+		    relatedSpace.remove();
 			
 	} else if(selected != null  && selected.equals("self") && space != null ){
 		Roster roster = new Roster();

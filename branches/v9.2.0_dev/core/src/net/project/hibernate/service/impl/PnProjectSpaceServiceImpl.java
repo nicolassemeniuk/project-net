@@ -199,4 +199,10 @@ public class PnProjectSpaceServiceImpl implements IPnProjectSpaceService {
 	public boolean isRootProject(Integer projectId) {
 		return pnProjectSpaceDAO.isRootProject(projectId);
 	}
+
+
+	@Override
+	public Float getBudgetedTotalCost(String spaceId) {
+		return pnProjectSpaceDAO.getBudgetedTotalCost(Integer.valueOf(spaceId));
+	}
 }

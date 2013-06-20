@@ -3,7 +3,6 @@ package net.project.portfolio;
 import java.io.Serializable;
 import java.util.Iterator;
 
-import net.project.business.BusinessSpaceFinder;
 import net.project.financial.FinancialSpace;
 import net.project.financial.FinancialSpaceFinder;
 import net.project.persistence.IJDBCPersistence;

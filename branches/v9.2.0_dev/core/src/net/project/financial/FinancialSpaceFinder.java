@@ -9,6 +9,11 @@ import net.project.security.User;
 
 public class FinancialSpaceFinder {
 
+	/**
+	 * Finds all financial spaces for a certain user.
+	 * @param user the user from wich we want to obtain the financial spaces.
+	 * @return a collection of financial spaces.
+	 */
 	@SuppressWarnings("rawtypes")
 	public Collection findByUser(User user) {
 		

@@ -104,7 +104,8 @@ public class FinancialCreateWizard extends FinancialSpace {
 			
 			inviteOwner(db);
 			
-	        // Update relationship to parent financial space
+	        // Update relationship to parent financial space. We have two ways of doing this, either
+			// with a parentSpaceId or through the relatedOwnerSpace and ownerRelationship attributes.
 	        if ((getParentSpaceID() != null) && !getParentSpaceID().equals("")) {
 	        	FinancialSpace parentSpace = new FinancialSpace();
 	            parentSpace.setID(getParentSpaceID());
