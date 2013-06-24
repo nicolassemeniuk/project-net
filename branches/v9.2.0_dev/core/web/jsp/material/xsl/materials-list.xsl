@@ -6,14 +6,14 @@
 	<xsl:template match="materials-list">
 		<table border="0" cellpadding="0" cellspacing="0" width="100%">
 			<tr align="left" class="tableHeader">
-				<td class="tableHeader" width="1%">
+				<td class="table-header" width="1%">
 					<xsl:text disable-output-escaping="yes"></xsl:text>
 				</td>
-				<td class="tableHeader" colspan="2"><xsl:value-of select="display:get('prm.material.main.list.name')"/></td>
-				<td class="tableHeader"><xsl:value-of select="display:get('prm.material.main.list.type')"/></td>
-				<td class="tableHeader"><xsl:value-of select="display:get('prm.material.main.list.cost')"/></td>
-				<td class="tableHeader" align="center" ><xsl:value-of select="display:get('prm.material.main.list.consumable')"/></td>				
-				<td class="tableHeader"><xsl:value-of select="display:get('prm.material.main.list.description')"/></td>				
+				<td class="table-header" colspan="2"><xsl:value-of select="display:get('prm.material.main.list.name')"/></td>
+				<td class="table-header"><xsl:value-of select="display:get('prm.material.main.list.type')"/></td>
+				<td class="table-header"><xsl:value-of select="display:get('prm.material.main.list.cost')"/></td>
+				<td class="table-header" align="center" ><xsl:value-of select="display:get('prm.material.main.list.consumable')"/></td>				
+				<td class="table-header"><xsl:value-of select="display:get('prm.material.main.list.description')"/></td>				
 			</tr>
 			<tr class="tableLine">
 				<td colspan="7" class="tableLine">

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.sql.SQLException;
 import java.util.Date;
 
+import net.project.base.Module;
 import net.project.hibernate.model.PnMaterial;
 import net.project.persistence.IXMLPersistence;
 import net.project.space.Space;
@@ -61,8 +62,8 @@ public class MaterialBean extends Material implements Serializable, IXMLPersiste
     	return xml.toString();
 	}
 	
-//	public String getUrl()
-//	{
-//        return "/material/MaterialDetail.jsp?module=" + Module.MATERIAL + "&id=" + this.getMaterialId();		
-//	} 
+	public String getUrl()
+	{
+        return "/material/MaterialDetail.jsp?module=" + Module.MATERIAL + "&id=" + this.getMaterialId();		
+	} 
 }

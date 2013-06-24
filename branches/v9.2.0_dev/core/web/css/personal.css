@@ -267,3 +267,62 @@ div#leftframe		{/*background-image: url('../images/personal/background-leftnav.g
 	text-align: center;
 	height: 12px;
 }
+
+.UMTableBorder {
+	border:1px solid #F2B600;
+	margin-left: 4px;	
+}
+
+.tabBackground
+{
+	width: 130px;
+	height: 20px;
+	text-align: center;
+	font-size: 12px;
+}
+
+.tabBackgroundActive
+{
+	background: transparent url(../images/personal/active-tab.gif) no-repeat scroll left center;	
+	font-weight: bold;
+	color: black;	
+}
+
+.tabBackgroundDeactive
+{
+	background:transparent url(../images/personal/inactive-tab.gif) no-repeat scroll left center;	
+}
+
+.tabBackgroundActive span
+{
+	color: black;	
+}
+
+.labelSearchField
+{
+	font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 12px;
+	font-weight: bold;
+	height: 21px;	
+	color: #F2B600;
+	padding: 15px 5px;
+}
+
+.inputSearchField
+{
+	margin: 15px 0px;
+}
+
+.channelHeaderTabSet
+{
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 7px;
+}
+
+.wizardTitle
+{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 15px;
+}
