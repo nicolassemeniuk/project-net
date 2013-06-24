@@ -5,7 +5,9 @@ import java.sql.SQLException;
 
 import net.project.hibernate.model.PnPersonSalary;
 import net.project.persistence.IXMLPersistence;
+import net.project.security.SessionManager;
 import net.project.security.User;
+import net.project.util.DateFormat;
 
 public class PersonSalaryBean extends PersonSalary implements Serializable, IXMLPersistence {
 	
@@ -34,13 +36,15 @@ public class PersonSalaryBean extends PersonSalary implements Serializable, IXML
 	@Override
 	public String getXMLBody() throws SQLException
 	{
+    	DateFormat dateFormat = SessionManager.getUser().getDateFormatter();		
+		
 		StringBuffer xml = new StringBuffer();
 		
     	xml.append("<personSalary>"); 
     	xml.append("<id>" + this.getPersonSalaryId() + "</id>");
     	xml.append("<person>" + this.getPersonId() + "</person>");
-    	xml.append("<startDate>" + this.getStartDate() + "</startDate>");
-    	xml.append("<endDate>" + (this.getEndDate() != null ? this.getEndDate() : "" ) + "</endDate>");
+    	xml.append("<startDate>" + dateFormat.formatDate(this.getStartDate()) + "</startDate>");
+    	xml.append("<endDate>" + (this.getEndDate() != null ? dateFormat.formatDate(this.getEndDate()) : "" ) + "</endDate>");
     	xml.append("<costByHour>" + this.getCostByHour() + "</costByHour>");
     	xml.append("</personSalary>");
     	

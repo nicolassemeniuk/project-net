@@ -74,11 +74,20 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.tab.salar
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.roster.search.label','Search','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.tab.participants.title','Participants','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.title','Salary','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.directory.directorypage.roster.column.costperhour','Cost per hour','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.authorizationfailed.message','Failed security validation','A',0,1,null);
 
 -- Salary - Personal
 insert into PN_PROPERTY values (2000,'en','boolean','prm.personal.salary.isenabled','1','A',0,0,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.nav.salary','Salary','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.create.button.tooltip','New Salary','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.modify.button.tooltip','Modify Salary','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.tab.salaryhistory.title','Salary History','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.tab.periods.title','Periods','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.roster.searchFrom.label','From','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.roster.searchTo.label','To','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salarymodifypage.title','Modify Salary','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.modify.pagetitle','Modify Salary','A',0,1,null);
 
 -- Setup
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.setup.isenabled','1','A',0,0,null);

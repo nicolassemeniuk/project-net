@@ -23,15 +23,25 @@ public class PersonSalaryList extends ArrayList<PersonSalaryBean> {
 	
 	public void load()
 	{
-		PnPersonSalaryList personSalaryList = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaries(this.user.getID());		
-		for(PnPersonSalary personSalary : personSalaryList){			
-				PersonSalaryBean personSalaryBean = new PersonSalaryBean(personSalary);
+		if(this.isLoaded == false)
+		{
+			PnPersonSalaryList personSalaryList = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaries(this.user.getID());
+			for(PnPersonSalary personSalary : personSalaryList)
+			{
+				PersonSalaryBean personSalaryBean = new PersonSalaryBean(
+						personSalary);
 				this.add(personSalaryBean);
+			}
+			
+			this.isLoaded = true;
 		}
-	
-   		this.isLoaded=true;
 	}
-	
+
+	public void setUser(User user)
+	{
+		this.user = user;
+	}
+
 	/**
 	 * Converts the object to XML representation This method returns the object
 	 * as XML text.
@@ -61,4 +71,6 @@ public class PersonSalaryList extends ArrayList<PersonSalaryBean> {
 		return xml.toString();
 	}
 
+	
+	
 }

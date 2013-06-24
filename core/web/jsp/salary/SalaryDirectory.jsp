@@ -150,25 +150,22 @@ function searchButton() {
 </tb:toolbar>
 <div id='content' style="padding-right:10px;padding-top:20px;">
 
-	<tabSet:tabSet>
 	<tab:tabStrip tabPresentation="true">
-		<tab:tab label='Tab 1' href='<%=SessionManager.getJSPRootURL() + "/salary/SalaryDirectory.jsp?module=" + Module.SALARY%>' selected="true" />
-		<tab:tab label='Tab 2' href="#"  />
-		<tab:tab label='Tab 3' href="#"  />		
+		<tab:tab label='<%=PropertyProvider.get("prm.financial.salary.tab.salary.title")%>' href='<%=SessionManager.getJSPRootURL() + "/salary/SalaryDirectory.jsp?module=" + Module.SALARY%>' selected="true" />
 	</tab:tabStrip>
-	</tabSet:tabSet>
-	<div class="UMTableBorder">
+	
+	<div class="UMTableBorder marginLeftFix">
 	<form method="post" action="<%=SessionManager.getJSPRootURL()%>/salary/SalaryDirectoryProcessing.jsp">
 		<input type="hidden" name="theAction">
 		<input type="hidden" name="module" value="<%=Module.SALARY%>">
 	    <input type="hidden" name="action" value="<%=Action.VIEW%>">
 		<label for="searchField" class="labelSearchField"><%=PropertyProvider.get("prm.financial.salary.roster.search.label")%></label>
-		<input type="text" name="key" value="<%=session.getAttribute("searchKey")%>" size="40" maxlength="40" onKeyDown="if(event.keyCode==13) searchButton()" class="inputSearchField">
+		<input type="text" name="key" id="searchField" value="<%=session.getAttribute("searchKey")%>" size="40" maxlength="40" onKeyDown="if(event.keyCode==13) searchButton()" class="inputSearchField">
 		<div class="channelHeader channelHeaderTabSet">
 			<p><%=PropertyProvider.get("prm.financial.salary.tab.participants.title")%></p>
 		</div>
 		<div>	    
-        	<pnet-xml:transform name="roster" scope="session" stylesheet="/salary/xsl/salary.xsl">
+        	<pnet-xml:transform name="roster" scope="session" stylesheet="/salary/xsl/salaryDirectory.xsl">
 	            <pnet-xml:property name="JSPRootURL" value="<%=SessionManager.getJSPRootURL()%>" /> 
 		    </pnet-xml:transform> 
 		</div>

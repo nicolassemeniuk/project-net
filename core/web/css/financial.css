@@ -400,9 +400,13 @@ div#leftframe {
 	background: #F3F3FA url(../images/filter-top.gif) no-repeat scroll center top;
 }
 
-/* Styles for custom components */
+/* Custom components */
 
-/* TabSet */
+.marginLeftFix
+{
+	margin-left: 4px;	
+}
+
 .tabBackground
 {
 	width: 130px;
@@ -428,13 +432,6 @@ div#leftframe {
 	color: black;	
 }
 
-/*
-.tabBackgroundActive span a:hover
-{
-	text-decoration: none;
-}
-*/
-
 .labelSearchField
 {
 	font-family: Arial,Helvetica,Sans-Serif;
@@ -442,7 +439,7 @@ div#leftframe {
 	font-weight: bold;
 	height: 21px;	
 	color: #6f557c;
-	padding: 15px 5px;
+	padding: 15px 10px;
 }
 
 .inputSearchField

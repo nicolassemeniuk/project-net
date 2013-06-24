@@ -35,17 +35,9 @@
 				</xsl:when>
 			</xsl:choose>
 			<td class="over-table" align="left"><xsl:value-of select="display:get('prm.directory.directorypage.roster.column.name')"/></td>
-			<td class="over-table" align="left"></td>
-            <td class="over-table" align="left"><xsl:value-of select="display:get('prm.directory.directorypage.roster.column.responsilities')"/></td>
+			<td class="over-table" align="left"><xsl:value-of select="display:get('prm.directory.directorypage.roster.column.costperhour')"/></td>
 			<td class="over-table" align="left"><xsl:value-of select="display:get('prm.directory.directorypage.roster.column.officephone')"/></td>
 			<td class="over-table" align="left"><xsl:value-of select="display:get('prm.directory.directorypage.roster.column.email')"/></td>
-			<td class="over-table" align="left"><xsl:value-of select="display:get('prm.directory.directorypage.roster.column.lastvisit')"/></td>
-			<xsl:choose>
-				<xsl:when test="space = 'project'">
-					<td class="table-header" align="left" id="lastBlogItColumn"><xsl:value-of select="display:get('prm.directory.directorypage.roster.column.lastblogit')"/></td>
-				</xsl:when>
-			</xsl:choose>
-			<td class="over-table"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></td>
 		</tr>
 			<xsl:apply-templates select="person"/>		
 		</table>
@@ -101,16 +93,6 @@
 			</td>
 			
 			<td class="tableContent"><xsl:value-of select="cost_by_hour"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></td>
-			
-			
-<!-- 			<td class="tableContent"> -->
-<!--                    <a href="javascript:showResourceAllocation({person_id})"> -->
-<!--                        <img valign="middle" src="../images/schedule/constraint.gif" border="0" alt="Utilization Calendars" title="Utilization Calendars"/> -->
-<!--                    </a> -->
-<!--             </td> -->
-               
-            <td class="tableContent"><xsl:value-of select="responsibilities"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></td>
-
 			<td class="tableContent"><xsl:value-of select="Address/officePhone"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></td>
 			
 			
@@ -125,10 +107,6 @@
 			</xsl:otherwise>
 			</xsl:choose>
 
-			</td>
-			<td class="tableContent"><xsl:value-of select="last_visit"/><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></td>
-			<td class="tableContent" id="teammate_{person_id}" name="lastBlogEntryLink">				
-			    <xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text>
 			</td>
 	 </tr>
 	<tr class="tableLine">
