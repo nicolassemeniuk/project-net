@@ -100,12 +100,12 @@ if (id != null && businessSpace.getID() == null)
         businessSpace.setID(id);
         businessSpace.load();
         
-		//Get financial related space
-		if(businessSpace.getRelatedSpaceID()!=null){
-	 		financialSpace = new FinancialSpaceBean();
-	 		financialSpace.setID(businessSpace.getRelatedSpaceID());
-	 		financialSpace.load();
-		}
+// 		//Get financial related space
+// 		if(businessSpace.getRelatedSpaceID()!=null){
+// 	 		financialSpace = new FinancialSpaceBean();
+// 	 		financialSpace.setID(businessSpace.getRelatedSpaceID());
+// 	 		financialSpace.load();
+// 		}
     }
     else 
 	{
@@ -120,12 +120,12 @@ else
     if (businessSpace.getID() != null)
         businessSpace.load();
     
-		//Get financial related space
-		if(businessSpace.getRelatedSpaceID()!=null){
-	 		financialSpace = new FinancialSpaceBean();
-	 		financialSpace.setID(businessSpace.getRelatedSpaceID());
-	 		financialSpace.load();
-		}
+// 		//Get financial related space
+// 		if(businessSpace.getRelatedSpaceID()!=null){
+// 	 		financialSpace = new FinancialSpaceBean();
+// 	 		financialSpace.setID(businessSpace.getRelatedSpaceID());
+// 	 		financialSpace.load();
+// 		}
     
     
     else

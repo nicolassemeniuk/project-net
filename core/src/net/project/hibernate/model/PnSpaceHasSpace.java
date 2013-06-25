@@ -26,6 +26,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
@@ -188,4 +189,5 @@ public class PnSpaceHasSpace implements Serializable {
 	public void setPnObject(PnObject pnObject) {
 		this.pnObject = pnObject;
 	}
+
 }

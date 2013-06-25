@@ -29,11 +29,6 @@ CREATE TABLE PN_PERSON_SALARY (
 );
 CREATE OR REPLACE SYNONYM PNET_USER.PN_PERSON_SALARY FOR PNET.PN_PERSON_SALARY;
 
-
-
-insert into PN_OBJECT values (1000,'financial','01/01/2001',47902,'A');
-
-
 create or replace
 PACKAGE FINANCIAL IS
 
@@ -192,7 +187,7 @@ BEGIN
       FROM
           pn_module
       WHERE
-          module_id IN (10, 20, 30, 70, 110, 140, 170, 180, 190, 200, 210, 270, 310, 330, 340, 390);
+          module_id IN (10, 20, 30, 70, 110, 140, 175, 180, 190, 200, 210, 270, 310, 330, 340, 390);
   
       -- Disable below mentioned modules for the time-being  
       UPDATE pn_space_has_module SET is_active = '0' WHERE  space_id = i_financial_id AND module_id IN (90 , 100 , 120 , 210 ) ;
