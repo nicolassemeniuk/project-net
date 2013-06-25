@@ -50,6 +50,16 @@ public class PersonSalary {
 		this.costByHour = String.valueOf(pnPersonSalary.getCostByHour());
 		this.recordStatus = pnPersonSalary.getRecordStatus();
 	}
+	
+	public void load(){
+		PnPersonSalary pnPersonSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryById(this.personSalaryId);
+		this.personSalaryId = String.valueOf(pnPersonSalary.getComp_id().getPersonSalaryId());
+		this.personId = String.valueOf(pnPersonSalary.getPersonId());
+		this.startDate = pnPersonSalary.getStartDate();
+		this.endDate = pnPersonSalary.getEndDate();
+		this.costByHour = String.valueOf(pnPersonSalary.getCostByHour());
+		this.recordStatus = pnPersonSalary.getRecordStatus();
+	}
 
 	public String getPersonSalaryId() {
 		return personSalaryId;

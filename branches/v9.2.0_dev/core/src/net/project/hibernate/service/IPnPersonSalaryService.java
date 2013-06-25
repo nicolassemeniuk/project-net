@@ -7,6 +7,13 @@ import net.project.resource.PersonSalaryBean;
 import net.project.resource.PnPersonSalaryList;
 
 public interface IPnPersonSalaryService {
+	
+	/**
+	 * Get a person salary by personSalaryId
+	 * @param personSalaryId the id of the person salary object.
+	 * @return a person salary.
+	 */
+	public PnPersonSalary getPersonSalaryById(String personSalaryId);
 
 	/**
 	 * Save a new persons salary on the database.

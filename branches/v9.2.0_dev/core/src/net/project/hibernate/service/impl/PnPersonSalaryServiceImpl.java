@@ -83,6 +83,11 @@ public class PnPersonSalaryServiceImpl implements IPnPersonSalaryService {
 		return this.pnPersonSalaryDAO.getPersonSalaries(Integer.valueOf(personId));
 	}
 
+	@Override
+	public PnPersonSalary getPersonSalaryById(String personSalaryId) {
+		return this.pnPersonSalaryDAO.getPersonSalaryById(Integer.valueOf(personSalaryId));
+	}
+
 
 
 
