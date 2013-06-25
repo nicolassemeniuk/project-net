@@ -38,11 +38,11 @@ import net.project.xml.document.XMLDocumentException;
  */
 public class FinancialSpace extends Space implements Serializable, IXMLPersistence, IPortfolioEntry {
 
-	private String totalActualCostToDate;
+	private String totalActualCostToDate="";
 
-	private String totalEstimatedCurrentCost;
+	private String totalEstimatedCurrentCost="";
 
-	private String totalBudgetedCost;
+	private String totalBudgetedCost="";
 
 	private boolean parentChanged;
 
@@ -67,10 +67,11 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 		this.name = pnFinancialSpace.getFinancialSpaceName();
 		this.description = pnFinancialSpace.getFinancialSpaceDescription();
 		setType(ISpaceTypes.FINANCIAL_SPACE);
+		this.setRecordStatus(pnFinancialSpace.getRecordStatus());
 		this.parentSpaceID = String.valueOf(ServiceFactory.getInstance().getPnSpaceHasSpaceService().getParentSpaceID(spaceID));
 		this.relatedSpaceID = String.valueOf(ServiceFactory.getInstance().getPnSpaceHasSpaceService().getBusinessRelatedSpace(spaceID).getComp_id()
 				.getParentSpaceId());
-		loadCosts();
+		//loadCosts();
 	}
 
 	/**
@@ -127,10 +128,11 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 			this.name = pnFinancialSpace.getFinancialSpaceName();
 			this.description = pnFinancialSpace.getFinancialSpaceDescription();
 			setType(ISpaceTypes.FINANCIAL_SPACE);
+			this.setRecordStatus(pnFinancialSpace.getRecordStatus());
 			this.parentSpaceID = String.valueOf(ServiceFactory.getInstance().getPnSpaceHasSpaceService().getParentSpaceID(spaceID));
 			this.relatedSpaceID = String.valueOf(ServiceFactory.getInstance().getPnSpaceHasSpaceService().getBusinessRelatedSpace(spaceID).getComp_id()
 					.getParentSpaceId());
-			loadCosts();
+			//loadCosts();
 		}
 
 	}

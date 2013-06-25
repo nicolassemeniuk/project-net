@@ -24,6 +24,7 @@
 		    net.project.space.Space,
 			net.project.base.property.PropertyProvider,
 		    net.project.resource.RosterBean,
+		    net.project.portfolio.ProjectPortfolio,
 		    net.project.base.Module,
             java.util.Date,
             net.project.base.ObjectType,
@@ -33,6 +34,7 @@
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
 <jsp:useBean id="roster" class="net.project.resource.RosterBean" scope="session" />
 <jsp:useBean id="pageContextManager" class="net.project.session.PageContextManager" scope="session" />
+<jsp:useBean id="businessSpace" class="net.project.business.BusinessSpaceBean"/>
 <%
 	String id = request.getParameter("id");
 %>
@@ -60,9 +62,24 @@ hide-achor-from-tab{text-decoration: none;}
 // Don't refresh roster is we are returning search results.
 String mode = request.getParameter("mode");
 if ( (mode == null) || ((mode != null) && !mode.equals("search")) ) {
-	session.setAttribute("searchKey", "");	
+	session.setAttribute("searchKey", "");
+	
+	Space financialSpace = user.getCurrentSpace();
 	roster.setSpace(user.getCurrentSpace());
-	roster.load();
+	
+	//Obtain the portfolio of projects
+	businessSpace.setID(financialSpace.getRelatedSpaceID());
+	businessSpace.load();
+	ProjectPortfolio projectPortfolio = new ProjectPortfolio();
+	projectPortfolio.clear();
+	projectPortfolio.setID(businessSpace.getProjectPortfolioID("owner"));
+	projectPortfolio.setProjectMembersOnly(true);
+	projectPortfolio.load();
+	
+	
+	
+	
+	roster.loadForSpaces(projectPortfolio);
     // also, every time we come to this page (when not returning search results), reload the space's instance of the roster also.
 	// It might be appropriate to simply make the directory module act on the space's roster instance, but at this time the impact
     // of such a move has not been analyzed.  (PCD: 6/15/2002)

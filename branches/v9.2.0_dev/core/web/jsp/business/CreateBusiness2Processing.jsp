@@ -95,9 +95,9 @@
 		financialWizard.setParentSpaceID(String.valueOf(spaceHasSpace.getComp_id().getChildSpaceId()));
 	}
 	
-	
-	businessWizard.store();
 	financialWizard.store();
+	businessWizard.store();
+	
 
 
 	// Apply the Methodology

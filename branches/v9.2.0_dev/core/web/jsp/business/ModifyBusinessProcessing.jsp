@@ -13,44 +13,52 @@
  * If not, see http://www.gnu.org/licenses/gpl-3.0.html
 --%>
 
-<%@ page
-    contentType="text/html; charset=UTF-8"
-    info="modify business processing" 
-    language="java" 
-    errorPage="/errors.jsp"
-    import="net.project.security.User,
+<%@page import="net.project.hibernate.service.ServiceFactory"%>
+<%@ page contentType="text/html; charset=UTF-8" info="modify business processing" language="java" errorPage="/errors.jsp"
+	import="net.project.security.User,
             	net.project.business.BusinessSpaceBean,
             	net.project.security.SessionManager,
 				net.project.base.property.PropertyProvider,
-            	net.project.security.SecurityProvider"
-%>
+				net.project.hibernate.model.PnSpaceHasSpace,
+            	net.project.security.SecurityProvider"%>
 
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
 <jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
 <jsp:useBean id="businessSpace" class="net.project.business.BusinessSpaceBean" scope="session" />
+<jsp:useBean id="financialSpace" class="net.project.financial.FinancialSpaceBean" scope="session" />
 
 <%
-    //Make sure dropdown boxes are "unset" before continuing.  Otherwise a person
-    //can't change "sub-business of" to be empty.  If we set it explicitly to empty
-    //first, then it will be reset automatically if they haven't changed it.
-    businessSpace.setParentSpaceID(null);
+	//Load the financial space related to this business
+	PnSpaceHasSpace spaceRelationship = ServiceFactory.getInstance().getPnSpaceHasSpaceService().getFinancialRelatedSpace(businessSpace.getID());
+	
+	financialSpace.setID(String.valueOf(spaceRelationship.getComp_id().getChildSpaceId()));
+	financialSpace.load();
+
+
+	//Make sure dropdown boxes are "unset" before continuing.  Otherwise a person
+	//can't change "sub-business of" to be empty.  If we set it explicitly to empty
+	//first, then it will be reset automatically if they haven't changed it.
+	businessSpace.setParentSpaceID(null);
+
+
+
+
 %>
 <jsp:setProperty name="businessSpace" property="*" />
 <%
-    String theAction = request.getParameter("theAction");
+	String theAction = request.getParameter("theAction");
 
-    if (theAction.equals("submit")) {
+	if (theAction.equals("submit")) {
 
 		// SECURITY CHECK
 		String space_id = businessSpace.getID();
 		String id = securityProvider.getCheckedObjectID();
 		int module = securityProvider.getCheckedModuleID();
 		int action = securityProvider.getCheckedActionID();
-		if (module != net.project.base.Module.BUSINESS_SPACE || action != net.project.security.Action.MODIFY || id.length() > 0)
-		{
+		if (module != net.project.base.Module.BUSINESS_SPACE || action != net.project.security.Action.MODIFY || id.length() > 0) {
 			throw new net.project.security.AuthorizationFailedException(PropertyProvider.get("prm.business.modifybusiness.authorizationfailed.message"));
 		}
-		
+
 		// bfd - 2994 issue
 		if ((request.getParameter("flavor") == null) || (request.getParameter("flavor").equals(""))) {
 			businessSpace.setFlavor("");
@@ -86,30 +94,56 @@
 			businessSpace.setWebsite("");
 		}
 		//end of bfd-2994 issue
-		
+
 		// Store the changes to the business space.
-		if(businessSpace.getParentSpaceID() != null){
-			businessSpace.setParentChanged(!businessSpace.getParentSpaceID().equals(request.getParameter("previousParentSpaceID").trim()));
+
+		//Did de user set a parent space?
+		if (businessSpace.getParentSpaceID() != null) {
+			//Parent space, did it had one?
+			if (businessSpace.getParentSpaceID().equals(request.getParameter("previousParentSpaceID").trim())) {
+				//The same parent
+				businessSpace.setParentChanged(false);
+				financialSpace.setParentChanged(false);
+			} else {
+				//new parent
+				businessSpace.setParentChanged(true);
+				
+				PnSpaceHasSpace space = ServiceFactory.getInstance().getPnSpaceHasSpaceService().getFinancialRelatedSpace(businessSpace.getParentSpaceID());
+				
+				financialSpace.setParentSpaceID(String.valueOf(space.getComp_id().getChildSpaceId()));
+			}
+
 		} else {
-			businessSpace.setParentChanged(!request.getParameter("previousParentSpaceID").trim().equals(""));
+			//No Parent space set, did it had one?
+			if (request.getParameter("previousParentSpaceID").trim().equals("")) {
+				//Didn't had one						
+				businessSpace.setParentChanged(false);
+				financialSpace.setParentChanged(false);
+			} else {
+				//Had one, now is null
+				businessSpace.setParentChanged(true);
+				financialSpace.setParentSpaceID(null);
+				financialSpace.setParentChanged(true);
+			}
+
 		}
+
+		financialSpace.store();
+		businessSpace.store();
 		
-		businessSpace.store();     
-    }
+	}
 
-		else if (theAction.equals("removeLogo")) 
-                    {
-                            businessSpace.removeLogo();
-                }
+	else if (theAction.equals("removeLogo")) {
+		businessSpace.removeLogo();
+	}
 
-
-		// Go back to business space dashboard.
-		if(request.getParameter("referer") != null ){
-			response.sendRedirect(request.getParameter("referer"));
-		} else {
-			response.sendRedirect(SessionManager.getJSPRootURL() + "/business/Main.jsp?module=" + net.project.base.Module.BUSINESS_SPACE + "&action=" + net.project.security.Action.VIEW);
-		}
-		
+	// Go back to business space dashboard.
+	if (request.getParameter("referer") != null) {
+		response.sendRedirect(request.getParameter("referer"));
+	} else {
+		response.sendRedirect(SessionManager.getJSPRootURL() + "/business/Main.jsp?module=" + net.project.base.Module.BUSINESS_SPACE + "&action="
+				+ net.project.security.Action.VIEW);
+	}
 %>
 
 
