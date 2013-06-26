@@ -25,65 +25,82 @@
             net.project.security.Action,
             net.project.security.SessionManager,
             net.project.space.Space,
+			net.project.resource.PersonSalaryBean,            
             net.project.util.DateFormat,
             java.util.Date,
             net.project.gui.calendar.CalendarPopup"
 %>
 <%@ include file="/base/taglibInclude.jsp" %>
+<jsp:useBean id="user" class="net.project.security.User" scope="session" />
+<jsp:useBean id="personSalaryBean" class="net.project.resource.PersonSalaryBean" scope="session" />
+
+<security:verifyAccess action="modify" module="<%=Module.SALARY%>" />
+
+<%
+	personSalaryBean.setPersonSalaryId(request.getParameter("id"));
+	personSalaryBean.setUser(user);
+	personSalaryBean.load();
+%>
 
 <template:getDoctype />
 <html>
 <head>
 <title><%=PropertyProvider.get("prm.personal.salarymodifypage.title")%></title>
-<jsp:useBean id="user" class="net.project.security.User" scope="session" />
-
-<security:verifyAccess action="modify" module="<%=Module.SALARY%>" />
 
 <template:getSpaceCSS space="personal"/>
+<template:import type="javascript" src="/src/checkComponentForms.js" />
+<template:import type="javascript" src="/src/checkIsNumber.js" />
+<template:import type="javascript" src="/src/errorHandler.js" />
 
 <script language="javascript">
     var theForm;
     var isLoaded = false;
     var JSPRootURL = '<%= SessionManager.getJSPRootURL() %>';    
 
-function setup()
-{
-	theForm = self.document.forms[0];
-	isLoaded = true;
-}
+	function setup()
+	{
+		theForm = self.document.forms[0];
+		isLoaded = true;
+	}
+	
+	// do a  redirect on canceling
+	function cancel()
+	{
+		self.close();
+	}
+	
+	function submit()
+	{
+		if(validate())
+		{
+			theForm.module.value = '<%=net.project.base.Module.SALARY%>';
+			theForm.action.value = '<%=Action.MODIFY%>';
+			theForm.submit();
+		}
+	}
+	
+	function validate()
+	{
+		if(!checkTextbox(theForm.costByHour,'<display:get name="prm.personal.salary.modify.salaryamountrequired.message" />'))
+			return false;
+		
+		if(!checkIsPositiveNumber(theForm.costByHour,'<display:get name="prm.personal.salary.modify.salaryamountincorrect.message" />', false))
+			return false;
 
-// do a  redirect on canceling
-function cancel()
-{
-	self.close();
-}
-
-/*
-function finish()
-{
-	if(verifySelection(theForm, 'multiple', '<%=PropertyProvider.get("prm.global.javascript.verifyselection.noselection.error.message")%>')) {
-		theForm.module.value='<%=net.project.base.Module.SALARY%>';
-		theForm.action.value ='<%=Action.MODIFY%>';
-		theForm.submit();
-	} 
-}
-*/
-
-function submit()
-{
-	console.log("submit!!");
-}
-function help()
-{
-	var helplocation=JSPRootURL+"/help/Help.jsp?page=personal_salary&section=modify";
-	openwin_help(helplocation);
-}
+		return true;
+	}
+	
+	function help()
+	{
+		var helplocation=JSPRootURL+"/help/Help.jsp?page=personal_salary&section=modify";
+		openwin_help(helplocation);
+	}
 </script>
 </head>
 
-<body class="main" onLoad="setup();" style="background: none;">
+<body class="main" onLoad="setup();">
 	<div class="wizardTitle">
-		<p class="pageTitle">'<%=PropertyProvider.get("prm.personal.salary.modify.pagetitle")%>'</p>
+		<p class="pageTitle"><%=PropertyProvider.get("prm.personal.salary.modify.pagetitle")%></p>
 	</div>
 	<form method="post" action="ModifySalaryProcessing.jsp">
 		<input type="hidden" name="module">
@@ -93,18 +110,26 @@ function help()
 				<td class="channelHeader" width="1%">
 					<img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif">
 				</td>
-				<td class="channelHeader"><%=PropertyProvider.get("prm.personal.salary.modify.channel.dateRange")%></td>
+				<td class="channelHeader"><%=PropertyProvider.get("prm.personal.salary.modify.channel.costbyhour.title")%></td>
 				<td class="channelHeader" width="5%">
 					<img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif">
 				</td>
 			</tr>
 		</table>
 
-		<label for="searchFieldFrom" class="labelSearchField"><%=PropertyProvider.get("prm.personal.salary.roster.searchFrom.label")%></label>
-		<input type="text" name="searchFieldFrom" id="searchFieldFrom" value="<%=SessionManager.getUser().getDateFormatter().formatDate(new Date())%>" size="08" maxlength="08" class="inputSearchField">
-		<%=CalendarPopup.getCalendarPopupHTML("searchFieldFrom", null)%>		
+		<p class="instructions wizardTitle"><%=PropertyProvider.get("prm.personal.salary.modify.channel.costbyhour.warning")%></p>
+
+		<label for="startDate" class="labelSearchField"><%=PropertyProvider.get("prm.personal.salary.modify.channel.costbyhour.dateFrom.label")%></label>
+		<input type="text" name="startDate" id="startDate" value="<%=SessionManager.getUser().getDateFormatter().formatDate(personSalaryBean.getStartDate())%>" size="08" maxlength="08" class="inputSearchField" disabled="disabled">
+		<%=CalendarPopup.getCalendarPopupHTML("startDate", null)%>
+		
+		<label for="endDate" class="labelSearchField"><%=PropertyProvider.get("prm.personal.salary.modify.channel.costbyhour.dateTo.label")%></label>
+		<input type="text" name="endDate" id="endDate" value="<%=SessionManager.getUser().getDateFormatter().formatDate(personSalaryBean.getEndDate())%>" size="08" maxlength="08" class="inputSearchField" disabled="disabled">
+		<%=CalendarPopup.getCalendarPopupHTML("endDate", null)%>		
 	
-		<!-- bottomFixed="true" -->
+		<label for="costByHour" class="labelSearchField"><%=PropertyProvider.get("prm.personal.salary.modify.channel.costbyhour.costbyhour.label")%></label>
+		<input type="text" name="costByHour" id="costByHour" value="<%=personSalaryBean.getCostByHour()%>" size="08" maxlength="08" class="inputSearchField">
+	
 		<tb:toolbar style="action" showLabels="true">
 			<tb:band name="action">
 				<tb:button type="next" function="javascript:submit();" />

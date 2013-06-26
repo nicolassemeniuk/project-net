@@ -35,7 +35,7 @@
 				</xsl:when>
 			</xsl:choose>
 			<td class="over-table" align="left"><xsl:value-of select="display:get('prm.directory.directorypage.roster.column.name')"/></td>
-			<td class="over-table" align="left"><xsl:value-of select="display:get('prm.directory.directorypage.roster.column.costperhour')"/></td>
+			<td class="over-table" align="left"><xsl:value-of select="display:get('prm.directory.directorypage.roster.column.costbyhour')"/></td>
 			<td class="over-table" align="left"><xsl:value-of select="display:get('prm.directory.directorypage.roster.column.officephone')"/></td>
 			<td class="over-table" align="left"><xsl:value-of select="display:get('prm.directory.directorypage.roster.column.email')"/></td>
 		</tr>

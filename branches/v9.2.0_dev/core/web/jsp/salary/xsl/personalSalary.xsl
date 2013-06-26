@@ -7,9 +7,9 @@
 		<table class="compactTable" style="overflow-x:auto">
 			<tr align="left" class="table-header">
 				<td class="over-table"><xsl:text disable-output-escaping="yes">&amp;nbsp;</xsl:text></td>
-				<td class="over-table">Start date</td>
-				<td class="over-table">End date</td>
-				<td class="over-table">Cost by hour</td>				
+				<td class="over-table"><xsl:value-of select="display:get('prm.personal.salary.roster.column.startdate')"/></td>
+				<td class="over-table"><xsl:value-of select="display:get('prm.personal.salary.roster.column.enddate')"/></td>
+				<td class="over-table"><xsl:value-of select="display:get('prm.personal.salary.roster.column.costbyhour')"/></td>				
 			</tr>
 			<tr class="tableLine">
 				<td colspan="7" class="tableLine">

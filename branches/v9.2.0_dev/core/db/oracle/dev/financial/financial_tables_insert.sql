@@ -74,10 +74,10 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.tab.salar
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.roster.search.label','Search','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.tab.participants.title','Participants','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.title','Salary','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.directory.directorypage.roster.column.costperhour','Cost per hour','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.directory.directorypage.roster.column.costbyhour','Cost By Hour','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.authorizationfailed.message','Failed security validation','A',0,1,null);
 
--- Salary - Personal
+-- Salary - Personal - Salary history
 insert into PN_PROPERTY values (2000,'en','boolean','prm.personal.salary.isenabled','1','A',0,0,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.nav.salary','Salary','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.create.button.tooltip','New Salary','A',0,1,null);
@@ -86,8 +86,21 @@ insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.tab.salary
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.tab.periods.title','Periods','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.roster.searchFrom.label','From','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.roster.searchTo.label','To','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.roster.column.startdate','Start Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.roster.column.enddate','End Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.roster.column.costbyhour','Cost By Hour','A',0,1,null);
+
+-- Salary - Personal - Modify salary
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salarymodifypage.title','Modify Salary','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.modify.pagetitle','Modify Salary','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.modify.channel.costbyhour.title','Insert new salary value','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.modify.channel.costbyhour.warning','Warning: once you save a new salary period the date range can not be modified, although you will be able to change the range cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.modify.channel.costbyhour.dateFrom.label','From','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.modify.channel.costbyhour.dateTo.label','To','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.modify.channel.costbyhour.costbyhour.label','Cost by hour','A',0,1,null);
+
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.modify.salaryamountrequired.message','The salary is a required value','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.modify.salaryamountincorrect.message','The salary must be a positive value','A',0,1,null);
 
 -- Setup
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.setup.isenabled','1','A',0,0,null);

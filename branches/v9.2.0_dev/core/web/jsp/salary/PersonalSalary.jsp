@@ -21,7 +21,8 @@
 			net.project.gui.toolbar.ButtonType,
             net.project.base.Module,
             net.project.resource.PersonSalaryList,
-			net.project.hibernate.service.ServiceFactory"%>
+			net.project.hibernate.service.ServiceFactory,
+			net.project.gui.calendar.CalendarPopup"%>
 <%@ include file="/base/taglibInclude.jsp"%>
 
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
@@ -77,14 +78,32 @@
 </head>
 
 <% 	
-// Don't refresh the Person Salary List is we are returning search results.
 String mode = request.getParameter("mode");
-if ( (mode == null) || ((mode != null) && !mode.equals("search")) ) {
-	session.setAttribute("searchKey", "");	
-	personSalaryList.setUser(user);
-	personSalaryList.load();
+if(mode == null)
+{
+	session.setAttribute("searchKeyFrom", "");
+	session.setAttribute("searchKeyTo", "");
+	
+	if(!personSalaryList.getIsLoaded())
+	{
+		personSalaryList.setUser(user);
+		personSalaryList.load();		
+	}
 }
-
+else if(mode.equals("search"))
+{
+	// Don't refresh the personSalaryList if we are returning search results because the roster was reloaded in the processing
+	// TODO Agregar funcionalidad de busqueda
+}
+else if(mode.equals("edit"))
+{
+	session.setAttribute("searchKeyFrom", "");
+	session.setAttribute("searchKeyTo", "");
+	
+	personSalaryList.clear();	
+	personSalaryList.setUser(user);
+	personSalaryList.load();		
+}
 %>
 
 <body onLoad="setup();" class="main" id="bodyWithFixedAreasSupport">
@@ -111,10 +130,15 @@ if ( (mode == null) || ((mode != null) && !mode.equals("search")) ) {
 		<input type="hidden" name="theAction">
 		<input type="hidden" name="module" value="<%=Module.SALARY%>">
 	    <input type="hidden" name="action" value="<%=Action.VIEW%>">
+	    
 		<label for="searchFieldFrom" class="labelSearchField"><%=PropertyProvider.get("prm.personal.salary.roster.searchFrom.label")%></label>
-		<input type="text" name="searchFieldFrom" id="searchFieldFrom" value="<%=session.getAttribute("searchKeyFrom")%>" size="10" maxlength="10" onKeyDown="if(event.keyCode==13) searchButton()" class="inputSearchField">
+		<input type="text" name="searchFieldFrom" id="searchFieldFrom" value="<%=session.getAttribute("searchKeyFrom")%>" size="08" maxlength="08" onKeyDown="if(event.keyCode==13) searchButton()" class="inputSearchField">
+		<%=CalendarPopup.getCalendarPopupHTML("searchFieldFrom", null)%>
+		
 		<label for="searchFieldTo" class="labelSearchField"><%=PropertyProvider.get("prm.personal.salary.roster.searchTo.label")%></label>
-		<input type="text" name="searchFieldTo" id="searchFieldTo" value="<%=session.getAttribute("searchKeyTo")%>" size="10" maxlength="10" onKeyDown="if(event.keyCode==13) searchButton()" class="inputSearchField">		
+		<input type="text" name="searchFieldTo" id="searchFieldTo" value="<%=session.getAttribute("searchKeyTo")%>" size="08" maxlength="08" onKeyDown="if(event.keyCode==13) searchButton()" class="inputSearchField">
+		<%=CalendarPopup.getCalendarPopupHTML("searchFieldTo", null)%>
+		
 		<div class="channelHeader channelHeaderTabSet">
 			<p><%=PropertyProvider.get("prm.personal.salary.tab.periods.title")%></p>
 		</div>
