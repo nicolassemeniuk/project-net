@@ -13,6 +13,11 @@ public class PersonSalaryBean extends PersonSalary implements Serializable, IXML
 	
 	protected User user = null;
 	
+	public PersonSalaryBean()
+	{
+		super();
+	}
+	
 	public PersonSalaryBean(PnPersonSalary personSalary) {
 		super(personSalary);
 	}
@@ -50,7 +55,4 @@ public class PersonSalaryBean extends PersonSalary implements Serializable, IXML
     	
     	return xml.toString();
 	}
-	
-	
-
 }
