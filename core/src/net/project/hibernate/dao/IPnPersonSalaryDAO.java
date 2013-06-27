@@ -48,4 +48,15 @@ public interface IPnPersonSalaryDAO extends IDAO<PnPersonSalary, PnPersonSalaryP
 	 */
 	public PnPersonSalaryList getPersonSalaries(Integer personId);
 
+	/**
+	 * Obtain the current salary for a person. This means that the salary
+	 * returned is the one valid for the current date. The future salaries in
+	 * the salary history are not taking in count.
+	 * 
+	 * @param personID
+	 *            the id of the person.
+	 * @return a person current salary.
+	 */
+	public PnPersonSalary getLastPersonSalaryByPersonId(Integer personId);
+
 }
