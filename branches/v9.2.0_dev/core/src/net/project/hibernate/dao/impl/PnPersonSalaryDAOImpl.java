@@ -77,6 +77,37 @@ public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPerso
 		return pnPersonSalary;
 
 	}
+	
+	@Override
+	public PnPersonSalary getLastPersonSalaryByPersonId(Integer personID) {
+		PnPersonSalary pnPersonSalary = null;
+
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+
+			DetachedCriteria maxDateQuery = DetachedCriteria.forClass(PnPersonSalary.class);
+			maxDateQuery.add(Restrictions.eq("personId", personID));
+			maxDateQuery.setProjection(Projections.max("startDate"));
+
+			Criteria criteria = session.createCriteria(PnPersonSalary.class);
+			criteria.add(Subqueries.propertyEq("startDate", maxDateQuery));
+			criteria.add(Restrictions.eq("personId", personID));
+			criteria.add(Restrictions.eq("recordStatus", "A"));
+
+			pnPersonSalary = (PnPersonSalary) criteria.uniqueResult();
+
+			// This should be erased, all persons should have a salary
+			if (pnPersonSalary == null) {
+				PnPersonSalaryPK pk = new PnPersonSalaryPK(0);
+				return pnPersonSalary = new PnPersonSalary(pk, personID, new Date(System.currentTimeMillis()), new Date(System.currentTimeMillis()), new Float(
+						"0.0"), "A");
+			}
+		} catch (HibernateException e) {
+			log.error(e.getMessage());
+		}
+		return pnPersonSalary;
+	}
 
 	@Override
 	public PnPersonSalary getPersonSalaryForDate(Integer personId, Date date) {
@@ -133,6 +164,8 @@ public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPerso
 		
 		return result;
 	}
+
+
 
 
 

@@ -7,16 +7,19 @@ import net.project.resource.PersonSalaryBean;
 import net.project.resource.PnPersonSalaryList;
 
 public interface IPnPersonSalaryService {
-	
+
 	/**
 	 * Get a person salary by personSalaryId
-	 * @param personSalaryId the id of the person salary object.
+	 * 
+	 * @param personSalaryId
+	 *            the id of the person salary object.
 	 * @return a person salary.
 	 */
 	public PnPersonSalary getPersonSalaryById(String personSalaryId);
 
 	/**
-	 * Save a new persons salary on the database.
+	 * Save a new persons salary on the database. Sets the last person salary end date as
+	 * one day before the start of this person salary.
 	 * 
 	 * @param personSalary
 	 *            a person salary. Must have a User for the creation of the
@@ -45,6 +48,16 @@ public interface IPnPersonSalaryService {
 	 * @return a person current salary.
 	 */
 	public PnPersonSalary getCurrentPersonSalaryByPersonId(Integer personId);
+
+	/**
+	 * Obtain the last salary for a person. This is the last salary for the
+	 * person, could be a future salary.
+	 * 
+	 * @param personId
+	 *            the id of the person.
+	 * @return a person last salary.
+	 */
+	public PnPersonSalary getLastPersonSalaryByPersonId(Integer personId);
 
 	/**
 	 * Obtain a person salary for a certain date.

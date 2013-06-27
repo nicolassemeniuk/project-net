@@ -35,7 +35,7 @@ public class PnPersonSalaryServiceImpl implements IPnPersonSalaryService {
 	@Override
 	public Integer savePersonSalary(PersonSalaryBean personSalary) {
 		//Obtain the last person salary to the date
-		PnPersonSalary lastPersonSalary = pnPersonSalaryDAO.getCurrentPersonSalaryByPersonId(Integer.valueOf(personSalary.getPersonId()));
+		PnPersonSalary lastPersonSalary = pnPersonSalaryDAO.getLastPersonSalaryByPersonId(Integer.valueOf(personSalary.getPersonId()));
 		
 		//Set the end date as 1 day before the new salary start date.
 		Date oldSalaryEndDate = personSalary.getStartDate();
@@ -86,6 +86,11 @@ public class PnPersonSalaryServiceImpl implements IPnPersonSalaryService {
 	@Override
 	public PnPersonSalary getPersonSalaryById(String personSalaryId) {
 		return this.pnPersonSalaryDAO.getPersonSalaryById(Integer.valueOf(personSalaryId));
+	}
+
+	@Override
+	public PnPersonSalary getLastPersonSalaryByPersonId(Integer personId) {
+		return this.pnPersonSalaryDAO.getLastPersonSalaryByPersonId(personId);
 	}
 
 
