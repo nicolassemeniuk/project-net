@@ -51,10 +51,9 @@
 	}
 
 	function create(){
-		/*
 		var theLocation = JSPRootURL + "/salary/CreateSalary.jsp?module=<%=Module.SALARY%>"+"&action=<%=Action.CREATE%>";
-		self.document.location = theLocation;
-		*/
+        var link_win = openwin_linker(theLocation);
+        link_win.focus();
 	}
 
 	function modify(){
