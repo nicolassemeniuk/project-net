@@ -47,6 +47,19 @@ public interface IPnPersonSalaryDAO extends IDAO<PnPersonSalary, PnPersonSalaryP
 	 * @return a list of all the salaries.
 	 */
 	public PnPersonSalaryList getPersonSalaries(Integer personId);
+	
+	/**
+	 * Returns the historic list of salaries for a person between two dates.
+	 * 
+	 * @param personId
+	 *            the id of the person.
+	 * @param startDate
+	 *            the start date of the interval. Can be null.
+	 * @param endDate
+	 *            the end date of the interval. Can be null.
+	 * @return a list of salaries.
+	 */
+	public PnPersonSalaryList getPersonSalaries(Integer personId, Date startDate, Date endDate);
 
 	/**
 	 * Obtain the current salary for a person. This means that the salary
@@ -58,5 +71,7 @@ public interface IPnPersonSalaryDAO extends IDAO<PnPersonSalary, PnPersonSalaryP
 	 * @return a person current salary.
 	 */
 	public PnPersonSalary getLastPersonSalaryByPersonId(Integer personId);
+
+
 
 }

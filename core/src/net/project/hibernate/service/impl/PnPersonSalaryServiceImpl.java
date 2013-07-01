@@ -31,6 +31,26 @@ public class PnPersonSalaryServiceImpl implements IPnPersonSalaryService {
 	public PnPersonSalary getCurrentPersonSalaryByPersonId(Integer personID) {		
 		return this.pnPersonSalaryDAO.getCurrentPersonSalaryByPersonId(personID);
 	}
+	
+	@Override
+	public Integer saveFirstPersonSalary(PersonSalaryBean personSalary) {
+		//Creates the new person salary
+		Integer personSalaryObjectId = objectService.saveObject(new PnObject(PnPersonSalary.OBJECT_TYPE, new Integer(personSalary.getUser().getID()), new Date(System
+				.currentTimeMillis()), "A"));
+		PnPersonSalaryPK personSalaryPk = new PnPersonSalaryPK(personSalaryObjectId);
+		
+		PnPersonSalary pnPersonSalary = new PnPersonSalary();
+		pnPersonSalary.setComp_id(personSalaryPk);
+		pnPersonSalary.setPersonId(Integer.valueOf(personSalary.getPersonId()));
+		pnPersonSalary.setStartDate(personSalary.getStartDate());
+		pnPersonSalary.setEndDate(null);
+		pnPersonSalary.setCostByHour(new Float(personSalary.getCostByHour()));
+		pnPersonSalary.setRecordStatus("A");
+		
+		PnPersonSalaryPK pk = this.pnPersonSalaryDAO.create(pnPersonSalary);
+		
+		return pk.getPersonSalaryId();
+	}
 
 	@Override
 	public Integer savePersonSalary(PersonSalaryBean personSalary) {
@@ -91,6 +111,11 @@ public class PnPersonSalaryServiceImpl implements IPnPersonSalaryService {
 	@Override
 	public PnPersonSalary getLastPersonSalaryByPersonId(Integer personId) {
 		return this.pnPersonSalaryDAO.getLastPersonSalaryByPersonId(personId);
+	}
+
+	@Override
+	public PnPersonSalaryList getPersonSalaries(String personId, Date startDate, Date endDate) {
+		return this.pnPersonSalaryDAO.getPersonSalaries(Integer.valueOf(personId), startDate, endDate);
 	}
 
 
