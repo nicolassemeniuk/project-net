@@ -18,8 +18,19 @@ public interface IPnPersonSalaryService {
 	public PnPersonSalary getPersonSalaryById(String personSalaryId);
 
 	/**
-	 * Save a new persons salary on the database. Sets the last person salary end date as
-	 * one day before the start of this person salary.
+	 * Save the first person salary on the database.
+	 * 
+	 * @param personSalary
+	 *            a person salary. Must have a User for the creation of the
+	 *            Object, an id of the person, cost by hour and a start date for
+	 *            the salary.
+	 * @return the Id of the new person salary created.
+	 */
+	public Integer saveFirstPersonSalary(PersonSalaryBean personSalary);
+
+	/**
+	 * Save a new persons salary on the database. Sets the last person salary
+	 * end date as one day before the start of this person salary.
 	 * 
 	 * @param personSalary
 	 *            a person salary. Must have a User for the creation of the
@@ -78,5 +89,18 @@ public interface IPnPersonSalaryService {
 	 * @return a list of all the salaries.
 	 */
 	public PnPersonSalaryList getPersonSalaries(String personId);
+
+	/**
+	 * Returns the historic list of salaries for a person between two dates.
+	 * 
+	 * @param personId
+	 *            the id of the person.
+	 * @param startDate
+	 *            the start date of the interval. Can be null.
+	 * @param endDate
+	 *            the end date of the interval. Can be null.
+	 * @return a list of salaries.
+	 */
+	public PnPersonSalaryList getPersonSalaries(String personId, Date startDate, Date endDate);
 
 }

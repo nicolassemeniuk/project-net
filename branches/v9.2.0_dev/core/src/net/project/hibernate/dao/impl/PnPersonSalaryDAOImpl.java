@@ -165,6 +165,30 @@ public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPerso
 		return result;
 	}
 
+	@Override
+	public PnPersonSalaryList getPersonSalaries(Integer personId, Date startDate, Date endDate) {
+		PnPersonSalaryList result = new PnPersonSalaryList();
+		
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+			Criteria criteria = session.createCriteria(PnPersonSalary.class);
+			criteria.add(Restrictions.eq("personId", personId));
+			criteria.add(Restrictions.eq("recordStatus", "A"));
+			if(startDate!=null)
+				criteria.add(Restrictions.ge("startDate", startDate));
+			if(endDate!=null)
+				criteria.add(Restrictions.le("endDate", endDate));
+			criteria.addOrder(Order.asc("startDate"));
+			result = new PnPersonSalaryList(criteria.list());
+			session.close();
+		} catch (Exception e) {
+			log.error("Error occurred while getting the list of salaries " + e.getMessage());
+		}
+		
+		return result;
+	}
+
 
 
 
