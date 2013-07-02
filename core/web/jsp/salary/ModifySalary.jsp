@@ -32,22 +32,22 @@
 %>
 <%@ include file="/base/taglibInclude.jsp" %>
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
+<jsp:useBean id="ownerUser" class="net.project.security.User" scope="session" />
 <jsp:useBean id="personSalaryBean" class="net.project.resource.PersonSalaryBean" scope="session" />
 
-<security:verifyAccess action="modify" module="<%=Module.SALARY%>" />
+<security:verifyAccess action="modify" module="<%= Module.SALARY %>" />
 
 <%
 	personSalaryBean.setPersonSalaryId(request.getParameter("id"));
-	personSalaryBean.setUser(user);
 	personSalaryBean.load();
 %>
 
 <template:getDoctype />
 <html>
 <head>
-<title><%=PropertyProvider.get("prm.personal.salarymodifypage.title")%></title>
+<title><%= PropertyProvider.get("prm.personal.salarymodifypage.title") %></title>
 
-<template:getSpaceCSS space="personal"/>
+<template:getSpaceCSS />
 <template:import type="javascript" src="/src/checkComponentForms.js" />
 <template:import type="javascript" src="/src/checkIsNumber.js" />
 <template:import type="javascript" src="/src/errorHandler.js" />
@@ -73,8 +73,8 @@
 	{
 		if(validate())
 		{
-			theForm.module.value = '<%=net.project.base.Module.SALARY%>';
-			theForm.action.value = '<%=Action.MODIFY%>';
+			theForm.module.value = '<%= net.project.base.Module.SALARY %>';
+			theForm.action.value = '<%= Action.MODIFY %>';
 			theForm.submit();
 		}
 	}
@@ -100,7 +100,7 @@
 
 <body class="main" onLoad="setup();">
 	<div class="wizardTitle">
-		<p class="pageTitle"><%=PropertyProvider.get("prm.personal.salary.modify.pagetitle")%></p>
+		<p class="pageTitle"><%= PropertyProvider.get("prm.personal.salary.modify.pagetitle") %></p>
 	</div>
 	<form method="post" action="ModifySalaryProcessing.jsp">
 		<input type="hidden" name="module">
@@ -108,27 +108,27 @@
 		<table class="compactTable">
 			<tr class="channelHeader">
 				<td class="channelHeader" width="1%">
-					<img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif">
+					<img src="<%= SessionManager.getJSPRootURL() %>/images/icons/channelbar-left_end.gif">
 				</td>
-				<td class="channelHeader"><%=PropertyProvider.get("prm.personal.salary.modify.channel.costbyhour.title")%></td>
-				<td class="channelHeader" width="5%">
-					<img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif">
+				<td class="channelHeader"><%= PropertyProvider.get("prm.personal.salary.modify.channel.costbyhour.title") %></td>
+				<td class="channelHeader" width="1%">
+					<img src="<%= SessionManager.getJSPRootURL() %>/images/icons/channelbar-right_end.gif">
 				</td>
 			</tr>
 		</table>
 
-		<p class="instructions wizardTitle"><%=PropertyProvider.get("prm.personal.salary.modify.channel.costbyhour.warning")%></p>
+		<p class="instructions wizardTitle"><%= PropertyProvider.get("prm.personal.salary.modify.channel.costbyhour.warning") %></p>
 
-		<label for="startDate" class="labelSearchField"><%=PropertyProvider.get("prm.personal.salary.modify.channel.costbyhour.dateFrom.label")%></label>
-		<input type="text" name="startDate" id="startDate" value="<%=SessionManager.getUser().getDateFormatter().formatDate(personSalaryBean.getStartDate())%>" size="08" maxlength="08" class="inputSearchField" disabled="disabled">
-		<%=CalendarPopup.getCalendarPopupHTML("startDate", null)%>
+		<label for="startDate" class="labelSearchField"><%= PropertyProvider.get("prm.personal.salary.modify.channel.costbyhour.dateFrom.label") %></label>
+		<input type="text" name="startDate" id="startDate" value="<%= ownerUser.getDateFormatter().formatDate(personSalaryBean.getStartDate()) %>" size="08" maxlength="08" class="inputSearchField" disabled="disabled">
+		<%= CalendarPopup.getCalendarPopupHTML("startDate", null) %>
 		
-		<label for="endDate" class="labelSearchField"><%=PropertyProvider.get("prm.personal.salary.modify.channel.costbyhour.dateTo.label")%></label>
-		<input type="text" name="endDate" id="endDate" value="<%=SessionManager.getUser().getDateFormatter().formatDate(personSalaryBean.getEndDate())%>" size="08" maxlength="08" class="inputSearchField" disabled="disabled">
-		<%=CalendarPopup.getCalendarPopupHTML("endDate", null)%>		
+		<label for="endDate" class="labelSearchField"><%= PropertyProvider.get("prm.personal.salary.modify.channel.costbyhour.dateTo.label") %></label>
+		<input type="text" name="endDate" id="endDate" value="<%= ownerUser.getDateFormatter().formatDate(personSalaryBean.getEndDate()) %>" size="08" maxlength="08" class="inputSearchField" disabled="disabled">
+		<%= CalendarPopup.getCalendarPopupHTML("endDate", null) %>		
 	
-		<label for="costByHour" class="labelSearchField"><%=PropertyProvider.get("prm.personal.salary.modify.channel.costbyhour.costbyhour.label")%></label>
-		<input type="text" name="costByHour" id="costByHour" value="<%=personSalaryBean.getCostByHour()%>" size="08" maxlength="08" class="inputSearchField">
+		<label for="costByHour" class="labelSearchField"><%= PropertyProvider.get("prm.personal.salary.modify.channel.costbyhour.costbyhour.label") %></label>
+		<input type="text" name="costByHour" id="costByHour" value="<%= personSalaryBean.getCostByHour() %>" size="08" maxlength="08" class="inputSearchField">
 	
 		<tb:toolbar style="action" showLabels="true">
 			<tb:band name="action">

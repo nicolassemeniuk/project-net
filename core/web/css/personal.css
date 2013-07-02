@@ -268,8 +268,14 @@ div#leftframe		{/*background-image: url('../images/personal/background-leftnav.g
 	height: 12px;
 }
 
+/* Styles for custom components */
+
 .UMTableBorder {
 	border:1px solid #F2B600;
+}
+
+.marginLeftFix
+{
 	margin-left: 4px;	
 }
 
@@ -305,7 +311,7 @@ div#leftframe		{/*background-image: url('../images/personal/background-leftnav.g
 	font-weight: bold;
 	height: 21px;	
 	color: #F2B600;
-	padding: 15px 5px;
+	padding: 15px 10px;
 }
 
 .inputSearchField
@@ -318,11 +324,4 @@ div#leftframe		{/*background-image: url('../images/personal/background-leftnav.g
 	padding-top: 3px;
 	padding-bottom: 3px;
 	padding-left: 7px;
-}
-
-.wizardTitle
-{
-	margin-top: 15px;
-	margin-bottom: 15px;
-	margin-left: 15px;
 }

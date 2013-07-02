@@ -83,8 +83,8 @@
 			<xsl:choose>	
 			<xsl:when test="$invitee_status_id != 'Deleted'">
 				<!-- a name="projectMember" href="{$translation[@name='JSPRootURL']}/roster/PersonalDirectoryView.htm?module=140&amp;memberid={person_id}"><xsl:value-of select="full_name"/></a -->
-				<a name="projectMember" href="{$translation[@name='JSPRootURL']}/blog/view/{person_id}/{person_id}/person/140?module=140"><xsl:value-of select="full_name"/></a>
-
+				<!-- <a name="projectMember" href="{$translation[@name='JSPRootURL']}/blog/view/{person_id}/{person_id}/person/140?module=140"><xsl:value-of select="full_name"/></a> -->
+				<a name="projectMember" href="{$translation[@name='JSPRootURL']}/salary/PersonalSalary.jsp?module=270&amp;user={person_id}"><xsl:value-of select="full_name"/></a>
 			</xsl:when>
 			<xsl:otherwise>
 				<i><xsl:value-of select="full_name"/></i>
