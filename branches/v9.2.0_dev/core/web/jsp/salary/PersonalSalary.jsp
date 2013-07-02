@@ -26,6 +26,7 @@
 <%@ include file="/base/taglibInclude.jsp"%>
 
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
+<jsp:useBean id="ownerUser" class="net.project.security.User" scope="session" />
 <jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
 <jsp:useBean id="personSalaryList" class="net.project.resource.PersonSalaryList" scope="session" />
 
@@ -35,10 +36,42 @@
 <title><display:get name="prm.global.application.title" /></title>
 
 <%-- Import CSS --%>
-<template:getSpaceCSS space="personal" />
+<template:getSpaceCSS />
 
 <%-- Import Javascript --%>
-<template:getSpaceJS space="personal" />
+<template:getSpaceJS  />
+
+<% 	
+String mode = request.getParameter("mode");
+ownerUser.setID(request.getParameter("user"));
+ownerUser.load();
+
+if(mode == null)
+{
+	session.setAttribute("searchKeyFrom", "");
+	session.setAttribute("searchKeyTo", "");
+	
+	if(!personSalaryList.getIsLoaded())
+	{
+		personSalaryList.setUser(ownerUser);
+		personSalaryList.load();		
+	}
+}
+else if(mode.equals("search"))
+{
+	// Don't refresh the personSalaryList if we are returning search results because the roster was reloaded in the processing
+	// TODO Agregar funcionalidad de busqueda
+}
+else if(mode.equals("edit"))
+{
+	session.setAttribute("searchKeyFrom", "");
+	session.setAttribute("searchKeyTo", "");
+	
+	personSalaryList.clear();	
+	personSalaryList.setUser(ownerUser);
+	personSalaryList.load();		
+}
+%>
 
 <script language="javascript">
 	var theForm;
@@ -51,7 +84,7 @@
 	}
 
 	function create(){
-		var theLocation = JSPRootURL + "/salary/CreateSalary.jsp?module=<%=Module.SALARY%>"+"&action=<%=Action.CREATE%>";
+		var theLocation = JSPRootURL + "/salary/CreateSalary.jsp?module=<%=Module.SALARY%>" + "&action=<%=Action.CREATE%>" + "&user=<%=ownerUser.getID()%>";
         var link_win = openwin_linker(theLocation);
         link_win.focus();
 	}
@@ -59,7 +92,7 @@
 	function modify(){
 		if (verifySelection(theForm, 'multiple', '<%=PropertyProvider.get("prm.global.javascript.verifyselection.noselection.error.message")%>'))
 		{ 
-			var theLocation = JSPRootURL+"/salary/ModifySalary.jsp?id=" + getSelection(theForm) + "&module=<%=Module.SALARY%>&action=<%=Action.MODIFY%>";
+			var theLocation = JSPRootURL+"/salary/ModifySalary.jsp?id=" + getSelection(theForm) + "&module=<%=Module.SALARY%>&action=<%=Action.MODIFY%>" + "&user=<%=ownerUser.getID()%>";
 	        var link_win = openwin_linker(theLocation);
 	        link_win.focus();			
 		}
@@ -75,35 +108,6 @@
 	}
 </script>
 </head>
-
-<% 	
-String mode = request.getParameter("mode");
-if(mode == null)
-{
-	session.setAttribute("searchKeyFrom", "");
-	session.setAttribute("searchKeyTo", "");
-	
-	if(!personSalaryList.getIsLoaded())
-	{
-		personSalaryList.setUser(user);
-		personSalaryList.load();		
-	}
-}
-else if(mode.equals("search"))
-{
-	// Don't refresh the personSalaryList if we are returning search results because the roster was reloaded in the processing
-	// TODO Agregar funcionalidad de busqueda
-}
-else if(mode.equals("edit"))
-{
-	session.setAttribute("searchKeyFrom", "");
-	session.setAttribute("searchKeyTo", "");
-	
-	personSalaryList.clear();	
-	personSalaryList.setUser(user);
-	personSalaryList.load();		
-}
-%>
 
 <body onLoad="setup();" class="main" id="bodyWithFixedAreasSupport">
 	<template:getSpaceMainMenu />
@@ -124,7 +128,7 @@ else if(mode.equals("edit"))
 		<tab:tab label='<%=PropertyProvider.get("prm.personal.salary.tab.salaryhistory.title")%>' href='<%=SessionManager.getJSPRootURL() + "/salary/PersonalSalary.jsp?module=" + Module.SALARY%>' selected="true" />
 	</tab:tabStrip>
 	
-	<div class="UMTableBorder">
+	<div class="UMTableBorder marginLeftFix">
 	<form method="post" action="<%=SessionManager.getJSPRootURL()%>/salary/PersonalSalaryProcessing.jsp">
 		<input type="hidden" name="theAction">
 		<input type="hidden" name="module" value="<%=Module.SALARY%>">

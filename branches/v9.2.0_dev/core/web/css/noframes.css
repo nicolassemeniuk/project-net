@@ -2115,3 +2115,10 @@ div#actionDiv {
 	border-collapse: separate;
 	border-spacing: 4px 0px;
 }
+
+.wizardTitle
+{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	margin-left: 15px;
+}

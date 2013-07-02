@@ -22,20 +22,21 @@
 <%@ include file="/base/taglibInclude.jsp"%>
 
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
+<jsp:useBean id="ownerUser" class="net.project.security.User" scope="session" />
 <jsp:useBean id="personSalaryBean" class="net.project.resource.PersonSalaryBean" scope="session" />
 
-<jsp:setProperty name="personSalaryBean" property="personId" value='<%= SessionManager.getUser().getID() %>' />
-<jsp:setProperty name="personSalaryBean" property="startDate" value='<%= SessionManager.getUser().getDateFormatter().parseDateString(request.getParameter("startDate")) %>' />
+<jsp:setProperty name="personSalaryBean" property="personId" value='<%= ownerUser.getID() %>' />
+<jsp:setProperty name="personSalaryBean" property="startDate" value='<%= ownerUser.getDateFormatter().parseDateString(request.getParameter("startDate")) %>' />
 <jsp:setProperty name="personSalaryBean" property="costByHour" />
-<jsp:setProperty name="personSalaryBean" property="user" value='<%= SessionManager.getUser() %>' />
+<jsp:setProperty name="personSalaryBean" property="user" value='<%= user %>' />
 
-<security:verifyAccess action="create" module="<%=Module.SALARY%>" />
+<security:verifyAccess action="create" module="<%= Module.SALARY %>" />
 
 <%
 	ServiceFactory.getInstance().getPnPersonSalaryService().savePersonSalary(personSalaryBean);	
 	
 	out.println("<script language=\"javascript\">");
-	out.println("opener.location='" + SessionManager.getJSPRootURL() + "/salary/PersonalSalary.jsp?module=" + Module.SALARY + "&id=" + personSalaryBean.getPersonSalaryId() + "&mode=edit';");
+	out.println("opener.location='" + SessionManager.getJSPRootURL() + "/salary/PersonalSalary.jsp?module=" + Module.SALARY + "&user=" + ownerUser.getID() + "&mode=edit';");
 	out.println("self.close();");
 	out.println("</script>");
 %>

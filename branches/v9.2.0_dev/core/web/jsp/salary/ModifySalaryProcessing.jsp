@@ -22,7 +22,10 @@
 
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
 <jsp:useBean id="personSalaryBean" class="net.project.resource.PersonSalaryBean" scope="session" />
+<jsp:useBean id="ownerUser" class="net.project.security.User" scope="session" />
+
 <jsp:setProperty name="personSalaryBean" property="*" />
+<jsp:setProperty name="personSalaryBean" property="user" value='<%= user %>' />
 
 <security:verifyAccess action="modify" module="<%=Module.SALARY%>" />
 
@@ -30,7 +33,7 @@
 	ServiceFactory.getInstance().getPnPersonSalaryService().updatePersonSalary(personSalaryBean);
 
 	out.println("<script language=\"javascript\">");
-	out.println("opener.location='" + SessionManager.getJSPRootURL() + "/salary/PersonalSalary.jsp?module=" + Module.SALARY + "&id=" + personSalaryBean.getPersonSalaryId() + "&mode=edit';");
+	out.println("opener.location='" + SessionManager.getJSPRootURL() + "/salary/PersonalSalary.jsp?module=" + Module.SALARY + "&user=" + ownerUser.getID() + "&mode=edit';");
 	out.println("self.close();");
 	out.println("</script>");	
 %>

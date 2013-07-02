@@ -113,6 +113,7 @@ insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.create.cha
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.create.channel.costbyhour.costbyhour.label','Cost By Hour','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.create.salaryamountrequired.message','The salary is a required value','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.create.salaryamountincorrect.message','The salary must be a positive value','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.create.startdaterequired.message','The start date is a required value','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.create.startdateincorrectformat.message','The start date is incorrect','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.create.startdateincorrectrange.message','The new start date cannot be previous to the last start date','A',0,1,null);
 
