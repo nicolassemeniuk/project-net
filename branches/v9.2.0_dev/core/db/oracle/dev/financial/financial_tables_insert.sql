@@ -82,6 +82,7 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.authoriza
 -- Salary - Personal - Salary history
 insert into PN_PROPERTY values (2000,'en','boolean','prm.personal.salary.isenabled','1','A',0,0,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.nav.salary','Salary','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.title','Salary','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.create.button.tooltip','New Salary','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.modify.button.tooltip','Modify Salary','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.tab.salaryhistory.title','Salary History','A',0,1,null);
@@ -116,6 +117,10 @@ insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.create.sal
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.create.startdaterequired.message','The start date is a required value','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.create.startdateincorrectformat.message','The start date is incorrect','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.create.startdateincorrectrange.message','The new start date cannot be previous to the last start date','A',0,1,null);
+
+-- Salary - Financial - Contact Info
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.tab.contactinfo.title','Contact Info','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.contactinfo.title','Contact Info','A',0,1,null);
 
 -- Setup
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.setup.isenabled','1','A',0,0,null);

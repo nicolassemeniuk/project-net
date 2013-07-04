@@ -22,7 +22,8 @@
             net.project.base.Module,
             net.project.resource.PersonSalaryList,
 			net.project.hibernate.service.ServiceFactory,
-			net.project.gui.calendar.CalendarPopup"%>
+			net.project.gui.calendar.CalendarPopup,
+			net.project.space.Space"%>
 <%@ include file="/base/taglibInclude.jsp"%>
 
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
@@ -112,10 +113,8 @@ else if(mode.equals("edit"))
 <body onLoad="setup();" class="main" id="bodyWithFixedAreasSupport">
 	<template:getSpaceMainMenu />
 	<template:getSpaceNavBar />
-	<tb:toolbar style="tooltitle" showAll="true" groupTitle="Salary">
-		<tb:setAttribute name="leftTitle">
-			<history:history />
-		</tb:setAttribute>
+	<tb:toolbar style="tooltitle" showAll="true" groupTitle="prm.personal.salary.title" 
+				subTitle="<%= user.getDisplayName() %>" >
 		<tb:band name="standard">
 			<tb:button type="create" label='<%= PropertyProvider.get("prm.personal.salary.create.button.tooltip")%>' />
 			<tb:button type="modify" label='<%= PropertyProvider.get("prm.personal.salary.modify.button.tooltip")%>' />
@@ -125,7 +124,10 @@ else if(mode.equals("edit"))
 <div id='content' style="padding-top:20px;width:40%">
 
 	<tab:tabStrip tabPresentation="true">
-		<tab:tab label='<%=PropertyProvider.get("prm.personal.salary.tab.salaryhistory.title")%>' href='<%=SessionManager.getJSPRootURL() + "/salary/PersonalSalary.jsp?module=" + Module.SALARY%>' selected="true" />
+		<tab:tab label='<%=PropertyProvider.get("prm.personal.salary.tab.salaryhistory.title")%>' href='<%=SessionManager.getJSPRootURL() + "/salary/PersonalSalary.jsp?module=" + Module.SALARY + "&user=" + ownerUser.getID()%>' selected="true" />
+		<%if(SessionManager.getUser().getCurrentSpace().getType().equals(Space.FINANCIAL_SPACE)){%>
+			<tab:tab label='<%=PropertyProvider.get("prm.financial.salary.tab.contactinfo.title")%>' href='<%=SessionManager.getJSPRootURL() + "/salary/ContactInfo.jsp?module=" + Module.SALARY%>' />
+		<%}%>
 	</tab:tabStrip>
 	
 	<div class="UMTableBorder marginLeftFix">
