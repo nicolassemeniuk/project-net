@@ -885,6 +885,11 @@
         <taglib-location>/WEB-INF/taglibs/dropDownTags.tld</taglib-location>
     </taglib>
     
+	<taglib>
+	  <taglib-uri>unstandard</taglib-uri>
+	  <taglib-location>/WEB-INF/taglibs/unstandardTags.tld</taglib-location>
+	</taglib>
+    
     <resource-ref>
         <description>Default data source</description>
         <!-- jdbc/PnetDB is name of pool; used when looking up data source -->
