@@ -122,6 +122,12 @@ insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.create.sta
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.tab.contactinfo.title','Contact Info','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.contactinfo.title','Contact Info','A',0,1,null);
 
+-- Salary - Registration
+insert into PN_PROPERTY values (2000,'en','text','prm.global.registration.financial.header','Your Salary Information','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.global.registration.financial.salary','Cost By Hour','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.registration.userprofile.salaryamountrequired.message','The salary is a required value','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.registration.userprofile.salaryamountincorrect.message','The salary must be a positive value','A',0,1,null);
+
 -- Setup
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.setup.isenabled','1','A',0,0,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.nav.setup','Setup','A',0,1,null);

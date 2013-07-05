@@ -114,7 +114,9 @@
             if (!checkDropdown(frm.localeCode,'<%=PropertyProvider.get("prm.registration.userprofile.localerequired.message")%>')) return false;
             if (!checkDropdown_NoSelect(frm.languageCode, 'Language is a required field')) return false;
             if (!checkPhoneNo(frm.ecom_ShipTo_Telecom_Phone_Number, '<%=PropertyProvider.get("prm.registration.userprofile.invalidphoneno.message")%>')) return false;
-            
+            if (!checkTextbox(frm.costByHour, '<%=PropertyProvider.get("prm.registration.userprofile.salaryamountrequired.message")%>')) return false;
+    		if (!checkIsPositiveNumber(frm.costByHour,'<%=PropertyProvider.get("prm.registration.userprofile.salaryamountincorrect.message")%>')) return false;
+                        
 			/*if (!checkDropdown(frm.dateFormatID,"Date Format is a required field")) return false;
 			if (!checkDropdown(frm.timeFormatID,"Time Format is a required field")) return false;
             */			
@@ -423,6 +425,21 @@ if (errorMessage != null ) {
           </tr>
           <tr>
             <td nowrap colspan="4">&nbsp;</td>
+          </tr>
+
+	<tr class="actionBar">
+		<td width="1%"><img src="<%= SessionManager.getJSPRootURL() %>/images/icons/actionbar-left_end.gif" width=8 height=27 alt="" border=0></td>
+		<td colspan="2" valign="middle" class="ActionBar"><display:get name="prm.global.registration.financial.header" /></td>		
+		<td width="1%" align=right><img src="<%= SessionManager.getJSPRootURL() %>/images/icons/actionbar-right_end.gif" width=8 height=27 alt="" border=0></td>
+	</tr>
+		  <tr>
+            <td nowrap>&nbsp;</td>
+            <td align="right" nowrap class="fieldRequired"><display:get name="prm.global.registration.financial.salary" />:&nbsp;&nbsp;</td>
+
+            <td nowrap> 
+              <input type="text" name="costByHour" size="40" maxlength="80" value='<c:out value="${registration.salary.costByHour}" />'>
+             </td>
+             <td nowrap>&nbsp;</td>
           </tr>
 
      <%-- ************************** LOCALIZATION PREFERENCES ***************************************** --%>
