@@ -22,10 +22,14 @@
             net.project.util.Validator,
             net.project.license.create.LicenseSelectionType,
             net.project.security.SessionManager,
-            net.project.license.system.LicenseProperties"
+            net.project.license.system.LicenseProperties,
+            net.project.hibernate.service.ServiceFactory,
+            net.project.resource.PersonSalaryBean,
+            java.util.Date"
 %>
 <%@ include file="/base/taglibInclude.jsp" %>
 <jsp:useBean id="registration" class="net.project.admin.RegistrationBean" scope="session" />
+<jsp:useBean id="personSalaryBean" class="net.project.resource.PersonSalaryBean" scope="session" />
 
 <%
     // Redirect to start of process if registration not started
@@ -66,6 +70,14 @@
                 result = registration.completeRegistration(licenseProps);
 
         		if (result.isSuccess()) {
+        	%>		
+        			<jsp:setProperty name="personSalaryBean" property="personId" value='<%= registration.getID() %>' />
+        			<jsp:setProperty name="personSalaryBean" property="startDate" value='<%= new Date() %>' />
+        			<jsp:setProperty name="personSalaryBean" property="costByHour" />
+        			<jsp:setProperty name="personSalaryBean" property="user" value='<%= registration %>' />        			
+        	<%
+            		// Save the first person salary
+        			ServiceFactory.getInstance().getPnPersonSalaryService().saveFirstPersonSalary(personSalaryBean);	
                     // Go to Verification Code controller to determine
                     // whether the user needs to verify
                     pageContext.forward("/registration/VerifyRegistrationController.jsp");
