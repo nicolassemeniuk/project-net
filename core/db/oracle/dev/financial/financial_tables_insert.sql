@@ -36,6 +36,12 @@ insert into PN_PROPERTY values (2000,'en','css','prm.global.css.financial','/sty
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.financialportfolio.title','Business List','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.financialportfolio.channel.memberof.title', 'Business finances you have access to','A',0,1,null);
 
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.financialportfolio.financial.label','Business','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.financialportfolio.totalactualcost.label','Total Actual Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.financialportfolio.totalestimatedcost.label','Total Estimated Current Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.financialportfolio.totalbudgetedcost.label','Total Budgeted Cost','A',0,1,null);
+
+
 -- Module
 insert into PN_MODULE values (175,'financial_space','@prm.financialspace.module.description', 1, null);
 insert into PN_PROPERTY values (2000,'en','text','prm.finacialsspace.module.description','Financial Workspace','A',0,1,null);
@@ -60,7 +66,7 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.goto.t
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.goto.reports.label','Reports','A',0,1,null);
 
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.channel.title','Projects','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.noprojects.label','There are no projects on this business','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.noprojects.label','There are no projects on the related business','A',0,1,null);
 
 -- Directory
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.directory.isenabled','1','A',0,0,null);

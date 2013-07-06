@@ -46,7 +46,7 @@
 		space.load();
 		
 		//Load the financial related space
-		Space relatedSpace = SpaceFactory.constructSpaceFromID(request.getParameter(space.getRelatedSpaceID()));
+		Space relatedSpace = SpaceFactory.constructSpaceFromID(space.getRelatedSpaceID());
 		relatedSpace.load();
 		
 		isBusinessDeleteEnabled = space.isUserSpaceAdministrator(user) ;

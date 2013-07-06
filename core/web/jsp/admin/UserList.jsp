@@ -25,7 +25,7 @@
             net.project.security.SecurityProvider,
             net.project.security.SessionManager,
             net.project.security.User,
-	    net.project.resource.PersonListBean,
+	    	net.project.resource.PersonListBean,
             net.project.xml.XMLFormatter"
   %>
 <%@ include file="/base/taglibInclude.jsp" %>

@@ -51,8 +51,9 @@ if(request.getParameter("theAction").equals("remove")){
 	space.load();
 	FinancialSpace financialSpace = new FinancialSpace();
 	financialSpace.setID(space.getRelatedSpaceID());
-	space.remove();
 	financialSpace.remove();
+	space.remove();
+
 }
 if(request.getParameter("theAction").equals("active")){
 	BusinessSpace space = new BusinessSpace();
@@ -60,8 +61,9 @@ if(request.getParameter("theAction").equals("active")){
 	space.load();
 	FinancialSpace financialSpace = new FinancialSpace();
 	financialSpace.setID(space.getRelatedSpaceID());
-	space.activate();
 	financialSpace.activate();
+	space.activate();
+
 }
 
 response.sendRedirect(SessionManager.getJSPRootURL()+"/admin/workspace/WorkSpace.jsp?module=" + net.project.base.Module.APPLICATION_SPACE + "&action=" + net.project.security.Action.MODIFY + "&status="+status+"&filter="+filter +"&spaceType="+spaceType);
