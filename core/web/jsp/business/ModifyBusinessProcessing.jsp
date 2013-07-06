@@ -95,7 +95,8 @@
 		}
 		//end of bfd-2994 issue
 
-		// Store the changes to the business space.
+		financialSpace.setDescription(businessSpace.getDescription());
+		financialSpace.setName(businessSpace.getName());
 
 		//Did de user set a parent space?
 		if (businessSpace.getParentSpaceID() != null) {
@@ -128,6 +129,7 @@
 
 		}
 
+		//Store all.
 		financialSpace.store();
 		businessSpace.store();
 		
