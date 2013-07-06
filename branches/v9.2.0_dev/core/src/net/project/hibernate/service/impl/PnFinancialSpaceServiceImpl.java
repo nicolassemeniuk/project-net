@@ -64,7 +64,7 @@ public class PnFinancialSpaceServiceImpl implements IPnFinancialSpaceService {
 
 	@Override
 	public void disableFinancialSpace(String financialSpaceId) {
-		PnFinancialSpace financialSpace = this.pnFinancialSpaceDAO.getFinancialSpaceById(Integer.valueOf(financialSpaceId));
+		PnFinancialSpace financialSpace = this.pnFinancialSpaceDAO.getFinancialSpaceByIdAnyStatus(Integer.valueOf(financialSpaceId));
 		financialSpace.setRecordStatus("D");
 		this.pnFinancialSpaceDAO.update(financialSpace);
 
@@ -90,7 +90,7 @@ public class PnFinancialSpaceServiceImpl implements IPnFinancialSpaceService {
 
 	@Override
 	public void activateFinancialSpace(String financialSpaceId) {
-		PnFinancialSpace financialSpace = this.pnFinancialSpaceDAO.getFinancialSpaceById(Integer.valueOf(financialSpaceId));
+		PnFinancialSpace financialSpace = this.pnFinancialSpaceDAO.getFinancialSpaceByIdAnyStatus(Integer.valueOf(financialSpaceId));
 		financialSpace.setRecordStatus("A");
 		this.pnFinancialSpaceDAO.update(financialSpace);
 

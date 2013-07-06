@@ -40,6 +40,22 @@ public class PnFinancialSpaceDAOImpl extends AbstractHibernateAnnotatedDAO<PnFin
 		}
 		return null;
 	}
+	
+	@Override
+	public PnFinancialSpace getFinancialSpaceByIdAnyStatus(Integer financialSpaceId) {
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+			Criteria criteria = session.createCriteria(PnFinancialSpace.class);
+			criteria.add(Restrictions.eq("financialSpaceId", financialSpaceId));
+			PnFinancialSpace pnFinancialSpace = (PnFinancialSpace) criteria.uniqueResult();
+			session.close();
+			return pnFinancialSpace;
+		} catch (Exception e) {
+			log.error("Error occurred while getting financial space by id " + e.getMessage());
+		}
+		return null;
+	}
 
 	@Override
 	public PnFinancialSpaceList getFinancialSpacesByIds(ArrayList<Integer> additionalSpaceIDCollection) {
@@ -57,6 +73,8 @@ public class PnFinancialSpaceDAOImpl extends AbstractHibernateAnnotatedDAO<PnFin
 		}
 		return result;
 	}
+
+
 
 	
 	

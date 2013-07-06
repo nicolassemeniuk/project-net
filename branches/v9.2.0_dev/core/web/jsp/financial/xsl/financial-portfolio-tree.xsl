@@ -19,11 +19,10 @@
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr align="left" class="tableHeader">
 	<td class="tableHeader" width="1%"><xsl:text disable-output-escaping="yes"></xsl:text></td>
-        <td class="tableHeader" colspan="{$colspan}"><xsl:value-of select="display:get('prm.business.businessportfolio.business.label')" /></td>
-        <td class="tableHeader"><xsl:value-of select="display:get('prm.business.businessportfolio.businesstype.label')" /></td>
-        <td class="tableHeader"><xsl:value-of select="display:get('prm.business.businessportfolio.projects.label')" /></td>
-        <td class="tableHeader"><xsl:value-of select="display:get('prm.business.businessportfolio.people.label')" /></td>
-        <td class="tableHeader"><xsl:value-of select="display:get('prm.business.businessportfolio.people.label')" /></td>
+        <td class="tableHeader" colspan="{$colspan}"><xsl:value-of select="display:get('prm.financial.financialportfolio.financial.label')" /></td>
+        <td class="tableHeader"><xsl:value-of select="display:get('prm.financial.financialportfolio.totalactualcost.label')" /></td>
+        <td class="tableHeader"><xsl:value-of select="display:get('prm.financial.financialportfolio.totalestimatedcost.label')" /></td>
+        <td class="tableHeader"><xsl:value-of select="display:get('prm.financial.financialportfolio.totalbudgetedcost.label')" /></td>
     </tr>
     <tr class="tableLine">
         <td colspan="{$numCols}" class="tableLine"><img src="../images/spacers/trans.gif" width="1" height="2" border="0"/></td>
@@ -88,10 +87,17 @@
             </xsl:otherwise>
         </xsl:choose>
     </td>
-    <td class="tableContent" align="left"><xsl:value-of select="description"/></td>
+    <xsl:choose>
+    <xsl:when test="../IsMember = 1">
     <td class="tableContent" align="left"><xsl:value-of select="format:formatNumber(totalActualCostToDate)"/></td>
     <td class="tableContent" align="left"><xsl:value-of select="format:formatNumber(totalEstimatedCurrentCost)"/></td>
     <td class="tableContent" align="left"><xsl:value-of select="format:formatNumber(totalBudgetedCost)"/></td>
+	</xsl:when>
+	
+            <xsl:otherwise>
+                
+            </xsl:otherwise>
+        </xsl:choose>
 </tr>
 <tr class="tableLine">
     <td colspan="{$numCols}">

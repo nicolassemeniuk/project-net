@@ -33,7 +33,7 @@
 			net.project.space.Space,
 			net.project.base.Module,
 			net.project.configuration.ConfigurationSpace,
-			net.project.base.property.PropertyManager,
+			net.project.base.property.PropertyProvider,
 			net.project.security.SessionManager" 
 %>
 
