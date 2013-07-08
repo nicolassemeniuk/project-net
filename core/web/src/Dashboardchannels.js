@@ -22,6 +22,7 @@
 	var PROJECT_SPACE_TEAMMATES = "ProjectSpace_TeamMembers_";
 	var PROJECT_SPACE_MATERIALS = "ProjectSpace_Materials_";	
 	var PROJECT_SPACE_PIE_CHART = "ProjectSpace_PieChart_";
+	var PROJECT_SPACE_FINANCIAL_CHART = "ProjectSpace_FinancialChart_";	
 	var PROJECT_SPACE_PROJECT_COMPLETION = "ProjectSpace_ProjectCompletion_";
 	
 	// checking project news state
@@ -82,6 +83,14 @@
 	}else{
 		maximize('PieChartContent','PieChartImg','PieChartLink',PROJECT_SPACE_PIE_CHART);
 	}
+	
+	//checking FinancialChart state
+	
+	if( projectFinancialChartState ){
+		minimize('FinancialChartContent','FinancialChartImg','FinancialChartLink',PROJECT_SPACE_FINANCIAL_CHART);
+	}else{
+		maximize('FinancialChartContent','FinancialChartImg','FinancialChartLink',PROJECT_SPACE_FINANCIAL_CHART);
+	}	
 	
 	if( projectCompletionState ){
 		minimize('ProjectCompletionContent','ProjectCompletionImg','ProjectCompletionLink',PROJECT_SPACE_PROJECT_COMPLETION);
@@ -161,6 +170,15 @@
 				closeWidget('PieChartWidget','PieChartCloseImg','PieChartCloseLink',PROJECT_SPACE_PIE_CHART);
 			}
 		}
+		else if( context==PROJECT_SPACE_FINANCIAL_CHART ){
+			if( value == 1 ){
+				minimize('FinancialChartContent','FinancialChartImg','FinancialChartLink',PROJECT_SPACE_FINANCIAL_CHART);
+			}else if( value == 0){
+				maximize('FinancialChartContent','FinancialChartImg','FinancialChartLink',PROJECT_SPACE_FINANCIAL_CHART);
+			}else if( value == 2){
+				closeWidget('FinancialChartWidget','FinancialChartCloseImg','FinancialChartCloseLink',PROJECT_SPACE_FINANCIAL_CHART);
+			}
+		}		
 		else if( context==PROJECT_SPACE_PROJECT_COMPLETION ){
 			if( value == 1 ){
 				minimize('ProjectCompletionContent','ProjectCompletionImg','ProjectCompletionLink',PROJECT_SPACE_PROJECT_COMPLETION);

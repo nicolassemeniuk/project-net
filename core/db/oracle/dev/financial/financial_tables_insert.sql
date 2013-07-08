@@ -147,3 +147,14 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.setup.securityse
 
 --Completed Task Percentage
 insert into PN_PROPERTY values (2000,'en','text','prm.global.taskcompletedpercentage','100','A',0,0,null);
+
+-- Project Dashboard
+insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.financialchart.channel.title','Project Financial','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.legend.actualcosttodate.name','Actual Cost To Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.legend.currentestimatedtotalcost.name','Current Estimated Total Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.legend.budgetedtotalcost.name','Budgeted Total Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','largetext','prm.project.dashboard.chart.totalcostchart.errors.nochartwithoutcosts.message','Cannot produce chart unless projects are present with budgeted and actual cost values.','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.yaxis.label.name','Budget (in thousands)','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.yaxis.font.name','Arial','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.yaxis.font.size','12','A',0,1,null);
+

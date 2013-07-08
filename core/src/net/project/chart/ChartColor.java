@@ -40,6 +40,7 @@ public class ChartColor {
     public static Color LIGHT_GREEN = new Color(0x7f, 0xff, 0x7f);
     public static Color LIGHT_BLUE = new Color(0xcb, 0xd6, 0xff);
     public static Color CREAM = new Color(0xff, 0xfb, 0xce);
+    public static Color DARK_BLUE = new Color(0x00, 0x00, 0xC0);    
     public static Color CYAN = Color.CYAN;
     public static Color MAGENTA = Color.MAGENTA;
     public static Color ORANGE = Color.ORANGE;
@@ -58,6 +59,7 @@ public class ChartColor {
         chartColors.add(LIGHT_GREEN);
         chartColors.add(LIGHT_BLUE);
         chartColors.add(CREAM);
+        chartColors.add(DARK_BLUE);           
         chartColors.add(PURPLE);
         chartColors.add(GRAY);
         chartColors.add(DARK_GRAY);
