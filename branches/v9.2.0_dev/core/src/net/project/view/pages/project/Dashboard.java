@@ -307,6 +307,8 @@ public class Dashboard extends BasePage {
 	
 	private boolean projectPieChartState;
 	
+	private boolean projectFinancialChartState;	
+	
 	private boolean projectCompletionState;
 	
 	private Integer spaceId;
@@ -336,6 +338,8 @@ public class Dashboard extends BasePage {
 	private final String CHANNEL_PROPERTY_CONTEXT = "net.project.channel.";
 	
 	private final String PROJECT_SPACE_PIE_CHART = "ProjectSpace_PieChart_";
+	
+	private final String PROJECT_SPACE_FINANCIAL_CHART = "ProjectSpace_FinancialChart_";	
 	
 	private final String PROJECT_SPACE_PROJECT_COMPLETION = "ProjectSpace_ProjectCompletion_";
 	
@@ -376,6 +380,8 @@ public class Dashboard extends BasePage {
 	private boolean subProjectCloseState;
 
 	private boolean pieChartCloseState;
+	
+	private boolean financialChartCloseState;	
 
 	private boolean projectCompletionCloseState;
 
@@ -394,6 +400,8 @@ public class Dashboard extends BasePage {
 	private final String PROJECT_CHANGES_TITLE = "Last Changes Within 5 Days";
 
 	private final String BAR_CHART_TITLE = "Bar Chart";
+	
+	private final String FINANCIAL_CHART_TITLE = "Project Financial";	
 
 	private final String PROJECT_COMPLETION_TITLE = "Project Completion";
 	
@@ -978,6 +986,10 @@ public class Dashboard extends BasePage {
 				projectPieChartState = pnPersonProperty.getComp_id().getValue().equals(State.MINIMIZED.getID());
 				pieChartCloseState = pnPersonProperty.getComp_id().getValue().equals(State.CLOSED.getID());
 			}
+			if (pnPersonProperty.getComp_id().getContext().equals(CHANNEL_PROPERTY_CONTEXT + PROJECT_SPACE_FINANCIAL_CHART + spaceName)) {
+				projectFinancialChartState = pnPersonProperty.getComp_id().getValue().equals(State.MINIMIZED.getID());
+				financialChartCloseState = pnPersonProperty.getComp_id().getValue().equals(State.CLOSED.getID());
+			}			
 			if (pnPersonProperty.getComp_id().getContext().equals(CHANNEL_PROPERTY_CONTEXT + PROJECT_SPACE_PROJECT_COMPLETION + spaceName)){
 				projectCompletionState = pnPersonProperty.getComp_id().getValue().equals(State.MINIMIZED.getID());
 				projectCompletionCloseState = pnPersonProperty.getComp_id().getValue().equals(State.CLOSED.getID());
@@ -1064,6 +1076,7 @@ public class Dashboard extends BasePage {
 	
 	            // Need to add id and name of every widget
 	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_PIE_CHART+ projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(BAR_CHART_TITLE, SessionManager.getCharacterEncoding()));
+	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_FINANCIAL_CHART+ projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(FINANCIAL_CHART_TITLE, SessionManager.getCharacterEncoding()));
 	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_PROJECT_COMPLETION + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(PROJECT_COMPLETION_TITLE, SessionManager.getCharacterEncoding()));
 	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_PHASES + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(PHASES_TITLE, SessionManager.getCharacterEncoding()));
 	            url.append("&name=").append(URLEncoder.encode(PROJECT_SPACE_SUBPROJECTS + projectSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(SUBPROJECTS_TITLE, SessionManager.getCharacterEncoding()));
@@ -1657,6 +1670,11 @@ public class Dashboard extends BasePage {
 	public boolean isProjectDetailState() {
 		return projectDetailState;
 	}
+	
+	public boolean isProjectFinancialChartState()
+	{
+		return projectFinancialChartState;
+	}
 
 	public Integer getTotalEntriesCount() {
 		return totalEntriesCount;
@@ -1740,6 +1758,11 @@ public class Dashboard extends BasePage {
 
 	public boolean getPieChartCloseState() {
 		return pieChartCloseState;
+	}
+
+	public boolean getFinancialChartCloseState()
+	{
+		return financialChartCloseState;
 	}
 
 	public boolean getProjectCompletionCloseState() {

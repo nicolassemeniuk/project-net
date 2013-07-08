@@ -31,6 +31,7 @@ import net.project.form.report.formitemsummaryreport.FormItemSummaryReportChart;
 import net.project.form.report.formitemtimeseries.FormItemTimeSeriesStackedBarChart;
 import net.project.portfolio.chart.PortfolioBudgetChart;
 import net.project.portfolio.chart.PortfolioStatusChart;
+import net.project.portfolio.chart.ProjectTotalCostChart;
 import net.project.schedule.report.latetaskreport.LateTaskChart;
 import net.project.schedule.report.taskscomingdue.TasksComingDueChart;
 
@@ -59,6 +60,8 @@ public class ChartType {
     public static ChartType PORTFOLIO_BUDGET_CHART = new ChartType("pbc", PortfolioBudgetChart.class);
     /** Chart for the status of project in the Personal Portfolio. */
     public static ChartType PORTFOLIO_STATUS_CHART = new ChartType("psc", PortfolioStatusChart.class);
+    /** Chart for the total costs of project in the Project Dashboard. */
+    public static ChartType PROJECT_TOTAL_COST_CHART = new ChartType("ptcc", ProjectTotalCostChart.class);    
 
     /**
      * Given a string value that the user received with {@link #getID}, find the
