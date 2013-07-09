@@ -105,6 +105,40 @@
 			</td>  <!-- End of left column -->
 			<td width="1%"></td> <!-- Space in between two columns -->
 			<td valign="top" width="48%"> <!-- Start of right Column -->
+				<t:if test="projectTotalCostsChartCloseState">
+					<t:parameter name="else">
+					<!--PORTAL BLOCK-->		
+					<div id="ProjectTotalCostsChartWidget" class="portal-financial-flex-block">
+						<div class="block-heading">
+							<div class="block-heading-end">
+								<table cellspacing="0" cellpadding="0" width="100%">
+									<tr>
+										<td width="92%">
+											<div class="heading"><t:Message value="prm.financial.dashboard.projecttotalcostschart.channel.title" /></div>
+										</td>
+										<td class="channel-heading-end-financial">
+											<span><a id="ProjectTotalCostsChartLink"><img id="ProjectTotalCostsChartImg" src="${jspRootURL}/images/financial/dashboard_arrow-up.gif" title="${upTitle}" border="0" /></a>&nbsp;</span>
+											<span><a id="ProjectTotalCostsChartCloseLink" href="javascript:saveState('FinancialSpace_ProjectTotalCostsChart_','2');"><img id="ProjectTotalCostsChartCloseImg" src="${jspRootURL}/images/financial/dashboard_close.gif" title="${closeTitle}" border="0" /></a></span>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div>
+					
+						<!--block-heading end -->
+						<div id="ProjectTotalCostsChartContent" class="block-content row-content">
+							<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content">
+				  				<tr>
+								    <td width="305">
+										<img src="${JSPRootURL}/servlet/ChartingServlet?chartType=ftcc" />
+									</td>
+								</tr>
+							</table>
+						</div> <!--block-content end -->
+					</div> <!--portal-project-flex-block class end -->
+					<!--END of PORTAL BLOCK -->
+				</t:parameter>
+			</t:if>				
 			</td>
 			</tr>
 		</table> <!-- End of Inner Table with left and right column -->
@@ -119,8 +153,10 @@
 	
 	//Getting Channel State
 	var projectsState = ${projectsState};
+	var projectTotalCostsChartState = ${projectTotalCostsChartState};
 	
-	var projectsCloseState = ${projectsCloseState};
+	var projectCloseState = ${projectsCloseState};
+	var projectTotalCostsChartCloseState = ${projectTotalCostsChartCloseState};
 
 	function personalizePage(customizePageLink)
 	{

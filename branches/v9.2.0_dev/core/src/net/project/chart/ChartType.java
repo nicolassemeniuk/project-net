@@ -27,11 +27,12 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import net.project.base.property.PropertyProvider;
+import net.project.financial.FinancialTotalCostChart;
 import net.project.form.report.formitemsummaryreport.FormItemSummaryReportChart;
 import net.project.form.report.formitemtimeseries.FormItemTimeSeriesStackedBarChart;
 import net.project.portfolio.chart.PortfolioBudgetChart;
 import net.project.portfolio.chart.PortfolioStatusChart;
-import net.project.portfolio.chart.ProjectTotalCostChart;
+import net.project.project.ProjectTotalCostChart;
 import net.project.schedule.report.latetaskreport.LateTaskChart;
 import net.project.schedule.report.taskscomingdue.TasksComingDueChart;
 
@@ -60,9 +61,11 @@ public class ChartType {
     public static ChartType PORTFOLIO_BUDGET_CHART = new ChartType("pbc", PortfolioBudgetChart.class);
     /** Chart for the status of project in the Personal Portfolio. */
     public static ChartType PORTFOLIO_STATUS_CHART = new ChartType("psc", PortfolioStatusChart.class);
-    /** Chart for the total costs of project in the Project Dashboard. */
+    /** Chart for the project total costs of project in the Project Dashboard. */
     public static ChartType PROJECT_TOTAL_COST_CHART = new ChartType("ptcc", ProjectTotalCostChart.class);    
-
+    /** Chart for the project total costs of financial space in the Financial Dashboard. */
+    public static ChartType FINANCIAL_TOTAL_COST_CHART = new ChartType("ftcc", FinancialTotalCostChart.class); 
+        
     /**
      * Given a string value that the user received with {@link #getID}, find the
      * <code>ChartType</code> instance that matches that string identifier.

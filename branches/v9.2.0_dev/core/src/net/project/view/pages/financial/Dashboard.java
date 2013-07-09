@@ -64,6 +64,9 @@ public class Dashboard extends BasePage
 	
 	private String financialName;
 	
+	@Persist
+	private String financialId;		
+	
 	private String logoUrl;
 	
 	private boolean financialLogo;
@@ -86,10 +89,15 @@ public class Dashboard extends BasePage
 	
 	private String downTitle;
 	
-	// Projects channel	
+	// Channel states
 	private boolean projectsState;	
+
+	private boolean projectTotalCostsChartState;	
 	
-	private boolean projectsCloseState;	
+	// Channel close state
+	private boolean projectsCloseState;
+	
+	private boolean projectTotalCostsChartCloseState;
 
 	// Context initialization
 	@Persist
@@ -103,23 +111,17 @@ public class Dashboard extends BasePage
 	
 	private final String CHANNEL_PROPERTY_CONTEXT = "net.project.channel.";
 	
-	private final String FINANCIAL_SPACE_PROJECTS = "FinancialSpace_Projects_";	
+	private final String FINANCIAL_SPACE_PROJECTS = "FinancialSpace_Projects_";
 	
-	private final String FINANCIAL_SPACE_PROJECTS_TITLE = "Projects";	
+	private final String FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART = "FinancialSpace_ProjectTotalCostsChart_";	
+		
+	// Titles for channels 
+	private final String FINANCIAL_SPACE_PROJECTS_TITLE = "Projects";
 	
-	@Persist
-	private String financialId;	
+	private final String FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART_TITLE = "Project Total Costs";		
 	
+
 	// Tooltips
-	@Property
-	private String blogitTooltip;
-	
-	@Property
-	private String editFinancialTooltip;
-	
-	@Property
-	private String viewPropertiesTooltip;
-	
 	@Property
 	private String personalizePageTooltip;	
 
@@ -134,9 +136,6 @@ public class Dashboard extends BasePage
 		upTitle = PropertyProvider.get("all.global.channelbarbutton.title.minimize");
 		downTitle = PropertyProvider.get("all.global.channelbarbutton.title.maximize");      
         
-		blogitTooltip = PropertyProvider.get("all.global.toolbar.standard.blogit");
-		editFinancialTooltip = PropertyProvider.get("prm.financial.main.modify.button.tooltip");
-		viewPropertiesTooltip = PropertyProvider.get("prm.financial.main.properties.button.tooltip");
 		personalizePageTooltip = PropertyProvider.get("prm.financial.main.personalize.button.tooltip");
 	}		
 	
@@ -241,7 +240,12 @@ public class Dashboard extends BasePage
 			if (pnPersonProperty.getComp_id().getContext().equals(CHANNEL_PROPERTY_CONTEXT + FINANCIAL_SPACE_PROJECTS + spaceName)){
 				projectsState = pnPersonProperty.getComp_id().getValue().equals(State.MINIMIZED.getID());
 				projectsCloseState = pnPersonProperty.getComp_id().getValue().equals(State.CLOSED.getID());
-			}	
+			}
+			
+			if (pnPersonProperty.getComp_id().getContext().equals(CHANNEL_PROPERTY_CONTEXT + FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART + spaceName)){
+				projectTotalCostsChartState = pnPersonProperty.getComp_id().getValue().equals(State.MINIMIZED.getID());
+				projectTotalCostsChartCloseState = pnPersonProperty.getComp_id().getValue().equals(State.CLOSED.getID());
+			}				
 		}
 	}
 	
@@ -351,6 +355,7 @@ public class Dashboard extends BasePage
 	
 	            // Need to add id and name of every widget
 	            url.append("&name=").append(URLEncoder.encode(FINANCIAL_SPACE_PROJECTS+ financialSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(FINANCIAL_SPACE_PROJECTS_TITLE, SessionManager.getCharacterEncoding()));
+	            url.append("&name=").append(URLEncoder.encode(FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART+ financialSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART_TITLE, SessionManager.getCharacterEncoding()));
 	            
 	        } catch (Exception e) {
 	            log.error(e.getMessage()); 
@@ -413,14 +418,24 @@ public class Dashboard extends BasePage
 	{
 		return downTitle;
 	}		
-	
-	public boolean isProjectsCloseState()
-	{
-		return projectsCloseState;
-	}
 
 	public boolean isProjectsState()
 	{
 		return projectsState;
+	}	
+	
+	public boolean isProjectTotalCostsChartState()
+	{
+		return projectTotalCostsChartState;
+	}
+	
+	public boolean isProjectsCloseState()
+	{
+		return projectsCloseState;
+	}	
+	
+	public boolean isProjectTotalCostsChartCloseState()
+	{
+		return projectTotalCostsChartCloseState;
 	}
 }
