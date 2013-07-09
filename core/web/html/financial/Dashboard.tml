@@ -21,26 +21,6 @@
 		<div id="toolbox-item" class="toolbox-item">
 			
 			<t:if test="actionsIconEnabled">
-				<t:if test="blogEnabled">
-					<span id="blog-ItEnabled">
-						<a onmouseover=" document.imgblogit.src = '${jspRootURL}/images/icons/toolbar-gen-blogit_over.gif'" onmouseout=" document.imgblogit.src = '${jspRootURL}/images/icons/toolbar-gen-blogit_on.gif'" href="javascript:blogit();">
-							<img hspace="0" border="0" name="imgblogit" src="${jspRootURL}/images/icons/toolbar-gen-blogit_on.gif" title="${blogitTooltip}" alt="${blogitTooltip}"/>
-							<t:Message value="all.global.toolbar.standard.blogit" />
-						</a>
-					</span><br />
-				</t:if>
-				<span>
-					<a onmouseover=" document.imgmodify.src = '${jspRootURL}/images/icons/toolbar-rollover-modify.gif'" onmouseout=" document.imgmodify.src = '${jspRootURL}/images/icons/toolbar-gen-modify_on.gif'" href="javascript:modify();">
-						<img hspace="0" border="0" name="imgmodify" src="${jspRootURL}/images/icons/toolbar-gen-modify_on.gif" title="${editFinancialTooltip}" alt="${editFinancialTooltip}"/>
-						<t:Message value="prm.financial.main.modify.button.tooltip" />
-					</a>
-				</span><br />
-				<span>
-					<a onmouseover=" document.imgproperties.src = '${jspRootURL}/images/icons/toolbar-rollover-properties.gif'" onmouseout=" document.imgproperties.src = '${jspRootURL}/images/icons/toolbar-gen-properties_on.gif'" href="javascript:properties();">
-						<img hspace="0" border="0" name="imgproperties" src="${jspRootURL}/images/icons/toolbar-gen-properties_on.gif" title="${viewPropertiesTooltip}" alt="${viewPropertiesTooltip}"/>
-						<t:Message value="prm.financial.main.properties.button.tooltip" />
-					</a>
-				</span><br />
 	            <span>
 					<a onmouseover=" document.personalizepage.src = '${jspRootURL}/images/icons/project-personalize-page_over.gif'" onmouseout=" document.personalizepage.src = '${jspRootURL}/images/icons/project-personalize-page_on.gif'" href="javascript:personalizePage('${personalizeLink}');">
 						<img hspace="0" border="0" name="personalizepage" src="${jspRootURL}/images/icons/project-personalize-page_on.gif" title="${personalizePageTooltip}" alt="${personalizePageTooltip}"/>
@@ -48,23 +28,6 @@
 					</a>
 				</span><br />
 	            <t:parameter name="else">
-					<t:if test="blogEnabled">
-						<span id="blog-ItEnabled">
-							<a href="javascript:blogit();">
-								<t:Message value="all.global.toolbar.standard.blogit" />
-							</a>
-						</span><br />
-					</t:if>
-				<span>
-					<a href="javascript:modify();">
-						<t:Message value="prm.financial.main.modify.button.tooltip" />
-					</a>
-				</span><br />
-				<span>
-					<a href="javascript:properties();">
-						<t:Message value="prm.financial.main.properties.button.tooltip" />
-					</a>
-				</span><br />
 	            <span>
 	            	<a href="javascript:personalizePage('${personalizeLink}');">
 	            		<t:Message value="prm.financial.main.personalize.button.tooltip" />
@@ -108,13 +71,12 @@
 							<t:if test="hasProjects">						
 							<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content" name="tableWithEvenRows">
 								<tr class="table-header">
-								    <td>Project</td>
-								    <td width="80">Cost Center</td>								    
-								    <td width="80">Budgeted Total Cost</td>
-								    <td width="110">Current Estimated Total Cost</td>
-								    <td width="100">Actual Cost To Date</td>
-								    <td width="90">Estimated ROI</td>
-									<!-- <td width="15"><t:Message value="prm.project.dashboard.overallstatus.label" /></td> -->
+								    <td><t:Message value="prm.financial.dashboard.projects.name.label" /></td>
+								    <td width="80"><t:Message value="prm.financial.dashboard.projects.costcenter.label" /></td>								    
+								    <td width="80"><t:Message value="prm.financial.dashboard.projects.budgetedtotalcost.label" /></td>
+								    <td width="110"><t:Message value="prm.financial.dashboard.projects.currentestimatedtotalcost.label" /></td>
+								    <td width="100"><t:Message value="prm.financial.dashboard.projects.actualcosttodate.label" /></td>
+								    <td width="90"><t:Message value="prm.financial.dashboard.projects.estimatedroi.label" /></td>
 							 	</tr>
 							 	<t:loop source="projectList" value="project">	
 									<tr>

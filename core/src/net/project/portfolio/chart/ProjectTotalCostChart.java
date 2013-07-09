@@ -56,7 +56,7 @@ public class ProjectTotalCostChart extends BarChart {
      */
     private String NO_CHART_WITHOUT_COSTS = PropertyProvider.get("prm.project.dashboard.chart.totalcostchart.errors.nochartwithoutcosts.message");
     
-    /** Token value pointing to the label for the y-axis. ("Budget (in thousands)"). */
+    /** Token value pointing to the label for the y-axis. ("Costs (in thousands)"). */
     private String Y_AXIS_LABEL = PropertyProvider.get("prm.project.dashboard.chart.totalcostchart.yaxis.label.name");
     
     /** Font in which to render the Y-axis label. */
