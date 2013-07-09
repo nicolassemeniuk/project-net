@@ -52,23 +52,27 @@ insert into PN_PROPERTY values (2000,'en','text','prm.global.financial.objecttyp
 insert into PN_OBJECT_TYPE values ('salary','pn_person_salary','@prm.global.financial.objecttype.salary',null,1,0,0);
 insert into PN_PROPERTY values (2000,'en','text','prm.global.financial.objecttype.salary','Person Salary','A',0,1,null);
 
--- Dashboard
+-- Financial - Dashboard
 insert into PN_PROPERTY values (2000,'en','text','prm.financialspace.module.description', 'Dashboard','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.dashboard.isenabled','1','A',0,0,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.title','Dashboard','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.toolbox.title','Toolbox','A',0,1,null);
 
-insert into PN_PROPERTY values (2000,'en','text','prm.financial.main.modify.button.tooltip','Edit Financial','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.financial.main.properties.button.tooltip','View Properties','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.main.personalize.button.tooltip','Personalize Page','A',0,1,null);
-
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.goto.title','Go to','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.goto.reports.label','Reports','A',0,1,null);
 
+-- Financial - Dashboard - Projects Channel
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.channel.title','Projects','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.noprojects.label','There are no projects on the related business','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.name.label','Project','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.costcenter.label','Cost Center','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.budgetedtotalcost.label','Budgeted Total Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.currentestimatedtotalcost.label','Current Estimated Total Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.actualcosttodate.label','Actual Cost To Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.estimatedroi.label','Estimated ROI','A',0,1,null);
 
--- Directory
+-- Financial - Directory
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.directory.isenabled','1','A',0,0,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.nav.directory','Directory','A',0,1,null);
 
@@ -154,7 +158,7 @@ insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.to
 insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.legend.currentestimatedtotalcost.name','Current Estimated Total Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.legend.budgetedtotalcost.name','Budgeted Total Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','largetext','prm.project.dashboard.chart.totalcostchart.errors.nochartwithoutcosts.message','Cannot produce chart unless projects are present with budgeted and actual cost values.','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.yaxis.label.name','Budget (in thousands)','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.yaxis.label.name','Costs (in thousands)','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.yaxis.font.name','Arial','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.yaxis.font.size','12','A',0,1,null);
 
