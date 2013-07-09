@@ -14,12 +14,19 @@
 */
 	//Context of Channel
 	var FINANCIAL_SPACE_PROJECTS = "FinancialSpace_Projects_";
+	var FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART = "FinancialSpace_ProjectTotalCostsChart_";	
 	
 	if( projectsState ){
 		minimize('ProjectsContent','ProjectsImg','ProjectsLink',FINANCIAL_SPACE_PROJECTS);
 	}else{
 		maximize('ProjectsContent','ProjectsImg','ProjectsLink',FINANCIAL_SPACE_PROJECTS);
 	}
+	
+	if( projectsTotalCostChartState ){
+		minimize('ProjectTotalCostsChartContent','ProjectTotalCostsChartImg','ProjectTotalCostsChartLink',FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART);
+	}else{
+		maximize('ProjectTotalCostsChartContent','ProjectTotalCostsChartImg','ProjectTotalCostsChartLink',FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART);
+	}	
 	
 	//Hide Content of Channels
 	function hideContent(context,value){
@@ -30,6 +37,16 @@
 				maximize('ProjectsContent','ProjectsImg','ProjectsLink',FINANCIAL_SPACE_PROJECTS);
 			}else if( value == 2){
 				closeWidget('ProjectsWidget','ProjectsImg','ProjectsCloseLink',FINANCIAL_SPACE_PROJECTS);
+			}
+		}
+		
+		if( context==FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART ){
+			if( value == 1 ){
+				minimize('ProjectTotalCostsChartContent','ProjectTotalCostsChartImg','ProjectTotalCostsChartLink',FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART);
+			}else if( value == 0){
+				maximize('ProjectTotalCostsChartContent','ProjectTotalCostsChartImg','ProjectTotalCostsChartLink',FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART);
+			}else if( value == 2){
+				closeWidget('ProjectTotalCostsChartWidget','ProjectTotalCostsChartImg','ProjectTotalCostsChartCloseLink',FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART);
 			}
 		}
 	}

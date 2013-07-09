@@ -13,42 +13,36 @@
  * If not, see http://www.gnu.org/licenses/gpl-3.0.html
 */
 
- package net.project.portfolio.chart;
+ package net.project.project;
 
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.image.BufferedImage;
-import java.math.BigDecimal;
 
 import javax.servlet.http.HttpServletRequest;
 
 import net.project.base.property.PropertyProvider;
 import net.project.chart.BarChart;
-import net.project.chart.ChartColor;
 import net.project.chart.MissingChartDataException;
-import net.project.project.ProjectSpaceBean;
+import net.project.portfolio.chart.NoDataFoundException;
 import net.project.report.ReportData;
-import net.project.security.SessionManager;
 
 import org.apache.log4j.Logger;
 import org.jfree.chart.JFreeChart;
-import org.jfree.chart.plot.CategoryPlot;
-import org.jfree.chart.renderer.category.BarRenderer;
-import org.jfree.chart.renderer.category.CategoryItemRenderer;
+
 
 /**
- * Generates a chart which categorizes the color code status of charts by project costs
- * and produces a stacked bar graph of that data.
+ * Generates a chart with the actual cost to date, the current estimated total cost and the budgeted total cost
  */
-public class ProjectTotalCostChart extends BarChart {
+public class TotalCostChart extends BarChart {
 	/** Label for the actual cost to date */
-    private String ACTUAL_COST_TO_DATE = PropertyProvider.get("prm.project.dashboard.chart.totalcostchart.legend.actualcosttodate.name");
+    protected String ACTUAL_COST_TO_DATE = PropertyProvider.get("prm.project.dashboard.chart.totalcostchart.legend.actualcosttodate.name");
 
     /** Label for the current estimated total cost */
-    private String CURRENT_ESTIMATED_TOTAL_COST = PropertyProvider.get("prm.project.dashboard.chart.totalcostchart.legend.currentestimatedtotalcost.name");
+    protected String CURRENT_ESTIMATED_TOTAL_COST = PropertyProvider.get("prm.project.dashboard.chart.totalcostchart.legend.currentestimatedtotalcost.name");
 
     /** Label for the budgeted total cost */
-    private String BUDGETED_TOTAL_COST = PropertyProvider.get("prm.project.dashboard.chart.totalcostchart.legend.budgetedtotalcost.name");
+    protected String BUDGETED_TOTAL_COST = PropertyProvider.get("prm.project.dashboard.chart.totalcostchart.legend.budgetedtotalcost.name");
     
     /**
      * Error message to be show if the chart is trying to be produced on a
@@ -65,10 +59,7 @@ public class ProjectTotalCostChart extends BarChart {
     /** The size of the font for the y-axis label. */
     private int Y_AXIS_LABEL_FONT_SIZE = PropertyProvider.getInt("prm.project.dashboard.chart.totalcostchart.yaxis.font.size");
 
-    /** Project that we are reporting on. */
-    private ProjectSpaceBean projectSpace = null;
-
-    public ProjectTotalCostChart() {
+    public TotalCostChart() {
         setShowLegend(true);
         setChartTitle("");
         
@@ -90,16 +81,6 @@ public class ProjectTotalCostChart extends BarChart {
      * create this chart are missing.
      */
     public void populateParameters(HttpServletRequest request) throws MissingChartDataException {
-		if(SessionManager.getUser().getCurrentSpace() instanceof ProjectSpaceBean)
-			projectSpace = (ProjectSpaceBean)SessionManager.getUser().getCurrentSpace();
-
-        if (projectSpace == null)
-            throw new MissingChartDataException("Unable to create chart; missing session attribute 'projectSpace'");
-        else
-        {
-            setWidth(550);
-            setHeight(150);
-        }
     }
 
     /**
@@ -113,25 +94,6 @@ public class ProjectTotalCostChart extends BarChart {
     }
 
     public void setupChart(JFreeChart chart) throws Exception {
-        //-------------------------------------------------------------------
-        // Setup the chart
-        //-------------------------------------------------------------------
-        // chart.setBorderStroke(new BasicStroke(15));
-
-        CategoryPlot plot = chart.getCategoryPlot();
-        CategoryItemRenderer renderer = new BarRenderer();
-        plot.setRenderer(renderer);
-    	
-        //-------------------------------------------------------------------
-        // Collect data needed to render the chart
-        //-------------------------------------------------------------------
-        dataset.addValue(projectSpace.getActualCostToDate().getValue().divide(new BigDecimal(1000.0)), ACTUAL_COST_TO_DATE, "");
-        dataset.addValue(projectSpace.getCurrentEstimatedTotalCost().getValue().divide(new BigDecimal(1000.0)), CURRENT_ESTIMATED_TOTAL_COST, "");
-        dataset.addValue(projectSpace.getBudgetedTotalCost().getValue().divide(new BigDecimal(1000.0)), BUDGETED_TOTAL_COST, "");
-        
-        renderer.setSeriesPaint(0, ChartColor.LIGHT_BLUE);
-        renderer.setSeriesPaint(1, ChartColor.BLUE);
-        renderer.setSeriesPaint(2, ChartColor.DARK_BLUE);
     }
 
     protected BufferedImage getExceptionImage(Exception e) {

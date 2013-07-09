@@ -72,6 +72,9 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projec
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.actualcosttodate.label','Actual Cost To Date','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.estimatedroi.label','Estimated ROI','A',0,1,null);
 
+-- Financial - Dashboard - Project Total Costs Channel
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projecttotalcostschart.channel.title','Project Total Costs','A',0,1,null);
+
 -- Financial - Directory
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.directory.isenabled','1','A',0,0,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.nav.directory','Directory','A',0,1,null);
