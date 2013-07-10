@@ -70,6 +70,8 @@
 %>
 	
 <%
+	
+
 	//The name is the same as the business
 	financialWizard.setName(businessWizard.getName());
 	if((businessWizard.getDescription() == null) || (businessWizard.getDescription().equals("")))
@@ -77,6 +79,10 @@
 	else 
 		financialWizard.setDescription(businessWizard.getDescription());
 	financialWizard.setUser(user);
+	
+	
+	//First, save the new bussiness to get the ID.
+	businessWizard.store();
 	
 	//Set the financial space/business space relational data
 	financialWizard.setRelatedSpaceID(businessWizard.getID());
@@ -96,7 +102,7 @@
 	}
 	
 	financialWizard.store();
-	businessWizard.store();
+
 	
 
 

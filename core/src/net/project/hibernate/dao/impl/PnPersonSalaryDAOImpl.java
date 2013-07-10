@@ -24,7 +24,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPersonSalary, PnPersonSalaryPK> implements IPnPersonSalaryDAO {
 
-	private static Logger log = Logger.getLogger(PnMaterialDAOImpl.class);
+	private static Logger log = Logger.getLogger(PnPersonSalaryDAOImpl.class);
 
 	public PnPersonSalaryDAOImpl() {
 		super(PnPersonSalary.class);
@@ -64,7 +64,7 @@ public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPerso
 			criteria.add(Restrictions.eq("recordStatus", "A"));
 
 			pnPersonSalary = (PnPersonSalary) criteria.uniqueResult();
-
+			session.close();
 			// This should be erased, all persons should have a salary
 			if (pnPersonSalary == null) {
 				PnPersonSalaryPK pk = new PnPersonSalaryPK(0);
@@ -96,7 +96,7 @@ public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPerso
 			criteria.add(Restrictions.eq("recordStatus", "A"));
 
 			pnPersonSalary = (PnPersonSalary) criteria.uniqueResult();
-
+			session.close();
 			// This should be erased, all persons should have a salary
 			if (pnPersonSalary == null) {
 				PnPersonSalaryPK pk = new PnPersonSalaryPK(0);
@@ -128,7 +128,7 @@ public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPerso
 			criteria.add(Restrictions.eq("personId", personId));
 
 			pnPersonSalary = (PnPersonSalary) criteria.uniqueResult();
-			
+			session.close();
 			// This should be erased, all persons should have a salary
 			if (pnPersonSalary == null) {
 				PnPersonSalaryPK pk = new PnPersonSalaryPK(0);
