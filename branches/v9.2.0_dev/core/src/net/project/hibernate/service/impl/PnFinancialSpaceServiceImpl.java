@@ -9,7 +9,6 @@ import net.project.financial.PnFinancialSpaceList;
 import net.project.hibernate.dao.IPnFinancialSpaceDAO;
 import net.project.hibernate.model.PnFinancialSpace;
 import net.project.hibernate.model.PnObject;
-import net.project.hibernate.model.PnSpaceHasSpace;
 import net.project.hibernate.service.IPnFinancialSpaceService;
 import net.project.hibernate.service.IPnObjectService;
 import net.project.hibernate.service.IPnSpaceHasSpaceService;
@@ -34,6 +33,7 @@ public class PnFinancialSpaceServiceImpl implements IPnFinancialSpaceService {
 		return this.pnFinancialSpaceDAO.getFinancialSpaceById(Integer.valueOf(financialSpaceId));
 	}
 
+	@Override
 	public Integer saveFinancialSpace(FinancialCreateWizard financialSpace) {
 		PnObject pn = new PnObject(PnFinancialSpace.OBJECT_TYPE, new Integer(financialSpace.getUser().getID()), new Date(System.currentTimeMillis()), "A");
 

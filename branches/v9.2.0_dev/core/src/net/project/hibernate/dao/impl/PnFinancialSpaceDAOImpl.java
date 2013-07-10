@@ -18,7 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Repository
 public class PnFinancialSpaceDAOImpl extends AbstractHibernateAnnotatedDAO<PnFinancialSpace, Integer> implements IPnFinancialSpaceDAO {
 
-	private static Logger log = Logger.getLogger(PnMaterialDAOImpl.class);
+	private static Logger log = Logger.getLogger(PnFinancialSpaceDAOImpl.class);
 
 	public PnFinancialSpaceDAOImpl() {
 		super(PnFinancialSpace.class);
