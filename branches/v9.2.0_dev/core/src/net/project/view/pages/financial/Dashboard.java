@@ -40,9 +40,13 @@ import net.project.financial.FinancialSpaceBean;
 import net.project.hibernate.model.PnPersonProperty;
 import net.project.hibernate.service.ServiceFactory;
 import net.project.persistence.PersistenceException;
+import net.project.resource.Person;
 import net.project.resource.PersonProperty;
+import net.project.resource.UserActivityStatus;
+import net.project.security.BuddyListBean;
 import net.project.security.SecurityProvider;
 import net.project.security.SessionManager;
+import net.project.security.User;
 import net.project.space.Space;
 import net.project.util.HttpUtils;
 import net.project.util.StringUtils;
@@ -64,6 +68,8 @@ public class Dashboard extends BasePage
 	
 	private String financialName;
 	
+	private String financialDescription;
+	
 	@Persist
 	private String financialId;		
 	
@@ -75,7 +81,11 @@ public class Dashboard extends BasePage
 	
 	private ProjectSpace project;		
 	
-	private boolean hasProjects;	
+	private boolean hasProjects;
+	
+	private BuddyListBean buddyList;
+	
+	private User buddy;
 	
 	// Left navbar
 	private boolean actionsIconEnabled;	
@@ -92,13 +102,17 @@ public class Dashboard extends BasePage
 	// Channel states
 	private boolean projectsState;	
 
-	private boolean projectTotalCostsChartState;	
+	private boolean projectTotalCostsChartState;
+	
+	private boolean financialTeamState;
 	
 	// Channel close state
 	private boolean projectsCloseState;
 	
 	private boolean projectTotalCostsChartCloseState;
 
+	private boolean financialTeamCloseState;
+	
 	// Context initialization
 	@Persist
 	private String spaceName;	
@@ -111,16 +125,20 @@ public class Dashboard extends BasePage
 	
 	private final String CHANNEL_PROPERTY_CONTEXT = "net.project.channel.";
 	
+	// Context for save channels states
 	private final String FINANCIAL_SPACE_PROJECTS = "FinancialSpace_Projects_";
 	
 	private final String FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART = "FinancialSpace_ProjectTotalCostsChart_";	
-		
-	// Titles for channels 
-	private final String FINANCIAL_SPACE_PROJECTS_TITLE = "Projects";
-	
-	private final String FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART_TITLE = "Project Total Costs";		
-	
 
+	private final String FINANCIAL_SPACE_FINANCIAL_TEAM = "FinancialSpace_FinancialTeam_";		
+	
+	// Titles for channels 
+	private final String PROJECTS_TITLE = PropertyProvider.get("prm.financial.dashboard.projects.channel.title");
+	
+	private final String PROJECT_TOTAL_COSTS_CHART_TITLE = PropertyProvider.get("prm.financial.dashboard.projecttotalcostschart.channel.title");
+	
+	private final String FINANCIAL_TEAM_TITLE = PropertyProvider.get("prm.financial.dashboard.financialteam.channel.title");
+	
 	// Tooltips
 	@Property
 	private String personalizePageTooltip;	
@@ -245,7 +263,12 @@ public class Dashboard extends BasePage
 			if (pnPersonProperty.getComp_id().getContext().equals(CHANNEL_PROPERTY_CONTEXT + FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART + spaceName)){
 				projectTotalCostsChartState = pnPersonProperty.getComp_id().getValue().equals(State.MINIMIZED.getID());
 				projectTotalCostsChartCloseState = pnPersonProperty.getComp_id().getValue().equals(State.CLOSED.getID());
-			}				
+			}
+			
+			if (pnPersonProperty.getComp_id().getContext().equals(CHANNEL_PROPERTY_CONTEXT + FINANCIAL_SPACE_FINANCIAL_TEAM + spaceName)){
+				financialTeamState = pnPersonProperty.getComp_id().getValue().equals(State.MINIMIZED.getID());
+				financialTeamCloseState = pnPersonProperty.getComp_id().getValue().equals(State.CLOSED.getID());
+			}			
 		}
 	}
 	
@@ -286,6 +309,11 @@ public class Dashboard extends BasePage
 			moduleId = Module.FINANCIAL_SPACE;
 			financialName = financialSpace.getName();
 
+			financialDescription = financialSpace.getDescription();
+			if(financialDescription != null && financialDescription.length() > 100){
+				financialDescription = financialDescription.substring(0, 100) + "..";
+			}			
+			
 			BusinessSpace businessSpace = new BusinessSpace(financialSpace.getRelatedSpaceID());
 			businessSpace.load();
 			ProjectPortfolio projectPortfolio = new ProjectPortfolio();
@@ -316,6 +344,11 @@ public class Dashboard extends BasePage
 				financialLogo = false;
 			}			
 			
+			buddyList = new BuddyListBean();
+			buddyList.setUser(SessionManager.getUser());
+		    buddyList.setSpace(financialSpace);
+		    buddyList.load();
+			
 		} catch (Exception e) {
 			log.error("Error occurred while getting dash board data: "+e.getMessage());
 		}			
@@ -324,8 +357,13 @@ public class Dashboard extends BasePage
 	public String getFinancialName()
 	{
 		return financialName;
-	}	
+	}
 	
+	public String getFinancialDescription()
+	{
+		return financialDescription;
+	}
+
 	public String getReportsUrl()
 	{
 		return "/report/Main.jsp?module="+Module.REPORT;
@@ -354,9 +392,10 @@ public class Dashboard extends BasePage
 	            url.append("&").append(settings.getScope().formatRequestParameters());
 	
 	            // Need to add id and name of every widget
-	            url.append("&name=").append(URLEncoder.encode(FINANCIAL_SPACE_PROJECTS+ financialSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(FINANCIAL_SPACE_PROJECTS_TITLE, SessionManager.getCharacterEncoding()));
-	            url.append("&name=").append(URLEncoder.encode(FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART+ financialSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART_TITLE, SessionManager.getCharacterEncoding()));
-	            
+	            url.append("&name=").append(URLEncoder.encode(FINANCIAL_SPACE_PROJECTS+ financialSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(PROJECTS_TITLE, SessionManager.getCharacterEncoding()));
+	            url.append("&name=").append(URLEncoder.encode(FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART+ financialSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(PROJECT_TOTAL_COSTS_CHART_TITLE, SessionManager.getCharacterEncoding()));
+	            url.append("&name=").append(URLEncoder.encode(FINANCIAL_SPACE_FINANCIAL_TEAM+ financialSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(FINANCIAL_TEAM_TITLE, SessionManager.getCharacterEncoding()));
+            
 	        } catch (Exception e) {
 	            log.error(e.getMessage()); 
 	        }
@@ -377,6 +416,28 @@ public class Dashboard extends BasePage
 	public void setProject(ProjectSpace project)
 	{
 		this.project = project;
+	}
+
+	public BuddyListBean getBuddyList()
+	{
+		return buddyList;
+	}	
+	
+	public User getBuddy()
+	{
+		return buddy;
+	}
+
+	public void setBuddy(User buddy)
+	{
+		this.buddy = buddy;
+	}
+
+	public boolean isOnline()
+	{	
+		UserActivityStatus activeStatus = UserActivityStatus.ACTIVE;
+		activeStatus.setStatus(UserActivityStatus.ACTIVE);
+		return this.buddy.getUserActivityStatusInstance().equals(activeStatus);
 	}
 	
 	public boolean isHasProjects()
@@ -429,6 +490,11 @@ public class Dashboard extends BasePage
 		return projectTotalCostsChartState;
 	}
 	
+	public boolean isFinancialTeamState()
+	{
+		return financialTeamState;
+	}
+
 	public boolean isProjectsCloseState()
 	{
 		return projectsCloseState;
@@ -437,5 +503,10 @@ public class Dashboard extends BasePage
 	public boolean isProjectTotalCostsChartCloseState()
 	{
 		return projectTotalCostsChartCloseState;
+	}
+
+	public boolean isFinancialTeamCloseState()
+	{
+		return financialTeamCloseState;
 	}
 }

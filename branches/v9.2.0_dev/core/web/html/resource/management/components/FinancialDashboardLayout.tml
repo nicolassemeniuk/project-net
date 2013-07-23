@@ -8,6 +8,7 @@
 	<!-- Linking all css files only here. These are used for blog pages developed in Tapestry 5 -->
 	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/global.css?${versionNumber}"/>
 	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/fonts.css?${versionNumber}"/>
+	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/blog.css?${versionNumber}"/>	
 	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/noframes.css?${versionNumber}"/>
 	<link rel="stylesheet" type="text/css" href="${jSPRootURL}/styles/financial_dashboard.css?${versionNumber}"/>	
 	<!-- Common Styles for the Ext widgets -->

@@ -362,7 +362,9 @@ public class ViewBlog extends BasePage implements Serializable {
 			blogHeaderStyle = "leftheading-" + Space.PROJECT_SPACE;
 		} else if(SessionManager.getUser().getCurrentSpace().getType().equalsIgnoreCase(Space.BUSINESS_SPACE)) {
 			blogHeaderStyle = "leftheading-" + Space.BUSINESS_SPACE;
-		}
+		} else if(SessionManager.getUser().getCurrentSpace().getType().equalsIgnoreCase(Space.FINANCIAL_SPACE)) {
+			blogHeaderStyle = "leftheading-" + Space.FINANCIAL_SPACE;
+		}		
 		
 		// if page called after adding weblog entry or weblog entry comment
 		// then call method with parameters spaceId, userId, spaceType and moduleId
