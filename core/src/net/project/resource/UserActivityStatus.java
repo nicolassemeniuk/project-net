@@ -78,7 +78,11 @@ public class UserActivityStatus implements Serializable {
 
     public void setStatus(UserActivityStatus status) { 
         this.status = status ;
-    } 
-
+    }
+    
+    public boolean equals(UserActivityStatus userActivityStatus)
+    {
+    	return this.getDisplayName().equals(userActivityStatus.getDisplayName());
+    }
 }
 

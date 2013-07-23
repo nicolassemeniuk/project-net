@@ -89,10 +89,13 @@ var errotAlertTitle = '${errotAlertTitle}';
 	} else if(spaceForNavbar == 'business') {
 		spaceMenuURL = JSPRootURL+"/toolbar/include/Main.jsp?s=business&amp;i="+personAndSpaceId;
 		navbarURL = JSPRootURL+"/business/include/NavBar.jsp?s=business&amp;i="+personAndSpaceId;
+	} else if(spaceForNavbar == 'financial') {
+		spaceMenuURL = JSPRootURL+"/toolbar/include/Main.jsp?s=financial&amp;i="+personAndSpaceId;
+		navbarURL = JSPRootURL+"/financial/include/NavBar.jsp?s=financial&amp;i="+personAndSpaceId;		
 	} else {
 		spaceMenuURL = JSPRootURL+"/toolbar/include/Main.jsp?s=personal&amp;i="+personAndSpaceId;
 		navbarURL = JSPRootURL+"/personal/include/NavBar.jsp?s=personal&amp;i="+personAndSpaceId;
-	}
+	}	
 	
 	document.write("<script type='text/javascript' src="+spaceMenuURL+"><\/script>");
 	document.write("<script type='text/javascript' src="+navbarURL+"><\/script>");

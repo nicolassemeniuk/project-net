@@ -14,18 +14,28 @@
 */
 	//Context of Channel
 	var FINANCIAL_SPACE_PROJECTS = "FinancialSpace_Projects_";
-	var FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART = "FinancialSpace_ProjectTotalCostsChart_";	
+	var FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART = "FinancialSpace_ProjectTotalCostsChart_";
+	var FINANCIAL_SPACE_FINANCIAL_TEAM = "FinancialSpace_FinancialTeam_";
 	
+	// checking Projects state
 	if( projectsState ){
 		minimize('ProjectsContent','ProjectsImg','ProjectsLink',FINANCIAL_SPACE_PROJECTS);
 	}else{
 		maximize('ProjectsContent','ProjectsImg','ProjectsLink',FINANCIAL_SPACE_PROJECTS);
 	}
 	
-	if( projectsTotalCostChartState ){
+	// checking Project Total Cost Chart state
+	if( projectTotalCostsChartState ){
 		minimize('ProjectTotalCostsChartContent','ProjectTotalCostsChartImg','ProjectTotalCostsChartLink',FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART);
 	}else{
 		maximize('ProjectTotalCostsChartContent','ProjectTotalCostsChartImg','ProjectTotalCostsChartLink',FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART);
+	}
+	
+	// checking Financial Team state
+	if( financialTeamState ){
+		minimize('FinancialTeamContent','FinancialTeamImg','FinancialTeamLink',FINANCIAL_SPACE_FINANCIAL_TEAM);
+	}else{
+		maximize('FinancialTeamContent','FinancialTeamImg','FinancialTeamLink',FINANCIAL_SPACE_FINANCIAL_TEAM);
 	}	
 	
 	//Hide Content of Channels
@@ -39,8 +49,7 @@
 				closeWidget('ProjectsWidget','ProjectsImg','ProjectsCloseLink',FINANCIAL_SPACE_PROJECTS);
 			}
 		}
-		
-		if( context==FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART ){
+		else if( context==FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART ){
 			if( value == 1 ){
 				minimize('ProjectTotalCostsChartContent','ProjectTotalCostsChartImg','ProjectTotalCostsChartLink',FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART);
 			}else if( value == 0){
@@ -49,6 +58,15 @@
 				closeWidget('ProjectTotalCostsChartWidget','ProjectTotalCostsChartImg','ProjectTotalCostsChartCloseLink',FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART);
 			}
 		}
+		else if( context==FINANCIAL_SPACE_FINANCIAL_TEAM ){
+			if( value == 1 ){
+				minimize('FinancialTeamContent','FinancialTeamImg','FinancialTeamLink',FINANCIAL_SPACE_FINANCIAL_TEAM);
+			}else if( value == 0){
+				maximize('FinancialTeamContent','FinancialTeamImg','FinancialTeamLink',FINANCIAL_SPACE_FINANCIAL_TEAM);
+			}else if( value == 2){
+				closeWidget('FinancialTeamWidget','FinancialTeamImg','FinancialTeamCloseLink',FINANCIAL_SPACE_FINANCIAL_TEAM);
+			}
+		}		
 	}
 	
 	// Minimize div with changing image source, content display and title.
