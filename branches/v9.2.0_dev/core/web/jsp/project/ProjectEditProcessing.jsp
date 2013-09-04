@@ -229,11 +229,17 @@
 		java.util.Enumeration names = request.getParameterNames();
 		while (names.hasMoreElements()) {
 			String name = (String) names.nextElement();
-			if (name.startsWith("Meta")) {
+			if (name.startsWith("Meta")&&!name.endsWith("_value")&&!name.endsWith("_currencyCode")) {
 				String value = request.getParameter(name);
 				String propertyName = name.substring(4);
-				if (value != null ) {
+				if (value != null && !"".equals(value)) {
 					projectSpace.getMetaData().setProperty(propertyName, value);
+				}
+			} else if(name.startsWith("Meta")&&name.endsWith("_value")&&!name.endsWith("_currencyCode")){
+				String value = request.getParameter(name);
+				String propertyName = name.substring(4,name.length()-6);			
+				if (value != null && !"".equals(value)) {
+					projectSpace.getMetaData().setProperty(propertyName, value.replaceAll(",", "."));
 				}
 			}
 		}

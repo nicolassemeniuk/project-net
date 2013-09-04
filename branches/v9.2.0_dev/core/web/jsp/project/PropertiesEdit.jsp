@@ -176,6 +176,7 @@ function enableCostTextFields(val){
 	document.EDITPROJ.actualCostToDate_value.disabled=!val;
 	document.EDITPROJ.currentEstimatedTotalCost_value.disabled=!val;
 	document.EDITPROJ.estimatedROI_value.disabled=!val;
+	document.EDITPROJ.MetaProjectDiscretionalCost_value.disabled=val;
 }
 
 function cancel() {
@@ -885,7 +886,7 @@ Financial Status
 			<td>&nbsp;</td>
 			
 			<td valign="top" class="fieldRequired">
-				<display:get name="prm.project.create.wizard.costcompletion.select" />
+				<display:get name="prm.project.propertiesedit.costcompletion.select" />
 			</td>
 			
 			<td class="tableContent">
@@ -896,14 +897,28 @@ Financial Status
 							<input type="radio" checked onclick="enableCostTextFields(false)" name="MetaCostCalculationMethod" value="automatic" >&nbsp;
 						</td>
 						<td class="tableContent" valign="top">
-						 	<span id="project.schedule.percentComplete"><display:get name="prm.project.create.wizard.completion.projectcosts.label"/></span>
+						 	<span id="project.schedule.percentComplete">
+						 		<display:get name="prm.project.propertiesedit.completion.projectcosts.label"/>
+						 	</span>
 						</td>
 					</tr>
 					
 					<tr>
 						<td class="tableContent">&nbsp;</td>
-						<td class="tableContent"><display:get name="prm.project.create.wizard.completion.projectcosts.description"/>
+						<td class="tableContent"><display:get name="prm.project.propertiesedit.completion.projectcosts.description"/>
 						</td>
+					</tr>
+					
+					<%-- Discretional Cost --%>
+					<tr align="left">
+						<td>&nbsp;</td>
+						<td class="fieldNonRequired">
+							<display:get name="prm.project.propertiesedit.discretionalcost.label" />:&nbsp;
+						</td>						
+						<td class="tableContent">
+					        <input:money name="MetaProjectDiscretionalCost" money="<%=projectSpace.getDiscretionalCost()%>" currency="<%=projectSpace.getDefaultCurrency()%>" disabled="false"/>
+				        </td>
+					   	<td>&nbsp;</td>
 					</tr>
 					
 					<tr>
@@ -916,7 +931,7 @@ Financial Status
 						</td>						
 						<td class="tableContent" valign="top">
 							<span id="project.manual.percentComplete">
-								<display:get name="prm.project.create.wizard.costs.label" />
+								<display:get name="prm.project.propertiesedit.costs.label" />
 							</span>				
 						</td>
 						
@@ -926,7 +941,7 @@ Financial Status
 					<tr align="left">
 						<td>&nbsp;</td>
 						<td class="fieldNonRequired">
-							<display:get name="prm.project.create.wizard.currentestimatedtotalcost.label" />:&nbsp;
+							<display:get name="prm.project.propertiesedit.currentestimatedtotalcost.label" />:&nbsp;
 						</td>						
 						<td class="tableContent">
 					        <input:money name="currentEstimatedTotalCost" money="<%=projectSpace.getCurrentEstimatedTotalCost()%>" currency="<%=projectSpace.getDefaultCurrency()%>" disabled="true"/>
@@ -938,7 +953,7 @@ Financial Status
 					<tr align="left">
 						<td>&nbsp;</td>
 						<td class="fieldNonRequired">
-							<display:get name="prm.project.create.wizard.actualcosttodate.label" />:&nbsp;
+							<display:get name="prm.project.propertiesedit.actualcosttodate.label" />:&nbsp;
 						</td>						
 						<td class="tableContent">
 						        <input:money name="actualCostToDate" money="<%=projectSpace.getActualCostToDate() %>" currency="<%=projectSpace.getDefaultCurrency()%>" disabled="true"/>
@@ -950,7 +965,7 @@ Financial Status
 					<tr align="left">
 						<td>&nbsp;</td>
 						<td class="fieldNonRequired">
-							<display:get name="prm.project.create.wizard.estimatedroi.label" />:&nbsp;
+							<display:get name="prm.project.propertiesedit.estimatedroi.label" />:&nbsp;
 						</td>
 
 						<td class="tableContent">

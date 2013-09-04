@@ -100,6 +100,14 @@ function writeSpaceNavBarMenu() {
 	menuString += " 	</span>";
 	menuString += " </li>";
 </display:if>
+
+<display:if name="@prm.business.material.isenabled">
+	menuString += "<li>";
+	menuString += "	<span>";
+	menuString += "	<display:get name='@prm.business.nav.material' href='<%=base+"/material/Main.jsp?module="+Module.MATERIAL%>'/>";
+	menuString += "	</span>";
+	menuString += "</li>";
+</display:if>
 	
 <display:if name="@prm.business.document.isenabled">
 	menuString += "<li>";

@@ -235,7 +235,7 @@ public class Money {
      * @param value the money value
      * @param currency the Currency
      */
-    public Money(String value, Currency currency) {
+    public Money(String value, Currency currency) {    	
         this(new BigDecimal(value), currency);
     }
 

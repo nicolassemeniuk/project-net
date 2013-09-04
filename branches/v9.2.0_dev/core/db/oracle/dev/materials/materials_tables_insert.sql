@@ -93,6 +93,10 @@ insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskedit.resource
 insert into PN_PROPERTY values (2000,'en','boolean','prm.project.material.isenabled','1','A',0,0,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.nav.material','Materials','A',0,1,null);
 
+--Navbar Business/Material
+insert into PN_PROPERTY values (2000,'en','boolean','prm.business.material.isenabled','1','A',0,0,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.business.nav.material','Materials','A',0,1,null);
+
 -- Portafolio de Materiales
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.channel.title','Materials you have access to','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.title','Material List','A',0,1,null);
@@ -148,7 +152,7 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.ste
 insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.rightpagetitle','Step 1','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.channel.selectoption','Select one of the following option(s)','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.button.finish.label','Finish','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.option.disablematerial.label','Disable the Material for this Project Workspace','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.delete.wizard.step1.option.disablematerial.label','Disable the Material for this Workspace','A',0,1,null);
 
 -- Propiedades para la vista de ver material
 insert into PN_PROPERTY values (2000,'en','text','prm.material.viewmaterial.channel.view.title','View Material','A',0,1,null);                                                  

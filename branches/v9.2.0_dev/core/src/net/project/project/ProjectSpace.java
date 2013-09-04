@@ -192,6 +192,11 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 	 * Actual cost to date.
 	 */
 	private Money actualCostToDate = null;
+	
+	/**
+	 * Discretional cost
+	 */
+	private Money discretionalCost = null;
 
 	/**
 	 * Estimated return on investment.
@@ -359,6 +364,7 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 		setBudgetedTotalCost(source.getBudgetedTotalCost());
 		setCurrentEstimatedTotalCost(source.currentEstimatedTotalCost);
 		setActualCostToDate(source.getActualCostToDate());
+		setDiscretionalCost(source.getDiscretionalCost());
 		setEstimatedROI(source.getEstimatedROI());
 		setCostCenter(source.getCostCenter());
 		setScheduleStatusColorCode(source.getScheduleStatusColorCode());
@@ -1347,6 +1353,39 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 	 */
 	public Money getEstimatedROI() {
 		return this.estimatedROI;
+	}
+	
+	/**
+	 * Returns the discretional cost for this project. This value is only returned in case the project costs
+	 * calculation method is automatic.
+	 * @return the project discretional costs.
+	 */
+	public Money getDiscretionalCost(){
+		try {
+			if (getMetaData().getProperty("CostCalculationMethod").equals("manual"))
+				return new Money();
+			else {
+				String cost = getMetaData().getProperty("ProjectDiscretionalCost");
+				//Float cost = ServiceFactory.getInstance().getProjectFinancialService().calculateActualCostToDate(spaceID);
+				return new Money(cost, getDefaultCurrency());
+//				return new Money();
+			}
+
+		} catch (NoSuchPropertyException e) {
+			return new Money();
+		}	
+	}
+	
+	/**
+	 * Sets the discretional cost for this project.
+	 * @param discretionalCost the discretional cost.
+	 */
+	public void setDiscretionalCost(Money discretionalCost){
+		if(discretionalCost == Money.EMPTY){
+			this.discretionalCost = null;
+		} else {
+			this.discretionalCost = discretionalCost;
+		}
 	}
 
 	/**
