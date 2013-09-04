@@ -127,6 +127,7 @@ function enableCostTextFields(val){
 	document.CREATEPROJ.actualCostToDate_value.disabled=!val;
 	document.CREATEPROJ.currentEstimatedTotalCost_value.disabled=!val;
 	document.CREATEPROJ.estimatedROI_value.disabled=!val;
+	document.CREATEPROJ.MetaProjectDiscretionalCost_value.disabled=val;
 }
 
 <%
@@ -563,7 +564,9 @@ function preselectTemplate(methodologyId) {
 							<input type="radio" checked onclick="enableCostTextFields(false)" name="MetaCostCalculationMethod" value="automatic" >&nbsp;
 						</td>
 						<td class="tableContent" valign="top">
-						 	<span id="project.schedule.percentComplete"><display:get name="prm.project.create.wizard.completion.projectcosts.label"/></span>
+						 	<span id="project.schedule.percentComplete">
+						 		<display:get name="prm.project.create.wizard.completion.projectcosts.label"/>
+						 	</span>
 						</td>
 					</tr>
 					
@@ -571,6 +574,18 @@ function preselectTemplate(methodologyId) {
 						<td class="tableContent">&nbsp;</td>
 						<td class="tableContent"><display:get name="prm.project.create.wizard.completion.projectcosts.description"/>
 						</td>
+					</tr>
+					
+					<%-- Discretional Cost --%>
+					<tr align="left">
+						<td>&nbsp;</td>
+						<td class="fieldNonRequired">
+							<display:get name="prm.project.create.wizard.discretionalcost.label" />:&nbsp;
+						</td>						
+						<td class="tableContent">
+					        <input:money name="MetaProjectDiscretionalCost" money="<%=new Money()%>" currency="<%=Currency.getSystemDefaultCurrency()%>" disabled="false"/>
+				        </td>
+					   	<td>&nbsp;</td>
 					</tr>
 					
 					<tr>
@@ -585,9 +600,14 @@ function preselectTemplate(methodologyId) {
 							<span id="project.manual.percentComplete">
 								<display:get name="prm.project.create.wizard.costs.label" />
 							</span>				
-						</td>
-						
+						</td>						
 					</tr>	
+					
+					<tr>
+						<td class="tableContent">&nbsp;</td>
+						<td class="tableContent"><display:get name="prm.project.create.wizard.costs.description"/>
+						</td>
+					</tr>
 					
 					<%-- Current Estimated Total Cost --%>
 					<tr align="left">

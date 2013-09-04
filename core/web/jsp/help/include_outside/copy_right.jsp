@@ -28,29 +28,29 @@
 <div align='<footerDisplay:get name="@prm.global.footer.alignment" />' >
 
 <%-- Powered-by footer logo image --%>
-<footerDisplay:img 
-		if="@prm.global.poweredby.isenabled"
-		src="@prm.global.footer.poweredby.logo"
-		href="@prm.global.footer.poweredby.href" 
-/>
+<%-- <footerDisplay:img  --%>
+<%-- 		if="@prm.global.poweredby.isenabled" --%>
+<%-- 		src="@prm.global.footer.poweredby.logo" --%>
+<%-- 		href="@prm.global.footer.poweredby.href"  --%>
+<%-- /> --%>
 
 <%-- Copyright Footers --%>
-<footerDisplay:if name="@prm.global.footer.copyright.newline"></footerDisplay:if>
+<%-- <footerDisplay:if name="@prm.global.footer.copyright.newline"></footerDisplay:if> --%>
 
-<footerDisplay:get
-           name="@prm.global.footer.copyright"
-	       if="@prm.global.footer.copyright.isenabled"
-	       href="@prm.global.footer.copyright.href"
-	       enableLink="@prm.global.footer.copyright.href.isenabled"
-/>
+<%-- <footerDisplay:get --%>
+<%--            name="@prm.global.footer.copyright" --%>
+<%-- 	       if="@prm.global.footer.copyright.isenabled" --%>
+<%-- 	       href="@prm.global.footer.copyright.href" --%>
+<%-- 	       enableLink="@prm.global.footer.copyright.href.isenabled" --%>
+<%-- /> --%>
 
-<footerDisplay:if name="@prm.global.footer.copyright.line2.newline"><br></footerDisplay:if>
+<%-- <footerDisplay:if name="@prm.global.footer.copyright.line2.newline"><br></footerDisplay:if> --%>
 
-<footerDisplay:get
-           name="@prm.global.footer.copyright.line2"
-	       if="@prm.global.footer.copyright.line2.isenabled"
-	       href="@prm.global.footer.copyright.line2.href"
-	       enableLink="@prm.global.footer.copyright.line2.href.isenabled"
-/>
+<%-- <footerDisplay:get --%>
+<%--            name="@prm.global.footer.copyright.line2" --%>
+<%-- 	       if="@prm.global.footer.copyright.line2.isenabled" --%>
+<%-- 	       href="@prm.global.footer.copyright.line2.href" --%>
+<%-- 	       enableLink="@prm.global.footer.copyright.line2.href.isenabled" --%>
+<%-- /> --%>
 
 </div>

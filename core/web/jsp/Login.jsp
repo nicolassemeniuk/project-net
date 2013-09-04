@@ -362,12 +362,19 @@ body {
 <form name="Login" action="<%= SessionManager.getJSPRootURL() %>/LoginProcessing.jsp<%= requestedPage == null ? "" : ("?requestedPage=" + requestedPage) %>" onSubmit="return doAction('login');" method="POST">
 <table width="99%" height="400" border="0" cellpadding="0" cellspacing="0">
   <tr>
-    <td width="66%" height="90" align="left" valign="top"><a href="http://www.project.net"><display:img src="@prm.project.login.pnet_logo2" width="165" height="90"/></a>
-    <a href="http://www.project.net"><display:img src="@prm.project.login.pnet_home_button" width="113" height="17" /></a></td>
-    <td width="34%" height="90" align="right" valign="bottom"><span class="style1"><span class="style4"><display:get name="prm.global.login.language.label" />
+    <td width="66%" height="90" align="left" valign="top">
+<!-- 	    <a href="http://www.project.net"> -->
+<!-- 	    	<display:img src="@prm.project.login.pnet_logo2" width="165" height="90"/> -->
+<!-- 	    </a> -->
+<!-- 	    <a href="http://www.project.net"> -->
+<!-- 	    	<display:img src="@prm.project.login.pnet_home_button" width="113" height="17" /> -->
+<!-- 	    </a> -->
+    </td>
+    <td width="34%" height="90" align="right" valign="bottom">
+    	<span class="style1"><span class="style4"><display:get name="prm.global.login.language.label" />
 	<% if (brandManager.getSupportedLanguages().size() == 1) { %>
         <input type="hidden" name="language" value="<%=((String)brandManager.getSupportedLanguages().get(0))%>">
-<%=Language.getLanguages().getLanguageForCode((String)brandManager.getSupportedLanguages().get(0)).getLanguageName()%>
+		<%=Language.getLanguages().getLanguageForCode((String)brandManager.getSupportedLanguages().get(0)).getLanguageName()%>
     <% } else { %>
 		<select name="language" onchange="changeLanguage(this);">
     		<%=brandManager.getSupportedLanguageOptionList()%>
