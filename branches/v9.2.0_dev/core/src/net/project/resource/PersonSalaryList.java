@@ -2,6 +2,7 @@ package net.project.resource;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 
 import net.project.hibernate.model.PnPersonSalary;
@@ -26,14 +27,26 @@ public class PersonSalaryList extends ArrayList<PersonSalaryBean> {
 		PnPersonSalaryList personSalaryList = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaries(this.user.getID());
 		for(PnPersonSalary personSalary : personSalaryList)
 		{
-			PersonSalaryBean personSalaryBean = new PersonSalaryBean(
-					personSalary);
+			PersonSalaryBean personSalaryBean = new PersonSalaryBean(personSalary);
 			this.add(personSalaryBean);
 		}
 		
 		this.isLoaded = true;
 	}
-
+	
+	public void load(Date startDate, Date endDate)
+	{
+		PnPersonSalaryList personSalaryList = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaries(this.user.getID(), startDate, endDate);
+		
+		for(PnPersonSalary personSalary : personSalaryList)
+		{
+			PersonSalaryBean personSalaryBean = new PersonSalaryBean(personSalary);
+			this.add(personSalaryBean);
+		}
+		
+		this.isLoaded = true;		
+	}
+	
 	public void setUser(User user)
 	{
 		this.user = user;

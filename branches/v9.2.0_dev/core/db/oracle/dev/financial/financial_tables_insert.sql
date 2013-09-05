@@ -1,4 +1,5 @@
 
+-- select * from PN_PROPERTY a where a.PROPERTY like '%prm.global.taskcompletedpercentage%';
 select * from PN_PROPERTY a where a.PROPERTY like '%prm.global.header%';
 
 -- Project Create
