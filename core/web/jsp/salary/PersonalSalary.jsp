@@ -41,6 +41,8 @@
 
 <%-- Import Javascript --%>
 <template:getSpaceJS  />
+<template:import type="javascript" src="/src/checkDate.js" />
+<template:import type="javascript" src="/src/errorHandler.js" />
 
 <% 	
 String mode = request.getParameter("mode");
@@ -61,7 +63,6 @@ if(mode == null)
 else if(mode.equals("search"))
 {
 	// Don't refresh the personSalaryList if we are returning search results because the roster was reloaded in the processing
-	// TODO Agregar funcionalidad de busqueda
 }
 else if(mode.equals("edit"))
 {
@@ -77,7 +78,8 @@ else if(mode.equals("edit"))
 <script language="javascript">
 	var theForm;
 	var isLoaded = false;
-	var JSPRootURL = '<%=SessionManager.getJSPRootURL()%>';    
+	var JSPRootURL = '<%=SessionManager.getJSPRootURL()%>';
+	var userDateFormatString = '<%= ownerUser.getDateFormatter().getDateFormatExample() %>';  	
 	
 	function setup() {
 		theForm = self.document.forms[0];
@@ -99,10 +101,41 @@ else if(mode.equals("edit"))
 		}
 	}
 
-	function search() { 
-		self.document.location = JSPRootURL + "/search/SearchController.jsp?module=<%=Module.SALARY%>&action=<%=Action.VIEW%>";
+	function searchButton()
+	{
+		theAction("search");
+		theForm.action.value = '<%=Action.VIEW%>';
+		theForm.submit();
 	}
 
+	function validate()
+	{
+		var dateFormat = new DateFormat(userDateFormatString);
+		if(!dateFormat.checkValidDate(theForm.searchFieldFrom))
+		{
+			// TODO Cambiar propiedades
+			errorHandler(theForm.searchFieldFrom, 'Start date incorrect');
+			return false;
+		}
+		
+		if(!dateFormat.checkValidDate(theForm.searchFieldTo))
+		{
+			// TODO Cambiar propiedades
+			errorHandler(theForm.searchFieldTo, 'End date incorrect');
+			return false;
+		}
+		
+		/*
+		if(isdateStartBeforeEnd(theForm.minStartDate.value, theForm.startDate.value))
+		{
+			errorHandler(theForm.searchFieldFrom, '<display:get name="prm.personal.salary.create.startdateincorrectrange.message" />');
+			return false;
+		}		
+		*/
+		
+		return true;
+	}	
+	
 	function help() {
 			var helplocation = JSPRootURL + "/help/Help.jsp?page=personal_salary";
 			openwin_help(helplocation);
