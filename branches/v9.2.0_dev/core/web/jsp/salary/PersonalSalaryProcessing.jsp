@@ -41,20 +41,13 @@
 <jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
 <jsp:useBean id="personSalaryList" class="net.project.resource.PersonSalaryList" scope="session" />
 
-<%
-// 	// Make sure a security check has been passed to view a discussion group
-// 	int module = securityProvider.getCheckedModuleID();
-// 	int action = securityProvider.getCheckedActionID();
-//     String id = securityProvider.getCheckedObjectID();
+<security:verifyAccess action="view" module="<%= Module.SALARY %>" />
 
-// 	if ((id.length() > 0) || 
-//         (module != net.project.base.Module.SALARY))
-// 	    throw new net.project.security.AuthorizationFailedException(PropertyProvider.get("prm.financial.salary.authorizationfailed.message"));
-	
+<%
 	if (request.getParameter("theAction").equals("search"))
 	{
-		String searchKeyFrom = request.getParameter("searchFieldFrom");
-		String searchKeyTo = request.getParameter("searchFieldTo");
+		String searchKeyFrom = request.getParameter("searchFieldFrom").trim();
+		String searchKeyTo = request.getParameter("searchFieldTo").trim();
 		
 		session.setAttribute("searchKeyFrom", searchKeyFrom);
 		session.setAttribute("searchKeyTo", searchKeyTo);		
@@ -72,9 +65,14 @@
 			searchKeyTo = null;
 			session.setAttribute("searchKeyTo", "");			
 		}		
+	
+		Date startDate = null;
+		if (searchKeyFrom != null)
+			startDate = ownerUser.getDateFormatter().parseDateString(searchKeyFrom);
 		
-		Date startDate = ownerUser.getDateFormatter().parseDateString(searchKeyFrom);
-		Date endDate = ownerUser.getDateFormatter().parseDateString(searchKeyTo);
+		Date endDate = null;
+		if(searchKeyTo != null)
+			endDate = ownerUser.getDateFormatter().parseDateString(searchKeyTo);
 		
 		personSalaryList.clear();	
 		personSalaryList.setUser(ownerUser);
