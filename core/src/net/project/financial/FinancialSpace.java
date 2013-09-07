@@ -16,6 +16,7 @@
 package net.project.financial;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.sql.SQLException;
 
 import net.project.business.BusinessSpace;
@@ -26,6 +27,7 @@ import net.project.persistence.IXMLPersistence;
 import net.project.persistence.PersistenceException;
 import net.project.portfolio.IPortfolioEntry;
 import net.project.portfolio.ProjectPortfolio;
+import net.project.project.ProjectSpace;
 import net.project.space.ISpaceTypes;
 import net.project.space.Space;
 import net.project.space.SpaceManager;
@@ -197,9 +199,9 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 	 * financial space.
 	 */
 	public void loadCosts() {
-		Float totalActualCostToDateFloat = new Float(0.0);
-		Float totalEstimatedCurrentCostFloat = new Float(0.0);
-		Float totalBudgetedCostFloat = new Float(0.0);
+		BigDecimal totalActualCostToDateBigDecimal = new BigDecimal(0.0);
+		BigDecimal totalEstimatedCurrentCostBigDecimal = new BigDecimal(0.0);
+		BigDecimal totalBudgetedCostBigDecimal = new BigDecimal(0.0);
 
 		try {
 			BusinessSpace businessSpace = new BusinessSpace(getRelatedSpaceID());
@@ -212,17 +214,20 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 
 			for (Object entry : projectPortfolio) {
 				IPortfolioEntry portfolioEntry = (IPortfolioEntry) entry;
-				totalActualCostToDateFloat += ServiceFactory.getInstance().getProjectFinancialService().calculateActualCostToDate(portfolioEntry.getID());
-				totalEstimatedCurrentCostFloat += ServiceFactory.getInstance().getProjectFinancialService().calculateEstimatedTotalCost(portfolioEntry.getID());
-				totalBudgetedCostFloat += ServiceFactory.getInstance().getProjectFinancialService().getBudgetedCost(portfolioEntry.getID());
+				ProjectSpace space = new ProjectSpace();
+				space.setID(portfolioEntry.getID());
+				space.load();
+				totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(space.getActualCostToDate().getValue());
+				totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(space.getCurrentEstimatedTotalCost().getValue());
+				totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(space.getBudgetedTotalCost().getValue());
 			}
 		} catch (PersistenceException e) {
 			// TODO handle errors
 		}
 
-		totalActualCostToDate = String.valueOf(totalActualCostToDateFloat);
-		totalEstimatedCurrentCost = String.valueOf(totalEstimatedCurrentCostFloat);
-		totalBudgetedCost = String.valueOf(totalBudgetedCostFloat);
+		totalActualCostToDate = String.valueOf(totalActualCostToDateBigDecimal);
+		totalEstimatedCurrentCost = String.valueOf(totalEstimatedCurrentCostBigDecimal);
+		totalBudgetedCost = String.valueOf(totalBudgetedCostBigDecimal);
 
 	}
 
