@@ -31,6 +31,8 @@
 <jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
 <jsp:useBean id="personSalaryList" class="net.project.resource.PersonSalaryList" scope="session" />
 
+<security:verifyAccess action="view" module="<%= Module.SALARY %>" />
+
 <template:getDoctype />
 <html>
 <head>
@@ -103,9 +105,13 @@ else if(mode.equals("edit"))
 
 	function searchButton()
 	{
-		theAction("search");
-		theForm.action.value = '<%=Action.VIEW%>';
-		theForm.submit();
+		if(validate())
+		{
+			theAction("search");			
+			theForm.module.value = '<%= net.project.base.Module.SALARY %>';
+			theForm.action.value = '<%= Action.VIEW %>';
+			theForm.submit();
+		}
 	}
 
 	function validate()
@@ -113,30 +119,29 @@ else if(mode.equals("edit"))
 		var dateFormat = new DateFormat(userDateFormatString);
 		if(!dateFormat.checkValidDate(theForm.searchFieldFrom))
 		{
-			// TODO Cambiar propiedades
-			errorHandler(theForm.searchFieldFrom, 'Start date incorrect');
+			errorHandler(theForm.searchFieldFrom, '<display:get name="prm.personal.salary.roster.searchfieldfromincorrectformat.message" />');
 			return false;
 		}
 		
 		if(!dateFormat.checkValidDate(theForm.searchFieldTo))
 		{
-			// TODO Cambiar propiedades
-			errorHandler(theForm.searchFieldTo, 'End date incorrect');
+			errorHandler(theForm.searchFieldTo, '<display:get name="prm.personal.salary.roster.searchfieldtoincorrectformat.message" />');
 			return false;
 		}
 		
-		/*
-		if(isdateStartBeforeEnd(theForm.minStartDate.value, theForm.startDate.value))
+		if(!dateFormat.checkValidDate(theForm.searchFieldFrom) &&
+		   !dateFormat.checkValidDate(theForm.searchFieldTo) &&
+		   !isdateStartBeforeEnd(theForm.searchFieldFrom.value, theForm.searchFieldTo.value))
 		{
-			errorHandler(theForm.searchFieldFrom, '<display:get name="prm.personal.salary.create.startdateincorrectrange.message" />');
+			errorHandler(theForm.searchFieldFrom, '<display:get name="prm.personal.salary.roster.searchdatesincorrectrange.message" />');
 			return false;
 		}		
-		*/
-		
+				
 		return true;
 	}	
 	
-	function help() {
+	function help()
+	{
 			var helplocation = JSPRootURL + "/help/Help.jsp?page=personal_salary";
 			openwin_help(helplocation);
 	}

@@ -113,6 +113,9 @@ insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.roster.sea
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.roster.column.startdate','Start Date','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.roster.column.enddate','End Date','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.roster.column.costbyhour','Cost By Hour','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.roster.searchfieldfromincorrectformat.message','The start date is incorrect','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.roster.searchfieldtoincorrectformat.message','The end date is incorrect','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.personal.salary.roster.searchdatesincorrectrange.message','The start date cannot be previous to the last start date','A',0,1,null);
 
 -- Salary - Personal - Modify salary
 insert into PN_PROPERTY values (2000,'en','text','prm.personal.salarymodifypage.title','Modify Salary','A',0,1,null);

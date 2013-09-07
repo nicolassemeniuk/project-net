@@ -73,18 +73,11 @@ insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material.assign.material.column','Material','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material.assign.workingcalendar.column','Utilization<br>Summary','A',0,1,null);
 
-
-insert into PN_PROPERTY values (2000,'en','text','prm.space.spacetypes.materials.name','Materials','A',0,1,null); -- TODO Borrar
 insert into PN_PROPERTY values (2000,'en','text','prm.material.nav.dashboard','Dashboard','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.materialspace.module.description','Material','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.global.materials.objecttype.material','Material','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.materials.tab','Materials','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.directory.directory.tab.materials.title','Materials','A',0,1,null);
-
-insert into PN_PROPERTY values (2000,'en','css','prm.global.css.material','/styles/material.css','A',0,0,null); -- TODO Borrar
-
-insert into PN_PROPERTY values (2000,'en','boolean','prm.material.isenabled','1','A',0,0,null); -- TODO Borrar
-insert into PN_PROPERTY values (2000,'en','boolean','prm.material.dashboard.isenabled','1','A',0,0,null); -- TODO Borrar
 
 --Error harcodeado en taskedit/assignments
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskedit.resources.cannotassignonshared.message','Assignments cannot be added to shares.  All assignment work must occur in the source task or schedule.','A',0,1,null);
