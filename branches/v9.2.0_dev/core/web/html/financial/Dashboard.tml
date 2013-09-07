@@ -85,10 +85,30 @@
 									<tr>
 										<td>${project.name}</td>
 										<td>${project.costCenter}</td>
-										<td>${project.budgetedTotalCost.value}</td>
-										<td>${project.currentEstimatedTotalCost.value}</td>
-										<td>${project.actualCostToDate.value}</td>
-										<td>${project.estimatedROI}</td>										
+										<t:if test="project.budgetedTotalCost">
+											<td>${project.budgetedTotalCost.value}</td>
+											<t:parameter name="else">
+								   				<td></td>
+											</t:parameter>												
+										</t:if>
+										<t:if test="project.currentEstimatedTotalCost">
+											<td>${project.currentEstimatedTotalCost.value}</td>
+											<t:parameter name="else">
+								   				<td></td>
+											</t:parameter>	
+										</t:if>
+										<t:if test="project.actualCostToDate">
+											<td>${project.actualCostToDate.value}</td>
+											<t:parameter name="else">
+								   				<td></td>
+											</t:parameter>																					
+										</t:if>
+										<t:if test="project.estimatedROI">
+											<td>${project.estimatedROI.value}</td>
+											<t:parameter name="else">
+								   				<td></td>
+											</t:parameter>	
+										</t:if>
 									</tr>
 							 	</t:loop>
 							</table>
