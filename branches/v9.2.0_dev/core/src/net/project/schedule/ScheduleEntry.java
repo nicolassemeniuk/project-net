@@ -317,9 +317,11 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
     private boolean assigneesLoaded = false;
     private AssignmentList assignments = new AssignmentList();
     
-    /** Field to store material assignation */
+    /** Field to store material assignments */
     private boolean materialAssigneesLoaded = false;
     private MaterialAssignmentList materialAssignments = new MaterialAssignmentList();
+    
+
 
     /** Allow notifications to be turned off, which will greatly speed imports. */
     boolean sendNotifications = true;

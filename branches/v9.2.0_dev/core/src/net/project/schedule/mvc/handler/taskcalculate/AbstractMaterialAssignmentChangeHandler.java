@@ -136,6 +136,12 @@ abstract class AbstractMaterialAssignmentChangeHandler extends Handler {
         if (Validator.isBlankOrNull(materialID)) {
             throw new ControllerException("Missing request parameter materialID");
         }
+        
+        // Get the ID of the owner space of the material 
+        String spaceID = request.getParameter("spaceID");
+        if (Validator.isBlankOrNull(spaceID)) {
+            throw new ControllerException("Missing request parameter spaceID");
+        }        
 
         // Construct a map of resourceID to max allocation percentage
 //        Map<String, BigDecimal> maxAllocationMap = parseMaxAllocations(request);
@@ -143,7 +149,7 @@ abstract class AbstractMaterialAssignmentChangeHandler extends Handler {
 //        Map<String, BigDecimal> oldAssignmentPercentages = getCurrentAssignmentPercentages(scheduleEntry.getAssignments());
 
         // Now actual perform the change
-        doHandleRequest(request, schedule, scheduleEntry, materialID, errorReporter);
+        doHandleRequest(request, schedule, scheduleEntry, materialID, spaceID, errorReporter);
 
         // Only add the results if no errors were found
         if (!errorReporter.errorsFound()) {
@@ -170,7 +176,7 @@ abstract class AbstractMaterialAssignmentChangeHandler extends Handler {
      * @param errorReporter
      * @throws ControllerException
      */
-    protected abstract void doHandleRequest(HttpServletRequest request, Schedule schedule, ScheduleEntry scheduleEntry, String materialID, ErrorReporter errorReporter) throws ControllerException;
+    protected abstract void doHandleRequest(HttpServletRequest request, Schedule schedule, ScheduleEntry scheduleEntry, String materialID, String spaceID, ErrorReporter errorReporter) throws ControllerException;
 
 
     /**

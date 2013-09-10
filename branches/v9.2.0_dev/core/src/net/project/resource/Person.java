@@ -32,7 +32,6 @@ import net.project.base.property.PropertyProvider;
 import net.project.calendar.PnCalendar;
 import net.project.database.DBBean;
 import net.project.gui.html.IHTMLOption;
-import net.project.hibernate.service.ServiceFactory;
 import net.project.persistence.IJDBCPersistence;
 import net.project.persistence.IXMLPersistence;
 import net.project.persistence.PersistenceException;
@@ -894,7 +893,12 @@ public class Person implements IResource, IJDBCPersistence, IXMLPersistence, jav
         
         xml.append("<domain_id>" + getDomaninID() + "</domain_id>\n");
         
-        xml.append("<cost_by_hour>" + getSalary().getCostByHour() + "</cost_by_hour>\n");
+        //When we create a license the generic user doesn't have a salary.
+        if(getSalary()!=null){        	
+	        xml.append("<cost_by_hour>" + getSalary().getCostByHour() + "</cost_by_hour>\n");
+        } else {
+        	xml.append("<cost_by_hour>" + "0.0" + "</cost_by_hour>\n");
+        }
         
 
         if (this.address != null)
@@ -1028,8 +1032,6 @@ public class Person implements IResource, IJDBCPersistence, IXMLPersistence, jav
                     this.address = new Address(this.addressID);
                     this.address.load();
                 }
-                
-                this.salary = new PersonSalary(personID);
 
                 this.isLoaded = true;
             }
@@ -1069,8 +1071,7 @@ public class Person implements IResource, IJDBCPersistence, IXMLPersistence, jav
         }
         this.domaninID = result.getInt("domain_id");
         
-        this.salary = new PersonSalary(personID);
-        
+        this.salary = new PersonSalary(personID);   
         
         
     }

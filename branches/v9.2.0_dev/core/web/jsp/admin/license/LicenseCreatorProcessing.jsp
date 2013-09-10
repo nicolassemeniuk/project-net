@@ -32,6 +32,7 @@
 %>
 <%@ include file="/base/taglibInclude.jsp" %>
 <jsp:useBean id="externalLicenseCreator" class="net.project.license.create.ExternalLicenseCreator" scope="session" />
+<jsp:useBean id="user" class="net.project.security.User" scope="session"/>
 
 <security:verifyAccess module="<%=net.project.base.Module.APPLICATION_SPACE%>" 
                        action="modify" />

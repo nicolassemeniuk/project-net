@@ -26,6 +26,7 @@ public class PnMaterialServiceImpl implements IPnMaterialService {
 	@Autowired
 	private IPnMaterialDAO pnMaterialDAO;
 
+	
 	@Autowired
 	private IPnMaterialTypeService materialTypeService;
 
@@ -35,13 +36,13 @@ public class PnMaterialServiceImpl implements IPnMaterialService {
 	@Autowired
 	private IPnMaterialAssignmentService materialAssignmentService;
 
-	public void setPnMaterialDAO(IPnMaterialDAO pnMaterialDAO) {
-		this.pnMaterialDAO = pnMaterialDAO;
-	}
-
-	public IPnMaterialDAO getPnMaterialDAO() {
-		return pnMaterialDAO;
-	}
+//	public void setPnMaterialDAO(IPnMaterialDAO pnMaterialDAO) {
+//		this.pnMaterialDAO = pnMaterialDAO;
+//	}
+//
+//	public IPnMaterialDAO getPnMaterialDAO() {
+//		return pnMaterialDAO;
+//	}
 
 	@Override
 	public PnMaterial getMaterial(Integer materialId) {
