@@ -263,6 +263,7 @@
 				<value>net.project.hibernate.model.PnSpaceHasWeather</value>
 				<value>net.project.hibernate.model.PnSpaceHasWorkflow</value>
 				<value>net.project.hibernate.model.PnSpaceTypeHasReportType</value>
+				<value>net.project.hibernate.model.PnSpaceView</value>
 				<value>net.project.hibernate.model.PnSpaceViewContext</value>
 				<value>net.project.hibernate.model.PnSpamLookup</value>
 				<value>net.project.hibernate.model.PnStateLookup</value>

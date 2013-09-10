@@ -42,6 +42,7 @@ import net.project.util.Conversion;
 import net.project.util.ParseString;
 
 public class PersonFinder extends Finder {
+	
     private final String BASE_SQL_STATEMENT =
         "select " +
         "  p.person_id, p.display_name display_name, p.first_name, p.last_name, " +
@@ -50,7 +51,7 @@ public class PersonFinder extends Finder {
         "  u.username "+
         "from " +
         "  pn_person_view p, " +
-        "  pn_user_view u " +
+        "  pn_user_view u  " +
         "where" +
         "  u.user_id(+) = p.person_id ";
     private Map addressCache = new HashMap();
@@ -166,6 +167,7 @@ public class PersonFinder extends Finder {
                 person.setAddress(address);
             }
         }
+        person.setSalary(new PersonSalary(result.getString("person_id")));
 
         person.isLoaded = true;
 

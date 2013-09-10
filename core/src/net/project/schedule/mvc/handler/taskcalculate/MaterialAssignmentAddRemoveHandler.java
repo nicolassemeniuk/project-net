@@ -57,7 +57,7 @@ public class MaterialAssignmentAddRemoveHandler extends AbstractMaterialAssignme
      * </ul>
      */
 	@Override
-	protected void doHandleRequest(HttpServletRequest request, Schedule schedule, ScheduleEntry scheduleEntry, String materialId, ErrorReporter errorReporter)
+	protected void doHandleRequest(HttpServletRequest request, Schedule schedule, ScheduleEntry scheduleEntry, String materialId, String spaceID, ErrorReporter errorReporter)
 			throws ControllerException {
         // Determine whether being added or removed
         User user = (User)getSessionVar("user");
@@ -87,7 +87,7 @@ public class MaterialAssignmentAddRemoveHandler extends AbstractMaterialAssignme
         	{
                 // Doesn't exists, create a new assignment
             	MaterialAssignment assignment = new MaterialAssignment();
-                assignment.setSpaceId(scheduleEntry.getSpaceID());
+                assignment.setSpaceId(spaceID);
                 assignment.setObjectId(scheduleEntry.getID());
             	assignment.setMaterialId(materialId);
                 assignment.setPercentAssigned(BigDecimal.valueOf(100.00));

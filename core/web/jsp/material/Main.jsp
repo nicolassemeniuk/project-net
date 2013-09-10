@@ -39,10 +39,10 @@
 <title><display:get name="prm.global.application.title" /></title>
 
 <%-- Import CSS --%>
-<template:getSpaceCSS space="project" />
+<template:getSpaceCSS/>
 
 <%-- Import Javascript --%>
-<template:getSpaceJS space="project" />
+<template:getSpaceJS/>
 
 <script language="javascript">
 	var theForm;

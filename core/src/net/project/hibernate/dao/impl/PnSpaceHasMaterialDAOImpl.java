@@ -88,6 +88,21 @@ public class PnSpaceHasMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<PnS
 		return idList;
 	}
 
+	@Override
+	public Integer getSpaceOfMaterial(Integer materialId) {
+		Integer id = 0;
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+			id = (Integer) session.createCriteria(PnSpaceHasMaterial.class).add(Restrictions.eq("comp_id.materialId", materialId))
+					.setProjection(Property.forName("comp_id.spaceId")).uniqueResult();
+			session.close();			
+		} catch (HibernateException e) {
+			log.error(e.getMessage());
+		}
+		return id;
+	}
+
 
 
 }

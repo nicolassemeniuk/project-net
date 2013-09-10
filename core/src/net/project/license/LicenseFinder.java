@@ -44,6 +44,7 @@ import net.project.database.DBBean;
 import net.project.persistence.PersistenceException;
 import net.project.resource.Person;
 import net.project.resource.PersonFinder;
+import net.project.resource.PersonSalary;
 import net.project.schedule.Task;
 import net.project.security.EncryptionException;
 import net.project.util.Conversion;
@@ -120,6 +121,7 @@ public class LicenseFinder extends Finder {
 
                 for (Iterator it = persons.iterator(); it.hasNext();) {
                     Person p = (Person)it.next();
+                    p.setSalary(new PersonSalary(p.getID()));
                     personMap.put(p.getID(), p);
                 }
             } catch (PersistenceException e) {

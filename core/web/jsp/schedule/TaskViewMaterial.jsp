@@ -39,11 +39,14 @@
 			net.project.material.Material"%>
 <%@ include file="/base/taglibInclude.jsp"%>
 <jsp:useBean id="user" type="net.project.security.User" scope="session" />
-<!-- Es la tarea -->
+
+<!-- The task -->
 <jsp:useBean id="scheduleEntry" type="net.project.schedule.ScheduleEntry" scope="request" />
 
-<!-- Lista de Materials -->
+<!-- List of materials -->
 <jsp:useBean id="materialAssignmentsHelper" class="net.project.schedule.MaterialAssignmentsHelper" scope="request" />
+<jsp:useBean id="materialBusinessAssignmentsHelper" class="net.project.schedule.MaterialAssignmentsHelper" scope="request" />
+
 <jsp:useBean id="roster" class="net.project.resource.RosterBean" scope="session" />
 <jsp:useBean id="refLink" class="java.lang.String" scope="request" />
 <jsp:useBean id="refLinkEncoded" class="java.lang.String" scope="request" />
@@ -201,7 +204,7 @@ function showResourceAllocation(materialID, startDate) {
     openwin_large('material_resource_allocation', url);
 }
 
-function assignmentCheckboxClicked(materialID) {
+function assignmentCheckboxClicked(materialID, spaceID) {
     // Make sure the user knows that they've modified the page
     turnOnModifiedIcon();
 
@@ -214,7 +217,7 @@ function assignmentCheckboxClicked(materialID) {
 
     var url = "<%=SessionManager.getJSPRootURL()%>/servlet/ScheduleController/TaskCalculate/MaterialAssignmentAddRemove?module=<%=Module.SCHEDULE%>&action=<%=Action.VIEW%>&id=<%=scheduleEntry.getID()%>";
 
-    var responseText = invoke(url + "&materialID=" + materialID + "&mode=" + mode);
+    var responseText = invoke(url + "&materialID=" + materialID + "&mode=" + mode + "&spaceID=" + spaceID);
     if(responseText.indexOf("flagError") > -1) { //if there is an error we restore back!!
         if (checkboxElement.checked) {
             checkboxElement.checked = false;
@@ -515,10 +518,54 @@ function overallocationExist(exist) {
 							<tr>
 								<td colspan="10" class="headerSep"></td>
 							</tr>
+							
+							
+							<%									
+								for (MaterialAssignmentHelper assignmentBusiness : materialBusinessAssignmentsHelper.getMaterialsAssigned()) {									
+									String materialBusinessID = assignmentBusiness.getMaterial().getMaterialId();
+									String materialBusinessSpaceID = assignmentBusiness.getMaterial().getSpaceID();
+									String disabledString = (assignmentBusiness.isAssigned() ? "" : "disabled");												
+							%>
+							<tr class="tableContent">							
+								<td align="center">
+								
+								<input 
+								name="resource" 
+								id="material_<%=materialBusinessID%>" 
+								value="<%=materialBusinessID%>" 
+								type="checkbox"
+								<%=assignmentBusiness.isAssignedMaterialChecked()%>
+								<%=assignmentBusiness.isAssignedMaterialEnabled()%> 
+  								onClick="assignmentCheckboxClicked('<%=materialBusinessID%>', '<%=materialBusinessSpaceID%>')"
+								<%=(scheduleEntry.isFromShare() ? " readonly disabled=\"true\"" : "")%>
+								/>
+									
+								</td>
+								<td class="assignuser-name">
+									<label for="resource_<%=materialBusinessID%>"><%=assignmentBusiness.getDisplayName()%></label>
+	
+
+								</td>
+								<td align="center">								
+									<a	href='javascript:showResourceAllocation(<%=materialBusinessID%>, <%=String.valueOf((new Date()).getTime())%>)'>
+											<img src="<%=SessionManager.getJSPRootURL()%>/images/schedule/constraint.gif" border="0">
+									</a>
+								</td>
+							</tr>
+							<%
+								}
+								
+							%>
+							
+							
+							<tr>
+								<td colspan="10" class="rowSep"></td>
+							</tr>
 
 							<%									
 								for (MaterialAssignmentHelper assignment : materialAssignmentsHelper.getMaterialsAssigned()) {									
 									String materialID = assignment.getMaterial().getMaterialId();
+									String materialSpaceID = assignment.getMaterial().getSpaceID();
 									String disabledString = (assignment.isAssigned() ? "" : "disabled");												
 							%>
 							<tr class="tableContent">							
@@ -531,7 +578,7 @@ function overallocationExist(exist) {
 								type="checkbox"
 								<%=assignment.isAssignedMaterialChecked()%>
 								<%=assignment.isAssignedMaterialEnabled()%> 
-  								onClick="assignmentCheckboxClicked('<%=materialID%>')"
+  								onClick="assignmentCheckboxClicked('<%=materialID%>', '<%=materialSpaceID%>')"
 								<%=(scheduleEntry.isFromShare() ? " readonly disabled=\"true\"" : "")%>
 								/>
 									

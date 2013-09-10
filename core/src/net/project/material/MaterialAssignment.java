@@ -4,10 +4,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Date;
 
-import net.project.base.Module;
 import net.project.calendar.PnCalendar;
 import net.project.hibernate.model.PnMaterialAssignment;
-import net.project.hibernate.model.PnProjectSpace;
+import net.project.hibernate.model.PnSpaceView;
 import net.project.hibernate.model.PnTask;
 import net.project.hibernate.service.ServiceFactory;
 import net.project.security.SessionManager;
@@ -53,9 +52,9 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 		this.materialName = ServiceFactory.getInstance().getPnMaterialService().getMaterial(Integer.valueOf(materialId)).getMaterialName();
 		PnTask task = ServiceFactory.getInstance().getPnTaskService().getTaskById(Integer.valueOf(assignedMaterial.getComp_id().getObjectId()));
 		this.taskName = task.getTaskName();
-		PnProjectSpace space = ServiceFactory.getInstance().getPnProjectSpaceService()
-				.getProjectSpace(Integer.valueOf(assignedMaterial.getComp_id().getSpaceId()));
-		this.spaceName = space.getProjectName();
+		Integer projectId = ServiceFactory.getInstance().getPnTaskService().getProjectByTaskId(task.getTaskId());
+		PnSpaceView spaceView = ServiceFactory.getInstance().getPnSpaceViewService().getSpaceView(String.valueOf(projectId));
+		this.spaceName = spaceView.getSpaceName();
 	}
 
 	public void load() {
@@ -76,9 +75,9 @@ public class MaterialAssignment implements Serializable, ITimeRangeValue {
 		this.materialName = ServiceFactory.getInstance().getPnMaterialService().getMaterial(Integer.valueOf(materialId)).getMaterialName();
 		PnTask task = ServiceFactory.getInstance().getPnTaskService().getTaskById(Integer.valueOf(assignedMaterial.getComp_id().getObjectId()));
 		this.taskName = task.getTaskName();
-		PnProjectSpace space = ServiceFactory.getInstance().getPnProjectSpaceService()
-				.getProjectSpace(Integer.valueOf(assignedMaterial.getComp_id().getSpaceId()));
-		this.spaceName = space.getProjectName();
+		Integer projectId = ServiceFactory.getInstance().getPnTaskService().getProjectByTaskId(task.getTaskId());
+		PnSpaceView spaceView = ServiceFactory.getInstance().getPnSpaceViewService().getSpaceView(String.valueOf(projectId));
+		this.spaceName = spaceView.getSpaceName();
 	}
 
 	public String getSpaceId() {

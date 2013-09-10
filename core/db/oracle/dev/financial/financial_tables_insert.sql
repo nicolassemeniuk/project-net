@@ -93,6 +93,7 @@ insert into PN_MODULE values (270,'salary','@prm.salary.module.description', 0, 
 insert into PN_PROPERTY values (2000,'en','text','prm.salary.module.description','Salary','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.nav.salary','Salary','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.modify.button.tooltip','Modify Salary','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.create.button.tooltip','New Salary','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.tab.salary.title','Salary','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.roster.search.label','Search','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.tab.participants.title','Participants','A',0,1,null);

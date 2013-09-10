@@ -825,7 +825,10 @@ public class ServiceFactoryImpl extends ServiceFactory {
 		return (IProjectFinancialService) beanFactory.getBean("projectFinancialService");
 	}
 	
-
+	@Override
+	public IPnSpaceViewService getPnSpaceViewService(){
+		return (IPnSpaceViewService) beanFactory.getBean("pnSpaceViewService");
+	}
     
 	
 }

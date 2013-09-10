@@ -53,4 +53,11 @@ public class PnSpaceHasMaterialServiceImpl implements IPnSpaceHasMaterialService
 		this.pnSpaceHasMaterialDAO.create(spaceHasMaterial);	
 	}
 
+	@Override
+	public Integer getSpaceOfMaterial(String materialId) {
+		return this.pnSpaceHasMaterialDAO.getSpaceOfMaterial(Integer.valueOf(materialId));
+	}
+	
+	
+
 }

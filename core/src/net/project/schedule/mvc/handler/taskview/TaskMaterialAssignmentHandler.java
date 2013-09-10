@@ -28,6 +28,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import net.project.project.ProjectSpace;
 import net.project.schedule.MaterialAssignmentsHelper;
 import net.project.schedule.ScheduleEntry;
 import net.project.security.User;
@@ -77,7 +78,24 @@ public class TaskMaterialAssignmentHandler extends AbstractTaskMaterialAssignmen
     	materialAssignmentsHelper.setObjectId(objectId);
     	materialAssignmentsHelper.load();           
 
-        model.put("materialAssignmentsHelper", materialAssignmentsHelper);   
+        model.put("materialAssignmentsHelper", materialAssignmentsHelper);  
+        
+        if(user.getCurrentSpace() instanceof ProjectSpace){
+        	ProjectSpace projectSpace = (ProjectSpace) user.getCurrentSpace();
+        	
+            //If the project has a business owner
+            if(projectSpace.getParentBusinessID()!=null){        
+    	    	MaterialAssignmentsHelper materialBusinessAssignmentsHelper	= new MaterialAssignmentsHelper();
+    	    	materialBusinessAssignmentsHelper.setSpaceId(projectSpace.getParentBusinessID());
+    	    	materialBusinessAssignmentsHelper.setObjectId(objectId);
+    	    	materialBusinessAssignmentsHelper.load();           
+    	
+    	        model.put("materialBusinessAssignmentsHelper", materialBusinessAssignmentsHelper);
+            }
+        	
+        }
+        
+
         
 		return model;
 	}

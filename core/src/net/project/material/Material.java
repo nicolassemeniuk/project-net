@@ -36,7 +36,7 @@ public class Material implements Serializable, IJDBCPersistence {
 			materialTypeId = String.valueOf(material.getPnMaterialType().getMaterialTypeId());
 			materialTypeName = String.valueOf(material.getPnMaterialType().getMaterialTypeName());
 			consumable = Boolean.valueOf(material.getMaterialConsumable());
-			
+			spaceID = String.valueOf(ServiceFactory.getInstance().getPnSpaceHasMaterialService().getSpaceOfMaterial(materialId));
 			consumableAndAssigned = new Boolean(false);
 			
 			if(consumable){
@@ -151,7 +151,7 @@ public class Material implements Serializable, IJDBCPersistence {
 			materialTypeId = String.valueOf(material.getPnMaterialType().getMaterialTypeId());
 			materialTypeName = String.valueOf(material.getPnMaterialType().getMaterialTypeName());
 			consumable = Boolean.valueOf(material.getMaterialConsumable());
-			
+			spaceID = String.valueOf(ServiceFactory.getInstance().getPnSpaceHasMaterialService().getSpaceOfMaterial(materialId));
 			consumableAndAssigned = false;
 			
 			if(consumable){
