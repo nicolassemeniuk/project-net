@@ -9,6 +9,10 @@ import net.project.hibernate.model.PnPersonSalary;
 import net.project.hibernate.service.ServiceFactory;
 import net.project.security.User;
 
+/**
+ * @author ramiro
+ *
+ */
 public class PersonSalaryList extends ArrayList<PersonSalaryBean> {
 	
 	private User user = null;    
@@ -50,6 +54,11 @@ public class PersonSalaryList extends ArrayList<PersonSalaryBean> {
 	public void setUser(User user)
 	{
 		this.user = user;
+	}
+
+	public User getUser()
+	{
+		return user;
 	}
 
 	/**

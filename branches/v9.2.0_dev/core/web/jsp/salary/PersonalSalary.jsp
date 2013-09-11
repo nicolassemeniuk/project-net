@@ -47,34 +47,20 @@
 <template:import type="javascript" src="/src/errorHandler.js" />
 
 <% 	
-String mode = request.getParameter("mode");
-ownerUser.setID(request.getParameter("user"));
-ownerUser.load();
-
-if(mode == null)
-{
-	session.setAttribute("searchKeyFrom", "");
-	session.setAttribute("searchKeyTo", "");
+	String mode = request.getParameter("mode");
+	ownerUser.setID(request.getParameter("user"));
+	ownerUser.load();
 	
-	if(!personSalaryList.getIsLoaded())
+	// Mode "search": Don't refresh the personSalaryList if we are returning search results because the roster was reloaded in the processing	
+	if(mode == null || mode.equals("edit"))
 	{
-		personSalaryList.setUser(ownerUser);
-		personSalaryList.load();		
+		session.setAttribute("searchKeyFrom", "");
+		session.setAttribute("searchKeyTo", "");
+		
+		personSalaryList.clear();		
+		personSalaryList.setUser(new User(ownerUser.getID()));
+		personSalaryList.load();
 	}
-}
-else if(mode.equals("search"))
-{
-	// Don't refresh the personSalaryList if we are returning search results because the roster was reloaded in the processing
-}
-else if(mode.equals("edit"))
-{
-	session.setAttribute("searchKeyFrom", "");
-	session.setAttribute("searchKeyTo", "");
-	
-	personSalaryList.clear();	
-	personSalaryList.setUser(ownerUser);
-	personSalaryList.load();		
-}
 %>
 
 <script language="javascript">
@@ -152,7 +138,7 @@ else if(mode.equals("edit"))
 	<template:getSpaceMainMenu />
 	<template:getSpaceNavBar />
 	<tb:toolbar style="tooltitle" showAll="true" groupTitle="prm.personal.salary.title" 
-				subTitle="<%= user.getDisplayName() %>" >
+				subTitle="<%= ownerUser.getDisplayName() %>" >
 		<tb:band name="standard">
 			<tb:button type="create" label='<%= PropertyProvider.get("prm.personal.salary.create.button.tooltip")%>' />
 			<tb:button type="modify" label='<%= PropertyProvider.get("prm.personal.salary.modify.button.tooltip")%>' />

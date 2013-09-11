@@ -21,13 +21,13 @@
 <%@ include file="/base/taglibInclude.jsp"%>
 
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
-<jsp:useBean id="personSalaryBean" class="net.project.resource.PersonSalaryBean" scope="session" />
 <jsp:useBean id="ownerUser" class="net.project.security.User" scope="session" />
-
-<jsp:setProperty name="personSalaryBean" property="*" />
-<jsp:setProperty name="personSalaryBean" property="user" value='<%= user %>' />
+<jsp:useBean id="personSalaryBean" class="net.project.resource.PersonSalaryBean" scope="session" />
 
 <security:verifyAccess action="modify" module="<%=Module.SALARY%>" />
+
+<jsp:setProperty name="personSalaryBean" property="*" />
+<jsp:setProperty name="personSalaryBean" property="user" value='<%= ownerUser %>' />
 
 <%
 	ServiceFactory.getInstance().getPnPersonSalaryService().updatePersonSalary(personSalaryBean);
