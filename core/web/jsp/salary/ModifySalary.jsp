@@ -28,6 +28,8 @@
 			net.project.resource.PersonSalaryBean,            
             net.project.util.DateFormat,
             java.util.Date,
+			net.project.hibernate.service.ServiceFactory,
+			net.project.hibernate.model.PnPersonSalary,			            
             net.project.gui.calendar.CalendarPopup"
 %>
 <%@ include file="/base/taglibInclude.jsp" %>
@@ -38,8 +40,23 @@
 <security:verifyAccess action="modify" module="<%= Module.SALARY %>" />
 
 <%
-	personSalaryBean.setPersonSalaryId(request.getParameter("id"));
-	personSalaryBean.load();
+	String personSalaryID = request.getParameter("id");
+
+	// Modifying salary from Personal Salary page
+	if(personSalaryID != null)
+	{
+		personSalaryBean.setPersonSalaryId(personSalaryID);
+		personSalaryBean.load();		
+	}
+	// Modifying salary from Salary Directory page, loading the owner user of the personSalary register
+	else
+	{
+		ownerUser.setID(request.getParameter("user"));
+		ownerUser.load();
+		PnPersonSalary lastSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getLastPersonSalaryByPersonId(Integer.valueOf(ownerUser.getID()));
+		personSalaryBean.setPersonSalaryId(String.valueOf(lastSalary.getComp_id().getPersonSalaryId()));		
+		personSalaryBean.load();
+	}
 %>
 
 <template:getDoctype />

@@ -115,6 +115,10 @@ a.channelNoUnderline {
 	background-color: #FFEFA5;
 }
 
+div.spacer-for-toolbox {
+	height: 0px;
+}
+
 /* BANNER */
 body.banner {
 	background-repeat: no-repeat;

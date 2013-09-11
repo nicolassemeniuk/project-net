@@ -39,8 +39,8 @@
 	String versionNumber = StringUtils.deleteWhitespace(Version.getInstance().getAppVersion());
 
 	// No security validation necessary since a user can only access their own Profile
-	registrationBean.setID(user.getID());
-	registrationBean.setEmail(user.getEmail());
+	registrationBean.setID(ownerUser.getID());
+	registrationBean.setEmail(ownerUser.getEmail());
 	// Load the registration information and the directory entry
 	try
 	{
@@ -60,10 +60,10 @@
 		registrationBean.setZipcode(null);
 	
 	// Getting last login date of user
-	request.setAttribute("lastLoginDate", user.getDateFormatter().formatDate(registrationBean.getLastLogin(), "hh:mm a, MMM dd, yyyy"));
+	request.setAttribute("lastLoginDate", ownerUser.getDateFormatter().formatDate(registrationBean.getLastLogin(), "hh:mm a, MMM dd, yyyy"));
 	
 	// Getting online presence of the user	
-	request.setAttribute("isOnline", ServiceFactory.getInstance().getPnUserService().isOnline(Integer.parseInt(user.getID())));
+	request.setAttribute("isOnline", ServiceFactory.getInstance().getPnUserService().isOnline(Integer.parseInt(ownerUser.getID())));
 %>
 
 <template:getDoctype />
@@ -196,9 +196,9 @@
 		</table>
 		<div style="float: right; padding: 30px">
 			<c:choose>
-				<c:when test='${user.imageId != 0}'>
+				<c:when test='${ownerUser.imageId != 0}'>
 					<img width="110px" src="<c:url value='/servlet/photo?'>
-												<c:param name='id' value='${user.ID}'/>
+												<c:param name='id' value='${ownerUser.ID}'/>
 												<c:param name='size' value="medium"/>
 												<c:param name='module' value='${Module.SALARY}'/>
 											</c:url>"
