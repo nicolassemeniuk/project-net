@@ -17,7 +17,22 @@ public class MaterialAssignmentList implements Serializable, Iterable<MaterialAs
 		materialAssignments = new ArrayList<MaterialAssignment>();
 	}
 
-	public void load(String spaceId) {
+	/**
+	 * Loads a the material assignments for a certain object.
+	 * @param objectId the id of the object.
+	 */
+	public void load(String objectId) {
+		PnMaterialAssignmentList assignmentList = ServiceFactory.getInstance().getPnMaterialAssignmentService().getMaterialsAssignmentForObject(objectId);
+		for (PnMaterialAssignment assignee : assignmentList) {
+			materialAssignments.add(new MaterialAssignment(assignee));
+		}
+	}
+	
+	/**
+	 * Loasd the material assignments for a certain space.
+	 * @param spaceId the id of the space.
+	 */
+	public void loadForSpace(String spaceId){
 		PnMaterialAssignmentList assignmentList = ServiceFactory.getInstance().getPnMaterialAssignmentService().getMaterialsAssignment(spaceId);
 		for (PnMaterialAssignment assignee : assignmentList) {
 			materialAssignments.add(new MaterialAssignment(assignee));

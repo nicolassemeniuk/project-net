@@ -36,14 +36,6 @@ public class PnMaterialServiceImpl implements IPnMaterialService {
 	@Autowired
 	private IPnMaterialAssignmentService materialAssignmentService;
 
-//	public void setPnMaterialDAO(IPnMaterialDAO pnMaterialDAO) {
-//		this.pnMaterialDAO = pnMaterialDAO;
-//	}
-//
-//	public IPnMaterialDAO getPnMaterialDAO() {
-//		return pnMaterialDAO;
-//	}
-
 	@Override
 	public PnMaterial getMaterial(Integer materialId) {
 		return pnMaterialDAO.getMaterialById(materialId);
@@ -117,6 +109,11 @@ public class PnMaterialServiceImpl implements IPnMaterialService {
 	@Override
 	public PnMaterialList getMaterialsFromCompletedTasksOfSpace(Integer spaceID){
 		return this.pnMaterialDAO.getMaterialsFromCompletedTasksOfSpace(spaceID);
+	}
+
+	@Override
+	public PnMaterialList getMaterials(List<Integer> materialsIds, String searchKey) {
+		return this.pnMaterialDAO.getMaterials(materialsIds, searchKey);
 	}
 
 }

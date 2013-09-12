@@ -13,6 +13,7 @@
  * If not, see http://www.gnu.org/licenses/gpl-3.0.html
 --%>
 
+<%@page import="net.project.hibernate.service.ServiceFactory"%>
 <%@ page
     contentType="text/html; charset=UTF-8"
     info="Project Properties Edit"
@@ -190,10 +191,18 @@
             projectSpace.setParentBusinessID(projectSpace.getOriginalParentBusinessID());
         }
 
+        
     	if(projectSpace.getParentBusinessID() != null)
+    		//If we have a parent business id
     		projectSpace.setParentChanged(!projectSpace.getParentBusinessID().equals(request.getParameter("previousParentSpaceID").trim()));
 		else
-			projectSpace.setParentChanged(!request.getParameter("previousParentSpaceID").trim().equals(""));        
+			//If we don't have a parent business id
+			projectSpace.setParentChanged(!request.getParameter("previousParentSpaceID").trim().equals(""));  
+    	
+    	//Disable all assignations from materials of the previous parent business for the project (if exists).
+    	if(projectSpace.isParentChanged() && !request.getParameter("previousParentSpaceID").trim().equals("")){
+    		ServiceFactory.getInstance().getMaterialService().disableMaterialsAssignmentsFromBusiness(request.getParameter("previousParentSpaceID"), projectSpace.getID());
+    	}
         
     	if(projectSpace.getParentProjectID() != null)
     		projectSpace.setParentChanged(projectSpace.isParentChanged() || !projectSpace.getParentProjectID().equals(request.getParameter("previousParentProjectSpaceID").trim()));

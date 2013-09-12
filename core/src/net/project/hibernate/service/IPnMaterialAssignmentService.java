@@ -20,6 +20,15 @@ public interface IPnMaterialAssignmentService {
 	public PnMaterialAssignmentList getMaterialsAssignment(String spaceId, String objectId);
 
 	/**
+	 * Returns the assigned Materials from an Object.
+	 * 
+	 * @param objectId
+	 *            the id of the object.
+	 * @return a list of assignments.
+	 */
+	public PnMaterialAssignmentList getMaterialsAssignmentForObject(String objectId);
+
+	/**
 	 * Returns an assigned Material object given an certain Space, Material and
 	 * Object to which the material is associated.
 	 * 
@@ -57,8 +66,7 @@ public interface IPnMaterialAssignmentService {
 
 	/**
 	 * 
-	 * Returns the assignments for a certain Material in a determined Space. A
-	 * material can only be on one space.
+	 * Returns the assignments for a certain Material in a determined Space.
 	 * 
 	 * @param materialId
 	 *            the id from the Material we want to obtain the assignments.
@@ -118,6 +126,13 @@ public interface IPnMaterialAssignmentService {
 	 */
 	public void saveMaterialAssignments(MaterialAssignmentList materialAssignments);
 
+	/**
+	 * Obtain the materials assignments for a certain space.
+	 * 
+	 * @param spaceId
+	 *            the id of the space.
+	 * @return a List representing material assignments.
+	 */
 	public PnMaterialAssignmentList getMaterialsAssignment(String spaceId);
 
 	/**
@@ -127,5 +142,17 @@ public interface IPnMaterialAssignmentService {
 	 *            the id from the Material we want to disable the assignments.
 	 */
 	public void disableAssignments(String materialId);
+
+	/**
+	 * Disable an SPECIFIC assignment of a material.
+	 * 
+	 * @param spaceId
+	 *            the id of the space.
+	 * @param materialId
+	 *            the id of the material.
+	 * @param objectId
+	 *            the id of the object.
+	 */
+	public void disableAssignment(String spaceId, String materialId, String objectId);
 
 }

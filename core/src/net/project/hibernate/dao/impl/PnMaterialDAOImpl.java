@@ -75,6 +75,25 @@ public class PnMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<PnMaterial,
 		}
 		return result;
 	}
+	
+	@Override
+	public PnMaterialList getMaterials(List<Integer> materialsIds, String searchKey) {
+		PnMaterialList result = new PnMaterialList();
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+			Criteria criteria = session.createCriteria(PnMaterial.class);
+			criteria.add(Restrictions.in("materialId", materialsIds));
+			if(searchKey!=null)
+				criteria.add(Restrictions.like("materialName", searchKey));
+			criteria.add(Restrictions.eq("recordStatus", "A"));
+			result = new PnMaterialList(criteria.list());
+			session.close();
+		} catch (Exception e) {
+			log.error("Error occurred while getting the list of materials " + e.getMessage());
+		}
+		return result;
+	}
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -105,5 +124,7 @@ public class PnMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<PnMaterial,
 		
 		return materialList;
 	}
+
+
 
 }

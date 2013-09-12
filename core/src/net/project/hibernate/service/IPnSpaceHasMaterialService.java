@@ -33,7 +33,7 @@ public interface IPnSpaceHasMaterialService {
 	 * 
 	 * @param spaceId
 	 *            the id of the space.
-	 * @return a list of materials id.
+	 * @return a list of materials ids.
 	 */
 	public List<Integer> getMaterialsFromSpace(String spaceId);
 

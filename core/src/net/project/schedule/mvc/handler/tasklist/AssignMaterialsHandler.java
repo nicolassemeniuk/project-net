@@ -113,14 +113,18 @@ public class AssignMaterialsHandler extends Handler {
         }
 
         User user = (User)getSessionVar("user");
+        ScheduleEntry scheduleEntry = (ScheduleEntry)getSessionVar("scheduleEntry");
     	String spaceId = String.valueOf(user.getCurrentSpace().getID());
+    	String ownerSpaceId = String.valueOf(user.getCurrentSpace().getOwnerSpaceID());
     	
     	MaterialAssignmentsHelper materialAssignmentsHelper	= new MaterialAssignmentsHelper();
     	materialAssignmentsHelper.setSpaceId(spaceId);
+    	materialAssignmentsHelper.setOwnerSpaceId(ownerSpaceId);
     	if(newIDList.size() == 1)
         	materialAssignmentsHelper.setObjectId((String) newIDList.get(0));
 
     	materialAssignmentsHelper.load();
+    	materialAssignmentsHelper.loadForBusiness();
     	
     	// If materialAssignmentsHelper contains consumable materials they can't be assigned
     	if(newIDList.size() > 1)

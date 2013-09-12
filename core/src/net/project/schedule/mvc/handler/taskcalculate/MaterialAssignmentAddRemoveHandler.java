@@ -49,12 +49,6 @@ public class MaterialAssignmentAddRemoveHandler extends AbstractMaterialAssignme
 
     /**
      * Invokes a task calculation for adding or removing a material assignment.
-     * <p>
-     * Expects the following request attributes:
-     * <ul>
-     * <li>mode - one of <code>add</code> or <code>remove</code>
-     * <li>materialID - the id of the material being added or removed
-     * </ul>
      */
 	@Override
 	protected void doHandleRequest(HttpServletRequest request, Schedule schedule, ScheduleEntry scheduleEntry, String materialId, String spaceID, ErrorReporter errorReporter)
@@ -87,7 +81,7 @@ public class MaterialAssignmentAddRemoveHandler extends AbstractMaterialAssignme
         	{
                 // Doesn't exists, create a new assignment
             	MaterialAssignment assignment = new MaterialAssignment();
-                assignment.setSpaceId(spaceID);
+                assignment.setSpaceId(scheduleEntry.getSpaceID());
                 assignment.setObjectId(scheduleEntry.getID());
             	assignment.setMaterialId(materialId);
                 assignment.setPercentAssigned(BigDecimal.valueOf(100.00));

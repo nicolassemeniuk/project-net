@@ -1,6 +1,9 @@
 package net.project.hibernate.service.impl;
 
+import java.util.List;
+
 import net.project.hibernate.model.PnMaterial;
+import net.project.hibernate.model.PnMaterialAssignment;
 import net.project.hibernate.service.IMaterialService;
 import net.project.hibernate.service.IPnMaterialAssignmentService;
 import net.project.hibernate.service.IPnMaterialService;
@@ -9,16 +12,17 @@ import net.project.hibernate.service.IPnObjectService;
 import net.project.hibernate.service.IPnSpaceHasMaterialService;
 import net.project.hibernate.service.IPnTaskService;
 import net.project.material.MaterialBean;
+import net.project.material.PnMaterialAssignmentList;
 import net.project.material.PnMaterialList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service(value = "materialService")
+@Service(value = "pnMaterialService")
 public class MaterialServiceImpl implements IMaterialService {
 
 	@Autowired
-	private IPnMaterialService materialService;
+	private IPnMaterialService pnMaterialService;
 	
 	@Autowired
 	private IPnMaterialTypeService materialTypeService;
@@ -36,7 +40,7 @@ public class MaterialServiceImpl implements IMaterialService {
 	private IPnObjectService objectService;	
 
 	public void setMaterialService(IPnMaterialService materialService) {
-		this.materialService = materialService;
+		this.pnMaterialService = materialService;
 	}
 	
 	public void setObjectService(IPnObjectService objectService) {
@@ -49,17 +53,17 @@ public class MaterialServiceImpl implements IMaterialService {
 
 	@Override
 	public PnMaterialList getMaterials() {
-		return materialService.getMaterials();
+		return pnMaterialService.getMaterials();
 	}
 	
 	@Override
 	public PnMaterialList getMaterialsFromSpace(String spaceId){
-		return materialService.getMaterials(this.spaceHasMaterialService.getMaterialsFromSpace(spaceId));
+		return pnMaterialService.getMaterials(this.spaceHasMaterialService.getMaterialsFromSpace(spaceId));
 	}
 	
 	@Override
 	public void saveMaterial(MaterialBean materialBean) {			
-		Integer materialId = materialService.saveMaterial(materialBean);
+		Integer materialId = pnMaterialService.saveMaterial(materialBean);
 		
 		//Associate to the space
 		if(materialId != null){
@@ -69,22 +73,43 @@ public class MaterialServiceImpl implements IMaterialService {
 
 	@Override
 	public void updateMaterial(MaterialBean materialBean) {		
-		materialService.updateMaterial(materialBean);
+		pnMaterialService.updateMaterial(materialBean);
 	}
 
 	@Override
 	public PnMaterial getMaterial(String materialId) {
-		return materialService.getMaterial(Integer.valueOf(materialId));
+		return pnMaterialService.getMaterial(Integer.valueOf(materialId));
 	}	
 	
 	@Override
 	public void disableMaterial(String materialId){
-		materialService.disableMaterial(Integer.valueOf(materialId));
+		pnMaterialService.disableMaterial(Integer.valueOf(materialId));
 	}
 
 	@Override
 	public PnMaterialList getMaterialsFromCompletedTasksOfSpace(String spaceId) {
-		return materialService.getMaterialsFromCompletedTasksOfSpace(Integer.valueOf(spaceId));
+		return pnMaterialService.getMaterialsFromCompletedTasksOfSpace(Integer.valueOf(spaceId));
+	}
+
+	@Override
+	public void disableMaterialsAssignmentsFromBusiness(String businessId, String projectId) {
+		List<Integer> materialIds = spaceHasMaterialService.getMaterialsFromSpace(businessId);
+		
+		for(Integer id : materialIds){
+			PnMaterialAssignmentList materialAssignments = materialAssignmentService.getAssignmentsForMaterial(String.valueOf(id));
+			for(PnMaterialAssignment materialAssignment : materialAssignments){
+				String spaceId = String.valueOf(materialAssignment.getComp_id().getSpaceId());
+				String materialId = String.valueOf(materialAssignment.getComp_id().getMaterialId());
+				String objectId = String.valueOf(materialAssignment.getComp_id().getObjectId());
+				materialAssignmentService.disableAssignment(spaceId, materialId, objectId);
+			}
+		}
+	}
+
+	@Override
+	public PnMaterialList getMaterialsFromSpace(String spaceId, String searchKey) {
+		List<Integer> spaceMaterialsList = this.spaceHasMaterialService.getMaterialsFromSpace(spaceId);
+		return pnMaterialService.getMaterials(spaceMaterialsList, searchKey);
 	}
 
 

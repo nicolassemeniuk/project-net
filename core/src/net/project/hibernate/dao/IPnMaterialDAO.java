@@ -27,7 +27,7 @@ public interface IPnMaterialDAO extends IDAO<PnMaterial, Integer> {
 	 * Get a list of materials from a list of materials Id's. Retrieves the active materials.
 	 * 
 	 * @param materialsId
-	 *            the ids of the materials we want to obtain.
+	 *            the id's of the materials we want to obtain.
 	 * @return a list of materials.
 	 */
 	public PnMaterialList getMaterials(List<Integer> materialsId);
@@ -43,5 +43,14 @@ public interface IPnMaterialDAO extends IDAO<PnMaterial, Integer> {
 	 * @return a list of materials.
 	 */
 	public PnMaterialList getMaterialsFromCompletedTasksOfSpace(Integer spaceID);
+
+	/**
+	 * Get a list of materials from a list of materials Id's. The material name
+	 * must match a given search key which can be null. Retrieves the active materials.
+	 * @param materialsIds the id's of the materials we want to obtain.
+	 * @param searchKey that the material name must match (can be null).
+	 * @return a list of materials
+	 */
+	public PnMaterialList getMaterials(List<Integer> materialsIds, String searchKey);
 
 }

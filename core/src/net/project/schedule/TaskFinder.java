@@ -963,7 +963,7 @@ public class TaskFinder extends Finder {
 
 	private void loadMaterialAssignments() {
 		MaterialAssignmentList materialAssignmentList = new MaterialAssignmentList();
-		materialAssignmentList.load(preloadSpaceID);
+		materialAssignmentList.loadForSpace(preloadSpaceID);
 
 		materialAssignmentMap = new MultiHashMap(materialAssignmentList.size());
 

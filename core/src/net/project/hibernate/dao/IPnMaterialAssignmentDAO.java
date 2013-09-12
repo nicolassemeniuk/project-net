@@ -92,4 +92,14 @@ public interface IPnMaterialAssignmentDAO extends IDAO<PnMaterialAssignment, PnM
 	 */
 	public PnMaterialAssignmentList getAssignmentsForMaterial(Integer materialId, Date startDate, Date endDate);
 
+
+	/**
+	 * Returns the assigned Materials from an Object.
+	 * 
+	 * @param objectId
+	 *            the id of the object.
+	 * @return a list of assignments.
+	 */
+	public PnMaterialAssignmentList getMaterialsAssignmentsForObject(Integer objectId);
+
 }

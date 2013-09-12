@@ -50,7 +50,8 @@ public interface IPnMaterialService {
 	public void updateMaterial(MaterialBean materialBean);
 
 	/**
-	 * Gets a List of Materials given a list of id's. Retrieves the active materials.
+	 * Gets a List of Materials given a list of id's. Retrieves the active
+	 * materials.
 	 * 
 	 * @param materialsId
 	 *            a list of materials id's.
@@ -78,5 +79,18 @@ public interface IPnMaterialService {
 	 * @return a list of materials.
 	 */
 	public PnMaterialList getMaterialsFromCompletedTasksOfSpace(Integer spaceId);
+
+	/**
+	 * Gets a List of Materials given a list of id's. The material name must
+	 * match the given search key which can be null. Retrieves the active
+	 * materials.
+	 * 
+	 * @param materialsIds
+	 *            a list of materials id's.
+	 * @param searchKey
+	 *            the search key to filter the name.
+	 * @returna list of materials.
+	 */
+	public PnMaterialList getMaterials(List<Integer> materialsIds, String searchKey);
 
 }
