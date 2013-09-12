@@ -72,11 +72,11 @@ public class TaskMaterialAssignmentHandler extends AbstractTaskMaterialAssignmen
         User user = (User)getSessionVar("user");
     	String spaceId = String.valueOf(user.getCurrentSpace().getID());		
 		String objectId = scheduleEntry.getID();
-    	
+
     	MaterialAssignmentsHelper materialAssignmentsHelper	= new MaterialAssignmentsHelper();
     	materialAssignmentsHelper.setSpaceId(spaceId);
     	materialAssignmentsHelper.setObjectId(objectId);
-    	materialAssignmentsHelper.load();           
+    	materialAssignmentsHelper.load();  
 
         model.put("materialAssignmentsHelper", materialAssignmentsHelper);  
         
@@ -86,9 +86,10 @@ public class TaskMaterialAssignmentHandler extends AbstractTaskMaterialAssignmen
             //If the project has a business owner
             if(projectSpace.getParentBusinessID()!=null){        
     	    	MaterialAssignmentsHelper materialBusinessAssignmentsHelper	= new MaterialAssignmentsHelper();
-    	    	materialBusinessAssignmentsHelper.setSpaceId(projectSpace.getParentBusinessID());
+    	    	materialBusinessAssignmentsHelper.setSpaceId(spaceId);
     	    	materialBusinessAssignmentsHelper.setObjectId(objectId);
-    	    	materialBusinessAssignmentsHelper.load();           
+    	    	materialBusinessAssignmentsHelper.setOwnerSpaceId(projectSpace.getParentBusinessID());
+    	    	materialBusinessAssignmentsHelper.loadForBusiness();           
     	
     	        model.put("materialBusinessAssignmentsHelper", materialBusinessAssignmentsHelper);
             }

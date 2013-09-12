@@ -14,6 +14,7 @@ public class MaterialAssignmentsHelper {
 
 	private ArrayList<MaterialAssignmentHelper> materialsAssigned;
 	private String spaceId;
+	private String ownerSpaceId;
 	private String objectId;
 
 	public MaterialAssignmentsHelper() {
@@ -30,6 +31,69 @@ public class MaterialAssignmentsHelper {
 
 	public void load() {
 		PnMaterialList materials = ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(spaceId);
+
+		PnMaterialAssignmentList assignmentList;
+
+		// If objectId is not present load all material assignments for this
+		// space
+		if (this.objectId == null)
+			assignmentList = ServiceFactory.getInstance().getPnMaterialAssignmentService().getMaterialsAssignment(spaceId);
+		else
+			assignmentList = ServiceFactory.getInstance().getPnMaterialAssignmentService().getMaterialsAssignment(spaceId, objectId);
+
+		for (PnMaterial pnMaterial : materials) {
+
+			//Only the active Materials
+			if (pnMaterial.getRecordStatus().equals("A")) {
+				Material material = new Material(pnMaterial);
+
+				boolean assigned = false;
+				boolean enabledForAssignment = true;
+
+				// Obtain ALL the assignments for the material
+				PnMaterialAssignmentList assignmentsForMaterial = ServiceFactory.getInstance().getPnMaterialAssignmentService()
+						.getAssignmentsForMaterial(material.getMaterialId());
+
+				// Is consumable and there are any assignments for that
+				// material?
+				if (material.getConsumable() && assignmentsForMaterial.size() > 0) {
+
+					for (PnMaterialAssignment assignmentMaterial : assignmentsForMaterial) {
+
+						String statusAssignment = assignmentMaterial.getRecordStatus();
+
+						// Is the task we are in? is it active?
+						if (objectId != null && assignmentMaterial.getComp_id().getObjectId().equals(Integer.valueOf(objectId)) && statusAssignment.equals("A"))
+							enabledForAssignment = true;
+						// Is assigned on other task (the assignation is ACTIVE)
+						else if (statusAssignment.equals("A"))
+							enabledForAssignment = false;
+					}
+				} else {
+					enabledForAssignment = true;
+				}
+
+				for (Iterator<PnMaterialAssignment> innerIterator = assignmentList.iterator(); innerIterator.hasNext();) {
+					PnMaterialAssignment assignment = innerIterator.next();
+					Integer id = assignment.getComp_id().getMaterialId();
+					Integer id2 = Integer.valueOf(material.getMaterialId());
+					String status = assignment.getRecordStatus();
+					if (id.equals(id2) && status.equals("A")) {
+						assigned = true;
+						break;
+					}
+				}
+
+				MaterialAssignmentHelper assignment = new MaterialAssignmentHelper(material, assigned, enabledForAssignment);
+				materialsAssigned.add(assignment);
+
+			}
+
+		}
+	}
+	
+	public void loadForBusiness() {
+		PnMaterialList materials = ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(ownerSpaceId);
 
 		PnMaterialAssignmentList assignmentList;
 
@@ -114,4 +178,14 @@ public class MaterialAssignmentsHelper {
 	public void setObjectId(String objectId) {
 		this.objectId = objectId;
 	}
+
+	public String getOwnerSpaceId() {
+		return ownerSpaceId;
+	}
+
+	public void setOwnerSpaceId(String ownerSpaceId) {
+		this.ownerSpaceId = ownerSpaceId;
+	}
+	
+	
 }

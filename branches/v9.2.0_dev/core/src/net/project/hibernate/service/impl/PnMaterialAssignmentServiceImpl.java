@@ -21,11 +21,11 @@ public class PnMaterialAssignmentServiceImpl implements IPnMaterialAssignmentSer
 
 	@Autowired
 	private IPnMaterialAssignmentDAO pnMaterialAssignmentDAO;
-
+	
 	@Override
 	public PnMaterialAssignment getMaterialAssignment(String spaceId, String materialId, String objectId) {
 		return pnMaterialAssignmentDAO.getPnAssignmentMaterial(Integer.valueOf(spaceId), Integer.valueOf(materialId), Integer.valueOf(objectId));
-	}
+	}	
 
 	@Override
 	public PnMaterialAssignmentList getMaterialsAssignment(String spaceId, String objectId) {
@@ -119,4 +119,17 @@ public class PnMaterialAssignmentServiceImpl implements IPnMaterialAssignmentSer
 		}	
 		
 	}
+
+	@Override
+	public void disableAssignment(String spaceId, String materialId, String objectId) {
+		PnMaterialAssignment assigment = getMaterialAssignment(spaceId, materialId, objectId);
+		assigment.setRecordStatus("D");
+		pnMaterialAssignmentDAO.update(assigment);		
+	}
+
+	@Override
+	public PnMaterialAssignmentList getMaterialsAssignmentForObject(String objectId) {
+		return pnMaterialAssignmentDAO.getMaterialsAssignmentsForObject(Integer.valueOf(objectId));
+	}
+
 }

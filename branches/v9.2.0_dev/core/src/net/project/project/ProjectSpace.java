@@ -2133,7 +2133,7 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 
 			// Update the relationships between this workspace any other
 			// owning
-			// projects and businesses
+			// projects and businesses			
 
 			// First remove any existing project, personal or business
 			// workspace
@@ -2169,7 +2169,7 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 			}
 
 			getMetaData().store(spaceID);
-
+			
 			// Create project edit notification
 			net.project.project.ProjectEvent event = new net.project.project.ProjectEvent();
 			event.setSpaceID(spaceID);

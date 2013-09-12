@@ -55,4 +55,6 @@ public interface IPnSpaceHasMaterialDAO extends IDAO<PnSpaceHasMaterial, PnSpace
 	 */
 	public Integer getSpaceOfMaterial(Integer materialId);
 
+
+
 }

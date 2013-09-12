@@ -48,6 +48,18 @@ public interface IMaterialService {
 	public PnMaterialList getMaterialsFromSpace(String spaceId);
 
 	/**
+	 * Obtains the materials from a given space with a name searchKey. Retrieves
+	 * the active materials.
+	 * 
+	 * @param spaceId
+	 *            the id of the space.
+	 * @param searchKey
+	 *            a string to compare the name with.
+	 * @return a list of materials.
+	 */
+	public PnMaterialList getMaterialsFromSpace(String spaceId, String searchKey);
+
+	/**
 	 * Disable a certain material from the database. This means setting his
 	 * status to "D".
 	 * 
@@ -67,5 +79,16 @@ public interface IMaterialService {
 	 * @return a list of materials.
 	 */
 	public PnMaterialList getMaterialsFromCompletedTasksOfSpace(String spaceId);
+
+	/**
+	 * Disable all the assignments of the business materials of a project. This
+	 * is used in case we change the owner business of a project.
+	 * 
+	 * @param businessId
+	 *            the id of the business.
+	 * @param projectId
+	 *            the id of the project.
+	 */
+	public void disableMaterialsAssignmentsFromBusiness(String businessId, String projectId);
 
 }

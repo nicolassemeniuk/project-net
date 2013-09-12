@@ -2621,7 +2621,7 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
     
     public void loadMaterialAssignments(){
     	this.materialAssignments.clear();
-    	this.materialAssignments.load(getSpaceID(), getID());
+    	this.materialAssignments.load(getID());
     	setMaterialAssigneesLoaded(true);
     }
     
