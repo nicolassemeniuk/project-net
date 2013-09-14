@@ -88,7 +88,7 @@ public class TaskMaterialAssignmentHandler extends AbstractTaskMaterialAssignmen
     	    	MaterialAssignmentsHelper materialBusinessAssignmentsHelper	= new MaterialAssignmentsHelper();
     	    	materialBusinessAssignmentsHelper.setSpaceId(spaceId);
     	    	materialBusinessAssignmentsHelper.setObjectId(objectId);
-    	    	materialBusinessAssignmentsHelper.setOwnerSpaceId(projectSpace.getParentBusinessID());
+    	    	materialBusinessAssignmentsHelper.setParentBusinessID(projectSpace.getParentBusinessID());
     	    	materialBusinessAssignmentsHelper.loadForBusiness();           
     	
     	        model.put("materialBusinessAssignmentsHelper", materialBusinessAssignmentsHelper);
