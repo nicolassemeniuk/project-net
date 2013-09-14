@@ -49,21 +49,21 @@
 		String searchKeyFrom = request.getParameter("searchFieldFrom").trim();
 		String searchKeyTo = request.getParameter("searchFieldTo").trim();
 		
-		session.setAttribute("searchKeyFrom", searchKeyFrom);
-		session.setAttribute("searchKeyTo", searchKeyTo);		
+		request.setAttribute("searchKeyFrom", searchKeyFrom);
+		request.setAttribute("searchKeyTo", searchKeyTo);		
 				
 		// Roster.search takes nulls for wildcard.
 		if ((searchKeyFrom == null) || searchKeyFrom.equals("*") || searchKeyFrom.equals(""))
 		{
 			searchKeyFrom = null;
-			session.setAttribute("searchKeyFrom", "");			
+			request.setAttribute("searchKeyFrom", "");			
 		}
 		
 		// Roster.search takes nulls for wildcard.
 		if ((searchKeyTo == null) || searchKeyTo.equals("*") || searchKeyTo.equals(""))
 		{
 			searchKeyTo = null;
-			session.setAttribute("searchKeyTo", "");			
+			request.setAttribute("searchKeyTo", "");			
 		}		
 	
 		Date startDate = null;

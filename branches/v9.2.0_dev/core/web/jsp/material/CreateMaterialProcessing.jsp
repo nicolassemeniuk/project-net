@@ -35,5 +35,5 @@
 
 	ServiceFactory.getInstance().getMaterialService().saveMaterial(materialBean);
 
-	response.sendRedirect(SessionManager.getJSPRootURL() + "/material/Main.jsp?module=" + Module.MATERIAL );
+	response.sendRedirect(SessionManager.getJSPRootURL() + "/material/MaterialDirectory.jsp?module=" + Module.MATERIAL );
 %>

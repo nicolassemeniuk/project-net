@@ -57,7 +57,7 @@
 	String mode = request.getParameter("mode");
 	if ((mode == null) || ((mode != null) && !mode.equals("search")) )
 	{
-		session.setAttribute("searchKey", "");
+		request.setAttribute("searchKey", "");
 		
 		Space financialSpace = user.getCurrentSpace();
 		roster.setSpace(user.getCurrentSpace());
@@ -155,7 +155,7 @@
 			<input type="hidden" name="module" value="<%=Module.SALARY%>">
 		    <input type="hidden" name="action" value="<%=Action.VIEW%>">
 			<label for="searchField" class="labelSearchField"><%=PropertyProvider.get("prm.financial.salary.roster.search.label")%></label>
-			<input type="text" name="key" id="searchField" value="<%=session.getAttribute("searchKey")%>" size="40" maxlength="40" onKeyDown="if(event.keyCode==13) searchButton()" class="inputSearchField">
+			<input type="text" name="key" id="searchField" value="<%=request.getAttribute("searchKey")%>" size="40" maxlength="40" onKeyDown="if(event.keyCode==13) searchButton()" class="inputSearchField">
 			<div class="channelHeader channelHeaderTabSet">
 				<p><%=PropertyProvider.get("prm.financial.salary.tab.participants.title")%></p>
 			</div>

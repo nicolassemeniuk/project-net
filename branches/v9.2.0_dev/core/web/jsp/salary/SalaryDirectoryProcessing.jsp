@@ -56,13 +56,13 @@
 	else //if (request.getParameter("theAction").equals("search"))
 	{
 		String key = request.getParameter("key");
-		session.setAttribute("searchKey", key);		
+		request.setAttribute("searchKey", key);		
 		
 		// Roster.search takes nulls for wildcard.
 		if ((key == null) || key.equals("*") || key.equals(""))
 		{
 			key = null;
-			session.setAttribute("searchKey", "");			
+			request.setAttribute("searchKey", "");			
 		}
 				
 		roster.clear();	
