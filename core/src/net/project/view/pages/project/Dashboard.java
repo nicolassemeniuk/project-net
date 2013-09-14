@@ -1896,6 +1896,6 @@ public class Dashboard extends BasePage {
 	 * @return String 
 	 */
 	public String getCreateMaterialsUrl(){
-		return "/material/Main.jsp?action=" + Action.CREATE + "&module=" + Module.MATERIAL; 
+		return "/material/MaterialDirectory.jsp?action=" + Action.CREATE + "&module=" + Module.MATERIAL; 
 	}	
 }

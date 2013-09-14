@@ -60,7 +60,7 @@
 	}
 
 	function cancel() {
-		self.document.location = JSPRootURL + "/material/Main.jsp?module=<%=net.project.base.Module.MATERIAL%>";
+		self.document.location = JSPRootURL + "/material/MaterialDirectory.jsp?module=<%=net.project.base.Module.MATERIAL%>";
 	}
 
 	function submit() {

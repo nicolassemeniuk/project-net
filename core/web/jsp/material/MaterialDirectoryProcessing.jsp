@@ -49,19 +49,18 @@
 	if (request.getParameter("theAction").equals("search"))
 	{
 		String key = request.getParameter("key");
-		session.setAttribute("searchKey", key);		
+		request.setAttribute("searchKey", key);		
 		
 		// Roster.search takes nulls for wildcard.
 		if ((key == null) || key.equals("*") || key.equals(""))
 		{
 			key = null;
-			session.setAttribute("searchKey", "");			
+			request.setAttribute("searchKey", "");			
 		}
 				
 		materialBeanList.clear();
 		materialBeanList.load(key);
 		
-		// TODO Ramiro redireccionar al referido		
-		pageContext.forward("/material/Main.jsp?module="+Module.MATERIAL + "&mode=search");
+		pageContext.forward("/material/MaterialDirectory.jsp?module="+Module.MATERIAL + "&mode=search" + "&currentTab=" + request.getAttribute("currentTab"));
 	}
 %>

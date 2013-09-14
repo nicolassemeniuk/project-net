@@ -54,8 +54,8 @@
 	// Mode "search": Don't refresh the personSalaryList if we are returning search results because the roster was reloaded in the processing	
 	if(mode == null || mode.equals("edit"))
 	{
-		session.setAttribute("searchKeyFrom", "");
-		session.setAttribute("searchKeyTo", "");
+		request.setAttribute("searchKeyFrom", "");
+		request.setAttribute("searchKeyTo", "");
 		
 		personSalaryList.clear();		
 		personSalaryList.setUser(new User(ownerUser.getID()));
@@ -161,11 +161,11 @@
 	    <input type="hidden" name="action" value="<%=Action.VIEW%>">
 	    
 		<label for="searchFieldFrom" class="labelSearchField"><%=PropertyProvider.get("prm.personal.salary.roster.searchFrom.label")%></label>
-		<input type="text" name="searchFieldFrom" id="searchFieldFrom" value="<%=session.getAttribute("searchKeyFrom")%>" size="08" maxlength="08" onKeyDown="if(event.keyCode==13) searchButton()" class="inputSearchField">
+		<input type="text" name="searchFieldFrom" id="searchFieldFrom" value="<%=request.getAttribute("searchKeyFrom")%>" size="08" maxlength="08" onKeyDown="if(event.keyCode==13) searchButton()" class="inputSearchField">
 		<%=CalendarPopup.getCalendarPopupHTML("searchFieldFrom", null)%>
 		
 		<label for="searchFieldTo" class="labelSearchField"><%=PropertyProvider.get("prm.personal.salary.roster.searchTo.label")%></label>
-		<input type="text" name="searchFieldTo" id="searchFieldTo" value="<%=session.getAttribute("searchKeyTo")%>" size="08" maxlength="08" onKeyDown="if(event.keyCode==13) searchButton()" class="inputSearchField">
+		<input type="text" name="searchFieldTo" id="searchFieldTo" value="<%=request.getAttribute("searchKeyTo")%>" size="08" maxlength="08" onKeyDown="if(event.keyCode==13) searchButton()" class="inputSearchField">
 		<%=CalendarPopup.getCalendarPopupHTML("searchFieldTo", null)%>
 		
 		<div class="channelHeader channelHeaderTabSet">

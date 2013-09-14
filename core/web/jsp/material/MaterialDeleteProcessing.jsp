@@ -32,7 +32,7 @@
 	}
 
 	out.println("<script language=\"javascript\">");
-	out.println("opener.location='" + SessionManager.getJSPRootURL() + "/material/Main.jsp?module=" + Module.MATERIAL+ "';");
+	out.println("opener.location='" + SessionManager.getJSPRootURL() + "/material/MaterialDirectory.jsp?module=" + Module.MATERIAL+ "';");
 	out.println("self.close();");
 	out.println("</script>");
 %>
