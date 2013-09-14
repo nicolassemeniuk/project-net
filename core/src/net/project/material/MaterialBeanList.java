@@ -45,6 +45,18 @@ public class MaterialBeanList extends ArrayList<MaterialBean>
    		this.isLoaded=true;
 	}
 	
+	public void load(String searchKey)
+	{
+		PnMaterialList materialList = ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(this.spaceID, searchKey);
+		
+		for(PnMaterial material : materialList){
+				MaterialBean materialBean = new MaterialBean(material);
+				this.add(materialBean);
+		}
+	
+   		this.isLoaded=true;		
+	}
+	
 	/**
 	 * Converts the object to XML representation This method returns the object
 	 * as XML text.

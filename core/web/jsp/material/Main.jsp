@@ -21,16 +21,52 @@
 			net.project.gui.toolbar.ButtonType,
             net.project.base.Module,
             net.project.material.MaterialBeanList,
-			net.project.hibernate.service.ServiceFactory"%>
+			net.project.hibernate.service.ServiceFactory,
+			net.project.space.Space,
+			net.project.project.ProjectSpace,
+			net.project.business.BusinessSpace"%>
 <%@ include file="/base/taglibInclude.jsp"%>
 
-<jsp:useBean id="materialBeanList" class="net.project.material.MaterialBeanList" scope="page" />
+<jsp:useBean id="materialBeanList" class="net.project.material.MaterialBeanList" scope="session" />
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
 <jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
 
-<% 
-		materialBeanList.setSpaceID(user.getCurrentSpace().getID());
+<%
+	String mode = request.getParameter("mode");
+	String currentTab = request.getParameter("currentTab");
+	
+	if(currentTab == null)
+		currentTab = "project";
+	request.setAttribute("currentTab", currentTab);	
+	
+	Space currentSpace = user.getCurrentSpace();
+	request.setAttribute("currentSpace", currentSpace);
+
+	// Don't refresh the materialBeanList if we are returning search results, it was previously loaded
+	if(mode == null || !mode.equals("search"))
+	{
+		materialBeanList.clear();
+		
+		// Showing the materials of the business in the business workspace
+		if(currentSpace instanceof BusinessSpace)
+			materialBeanList.setSpaceID(currentSpace.getID());
+		// Showing the materials of the project in the project workspace
+		else if(currentSpace instanceof ProjectSpace)
+		{
+			ProjectSpace projectSpace = (ProjectSpace) currentSpace;
+			String parentBusinessID = projectSpace.getParentBusinessID();
+			request.setAttribute("parentBusinessID", parentBusinessID);
+			
+			// Showing the materials of the business in the project workspace
+			if(currentTab.equals("business"))
+				materialBeanList.setSpaceID(parentBusinessID);						
+			// Showing the materials of the project in the project workspace
+			else if(currentTab.equals("project"))
+				 	materialBeanList.setSpaceID(currentSpace.getID());
+		}
+		
 		materialBeanList.load();
+	}
 %>
 
 <template:getDoctype />
@@ -106,10 +142,19 @@
 		self.document.location = JSPRootURL + "/material/MaterialPortfolio.jsp?module=<%=Module.MATERIAL%>&portfolio=true"; 
 	}
 
-	function search() { 
-		self.document.location = JSPRootURL + "/search/SearchController.jsp?module=<%=Module.MATERIAL%>&action=<%=Action.VIEW%>";
+	function search(key)
+	{
+		theForm.key.value = key;
+		theForm.action.value = '<%=Action.VIEW%>';
+		searchButton();
 	}
-
+	
+	function searchButton()
+	{
+		theAction("search");
+		theForm.action.value = '<%=Action.VIEW%>';
+		theForm.submit();
+	}
 	function help() {
 			var helplocation = JSPRootURL + "/help/Help.jsp?page=material_main";
 			openwin_help(helplocation);
@@ -145,30 +190,56 @@
 		</tb:band>
 	</tb:toolbar>
 
-	<div id='content'>
-		<form name="materialList" action="#" method="POST">
-			<input type="hidden" name="theAction">
-			<table border="0" cellpadding="0" cellspacing="0" width="100%">
-				<tr align=left class="channelHeader">
-					<td width="1%">
-						<img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border=0>
-					</td>
-					<td class="channelHeader">
-						<display:get name="prm.material.main.channel.title" />
-					</td>
-					<td width="1%" align=right>
-						<img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border=0>
-					</td>
-				</tr>
-				<tr>
-					<td>&nbsp;</td>
-					<td class="tableContent">
-						<pnet-xml:transform scope="session" stylesheet="/material/xsl/materials-list.xsl" content="<%=materialBeanList.getXML()%>" />
-					</td>
-					<td>&nbsp;</td>
-				</tr>
-			</table>
-		</form>
+	<div id='content' style="padding-top:20px;width:60%">
+		<tab:tabStrip tabPresentation="true">		
+			<c:choose>
+				<%--Showing the materials of the business in the business workspace --%> 
+				<c:when test="${currentSpace.spaceType.ID eq 'business'}">
+					<tab:tab label='<%=PropertyProvider.get("prm.material.main.material.tab.businessmaterials.title")%>' href='<%=SessionManager.getJSPRootURL() + "/material/Main.jsp?module=" + Module.MATERIAL%>' selected="true" />
+				</c:when>
+				<%-- Showing the materials of the project in the project workspace --%>						
+				<c:when test="${currentSpace.spaceType.ID eq 'project'}">
+					<c:choose>
+						<%-- Showing the materials of the project in the project workspace, the project doesn't have an owner --%>
+						<c:when test="${empty parentBusinessID}">
+							<tab:tab label='<%=PropertyProvider.get("prm.material.main.material.tab.projectmaterials.title")%>' href='<%=SessionManager.getJSPRootURL() + "/material/Main.jsp?module=" + Module.MATERIAL + "&currentTab=project" %>' selected="true" />									
+						</c:when>
+						<c:otherwise>
+							<c:choose>
+								<%--Showing the materials of the project in the project workspace --%>
+								<c:when test="${currentTab eq 'project'}">
+									<tab:tab label='<%=PropertyProvider.get("prm.material.main.material.tab.projectmaterials.title")%>' href='<%=SessionManager.getJSPRootURL() + "/material/Main.jsp?module=" + Module.MATERIAL + "&currentTab=project" %>' selected="true" />
+									<tab:tab label='<%=PropertyProvider.get("prm.material.main.material.tab.businessmaterials.title")%>' href='<%=SessionManager.getJSPRootURL() + "/material/Main.jsp?module=" + Module.MATERIAL + "&currentTab=business"%>' />						
+								</c:when>
+								<%-- Showing the materials of the business in the project workspace --%>
+								<c:when test="${currentTab eq 'business'}">
+									<tab:tab label='<%=PropertyProvider.get("prm.material.main.material.tab.projectmaterials.title")%>' href='<%=SessionManager.getJSPRootURL() + "/material/Main.jsp?module=" + Module.MATERIAL + "&currentTab=project" %>' />
+									<tab:tab label='<%=PropertyProvider.get("prm.material.main.material.tab.businessmaterials.title")%>' href='<%=SessionManager.getJSPRootURL() + "/material/Main.jsp?module=" + Module.MATERIAL + "&currentTab=business"%>' selected="true" />						
+								</c:when>
+							</c:choose>		
+						</c:otherwise>
+					</c:choose>											
+				</c:when>
+			</c:choose>		
+		</tab:tabStrip>
+	
+		<div class="UMTableBorder marginLeftFix">
+			<form method="post" action="<%=SessionManager.getJSPRootURL()%>/material/MaterialDirectoryProcessing.jsp">
+				<input type="hidden" name="theAction">
+				<input type="hidden" name="module" value="<%=Module.MATERIAL%>">
+		    	<input type="hidden" name="action" value="<%=Action.VIEW%>">
+		    	
+				<label for="searchField" class="labelSearchField"><%=PropertyProvider.get("prm.material.main.roster.search.label")%></label>
+				<input type="text" name="key" id="searchField" value="<%=session.getAttribute("searchKey")%>" size="40" maxlength="40" onKeyDown="if(event.keyCode==13) searchButton()" class="inputSearchField">
+		    	
+				<div class="channelHeader channelHeaderTabSet">
+					<p><%=PropertyProvider.get("prm.material.main.channel.title")%></p>
+				</div>
+				<div>	    
+					<pnet-xml:transform scope="session" stylesheet="/material/xsl/materials-list.xsl" content="<%=materialBeanList.getXML()%>" />
+				</div>
+			</form>
+		</div>
 	</div>
 	<%@ include file="/help/include_outside/footer.jsp"%>
 </body>

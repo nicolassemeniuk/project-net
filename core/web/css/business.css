@@ -609,3 +609,57 @@ table.t-data-grid tbody tr td {
 }
 
 /* End of Business Dashboard */
+
+/* Custom components */
+
+.marginLeftFix
+{
+	margin-left: 4px;	
+}
+
+.tabBackground
+{
+	width: 130px;
+	height: 20px;
+	text-align: center;
+	font-size: 12px;
+}
+
+.tabBackgroundActive
+{
+	background: #D7FEC4 url(../images/directory/active_business.gif) left no-repeat;
+	font-weight: bold;
+	color: black;	
+}
+
+.tabBackgroundDeactive
+{
+	background: url(../images/directory/deactive_business_no-line.gif) left no-repeat;
+}
+
+.tabBackgroundActive span
+{
+	color: black;	
+}
+
+.labelSearchField
+{
+	font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 12px;
+	font-weight: bold;
+	height: 21px;	
+	color: #060;
+	padding: 15px 10px;
+}
+
+.inputSearchField
+{
+	margin: 15px 0px;
+}
+
+.channelHeaderTabSet
+{
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 7px;
+}
