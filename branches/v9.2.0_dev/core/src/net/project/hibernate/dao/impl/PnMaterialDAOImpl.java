@@ -86,7 +86,7 @@ public class PnMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<PnMaterial,
 			Criteria criteria = session.createCriteria(PnMaterial.class);
 			criteria.add(Restrictions.in("materialId", materialsIds));
 			if(searchKey!=null)
-				criteria.add(Restrictions.like("materialName", searchKey, MatchMode.ANYWHERE));
+				criteria.add(Restrictions.ilike("materialName", searchKey, MatchMode.ANYWHERE));
 			criteria.add(Restrictions.eq("recordStatus", "A"));
 			result = new PnMaterialList(criteria.list());
 			session.close();
