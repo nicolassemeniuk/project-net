@@ -14,7 +14,7 @@ public class MaterialAssignmentsHelper {
 
 	private ArrayList<MaterialAssignmentHelper> materialsAssigned;
 	private String spaceId;
-	private String ownerSpaceId;
+	private String parentBusinessID;
 	private String objectId;
 
 	public MaterialAssignmentsHelper() {
@@ -93,7 +93,7 @@ public class MaterialAssignmentsHelper {
 	}
 	
 	public void loadForBusiness() {
-		PnMaterialList materials = ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(ownerSpaceId);
+		PnMaterialList materials = ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(parentBusinessID);
 
 		PnMaterialAssignmentList assignmentList;
 
@@ -179,12 +179,12 @@ public class MaterialAssignmentsHelper {
 		this.objectId = objectId;
 	}
 
-	public String getOwnerSpaceId() {
-		return ownerSpaceId;
+	public String getParentBusinessID() {
+		return parentBusinessID;
 	}
 
-	public void setOwnerSpaceId(String ownerSpaceId) {
-		this.ownerSpaceId = ownerSpaceId;
+	public void setParentBusinessID(String parentBusinessID) {
+		this.parentBusinessID = parentBusinessID;
 	}
 	
 	

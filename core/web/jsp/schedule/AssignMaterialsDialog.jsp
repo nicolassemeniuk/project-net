@@ -33,6 +33,7 @@
 <jsp:useBean id="errorReporter" class="net.project.util.ErrorReporter" scope="request" />
 <jsp:useBean id="idList" class="java.lang.String" scope="request"/>
 <jsp:useBean id="materialAssignmentsHelper" class="net.project.schedule.MaterialAssignmentsHelper" scope="request" />
+<jsp:useBean id="materialBusinessAssignmentsHelper" class="net.project.schedule.MaterialAssignmentsHelper" scope="request" />
 
 <html>
 <head>
@@ -175,6 +176,24 @@ function showMaterialAllocation(materialID) {
         } 
 	 }
         %>
+
+<%
+	 if (!SessionManager.getUser().getCurrentSpace().getSpaceType().equals(SpaceTypes.METHODOLOGY)) { 
+		for (MaterialAssignmentHelper assignment : materialBusinessAssignmentsHelper.getMaterialsAssigned()) {
+			String materialID = assignment.getMaterial().getMaterialId();
+%>
+        <tr class="tableContent">
+            <td></td>        
+            <td align="center"><input name="resource" id="<%=materialID%>" value="<%=materialID%>" type="checkbox" <%=assignment.isAssignedMaterialChecked()%> <%=assignment.isAssignedMaterialEnabled()%>  ></td>
+            <td><label for="<%=materialID%>"><%=assignment.getDisplayName()%></label></td>
+            <td align="center"><a href='javascript:showMaterialAllocation(<%=materialID%>)'><img src="<%=SessionManager.getJSPRootURL()%>/images/schedule/constraint.gif" border="0"></a></td>
+            <td></td>
+        </tr>
+        <% 
+        } 
+	 }
+        %>        
+        
         </table>
     </td>
   </tr>

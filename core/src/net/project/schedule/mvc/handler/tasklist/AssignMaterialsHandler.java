@@ -33,6 +33,7 @@ import net.project.base.mvc.Handler;
 import net.project.base.property.PropertyProvider;
 import net.project.database.DatabaseUtils;
 import net.project.material.MaterialAssignment;
+import net.project.project.ProjectSpace;
 import net.project.resource.AssignmentRoster;
 import net.project.schedule.MaterialAssignmentHelper;
 import net.project.schedule.MaterialAssignmentsHelper;
@@ -115,16 +116,14 @@ public class AssignMaterialsHandler extends Handler {
         User user = (User)getSessionVar("user");
         ScheduleEntry scheduleEntry = (ScheduleEntry)getSessionVar("scheduleEntry");
     	String spaceId = String.valueOf(user.getCurrentSpace().getID());
-    	String ownerSpaceId = String.valueOf(user.getCurrentSpace().getOwnerSpaceID());
     	
     	MaterialAssignmentsHelper materialAssignmentsHelper	= new MaterialAssignmentsHelper();
     	materialAssignmentsHelper.setSpaceId(spaceId);
-    	materialAssignmentsHelper.setOwnerSpaceId(ownerSpaceId);
+
     	if(newIDList.size() == 1)
         	materialAssignmentsHelper.setObjectId((String) newIDList.get(0));
 
     	materialAssignmentsHelper.load();
-    	materialAssignmentsHelper.loadForBusiness();
     	
     	// If materialAssignmentsHelper contains consumable materials they can't be assigned
     	if(newIDList.size() > 1)
@@ -137,7 +136,36 @@ public class AssignMaterialsHandler extends Handler {
     	}
     	
         model.put("materialAssignmentsHelper", materialAssignmentsHelper);    	
-   	    	
+   	    
+    	MaterialAssignmentsHelper materialBusinessAssignmentsHelper	= new MaterialAssignmentsHelper();
+    	materialBusinessAssignmentsHelper.setSpaceId(spaceId);    	
+    	
+		ProjectSpace projectSpace = (ProjectSpace) user.getCurrentSpace();
+		String parentBusinessID = projectSpace.getParentBusinessID();    	
+    	
+    	// If the project has a business owner    	
+    	if(parentBusinessID != null)
+    	{
+	    	materialBusinessAssignmentsHelper.setParentBusinessID(parentBusinessID);
+	    	
+	    	if(newIDList.size() == 1)
+	    		materialBusinessAssignmentsHelper.setObjectId((String) newIDList.get(0));	    	
+	    	
+	    	// If materialAssignmentsHelper contains consumable materials they can't be assigned
+	    	if(newIDList.size() > 1)
+	    	{
+	    		ArrayList<MaterialAssignmentHelper> assignments = materialBusinessAssignmentsHelper.getMaterialsAssigned();
+	    		
+	    		for (MaterialAssignmentHelper assignment : assignments)
+	    			if(assignment.getMaterial().getConsumable())
+	    			assignment.setEnabledForAssignment(false);
+	    	}	    	
+	    		    	
+	    	materialBusinessAssignmentsHelper.loadForBusiness();           
+    	}
+    	
+        model.put("materialBusinessAssignmentsHelper", materialBusinessAssignmentsHelper);
+    	
         return model;
     }
 }
