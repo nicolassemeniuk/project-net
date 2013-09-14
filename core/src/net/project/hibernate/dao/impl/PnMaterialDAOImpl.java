@@ -12,6 +12,7 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
+import org.hibernate.criterion.MatchMode;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -85,7 +86,7 @@ public class PnMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<PnMaterial,
 			Criteria criteria = session.createCriteria(PnMaterial.class);
 			criteria.add(Restrictions.in("materialId", materialsIds));
 			if(searchKey!=null)
-				criteria.add(Restrictions.like("materialName", searchKey));
+				criteria.add(Restrictions.like("materialName", searchKey, MatchMode.ANYWHERE));
 			criteria.add(Restrictions.eq("recordStatus", "A"));
 			result = new PnMaterialList(criteria.list());
 			session.close();
