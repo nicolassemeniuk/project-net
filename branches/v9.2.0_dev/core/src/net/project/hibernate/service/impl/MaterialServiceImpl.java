@@ -18,7 +18,7 @@ import net.project.material.PnMaterialList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service(value = "pnMaterialService")
+@Service(value = "materialService")
 public class MaterialServiceImpl implements IMaterialService {
 
 	@Autowired
