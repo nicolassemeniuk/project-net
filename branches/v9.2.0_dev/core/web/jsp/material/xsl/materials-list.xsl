@@ -1,40 +1,37 @@
 <?xml version="1.0" ?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:display="xalan://net.project.base.property.PropertyProvider"
-	xmlns:format="xalan://net.project.util.XSLFormat" extension-element-prefixes="display format">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+	xmlns:display="xalan://net.project.base.property.PropertyProvider"
+	xmlns:format="xalan://net.project.util.XSLFormat"
+	extension-element-prefixes="display format">
+	
 	<xsl:output method="html" indent="yes" />
 
 	<xsl:template match="materials-list">
-		<table border="0" cellpadding="0" cellspacing="0" width="100%">
-			<tr align="left" class="tableHeader">
-				<td class="table-header" width="1%">
-					<xsl:text disable-output-escaping="yes"></xsl:text>
-				</td>
-				<td class="table-header" colspan="2"><xsl:value-of select="display:get('prm.material.main.list.name')"/></td>
-				<td class="table-header"><xsl:value-of select="display:get('prm.material.main.list.type')"/></td>
-				<td class="table-header"><xsl:value-of select="display:get('prm.material.main.list.cost')"/></td>
-				<td class="table-header" align="center" ><xsl:value-of select="display:get('prm.material.main.list.consumable')"/></td>				
-				<td class="table-header"><xsl:value-of select="display:get('prm.material.main.list.description')"/></td>				
+		<table class="compactTable" style="overflow-x:auto">
+			<!--Table header -->
+			<tr class="table-header">
+				<td class="over-table" align="left"><xsl:text disable-output-escaping="yes"></xsl:text></td>
+				<td class="over-table" align="left" colspan="2"><xsl:value-of select="display:get('prm.material.main.list.name')"/></td>
+				<td class="over-table" align="left"><xsl:value-of select="display:get('prm.material.main.list.type')"/></td>
+				<td class="over-table" align="left"><xsl:value-of select="display:get('prm.material.main.list.cost')"/></td>
+				<td class="over-table" align="center" ><xsl:value-of select="display:get('prm.material.main.list.consumable')"/></td>				
+				<td class="over-table" align="left"><xsl:value-of select="display:get('prm.material.main.list.description')"/></td>				
 			</tr>
-			<tr class="tableLine">
-				<td colspan="7" class="tableLine">
-					<img src="../images/spacers/trans.gif" width="1" height="2" border="0" />
-				</td>
-			</tr>
-			<xsl:apply-templates select="material">
-			</xsl:apply-templates>			
+			<!--Table content -->			
+			<xsl:apply-templates select="material" />			
 		</table>
 	</xsl:template>
 	
 	<xsl:template match="material" >
-		<tr align="left" valign="middle" class="tableContent">
+       	<tr class="tableContent">
 			<!-- Radio Option -->
-			<td class="tableContent">
-			<input type="radio" name="selected" value="{id}" id="{name}" />			
+			<td class="tableContent" align="center">
+				<input type="radio" name="selected" value="{id}" id="{name}" />			
 			</td>
 			<td colspan="2" align="left">
-			<a href="../material/MaterialDetail.jsp?module=260&amp;id={id}" >
-			<xsl:value-of select="name" disable-output-escaping="yes"/>
-			</a>			
+				<a href="../material/MaterialDetail.jsp?module=260&amp;id={id}" >
+					<xsl:value-of select="name" disable-output-escaping="yes"/>
+				</a>			
 			</td>
 			<td class="tableContent" align="left">
 				<xsl:value-of select="type" />
@@ -57,7 +54,7 @@
 			</td>
 		</tr>
 		<tr class="tableLine">
-			<td colspan="7">
+			<td colspan="9">
 				<img src="../images/spacers/trans.gif" width="1" height="1" border="0" />
 			</td>
 		</tr>

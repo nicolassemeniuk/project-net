@@ -437,3 +437,57 @@ div.tap5c_slidingPanelSubject-toggler-collapse {
 	width: 15px;
 }
 
+/* Custom components */
+
+.marginLeftFix
+{
+	margin-left: 4px;	
+}
+
+.tabBackground
+{
+	width: 130px;
+	height: 20px;
+	text-align: center;
+	font-size: 12px;
+}
+
+.tabBackgroundActive
+{
+	background: url(../images/directory/active_button_project.gif) left no-repeat;
+	font-weight: bold;
+	color: black;	
+}
+
+.tabBackgroundDeactive
+{
+	background: url(../images/directory/dactivat_btn_project_no-line.gif) left no-repeat;
+}
+
+.tabBackgroundActive span
+{
+	color: black;	
+}
+
+.labelSearchField
+{
+	font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 12px;
+	font-weight: bold;
+	height: 21px;	
+	color: gray;
+	padding: 15px 10px;
+}
+
+.inputSearchField
+{
+	margin: 15px 0px;
+}
+
+.channelHeaderTabSet
+{
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 7px;
+}
+

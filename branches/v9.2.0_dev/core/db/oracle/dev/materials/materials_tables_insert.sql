@@ -106,6 +106,9 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.main.list.type','
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.list.cost','Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.list.consumable','Consumable','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.list.description','Description','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.material.tab.businessmaterials.title','Business Materials','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.material.tab.projectmaterials.title','Project Materials','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.roster.search.label','Search','A',0,1,null);
 
 -- Assign material dialog
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.assignmaterialsdialog.title','Materials','A',0,1,null);
