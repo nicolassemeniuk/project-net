@@ -1,6 +1,6 @@
 
 -- select * from PN_PROPERTY a where a.PROPERTY like '%prm.global.taskcompletedpercentage%';
-select * from PN_PROPERTY a where a.PROPERTY like '%prm.global.header%';
+-- select * from PN_PROPERTY a where a.PROPERTY like '%prm.global.header%';
 
 -- Project Create
 insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.financialcalculation.heading','Project Finance Calculation Method','A',0,1,null);
@@ -177,3 +177,4 @@ insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.to
 insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.yaxis.font.name','Arial','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.yaxis.font.size','12','A',0,1,null);
 
+/

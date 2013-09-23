@@ -97,3 +97,5 @@ from pn_financial_space
   FROM dual;
 
 CREATE OR REPLACE SYNONYM PNET_USER.PN_SPACE_VIEW FOR PNET.PN_SPACE_VIEW;
+
+/
