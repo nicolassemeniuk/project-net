@@ -61,6 +61,6 @@
 		materialBeanList.clear();
 		materialBeanList.load(key);
 		
-		pageContext.forward("/material/MaterialDirectory.jsp?module="+Module.MATERIAL + "&mode=search" + "&currentTab=" + request.getAttribute("currentTab"));
+		pageContext.forward("/material/MaterialDirectory.jsp?module="+Module.MATERIAL + "&mode=search&currentTab=" + session.getAttribute("currentTab"));
 	}
 %>

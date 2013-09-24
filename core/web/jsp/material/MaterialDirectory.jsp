@@ -37,7 +37,7 @@
 	
 	if(currentTab == null)
 		currentTab = "project";
-	request.setAttribute("currentTab", currentTab);	
+	session.setAttribute("currentTab", currentTab);	
 	
 	Space currentSpace = user.getCurrentSpace();
 	request.setAttribute("currentSpace", currentSpace);
