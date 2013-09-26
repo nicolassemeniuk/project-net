@@ -1,5 +1,6 @@
 package net.project.hibernate.service;
 
+
 public interface IProjectFinancialService {
 
 	/**

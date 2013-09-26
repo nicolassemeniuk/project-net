@@ -75,4 +75,8 @@ public interface IPnTaskDAO extends IDAO<PnTask, Integer> {
 	 * @return a list of completed tasks from that project.
 	 */
 	public List<PnTask> getCompletedTasksByProjectId(Integer projectId);
+	
+	public PnTask getTaskById(Integer taskId);
+	
+	
 }

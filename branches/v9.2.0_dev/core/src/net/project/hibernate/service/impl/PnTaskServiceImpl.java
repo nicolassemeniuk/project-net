@@ -44,7 +44,8 @@ public class PnTaskServiceImpl implements IPnTaskService {
 	}
 	
 	public PnTask getTaskById(Integer id){
-		return pnTaskDAO.findByPimaryKey(id);
+//		return pnTaskDAO.findByPimaryKey(id);
+		return pnTaskDAO.getTaskById(id);
 	}
 	
 	public List<PnTask> getTasksByProjectId(Integer projectId){
