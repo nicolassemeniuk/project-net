@@ -215,12 +215,12 @@
 	 <#else>
 	 <tr align="left" valign="top">
         <td>&nbsp;</td>
-		<td nowrap class="tableHeader resourceTD">${token.get("prm.schedule.taskview.material.assign.material.column")} </td>
+		<td nowrap class="tableHeader resourceTD" colspan="4">${token.get("prm.schedule.taskview.material.assign.material.column")} </td>
      </tr>
     <#list theObject.getActiveMaterialAssignments() as materialAssignment>
     <tr align="left" valign="middle">
         <td>&nbsp;</td>
-		<td class="tableContent resourceTD">${materialAssignment.getMaterialName()}</td>
+		<td class="tableContent resourceTD" colspan="4">${materialAssignment.getMaterialName()}</td>
     </tr>
 	</#list>
 	</#if>

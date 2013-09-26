@@ -498,12 +498,12 @@ function overallocationExist(exist) {
 								<td colspan="10">
 									<table cellpadding="0" cellspacing="0" width="100%">
 										<tr class="channelHeader">
-											<td width="1%"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border="0"></td>
+											<td width="1%"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=27 alt="" border="0"></td>
 											<td nowrap class="channelHeader"><nobr>
 													<%=PropertyProvider.get("prm.schedule.taskedit.material.assignor.label")%>&nbsp;&nbsp; <select id="assignorId" name="assignorUser"
 														class="assignuser-name"><%=roster.getSelectionList(user.getID())%></select>&nbsp;&nbsp;
 													<%=PropertyProvider.get("prm.schedule.taskview.material.channel.assign.title")%></nobr></td>
-											<td align=right width="1%"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=15 alt=""
+											<td align=right width="1%"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=27 alt=""
 												border="0"></td>
 										</tr>
 									</table>
@@ -519,7 +519,14 @@ function overallocationExist(exist) {
 								<td colspan="10" class="headerSep"></td>
 							</tr>
 							
-							
+							<%--						
+							<tr>
+								<td></td>
+								<td class="tableContentHighlight"><font class="groupFont">Business Materials</font></td>
+								<td></td>
+							</tr>
+							--%>
+													
 							<%									
 								for (MaterialAssignmentHelper assignmentBusiness : materialBusinessAssignmentsHelper.getMaterialsAssigned()) {									
 									String materialBusinessID = assignmentBusiness.getMaterial().getMaterialId();
