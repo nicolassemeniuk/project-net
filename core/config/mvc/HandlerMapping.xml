@@ -77,6 +77,9 @@
     <Handler url="/TaskCalculate/MaterialAssignmentAddRemove">
         <Class>net.project.schedule.mvc.handler.taskcalculate.MaterialAssignmentAddRemoveHandler</Class>
     </Handler>
+    <Handler url="/TaskView/Financial">
+        <Class>net.project.schedule.mvc.handler.taskview.TaskFinancialHandler</Class>
+    </Handler>
     <Handler url="/TaskView/History">
         <Class>net.project.schedule.mvc.handler.taskview.TaskHistoryHandler</Class>
     </Handler>

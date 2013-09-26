@@ -59,8 +59,7 @@ public class PnPersonSalaryServiceImpl implements IPnPersonSalaryService {
 		
 		//Set the end date as 1 day before the new salary start date.
 		Date oldSalaryEndDate = personSalary.getStartDate();
-		DateUtils.addDay(oldSalaryEndDate, -1);
-		lastPersonSalary.setEndDate(oldSalaryEndDate);
+		lastPersonSalary.setEndDate(DateUtils.addDay(oldSalaryEndDate, -1));
 
 		this.pnPersonSalaryDAO.update(lastPersonSalary);
 		

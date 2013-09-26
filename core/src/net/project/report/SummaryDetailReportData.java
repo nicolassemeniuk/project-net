@@ -66,8 +66,7 @@ public abstract class SummaryDetailReportData extends ReportData {
      * Get the detailed data that will be used to construct the detailed section
      * of the Late Task Report.
      *
-     * @return a <code>List</code> containing zero or more
-     * {@link net.project.schedule.Task} objects.
+     * @return a <code>List</code> containing zero or more objects.
      */
     public List getDetailedData() {
         return detailedData;

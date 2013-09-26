@@ -463,6 +463,8 @@ function overallocationExist(exist) {
 								href="javascript:tabClick('/servlet/ScheduleController/TaskView/Materials?action=1');" selected="true" />
 							<tab:tab label='<%=PropertyProvider.get("prm.schedule.taskview.dependencies.tab")%>'
 								href="javascript:tabClick('/servlet/ScheduleController/TaskView/Dependencies?action=1');" />
+							<tab:tab label='<%=PropertyProvider.get("prm.schedule.taskview.financial.tab")%>' 
+								href="javascript:tabClick('/servlet/ScheduleController/TaskView/Financial?action=1');" />	
 							<tab:tab label='<%=PropertyProvider.get("prm.schedule.taskview.advanced.tab")%>'
 								href="javascript:tabClick('/servlet/ScheduleController/TaskView/Advanced?action=1');" />
 							<tab:tab label='<%=PropertyProvider.get("prm.schedule.taskview.history.tab")%>'

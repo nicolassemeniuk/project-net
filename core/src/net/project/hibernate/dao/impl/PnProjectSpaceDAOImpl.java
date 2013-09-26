@@ -776,4 +776,24 @@ public class PnProjectSpaceDAOImpl extends AbstractHibernateAnnotatedDAO<PnProje
 
 		return budgetedTotalCost.floatValue();
 	}
+
+	@Override
+	public String getDefaultCurrencyCode(Integer spaceId) {
+		String defaultCurrencyCode = new String();
+		
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+			Criteria criteria = session.createCriteria(PnProjectSpace.class);
+			criteria.add(Restrictions.eq("projectId", spaceId));
+			criteria.add(Restrictions.ne("recordStatus", "D"));			
+			criteria.setProjection(Property.forName("defaultCurrencyCode"));
+			defaultCurrencyCode = (String) criteria.uniqueResult();
+			session.close();
+		} catch (HibernateException e) {
+			log.error(e.getMessage());
+		}
+		
+		return defaultCurrencyCode;
+	}
 }

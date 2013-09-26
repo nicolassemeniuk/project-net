@@ -12,7 +12,7 @@ delete from PN_PROPERTY a where a.PROPERTY like '%prm.material.create.wizard.ste
 
 -- Reports
 insert into PN_PROPERTY values (2000,'en','text','prm.project.report.projectmaterialreport.name','Project Materials Report','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.project.report.projectmaterialreport.description','Lists the Materials in the Proyect','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.report.projectmaterialreport.description','Lists the Materials in the Project','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.report.projectmaterialreport.xslpath','/report/xsl/projectmaterialreport.xsl','A',0,1,null);
 
 insert into PN_PROPERTY values (2000,'en','text','prm.material.report.materialname.name','Material Name','A',0,1,null);

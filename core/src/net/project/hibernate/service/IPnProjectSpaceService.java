@@ -11,7 +11,7 @@
  *
  * You should have received a copy of the GNU General Public License along with Project.net.
  * If not, see http://www.gnu.org/licenses/gpl-3.0.html
-*/
+ */
 package net.project.hibernate.service;
 
 import java.util.Date;
@@ -55,41 +55,45 @@ public interface IPnProjectSpaceService {
 	public List<PnProjectSpace> getSubProjectsByProejctId(Integer projectId);
 
 	public List<PnProjectSpace> getProjectsVisibleToUser(Integer memberId, Integer userId);
-	
-	public PnProjectSpace getWikiIdByProjectId(Integer projectId);
-	
-	public List<PnProjectSpace> getActiveProjectIds();
-    
-    /**
-     * Get project details of weblog entry
-     * @param weblogEntryId
-     * @return PnProjectSpace
-     */
-    public PnProjectSpace getProjectDetailsByWeblogEntryId(Integer weblogEntryId);
-    
-    public boolean doesProjectExist(Integer projectId);
-    
-    /**
-     * Get project details using projectId
-     * @param projectId
-     * @return Object of PnProjectSpace
-     */
-    public PnProjectSpace getProjectDetailsWithRecordStatus(Integer projectId);
 
-    /**
-     * Get projects list using userId
-     * @param userId
-     * @return List Containing Object of PnProjectSpace
-     */
-    public List<PnProjectSpace> getProjectsByUserIdWithParentProjectId(Integer userId);
-    
+	public PnProjectSpace getWikiIdByProjectId(Integer projectId);
+
+	public List<PnProjectSpace> getActiveProjectIds();
+
+	/**
+	 * Get project details of weblog entry
+	 * 
+	 * @param weblogEntryId
+	 * @return PnProjectSpace
+	 */
+	public PnProjectSpace getProjectDetailsByWeblogEntryId(Integer weblogEntryId);
+
+	public boolean doesProjectExist(Integer projectId);
+
+	/**
+	 * Get project details using projectId
+	 * 
+	 * @param projectId
+	 * @return Object of PnProjectSpace
+	 */
+	public PnProjectSpace getProjectDetailsWithRecordStatus(Integer projectId);
+
+	/**
+	 * Get projects list using userId
+	 * 
+	 * @param userId
+	 * @return List Containing Object of PnProjectSpace
+	 */
+	public List<PnProjectSpace> getProjectsByUserIdWithParentProjectId(Integer userId);
+
 	/**
 	 * To check the project whose projectId is given is root project or not.
+	 * 
 	 * @param projectId
 	 * @return
 	 */
 	public boolean isRootProject(Integer projectId);
-	
+
 	/**
 	 * Obtain the budgeted total cost for the project.
 	 * 
@@ -100,5 +104,13 @@ public interface IPnProjectSpaceService {
 	 */
 	public Float getBudgetedTotalCost(String spaceId);
 
+	/**
+	 * Obtain the default currency code of a project.
+	 * 
+	 * @param spaceId
+	 *            the id of the space.
+	 * @return the default currency code.
+	 */
+	public String getDefaultCurrency(String spaceId);
 
 }

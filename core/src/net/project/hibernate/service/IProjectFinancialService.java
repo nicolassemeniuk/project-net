@@ -38,5 +38,10 @@ public interface IProjectFinancialService {
 	 * @return a float value representing the cost.
 	 */
 	public Float getBudgetedCost(String spaceID);
+	
+	public Float calculateActualCostToDateForTask(String spaceId, String objectId);
+	
+	public Float calculateEstimatedTotalCostForTask(String spaceId, String objectId);
+	
 
 }

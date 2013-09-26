@@ -25,6 +25,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Currency;
 import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
@@ -41,6 +42,7 @@ import net.project.base.ObjectType;
 import net.project.base.PnetRuntimeException;
 import net.project.base.RecordStatus;
 import net.project.base.URLFactory;
+import net.project.base.money.Money;
 import net.project.base.property.PropertyProvider;
 import net.project.calendar.ICalendarEntry;
 import net.project.calendar.vcal.VCalendar;
@@ -318,10 +320,9 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
     private AssignmentList assignments = new AssignmentList();
     
     /** Field to store material assignments */
-    private boolean materialAssigneesLoaded = false;
+//    private boolean materialAssigneesLoaded 
+	private boolean materialAssignmentsLoaded= false;
     private MaterialAssignmentList materialAssignments = new MaterialAssignmentList();
-    
-
 
     /** Allow notifications to be turned off, which will greatly speed imports. */
     boolean sendNotifications = true;
@@ -422,7 +423,11 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
      * to display applied charge code name in work plan two pane view under charge code header.
      */
     private String chargeCodeName = null;
-	private boolean materialAssignmentsLoaded;
+    
+    private Money actualCostToDate = null;
+    
+    private Money currentEstimatedTotalCost = null;
+
 
     //public boolean worker = true;
     /**
@@ -490,6 +495,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
         this.wbs = null;
         this.chargeCodeId = null;
         this.chargeCodeName = null;
+        this.actualCostToDate = null;
+        this.currentEstimatedTotalCost = null;        
     }
 
     /**
@@ -729,8 +736,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
     
     
 
-    public void setMaterialAssigneesLoaded(boolean materialAssigneesLoaded) {
-		this.materialAssigneesLoaded = materialAssigneesLoaded;
+    public void setMaterialAssigneesLoaded(boolean materialAssignmentsLoaded) {
+		this.materialAssignmentsLoaded = materialAssignmentsLoaded;
 	}
 
 	public Date getActualStartTime() {
@@ -1734,7 +1741,7 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 
     
     public boolean isMaterialAssigneesLoaded() {
-		return materialAssigneesLoaded;
+		return materialAssignmentsLoaded;
 	}
 
 	@Override
@@ -2834,10 +2841,6 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
     
     public void setMaterialAssignmentssLoaded(boolean materialAssignmentsLoaded) {
         this.materialAssignmentsLoaded = materialAssignmentsLoaded;
-//
-//        if (materialAssignmentsLoaded) {
-//            assignments.setLastSavedState();
-//        }
     }
 
     /**
@@ -3788,7 +3791,7 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 		se.sendNotifications = this.sendNotifications;
 		se.ignoreTimePortionOfDate = this.ignoreTimePortionOfDate;
 		se.assigneesLoaded = this.assigneesLoaded;
-		se.materialAssigneesLoaded = this.materialAssigneesLoaded;
+		se.materialAssignmentsLoaded = this.materialAssignmentsLoaded;
 		se.sharedObjectID = this.sharedObjectID;
 		se.sharingSpaceName = this.sharingSpaceName;
 		se.sharingSpaceID = this.sharingSpaceID;
@@ -3808,6 +3811,8 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 		se.startVariance = this.startVariance;
 		se.endVariance = this.endVariance;
 		se.evenEntryCss = this.evenEntryCss;
+		se.actualCostToDate = this.actualCostToDate;
+		se.currentEstimatedTotalCost = this.currentEstimatedTotalCost;
 		    
 		for (Iterator it = this.assignments.iterator(); it.hasNext();) {
 			ScheduleEntryAssignment assignment = (ScheduleEntryAssignment) it.next();
@@ -4232,5 +4237,46 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 	public void setMaterialAssignments(MaterialAssignmentList materialAssignments) {
 		this.materialAssignments = materialAssignments;
 	}
+
+	public Money getActualCostToDate() {
+		Float actualCostToDate = ServiceFactory.getInstance().getProjectFinancialService().calculateActualCostToDateForTask(this.spaceID, id);
+		String defaultCurrencyCode = ServiceFactory.getInstance().getPnProjectSpaceService().getDefaultCurrency(this.getSpaceID());
+		Currency currency = Currency.getInstance(defaultCurrencyCode);
+		this.actualCostToDate = new Money(String.valueOf(actualCostToDate), currency);
+		return this.actualCostToDate;
+		
+//		//Load if necessary
+//		if(actualCostToDate==null){			
+//
+//		} else{
+//			return actualCostToDate;			
+//		}
+	}
+
+	public void setActualCostToDate(Money actualCostToDate) {
+		this.actualCostToDate = actualCostToDate;
+	}
+
+	public Money getCurrentEstimatedTotalCost() {
+		Float currentEstimatedTotalCost = ServiceFactory.getInstance().getProjectFinancialService().calculateEstimatedTotalCostForTask(this.spaceID, id);
+		String defaultCurrencyCode = ServiceFactory.getInstance().getPnProjectSpaceService().getDefaultCurrency(this.getSpaceID());
+		Currency currency = Currency.getInstance(defaultCurrencyCode);
+		this.currentEstimatedTotalCost = new Money(String.valueOf(currentEstimatedTotalCost), currency);
+		return this.currentEstimatedTotalCost;
+		
+		
+//		//Load if necessary
+//		if(currentEstimatedTotalCost==null){			
+//
+//		} else{
+//			return currentEstimatedTotalCost;			
+//		}	
+	}
+
+	public void setCurrentEstimatedTotalCost(Money currentEstimatedTotalCost) {
+		this.currentEstimatedTotalCost = currentEstimatedTotalCost;
+	}
+	
+	
 
 }

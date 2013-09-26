@@ -180,4 +180,6 @@ public class PnTaskDAOImpl extends AbstractHibernateAnnotatedDAO<PnTask, Integer
 		return tasks;
 	}
 	
+	
+	
 }

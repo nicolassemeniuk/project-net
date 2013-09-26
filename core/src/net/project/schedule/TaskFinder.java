@@ -842,7 +842,6 @@ public class TaskFinder extends Finder {
 			task.addMaterialAssignments(findMaterialAssignmentByTaskID(task.getID()));
 			task.setMaterialAssigneesLoaded(true);
 		}
-
 		task.setRecordStatus(RecordStatus.findByID(result.getString(RECORD_STATUS_COL_ID)));
 		task.setWBS(result.getString(WBS));
 		task.setWBSLevel(result.getString(WBS_LEVEL));
