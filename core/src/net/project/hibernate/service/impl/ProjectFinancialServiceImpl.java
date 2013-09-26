@@ -141,52 +141,71 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 			
 			//**********************************************
 			//Task resources costs
+			//**********************************************
 			
 			// Get persons assignments for the task
 			List<PnAssignment> assignmentsOfTask = assignmentService.getAssigmentsByObjectId(Integer.valueOf(objectId));
 			for (PnAssignment assignmentOfTask : assignmentsOfTask) {
-				TimeQuantity workQuantity = TimeQuantity.parse(String.valueOf(assignmentOfTask.getWork()), String.valueOf(assignmentOfTask.getWorkUnits()));
-				BigDecimal workAmount = workQuantity.converToHours();
-	
-				Integer id = assignmentOfTask.getComp_id().getPersonId();
-				PnPersonSalary personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryForDate(id, task.getActualFinish());
-				totalResourcesCost += workAmount.floatValue() * personSalary.getCostByHour();
+				//Only the active ones
+				if(assignmentOfTask.getRecordStatus().equals("A")){
+					TimeQuantity workQuantity = TimeQuantity.parse(String.valueOf(assignmentOfTask.getWorkComplete()), String.valueOf(assignmentOfTask.getWorkCompleteUnits()));
+					BigDecimal workAmount = workQuantity.converToHours();
+		
+					Integer id = assignmentOfTask.getComp_id().getPersonId();
+					
+					PnPersonSalary personSalary = new PnPersonSalary();
+					
+					//This value can be null in case the work didn't start yet
+					if(task.getActualFinish()!=null){
+						personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryForDate(id, task.getActualFinish());
+					} else {
+						personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryForDate(id, assignmentOfTask.getEndDate());
+					}
+					totalResourcesCost += workAmount.floatValue() * personSalary.getCostByHour();
+				}
 			}
 			
 			//**********************************************
 			//Task material costs
+			//**********************************************
 			
 			//Obtain the materials assigned to this task (only the ones from the task's owner project).			
 			PnMaterialAssignmentList materialAssignments = ServiceFactory.getInstance().getPnMaterialAssignmentService().getMaterialsAssignment(spaceId, objectId);
 			
+			//Obtain the materials id's from the project.
+			List<Integer> materialsIds = ServiceFactory.getInstance().getPnSpaceHasMaterialService().getMaterialsFromSpace(spaceId);
+			
 			//For each material calculate the cost for this task
 			for(PnMaterialAssignment materialAssignment : materialAssignments){
-				//Only the active ones
-				if(materialAssignment.getRecordStatus().equals("A")){
-					//First obtain all the assignments for the material
-					BigDecimal totalMaterialAssignedWork = new BigDecimal("0.0");
-					PnMaterialAssignmentList materialAssigmentsInAllTasks = ServiceFactory.getInstance().getPnMaterialAssignmentService().getAssignmentsForMaterial(String.valueOf(materialAssignment.getComp_id().getMaterialId()));
-					
-					//Calculate the total hours in ALL task assignments for the material
-					for(PnMaterialAssignment assignmentInAnyTask : materialAssigmentsInAllTasks){
-						//Only the active ones
-						if(assignmentInAnyTask.getRecordStatus().equals("A")){
-							PnTask anyTask = ServiceFactory.getInstance().getPnTaskService().getTaskById(assignmentInAnyTask.getComp_id().getObjectId());
-							totalMaterialAssignedWork = totalMaterialAssignedWork.add(anyTask.getWork());
+				
+				//Is from the project? (Only the active assignments)
+				if(materialAssignment.getRecordStatus().equals("A") && materialsIds.contains(materialAssignment.getComp_id().getMaterialId())){		
+
+						//First obtain all the assignments for the material
+						BigDecimal totalMaterialAssignedWork = new BigDecimal("0.0");
+						PnMaterialAssignmentList materialAssigmentsInAllTasks = ServiceFactory.getInstance().getPnMaterialAssignmentService().getAssignmentsForMaterial(String.valueOf(materialAssignment.getComp_id().getMaterialId()));
+						
+						//Calculate the total hours in ALL task assignments for the material
+						for(PnMaterialAssignment assignmentInAnyTask : materialAssigmentsInAllTasks){
+							//Only the active ones
+							if(assignmentInAnyTask.getRecordStatus().equals("A")){
+								PnTask anyTask = ServiceFactory.getInstance().getPnTaskService().getTaskById(assignmentInAnyTask.getComp_id().getObjectId());
+								totalMaterialAssignedWork = totalMaterialAssignedWork.add(anyTask.getWork());
+							}
 						}
-					}
-					
-					//Calculate the percentage of all materials assignments corresponding to this task
-					Float currentTaskPercentage = task.getWork().multiply(new BigDecimal("100")).divide(totalMaterialAssignedWork).floatValue();
-					
-					//Get the material to obtain the cost
-					PnMaterial material = ServiceFactory.getInstance().getPnMaterialService().getMaterial(materialAssignment.getComp_id().getMaterialId());
-					
-					//Add the part corresponding to this task
-					//This represents the cost by the percentage of that cost that goes for the current task,
-					//taking in count that this task is only partially completed.
-					totalMaterialCost += material.getMaterialCost() * currentTaskPercentage * task.getPercentComplete().floatValue()/100;
-				}				
+						
+						//Calculate the percentage of all materials assignments corresponding to this task
+						Float currentTaskPercentage = task.getWork().multiply(new BigDecimal("100")).divide(totalMaterialAssignedWork).floatValue();
+						
+						//Get the material to obtain the cost
+						PnMaterial material = ServiceFactory.getInstance().getPnMaterialService().getMaterial(materialAssignment.getComp_id().getMaterialId());
+						
+						//Add the part corresponding to this task
+						//This represents the cost by the percentage of that cost that goes for the current task,
+						//taking in count that this task is only partially completed.
+						totalMaterialCost += material.getMaterialCost() * (currentTaskPercentage/100) * (task.getPercentComplete().floatValue()/100);
+									
+				}
 			}
 	
 			return totalMaterialCost + totalResourcesCost;		
@@ -206,53 +225,74 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 			
 			//**********************************************
 			//Task resources costs
+			//**********************************************
 			
 			// Total resources cost.
 			List<PnAssignment> assignmentsFromTask = ServiceFactory.getInstance().getPnAssignmentService().getAssigmentsByObjectId(Integer.valueOf(objectId));
-
 			for (PnAssignment assignmentFromTask : assignmentsFromTask) {
-				TimeQuantity workQuantity = TimeQuantity.parse(String.valueOf(assignmentFromTask.getWork()),
-						String.valueOf(assignmentFromTask.getWorkUnits()));
-				BigDecimal workAmount = workQuantity.converToHours();
-
-				Integer id = assignmentFromTask.getComp_id().getPersonId();
-				PnPersonSalary personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryForDate(id, assignmentFromTask.getEndDate());
-				totalResourcesCost += workAmount.floatValue() * personSalary.getCostByHour();
+				//Only the active ones
+				if(assignmentFromTask.getRecordStatus().equals("A")){
+					TimeQuantity workQuantity = TimeQuantity.parse(String.valueOf(assignmentFromTask.getWork()), String.valueOf(assignmentFromTask.getWorkUnits()));
+					BigDecimal workAmount = workQuantity.converToHours();
+	
+					Integer id = assignmentFromTask.getComp_id().getPersonId();
+					PnPersonSalary personSalary = new PnPersonSalary();
+					
+					//This value can be null in case the work didn't start yet
+					if(task.getActualFinish()!=null){
+						personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryForDate(id, assignmentFromTask.getActualFinish());
+					} else {
+						personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryForDate(id, assignmentFromTask.getEndDate());
+					}
+					totalResourcesCost += workAmount.floatValue() * personSalary.getCostByHour();
+				}
 			}
 			
 			//**********************************************
 			//Task material costs
+			//**********************************************
 			
-			//Obtain the materials assigned to this task (only the ones from the task's owner project).			
+			//Obtain the materials assigned to this task (only the ones from the task's owner project).					
 			PnMaterialAssignmentList materialAssignments = ServiceFactory.getInstance().getPnMaterialAssignmentService().getMaterialsAssignment(spaceId, objectId);
+			
+			//Obtain the materials id's from the project.
+			List<Integer> materialsIds = ServiceFactory.getInstance().getPnSpaceHasMaterialService().getMaterialsFromSpace(spaceId);
 			
 			//For each material calculate the cost for this task
 			for(PnMaterialAssignment materialAssignment : materialAssignments){
-				//Only the active ones
-				if(materialAssignment.getRecordStatus().equals("A")){
-					//First obtain all the assignments for the material
-					BigDecimal totalMaterialAssignedWork = new BigDecimal("0.0");
-					PnMaterialAssignmentList materialAssigmentsInAllTasks = ServiceFactory.getInstance().getPnMaterialAssignmentService().getAssignmentsForMaterial(String.valueOf(materialAssignment.getComp_id().getMaterialId()));
+				
+				//Is from the project?
+				if(materialsIds.contains(materialAssignment.getComp_id().getMaterialId())){
 					
-					//Calculate the total hours in ALL task assignments for the material
-					for(PnMaterialAssignment assignmentInAnyTask : materialAssigmentsInAllTasks){
-						//Only the active ones
-						if(assignmentInAnyTask.getRecordStatus().equals("A")){
-							PnTask anyTask = ServiceFactory.getInstance().getPnTaskService().getTaskById(assignmentInAnyTask.getComp_id().getObjectId());
-							totalMaterialAssignedWork = totalMaterialAssignedWork.add(anyTask.getWork());
-						}
-					}
-					
-					//Calculate the percentage of all materials assignments corresponding to this task
-					Float currentTaskPercentage = task.getWork().multiply(new BigDecimal("100")).divide(totalMaterialAssignedWork).floatValue()/100;
-					
-					//Get the material to obtain the cost
+					//Get the material
 					PnMaterial material = ServiceFactory.getInstance().getPnMaterialService().getMaterial(materialAssignment.getComp_id().getMaterialId());
 					
-					//Add the part corresponding to this task
-					//This represents the cost by the percentage of that cost that goes for the current task.
-					totalMaterialCost += material.getMaterialCost() * currentTaskPercentage;	
+					//Only the active ones
+					if(materialAssignment.getRecordStatus().equals("A")){
+						//First obtain all the assignments for the material
+						BigDecimal totalMaterialAssignedWork = new BigDecimal("0.0");
+						PnMaterialAssignmentList materialAssigmentsInAllTasks = ServiceFactory.getInstance().getPnMaterialAssignmentService().getAssignmentsForMaterial(String.valueOf(materialAssignment.getComp_id().getMaterialId()));
+						
+						//Calculate the total hours in ALL task assignments for the material
+						for(PnMaterialAssignment assignmentInAnyTask : materialAssigmentsInAllTasks){
+							//Only the active ones
+							if(assignmentInAnyTask.getRecordStatus().equals("A")){
+								PnTask anyTask = ServiceFactory.getInstance().getPnTaskService().getTaskById(assignmentInAnyTask.getComp_id().getObjectId());
+								totalMaterialAssignedWork = totalMaterialAssignedWork.add(anyTask.getWork());
+							}
+						}
+						
+						//Calculate the percentage of all materials assignments corresponding to this task
+						Float currentTaskPercentage = task.getWork().multiply(new BigDecimal("100")).divide(totalMaterialAssignedWork).floatValue()/100;
+						
+						//Add the part corresponding to this task
+						//This represents the cost by the percentage of that cost that goes for the current task.
+						totalMaterialCost += material.getMaterialCost() * currentTaskPercentage;	
+					}
+					
 				}
+				
+				
 			}
 
 			return totalMaterialCost + totalResourcesCost;

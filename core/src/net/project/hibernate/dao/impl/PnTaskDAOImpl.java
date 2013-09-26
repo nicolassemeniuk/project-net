@@ -22,10 +22,12 @@ import java.util.List;
 import net.project.base.property.PropertyProvider;
 import net.project.hibernate.dao.IPnTaskDAO;
 import net.project.hibernate.model.PnFinancialSpace;
+import net.project.hibernate.model.PnMaterial;
 import net.project.hibernate.model.PnTask;
 
 import org.apache.log4j.Logger;
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
@@ -45,6 +47,15 @@ public class PnTaskDAOImpl extends AbstractHibernateAnnotatedDAO<PnTask, Integer
 	
 	public PnTaskDAOImpl() {
 		super(PnTask.class);
+	}
+	
+	@Override
+	public PnTask findByPimaryKey(Integer taskId){
+		PnTask task = super.findByPimaryKey(taskId);
+		if(task != null){
+			initializeEntity(task);
+		}
+		return task;
 	}
 	
 	/* (non-Javadoc)
@@ -178,6 +189,21 @@ public class PnTaskDAOImpl extends AbstractHibernateAnnotatedDAO<PnTask, Integer
 			e.printStackTrace();
 		}
 		return tasks;
+	}
+
+	@Override
+	public PnTask getTaskById(Integer taskId) {
+		try {
+			SessionFactory factory = getHibernateTemplate().getSessionFactory();
+			Session session = factory.openSession();
+
+			PnTask pnTask = (PnTask) session.get(PnTask.class, taskId);
+			session.close();
+			return pnTask;
+		} catch (Exception e) {
+			log.error("Error occurred while getting task by id " + e.getMessage());
+		}
+		return null;
 	}
 	
 	
