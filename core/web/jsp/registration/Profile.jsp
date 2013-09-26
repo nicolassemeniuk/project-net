@@ -437,7 +437,7 @@ if (errorMessage != null ) {
             <td align="right" nowrap class="fieldRequired"><display:get name="prm.global.registration.financial.salary" />:&nbsp;&nbsp;</td>
 
             <td nowrap> 
-              <input type="text" name="costByHour" size="40" maxlength="80" value='<c:out value="${registration.salary.costByHour}" />'>
+              <input type="text" name="costByHour" size="40" maxlength="80" value='<c:out value="${registration.salary.costByHour}" />'> <span class="fieldNonRequired"><display:get name="prm.global.registration.financial.salary.example" /></span>
              </td>
              <td nowrap>&nbsp;</td>
           </tr>

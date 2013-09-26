@@ -167,6 +167,12 @@ function setup() {
    applyColorToEvenRows();
 }
 
+function showMaterialAllocation(materialID) {
+    var url = JSPRootURL + "/material/MaterialResourceAllocations.jsp?module=<%=net.project.base.Module.MATERIAL%>&materialID="+materialID;
+
+    openwin_large('material_resource_allocation', url);
+}
+
 function cancel() { self.document.location = JSPRootURL + "/personal/Main.jsp"; }
 function search() { self.document.location = JSPRootURL + "/search/SearchController.jsp?module=<%=net.project.base.Module.BUSINESS_SPACE%>&action=<%=net.project.security.Action.VIEW%>"; }
 function modify() { self.document.location=JSPRootURL + "/business/ModifyBusiness.jsp?module=<%=net.project.base.Module.BUSINESS_SPACE%>&action=<%=net.project.security.Action.MODIFY%>"; }
@@ -346,6 +352,20 @@ function help()
 						%>
 					</display:if>
 					
+					<%--  Business Materials Channel --%>
+					<display:if name="prm.business.main.channel.businessmaterials.isenabled">
+						<%
+							Channel businessMaterials = new Channel("BusinessSpace_Materials_" + businessSpace.getID());
+							businessMaterials.setTitle(PropertyProvider.get("prm.business.main.channel.businessmaterials.title"));
+							businessMaterials.setWidth("100%");
+							businessMaterials.setMinimizable(true);
+							businessMaterials.setCloseable(true);
+							businessMaterials.setInclude("/material/include/BusinessMaterials.jsp");
+							manager.addChannel(businessMaterials, 2, 0);
+							personalizer.addChannel(businessMaterials, 2, 0);
+						%>
+					</display:if>					
+					
 					<%-- Weekly Meetings Channel --%>
 					<display:if name="prm.business.main.channel.meetings.isenabled">
 						<%
@@ -355,7 +375,7 @@ function help()
 							myMeetings.setMinimizable(true);
 							myMeetings.setCloseable(true);
 							myMeetings.setInclude("/project/include/myMeetings.jsp");
-							manager.addChannel(myMeetings, 4, 0);
+							manager.addChannel(myMeetings, 3, 0);
 							personalizer.addChannel(myMeetings, 2, 0);
 						%>
 					</display:if>

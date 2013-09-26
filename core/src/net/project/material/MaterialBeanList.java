@@ -6,8 +6,9 @@ import java.util.Iterator;
 
 import net.project.hibernate.model.PnMaterial;
 import net.project.hibernate.service.ServiceFactory;
+import net.project.persistence.IXMLPersistence;
 
-public class MaterialBeanList extends ArrayList<MaterialBean>
+public class MaterialBeanList extends ArrayList<MaterialBean> implements IXMLPersistence
 {
     /** Current space */
     private String spaceID;
@@ -67,6 +68,14 @@ public class MaterialBeanList extends ArrayList<MaterialBean>
 	{
 		StringBuffer xml = new StringBuffer();
 		xml.append("<?xml version=\"1.0\" ?>\n\n");
+		xml.append(this.getXMLBody());
+		return xml.toString();
+	}
+
+	@Override
+	public String getXMLBody()
+	{
+		StringBuffer xml = new StringBuffer();
 		xml.append("<materials-list>\n");
 		
    		for(Iterator<MaterialBean> iterator = this.iterator(); iterator.hasNext(); )

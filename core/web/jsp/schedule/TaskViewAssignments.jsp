@@ -607,12 +607,12 @@ function setAvailability(resourceID, isEnabled) {
                 <td colspan="10">
                 <table cellpadding="0" cellspacing="0" width="100%">
                     <tr class="channelHeader">
-                        <td width="1%"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border="0"></td>
+                        <td width="1%"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-left_end.gif" width=8 height=27 alt="" border="0"></td>
                         <td nowrap class="channelHeader"><nobr>
 						<%=PropertyProvider.get("prm.resources.assignor.label")%>&nbsp;&nbsp;
 						<select id="assignorId" name="assignorUser" class="assignuser-name"><%=roster.getSelectionList(user.getID())%></select>&nbsp;&nbsp;
 						<%=PropertyProvider.get("prm.schedule.taskview.resources.channel.assign.title")%></nobr></td>
-                        <td align=right width="1%"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border="0"></td>
+                        <td align=right width="1%"><img src="<%=SessionManager.getJSPRootURL()%>/images/icons/channelbar-right_end.gif" width=8 height=27 alt="" border="0"></td>
                     </tr>
                 </table>
                 </td>

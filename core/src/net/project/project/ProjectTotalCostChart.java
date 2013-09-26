@@ -67,9 +67,20 @@ public class ProjectTotalCostChart extends TotalCostChart {
         //-------------------------------------------------------------------
         // Collect data needed to render the chart
         //-------------------------------------------------------------------
-        dataset.addValue(projectSpace.getActualCostToDate().getValue().divide(new BigDecimal(1000.0)), ACTUAL_COST_TO_DATE, "");
-        dataset.addValue(projectSpace.getCurrentEstimatedTotalCost().getValue().divide(new BigDecimal(1000.0)), CURRENT_ESTIMATED_TOTAL_COST, "");
-        dataset.addValue(projectSpace.getBudgetedTotalCost().getValue().divide(new BigDecimal(1000.0)), BUDGETED_TOTAL_COST, "");
+        
+        // Actual Cost To Date + Discretional Cost
+        BigDecimal actualCostToDate = projectSpace.getActualCostToDate().getValue().add(projectSpace.getDiscretionalCost().getValue());
+        
+        // Current Estimated Total Cost + Discretional Cost
+        BigDecimal currentEstimatedTotalCost = projectSpace.getCurrentEstimatedTotalCost().getValue().add(projectSpace.getDiscretionalCost().getValue());
+        
+        // Budgeted Total Cost
+        BigDecimal budgetedTotalCost = projectSpace.getBudgetedTotalCost().getValue();
+        
+        // Scale all values over thousand
+        dataset.addValue(actualCostToDate.divide(new BigDecimal(1000.0)), ACTUAL_COST_TO_DATE, "");
+        dataset.addValue(currentEstimatedTotalCost.divide(new BigDecimal(1000.0)), CURRENT_ESTIMATED_TOTAL_COST, "");
+        dataset.addValue(budgetedTotalCost.divide(new BigDecimal(1000.0)), BUDGETED_TOTAL_COST, "");
         
         renderer.setSeriesPaint(0, ChartColor.LIGHT_BLUE);
         renderer.setSeriesPaint(1, ChartColor.BLUE);

@@ -99,7 +99,7 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.main.remove.butto
 
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.module.history','Materials','A',0,1,null);
 
---Material main
+--Material directory
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.authorizationfailed.message','Access to Material Workspace denied','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.list.name','Material','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.list.type','Type','A',0,1,null);
@@ -177,6 +177,13 @@ insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.projectm
 
 -- Schedule Properties
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.tasklistdecorating.hasMaterialAssigment.label','Task has one or more material assignments','A',0,1,null);
+
+-- Business Dashboard - Business Materials Channel
+insert into PN_PROPERTY values (2000,'en','boolean','prm.business.main.channel.businessmaterials.isenabled','1','A',0,0,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.business.main.channel.businessmaterials.title','Business Materials','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.business.dashboard.businessmaterials.name.label','Material','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.business.dashboard.businessmaterials.workingcalendar.label','Utilization Summary','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.business.dashboard.creatematerials.link','Create a Material','A',0,1,null);
 
 /************************************************************************************
  * 				PN_OBJECT_TYPE

@@ -83,7 +83,7 @@
 							 	</tr>
 							 	<t:loop source="projectList" value="project">	
 									<tr>
-										<td>${project.name}</td>
+										<td><a href="../project/Dashboard?id=${project.ID}" class="project">${project.name}</a></td>
 										<td>${project.costCenter}</td>
 										<t:if test="project.budgetedTotalCost">
 											<td>${project.budgetedTotalCost.value}</td>
