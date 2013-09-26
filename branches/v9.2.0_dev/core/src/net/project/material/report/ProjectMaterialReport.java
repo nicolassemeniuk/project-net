@@ -59,7 +59,7 @@ public class ProjectMaterialReport extends AbstractReport {
 	 * Standard constructor which creates a FormItemSummaryReport.
 	 */
 	public ProjectMaterialReport(ReportScope scope) {
-		super(new ProjectMaterialReportData(), ReportType.PROJECT_MATERIAL_REPORTS, scope);
+		super(new ProjectMaterialReportData(), ReportType.MATERIAL_REPORTS, scope);
 	}
 
 	@Override

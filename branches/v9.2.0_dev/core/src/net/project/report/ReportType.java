@@ -35,6 +35,7 @@ import net.project.base.property.PropertyProvider;
 import net.project.business.report.projectstatus.ProjectPortfolioReport;
 import net.project.business.report.projectstatus.ProjectStatusReport;
 import net.project.database.DBBean;
+import net.project.financial.report.BusinessProjectsFinancialReport;
 import net.project.form.report.formitemsummaryreport.FormItemSummaryReport;
 import net.project.form.report.formitemtimeseries.FormItemTimeSeriesReport;
 import net.project.material.report.ProjectMaterialReport;
@@ -183,15 +184,22 @@ public class ReportType {
 		ProjectStatusReports.class);
     
     /**
-     * Object describing the "Project Material Report" report.
+     * Object describing the "Material Report" report.
      */
-    public static final ReportType PROJECT_MATERIAL_REPORTS  = new ReportType("pmr",
+    public static final ReportType MATERIAL_REPORTS  = new ReportType("mtr",
         "prm.project.report.projectmaterialreport.name",
         "prm.project.report.projectmaterialreport.description",
         "prm.project.report.projectmaterialreport.xslpath", 
 		ProjectMaterialReport.class);    
     
-    
+    /**
+     * Object describing the "Financial Project Report" report.
+     */
+    public static final ReportType BUSINESS_PROJECTS_FINANCIAL_REPORTS  = new ReportType("bpfr",
+        "prm.project.report.businessprojectsfinancialreport.name",
+        "prm.project.report.businessprojectsfinancialreport.description",
+        "prm.project.report.businessprojectsfinancialreport.xslpath", 
+		BusinessProjectsFinancialReport.class);    
 
     /**
      * Get the report that corresponds to the report id passed in the id parameter.

@@ -15,7 +15,7 @@
 
 <%@ page
     contentType="text/html; charset=UTF-8"
-    info="Task View" 
+    info="Task View Financial" 
     language="java" 
     errorPage="/errors.jsp"
     import="net.project.base.property.PropertyProvider,
@@ -121,7 +121,7 @@ function submit() {
 					jspPage='<%=baseURL + "/workplan/taskview"%>'
 					queryString='<%="module="+net.project.base.Module.SCHEDULE%>' />
 			<history:page display="<%=scheduleEntry.getNameMaxLength40()%>"
-					jspPage='<%=baseURL + "/servlet/ScheduleController/TaskView"%>'
+					jspPage='<%=baseURL + "/servlet/ScheduleController/TaskView/TaskViewFinancial"%>'
 					queryString='<%="module=" + net.project.base.Module.SCHEDULE + "&action=" + net.project.security.Action.VIEW + "&id=" + scheduleEntry.getID()%>' />
 		</history:history>
 	</tb:setAttribute>
@@ -156,11 +156,11 @@ function submit() {
 	<tr>
 		<td colspan="6">
 <tab:tabStrip>
-	<tab:tab label='<%=PropertyProvider.get("prm.schedule.taskview.status.tab")%>' href="javascript:tabClick('/servlet/ScheduleController/TaskView?action=1');" selected="true" />
+	<tab:tab label='<%=PropertyProvider.get("prm.schedule.taskview.status.tab")%>' href="javascript:tabClick('/servlet/ScheduleController/TaskView?action=1');"/>
 	<tab:tab label='<%=PropertyProvider.get("prm.schedule.taskview.resources.tab")%>' href="javascript:tabClick('/servlet/ScheduleController/TaskView/Assignments?action=1');" />
 	<tab:tab label='<%=PropertyProvider.get("prm.schedule.taskview.materials.tab")%>' href="javascript:tabClick('/servlet/ScheduleController/TaskView/Material?action=1');" />
 	<tab:tab label='<%=PropertyProvider.get("prm.schedule.taskview.dependencies.tab")%>' href="javascript:tabClick('/servlet/ScheduleController/TaskView/Dependencies?action=1');" />
-	<tab:tab label='<%=PropertyProvider.get("prm.schedule.taskview.financial.tab")%>' href="javascript:tabClick('/servlet/ScheduleController/TaskView/Financial?action=1');" />	
+	<tab:tab label='<%=PropertyProvider.get("prm.schedule.taskview.financial.tab")%>' href="javascript:tabClick('/servlet/ScheduleController/TaskView/Financial?action=1');" selected="true"/>	
 	<tab:tab label='<%=PropertyProvider.get("prm.schedule.taskview.advanced.tab")%>' href="javascript:tabClick('/servlet/ScheduleController/TaskView/Advanced?action=1');" />
 	<tab:tab label='<%=PropertyProvider.get("prm.schedule.taskview.history.tab")%>' href="javascript:tabClick('/servlet/ScheduleController/TaskView/History?action=1');" />
 	<display:if name="@prm.blog.isenabled">
@@ -174,80 +174,80 @@ function submit() {
 
     <tr align="left" valign="top">
 		<td>&nbsp;</td>
-		<td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskedit.phase.label")%>&nbsp;</td>
+		<td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskview.financial.actualcosttodate.label")%>&nbsp;</td>
 		<td colspan="3" class="tableContent">
-			<c:out value="${scheduleEntry.phaseName}"/>
+			<c:out value="${scheduleEntry.actualCostToDate.value}"/>
 		</td>
 		<td>&nbsp;</td>
 	</tr>
 	<tr align="left" valign="top">
 		<td>&nbsp;</td>
-		<td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskedit.subtaskof.label")%>&nbsp;</td>
+		<td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskview.financial.currentestimatedtotalcost.label")%>&nbsp;</td>
 		<td nowrap colspan="3" class="tableContent">
-			<c:out value="${scheduleEntry.parentTaskNameMaxLength40}"/>
+			<c:out value="${scheduleEntry.currentEstimatedTotalCost.value}"/>
 		</td>
 		<td>&nbsp;</td>
 	</tr>
-    <tr>
-        <td colspan="6">&nbsp;</td>
-    </tr>
-	<tr align="left" valign="middle">
-		<td>&nbsp;</td>
-		<td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskedit.status.baselinestartdate.label")%>&nbsp;</td>
-		<td class="tableContent">
-			<%=dateFormat.formatDateTime(scheduleEntry.getBaselineStart())%>&nbsp;
-		</td>
-		<td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskedit.status.baselinestartvariance.label")%>&nbsp;</td>
+<!--     <tr> -->
+<!--         <td colspan="6">&nbsp;</td> -->
+<!--     </tr> -->
+<!-- 	<tr align="left" valign="middle"> -->
+<!-- 		<td>&nbsp;</td> -->
+<%-- 		<td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskedit.status.baselinestartdate.label")%>&nbsp;</td> --%>
+<!-- 		<td class="tableContent"> -->
+<%-- 			<%=dateFormat.formatDateTime(scheduleEntry.getBaselineStart())%>&nbsp; --%>
+<!-- 		</td> -->
+<%-- 		<td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskedit.status.baselinestartvariance.label")%>&nbsp;</td> --%>
 
-        <td class="tableContent">
-			<%=scheduleEntry.getStartDateVariance(schedule.getWorkingTimeCalendarProvider())%>
-			&nbsp;
-		</td>
-		<td>&nbsp;</td>
-	</tr>
-	<tr align="left" valign="middle">
-		<td>&nbsp;</td>
-		<td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskedit.status.baselinefinishdate.label")%>&nbsp;</td>
-		<td nowrap class="tableContent">
-			<%=dateFormat.formatDateTime(scheduleEntry.getBaselineEnd())%>
-			&nbsp;
-		</td>
-		<td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskedit.status.baselinefinishvariance.label")%>&nbsp;</td>
-		<td nowrap class="tableContent">
-			<%=scheduleEntry.getEndDateVariance(schedule.getWorkingTimeCalendarProvider())%>
-			&nbsp;
-		</td>
-		<td>&nbsp;</td>
-	</tr>
-	<tr align="left" valign="middle">
-		<td>&nbsp;</td>
-		<td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskedit.status.baselinework.label")%>
-		</td>
-		<td class="tableContent">
-            <%=scheduleEntry.getBaselineWork() != null ? scheduleEntry.getBaselineWork().toShortString(0,2) : ""%>
-			&nbsp;
-		</td>
-        <td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskedit.status.workvariance.label")%>&nbsp;</td>
-        <td class="tableContent">
-            <%=scheduleEntry.getWorkVariance() != null ? scheduleEntry.getWorkVariance().toShortString(0,2) : ""%>
-            &nbsp;
-        </td>
-		<td>&nbsp;</td>
-	</tr>
-    <tr align="left" valign="middle">
-        <td>&nbsp;</td>
-		<td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskedit.status.baselineduration.label")%> </td>
-		<td class="tableContent">
-            <%=scheduleEntry.getBaselineDuration() != null ? scheduleEntry.getBaselineDuration().toShortString(0,2) : ""%>
-			&nbsp;
-		</td>
-		<td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskedit.status.durationvariance.label")%>&nbsp;</td>
-		<td nowrap class="tableContent">
-            <%=scheduleEntry.getDurationVariance().toShortString(0,2)%>
-			&nbsp;
-		</td>
-        <td>&nbsp;</td>
-    </tr>
+<!--         <td class="tableContent"> -->
+<%-- 			<%=scheduleEntry.getStartDateVariance(schedule.getWorkingTimeCalendarProvider())%> --%>
+<!-- 			&nbsp; -->
+<!-- 		</td> -->
+<!-- 		<td>&nbsp;</td> -->
+<!-- 	</tr> -->
+<!-- 	<tr align="left" valign="middle"> -->
+<!-- 		<td>&nbsp;</td> -->
+<%-- 		<td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskedit.status.baselinefinishdate.label")%>&nbsp;</td> --%>
+<!-- 		<td nowrap class="tableContent"> -->
+<%-- 			<%=dateFormat.formatDateTime(scheduleEntry.getBaselineEnd())%> --%>
+<!-- 			&nbsp; -->
+<!-- 		</td> -->
+<%-- 		<td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskedit.status.baselinefinishvariance.label")%>&nbsp;</td> --%>
+<!-- 		<td nowrap class="tableContent"> -->
+<%-- 			<%=scheduleEntry.getEndDateVariance(schedule.getWorkingTimeCalendarProvider())%> --%>
+<!-- 			&nbsp; -->
+<!-- 		</td> -->
+<!-- 		<td>&nbsp;</td> -->
+<!-- 	</tr> -->
+<!-- 	<tr align="left" valign="middle"> -->
+<!-- 		<td>&nbsp;</td> -->
+<%-- 		<td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskedit.status.baselinework.label")%> --%>
+<!-- 		</td> -->
+<!-- 		<td class="tableContent"> -->
+<%--             <%=scheduleEntry.getBaselineWork() != null ? scheduleEntry.getBaselineWork().toShortString(0,2) : ""%> --%>
+<!-- 			&nbsp; -->
+<!-- 		</td> -->
+<%--         <td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskedit.status.workvariance.label")%>&nbsp;</td> --%>
+<!--         <td class="tableContent"> -->
+<%--             <%=scheduleEntry.getWorkVariance() != null ? scheduleEntry.getWorkVariance().toShortString(0,2) : ""%> --%>
+<!--             &nbsp; -->
+<!--         </td> -->
+<!-- 		<td>&nbsp;</td> -->
+<!-- 	</tr> -->
+<!--     <tr align="left" valign="middle"> -->
+<!--         <td>&nbsp;</td> -->
+<%-- 		<td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskedit.status.baselineduration.label")%> </td> --%>
+<!-- 		<td class="tableContent"> -->
+<%--             <%=scheduleEntry.getBaselineDuration() != null ? scheduleEntry.getBaselineDuration().toShortString(0,2) : ""%> --%>
+<!-- 			&nbsp; -->
+<!-- 		</td> -->
+<%-- 		<td nowrap class="tableHeader"><%=PropertyProvider.get("prm.schedule.taskedit.status.durationvariance.label")%>&nbsp;</td> --%>
+<!-- 		<td nowrap class="tableContent"> -->
+<%--             <%=scheduleEntry.getDurationVariance().toShortString(0,2)%> --%>
+<!-- 			&nbsp; -->
+<!-- 		</td> -->
+<!--         <td>&nbsp;</td> -->
+<!--     </tr> -->
 </table>
 
 </div>

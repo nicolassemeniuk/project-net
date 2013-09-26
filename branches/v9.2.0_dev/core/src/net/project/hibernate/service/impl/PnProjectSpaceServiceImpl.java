@@ -205,4 +205,9 @@ public class PnProjectSpaceServiceImpl implements IPnProjectSpaceService {
 	public Float getBudgetedTotalCost(String spaceId) {
 		return pnProjectSpaceDAO.getBudgetedTotalCost(Integer.valueOf(spaceId));
 	}
+	
+	@Override
+	public String getDefaultCurrency(String spaceId){
+		return pnProjectSpaceDAO.getDefaultCurrencyCode(Integer.valueOf(spaceId));
+	}
 }

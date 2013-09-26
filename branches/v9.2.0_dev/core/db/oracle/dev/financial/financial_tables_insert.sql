@@ -1,5 +1,7 @@
 
--- select * from PN_PROPERTY a where a.PROPERTY like '%prm.global.taskcompletedpercentage%';
+select * from PN_PROPERTY a where a.PROPERTY like '%prm.project.report.businessprojectsfinancialreport.xslpath%';
+
+update PN_PROPERTY a set a.property_value='/report/xsl/businessprojectsfinancialreport.xsl' where a.PROPERTY like '%prm.project.report.businessprojectsfinancialreport.xslpath%';
 -- select * from PN_PROPERTY a where a.PROPERTY like '%prm.global.header%';
 
 -- Project Create
@@ -178,4 +180,38 @@ insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.to
 insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.yaxis.font.name','Arial','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.yaxis.font.size','12','A',0,1,null);
 
-/
+-- TaskView - Financial
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.financial.tab','Financial','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.financial.actualcosttodate.label','Actual Cost to Date:','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.financial.currentestimatedtotalcost.label','Current Estimated Total Cost:','A',0,1,null);
+
+-- Reports 
+insert into PN_PROPERTY values (2000,'en','text','prm.project.report.businessprojectsfinancialreport.name','Business Projects Financial Report','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.report.businessprojectsfinancialreport.description','List all the costs from projects of the associated business of the financial space','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.report.businessprojectsfinancialreport.xslpath','/report/xsl/businessprojectsfinancialreport.xsl','A',0,1,null);
+
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.projectname.name','Project Name','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.projectdescription.name','Description','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.projectactualcost.name','Actual Cost To Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.projectestimatedcost.name','Current Estimated Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.projectbudgetedcost.name','Budgeted Cost','A',0,1,null);
+
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.totalprojects.name','Total Number of Projects','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.totalactualcost.name','Total Actual Cost To Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.totalestimatedcost.name','Total Current Estimated Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.totalbudgetedcost.name','Total Budgeted Cost','A',0,1,null);
+
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.noprojectsfound.name','No Projects on the Business founded','A',0,1,null);
+
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.common.reportsummary.name','Report Summary','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.projects.name','Projects','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.project.name','Project','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.project.description','Description','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.project.actualcost','Actual Cost To Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.project.currentestimatedcost','Current Estimated Total Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.project.budgetedcost','Budgeted Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.businessprojectsfinancialreport.showallprojects.name','Show all Projects','A',0,1,null);
+
+
+
+

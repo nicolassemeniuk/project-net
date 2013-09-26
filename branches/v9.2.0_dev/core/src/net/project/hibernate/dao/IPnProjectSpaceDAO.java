@@ -11,7 +11,7 @@
  *
  * You should have received a copy of the GNU General Public License along with Project.net.
  * If not, see http://www.gnu.org/licenses/gpl-3.0.html
-*/
+ */
 package net.project.hibernate.dao;
 
 import java.util.Date;
@@ -22,62 +22,64 @@ import net.project.hibernate.model.project_space.ProjectChanges;
 import net.project.hibernate.model.project_space.ProjectPhase;
 import net.project.hibernate.model.project_space.ProjectSchedule;
 
-
 public interface IPnProjectSpaceDAO extends IDAO<PnProjectSpace, Integer> {
-	
+
 	public List<PnProjectSpace> getProjectsByUserId(Integer userId);
-	
+
 	public List<PnProjectSpace> getProjectsByBusinessId(Integer userId);
-	
+
 	public List<PnProjectSpace> getProjectsByMemberId(Integer userId);
-	
+
 	public List<PnProjectSpace> getProjectsVisbleByUser(Integer userId);
-	
+
 	public List<ProjectPhase> getProjectPhasesAndMilestones(Integer projectId);
-	
+
 	public ProjectSchedule getProjectSchedule(Integer projectId);
 
 	public ProjectChanges getProjectChanges(Integer projectId, Integer numberOfDays);
-	
+
 	public List<PnProjectSpace> getAssignedProjectsByResource(Integer businessId, Integer resourceId, Date startDate, Date endDate);
 
-
 	public PnProjectSpace getProjectSpaceDetails(Integer projectId);
-	
-	public List<PnProjectSpace> getAllProjects();
-	
-	public List<PnProjectSpace> getSubProjectsByProejctId(Integer projectId);
-	
-	public PnProjectSpace getWikiIdByProjectId(Integer projectId);
-	
-	public List<PnProjectSpace> getActiveProjectIds();
-    
-    /**
-     * Get project details of weblog entry
-     * @param weblogEntryId
-     * @return PnProjectSpace
-     */
-    public PnProjectSpace getProjectDetailsByWeblogEntryId(Integer weblogEntryId);
-    
-    public boolean doesProjectExist(Integer projectId);
-    
-    /**
-     * Get project details using projectId
-     * @param projectId
-     * @return Object of PnProjectSpace
-     */
-    public PnProjectSpace getProjectDetailsWithRecordStatus(Integer projectId);
-    
-    /**
-     * Get project list using userId
-     * @param userId
-     * @return List Containing Objects of PnProjectSpace
-     */
 
-    public List<PnProjectSpace> getProjectsByUserIdWithParentProjectId(Integer userId);
-    	
+	public List<PnProjectSpace> getAllProjects();
+
+	public List<PnProjectSpace> getSubProjectsByProejctId(Integer projectId);
+
+	public PnProjectSpace getWikiIdByProjectId(Integer projectId);
+
+	public List<PnProjectSpace> getActiveProjectIds();
+
+	/**
+	 * Get project details of weblog entry
+	 * 
+	 * @param weblogEntryId
+	 * @return PnProjectSpace
+	 */
+	public PnProjectSpace getProjectDetailsByWeblogEntryId(Integer weblogEntryId);
+
+	public boolean doesProjectExist(Integer projectId);
+
+	/**
+	 * Get project details using projectId
+	 * 
+	 * @param projectId
+	 * @return Object of PnProjectSpace
+	 */
+	public PnProjectSpace getProjectDetailsWithRecordStatus(Integer projectId);
+
+	/**
+	 * Get project list using userId
+	 * 
+	 * @param userId
+	 * @return List Containing Objects of PnProjectSpace
+	 */
+
+	public List<PnProjectSpace> getProjectsByUserIdWithParentProjectId(Integer userId);
+
 	/**
 	 * To check project is a root project
+	 * 
 	 * @param spaceId
 	 * @return
 	 */
@@ -91,6 +93,15 @@ public interface IPnProjectSpaceDAO extends IDAO<PnProjectSpace, Integer> {
 	 *            cost.
 	 * @return a float value representing the cost.
 	 */
-	public Float getBudgetedTotalCost(Integer valueOf);
+	public Float getBudgetedTotalCost(Integer spaceID);
+
+	/**
+	 * Obtain the default currency code for the project.
+	 * 
+	 * @param spaceId
+	 *            the id of the project space.
+	 * @return the default currency code.
+	 */
+	public String getDefaultCurrencyCode(Integer spaceId);
 
 }

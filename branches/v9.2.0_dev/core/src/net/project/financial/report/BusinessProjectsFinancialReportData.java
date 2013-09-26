@@ -1,4 +1,4 @@
-package net.project.material.report;
+package net.project.financial.report;
 
 import java.sql.SQLException;
 
@@ -10,37 +10,38 @@ import net.project.base.finder.FinderGrouping;
 import net.project.base.finder.FinderSorter;
 import net.project.base.finder.RadioButtonFilter;
 import net.project.base.property.PropertyProvider;
-import net.project.material.MaterialBean;
+import net.project.hibernate.model.PnSpaceHasSpace;
+import net.project.hibernate.service.ServiceFactory;
 import net.project.material.MaterialFinder;
 import net.project.persistence.PersistenceException;
+import net.project.project.ProjectSpace;
+import net.project.project.ProjectSpaceFinder;
 import net.project.report.SummaryDetailReportData;
 
-public class ProjectMaterialReportData extends SummaryDetailReportData {
+public class BusinessProjectsFinancialReportData extends SummaryDetailReportData {
 	
     /** Token for the label of the "Default Grouping" grouper. */
     private String DEFAULT_GROUPING = PropertyProvider.get("prm.schedule.report.latetaskreport.grouping.default.name");
     
-    /** Token for the label of the "All Materials" filter. */
-    private String ALL_MATERIALS = PropertyProvider.get("prm.schedule.report.projectmaterialreport.showallmaterials.name");
+    /** Token for the label of the "All Business Projects" filter. */
+    private String ALL_BUSINESS_PROJECTS = PropertyProvider.get("prm.financial.report.businessprojectsfinancialreport.showallprojects.name");
     
-
 	/**
 	 * Variable to contain all of the data that will be used to construct the
-	 * summary section of the Project Materials Report.
+	 * summary section of the Business Projects Financial Report.
 	 */
-	private ProjectMaterialReportSummaryData summaryData;
+	private BusinessProjectsFinancialReportSummaryData summaryData;
 	
     /**
      * Token pointing to: "Unexpected programmer error found while constructing
      * the list of report filters."
      */
     private String FILTER_LIST_CONSTRUCTION_ERROR = "prm.report.errors.filterlistcreationerror.message";
-	
-	
+    
     /**
      * Standard constructor.
      */
-    public ProjectMaterialReportData() {
+    public BusinessProjectsFinancialReportData() {
     	populateFinderFilterList();
     	populateFinderSorterList();
         populateFinderGroupingList();
@@ -53,19 +54,17 @@ public class ProjectMaterialReportData extends SummaryDetailReportData {
      */
     private void populateFinderGroupingList() {
         FinderGrouping defaultGrouper = new EmptyFinderGrouping("10", DEFAULT_GROUPING, true);
-        FinderGrouping typeGrouper = new MaterialTypeGrouping("20", false);
         groupingList.add(defaultGrouper);
-        groupingList.add(typeGrouper);
     }
     
     /**
      * Populate the list of sorters with all sorters that this report supports.
      */
     private void populateFinderSorterList() {
-        for (int i = 1; i < 4; i++) {
+        for (int i = 1; i < 5; i++) {
             FinderSorter fs = new FinderSorter(String.valueOf(i * 10),
-                new ColumnDefinition[]{MaterialFinder.NAME_COLUMN, MaterialFinder.TYPE_NAME_COLUMN,
-            						   MaterialFinder.COST_COLUMN},
+                new ColumnDefinition[]{ProjectSpaceFinder.NAME_COLUMN, ProjectSpaceFinder.STATUS_COLUMN,
+            	ProjectSpaceFinder.DATE_START_COLUMN, ProjectSpaceFinder.DATE_FINISH_COLUMN},
             	MaterialFinder.NAME_COLUMN);
             sorterList.add(fs);
         }
@@ -78,11 +77,11 @@ public class ProjectMaterialReportData extends SummaryDetailReportData {
     private void populateFinderFilterList() {
         try {
             RadioButtonFilter rbf = new RadioButtonFilter("10");
-            EmptyFinderFilter eff = new EmptyFinderFilter("20", ALL_MATERIALS);
+            EmptyFinderFilter eff = new EmptyFinderFilter("20", ALL_BUSINESS_PROJECTS);
             eff.setSelected(true);
             rbf.add(eff);
-            rbf.add(new MaterialConsumableFilter("30"));
-            rbf.add(new MaterialNotConsumableFilter("40"));
+//            rbf.add(new MaterialConsumableFilter("30"));
+//            rbf.add(new MaterialNotConsumableFilter("40"));
             filterList.add(rbf);
         } catch (DuplicateFilterIDException e) {
             throw new RuntimeException(
@@ -92,27 +91,36 @@ public class ProjectMaterialReportData extends SummaryDetailReportData {
 
 	@Override
 	public void load() throws PersistenceException, SQLException {
-		MaterialFinder mf = new MaterialFinder();
-		mf.addFinderFilter(getFilterList());
-		mf.addFinderSorterList(getSorterList());
-//        List grouping = this.getGroupingList().getSelectedGroupings();
-//        FinderGrouping selectedGroup = null;
-//        if(null!=grouping && grouping.size()>0){
-//        	selectedGroup = (FinderGrouping) grouping.get(0);
-//        }
-        detailedData = mf.findBySpaceId(getSpaceID());
+		ProjectSpaceFinder pf = new ProjectSpaceFinder();
+		pf.addFinderFilter(getFilterList());
+		pf.addFinderSorterList(getSorterList());
+		
+		//The spaceId is from the financial space, we have to obtain the business spaceId.
+		PnSpaceHasSpace relationship = ServiceFactory.getInstance().getPnSpaceHasSpaceService().getBusinessRelatedSpace(getSpaceID());
+        
+		//Load the projects for the business.
+		detailedData = pf.findProjectSpacesByBusinessID(String.valueOf(relationship.getComp_id().getParentSpaceId()));
         summaryData = calculateTotalSummary();			
 
 	}
 	
-	public ProjectMaterialReportSummaryData calculateTotalSummary(){
-		ProjectMaterialReportSummaryData summary = new ProjectMaterialReportSummaryData();
-		summary.setTotalMaterials(getDetailedData().size());
-		float totalCost=0;
-		for(Object material : getDetailedData()){
-			totalCost += Float.valueOf(((MaterialBean) material).getCost());
+	public BusinessProjectsFinancialReportSummaryData calculateTotalSummary(){
+		BusinessProjectsFinancialReportSummaryData summary = new BusinessProjectsFinancialReportSummaryData();
+		summary.setTotalProjects(getDetailedData().size());
+		
+		float totalActualCostToDate=0;
+		float totalCurrentEstimatedTotalCost=0;
+		float totalBudgetedCost=0;
+		
+		for(Object project : getDetailedData()){
+			ProjectSpace projectSpace = (ProjectSpace) project;
+			totalActualCostToDate = totalActualCostToDate + projectSpace.getActualCostToDate().getValue().floatValue();
+			totalCurrentEstimatedTotalCost = totalCurrentEstimatedTotalCost + projectSpace.getActualCostToDate().getValue().floatValue();
+			totalBudgetedCost = totalBudgetedCost + projectSpace.getActualCostToDate().getValue().floatValue();
 		}
-		summary.setTotalCost(totalCost);
+		summary.setTotalActualCostToDate(totalActualCostToDate);
+		summary.setTotalCurrentEstimatedTotalCost(totalCurrentEstimatedTotalCost);
+		summary.setTotalBudgetedCost(totalBudgetedCost);
 		return summary;		
 	}
 
@@ -123,7 +131,7 @@ public class ProjectMaterialReportData extends SummaryDetailReportData {
 
 	}
 
-	public ProjectMaterialReportSummaryData getSummaryData() {
+	public BusinessProjectsFinancialReportSummaryData getSummaryData() {
 		return this.summaryData;
 	}
 

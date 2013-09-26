@@ -1,5 +1,10 @@
 package net.project.hibernate.dao.impl;
 
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
+import java.util.Calendar;
 import java.util.Date;
 
 import net.project.hibernate.dao.IPnPersonSalaryDAO;
@@ -19,6 +24,7 @@ import org.hibernate.criterion.Restrictions;
 import org.hibernate.criterion.Subqueries;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
+
 
 @Transactional
 @Repository
@@ -112,6 +118,14 @@ public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPerso
 	@Override
 	public PnPersonSalary getPersonSalaryForDate(Integer personId, Date date) {
 		PnPersonSalary pnPersonSalary = null;
+		
+		Calendar calendar = Calendar.getInstance();
+		calendar.setTime(date);
+		calendar.set(Calendar.HOUR_OF_DAY, 0);
+		calendar.set(Calendar.MINUTE, 0);
+		calendar.set(Calendar.SECOND, 0);
+		Date fromDate = calendar.getTime();
+
 
 		try {
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
@@ -119,8 +133,7 @@ public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPerso
 
 			DetachedCriteria maxDateQuery = DetachedCriteria.forClass(PnPersonSalary.class);
 			maxDateQuery.add(Restrictions.eq("personId", personId));
-			maxDateQuery.add(Restrictions.ge("startDate", date));
-			maxDateQuery.add(Restrictions.le("endDate", date));
+			maxDateQuery.add(Restrictions.or(Restrictions.and(Restrictions.le("startDate", fromDate),Restrictions.isNull("endDate")),Restrictions.and(Restrictions.le("startDate", fromDate),Restrictions.ge("endDate", fromDate))));
 			maxDateQuery.setProjection(Projections.property("startDate"));
 
 			Criteria criteria = session.createCriteria(PnPersonSalary.class);
