@@ -78,6 +78,7 @@
 <title><display:get name="prm.global.application.title" /></title>
 <%-- Import CSS --%>
 <template:import type="css" src="/styles/schedule.css" />
+<template:import type="css" src="/styles/report.css" />
 <template:getSpaceCSS />
 
 <style>
@@ -512,30 +513,33 @@ function overallocationExist(exist) {
 								</td>
 							</tr>
 							<tr class="tableHeader">
-								<td colspan="1"></td>
+								<td></td>
+								<td></td>
 								<td><display:get name="prm.schedule.taskview.material.assign.material.column" /></td>
 								<td align="center"><display:get name="prm.schedule.taskview.material.assign.workingcalendar.column" /></td>
-							</tr>
-
-							<tr>
-								<td colspan="10" class="headerSep"></td>
+								<td></td>
 							</tr>
 							
-							<%--						
-							<tr>
-								<td></td>
-								<td class="tableContentHighlight"><font class="groupFont">Business Materials</font></td>
-								<td></td>
-							</tr>
-							--%>
-													
+							<% 
+							if(!materialBusinessAssignmentsHelper.getMaterialsAssigned().isEmpty())
+							{
+							%>
+								<tr>
+									<td></td>
+									<td class="tableContentHighlight" colspan="3"><font class="groupFont">Business Materials</font></td>
+									<td></td>
+								</tr>
+							<%
+							}
+							%>
 							<%									
 								for (MaterialAssignmentHelper assignmentBusiness : materialBusinessAssignmentsHelper.getMaterialsAssigned()) {									
 									String materialBusinessID = assignmentBusiness.getMaterial().getMaterialId();
 									String materialBusinessSpaceID = assignmentBusiness.getMaterial().getSpaceID();
 									String disabledString = (assignmentBusiness.isAssigned() ? "" : "disabled");												
 							%>
-							<tr class="tableContent">							
+							<tr class="tableContent">
+								<td></td>							
 								<td align="center">
 								
 								<input 
@@ -560,15 +564,16 @@ function overallocationExist(exist) {
 											<img src="<%=SessionManager.getJSPRootURL()%>/images/schedule/constraint.gif" border="0">
 									</a>
 								</td>
+								<td></td>
 							</tr>
 							<%
 								}
 								
 							%>
-							
-							
 							<tr>
-								<td colspan="10" class="rowSep"></td>
+								<td></td>
+								<td class="tableContentHighlight" colspan="3"><font class="groupFont">Project Materials</font></td>
+								<td></td>
 							</tr>
 
 							<%									
@@ -577,7 +582,8 @@ function overallocationExist(exist) {
 									String materialSpaceID = assignment.getMaterial().getSpaceID();
 									String disabledString = (assignment.isAssigned() ? "" : "disabled");												
 							%>
-							<tr class="tableContent">							
+							<tr class="tableContent">
+								<td></td>
 								<td align="center">
 								
 								<input 
@@ -602,6 +608,7 @@ function overallocationExist(exist) {
 											<img src="<%=SessionManager.getJSPRootURL()%>/images/schedule/constraint.gif" border="0">
 									</a>
 								</td>
+								<td></td>
 							</tr>
 							<%
 								}
