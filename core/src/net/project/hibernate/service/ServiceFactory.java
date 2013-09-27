@@ -395,8 +395,12 @@ public abstract class ServiceFactory {
     public abstract IProjectFinancialService getProjectFinancialService();
     
     public abstract IPnSpaceViewService getPnSpaceViewService();
+    
+    public abstract ITaskFinancialService getTaskFinancialService();
 
     public void setBeanFactory(BeanFactory beanFactory) {
         this.beanFactory = beanFactory;
     }
+
+
 }

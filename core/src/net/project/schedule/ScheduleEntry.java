@@ -4239,18 +4239,11 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 	}
 
 	public Money getActualCostToDate() {
-		Float actualCostToDate = ServiceFactory.getInstance().getProjectFinancialService().calculateActualCostToDateForTask(this.spaceID, id);
+		Float actualCostToDate = ServiceFactory.getInstance().getTaskFinancialService().calculateActualCostToDateForTask(this.spaceID, id);
 		String defaultCurrencyCode = ServiceFactory.getInstance().getPnProjectSpaceService().getDefaultCurrency(this.getSpaceID());
 		Currency currency = Currency.getInstance(defaultCurrencyCode);
 		this.actualCostToDate = new Money(String.valueOf(actualCostToDate), currency);
 		return this.actualCostToDate;
-		
-//		//Load if necessary
-//		if(actualCostToDate==null){			
-//
-//		} else{
-//			return actualCostToDate;			
-//		}
 	}
 
 	public void setActualCostToDate(Money actualCostToDate) {
@@ -4258,19 +4251,11 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 	}
 
 	public Money getCurrentEstimatedTotalCost() {
-		Float currentEstimatedTotalCost = ServiceFactory.getInstance().getProjectFinancialService().calculateEstimatedTotalCostForTask(this.spaceID, id);
+		Float currentEstimatedTotalCost = ServiceFactory.getInstance().getTaskFinancialService().calculateEstimatedTotalCostForTask(this.spaceID, id);
 		String defaultCurrencyCode = ServiceFactory.getInstance().getPnProjectSpaceService().getDefaultCurrency(this.getSpaceID());
 		Currency currency = Currency.getInstance(defaultCurrencyCode);
 		this.currentEstimatedTotalCost = new Money(String.valueOf(currentEstimatedTotalCost), currency);
-		return this.currentEstimatedTotalCost;
-		
-		
-//		//Load if necessary
-//		if(currentEstimatedTotalCost==null){			
-//
-//		} else{
-//			return currentEstimatedTotalCost;			
-//		}	
+		return this.currentEstimatedTotalCost;	
 	}
 
 	public void setCurrentEstimatedTotalCost(Money currentEstimatedTotalCost) {
