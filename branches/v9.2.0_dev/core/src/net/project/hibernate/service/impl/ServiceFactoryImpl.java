@@ -830,5 +830,8 @@ public class ServiceFactoryImpl extends ServiceFactory {
 		return (IPnSpaceViewService) beanFactory.getBean("pnSpaceViewService");
 	}
     
-	
+	@Override
+	public ITaskFinancialService getTaskFinancialService(){
+		return (ITaskFinancialService) beanFactory.getBean("taskFinancialService");
+	}
 }

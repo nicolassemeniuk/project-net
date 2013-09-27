@@ -113,4 +113,14 @@ public interface IPnProjectSpaceService {
 	 */
 	public String getDefaultCurrency(String spaceId);
 
+	/**
+	 * Obtain the discretional cost for the project.
+	 * 
+	 * @param spaceID
+	 *            the space from which we want to obtain the budgeted total
+	 *            cost.
+	 * @return a float value representing the cost.
+	 */
+	public Float getDiscretionalCost(String spaceID);
+
 }

@@ -27,6 +27,8 @@ import net.project.hibernate.model.project_space.ProjectChanges;
 import net.project.hibernate.model.project_space.ProjectPhase;
 import net.project.hibernate.model.project_space.ProjectSchedule;
 import net.project.hibernate.service.IPnProjectSpaceService;
+import net.project.project.MetaData;
+import net.project.project.NoSuchPropertyException;
 
 @Service(value="pnProjectSpaceService")
 public class PnProjectSpaceServiceImpl implements IPnProjectSpaceService {
@@ -209,5 +211,18 @@ public class PnProjectSpaceServiceImpl implements IPnProjectSpaceService {
 	@Override
 	public String getDefaultCurrency(String spaceId){
 		return pnProjectSpaceDAO.getDefaultCurrencyCode(Integer.valueOf(spaceId));
+	}
+
+
+	@Override
+	public Float getDiscretionalCost(String spaceID) {
+		try{
+			MetaData metaData = MetaData.getMetaData(spaceID);
+			String value = metaData.getProperty("ProjectDiscretionalCost");
+			return new Float(value);
+		} catch (NoSuchPropertyException e){
+			//TODO handle error.
+			return new Float("0.00");
+		}
 	}
 }
