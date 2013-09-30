@@ -70,20 +70,22 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.goto.t
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.goto.reports.label','Reports','A',0,1,null);
 
 -- Financial - Dashboard - Projects Channel
-insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.channel.title','Projects','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.channel.title','Projects Costs','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.noprojects.label','There are no projects on the related business','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.name.label','Project','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.costcenter.label','Cost Center','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.budgetedtotalcost.label','Budgeted Total Cost','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.currentestimatedtotalcost.label','Current Estimated Total Cost','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.actualcosttodate.label','Actual Cost To Date','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.estimatedroi.label','Estimated ROI','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.budgetedtotalcost.label','Budgeted','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.currentestimatedtotalcost.label','Estimated','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projects.actualcosttodate.label','Actual','A',0,1,null);
 
 -- Financial - Dashboard - Project Total Costs Channel
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.projecttotalcostschart.channel.title','Project Total Costs','A',0,1,null);
 
 -- Financial - Dashboard - Financial Members Channel
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.financialteam.channel.title','Financial Team','A',0,1,null);
+
+-- Financial - Dashboard - Actual Costs Types Over Total
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.actualcoststypesovertotalchart.channel.title','Actual Costs Types Over Total','A',0,1,null);
 
 -- Financial - Directory
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.directory.isenabled','1','A',0,0,null);

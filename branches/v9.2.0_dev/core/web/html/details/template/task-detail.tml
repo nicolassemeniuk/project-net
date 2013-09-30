@@ -224,5 +224,27 @@
     </tr>
 	</#list>
 	</#if>
+	
+    <tr><td colspan="5">&nbsp;</td></tr>
+    
+	<tr align="left" class="channelHeader">
+		<td nowrap width=1%><img src="${token.getContext()}/images/icons/channelbar-left_end.gif" width=8 height=15 alt="" border=0></td>
+		<td nowrap class="channelHeader">${token.get("prm.schedule.taskview.financial.tab")}</td>
+		<td nowrap align="right" colspan="3"> <img src="${token.getContext()}/images/icons/channelbar-right_end.gif" width=8 height=15 alt="" border=0></td>
+	</tr>
+	
+	<tr><td colspan="5">&nbsp;</td></tr>
+	
+    <tr align="left" valign="middle">
+    	<td>&nbsp;</td>
+		<td class="tableHeader" colspan="2">${token.get("prm.schedule.taskview.financial.actualcosttodate.label")}</td>
+		<td class="tableContent">${theObject.getActualCostToDateFormated()}</td>
+    </tr>
+    <tr align="left" valign="middle">
+    	<td>&nbsp;</td>
+    	<td class="tableHeader" colspan="2">${token.get("prm.schedule.taskview.financial.currentestimatedtotalcost.label")}</td>
+    	<td class="tableContent">${theObject.getCurrentEstimatedTotalCostFormated()}</td>
+    </tr>    
+	
     <tr><td colspan="5">&nbsp;</td></tr>    
 </table>

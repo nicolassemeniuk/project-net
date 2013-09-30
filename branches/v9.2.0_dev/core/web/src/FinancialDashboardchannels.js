@@ -16,6 +16,7 @@
 	var FINANCIAL_SPACE_PROJECTS = "FinancialSpace_Projects_";
 	var FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART = "FinancialSpace_ProjectTotalCostsChart_";
 	var FINANCIAL_SPACE_FINANCIAL_TEAM = "FinancialSpace_FinancialTeam_";
+	var FINANCIAL_SPACE_ACTUAL_COSTS_TYPES_OVER_TOTAL_CHART = "FinancialSpace_ActualCostsTypesOverTotalChart_";
 	
 	// checking Projects state
 	if( projectsState ){
@@ -36,6 +37,13 @@
 		minimize('FinancialTeamContent','FinancialTeamImg','FinancialTeamLink',FINANCIAL_SPACE_FINANCIAL_TEAM);
 	}else{
 		maximize('FinancialTeamContent','FinancialTeamImg','FinancialTeamLink',FINANCIAL_SPACE_FINANCIAL_TEAM);
+	}
+	
+	// checking Actual Costs Types Over TotalChart state
+	if( actualCostsTypesOverTotalChartState ){
+		minimize('ActualCostsTypesOverTotalChartContent','ActualCostsTypesOverTotalChartImg','ActualCostsTypesOverTotalChartLink',FINANCIAL_SPACE_ACTUAL_COSTS_TYPES_OVER_TOTAL_CHART);
+	}else{
+		maximize('ActualCostsTypesOverTotalChartContent','ActualCostsTypesOverTotalChartImg','ActualCostsTypesOverTotalChartLink',FINANCIAL_SPACE_ACTUAL_COSTS_TYPES_OVER_TOTAL_CHART);
 	}	
 	
 	//Hide Content of Channels
@@ -66,7 +74,16 @@
 			}else if( value == 2){
 				closeWidget('FinancialTeamWidget','FinancialTeamImg','FinancialTeamCloseLink',FINANCIAL_SPACE_FINANCIAL_TEAM);
 			}
-		}		
+		}
+		else if( context==FINANCIAL_SPACE_ACTUAL_COSTS_TYPES_OVER_TOTAL_CHART ){
+			if( value == 1 ){
+				minimize('ActualCostsTypesOverTotalChartContent','ActualCostsTypesOverTotalChartImg','ActualCostsTypesOverTotalChartLink',FINANCIAL_SPACE_ACTUAL_COSTS_TYPES_OVER_TOTAL_CHART);
+			}else if( value == 0){
+				maximize('ActualCostsTypesOverTotalChartContent','ActualCostsTypesOverTotalChartImg','ActualCostsTypesOverTotalChartLink',FINANCIAL_SPACE_ACTUAL_COSTS_TYPES_OVER_TOTAL_CHART);
+			}else if( value == 2){
+				closeWidget('ActualCostsTypesOverTotalChartWidget','ActualCostsTypesOverTotalChartImg','ActualCostsTypesOverTotalChartCloseLink',FINANCIAL_SPACE_ACTUAL_COSTS_TYPES_OVER_TOTAL_CHART);
+			}
+		}			
 	}
 	
 	// Minimize div with changing image source, content display and title.
