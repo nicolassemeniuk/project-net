@@ -106,12 +106,16 @@ public class Dashboard extends BasePage
 	
 	private boolean financialTeamState;
 	
+	private boolean actualCostsTypesOverTotalChartState;
+	
 	// Channel close state
 	private boolean projectsCloseState;
 	
 	private boolean projectTotalCostsChartCloseState;
 
 	private boolean financialTeamCloseState;
+	
+	private boolean actualCostsTypesOverTotalChartCloseState;
 	
 	// Context initialization
 	@Persist
@@ -131,6 +135,8 @@ public class Dashboard extends BasePage
 	private final String FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART = "FinancialSpace_ProjectTotalCostsChart_";	
 
 	private final String FINANCIAL_SPACE_FINANCIAL_TEAM = "FinancialSpace_FinancialTeam_";		
+
+	private final String FINANCIAL_SPACE_ACTUAL_COSTS_TYPES_OVER_TOTAL_CHART = "FinancialSpace_ActualCostsTypesOverTotalChart_";	
 	
 	// Titles for channels 
 	private final String PROJECTS_TITLE = PropertyProvider.get("prm.financial.dashboard.projects.channel.title");
@@ -138,6 +144,8 @@ public class Dashboard extends BasePage
 	private final String PROJECT_TOTAL_COSTS_CHART_TITLE = PropertyProvider.get("prm.financial.dashboard.projecttotalcostschart.channel.title");
 	
 	private final String FINANCIAL_TEAM_TITLE = PropertyProvider.get("prm.financial.dashboard.financialteam.channel.title");
+	
+	private final String ACTUAL_COSTS_TYPES_OVER_TOTAL_CHART_TITLE = PropertyProvider.get("prm.financial.dashboard.actualcoststypesovertotalchart.channel.title");
 	
 	// Tooltips
 	@Property
@@ -268,6 +276,11 @@ public class Dashboard extends BasePage
 			if (pnPersonProperty.getComp_id().getContext().equals(CHANNEL_PROPERTY_CONTEXT + FINANCIAL_SPACE_FINANCIAL_TEAM + spaceName)){
 				financialTeamState = pnPersonProperty.getComp_id().getValue().equals(State.MINIMIZED.getID());
 				financialTeamCloseState = pnPersonProperty.getComp_id().getValue().equals(State.CLOSED.getID());
+			}
+			
+			if (pnPersonProperty.getComp_id().getContext().equals(CHANNEL_PROPERTY_CONTEXT + FINANCIAL_SPACE_ACTUAL_COSTS_TYPES_OVER_TOTAL_CHART + spaceName)){
+				actualCostsTypesOverTotalChartState = pnPersonProperty.getComp_id().getValue().equals(State.MINIMIZED.getID());
+				actualCostsTypesOverTotalChartCloseState = pnPersonProperty.getComp_id().getValue().equals(State.CLOSED.getID());
 			}			
 		}
 	}
@@ -395,6 +408,7 @@ public class Dashboard extends BasePage
 	            url.append("&name=").append(URLEncoder.encode(FINANCIAL_SPACE_PROJECTS+ financialSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(PROJECTS_TITLE, SessionManager.getCharacterEncoding()));
 	            url.append("&name=").append(URLEncoder.encode(FINANCIAL_SPACE_PROJECT_TOTAL_COSTS_CHART+ financialSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(PROJECT_TOTAL_COSTS_CHART_TITLE, SessionManager.getCharacterEncoding()));
 	            url.append("&name=").append(URLEncoder.encode(FINANCIAL_SPACE_FINANCIAL_TEAM+ financialSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(FINANCIAL_TEAM_TITLE, SessionManager.getCharacterEncoding()));
+	            url.append("&name=").append(URLEncoder.encode(FINANCIAL_SPACE_ACTUAL_COSTS_TYPES_OVER_TOTAL_CHART+ financialSpace.getName(), SessionManager.getCharacterEncoding())).append("&title=").append(URLEncoder.encode(ACTUAL_COSTS_TYPES_OVER_TOTAL_CHART_TITLE, SessionManager.getCharacterEncoding()));
             
 	        } catch (Exception e) {
 	            log.error(e.getMessage()); 
@@ -494,6 +508,11 @@ public class Dashboard extends BasePage
 	{
 		return financialTeamState;
 	}
+	
+	public boolean isActualCostsTypesOverTotalChartState()
+	{
+		return actualCostsTypesOverTotalChartState;
+	}
 
 	public boolean isProjectsCloseState()
 	{
@@ -508,5 +527,10 @@ public class Dashboard extends BasePage
 	public boolean isFinancialTeamCloseState()
 	{
 		return financialTeamCloseState;
+	}
+
+	public boolean isActualCostsTypesOverTotalChartCloseState()
+	{
+		return actualCostsTypesOverTotalChartCloseState;
 	}
 }

@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import net.project.base.property.PropertyProvider;
+import net.project.financial.FinancialActualCostsTypesOverTotalChart;
 import net.project.financial.FinancialTotalCostChart;
 import net.project.form.report.formitemsummaryreport.FormItemSummaryReportChart;
 import net.project.form.report.formitemtimeseries.FormItemTimeSeriesStackedBarChart;
@@ -64,7 +65,9 @@ public class ChartType {
     /** Chart for the project total costs of project in the Project Dashboard. */
     public static ChartType PROJECT_TOTAL_COST_CHART = new ChartType("ptcc", ProjectTotalCostChart.class);    
     /** Chart for the project total costs of financial space in the Financial Dashboard. */
-    public static ChartType FINANCIAL_TOTAL_COST_CHART = new ChartType("ftcc", FinancialTotalCostChart.class); 
+    public static ChartType FINANCIAL_TOTAL_COST_CHART = new ChartType("ftcc", FinancialTotalCostChart.class);
+    /** Chart for the actual costs types over total in financial space in the Financial Dashboard. */
+    public static ChartType ACTUAL_COSTS_TYPES_OVER_TOTAL_CHART = new ChartType("actotc", FinancialActualCostsTypesOverTotalChart.class);     
         
     /**
      * Given a string value that the user received with {@link #getID}, find the

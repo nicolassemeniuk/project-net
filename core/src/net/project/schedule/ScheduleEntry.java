@@ -2157,6 +2157,22 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
         return tooltip;
     }    
 
+    public String getFinancialTooltip() {
+        String tooltip = "";
+        NumberFormat nf = NumberFormat.getInstance();
+        for (Iterator<MaterialAssignment> it = getMaterialAssignmentsList().iterator(); it.hasNext();) {
+        	MaterialAssignment materialAssignment = it.next();
+            if (materialAssignment.getMaterialName() != null && materialAssignment.getRecordStatus().equals("A")) {
+                tooltip += materialAssignment.getMaterialName().replaceAll("\\|", "&#166;");
+            }
+  
+            if (it.hasNext()) {
+                tooltip += "|";
+            }
+        }
+        return tooltip;
+    }        
+    
     /**
      * Converts the object to XML representation. This method returns the
      * object as XML text.
@@ -4246,6 +4262,10 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 		return this.actualCostToDate;
 	}
 
+	public String getActualCostToDateFormated() {
+		return NumberFormat.getInstance().formatNumber(this.getActualCostToDate().getValue().floatValue()); 
+	}
+
 	public void setActualCostToDate(Money actualCostToDate) {
 		this.actualCostToDate = actualCostToDate;
 	}
@@ -4257,6 +4277,10 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 		this.currentEstimatedTotalCost = new Money(String.valueOf(currentEstimatedTotalCost), currency);
 		return this.currentEstimatedTotalCost;	
 	}
+	
+	public String getCurrentEstimatedTotalCostFormated() {
+		return NumberFormat.getInstance().formatNumber(this.getCurrentEstimatedTotalCost().getValue().floatValue()); 
+	}	
 
 	public void setCurrentEstimatedTotalCost(Money currentEstimatedTotalCost) {
 		this.currentEstimatedTotalCost = currentEstimatedTotalCost;

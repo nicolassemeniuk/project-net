@@ -48,127 +48,9 @@
 	</td> <!-- End of left navbar -->
 	<td valign="top" width="100%"> <!-- Start of Content column --> <br />
 	<div id="content">
-		<table width="100%">
+		<table width="99%">
 			<tr>
-			<td  valign="top" width="48%"> <!-- Start of left column -->
-			<t:if test="projectsCloseState">
-				<t:parameter name="else">
-					<!-- PORTAL BLOCK -->
-					<div id="ProjectsWidget" class="portal-financial-flex-block">
-						<div class="block-heading">
-							<div class="block-heading-end">
-								<table cellspacing="0" cellpadding="0" width="100%">
-									<tr>
-										<td width="92%">
-											<div class="heading"><t:Message value="prm.financial.dashboard.projects.channel.title" /></div>
-										</td>
-										<td class="channel-heading-end-financial">
-											<span><a id="ProjectsLink"><img id="ProjectsImg" src="${jspRootURL}/images/financial/dashboard_arrow-up.gif" title="${upTitle}" border="0" /></a>&nbsp;</span>
-											<span><a id="ProjectsCloseLink" href="javascript:saveState('FinancialSpace_Projects_','2');"><img id="ProjectsCloseImg" src="${jspRootURL}/images/financial/dashboard_close.gif" title="${closeTitle}" border="0" /></a></span>
-										</td>
-									</tr>
-								</table>
-							</div>
-						</div><!--block-heading end -->
-						<div id="ProjectsContent" class="block-content">
-							<t:if test="hasProjects">						
-							<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content" name="tableWithEvenRows">
-								<tr class="table-header">
-								    <td><t:Message value="prm.financial.dashboard.projects.name.label" /></td>
-								    <td width="80"><t:Message value="prm.financial.dashboard.projects.costcenter.label" /></td>								    
-								    <td width="80"><t:Message value="prm.financial.dashboard.projects.budgetedtotalcost.label" /></td>
-								    <td width="110"><t:Message value="prm.financial.dashboard.projects.currentestimatedtotalcost.label" /></td>
-								    <td width="100"><t:Message value="prm.financial.dashboard.projects.actualcosttodate.label" /></td>
-								    <td width="90"><t:Message value="prm.financial.dashboard.projects.estimatedroi.label" /></td>
-							 	</tr>
-							 	<t:loop source="projectList" value="project">	
-									<tr>
-										<td><a href="../project/Dashboard?id=${project.ID}" class="project">${project.name}</a></td>
-										<td>${project.costCenter}</td>
-										<t:if test="project.budgetedTotalCost">
-											<td>${project.budgetedTotalCost.value}</td>
-											<t:parameter name="else">
-								   				<td></td>
-											</t:parameter>												
-										</t:if>
-										<t:if test="project.currentEstimatedTotalCost">
-											<td>${project.currentEstimatedTotalCost.value}</td>
-											<t:parameter name="else">
-								   				<td></td>
-											</t:parameter>	
-										</t:if>
-										<t:if test="project.actualCostToDate">
-											<td>${project.actualCostToDate.value}</td>
-											<t:parameter name="else">
-								   				<td></td>
-											</t:parameter>																					
-										</t:if>
-										<t:if test="project.estimatedROI">
-											<td>${project.estimatedROI.value}</td>
-											<t:parameter name="else">
-								   				<td></td>
-											</t:parameter>	
-										</t:if>
-									</tr>
-							 	</t:loop>
-							</table>
-							<t:parameter name="else">
-								<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content">
-									<tr>
-								   		<td><t:Message value="prm.financial.dashboard.projects.noprojects.label" /></td>
-									</tr>
-								</table>
-							</t:parameter>							
-							</t:if>
-						</div><!--block-content end -->
-					</div><!--portal-project-flex-block class end -->
-					<!--END of PORTAL BLOCK -->
-				</t:parameter>
-			</t:if>	
-			<t:if test="financialTeamCloseState">
-					<t:parameter name="else">
-					<!--PORTAL BLOCK-->		
-					<div id="FinancialTeamWidget" class="portal-financial-flex-block">
-						<div class="block-heading">
-							<div class="block-heading-end">
-								<table cellspacing="0" cellpadding="0" width="100%">
-									<tr>
-										<td width="92%">
-											<div class="heading"><t:Message value="prm.financial.dashboard.financialteam.channel.title" /></div>
-										</td>
-										<td class="channel-heading-end-financial">
-											<span><a id="FinancialTeamLink"><img id="FinancialTeamImg" src="${jspRootURL}/images/financial/dashboard_arrow-up.gif" title="${upTitle}" border="0" /></a>&nbsp;</span>
-											<span><a id="FinancialTeamCloseLink" href="javascript:saveState('FinancialSpace_FinancialTeam_','2');"><img id="FinancialTeamCloseImg" src="${jspRootURL}/images/financial/dashboard_close.gif" title="${closeTitle}" border="0" /></a></span>
-										</td>
-									</tr>
-								</table>
-							</div>
-						</div>
-					
-						<!--block-heading end -->
-						<div id="FinancialTeamContent" class="block-content row-content">
-							<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content">
-							 	<t:loop source="buddyList" value="buddy">
-							 		<tr>
-							 		<td>
-							 		<t:if test="online">
-										<a class="user-online" href="${jspRootURL}/blog/view/${buddy.ID}/${buddy.ID}/person/140?module=140">${buddy.displayName}</a>
-										<t:parameter t:name="else">
-											<a class="user" href="${jspRootURL}/blog/view/${buddy.ID}/${buddy.ID}/person/140?module=140">${buddy.displayName}</a>								
-										</t:parameter>																	 		
-									</t:if>
-									</td>
-									</tr>		
-							 	</t:loop>
-							</table>
-						</div> <!--block-content end -->
-					</div> <!--portal-project-flex-block class end -->
-					<!--END of PORTAL BLOCK -->
-				</t:parameter>
-			</t:if>	
-			</td>  <!-- End of left column -->
-			<td width="1%"></td> <!-- Space in between two columns -->
-			<td valign="top" width="48%"> <!-- Start of right Column -->
+			<td valign="top" width="60%"> <!-- Start of left column -->
 				<t:if test="projectTotalCostsChartCloseState">
 					<t:parameter name="else">
 					<!--PORTAL BLOCK-->		
@@ -202,7 +84,154 @@
 					</div> <!--portal-project-flex-block class end -->
 					<!--END of PORTAL BLOCK -->
 				</t:parameter>
-			</t:if>				
+			</t:if>			
+			<t:if test="projectsCloseState">
+				<t:parameter name="else">
+					<!-- PORTAL BLOCK -->
+					<div id="ProjectsWidget" class="portal-financial-flex-block">
+						<div class="block-heading">
+							<div class="block-heading-end">
+								<table cellspacing="0" cellpadding="0" width="100%">
+									<tr>
+										<td width="92%">
+											<div class="heading"><t:Message value="prm.financial.dashboard.projects.channel.title" /></div>
+										</td>
+										<td class="channel-heading-end-financial">
+											<span><a id="ProjectsLink"><img id="ProjectsImg" src="${jspRootURL}/images/financial/dashboard_arrow-up.gif" title="${upTitle}" border="0" /></a>&nbsp;</span>
+											<span><a id="ProjectsCloseLink" href="javascript:saveState('FinancialSpace_Projects_','2');"><img id="ProjectsCloseImg" src="${jspRootURL}/images/financial/dashboard_close.gif" title="${closeTitle}" border="0" /></a></span>
+										</td>
+									</tr>
+								</table>
+							</div>
+						</div><!--block-heading end -->
+						<div id="ProjectsContent" class="block-content">
+							<t:if test="hasProjects">						
+							<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content" name="tableWithEvenRows">
+								<tr class="table-header">
+								    <td><t:Message value="prm.financial.dashboard.projects.name.label" /></td>
+								    <td width="60"><t:Message value="prm.financial.dashboard.projects.actualcosttodate.label" /></td>
+								    <td width="60"><t:Message value="prm.financial.dashboard.projects.currentestimatedtotalcost.label" /></td>
+								    <td width="60"><t:Message value="prm.financial.dashboard.projects.budgetedtotalcost.label" /></td>
+								    <td width="60"><t:Message value="prm.financial.dashboard.projects.costcenter.label" /></td>					    
+							 	</tr>
+							 	<t:loop source="projectList" value="project">	
+									<tr>
+										<td><a href="../project/Dashboard?id=${project.ID}" class="project">${project.name}</a></td>
+										<t:if test="project.actualCostToDate">
+											<td>${project.actualCostToDate.value}</td>
+											<t:parameter name="else">
+								   				<td></td>
+											</t:parameter>																					
+										</t:if>
+										<t:if test="project.currentEstimatedTotalCost">
+											<td>${project.currentEstimatedTotalCost.value}</td>
+											<t:parameter name="else">
+								   				<td></td>
+											</t:parameter>	
+										</t:if>																
+										<t:if test="project.budgetedTotalCost">
+											<td>${project.budgetedTotalCost.value}</td>
+											<t:parameter name="else">
+								   				<td></td>
+											</t:parameter>												
+										</t:if>
+										<td>${project.costCenter}</td>										
+									</tr>
+							 	</t:loop>
+							</table>
+							<t:parameter name="else">
+								<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content">
+									<tr>
+								   		<td><t:Message value="prm.financial.dashboard.projects.noprojects.label" /></td>
+									</tr>
+								</table>
+							</t:parameter>							
+							</t:if>
+						</div><!--block-content end -->
+					</div><!--portal-project-flex-block class end -->
+					<!--END of PORTAL BLOCK -->
+				</t:parameter>
+			</t:if>	
+			</td>  <!-- End of left column -->
+			<td width="1%"></td> <!-- Space in between two columns -->
+			<td valign="top" width="35%"> <!-- Start of right Column -->
+				<t:if test="actualCostsTypesOverTotalChartCloseState">
+						<t:parameter name="else">
+						<!--PORTAL BLOCK-->		
+						<div id="ActualCostsTypesOverTotalChartWidget" class="portal-financial-flex-block">
+							<div class="block-heading">
+								<div class="block-heading-end">
+									<table cellspacing="0" cellpadding="0" width="100%">
+										<tr>
+											<td width="92%">
+												<div class="heading"><t:Message value="prm.financial.dashboard.actualcoststypesovertotalchart.channel.title" /></div>
+											</td>
+											<td class="channel-heading-end-financial">
+												<span><a id="ActualCostsTypesOverTotalChartLink"><img id="ActualCostsTypesOverTotalChartImg" src="${jspRootURL}/images/financial/dashboard_arrow-up.gif" title="${upTitle}" border="0" /></a>&nbsp;</span>
+												<span><a id="ActualCostsTypesOverTotalChartCloseLink" href="javascript:saveState('FinancialSpace_ActualCostsTypesOverTotalChart_','2');"><img id="ActualCostsTypesOverTotalChartCloseImg" src="${jspRootURL}/images/financial/dashboard_close.gif" title="${closeTitle}" border="0" /></a></span>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						
+							<!--block-heading end -->
+							<div id="ActualCostsTypesOverTotalChartContent" class="block-content row-content">
+								<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content">
+					  				<tr>
+									    <td width="305">
+									    	
+											<img src="${JSPRootURL}/servlet/ChartingServlet?chartType=actotc" />
+										
+										</td>
+									</tr>
+								</table>
+							</div> <!--block-content end -->
+						</div> <!--portal-project-flex-block class end -->
+						<!--END of PORTAL BLOCK -->
+					</t:parameter>
+				</t:if>
+				<t:if test="financialTeamCloseState">
+						<t:parameter name="else">
+						<!--PORTAL BLOCK-->		
+						<div id="FinancialTeamWidget" class="portal-financial-flex-block">
+							<div class="block-heading">
+								<div class="block-heading-end">
+									<table cellspacing="0" cellpadding="0" width="100%">
+										<tr>
+											<td width="92%">
+												<div class="heading"><t:Message value="prm.financial.dashboard.financialteam.channel.title" /></div>
+											</td>
+											<td class="channel-heading-end-financial">
+												<span><a id="FinancialTeamLink"><img id="FinancialTeamImg" src="${jspRootURL}/images/financial/dashboard_arrow-up.gif" title="${upTitle}" border="0" /></a>&nbsp;</span>
+												<span><a id="FinancialTeamCloseLink" href="javascript:saveState('FinancialSpace_FinancialTeam_','2');"><img id="FinancialTeamCloseImg" src="${jspRootURL}/images/financial/dashboard_close.gif" title="${closeTitle}" border="0" /></a></span>
+											</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						
+							<!--block-heading end -->
+							<div id="FinancialTeamContent" class="block-content row-content">
+								<table width="100%" border="0" cellpadding="0" cellspacing="0" class="row-content">
+								 	<t:loop source="buddyList" value="buddy">
+								 		<tr>
+								 		<td>
+								 		<t:if test="online">
+											<a class="user-online" href="${jspRootURL}/blog/view/${buddy.ID}/${buddy.ID}/person/140?module=140">${buddy.displayName}</a>
+											<t:parameter t:name="else">
+												<a class="user" href="${jspRootURL}/blog/view/${buddy.ID}/${buddy.ID}/person/140?module=140">${buddy.displayName}</a>								
+											</t:parameter>																	 		
+										</t:if>
+										</td>
+										</tr>		
+								 	</t:loop>
+								</table>
+							</div> <!--block-content end -->
+						</div> <!--portal-project-flex-block class end -->
+						<!--END of PORTAL BLOCK -->
+					</t:parameter>
+				</t:if>			
 			</td>
 			</tr>
 		</table> <!-- End of Inner Table with left and right column -->
@@ -218,11 +247,13 @@
 	//Getting Channel State
 	var projectsState = ${projectsState};
 	var projectTotalCostsChartState = ${projectTotalCostsChartState};
-	var financialTeamState = ${financialTeamState};	
+	var financialTeamState = ${financialTeamState};
+	var actualCostsTypesOverTotalChartState = ${actualCostsTypesOverTotalChartState};
 	
 	var projectCloseState = ${projectsCloseState};
 	var projectTotalCostsChartCloseState = ${projectTotalCostsChartCloseState};
 	var financialTeamCloseState = ${financialTeamCloseState};
+	var actualCostsTypesOverTotalChartCloseState = ${actualCostsTypesOverTotalChartCloseState};
 	
 	function personalizePage(customizePageLink)
 	{
