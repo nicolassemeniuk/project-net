@@ -181,6 +181,7 @@ insert into PN_PROPERTY values (2000,'en','largetext','prm.project.dashboard.cha
 insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.yaxis.label.name','Costs (in thousands)','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.yaxis.font.name','Arial','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.yaxis.font.size','12','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.totalcostchart.errors.multiplecurrencies.message','Chart cannot be produced for financial spaces with multiple currencies.','A',0,1,null);
 
 -- TaskView - Financial
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.financial.tab','Financial','A',0,1,null);

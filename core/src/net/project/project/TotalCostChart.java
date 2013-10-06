@@ -21,6 +21,7 @@ import java.awt.image.BufferedImage;
 
 import javax.servlet.http.HttpServletRequest;
 
+import net.project.base.money.InvalidCurrencyException;
 import net.project.base.property.PropertyProvider;
 import net.project.chart.BarChart;
 import net.project.chart.MissingChartDataException;
@@ -44,6 +45,12 @@ public class TotalCostChart extends BarChart {
     /** Label for the budgeted total cost */
     protected String BUDGETED_TOTAL_COST = PropertyProvider.get("prm.project.dashboard.chart.totalcostchart.legend.budgetedtotalcost.name");
     
+    /**
+     * Error message to be shown in the chart if a chart is attempting to be
+     * produced that would be composed of more than one currency type.
+     */
+    private String NO_CHART_WITH_MULTIPLE_CURRENCIES = PropertyProvider.get("prm.project.dashboard.chart.totalcostchart.errors.multiplecurrencies.message");
+   
     /**
      * Error message to be show if the chart is trying to be produced on a
      * project that doesn't have budgeted, current or actual costs entered.
@@ -98,10 +105,14 @@ public class TotalCostChart extends BarChart {
 
     protected BufferedImage getExceptionImage(Exception e) {
         if (e instanceof NoDataFoundException) {
-            Logger.getLogger(ProjectTotalCostChart.class).debug("No Data found exception: "+e, e);
+            Logger.getLogger(TotalCostChart.class).debug("No Data found exception: "+e, e);
             return getImageWithText(NO_CHART_WITHOUT_COSTS, 10, false, "Arial", true);
-        } else {
-            return super.getExceptionImage(e);
         }
+        else if (e instanceof InvalidCurrencyException) {
+        	Logger.getLogger(TotalCostChart.class).debug("Invalid currency exception: "+e, e);
+        	return getImageWithText(NO_CHART_WITH_MULTIPLE_CURRENCIES, 10, false, "Arial", true);
+        }
+        else
+            return super.getExceptionImage(e);
     }
 }

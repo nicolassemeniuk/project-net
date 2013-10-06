@@ -18,6 +18,9 @@ package net.project.financial;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.sql.SQLException;
+import java.util.ArrayList;
+
+import org.apache.log4j.Logger;
 
 import net.project.business.BusinessSpace;
 import net.project.database.DBBean;
@@ -28,6 +31,7 @@ import net.project.persistence.PersistenceException;
 import net.project.portfolio.IPortfolioEntry;
 import net.project.portfolio.ProjectPortfolio;
 import net.project.project.ProjectSpace;
+import net.project.project.TotalCostChart;
 import net.project.space.ISpaceTypes;
 import net.project.space.Space;
 import net.project.space.SpaceManager;
@@ -203,7 +207,25 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 		BigDecimal totalEstimatedCurrentCostBigDecimal = new BigDecimal(0.0);
 		BigDecimal totalBudgetedCostBigDecimal = new BigDecimal(0.0);
 
-		try {
+		for (ProjectSpace project : this.getProjectsList())
+		{
+			totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
+			totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
+			totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());			
+		}
+		
+		totalActualCostToDate = String.valueOf(totalActualCostToDateBigDecimal);
+		totalEstimatedCurrentCost = String.valueOf(totalEstimatedCurrentCostBigDecimal);
+		totalBudgetedCost = String.valueOf(totalBudgetedCostBigDecimal);
+
+	}
+	
+	public ArrayList<ProjectSpace> getProjectsList()
+	{
+		try
+		{
+			ArrayList<ProjectSpace> projectList = new ArrayList<ProjectSpace>();			
+			
 			BusinessSpace businessSpace = new BusinessSpace(getRelatedSpaceID());
 			businessSpace.load();
 			ProjectPortfolio projectPortfolio = new ProjectPortfolio();
@@ -211,24 +233,23 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 			projectPortfolio.setID(businessSpace.getProjectPortfolioID("owner"));
 			projectPortfolio.setProjectMembersOnly(true);
 			projectPortfolio.load();
-
-			for (Object entry : projectPortfolio) {
+	
+			for(Object entry : projectPortfolio)
+			{
 				IPortfolioEntry portfolioEntry = (IPortfolioEntry) entry;
-				ProjectSpace space = new ProjectSpace();
-				space.setID(portfolioEntry.getID());
-				space.load();
-				totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(space.getActualCostToDate().getValue());
-				totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(space.getCurrentEstimatedTotalCost().getValue());
-				totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(space.getBudgetedTotalCost().getValue());
-			}
-		} catch (PersistenceException e) {
-			// TODO handle errors
+				ProjectSpace projectSpace = new ProjectSpace();
+				projectSpace.setID(portfolioEntry.getID());
+				projectSpace.load();
+				projectList.add(projectSpace);
+			}		
+			
+			return projectList;
 		}
-
-		totalActualCostToDate = String.valueOf(totalActualCostToDateBigDecimal);
-		totalEstimatedCurrentCost = String.valueOf(totalEstimatedCurrentCostBigDecimal);
-		totalBudgetedCost = String.valueOf(totalBudgetedCostBigDecimal);
-
+		catch (PersistenceException exception)
+		{
+        	Logger.getLogger(FinancialSpace.class).debug("PersistenceException: " + exception, exception);
+			return new ArrayList<ProjectSpace>();			
+		}
 	}
 
 	/******************************************************************************
