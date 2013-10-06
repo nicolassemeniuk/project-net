@@ -16,11 +16,15 @@
 package net.project.financial;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
+import net.project.base.money.InvalidCurrencyException;
 import net.project.chart.ChartColor;
 import net.project.chart.MissingChartDataException;
+import net.project.hibernate.service.ServiceFactory;
+import net.project.project.ProjectSpace;
 import net.project.project.TotalCostChart;
 import net.project.security.SessionManager;
 
@@ -64,6 +68,17 @@ public class FinancialTotalCostChart extends TotalCostChart {
         CategoryItemRenderer renderer = new BarRenderer();
         plot.setRenderer(renderer);
     	
+        // Check all projects have the same currency
+		ArrayList<ProjectSpace> projectList = financialSpace.getProjectsList();
+		
+		String firstCurrency = ServiceFactory.getInstance().getPnProjectSpaceService().getDefaultCurrency(projectList.get(0).getID());
+		for(ProjectSpace project : projectList)
+		{
+			 String currentCurrency = ServiceFactory.getInstance().getPnProjectSpaceService().getDefaultCurrency(project.getID());
+			 if(!currentCurrency.equals(firstCurrency))
+				 throw new InvalidCurrencyException();
+		}
+        
         //-------------------------------------------------------------------
         // Collect data needed to render the chart
         //-------------------------------------------------------------------

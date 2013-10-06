@@ -327,24 +327,7 @@ public class Dashboard extends BasePage
 				financialDescription = financialDescription.substring(0, 100) + "..";
 			}			
 			
-			BusinessSpace businessSpace = new BusinessSpace(financialSpace.getRelatedSpaceID());
-			businessSpace.load();
-			ProjectPortfolio projectPortfolio = new ProjectPortfolio();
-			projectPortfolio.clear();
-			projectPortfolio.setID(businessSpace.getProjectPortfolioID("owner"));
-			projectPortfolio.setProjectMembersOnly(true);
-			projectPortfolio.load();
-			
-			projectList = new ArrayList<ProjectSpace>();
-			for(Object entry : projectPortfolio)
-			{
-				IPortfolioEntry portfolioEntry = (IPortfolioEntry) entry;
-				ProjectSpace projectSpace = new ProjectSpace();
-				projectSpace.setID(portfolioEntry.getID());
-				projectSpace.load();
-				projectList.add(projectSpace);
-			}
-			
+			projectList = financialSpace.getProjectsList();
 			if(projectList.isEmpty())
 				hasProjects = false;
 			else
