@@ -1281,11 +1281,54 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 	 */
 	public Money getCurrentEstimatedTotalCost() {
 		try {
-
 			if (getMetaData().getProperty("CostCalculationMethod").equals("manual"))
 				return this.currentEstimatedTotalCost;
 			else {
 				Float cost = ServiceFactory.getInstance().getProjectFinancialService().calculateEstimatedTotalCost(spaceID);
+				return new Money(String.valueOf(cost), getDefaultCurrency());
+			}
+
+		} catch (NoSuchPropertyException e) {
+			return new Money();
+		}
+	}
+	
+	/**
+	 * Obtain the material estimated total cost for the project. This can only be
+	 * obtained if the project financial calculation method is set to automatic.
+	 * Will return a new money instance (0.00) otherwise.
+	 * 
+	 * @return the materials estimated total cost.
+	 */
+	
+	public Money getMaterialCurrentEstimatedTotalCost(){
+		try {
+			if (getMetaData().getProperty("CostCalculationMethod").equals("manual"))
+				return new Money();
+			else {
+				Float cost = ServiceFactory.getInstance().getProjectFinancialService().calculateMaterialCurrentEstimatedTotalCost(spaceID);
+				return new Money(String.valueOf(cost), getDefaultCurrency());
+			}
+
+		} catch (NoSuchPropertyException e) {
+			return new Money();
+		}
+	}
+	
+	/**
+	 * Obtain the resources estimated total cost for the project. This can only
+	 * be obtained if the project financial calculation method is set to
+	 * automatic. Will return a new money instance (0.00) otherwise.
+	 * 
+	 * @return the resources estimated total cost.
+	 */
+	
+	public Money getResourcesCurrentEstimatedTotalCost(){
+		try {
+			if (getMetaData().getProperty("CostCalculationMethod").equals("manual"))
+				return new Money();
+			else {
+				Float cost = ServiceFactory.getInstance().getProjectFinancialService().calculatResourcesCurrentEstimatedTotalCost(spaceID);
 				return new Money(String.valueOf(cost), getDefaultCurrency());
 			}
 
@@ -1331,6 +1374,49 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 	}
 
 	/**
+	 * Obtain the material actual cost to date for the project. This can only be
+	 * obtained if the project financial calculation method is set to automatic.
+	 * Will return a new money instance (0.00) otherwise.
+	 * 
+	 * @return the materials actual cost.
+	 */
+	public Money getMaterialTotalActualCost(){
+		try {
+			if (getMetaData().getProperty("CostCalculationMethod").equals("manual"))
+				return new Money();
+			else {
+				Float cost = ServiceFactory.getInstance().getProjectFinancialService().calculateMaterialActualTotalCostToDate(spaceID);
+				return new Money(String.valueOf(cost), getDefaultCurrency());
+			}
+
+		} catch (NoSuchPropertyException e) {
+			return new Money();
+		}
+	}
+	
+	
+	/**
+	 * Obtain the resources actual cost to date for the project. This can only
+	 * be obtained if the project financial calculation method is set to
+	 * automatic. Will return a new money instance (0.00) otherwise.
+	 * 
+	 * @return the resources actual cost.
+	 */
+	public Money getResourcesTotalActualCost(){
+		try {
+			if (getMetaData().getProperty("CostCalculationMethod").equals("manual"))
+				return new Money();
+			else {
+				Float cost = ServiceFactory.getInstance().getProjectFinancialService().calculateResourcesActualTotalCostToDate(spaceID);
+				return new Money(String.valueOf(cost), getDefaultCurrency());
+			}
+
+		} catch (NoSuchPropertyException e) {
+			return new Money();
+		}
+	}
+
+	/**
 	 * Specifies the estimated return on investment for this project.
 	 * 
 	 * @param estimatedROI
@@ -1366,9 +1452,7 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 				return new Money();
 			else {
 				String cost = getMetaData().getProperty("ProjectDiscretionalCost");
-				//Float cost = ServiceFactory.getInstance().getProjectFinancialService().calculateActualCostToDate(spaceID);
 				return new Money(cost, getDefaultCurrency());
-//				return new Money();
 			}
 
 		} catch (NoSuchPropertyException e) {
@@ -1387,6 +1471,9 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 			this.discretionalCost = discretionalCost;
 		}
 	}
+	
+
+	
 
 	/**
 	 * Specifies a cost center.

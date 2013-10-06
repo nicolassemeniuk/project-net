@@ -91,4 +91,13 @@ public interface IMaterialService {
 	 */
 	public void disableMaterialsAssignmentsFromBusiness(String businessId, String projectId);
 
+	/**
+	 * Get all the materials that are not assigned on any task in the project.
+	 * 
+	 * @param spaceID
+	 *            the id of the space.
+	 * @return a list of materials.
+	 */
+	public PnMaterialList getMaterialsFromProjectWithoutAssignments(String spaceID);
+
 }
