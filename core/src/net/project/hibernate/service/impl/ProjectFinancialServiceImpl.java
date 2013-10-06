@@ -1,12 +1,9 @@
 package net.project.hibernate.service.impl;
 
-import java.math.BigDecimal;
-import java.text.ParseException;
 import java.util.List;
 
-import net.project.hibernate.model.PnAssignment;
+import net.project.base.property.PropertyProvider;
 import net.project.hibernate.model.PnMaterial;
-import net.project.hibernate.model.PnPersonSalary;
 import net.project.hibernate.model.PnTask;
 import net.project.hibernate.service.IPnAssignmentService;
 import net.project.hibernate.service.IPnMaterialAssignmentService;
@@ -14,9 +11,8 @@ import net.project.hibernate.service.IPnMaterialService;
 import net.project.hibernate.service.IPnProjectSpaceService;
 import net.project.hibernate.service.IPnSpaceHasMaterialService;
 import net.project.hibernate.service.IProjectFinancialService;
+import net.project.hibernate.service.ITaskFinancialService;
 import net.project.hibernate.service.ServiceFactory;
-import net.project.material.PnMaterialList;
-import net.project.util.TimeQuantity;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -35,9 +31,12 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 
 	@Autowired
 	private IPnAssignmentService assignmentService;
-	
+
 	@Autowired
 	private IPnProjectSpaceService projectSpaceService;
+
+	@Autowired
+	private ITaskFinancialService taskFinancialService;
 
 	public IPnMaterialService getMaterialService() {
 		return materialService;
@@ -57,72 +56,102 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 
 	@Override
 	public Float calculateActualCostToDate(String spaceID) {
-		Float totalMaterialCost = new Float(0.00);
-		Float totalResourcesCost = new Float(0.00);
+		Float totalActualCost = new Float(0.00);
 
-		try {
-			
-			// Obtain the completed tasks for the space.
-			List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getCompletedTasksByProjectId(Integer.valueOf(spaceID));
-			
-			for (PnTask task : tasks) {
+		List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getCompletedTasksByProjectId(Integer.valueOf(spaceID));
 
-				// Get persons assignments for the task
-				List<PnAssignment> assignmentsOfTask = assignmentService.getAssigmentsByObjectId(task.getTaskId());
-				for (PnAssignment assignmentOfTask : assignmentsOfTask) {
-					TimeQuantity workQuantity = TimeQuantity.parse(String.valueOf(assignmentOfTask.getWork()), String.valueOf(assignmentOfTask.getWorkUnits()));
-					BigDecimal workAmount = workQuantity.converToHours();
+		for (PnTask task : tasks) {
 
-					Integer id = assignmentOfTask.getComp_id().getPersonId();
-					PnPersonSalary personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryForDate(id, task.getActualFinish());
-					totalResourcesCost += workAmount.floatValue() * personSalary.getCostByHour();
-				}
-			}
-			
-			//Obtain the materials assigned to completed tasks on this project.			
-			PnMaterialList materials = ServiceFactory.getInstance().getMaterialService().getMaterialsFromCompletedTasksOfSpace(spaceID);
-			
-			for(PnMaterial material : materials){
-				totalMaterialCost += material.getMaterialCost();
-			}
-
-			return totalMaterialCost + totalResourcesCost;
-		} catch (ParseException e) {
-			// TODO handle error.
+			totalActualCost += taskFinancialService.calculateActualCostToDateForTask(spaceID, String.valueOf(task.getTaskId()));
 		}
-		return null;
+		return totalActualCost;
+	}
+	
+	@Override
+	public Float calculateMaterialActualTotalCostToDate(String spaceID) {
+		Float materialTotalActualCost = new Float(0.00);
+
+		List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getCompletedTasksByProjectId(Integer.valueOf(spaceID));
+
+		for (PnTask task : tasks) {
+
+			materialTotalActualCost += taskFinancialService.calculateMaterialActualCostToDateForTask(spaceID, String.valueOf(task.getTaskId()));
+		}
+		return materialTotalActualCost;
 	}
 
 	@Override
-	public Float calculateEstimatedTotalCost(String spaceID) {
-		try {
-			// Total material cost
-			PnMaterialList materialsFromSpace = materialService.getMaterials(this.spaceHasMaterialService.getMaterialsFromSpace(spaceID));
-			Float totalMaterialCost = new Float(0.00);			
+	public Float calculateResourcesActualTotalCostToDate(String spaceID) {
+		Float resourcesTotalActualCost = new Float(0.00);
 
-			for (PnMaterial materialFromSpace : materialsFromSpace) {
-				totalMaterialCost += materialFromSpace.getMaterialCost();
-			}
+		List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getCompletedTasksByProjectId(Integer.valueOf(spaceID));
 
-			// Total resources cost.
-			List<PnAssignment> assignmentsFromProject = assignmentService.getAssigmentsListForProject(Integer.valueOf(spaceID));
-			Float totalResourcesCost = new Float(0.00);
+		for (PnTask task : tasks) {
 
-			for (PnAssignment assignmentFromProject : assignmentsFromProject) {
-				TimeQuantity workQuantity = TimeQuantity.parse(String.valueOf(assignmentFromProject.getWork()),
-						String.valueOf(assignmentFromProject.getWorkUnits()));
-				BigDecimal workAmount = workQuantity.converToHours();
-
-				Integer id = assignmentFromProject.getComp_id().getPersonId();
-				PnPersonSalary personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryForDate(id, assignmentFromProject.getEndDate());
-				totalResourcesCost += workAmount.floatValue() * personSalary.getCostByHour();
-			}
-
-			return totalMaterialCost + totalResourcesCost;
-		} catch (ParseException e) {
-			// TODO handle error.
+			resourcesTotalActualCost += taskFinancialService.calculateResourcesActualCostToDateForTask(spaceID, String.valueOf(task.getTaskId()));
 		}
-		return null;
+		return resourcesTotalActualCost;
+	}	
+
+	@Override
+	public Float calculateEstimatedTotalCost(String spaceID) {
+		Float totalEstimatedCost = new Float(0.00);
+
+		// Obtain the tasks for the space.
+		List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getTasksByProjectId(Integer.valueOf(spaceID));
+
+		// Calculate the cost for each task.
+		for (PnTask task : tasks) {
+			totalEstimatedCost += taskFinancialService.calculateEstimatedTotalCostForTask(spaceID, String.valueOf(task.getTaskId()));
+		}
+
+		// If it's active, also add the cost of the materials not assigned
+		if (PropertyProvider.getBoolean("prm.global.addmaterialsnotassignedontasks.isenabled")) {
+			List<PnMaterial> materialsNotInAssignments = ServiceFactory.getInstance().getMaterialService().getMaterialsFromProjectWithoutAssignments(spaceID);
+
+			for (PnMaterial materialNotAssigned : materialsNotInAssignments) {
+				totalEstimatedCost += materialNotAssigned.getMaterialCost();
+			}
+		}
+		return totalEstimatedCost;
+	}
+	
+	@Override
+	public Float calculateMaterialCurrentEstimatedTotalCost(String spaceID) {
+		Float totalEstimatedCost = new Float(0.00);
+
+		// Obtain the tasks for the space.
+		List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getTasksByProjectId(Integer.valueOf(spaceID));
+
+		// Calculate the cost for each task.
+		for (PnTask task : tasks) {
+			totalEstimatedCost += taskFinancialService.calculateMaterialEstimatedTotalCostForTask(spaceID, String.valueOf(task.getTaskId()));
+		}
+
+		// If it's active, also add the cost of the materials not assigned
+		if (PropertyProvider.getBoolean("prm.global.addmaterialsnotassignedontasks.isenabled")) {
+			List<PnMaterial> materialsNotInAssignments = ServiceFactory.getInstance().getMaterialService().getMaterialsFromProjectWithoutAssignments(spaceID);
+
+			for (PnMaterial materialNotAssigned : materialsNotInAssignments) {
+				totalEstimatedCost += materialNotAssigned.getMaterialCost();
+			}
+		}
+		return totalEstimatedCost;
+	}
+
+	@Override
+	public Float calculatResourcesCurrentEstimatedTotalCost(String spaceID) {
+		Float totalEstimatedCost = new Float(0.00);
+
+		// Obtain the tasks for the space.
+		List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getTasksByProjectId(Integer.valueOf(spaceID));
+
+		// Calculate the cost for each task.
+		for (PnTask task : tasks) {
+			totalEstimatedCost += taskFinancialService.calculateResourceEstimatedTotalCostForTask(spaceID, String.valueOf(task.getTaskId()));
+		}
+
+		return totalEstimatedCost;
 	}
 
 	@Override
@@ -134,6 +163,5 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 	public Float getDiscretionalCost(String spaceID) {
 		return projectSpaceService.getDiscretionalCost(spaceID);
 	}
-
 
 }

@@ -48,4 +48,44 @@ public interface IProjectFinancialService {
 	 */
 	public Float getDiscretionalCost(String spaceID);
 
+	/**
+	 * Obtain the actual Material cost for the project.
+	 * 
+	 * @param spaceID
+	 *            the space from which we want to obtain the actual material
+	 *            total cost.
+	 * @return a float value representing the cost.
+	 */
+	public Float calculateMaterialActualTotalCostToDate(String spaceID);
+
+	/**
+	 * Obtain the actual Resources cost for the project.
+	 * 
+	 * @param spaceID
+	 *            the space from which we want to obtain the actual resources
+	 *            total cost.
+	 * @return a float value representing the cost.
+	 */
+	public Float calculateResourcesActualTotalCostToDate(String spaceID);
+
+	/**
+	 * Obtain the estimated Material cost for the project.
+	 * 
+	 * @param spaceID
+	 *            the space from which we want to obtain the estimated material
+	 *            total cost.
+	 * @return a float value representing the cost.
+	 */
+	public Float calculateMaterialCurrentEstimatedTotalCost(String spaceID);
+
+	/**
+	 * Obtain the estimated Resources cost for the project.
+	 * 
+	 * @param spaceID
+	 *            the space from which we want to obtain the estimated resources
+	 *            total cost.
+	 * @return a float value representing the cost.
+	 */
+	public Float calculatResourcesCurrentEstimatedTotalCost(String spaceID);
+
 }

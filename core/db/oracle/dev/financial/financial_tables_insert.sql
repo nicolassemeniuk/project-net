@@ -33,6 +33,14 @@ insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.dis
 insert into pn_project_space_meta_prop values (8,'CostCalculationMethod', 3);
 insert into pn_project_space_meta_prop values (9,'ProjectDiscretionalCost', 1);
 
+--Project status for financial calculation
+insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.project.notstarted.isenabled','0','A',0,0,null);
+insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.project.inprocess.isenabled','1','A',0,0,null);
+insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.project.onhold.isenabled','1','A',0,0,null);
+insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.project.completed.isenabled','1','A',0,0,null);
+insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.project.proposed.isenabled','0','A',0,0,null);
+insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.project.inplanning.isenabled','0','A',0,0,null);
+
 -- Space definition
 insert into PN_PROPERTY values (2000,'en','text','prm.application.nav.space.financial','Financial','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.isenabled','1','A',0,0,null);
@@ -171,6 +179,7 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.setup.securityse
 
 --Completed Task Percentage
 insert into PN_PROPERTY values (2000,'en','text','prm.global.taskcompletedpercentage','100','A',0,0,null);
+insert into PN_PROPERTY values (2000,'en','boolean','prm.global.addmaterialsnotassignedontasks.isenabled','1','A',0,0,null);
 
 -- Project Dashboard
 insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.financialchart.channel.title','Project Financial','A',0,1,null);

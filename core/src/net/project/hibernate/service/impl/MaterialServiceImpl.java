@@ -112,5 +112,22 @@ public class MaterialServiceImpl implements IMaterialService {
 		return pnMaterialService.getMaterials(spaceMaterialsList, searchKey);
 	}
 
+	@Override
+	public PnMaterialList getMaterialsFromProjectWithoutAssignments(String spaceID) {
+		//Obtain the assignments of materials from the project
+		PnMaterialAssignmentList assignments = materialAssignmentService.getMaterialsAssignment(spaceID);
+		
+		//Obtain all the materials from the project.
+		List<Integer> materialsFromProject = spaceHasMaterialService.getMaterialsFromSpace(spaceID);
+		
+		//For each material assigned, deleted from the id's list.
+		for(PnMaterialAssignment assignment : assignments){
+			materialsFromProject.remove(assignment.getComp_id().getMaterialId());
+		}
+		
+		return pnMaterialService.getMaterials(materialsFromProject);
+		
+	}
+
 
 }

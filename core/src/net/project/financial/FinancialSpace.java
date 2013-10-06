@@ -20,8 +20,7 @@ import java.math.BigDecimal;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import org.apache.log4j.Logger;
-
+import net.project.base.property.PropertyProvider;
 import net.project.business.BusinessSpace;
 import net.project.database.DBBean;
 import net.project.hibernate.model.PnFinancialSpace;
@@ -31,7 +30,6 @@ import net.project.persistence.PersistenceException;
 import net.project.portfolio.IPortfolioEntry;
 import net.project.portfolio.ProjectPortfolio;
 import net.project.project.ProjectSpace;
-import net.project.project.TotalCostChart;
 import net.project.space.ISpaceTypes;
 import net.project.space.Space;
 import net.project.space.SpaceManager;
@@ -39,16 +37,28 @@ import net.project.space.SpaceTypes;
 import net.project.xml.document.XMLDocument;
 import net.project.xml.document.XMLDocumentException;
 
+import org.apache.log4j.Logger;
+
 /**
  * A Financial Workspace.
  */
 public class FinancialSpace extends Space implements Serializable, IXMLPersistence, IPortfolioEntry {
 
-	private String totalActualCostToDate="";
+	private String totalActualCostToDate = "";
 
-	private String totalEstimatedCurrentCost="";
+	private String totalEstimatedCurrentCost = "";
 
-	private String totalBudgetedCost="";
+	private String totalBudgetedCost = "";
+	
+	private String totalDiscretionalCost = "";
+
+	private String materialTotalActualCostToDate = "";
+
+	private String resourcesTotalActualCostToDate = "";
+
+	private String materialEstimatedTotalCost = "";
+	
+	private String resourcesEstimatedTotalCost = "";
 
 	private boolean parentChanged;
 
@@ -155,20 +165,21 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 				db.setAutoCommit(false);
 
 				if (getParentSpaceID() != null) {
-					//Remove the previous super space / subspace relationship
+					// Remove the previous super space / subspace relationship
 					SpaceManager.removeSuperFinancialRelationships(this);
-					
-					//Save the new super space / subspace relationship
+
+					// Save the new super space / subspace relationship
 					FinancialSpace parentSpace = new FinancialSpace();
 					parentSpace.setID(getParentSpaceID());
 					SpaceManager.addSuperFinancialRelationship(db, parentSpace, this);
-					
+
 					db.commit();
 				} else {
-					//The new parent is null, remove the old super space / subspace relationship					
+					// The new parent is null, remove the old super space /
+					// subspace relationship
 					SpaceManager.removeSuperFinancialRelationships(this);
 				}
-				
+
 			}
 		} catch (SQLException e) {
 			try {
@@ -206,26 +217,103 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 		BigDecimal totalActualCostToDateBigDecimal = new BigDecimal(0.0);
 		BigDecimal totalEstimatedCurrentCostBigDecimal = new BigDecimal(0.0);
 		BigDecimal totalBudgetedCostBigDecimal = new BigDecimal(0.0);
+		BigDecimal totalDiscretionalCostBigDecimal = new BigDecimal(0.0);
+		BigDecimal materialsActualCostToDateBigDecimal = new BigDecimal(0.0);
+		BigDecimal resourcesActualCostToDateBigDecimal = new BigDecimal(0.0);
+		BigDecimal materialsEstimatedTotalCostBigDecimal = new BigDecimal(0.0);
+		BigDecimal resourcesEstimatedTotalCostBigDecimal = new BigDecimal(0.0);
 
-		for (ProjectSpace project : this.getProjectsList())
-		{
-			totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
-			totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
-			totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());			
+		// Check the project status and if count's on the total
+		for (ProjectSpace project : this.getProjectsList()) {
+			switch (Integer.valueOf(project.getStatusID())) {
+			case 100:
+				if (PropertyProvider.getBoolean("prm.financial.project.notstarted.isenabled")) {
+					totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
+					totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
+					totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
+					totalDiscretionalCostBigDecimal = totalDiscretionalCostBigDecimal.add(project.getDiscretionalCost().getValue());
+					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialTotalActualCost().getValue());
+					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesTotalActualCost().getValue());
+					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialCurrentEstimatedTotalCost().getValue());
+					resourcesEstimatedTotalCostBigDecimal = resourcesEstimatedTotalCostBigDecimal.add(project.getResourcesCurrentEstimatedTotalCost().getValue());
+				}
+				break;
+			case 200:
+				if (PropertyProvider.getBoolean("prm.financial.project.inprocess.isenabled")) {
+					totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
+					totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
+					totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
+					totalDiscretionalCostBigDecimal = totalDiscretionalCostBigDecimal.add(project.getDiscretionalCost().getValue());
+					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialTotalActualCost().getValue());
+					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesTotalActualCost().getValue());
+					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialCurrentEstimatedTotalCost().getValue());
+					resourcesEstimatedTotalCostBigDecimal = resourcesEstimatedTotalCostBigDecimal.add(project.getResourcesCurrentEstimatedTotalCost().getValue());
+				}
+				break;
+			case 300:
+				if (PropertyProvider.getBoolean("prm.financial.project.onhold.isenabled")) {
+					totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
+					totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
+					totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
+					totalDiscretionalCostBigDecimal = totalDiscretionalCostBigDecimal.add(project.getDiscretionalCost().getValue());
+					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialTotalActualCost().getValue());
+					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesTotalActualCost().getValue());
+					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialCurrentEstimatedTotalCost().getValue());
+					resourcesEstimatedTotalCostBigDecimal = resourcesEstimatedTotalCostBigDecimal.add(project.getResourcesCurrentEstimatedTotalCost().getValue());
+				}
+				break;
+			case 400:
+				if (PropertyProvider.getBoolean("prm.financial.project.completed.isenabled")) {
+					totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
+					totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
+					totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
+					totalDiscretionalCostBigDecimal = totalDiscretionalCostBigDecimal.add(project.getDiscretionalCost().getValue());
+					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialTotalActualCost().getValue());
+					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesTotalActualCost().getValue());
+					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialCurrentEstimatedTotalCost().getValue());
+					resourcesEstimatedTotalCostBigDecimal = resourcesEstimatedTotalCostBigDecimal.add(project.getResourcesCurrentEstimatedTotalCost().getValue());
+				}
+				break;
+			case 500:
+				if (PropertyProvider.getBoolean("prm.financial.project.proposed.isenabled")) {
+					totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
+					totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
+					totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
+					totalDiscretionalCostBigDecimal = totalDiscretionalCostBigDecimal.add(project.getDiscretionalCost().getValue());
+					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialTotalActualCost().getValue());
+					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesTotalActualCost().getValue());
+					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialCurrentEstimatedTotalCost().getValue());
+					resourcesEstimatedTotalCostBigDecimal = resourcesEstimatedTotalCostBigDecimal.add(project.getResourcesCurrentEstimatedTotalCost().getValue());
+				}
+				break;
+			case 600:
+				if (PropertyProvider.getBoolean("prm.financial.project.inplanning.isenabled")) {
+					totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
+					totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
+					totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
+					totalDiscretionalCostBigDecimal = totalDiscretionalCostBigDecimal.add(project.getDiscretionalCost().getValue());
+					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialTotalActualCost().getValue());
+					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesTotalActualCost().getValue());
+					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialCurrentEstimatedTotalCost().getValue());
+					resourcesEstimatedTotalCostBigDecimal = resourcesEstimatedTotalCostBigDecimal.add(project.getResourcesCurrentEstimatedTotalCost().getValue());
+				}
+				break;
+			default:
+				break;
+			}
+
 		}
-		
+
 		totalActualCostToDate = String.valueOf(totalActualCostToDateBigDecimal);
 		totalEstimatedCurrentCost = String.valueOf(totalEstimatedCurrentCostBigDecimal);
 		totalBudgetedCost = String.valueOf(totalBudgetedCostBigDecimal);
 
 	}
-	
-	public ArrayList<ProjectSpace> getProjectsList()
-	{
-		try
-		{
-			ArrayList<ProjectSpace> projectList = new ArrayList<ProjectSpace>();			
-			
+
+	public ArrayList<ProjectSpace> getProjectsList() {
+		try {
+			ArrayList<ProjectSpace> projectList = new ArrayList<ProjectSpace>();
+
 			BusinessSpace businessSpace = new BusinessSpace(getRelatedSpaceID());
 			businessSpace.load();
 			ProjectPortfolio projectPortfolio = new ProjectPortfolio();
@@ -233,22 +321,19 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 			projectPortfolio.setID(businessSpace.getProjectPortfolioID("owner"));
 			projectPortfolio.setProjectMembersOnly(true);
 			projectPortfolio.load();
-	
-			for(Object entry : projectPortfolio)
-			{
+
+			for (Object entry : projectPortfolio) {
 				IPortfolioEntry portfolioEntry = (IPortfolioEntry) entry;
 				ProjectSpace projectSpace = new ProjectSpace();
 				projectSpace.setID(portfolioEntry.getID());
 				projectSpace.load();
 				projectList.add(projectSpace);
-			}		
-			
+			}
+
 			return projectList;
-		}
-		catch (PersistenceException exception)
-		{
-        	Logger.getLogger(FinancialSpace.class).debug("PersistenceException: " + exception, exception);
-			return new ArrayList<ProjectSpace>();			
+		} catch (PersistenceException exception) {
+			Logger.getLogger(FinancialSpace.class).debug("PersistenceException: " + exception, exception);
+			return new ArrayList<ProjectSpace>();
 		}
 	}
 
