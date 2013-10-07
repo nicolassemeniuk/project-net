@@ -101,7 +101,7 @@ public class TaskListDecoratingProcessing extends Handler {
         String[] properties = new String[] {"unassignedTasks", "tasksComingDue",
             "overallocatedResources", "completedTasks", "lateTasks",
             "taskDependenciesExist", "isDateConstrained", "isCriticalPath",
-            "afterDeadline", "isExternalTask", "hasAssignment", "hasMaterialAssignment"};
+            "afterDeadline", "isExternalTask", "hasAssignment", "hasMaterialAssignment", "hasFinancialCosts"};
 
         for (int i = 0; i < properties.length; i++) {
             String propertyName = properties[i];

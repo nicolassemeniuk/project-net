@@ -380,6 +380,54 @@ function mClose() {
     phide("matPopup");
 }
 
+function fPopup(assignments) {
+    var newHTML = "";
+    var rows = assignments.split("|");    
+
+    newHTML = newHTML + "<table class='popup' cellpadding='0' cellspacing='0'>";
+    
+    newHTML = newHTML + "  <tr><td>";
+    newHTML = newHTML + "    <table class='popupTitle' width='100%'>";
+    newHTML = newHTML + "      <tr><td><b>";
+    //--> 
+    newHTML = newHTML + "      		<t:Message value='prm.schedule.main.financialcosts'/>";
+    <!--//
+    newHTML = newHTML + "      </b></td></tr>";
+    newHTML = newHTML + "    </table>";
+    newHTML = newHTML + "  </td></tr>";
+    
+    newHTML = newHTML + "  <tr><td>";
+    newHTML = newHTML + "    <table class='popupBody' width='100%' id='depContent'>";
+
+    newHTML = newHTML + "      <tr><td class='tableHeader' style='padding-right:5px;'>";
+    //-->     
+    newHTML = newHTML + "      <t:Message value='prm.schedule.taskview.financial.actualcosttodate.label'/>";
+    <!--//    
+    newHTML = newHTML + "      </td><td>";
+    newHTML = newHTML + rows[0];    
+    newHTML = newHTML + "      </td></tr>";    
+
+    newHTML = newHTML + "      <tr><td class='tableHeader' style='padding-right:5px;'>";
+    //-->     
+    newHTML = newHTML + "      <t:Message value='prm.schedule.taskview.financial.currentestimatedtotalcost.label'/>";
+    <!--//    
+    newHTML = newHTML + "      </td><td>";
+    newHTML = newHTML + rows[1];    
+    newHTML = newHTML + "      </td></tr>";    
+    
+    newHTML = newHTML + "    </table>";    
+    newHTML = newHTML + "  </td></tr>";    
+    
+    newHTML = newHTML + "</table>";  
+    
+    document.getElementById("finPopup").innerHTML = newHTML;
+    pup("finPopup");
+}
+
+function fClose() {
+    phide("finPopup");
+}
+
 function changeSelection() {
     changeCheckedState(theForm.selected, theForm.changeCheckedState.checked);
 }
@@ -850,8 +898,11 @@ document.onclick = function(e) {
 <!-- Resources Popup -->
 <div id="resPopup" class="schedule-popup"></div>
 
-<!-- Resources Popup -->
+<!-- Materials Popup -->
 <div id="matPopup" class="schedule-popup"></div>
+
+<!-- Financial Popup -->
+<div id="finPopup" class="schedule-popup"></div>
 
 <div id="pnettabset" class="tap5c_tab-set">
 <div onselectstart="return false" class="tap5c_tab-set-panel activated disableSelection" id="panel_Schedule" onclick="activate_tab('panel_Schedule');"><div class="tab-text"><t:Message value="prm.schedule.taskview.tab.schedule.caption"/></div></div>

@@ -109,6 +109,13 @@ public class ScheduleDecorator {
 			return SessionManager.getJSPRootURL() + "/images/screwdriver.png";
 	}
 	
+	public String getHasFinancialCostsImage() {
+		if (propertyMap.propertyExists("hasFinancialCostsImage"))
+			return propertyMap.getProperty("hasFinancialCostsImage");
+		else
+			return SessionManager.getJSPRootURL() + "/images/financial.png";
+	}	
+	
 	public String getSharingProjectTitle(){
 		return PropertyProvider.get("prm.schedule.list.sharingproject.title");
 	}

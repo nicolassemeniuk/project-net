@@ -2143,7 +2143,6 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
     
     public String getMaterialAssignmentsTooltip() {
         String tooltip = "";
-        NumberFormat nf = NumberFormat.getInstance();
         for (Iterator<MaterialAssignment> it = getMaterialAssignmentsList().iterator(); it.hasNext();) {
         	MaterialAssignment materialAssignment = it.next();
             if (materialAssignment.getMaterialName() != null && materialAssignment.getRecordStatus().equals("A")) {
@@ -2157,19 +2156,9 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
         return tooltip;
     }    
 
-    public String getFinancialTooltip() {
+    public String getFinancialCostsTooltip() {
         String tooltip = "";
-        NumberFormat nf = NumberFormat.getInstance();
-        for (Iterator<MaterialAssignment> it = getMaterialAssignmentsList().iterator(); it.hasNext();) {
-        	MaterialAssignment materialAssignment = it.next();
-            if (materialAssignment.getMaterialName() != null && materialAssignment.getRecordStatus().equals("A")) {
-                tooltip += materialAssignment.getMaterialName().replaceAll("\\|", "&#166;");
-            }
-  
-            if (it.hasNext()) {
-                tooltip += "|";
-            }
-        }
+        tooltip = this.getActualCostToDate().getValue().floatValue() + "|" + this.getCurrentEstimatedTotalCost().getValue().floatValue() + "|";
         return tooltip;
     }        
     
@@ -4089,6 +4078,11 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
     public boolean isHasMaterialAssignments(){
     	return getMaterialAssignmentsList().hasActive();
     }    
+    
+    public boolean isHasFinancialCosts(){
+    	return this.getActualCostToDate().getValue().floatValue() > 0 ||
+    		   this.getCurrentEstimatedTotalCost().getValue().floatValue() > 0;
+    }     
     
     public boolean isHasDependencies(){
     	return !getPredecessorsNoLazyLoad().isEmpty();
