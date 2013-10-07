@@ -99,6 +99,9 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.actual
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.directory.isenabled','1','A',0,0,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.nav.directory','Directory','A',0,1,null);
 
+-- Schedule Properties
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.tasklistdecorating.hasFinancialCosts.label','Task has financial costs','A',0,1,null);
+
 -- Salary - Financial
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.salary.isenabled','1','A',0,0,null);
 insert into PN_MODULE values (270,'salary','@prm.salary.module.description', 0, null);
@@ -194,8 +197,9 @@ insert into PN_PROPERTY values (2000,'en','text','prm.project.dashboard.chart.to
 
 -- TaskView - Financial
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.financial.tab','Financial','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.financial.actualcosttodate.label','Actual Cost to Date:','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.financial.currentestimatedtotalcost.label','Current Estimated Total Cost:','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.financial.actualcosttodate.label','Actual Cost to Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.financial.currentestimatedtotalcost.label','Current Estimated Total Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.main.financialcosts','Financials','A',0,1,null);
 
 -- Reports 
 insert into PN_PROPERTY values (2000,'en','text','prm.project.report.businessprojectsfinancialreport.name','Business Projects Financial Report','A',0,1,null);

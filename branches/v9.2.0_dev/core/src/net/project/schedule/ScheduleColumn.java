@@ -470,7 +470,11 @@ public class ScheduleColumn {
 		if(se.isHasMaterialAssignments()){
 			StatusNotifiersTD += "<a href=\""+jSPRootURL+"/servlet/ScheduleController/TaskView/Material?action=1&amp;module=60&amp;id="+se.getID()+"\">";
 			StatusNotifiersTD += "<img src=\""+ scheduleDecorator.getHasMaterialAssignmentImage()+"\" hspace=\"2\" border=\"0\" onmouseover=\"mPopup('" + se.getMaterialAssignmentsTooltip() +"');\" onmouseout=\"mClose();\"/></a>";			
-		}		
+		}
+		if(se.isHasFinancialCosts()){
+			StatusNotifiersTD += "<a href=\""+jSPRootURL+"/servlet/ScheduleController/TaskView/Financial?action=1&amp;module=60&amp;id="+se.getID()+"\">";
+			StatusNotifiersTD += "<img src=\""+ scheduleDecorator.getHasFinancialCostsImage()+"\" hspace=\"2\" border=\"0\" onmouseover=\"fPopup('" + se.getFinancialCostsTooltip() +"');\" onmouseout=\"fClose();\"/></a>";			
+		}			
 		
 		Date todaysDate = new Date();
 		try {
