@@ -307,7 +307,17 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 		totalActualCostToDate = String.valueOf(totalActualCostToDateBigDecimal);
 		totalEstimatedCurrentCost = String.valueOf(totalEstimatedCurrentCostBigDecimal);
 		totalBudgetedCost = String.valueOf(totalBudgetedCostBigDecimal);
+		totalDiscretionalCost = String.valueOf(totalDiscretionalCostBigDecimal);
+		materialTotalActualCostToDate = String.valueOf(materialsActualCostToDateBigDecimal);
+		resourcesTotalActualCostToDate = String.valueOf(resourcesActualCostToDateBigDecimal);
+		materialEstimatedTotalCost = String.valueOf(materialsEstimatedTotalCostBigDecimal);
+		resourcesEstimatedTotalCost = String.valueOf(resourcesEstimatedTotalCostBigDecimal);
 
+	}
+
+	public String getTotalDiscretionalCost()
+	{
+		return totalDiscretionalCost;
 	}
 
 	public ArrayList<ProjectSpace> getProjectsList() {

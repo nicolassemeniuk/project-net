@@ -79,12 +79,19 @@ public class FinancialTotalCostChart extends TotalCostChart {
 				 throw new InvalidCurrencyException();
 		}
         
-        //-------------------------------------------------------------------
-        // Collect data needed to render the chart
-        //-------------------------------------------------------------------
-        dataset.addValue(new BigDecimal(financialSpace.getTotalActualCostToDate()).divide(new BigDecimal(1000.0)), ACTUAL_COST_TO_DATE, "");
-        dataset.addValue(new BigDecimal(financialSpace.getTotalEstimatedCurrentCost()).divide(new BigDecimal(1000.0)), CURRENT_ESTIMATED_TOTAL_COST, "");
-        dataset.addValue(new BigDecimal(financialSpace.getTotalBudgetedCost()).divide(new BigDecimal(1000.0)), BUDGETED_TOTAL_COST, "");
+        // Total Actual Cost To Date + Discretional Cost
+        BigDecimal totalActualCostToDate = new BigDecimal(financialSpace.getTotalActualCostToDate()).add(new BigDecimal(financialSpace.getTotalDiscretionalCost()));
+        
+        // Total Current Estimated Cost + Discretional Cost
+        BigDecimal totalCurrentEstimatedTotalCost = new BigDecimal(financialSpace.getTotalEstimatedCurrentCost()).add(new BigDecimal(financialSpace.getTotalDiscretionalCost()));
+        
+        // Total Budgeted Cost
+        BigDecimal totalBudgetedTotalCost = new BigDecimal(financialSpace.getTotalBudgetedCost());		
+		
+        // Scale all values over thousand
+        dataset.addValue(totalActualCostToDate.divide(new BigDecimal(1000.0)), ACTUAL_COST_TO_DATE, "");
+        dataset.addValue(totalCurrentEstimatedTotalCost.divide(new BigDecimal(1000.0)), CURRENT_ESTIMATED_TOTAL_COST, "");
+        dataset.addValue(totalBudgetedTotalCost.divide(new BigDecimal(1000.0)), BUDGETED_TOTAL_COST, "");
         
         renderer.setSeriesPaint(0, ChartColor.LIGHT_BLUE);
         renderer.setSeriesPaint(1, ChartColor.BLUE);
