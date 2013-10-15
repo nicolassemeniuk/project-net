@@ -15,6 +15,8 @@
 
 package net.project.financial;
 
+import java.math.BigDecimal;
+
 import javax.servlet.http.HttpServletRequest;
 
 import net.project.base.property.PropertyProvider;
@@ -74,9 +76,18 @@ public class FinancialActualCostsTypesOverTotalChart extends PieChart {
     }
 
     public void setupChart(JFreeChart pieChart) throws Exception {
-        dataset.setValue("Resources", 10000);
-        dataset.setValue("Materials", 5000);
-        dataset.setValue("Discretional", 100);
+        // Material Actual Cost To Date
+        BigDecimal materialActualCostToDate = new BigDecimal(financialSpace.getMaterialsTotalActualCostToDate());
+        
+        // Resources Actual Cost To Date
+        BigDecimal resourcesActualCostToDate = new BigDecimal(financialSpace.getResourcesTotalActualCostToDate());
+        
+        // Discretional Actual Cost To Date
+        BigDecimal discretionalCostToDate = new BigDecimal(financialSpace.getActualTotalDiscretionalCost());    	
+    	
+        dataset.setValue(PropertyProvider.get("prm.financial.dashboard.chart.actualcoststypesovertotal.legend.materialsactualcosttodate.name"), materialActualCostToDate);
+        dataset.setValue(PropertyProvider.get("prm.financial.dashboard.chart.actualcoststypesovertotal.legend.resourcesactualcosttodate.name"), resourcesActualCostToDate);
+        dataset.setValue(PropertyProvider.get("prm.financial.dashboard.chart.actualcoststypesovertotal.legend.actualdiscretionalscosttodate.name"), discretionalCostToDate);
 
         PiePlot piePlot = (PiePlot)pieChart.getPlot();
         piePlot.setSectionPaint(0, ChartColor.GREEN);

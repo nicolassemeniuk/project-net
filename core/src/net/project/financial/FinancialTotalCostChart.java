@@ -79,11 +79,11 @@ public class FinancialTotalCostChart extends TotalCostChart {
 				 throw new InvalidCurrencyException();
 		}
         
-        // Total Actual Cost To Date + Discretional Cost
-        BigDecimal totalActualCostToDate = new BigDecimal(financialSpace.getTotalActualCostToDate()).add(new BigDecimal(financialSpace.getTotalDiscretionalCost()));
+        // Total Actual Cost To Date + Actual Discretional Cost
+        BigDecimal totalActualCostToDate = new BigDecimal(financialSpace.getTotalActualCostToDate()).add(new BigDecimal(financialSpace.getActualTotalDiscretionalCost()));
         
-        // Total Current Estimated Cost + Discretional Cost
-        BigDecimal totalCurrentEstimatedTotalCost = new BigDecimal(financialSpace.getTotalEstimatedCurrentCost()).add(new BigDecimal(financialSpace.getTotalDiscretionalCost()));
+        // Total Current Estimated Cost + Current Discretional Cost
+        BigDecimal totalCurrentEstimatedTotalCost = new BigDecimal(financialSpace.getTotalEstimatedCurrentCost()).add(new BigDecimal(financialSpace.getCurrentTotalDiscretionalCost()));
         
         // Total Budgeted Cost
         BigDecimal totalBudgetedTotalCost = new BigDecimal(financialSpace.getTotalBudgetedCost());		
