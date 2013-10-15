@@ -14,9 +14,15 @@ insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.comp
 insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.costs.label','Global costs values','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.costs.description','Insert manually the project costs values.','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.currentestimatedtotalcost.label','Current Estimated Total Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.materialscurrentestimatedtotalcost.label','Materials Current Estimated Total Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.resourcescurrentestimatedtotalcost.label','Resources Current Estimated Total Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.actualcosttodate.label','Actual Cost To Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.materialsactualcosttodate.label','Materials Actual Cost To Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.resourcesactualcosttodate.label','Resources Actual Cost To Date','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.estimatedroi.label','Estimated ROI','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.discretionalcost.label','Discretional Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.actualdiscretionalcost.label','Actual Discretional Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.currentdiscretionalcost.label','Current Discretional Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.budgetedtotalcost','Budgeted Total Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.costcenter','Cost Center','A',0,1,null);
 
@@ -27,11 +33,21 @@ insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.com
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.completion.projectcosts.description','Dinamically set the project costs from the costs data.','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.costs.label','Global costs values','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.costs.description','Insert manually the project costs values.','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.discretionalcost.label','Discretional Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.actualdiscretionalcost.label','Actual Discretional Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.currentdiscretionalcost.label','Current Discretional Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.materialscurrentestimatedtotalcost.label','Materials Current Estimated Total Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.resourcescurrentestimatedtotalcost.label','Resources Current Estimated Total Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.materialsactualcosttodate.label','Materials Actual Cost To Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.resourcesactualcosttodate.label','Resources Actual Cost To Date','A',0,1,null);
 
 --Project Meta Properties
 insert into pn_project_space_meta_prop values (8,'CostCalculationMethod', 3);
-insert into pn_project_space_meta_prop values (9,'ProjectDiscretionalCost', 1);
+insert into pn_project_space_meta_prop values (9,'MaterialsActualCostToDate', 1);
+insert into pn_project_space_meta_prop values (10,'ResourcesActualCostToDate', 1);
+insert into pn_project_space_meta_prop values (11,'MaterialsCurrentEstimatedTotalCost', 1);
+insert into pn_project_space_meta_prop values (12,'ResourcesCurrentEstimatedTotalCost', 1);
+insert into pn_project_space_meta_prop values (13,'ActualDiscretionalCost', 1);
+insert into pn_project_space_meta_prop values (14,'CurrentDiscretionalCost', 1);
 
 --Project status for financial calculation
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.project.notstarted.isenabled','0','A',0,0,null);
@@ -94,6 +110,9 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.financ
 
 -- Financial - Dashboard - Actual Costs Types Over Total
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.actualcoststypesovertotalchart.channel.title','Actual Costs Types Over Total','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.chart.actualcoststypesovertotal.legend.materialsactualcosttodate.name','Materials','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.chart.actualcoststypesovertotal.legend.resourcesactualcosttodate.name','Resources','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.dashboard.chart.actualcoststypesovertotal.legend.actualdiscretionalscosttodate.name','Discretional','A',0,1,null);
 
 -- Financial - Directory
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.directory.isenabled','1','A',0,0,null);
@@ -227,7 +246,3 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.proje
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.project.currentestimatedcost','Current Estimated Total Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.project.budgetedcost','Budgeted Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.businessprojectsfinancialreport.showallprojects.name','Show all Projects','A',0,1,null);
-
-
-
-

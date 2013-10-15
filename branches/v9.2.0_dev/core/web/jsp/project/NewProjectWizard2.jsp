@@ -124,10 +124,11 @@ function enableTextField(val){
 }
 
 function enableCostTextFields(val){
-	document.CREATEPROJ.actualCostToDate_value.disabled=!val;
-	document.CREATEPROJ.currentEstimatedTotalCost_value.disabled=!val;
+	document.CREATEPROJ.MetaMaterialsActualCostToDate_value.disabled=!val;
+	document.CREATEPROJ.MetaResourcesActualCostToDate_value.disabled=!val;
+	document.CREATEPROJ.MetaMaterialsCurrentEstimatedTotalCost_value.disabled=!val;
+	document.CREATEPROJ.MetaResourcesCurrentEstimatedTotalCost_value.disabled=!val;	
 	document.CREATEPROJ.estimatedROI_value.disabled=!val;
-	document.CREATEPROJ.MetaProjectDiscretionalCost_value.disabled=val;
 }
 
 <%
@@ -547,6 +548,28 @@ function preselectTemplate(methodologyId) {
 			<td>&nbsp;</td>
 		</tr>
 		
+		<%-- Actual Discretional Cost --%>
+		<tr align="left" class="addSpacingBottom">
+			<td colspan="2" class="fieldNonRequired" nowrap="nowrap">
+				<display:get name="prm.project.create.wizard.actualdiscretionalcost.label" />:&nbsp;
+			</td>						
+			<td class="tableContent">
+		        <input:money name="MetaActualDiscretionalCost" money="<%=new Money()%>" currency="<%=Currency.getSystemDefaultCurrency()%>" />
+	        </td>
+		   	<td>&nbsp;</td>
+		</tr>
+		
+		<%-- Current Discretional Cost --%>
+		<tr align="left" class="addSpacingBottom">
+			<td colspan="2" class="fieldNonRequired" nowrap="nowrap">
+				<display:get name="prm.project.create.wizard.currentdiscretionalcost.label" />:&nbsp;
+			</td>						
+			<td class="tableContent">
+		        <input:money name="MetaCurrentDiscretionalCost" money="<%=new Money()%>" currency="<%=Currency.getSystemDefaultCurrency()%>" />
+	        </td>
+		   	<td>&nbsp;</td>
+		</tr>					
+		
 		<tr><td>&nbsp;</td></tr>
 		
 		<tr align="left">
@@ -576,18 +599,6 @@ function preselectTemplate(methodologyId) {
 						</td>
 					</tr>
 					
-					<%-- Discretional Cost --%>
-					<tr align="left">
-						<td>&nbsp;</td>
-						<td class="fieldNonRequired">
-							<display:get name="prm.project.create.wizard.discretionalcost.label" />:&nbsp;
-						</td>						
-						<td class="tableContent">
-					        <input:money name="MetaProjectDiscretionalCost" money="<%=new Money()%>" currency="<%=Currency.getSystemDefaultCurrency()%>" disabled="false"/>
-				        </td>
-					   	<td>&nbsp;</td>
-					</tr>
-					
 					<tr>
 						<td colspan="4">&nbsp;</td>
 					</tr>
@@ -609,29 +620,53 @@ function preselectTemplate(methodologyId) {
 						</td>
 					</tr>
 					
-					<%-- Current Estimated Total Cost --%>
+					<%-- Materials Current Estimated Total Cost --%>
 					<tr align="left">
 						<td>&nbsp;</td>
 						<td class="fieldNonRequired">
-							<display:get name="prm.project.create.wizard.currentestimatedtotalcost.label" />:&nbsp;
-						</td>						
+							<display:get name="prm.project.create.wizard.materialscurrentestimatedtotalcost.label" />:&nbsp;
+						</td>
 						<td class="tableContent">
-					        <input:money name="currentEstimatedTotalCost" money="<%=new Money()%>" currency="<%=Currency.getSystemDefaultCurrency()%>" disabled="true"/>
+					        <input:money name="MetaMaterialsCurrentEstimatedTotalCost" money="<%=new Money()%>" currency="<%=Currency.getSystemDefaultCurrency()%>" disabled="true"/>
 				        </td>
 					   	<td>&nbsp;</td>
 					</tr>
 					
-					<%-- Actual Cost To Date--%>
+					<%-- Resources Current Estimated Total Cost --%>
 					<tr align="left">
 						<td>&nbsp;</td>
 						<td class="fieldNonRequired">
-							<display:get name="prm.project.create.wizard.actualcosttodate.label" />:&nbsp;
+							<display:get name="prm.project.create.wizard.resourcescurrentestimatedtotalcost.label" />:&nbsp;
+						</td>
+						<td class="tableContent">
+					        <input:money name="MetaResourcesCurrentEstimatedTotalCost" money="<%=new Money()%>" currency="<%=Currency.getSystemDefaultCurrency()%>" disabled="true"/>
+				        </td>
+					   	<td>&nbsp;</td>
+					</tr>
+					
+					<%-- Materials Actual Cost To Date --%>
+					<tr align="left">
+						<td>&nbsp;</td>
+						<td class="fieldNonRequired">
+							<display:get name="prm.project.create.wizard.materialsactualcosttodate.label" />:&nbsp;
 						</td>						
 						<td class="tableContent">
-						        <input:money name="actualCostToDate" money="<%=new Money()%>" currency="<%=Currency.getSystemDefaultCurrency()%>" disabled="true"/>
+						        <input:money name="MetaMaterialsActualCostToDate" money="<%=new Money()%>" currency="<%=Currency.getSystemDefaultCurrency()%>" disabled="true"/>
 				        </td>
 				        <td>&nbsp;</td>
-					</tr>
+					</tr>					
+					
+					<%-- Resources Actual Cost To Date --%>
+					<tr align="left">
+						<td>&nbsp;</td>
+						<td class="fieldNonRequired">
+							<display:get name="prm.project.create.wizard.resourcesactualcosttodate.label" />:&nbsp;
+						</td>						
+						<td class="tableContent">
+						        <input:money name="MetaResourcesActualCostToDate" money="<%=new Money()%>" currency="<%=Currency.getSystemDefaultCurrency()%>" disabled="true"/>
+				        </td>
+				        <td>&nbsp;</td>
+					</tr>					
 					
 					<%-- Estimated ROI --%>
 					<tr align="left">

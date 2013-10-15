@@ -30,7 +30,8 @@
             net.project.base.ObjectType,
             net.project.base.EventException,
             net.project.base.EventFactory,
-            net.project.events.EventType"
+            net.project.events.EventType,
+            net.project.base.money.Money"
 %>
 <%@ include file="/base/taglibInclude.jsp" %>
 <jsp:useBean id="projectSpace" class="net.project.project.ProjectSpaceBean" scope="session" />
@@ -93,8 +94,6 @@
 <jsp:setProperty name="projectSpace" property="financialStatusImprovementCode"
                  value='<%=net.project.code.ImprovementCode.findByID(request.getParameter("financialStatusImprovementCodeID"))%>' />
 <jsp:setProperty name="projectSpace" property="budgetedTotalCost" value='<%=net.project.base.money.Money.parseFromRequestDefaultCurrency("budgetedTotalCost", user, request)%>' />
-<jsp:setProperty name="projectSpace" property="currentEstimatedTotalCost" value='<%=net.project.base.money.Money.parseFromRequestDefaultCurrency("currentEstimatedTotalCost", user, request)%>' />
-<jsp:setProperty name="projectSpace" property="actualCostToDate" value='<%=net.project.base.money.Money.parseFromRequestDefaultCurrency("actualCostToDate", user, request)%>' />
 <jsp:setProperty name="projectSpace" property="scheduleStatusColorCode"
                  value='<%=net.project.code.ColorCode.findByID(request.getParameter("scheduleStatusColorCodeID"))%>' />
 <jsp:setProperty name="projectSpace" property="scheduleStatusImprovementCode"
@@ -248,12 +247,22 @@
 				String value = request.getParameter(name);
 				String propertyName = name.substring(4,name.length()-6);			
 				if (value != null && !"".equals(value)) {
-					projectSpace.getMetaData().setProperty(propertyName, value.replaceAll(",", "."));
+					projectSpace.getMetaData().setProperty(propertyName, value);
 				}
 			}
 		}
 
-
+		Money materials = projectSpace.getMaterialsActualCostToDate();
+		Money resources = projectSpace.getResourcesActualCostToDate();
+		Money discretional = projectSpace.getActualDiscretionalCost();
+		projectSpace.setActualCostToDate(materials.add(resources.add(discretional)));
+		projectSpace.setCurrentEstimatedTotalCost(projectSpace.getMaterialsCurrentEstimatedTotalCost());		
+		// Setting the actual cost To date and the current estimated total cost for manual calculation
+		// Materials Actual Cost To Date + Resources Actual Cost To Date + Actual Discretional Cost
+		//projectSpace.setActualCostToDate(projectSpace.getMaterialsActualCostToDate().add(projectSpace.getResourcesActualCostToDate().add(projectSpace.getActualDiscretionalCost())));
+		// Materials Current Estimated Total Cost + Resources Current Estimated Total Cost + Current Discretional Cost
+		//projectSpace.setCurrentEstimatedTotalCost(projectSpace.getMaterialsCurrentEstimatedTotalCost().add(projectSpace.getResourcesCurrentEstimatedTotalCost().add(projectSpace.getCurrentDiscretionalCost())));
+		
         // Generate error messagess
         if (isInvalidParentProject) {
             errorReporter.addError(PropertyProvider.get("prm.project.projectcreate.invalidparentproject.message"));

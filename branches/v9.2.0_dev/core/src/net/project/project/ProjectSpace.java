@@ -194,11 +194,6 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 	private Money actualCostToDate = null;
 	
 	/**
-	 * Discretional cost
-	 */
-	private Money discretionalCost = null;
-
-	/**
 	 * Estimated return on investment.
 	 */
 	private Money estimatedROI = null;
@@ -362,9 +357,8 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 		setFinancialStatusColorCode(source.getFinancialStatusColorCode());
 		setFinancialStatusImprovementCode(source.getFinancialStatusImprovementCode());
 		setBudgetedTotalCost(source.getBudgetedTotalCost());
-		setCurrentEstimatedTotalCost(source.currentEstimatedTotalCost);
+		setCurrentEstimatedTotalCost(source.getCurrentEstimatedTotalCost());
 		setActualCostToDate(source.getActualCostToDate());
-		setDiscretionalCost(source.getDiscretionalCost());
 		setEstimatedROI(source.getEstimatedROI());
 		setCostCenter(source.getCostCenter());
 		setScheduleStatusColorCode(source.getScheduleStatusColorCode());
@@ -1259,7 +1253,7 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 	}
 
 	/**
-	 * Specifies the currented estimated total cost of this project.
+	 * Specifies the current estimated total cost of this project.
 	 * 
 	 * @param currentEstimatedTotalCost
 	 *            the current estimated total cost
@@ -1272,7 +1266,7 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 			this.currentEstimatedTotalCost = currentEstimatedTotalCost;
 		}
 	}
-
+	
 	/**
 	 * Returns the current estimated total cost of this project.
 	 * 
@@ -1301,10 +1295,10 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 	 * @return the materials estimated total cost.
 	 */
 	
-	public Money getMaterialCurrentEstimatedTotalCost(){
+	public Money getMaterialsCurrentEstimatedTotalCost(){
 		try {
 			if (getMetaData().getProperty("CostCalculationMethod").equals("manual"))
-				return new Money();
+				return new Money(getMetaData().getProperty("MaterialsCurrentEstimatedTotalCost"), getDefaultCurrency());		
 			else {
 				Float cost = ServiceFactory.getInstance().getProjectFinancialService().calculateMaterialCurrentEstimatedTotalCost(spaceID);
 				return new Money(String.valueOf(cost), getDefaultCurrency());
@@ -1326,7 +1320,7 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 	public Money getResourcesCurrentEstimatedTotalCost(){
 		try {
 			if (getMetaData().getProperty("CostCalculationMethod").equals("manual"))
-				return new Money();
+				return new Money(getMetaData().getProperty("ResourcesCurrentEstimatedTotalCost"), getDefaultCurrency());		
 			else {
 				Float cost = ServiceFactory.getInstance().getProjectFinancialService().calculatResourcesCurrentEstimatedTotalCost(spaceID);
 				return new Money(String.valueOf(cost), getDefaultCurrency());
@@ -1380,10 +1374,10 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 	 * 
 	 * @return the materials actual cost.
 	 */
-	public Money getMaterialTotalActualCost(){
+	public Money getMaterialsActualCostToDate(){
 		try {
 			if (getMetaData().getProperty("CostCalculationMethod").equals("manual"))
-				return new Money();
+				return new Money(getMetaData().getProperty("MaterialsActualCostToDate"), getDefaultCurrency());			
 			else {
 				Float cost = ServiceFactory.getInstance().getProjectFinancialService().calculateMaterialActualTotalCostToDate(spaceID);
 				return new Money(String.valueOf(cost), getDefaultCurrency());
@@ -1402,10 +1396,10 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 	 * 
 	 * @return the resources actual cost.
 	 */
-	public Money getResourcesTotalActualCost(){
+	public Money getResourcesActualCostToDate(){
 		try {
 			if (getMetaData().getProperty("CostCalculationMethod").equals("manual"))
-				return new Money();
+				return new Money(getMetaData().getProperty("ResourcesActualCostToDate"), getDefaultCurrency());					
 			else {
 				Float cost = ServiceFactory.getInstance().getProjectFinancialService().calculateResourcesActualTotalCostToDate(spaceID);
 				return new Money(String.valueOf(cost), getDefaultCurrency());
@@ -1442,39 +1436,35 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 	}
 	
 	/**
-	 * Returns the discretional cost for this project. This value is only returned in case the project costs
-	 * calculation method is automatic.
-	 * @return the project discretional costs.
+	 * Returns the actual discretional cost for this project.
+	 * @return the actual discretional cost.
 	 */
-	public Money getDiscretionalCost(){
-		try {
-			if (getMetaData().getProperty("CostCalculationMethod").equals("manual"))
-				return new Money();
-			else {
-				String cost = getMetaData().getProperty("ProjectDiscretionalCost");
-				return new Money(cost, getDefaultCurrency());
-			}
-
-		} catch (NoSuchPropertyException e) {
+	public Money getActualDiscretionalCost(){
+		try
+		{
+			return new Money(getMetaData().getProperty("ActualDiscretionalCost"), getDefaultCurrency());
+		}
+		catch (NoSuchPropertyException e)
+		{
 			return new Money();
-		}	
-	}
-	
-	/**
-	 * Sets the discretional cost for this project.
-	 * @param discretionalCost the discretional cost.
-	 */
-	public void setDiscretionalCost(Money discretionalCost){
-		if(discretionalCost == Money.EMPTY){
-			this.discretionalCost = null;
-		} else {
-			this.discretionalCost = discretionalCost;
 		}
 	}
 	
-
+	/**
+	 * Returns the current discretional cost for this project.
+	 * @return the current discretional cost.
+	 */
+	public Money getCurrentDiscretionalCost(){
+		try
+		{
+			return new Money(getMetaData().getProperty("CurrentDiscretionalCost"), getDefaultCurrency());
+		}
+		catch (NoSuchPropertyException e)
+		{
+			return new Money();
+		}
+	}	
 	
-
 	/**
 	 * Specifies a cost center.
 	 * 
@@ -2595,6 +2585,12 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 			doc.addElement("ProjectCharter", getMetaData().getProperty("ProjectCharter"));
 			doc.addElement("FunctionalArea", getMetaData().getProperty("FunctionalArea"));
 			doc.addElement("TypeOfExpense", getMetaData().getProperty("TypeOfExpense"));
+			doc.addElement("MaterialsCurrentEstimatedTotalCost", getMetaData().getProperty("MaterialsCurrentEstimatedTotalCost"));
+			doc.addElement("ResourcesCurrentEstimatedTotalCost", getMetaData().getProperty("ResourcesCurrentEstimatedTotalCost"));
+			doc.addElement("MaterialsActualCostToDate", getMetaData().getProperty("MaterialsActualCostToDate"));
+			doc.addElement("ResourcesActualCostToDate", getMetaData().getProperty("ResourcesActualCostToDate"));
+			doc.addElement("ActualDiscretionalCost", getMetaData().getProperty("ActualDiscretionalCost"));
+			doc.addElement("CurrentDiscretionalCost", getMetaData().getProperty("CurrentDiscretionalCost"));				
 		} catch (NoSuchPropertyException e) {
 			e.printStackTrace();
 		}

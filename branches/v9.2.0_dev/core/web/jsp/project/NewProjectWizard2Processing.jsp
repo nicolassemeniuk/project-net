@@ -67,10 +67,6 @@
     <jsp:setProperty name="projectWizard" property="costCenter" />
     <jsp:setProperty name="projectWizard" property="defaultCurrencyCode" />
     <jsp:setProperty name="projectWizard" property="budgetedTotalCost" value='<%=net.project.base.money.Money.parseFromRequestDefaultCurrency("budgetedTotalCost", user, request)%>' />
-    <jsp:setProperty name="projectWizard" property="currentEstimatedTotalCost" value='<%=net.project.base.money.Money.parseFromRequestDefaultCurrency("currentEstimatedTotalCost", user, request)%>' />
-	<jsp:setProperty name="projectWizard" property="actualCostToDate" value='<%=net.project.base.money.Money.parseFromRequestDefaultCurrency("actualCostToDate", user, request)%>' />
-                 
-
 <%
     projectWizard.setPercentCalculationMethod(request.getParameter("percentCalculationMethod"));
 
@@ -175,6 +171,12 @@
 		}
 	}
 
+	// Setting the actual cost To date and the current estimated total cost for manual calculation
+	// Materials Actual Cost To Date + Resources Actual Cost To Date + Actual Discretional Cost
+	projectWizard.setActualCostToDate(projectWizard.getMaterialsActualCostToDate().add(projectWizard.getResourcesActualCostToDate().add(projectWizard.getActualDiscretionalCost())));
+	// Materials Current Estimated Total Cost + Resources Current Estimated Total Cost + Current Discretional Cost
+	projectWizard.setCurrentEstimatedTotalCost(projectWizard.getMaterialsCurrentEstimatedTotalCost().add(projectWizard.getResourcesCurrentEstimatedTotalCost().add(projectWizard.getCurrentDiscretionalCost())));	
+	
     // Generate error messages
     if (isInvalidParentProject) {
         errorReporter.addError(PropertyProvider.get("prm.project.projectcreate.invalidparentproject.message"));

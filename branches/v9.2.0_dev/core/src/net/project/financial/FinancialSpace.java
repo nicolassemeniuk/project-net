@@ -50,13 +50,15 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 
 	private String totalBudgetedCost = "";
 	
-	private String totalDiscretionalCost = "";
+	private String actualTotalDiscretionalCost = "";
+	
+	private String currentTotalDiscretionalCost = "";	
 
-	private String materialTotalActualCostToDate = "";
+	private String materialsTotalActualCostToDate = "";
 
 	private String resourcesTotalActualCostToDate = "";
 
-	private String materialEstimatedTotalCost = "";
+	private String materialsEstimatedTotalCost = "";
 	
 	private String resourcesEstimatedTotalCost = "";
 
@@ -217,7 +219,8 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 		BigDecimal totalActualCostToDateBigDecimal = new BigDecimal(0.0);
 		BigDecimal totalEstimatedCurrentCostBigDecimal = new BigDecimal(0.0);
 		BigDecimal totalBudgetedCostBigDecimal = new BigDecimal(0.0);
-		BigDecimal totalDiscretionalCostBigDecimal = new BigDecimal(0.0);
+		BigDecimal actualTotalDiscretionalCostBigDecimal = new BigDecimal(0.0);
+		BigDecimal currentTotalDiscretionalCostBigDecimal = new BigDecimal(0.0);		
 		BigDecimal materialsActualCostToDateBigDecimal = new BigDecimal(0.0);
 		BigDecimal resourcesActualCostToDateBigDecimal = new BigDecimal(0.0);
 		BigDecimal materialsEstimatedTotalCostBigDecimal = new BigDecimal(0.0);
@@ -231,10 +234,11 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 					totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
 					totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
 					totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
-					totalDiscretionalCostBigDecimal = totalDiscretionalCostBigDecimal.add(project.getDiscretionalCost().getValue());
-					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialTotalActualCost().getValue());
-					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesTotalActualCost().getValue());
-					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialCurrentEstimatedTotalCost().getValue());
+					actualTotalDiscretionalCostBigDecimal = actualTotalDiscretionalCostBigDecimal.add(project.getActualDiscretionalCost().getValue());
+					currentTotalDiscretionalCostBigDecimal = currentTotalDiscretionalCostBigDecimal.add(project.getCurrentDiscretionalCost().getValue());					
+					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialsActualCostToDate().getValue());
+					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesActualCostToDate().getValue());
+					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialsCurrentEstimatedTotalCost().getValue());
 					resourcesEstimatedTotalCostBigDecimal = resourcesEstimatedTotalCostBigDecimal.add(project.getResourcesCurrentEstimatedTotalCost().getValue());
 				}
 				break;
@@ -243,10 +247,11 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 					totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
 					totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
 					totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
-					totalDiscretionalCostBigDecimal = totalDiscretionalCostBigDecimal.add(project.getDiscretionalCost().getValue());
-					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialTotalActualCost().getValue());
-					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesTotalActualCost().getValue());
-					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialCurrentEstimatedTotalCost().getValue());
+					actualTotalDiscretionalCostBigDecimal = actualTotalDiscretionalCostBigDecimal.add(project.getActualDiscretionalCost().getValue());
+					currentTotalDiscretionalCostBigDecimal = currentTotalDiscretionalCostBigDecimal.add(project.getCurrentDiscretionalCost().getValue());
+					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialsActualCostToDate().getValue());
+					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesActualCostToDate().getValue());
+					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialsCurrentEstimatedTotalCost().getValue());
 					resourcesEstimatedTotalCostBigDecimal = resourcesEstimatedTotalCostBigDecimal.add(project.getResourcesCurrentEstimatedTotalCost().getValue());
 				}
 				break;
@@ -255,10 +260,11 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 					totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
 					totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
 					totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
-					totalDiscretionalCostBigDecimal = totalDiscretionalCostBigDecimal.add(project.getDiscretionalCost().getValue());
-					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialTotalActualCost().getValue());
-					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesTotalActualCost().getValue());
-					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialCurrentEstimatedTotalCost().getValue());
+					actualTotalDiscretionalCostBigDecimal = actualTotalDiscretionalCostBigDecimal.add(project.getActualDiscretionalCost().getValue());
+					currentTotalDiscretionalCostBigDecimal = currentTotalDiscretionalCostBigDecimal.add(project.getCurrentDiscretionalCost().getValue());
+					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialsActualCostToDate().getValue());
+					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesActualCostToDate().getValue());
+					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialsCurrentEstimatedTotalCost().getValue());
 					resourcesEstimatedTotalCostBigDecimal = resourcesEstimatedTotalCostBigDecimal.add(project.getResourcesCurrentEstimatedTotalCost().getValue());
 				}
 				break;
@@ -267,10 +273,11 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 					totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
 					totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
 					totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
-					totalDiscretionalCostBigDecimal = totalDiscretionalCostBigDecimal.add(project.getDiscretionalCost().getValue());
-					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialTotalActualCost().getValue());
-					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesTotalActualCost().getValue());
-					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialCurrentEstimatedTotalCost().getValue());
+					actualTotalDiscretionalCostBigDecimal = actualTotalDiscretionalCostBigDecimal.add(project.getActualDiscretionalCost().getValue());
+					currentTotalDiscretionalCostBigDecimal = currentTotalDiscretionalCostBigDecimal.add(project.getCurrentDiscretionalCost().getValue());
+					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialsActualCostToDate().getValue());
+					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesActualCostToDate().getValue());
+					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialsCurrentEstimatedTotalCost().getValue());
 					resourcesEstimatedTotalCostBigDecimal = resourcesEstimatedTotalCostBigDecimal.add(project.getResourcesCurrentEstimatedTotalCost().getValue());
 				}
 				break;
@@ -279,10 +286,11 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 					totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
 					totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
 					totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
-					totalDiscretionalCostBigDecimal = totalDiscretionalCostBigDecimal.add(project.getDiscretionalCost().getValue());
-					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialTotalActualCost().getValue());
-					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesTotalActualCost().getValue());
-					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialCurrentEstimatedTotalCost().getValue());
+					actualTotalDiscretionalCostBigDecimal = actualTotalDiscretionalCostBigDecimal.add(project.getActualDiscretionalCost().getValue());
+					currentTotalDiscretionalCostBigDecimal = currentTotalDiscretionalCostBigDecimal.add(project.getCurrentDiscretionalCost().getValue());
+					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialsActualCostToDate().getValue());
+					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesActualCostToDate().getValue());
+					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialsCurrentEstimatedTotalCost().getValue());
 					resourcesEstimatedTotalCostBigDecimal = resourcesEstimatedTotalCostBigDecimal.add(project.getResourcesCurrentEstimatedTotalCost().getValue());
 				}
 				break;
@@ -291,10 +299,11 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 					totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
 					totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
 					totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
-					totalDiscretionalCostBigDecimal = totalDiscretionalCostBigDecimal.add(project.getDiscretionalCost().getValue());
-					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialTotalActualCost().getValue());
-					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesTotalActualCost().getValue());
-					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialCurrentEstimatedTotalCost().getValue());
+					actualTotalDiscretionalCostBigDecimal = actualTotalDiscretionalCostBigDecimal.add(project.getActualDiscretionalCost().getValue());
+					currentTotalDiscretionalCostBigDecimal = currentTotalDiscretionalCostBigDecimal.add(project.getCurrentDiscretionalCost().getValue());
+					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialsActualCostToDate().getValue());
+					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesActualCostToDate().getValue());
+					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialsCurrentEstimatedTotalCost().getValue());
 					resourcesEstimatedTotalCostBigDecimal = resourcesEstimatedTotalCostBigDecimal.add(project.getResourcesCurrentEstimatedTotalCost().getValue());
 				}
 				break;
@@ -307,17 +316,44 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 		totalActualCostToDate = String.valueOf(totalActualCostToDateBigDecimal);
 		totalEstimatedCurrentCost = String.valueOf(totalEstimatedCurrentCostBigDecimal);
 		totalBudgetedCost = String.valueOf(totalBudgetedCostBigDecimal);
-		totalDiscretionalCost = String.valueOf(totalDiscretionalCostBigDecimal);
-		materialTotalActualCostToDate = String.valueOf(materialsActualCostToDateBigDecimal);
+		actualTotalDiscretionalCost = String.valueOf(actualTotalDiscretionalCostBigDecimal);
+		currentTotalDiscretionalCost = String.valueOf(currentTotalDiscretionalCostBigDecimal);
+		materialsTotalActualCostToDate = String.valueOf(materialsActualCostToDateBigDecimal);
 		resourcesTotalActualCostToDate = String.valueOf(resourcesActualCostToDateBigDecimal);
-		materialEstimatedTotalCost = String.valueOf(materialsEstimatedTotalCostBigDecimal);
+		materialsEstimatedTotalCost = String.valueOf(materialsEstimatedTotalCostBigDecimal);
 		resourcesEstimatedTotalCost = String.valueOf(resourcesEstimatedTotalCostBigDecimal);
 
 	}
 
-	public String getTotalDiscretionalCost()
+	public String getActualTotalDiscretionalCost()
 	{
-		return totalDiscretionalCost;
+		return actualTotalDiscretionalCost;
+	}
+
+	public String getCurrentTotalDiscretionalCost()
+	{
+		return currentTotalDiscretionalCost;
+	}
+
+	public String getMaterialsTotalActualCostToDate()
+	{
+		return materialsTotalActualCostToDate;
+	}
+
+	public String getResourcesTotalActualCostToDate()
+	{
+		return resourcesTotalActualCostToDate;
+	}
+	
+	
+	public String getMaterialsEstimatedTotalCost()
+	{
+		return materialsEstimatedTotalCost;
+	}
+
+	public String getResourcesEstimatedTotalCost()
+	{
+		return resourcesEstimatedTotalCost;
 	}
 
 	public ArrayList<ProjectSpace> getProjectsList() {
