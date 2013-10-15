@@ -226,91 +226,17 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 		BigDecimal materialsEstimatedTotalCostBigDecimal = new BigDecimal(0.0);
 		BigDecimal resourcesEstimatedTotalCostBigDecimal = new BigDecimal(0.0);
 
-		// Check the project status and if count's on the total
-		for (ProjectSpace project : this.getProjectsList()) {
-			switch (Integer.valueOf(project.getStatusID())) {
-			case 100:
-				if (PropertyProvider.getBoolean("prm.financial.project.notstarted.isenabled")) {
-					totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
-					totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
-					totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
-					actualTotalDiscretionalCostBigDecimal = actualTotalDiscretionalCostBigDecimal.add(project.getActualDiscretionalCost().getValue());
-					currentTotalDiscretionalCostBigDecimal = currentTotalDiscretionalCostBigDecimal.add(project.getCurrentDiscretionalCost().getValue());					
-					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialsActualCostToDate().getValue());
-					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesActualCostToDate().getValue());
-					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialsCurrentEstimatedTotalCost().getValue());
-					resourcesEstimatedTotalCostBigDecimal = resourcesEstimatedTotalCostBigDecimal.add(project.getResourcesCurrentEstimatedTotalCost().getValue());
-				}
-				break;
-			case 200:
-				if (PropertyProvider.getBoolean("prm.financial.project.inprocess.isenabled")) {
-					totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
-					totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
-					totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
-					actualTotalDiscretionalCostBigDecimal = actualTotalDiscretionalCostBigDecimal.add(project.getActualDiscretionalCost().getValue());
-					currentTotalDiscretionalCostBigDecimal = currentTotalDiscretionalCostBigDecimal.add(project.getCurrentDiscretionalCost().getValue());
-					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialsActualCostToDate().getValue());
-					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesActualCostToDate().getValue());
-					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialsCurrentEstimatedTotalCost().getValue());
-					resourcesEstimatedTotalCostBigDecimal = resourcesEstimatedTotalCostBigDecimal.add(project.getResourcesCurrentEstimatedTotalCost().getValue());
-				}
-				break;
-			case 300:
-				if (PropertyProvider.getBoolean("prm.financial.project.onhold.isenabled")) {
-					totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
-					totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
-					totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
-					actualTotalDiscretionalCostBigDecimal = actualTotalDiscretionalCostBigDecimal.add(project.getActualDiscretionalCost().getValue());
-					currentTotalDiscretionalCostBigDecimal = currentTotalDiscretionalCostBigDecimal.add(project.getCurrentDiscretionalCost().getValue());
-					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialsActualCostToDate().getValue());
-					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesActualCostToDate().getValue());
-					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialsCurrentEstimatedTotalCost().getValue());
-					resourcesEstimatedTotalCostBigDecimal = resourcesEstimatedTotalCostBigDecimal.add(project.getResourcesCurrentEstimatedTotalCost().getValue());
-				}
-				break;
-			case 400:
-				if (PropertyProvider.getBoolean("prm.financial.project.completed.isenabled")) {
-					totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
-					totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
-					totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
-					actualTotalDiscretionalCostBigDecimal = actualTotalDiscretionalCostBigDecimal.add(project.getActualDiscretionalCost().getValue());
-					currentTotalDiscretionalCostBigDecimal = currentTotalDiscretionalCostBigDecimal.add(project.getCurrentDiscretionalCost().getValue());
-					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialsActualCostToDate().getValue());
-					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesActualCostToDate().getValue());
-					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialsCurrentEstimatedTotalCost().getValue());
-					resourcesEstimatedTotalCostBigDecimal = resourcesEstimatedTotalCostBigDecimal.add(project.getResourcesCurrentEstimatedTotalCost().getValue());
-				}
-				break;
-			case 500:
-				if (PropertyProvider.getBoolean("prm.financial.project.proposed.isenabled")) {
-					totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
-					totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
-					totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
-					actualTotalDiscretionalCostBigDecimal = actualTotalDiscretionalCostBigDecimal.add(project.getActualDiscretionalCost().getValue());
-					currentTotalDiscretionalCostBigDecimal = currentTotalDiscretionalCostBigDecimal.add(project.getCurrentDiscretionalCost().getValue());
-					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialsActualCostToDate().getValue());
-					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesActualCostToDate().getValue());
-					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialsCurrentEstimatedTotalCost().getValue());
-					resourcesEstimatedTotalCostBigDecimal = resourcesEstimatedTotalCostBigDecimal.add(project.getResourcesCurrentEstimatedTotalCost().getValue());
-				}
-				break;
-			case 600:
-				if (PropertyProvider.getBoolean("prm.financial.project.inplanning.isenabled")) {
-					totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
-					totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
-					totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
-					actualTotalDiscretionalCostBigDecimal = actualTotalDiscretionalCostBigDecimal.add(project.getActualDiscretionalCost().getValue());
-					currentTotalDiscretionalCostBigDecimal = currentTotalDiscretionalCostBigDecimal.add(project.getCurrentDiscretionalCost().getValue());
-					materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialsActualCostToDate().getValue());
-					resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesActualCostToDate().getValue());
-					materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialsCurrentEstimatedTotalCost().getValue());
-					resourcesEstimatedTotalCostBigDecimal = resourcesEstimatedTotalCostBigDecimal.add(project.getResourcesCurrentEstimatedTotalCost().getValue());
-				}
-				break;
-			default:
-				break;
-			}
-
+		for (ProjectSpace project : this.getActiveProjectsList())
+		{
+			totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
+			totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
+			totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
+			actualTotalDiscretionalCostBigDecimal = actualTotalDiscretionalCostBigDecimal.add(project.getActualDiscretionalCost().getValue());
+			currentTotalDiscretionalCostBigDecimal = currentTotalDiscretionalCostBigDecimal.add(project.getCurrentDiscretionalCost().getValue());					
+			materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialsActualCostToDate().getValue());
+			resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesActualCostToDate().getValue());
+			materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialsCurrentEstimatedTotalCost().getValue());
+			resourcesEstimatedTotalCostBigDecimal = resourcesEstimatedTotalCostBigDecimal.add(project.getResourcesCurrentEstimatedTotalCost().getValue());
 		}
 
 		totalActualCostToDate = String.valueOf(totalActualCostToDateBigDecimal);
@@ -322,7 +248,6 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 		resourcesTotalActualCostToDate = String.valueOf(resourcesActualCostToDateBigDecimal);
 		materialsEstimatedTotalCost = String.valueOf(materialsEstimatedTotalCostBigDecimal);
 		resourcesEstimatedTotalCost = String.valueOf(resourcesEstimatedTotalCostBigDecimal);
-
 	}
 
 	public String getActualTotalDiscretionalCost()
@@ -381,6 +306,47 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 			Logger.getLogger(FinancialSpace.class).debug("PersistenceException: " + exception, exception);
 			return new ArrayList<ProjectSpace>();
 		}
+	}
+	
+	public ArrayList<ProjectSpace> getActiveProjectsList()
+	{
+		ArrayList<ProjectSpace> activeProjectList = new ArrayList<ProjectSpace>();
+
+		// Check the project status and if count's on the total
+		for (ProjectSpace project : this.getProjectsList())
+		{
+			switch (Integer.valueOf(project.getStatusID()))
+			{
+				case 100:
+					if (PropertyProvider.getBoolean("prm.financial.project.notstarted.isenabled")) 
+						activeProjectList.add(project);
+					break;
+				case 200:
+					if (PropertyProvider.getBoolean("prm.financial.project.inprocess.isenabled"))
+						activeProjectList.add(project);
+					break;
+				case 300:
+					if (PropertyProvider.getBoolean("prm.financial.project.onhold.isenabled"))
+						activeProjectList.add(project);					
+					break;
+				case 400:
+					if (PropertyProvider.getBoolean("prm.financial.project.completed.isenabled"))
+						activeProjectList.add(project);					
+					break;
+				case 500:
+					if (PropertyProvider.getBoolean("prm.financial.project.proposed.isenabled"))
+						activeProjectList.add(project);
+					break;
+				case 600:
+					if (PropertyProvider.getBoolean("prm.financial.project.inplanning.isenabled"))
+						activeProjectList.add(project);
+					break;
+				default:
+					break;
+			}
+		}
+		
+		return activeProjectList;
 	}
 
 	/******************************************************************************
