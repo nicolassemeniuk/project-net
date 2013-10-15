@@ -327,7 +327,7 @@ public class Dashboard extends BasePage
 				financialDescription = financialDescription.substring(0, 100) + "..";
 			}			
 			
-			projectList = financialSpace.getProjectsList();
+			projectList = financialSpace.getActiveProjectsList();
 			if(projectList.isEmpty())
 				hasProjects = false;
 			else
