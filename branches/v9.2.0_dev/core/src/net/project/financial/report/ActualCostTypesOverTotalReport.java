@@ -28,7 +28,7 @@ import com.lowagie.text.Phrase;
 import com.lowagie.text.Rectangle;
 import com.lowagie.text.Table;
 
-public class BusinessProjectsFinancialReport extends AbstractReport {
+public class ActualCostTypesOverTotalReport extends AbstractReport {
 	
 	/** "Project Name" column name. */
 	private String PROJECT_NAME = PropertyProvider.get("prm.financial.report.projectname.name");
@@ -62,8 +62,8 @@ public class BusinessProjectsFinancialReport extends AbstractReport {
 	/**
 	 * Standard constructor which creates a FormItemSummaryReport.
 	 */
-	public BusinessProjectsFinancialReport(ReportScope scope) {
-		super(new BusinessProjectsFinancialReportData(), ReportType.BUSINESS_PROJECTS_FINANCIAL_REPORTS, scope);
+	public ActualCostTypesOverTotalReport(ReportScope scope) {
+		super(new ActualCostTypesOverTotalReportData(), ReportType.ACTUAL_COST_TYPES_OVER_TOTAL_REPORTS, scope);
 	}
 
 	@Override
@@ -213,5 +213,4 @@ public class BusinessProjectsFinancialReport extends AbstractReport {
 
 		return doc;
 	}
-
 }

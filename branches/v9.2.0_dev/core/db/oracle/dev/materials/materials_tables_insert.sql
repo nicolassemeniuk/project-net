@@ -2,7 +2,7 @@
  *				PN_PROPERTY
 ************************************************************************************/
 
-delete from PN_PROPERTY a where a.PROPERTY like '%prm.material.create.wizard.step1.channel.generalinformation.title%';
+-- delete from PN_PROPERTY a where a.PROPERTY like '%prm.material.create.wizard.step1.channel.generalinformation.title%';
 -- update pn_property set Property_value='1' where pn_property.property = 'prm.enterprise.isenabled'
 -- insert into PN_PROPERTY values (2000,'en','boolean','prm.enterprise.isenabled','1','A',0,0,null);
 
@@ -11,9 +11,9 @@ delete from PN_PROPERTY a where a.PROPERTY like '%prm.material.create.wizard.ste
 
 
 -- Reports
-insert into PN_PROPERTY values (2000,'en','text','prm.project.report.projectmaterialreport.name','Project Materials Report','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.project.report.projectmaterialreport.description','Lists the Materials in the Project','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.project.report.projectmaterialreport.xslpath','/report/xsl/projectmaterialreport.xsl','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.report.materialreport.name','Project Materials Report','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.report.materialreport.description','Lists the Materials in the Project','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.report.materialreport.xslpath','/report/xsl/projectmaterialreport.xsl','A',0,1,null);
 
 insert into PN_PROPERTY values (2000,'en','text','prm.material.report.materialname.name','Material Name','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.report.materialdescription.name','Description','A',0,1,null);
@@ -46,8 +46,9 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.materi
 insert into PN_PROPERTY values (2000,'en','text','prm.material.columndefs.material.consumable.no','No','A',0,1,null);
 
 -- Report type and sequence
-insert into pn_space_type_has_report_type values('project','pmr');
-insert into pn_report_sequence values('pmr',11);
+insert into pn_space_type_has_report_type values('project','mtr');
+insert into pn_space_type_has_report_type values('business','mtr');
+insert into pn_report_sequence values('mtr',11);
 
 -- Material allocation
 insert into PN_PROPERTY values (2000,'en','text','prm.material.allocation.title','Material Assignments','A',0,1,null);
@@ -61,7 +62,7 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.allocation.legend
 insert into PN_PROPERTY values (2000,'en','text','prm.material.allocation.legend.full.name','Material Assigned','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.allocation.legend.over.name','Material Over-assigned','A',0,1,null);
 
--- Propiedades de TaskView Materials (materiales de la tarea).
+-- Properties of TaskView Materials.
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material.cantassignmentmaterial.message','You cannot assign a material in a template!','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material.unsavedchanges.message','You haven''t saved your changes yet','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.material.oncriticalpath.message','This task is in the critical path','A',0,1,null);
@@ -79,18 +80,18 @@ insert into PN_PROPERTY values (2000,'en','text','prm.global.materials.objecttyp
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskview.materials.tab','Materials','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.directory.directory.tab.materials.title','Materials','A',0,1,null);
 
---Error harcodeado en taskedit/assignments
+-- Harcoded error on taskedit/assignments
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.taskedit.resources.cannotassignonshared.message','Assignments cannot be added to shares.  All assignment work must occur in the source task or schedule.','A',0,1,null);
 
---Navbar Project/Material
+-- Navbar Project/Material
 insert into PN_PROPERTY values (2000,'en','boolean','prm.project.material.isenabled','1','A',0,0,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.nav.material','Materials','A',0,1,null);
 
---Navbar Business/Material
+-- Navbar Business/Material
 insert into PN_PROPERTY values (2000,'en','boolean','prm.business.material.isenabled','1','A',0,0,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.business.nav.material','Materials','A',0,1,null);
 
--- Portafolio de Materiales
+-- Material Portfolio
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.channel.title','Materials you have access to','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.title','Material List','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.create.button.tooltip','New Material','A',0,1,null);
@@ -99,7 +100,7 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.main.remove.butto
 
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.module.history','Materials','A',0,1,null);
 
---Material directory
+-- Material directory
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.authorizationfailed.message','Access to Material Workspace denied','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.list.name','Material','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.list.type','Type','A',0,1,null);
@@ -116,7 +117,7 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.main.material.min
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.material.maxcostamountincorrect.message','The maximum cost must be a positive value','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.material.costincorrectrange.message','The maximum cost cannot be less than minimum cost','A',0,1,null);
 
--- Assign material dialog
+-- Assign Material dialog
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.assignmaterialsdialog.title','Materials','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.assignmaterialsdialog.addtoexisting','Add to Existing Material Assignments','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.assignmaterialsdialog.replaceexisting','Replace Existing Material Assignments','A',0,1,null);

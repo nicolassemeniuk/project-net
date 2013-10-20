@@ -554,7 +554,7 @@ function preselectTemplate(methodologyId) {
 				<display:get name="prm.project.create.wizard.actualdiscretionalcost.label" />:&nbsp;
 			</td>						
 			<td class="tableContent">
-		        <input:money name="MetaActualDiscretionalCost" money="<%=new Money()%>" currency="<%=Currency.getSystemDefaultCurrency()%>" />
+		        <input:money name="MetaDiscretionalActualCostToDate" money="<%=new Money()%>" currency="<%=Currency.getSystemDefaultCurrency()%>" />
 	        </td>
 		   	<td>&nbsp;</td>
 		</tr>
@@ -565,7 +565,7 @@ function preselectTemplate(methodologyId) {
 				<display:get name="prm.project.create.wizard.currentdiscretionalcost.label" />:&nbsp;
 			</td>						
 			<td class="tableContent">
-		        <input:money name="MetaCurrentDiscretionalCost" money="<%=new Money()%>" currency="<%=Currency.getSystemDefaultCurrency()%>" />
+		        <input:money name="MetaDiscretionalCurrentEstimatedTotalCost" money="<%=new Money()%>" currency="<%=Currency.getSystemDefaultCurrency()%>" />
 	        </td>
 		   	<td>&nbsp;</td>
 		</tr>					

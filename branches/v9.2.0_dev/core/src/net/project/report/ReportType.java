@@ -35,10 +35,11 @@ import net.project.base.property.PropertyProvider;
 import net.project.business.report.projectstatus.ProjectPortfolioReport;
 import net.project.business.report.projectstatus.ProjectStatusReport;
 import net.project.database.DBBean;
+import net.project.financial.report.ActualCostTypesOverTotalReport;
 import net.project.financial.report.BusinessProjectsFinancialReport;
 import net.project.form.report.formitemsummaryreport.FormItemSummaryReport;
 import net.project.form.report.formitemtimeseries.FormItemTimeSeriesReport;
-import net.project.material.report.ProjectMaterialReport;
+import net.project.material.report.MaterialReport;
 import net.project.persistence.PersistenceException;
 import net.project.resource.report.businessworkcompleted.BusinessWorkCompletedReport;
 import net.project.resource.report.workcompleted.WorkCompletedReport;
@@ -187,10 +188,10 @@ public class ReportType {
      * Object describing the "Material Report" report.
      */
     public static final ReportType MATERIAL_REPORTS  = new ReportType("mtr",
-        "prm.project.report.projectmaterialreport.name",
-        "prm.project.report.projectmaterialreport.description",
-        "prm.project.report.projectmaterialreport.xslpath", 
-		ProjectMaterialReport.class);    
+        "prm.material.report.materialreport.name",
+        "prm.material.report.materialreport.description",
+        "prm.material.report.materialreport.xslpath", 
+		MaterialReport.class);    
     
     /**
      * Object describing the "Financial Project Report" report.
@@ -200,6 +201,15 @@ public class ReportType {
         "prm.project.report.businessprojectsfinancialreport.description",
         "prm.project.report.businessprojectsfinancialreport.xslpath", 
 		BusinessProjectsFinancialReport.class);    
+    
+    /**
+     * Object describing the "Actual Cost Types Over Total Report" report.
+     */
+    public static final ReportType ACTUAL_COST_TYPES_OVER_TOTAL_REPORTS  = new ReportType("actr",
+        "prm.project.report.actualcosttypesovertotalreport.name",
+        "prm.project.report.actualcosttypesovertotalreport.description",
+        "prm.project.report.actualcosttypesovertotalreport.xslpath", 
+		ActualCostTypesOverTotalReport.class);   
 
     /**
      * Get the report that corresponds to the report id passed in the id parameter.
