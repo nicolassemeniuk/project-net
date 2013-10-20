@@ -25,6 +25,7 @@
             net.project.base.property.PropertyProvider,
             net.project.util.Validator,
             net.project.business.BusinessSpace,
+            net.project.base.money.Money,
             net.project.util.ErrorReporter"
 %>
 <%@ include file="/base/taglibInclude.jsp" %>
@@ -166,16 +167,37 @@
 			String value = request.getParameter(name);
 			String propertyName = name.substring(4,name.length()-6);			
 			if (value != null && !"".equals(value)) {
-				projectWizard.getMetaData().setProperty(propertyName, value.replaceAll(",", "."));
+				projectWizard.getMetaData().setProperty(propertyName, value);
 			}
 		}
 	}
+	
+	if(projectWizard.getMetaData().getProperty("CostCalculationMethod").equals("manual")){
+		//If the cost is manual the user enters the values, therefore we have to sum all of them from the meta
+		//properties and set the actual and estimated costs as the sum of materials, resources and discretional
+		//costs.
+		String discretionalActualCostToDate = projectWizard.getMetaData().getProperty("DiscretionalActualCostToDate");
+		String materialsActualCostToDate = projectWizard.getMetaData().getProperty("MaterialsActualCostToDate");
+		String resourcesActualCostToDate = projectWizard.getMetaData().getProperty("ResourcesActualCostToDate");
+		
+		String discretionalCurrentEstimatedTotalCost = projectWizard.getMetaData().getProperty("DiscretionalCurrentEstimatedTotalCost");
+		String materialsCurrentEstimatedTotalCost = projectWizard.getMetaData().getProperty("MaterialsCurrentEstimatedTotalCost");
+		String resourcesCurrentEstimatedTotalCost = projectWizard.getMetaData().getProperty("ResourcesCurrentEstimatedTotalCost");
+		
+		
+		
+		projectWizard.setActualCostToDate(new Money(materialsActualCostToDate, projectWizard.getDefaultCurrency()));
+	} else {
+		
+	}
+	
+	
 
 	// Setting the actual cost To date and the current estimated total cost for manual calculation
 	// Materials Actual Cost To Date + Resources Actual Cost To Date + Actual Discretional Cost
-	projectWizard.setActualCostToDate(projectWizard.getMaterialsActualCostToDate().add(projectWizard.getResourcesActualCostToDate().add(projectWizard.getActualDiscretionalCost())));
+	
 	// Materials Current Estimated Total Cost + Resources Current Estimated Total Cost + Current Discretional Cost
-	projectWizard.setCurrentEstimatedTotalCost(projectWizard.getMaterialsCurrentEstimatedTotalCost().add(projectWizard.getResourcesCurrentEstimatedTotalCost().add(projectWizard.getCurrentDiscretionalCost())));	
+	//projectWizard.setCurrentEstimatedTotalCost(projectWizard.getMaterialsCurrentEstimatedTotalCost().add(projectWizard.getResourcesCurrentEstimatedTotalCost().add(projectWizard.getCurrentDiscretionalCost())));	
 	
     // Generate error messages
     if (isInvalidParentProject) {

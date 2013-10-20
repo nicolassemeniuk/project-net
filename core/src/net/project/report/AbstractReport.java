@@ -446,7 +446,7 @@ public abstract class AbstractReport implements IReport {
         }
      
         data.updateParametersFromRequest(request);
-        //Set assginment type user choose 
+        //Set assignment type user choose 
         String assignmentType = request.getParameter("assignmentType");
         data.setReportAssignmentType(ReportAssignmentType.getForID(assignmentType));
     }

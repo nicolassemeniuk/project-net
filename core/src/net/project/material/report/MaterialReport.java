@@ -28,7 +28,7 @@ import com.lowagie.text.Phrase;
 import com.lowagie.text.Rectangle;
 import com.lowagie.text.Table;
 
-public class ProjectMaterialReport extends AbstractReport {
+public class MaterialReport extends AbstractReport {
 
 	/** "Material Name" column name. */
 	private String MATERIAL_NAME = PropertyProvider.get("prm.material.report.materialname.name");
@@ -58,8 +58,8 @@ public class ProjectMaterialReport extends AbstractReport {
 	/**
 	 * Standard constructor which creates a FormItemSummaryReport.
 	 */
-	public ProjectMaterialReport(ReportScope scope) {
-		super(new ProjectMaterialReportData(), ReportType.MATERIAL_REPORTS, scope);
+	public MaterialReport(ReportScope scope) {
+		super(new MaterialReportData(), ReportType.MATERIAL_REPORTS, scope);
 	}
 
 	@Override
@@ -95,7 +95,7 @@ public class ProjectMaterialReport extends AbstractReport {
 	}
 	
     private Table createReportSummary() throws BadElementException, IOException, ChartingException {
-        ProjectMaterialReportSummaryData summaryData = ((ProjectMaterialReportData)getData()).getSummaryData();
+        MaterialReportSummaryData summaryData = ((MaterialReportData)getData()).getSummaryData();
 
         //Create the table that will house the top summary section
         Table summaryTable = ReportComponents.createSummaryTable(2, 2);
@@ -177,7 +177,7 @@ public class ProjectMaterialReport extends AbstractReport {
 		addReportParametersElements(doc);
 
 		// Create the summary section
-		ProjectMaterialReportSummaryData summaryData = ((ProjectMaterialReportData) getData()).getSummaryData();
+		MaterialReportSummaryData summaryData = ((MaterialReportData) getData()).getSummaryData();
 		doc.startElement("SummaryData");
 		doc.addElement("MaterialCount", new Integer(summaryData.getTotalMaterials()));
 		doc.addElement("MaterialTotalCost", new Float(summaryData.getTotalCost()));

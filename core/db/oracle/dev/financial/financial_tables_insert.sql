@@ -1,7 +1,7 @@
 
-select * from PN_PROPERTY a where a.PROPERTY like '%prm.project.report.businessprojectsfinancialreport.xslpath%';
+--select * from PN_PROPERTY a where a.PROPERTY like '%prm.project.report.businessprojectsfinancialreport.xslpath%';
 
-update PN_PROPERTY a set a.property_value='/report/xsl/businessprojectsfinancialreport.xsl' where a.PROPERTY like '%prm.project.report.businessprojectsfinancialreport.xslpath%';
+--update PN_PROPERTY a set a.property_value='/report/xsl/businessprojectsfinancialreport.xsl' where a.PROPERTY like '%prm.project.report.businessprojectsfinancialreport.xslpath%';
 -- select * from PN_PROPERTY a where a.PROPERTY like '%prm.global.header%';
 
 -- Project Create
@@ -42,12 +42,12 @@ insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.res
 
 --Project Meta Properties
 insert into pn_project_space_meta_prop values (8,'CostCalculationMethod', 3);
-insert into pn_project_space_meta_prop values (9,'MaterialsActualCostToDate', 1);
-insert into pn_project_space_meta_prop values (10,'ResourcesActualCostToDate', 1);
-insert into pn_project_space_meta_prop values (11,'MaterialsCurrentEstimatedTotalCost', 1);
-insert into pn_project_space_meta_prop values (12,'ResourcesCurrentEstimatedTotalCost', 1);
-insert into pn_project_space_meta_prop values (13,'ActualDiscretionalCost', 1);
-insert into pn_project_space_meta_prop values (14,'CurrentDiscretionalCost', 1);
+insert into pn_project_space_meta_prop values (9,'DiscretionalActualCostToDate', 1);
+insert into pn_project_space_meta_prop values (10,'MaterialsActualCostToDate', 1);
+insert into pn_project_space_meta_prop values (11,'ResourcesActualCostToDate', 1);
+insert into pn_project_space_meta_prop values (12,'DiscretionalCurrentEstimatedTotalCost', 1);
+insert into pn_project_space_meta_prop values (13,'MaterialsCurrentEstimatedTotalCost', 1);
+insert into pn_project_space_meta_prop values (14,'ResourcesCurrentEstimatedTotalCost', 1);
 
 --Project status for financial calculation
 insert into PN_PROPERTY values (2000,'en','boolean','prm.financial.project.notstarted.isenabled','0','A',0,0,null);

@@ -1442,7 +1442,7 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 	public Money getActualDiscretionalCost(){
 		try
 		{
-			return new Money(getMetaData().getProperty("ActualDiscretionalCost"), getDefaultCurrency());
+			return new Money(getMetaData().getProperty("DiscretionalActualCostToDate"), getDefaultCurrency());
 		}
 		catch (NoSuchPropertyException e)
 		{
@@ -1457,7 +1457,7 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 	public Money getCurrentDiscretionalCost(){
 		try
 		{
-			return new Money(getMetaData().getProperty("CurrentDiscretionalCost"), getDefaultCurrency());
+			return new Money(getMetaData().getProperty("DiscretionalCurrentEstimatedTotalCost"), getDefaultCurrency());
 		}
 		catch (NoSuchPropertyException e)
 		{

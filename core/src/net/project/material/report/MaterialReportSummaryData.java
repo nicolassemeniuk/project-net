@@ -1,6 +1,6 @@
 package net.project.material.report;
 
-public class ProjectMaterialReportSummaryData {
+public class MaterialReportSummaryData {
 	
 	private int totalMaterials = 0;
 	private float totalCost=0;
