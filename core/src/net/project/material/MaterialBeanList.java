@@ -58,6 +58,19 @@ public class MaterialBeanList extends ArrayList<MaterialBean> implements IXMLPer
    		this.isLoaded=true;		
 	}
 	
+	public void load(String name, String materialTypeId, String consumable, String minCost, String maxCost)
+	{
+		// TODO Implementar criterios de busqueda
+		PnMaterialList materialList = ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(this.spaceID, name);
+		
+		for(PnMaterial material : materialList){
+				MaterialBean materialBean = new MaterialBean(material);
+				this.add(materialBean);
+		}
+	
+   		this.isLoaded=true;		
+	}
+	
 	/**
 	 * Converts the object to XML representation This method returns the object
 	 * as XML text.

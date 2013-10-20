@@ -48,18 +48,61 @@
 	
 	if (request.getParameter("theAction").equals("search"))
 	{
+		// Name search
 		String key = request.getParameter("key");
-		request.setAttribute("searchKey", key);		
 		
-		// Roster.search takes nulls for wildcard.
-		if ((key == null) || key.equals("*") || key.equals(""))
+		// Roster search takes nulls for wildcard.
+		if (key == null || key.equals("*") || key.equals(""))
 		{
 			key = null;
 			request.setAttribute("searchKey", "");			
 		}
+		else
+			request.setAttribute("searchKey", key);
 				
+		// Material Type search always sends a value, at least 0 for any
+		String materialTypeId = request.getParameter("materialTypeId");
+		request.setAttribute("materialTypeId", materialTypeId);
+		
+		// Consumable search
+		String consumable = request.getParameter("consumable");
+		
+		// Consumable checkbox sends a null value when is not selected
+		if (consumable == null)
+		{
+			consumable = null;
+			request.setAttribute("consumable", "");			
+		}
+		// consumable == "on"
+		else
+			request.setAttribute("consumable", consumable);
+		
+		// Minimum cost search
+		String minCost = request.getParameter("minCost");
+		
+		// Roster search takes nulls for wildcard.
+		if (minCost == null || minCost.equals(""))
+		{
+			minCost = null;
+			request.setAttribute("minCost", "");			
+		}
+		else
+			request.setAttribute("minCost", minCost);
+		
+		// Maximum cost search
+		String maxCost = request.getParameter("maxCost");
+				
+		// Roster search takes nulls for wildcard.
+		if (maxCost == null || maxCost.equals(""))
+		{
+			maxCost = null;
+			request.setAttribute("maxCost", "");			
+		}
+		else
+			request.setAttribute("maxCost", maxCost);		
+
 		materialBeanList.clear();
-		materialBeanList.load(key);
+		materialBeanList.load(key, materialTypeId, consumable, minCost, maxCost);
 		
 		pageContext.forward("/material/MaterialDirectory.jsp?module="+Module.MATERIAL + "&mode=search&currentTab=" + session.getAttribute("currentTab"));
 	}

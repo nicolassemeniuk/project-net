@@ -649,12 +649,17 @@ table.t-data-grid tbody tr td {
 	font-weight: bold;
 	height: 21px;	
 	color: #060;
-	padding: 15px 10px;
+	padding: 0px 5px 0px 20px;
 }
 
 .inputSearchField
 {
 	margin: 15px 0px;
+}
+
+.inputSearchFieldCost
+{
+	width: 72px;
 }
 
 .channelHeaderTabSet

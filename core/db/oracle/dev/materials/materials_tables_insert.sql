@@ -108,7 +108,13 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.main.list.consuma
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.list.description','Description','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.material.tab.businessmaterials.title','Business Materials','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.material.tab.projectmaterials.title','Project Materials','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.material.main.roster.search.label','Search','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.roster.namesearch.label','Search','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.roster.typesearch.label','Type','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.roster.consumablesearch.label','Consumable','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.roster.costrangesearch.label','Cost range','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.material.mincostamountincorrect.message','The minimum cost must be a positive value','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.material.maxcostamountincorrect.message','The maximum cost must be a positive value','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.material.costincorrectrange.message','The maximum cost cannot be less than minimum cost','A',0,1,null);
 
 -- Assign material dialog
 insert into PN_PROPERTY values (2000,'en','text','prm.schedule.assignmaterialsdialog.title','Materials','A',0,1,null);
