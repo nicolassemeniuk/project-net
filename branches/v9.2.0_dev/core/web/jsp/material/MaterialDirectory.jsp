@@ -13,6 +13,7 @@
  * If not, see http://www.gnu.org/licenses/gpl-3.0.html
 --%>
 
+<%@page import="net.project.hibernate.model.PnMaterialType"%>
 <%@ page contentType="text/html; charset=UTF-8" info="Material List" language="java" errorPage="/errors.jsp"
 	import="net.project.security.*,
 			net.project.base.property.PropertyProvider,
@@ -21,15 +22,18 @@
 			net.project.gui.toolbar.ButtonType,
             net.project.base.Module,
             net.project.material.MaterialBeanList,
+            net.project.project.DomainListBean,            
 			net.project.hibernate.service.ServiceFactory,
 			net.project.space.Space,
 			net.project.project.ProjectSpace,
-			net.project.business.BusinessSpace"%>
+			net.project.business.BusinessSpace,
+			net.project.material.PnMaterialTypeList"%>
 <%@ include file="/base/taglibInclude.jsp"%>
 
 <jsp:useBean id="materialBeanList" class="net.project.material.MaterialBeanList" scope="session" />
 <jsp:useBean id="user" class="net.project.security.User" scope="session" />
 <jsp:useBean id="securityProvider" class="net.project.security.SecurityProvider" scope="session" />
+<jsp:useBean id="domainList" class="net.project.project.DomainListBean" scope="page" />
 
 <%
 	String mode = request.getParameter("mode");
@@ -50,10 +54,22 @@
 		request.setAttribute("parentBusinessID", parentBusinessID);			
 	}
 	
+	// Generates the material types list with the "Any" element
+	PnMaterialTypeList materialTypes = new PnMaterialTypeList();
+	PnMaterialType anyMaterial = new PnMaterialType();
+	anyMaterial.setMaterialTypeId(0);
+	anyMaterial.setMaterialTypeName("Any");
+	materialTypes.add(anyMaterial);
+	materialTypes.addAll(ServiceFactory.getInstance().getPnMaterialTypeService().getMaterialTypes());
+	
 	// Don't refresh the materialBeanList if we are returning search results, it was previously loaded
 	if(mode == null)
 	{
-		request.setAttribute("searchKey", "");		
+		request.setAttribute("searchKey", "");
+		request.setAttribute("materialTypeId", "0");
+		request.setAttribute("consumable", "off");
+		request.setAttribute("minCost", "");
+		request.setAttribute("maxCost", "");			
 		materialBeanList.clear();
 		
 		// Showing the materials of the business in the business workspace
@@ -81,6 +97,8 @@
 
 <%-- Import CSS --%>
 <template:getSpaceCSS/>
+<template:import type="javascript" src="/src/checkIsNumber.js" />
+<template:import type="javascript" src="/src/errorHandler.js" />
 
 <%-- Import Javascript --%>
 <template:getSpaceJS/>
@@ -151,15 +169,36 @@
 	{
 		theForm.key.value = key;
 		theForm.action.value = '<%=Action.VIEW%>';
-		searchButton();
+		searchButton();			
 	}
 	
 	function searchButton()
 	{
-		theAction("search");
-		theForm.action.value = '<%=Action.VIEW%>';
-		theForm.submit();
+		if(validate())
+		{		
+			theAction("search");
+			theForm.action.value = '<%=Action.VIEW%>';
+			theForm.submit();
+		}
 	}
+	
+	function validate()
+	{
+		if(!checkIsPositiveNumber(theForm.minCost,'<display:get name="prm.material.main.material.mincostamountincorrect.message" />', true))
+			return false;
+		
+		if(!checkIsPositiveNumber(theForm.maxCost,'<display:get name="prm.material.main.material.maxcostamountincorrect.message" />', true))
+			return false;
+		
+		if(theForm.minCost.value != "" && theForm.maxCost.value != "" && theForm.minCost.value >= theForm.maxCost.value)
+		{
+			errorHandler(theForm.minCost, '<display:get name="prm.material.main.material.costincorrectrange.message" />');
+			return false;			
+		}
+	
+		return true;
+	}	
+	
 	function help() {
 			var helplocation = JSPRootURL + "/help/Help.jsp?page=material_main";
 			openwin_help(helplocation);
@@ -234,8 +273,21 @@
 				<input type="hidden" name="module" value="<%=Module.MATERIAL%>">
 		    	<input type="hidden" name="action" value="<%=Action.VIEW%>">
 		    	
-				<label for="searchField" class="labelSearchField"><%=PropertyProvider.get("prm.material.main.roster.search.label")%></label>
+				<label for="searchField" class="labelSearchField"><%=PropertyProvider.get("prm.material.main.roster.namesearch.label")%></label>
 				<input type="text" name="key" id="searchField" value="<%=request.getAttribute("searchKey")%>" size="40" maxlength="40" onKeyDown="if(event.keyCode==13) searchButton()" class="inputSearchField">
+		    	
+				<label for="materialTypeId" class="labelSearchField"><%=PropertyProvider.get("prm.material.main.roster.typesearch.label")%></label>		    	
+				<select name="materialTypeId" id="materialTypeId" class="inputSearchField">
+					<%=domainList.getMaterialTypeListForMaterialModification(materialTypes, (String) request.getAttribute("materialTypeId"))%>
+				</select>		    	
+		    	
+				<label for="consumable" class="labelSearchField"><%=PropertyProvider.get("prm.material.main.roster.consumablesearch.label")%></label>		    	
+		    	<input type="checkbox" name="consumable" id="consumable" class="inputSearchField" <%=(request.getAttribute("consumable").equals("on") ? "checked" : "")%> />
+
+				<label for="minCost" class="labelSearchField"><%=PropertyProvider.get("prm.material.main.roster.costrangesearch.label")%></label>			    	
+		    	<input type="number" name="minCost" id="minCost" maxlength="14" value="<%=request.getAttribute("minCost")%>" onKeyDown="if(event.keyCode==13) searchButton()" class="inputSearchFieldCost"/>
+		    	<span>-</span>
+		    	<input type="number" name="maxCost" id="maxCost" maxlength="14" value="<%=request.getAttribute("maxCost")%>" onKeyDown="if(event.keyCode==13) searchButton()" class="inputSearchFieldCost"/>		    	
 		    	
 				<div class="channelHeader channelHeaderTabSet">
 					<p><%=PropertyProvider.get("prm.material.main.channel.title")%></p>
