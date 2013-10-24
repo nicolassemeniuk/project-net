@@ -69,10 +69,10 @@ public class ProjectTotalCostChart extends TotalCostChart {
         //-------------------------------------------------------------------
         
         // Actual Cost To Date + Actual Discretional Cost
-        BigDecimal actualCostToDate = projectSpace.getActualCostToDate().getValue().add(projectSpace.getActualDiscretionalCost().getValue());
+        BigDecimal actualCostToDate = projectSpace.getActualCostToDate().getValue().add(projectSpace.getDiscretionalActualCostToDate().getValue());
         
         // Current Estimated Total Cost + Current Discretional Cost
-        BigDecimal currentEstimatedTotalCost = projectSpace.getCurrentEstimatedTotalCost().getValue().add(projectSpace.getCurrentDiscretionalCost().getValue());
+        BigDecimal currentEstimatedTotalCost = projectSpace.getCurrentEstimatedTotalCost().getValue().add(projectSpace.getDiscretionalCurrentEstimatedTotalCost().getValue());
         
         // Budgeted Total Cost
         BigDecimal budgetedTotalCost = projectSpace.getBudgetedTotalCost().getValue();

@@ -247,16 +247,68 @@
 				String value = request.getParameter(name);
 				String propertyName = name.substring(4,name.length()-6);			
 				if (value != null && !"".equals(value)) {
-					projectSpace.getMetaData().setProperty(propertyName, value);
+					Money moneyConversion = Money.parse(value, projectSpace.getDefaultCurrencyCode(), user);
+					projectSpace.getMetaData().setProperty(propertyName, moneyConversion.getValue().toString());
 				}
 			}
 		}
 
-		Money materials = projectSpace.getMaterialsActualCostToDate();
-		Money resources = projectSpace.getResourcesActualCostToDate();
-		Money discretional = projectSpace.getActualDiscretionalCost();
-		projectSpace.setActualCostToDate(materials.add(resources.add(discretional)));
-		projectSpace.setCurrentEstimatedTotalCost(projectSpace.getMaterialsCurrentEstimatedTotalCost());		
+		
+		if(projectSpace.getMetaData().getProperty("CostCalculationMethod").equals("manual")){
+			//If the cost is manual the user enters the values, therefore we have to sum all of them from the meta
+			//properties and set the actual and estimated costs as the sum of materials, resources and discretional
+			//costs.
+			
+			//Actual cost to Date
+// 			String discretionalActualCostToDate = projectSpace.getMetaData().getProperty("DiscretionalActualCostToDate");
+// 			String materialsActualCostToDate = projectSpace.getMetaData().getProperty("MaterialsActualCostToDate");
+// 			String resourcesActualCostToDate = projectSpace.getMetaData().getProperty("ResourcesActualCostToDate");
+			
+// 			Money discretionalActualCostToDateMoney = Money.parse(discretionalActualCostToDate, projectSpace.getDefaultCurrencyCode(), user);
+// 			Money materialsActualCostToDateMoney = Money.parse(materialsActualCostToDate, projectSpace.getDefaultCurrencyCode(), user);
+// 			Money resourcesActualCostToDateMoney = Money.parse(resourcesActualCostToDate, projectSpace.getDefaultCurrencyCode(), user);
+
+			Money discretionalActualCostToDateMoney = projectSpace.getDiscretionalActualCostToDate();
+			Money materialsActualCostToDateMoney = projectSpace.getMaterialsActualCostToDate();
+			Money resourcesActualCostToDateMoney = projectSpace.getResourcesActualCostToDate();
+			
+			Money totalActualCostToDate = discretionalActualCostToDateMoney.add(materialsActualCostToDateMoney).add(resourcesActualCostToDateMoney);
+			
+			projectSpace.setActualCostToDate(totalActualCostToDate);
+			
+			//Current Estimated Total Cost
+// 			String discretionalCurrentEstimatedTotalCost = projectSpace.getMetaData().getProperty("DiscretionalCurrentEstimatedTotalCost");
+// 			String materialsCurrentEstimatedTotalCost = projectSpace.getMetaData().getProperty("MaterialsCurrentEstimatedTotalCost");
+// 			String resourcesCurrentEstimatedTotalCost = projectSpace.getMetaData().getProperty("ResourcesCurrentEstimatedTotalCost");
+			
+// 			Money discretionalCurrentEstimatedTotalCostMoney = Money.parse(discretionalCurrentEstimatedTotalCost, projectSpace.getDefaultCurrencyCode(), user);
+// 			Money materialsCurrentEstimatedTotalCostMoney = Money.parse(materialsCurrentEstimatedTotalCost, projectSpace.getDefaultCurrencyCode(), user);
+// 			Money resourcesCurrentEstimatedTotalCostMoney = Money.parse(resourcesCurrentEstimatedTotalCost, projectSpace.getDefaultCurrencyCode(), user);
+
+			Money discretionalCurrentEstimatedTotalCostMoney = projectSpace.getDiscretionalCurrentEstimatedTotalCost();
+			Money materialsCurrentEstimatedTotalCostMoney = projectSpace.getMaterialsCurrentEstimatedTotalCost();
+			Money resourcesCurrentEstimatedTotalCostMoney = projectSpace.getResourcesCurrentEstimatedTotalCost();
+			
+			Money totalCurrentEstimatedTotalCost = discretionalCurrentEstimatedTotalCostMoney.add(materialsCurrentEstimatedTotalCostMoney).add(resourcesCurrentEstimatedTotalCostMoney);
+			
+			projectSpace.setCurrentEstimatedTotalCost(totalCurrentEstimatedTotalCost);
+		} else {
+			//If the user choose to let the system manage the cost, we only have to check if he put some value on the 
+			//Discretional Costs.
+			
+			//Actual cost to Date
+			Money discretionalActualCostToDateMoney = projectSpace.getDiscretionalActualCostToDate();
+			projectSpace.setActualCostToDate(discretionalActualCostToDateMoney);
+			
+			//Current Estimated Total Cost
+			Money discretionalCurrentEstimatedTotalCostMoney = projectSpace.getDiscretionalCurrentEstimatedTotalCost();
+			projectSpace.setCurrentEstimatedTotalCost(discretionalCurrentEstimatedTotalCostMoney);
+		}
+// 		Money materials = projectSpace.getMaterialsActualCostToDate();
+// 		Money resources = projectSpace.getResourcesActualCostToDate();
+// 		Money discretional = projectSpace.getActualDiscretionalCost();
+// 		projectSpace.setActualCostToDate(materials.add(resources.add(discretional)));
+// 		projectSpace.setCurrentEstimatedTotalCost(projectSpace.getMaterialsCurrentEstimatedTotalCost());		
 		// Setting the actual cost To date and the current estimated total cost for manual calculation
 		// Materials Actual Cost To Date + Resources Actual Cost To Date + Actual Discretional Cost
 		//projectSpace.setActualCostToDate(projectSpace.getMaterialsActualCostToDate().add(projectSpace.getResourcesActualCostToDate().add(projectSpace.getActualDiscretionalCost())));

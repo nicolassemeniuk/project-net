@@ -1288,6 +1288,21 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 	}
 	
 	/**
+	 * Obtain the discretional current estimated total cost for the project.
+	 * This value will always be available, on automatic or manual. If there is
+	 * an error a new money instance (0.00) is returned
+	 * 
+	 * @return the discretional estimated total cost.
+	 */
+	public Money getDiscretionalCurrentEstimatedTotalCost() {
+		try {
+			return new Money(getMetaData().getProperty("DiscretionalCurrentEstimatedTotalCost"), getDefaultCurrency());
+		} catch (NoSuchPropertyException e) {
+			return new Money();
+		}
+	}
+	
+	/**
 	 * Obtain the material estimated total cost for the project. This can only be
 	 * obtained if the project financial calculation method is set to automatic.
 	 * Will return a new money instance (0.00) otherwise.
@@ -1366,6 +1381,22 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 			return new Money();
 		}		
 	}
+	
+	/**
+	 * Obtain the discretional actual cost to date for the project. This value
+	 * will always be available, on automatic or manual. If there is an error
+	 * will return a new money instance (0.00).
+	 * 
+	 * @return the discretional actual cost.
+	 */
+	public Money getDiscretionalActualCostToDate() {
+		try {
+			return new Money(getMetaData().getProperty("DiscretionalActualCostToDate"), getDefaultCurrency());
+		} catch (NoSuchPropertyException e) {
+			return new Money();
+		}
+	}
+	
 
 	/**
 	 * Obtain the material actual cost to date for the project. This can only be
@@ -1409,6 +1440,10 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 			return new Money();
 		}
 	}
+	
+
+
+	
 
 	/**
 	 * Specifies the estimated return on investment for this project.
@@ -1435,35 +1470,7 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 		return this.estimatedROI;
 	}
 	
-	/**
-	 * Returns the actual discretional cost for this project.
-	 * @return the actual discretional cost.
-	 */
-	public Money getActualDiscretionalCost(){
-		try
-		{
-			return new Money(getMetaData().getProperty("DiscretionalActualCostToDate"), getDefaultCurrency());
-		}
-		catch (NoSuchPropertyException e)
-		{
-			return new Money();
-		}
-	}
 	
-	/**
-	 * Returns the current discretional cost for this project.
-	 * @return the current discretional cost.
-	 */
-	public Money getCurrentDiscretionalCost(){
-		try
-		{
-			return new Money(getMetaData().getProperty("DiscretionalCurrentEstimatedTotalCost"), getDefaultCurrency());
-		}
-		catch (NoSuchPropertyException e)
-		{
-			return new Money();
-		}
-	}	
 	
 	/**
 	 * Specifies a cost center.

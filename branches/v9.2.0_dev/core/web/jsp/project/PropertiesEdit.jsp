@@ -223,10 +223,10 @@ if (!checkMaxLength(theForm.currentStatusDescription,4000,'<display:get name="pr
 <%-- bfd-3267 	Error page when char. are entered in Budgeted Total Cost text box in Project Information page. --%>
 if(!isNumeric(theForm.budgetedTotalCost_value.value))
     return errorHandler(theForm.budgetedTotalCost_value,'<display:get name="prm.project.propertiesedit.budgetedTotalCostshouldbenumber.message" />');
-if(!isNumeric(theForm.MetaActualDiscretionalCost_value.value))
-    return errorHandler(theForm.MetaActualDiscretionalCost_value,'<display:get name="prm.project.propertiesedit.actualdiscretionalcostshouldbenumber.message" />');    
-if(!isNumeric(theForm.MetaCurrentDiscretionalCost_value.value))
-    return errorHandler(theForm.MetaCurrentDiscretionalCost_value,'<display:get name="prm.project.propertiesedit.currentdiscretionalcostshouldbenumber.message" />');    
+if(!isNumeric(theForm.MetaDiscretionalActualCostToDate_value.value))
+    return errorHandler(theForm.MetaDiscretionalActualCostToDate_value,'<display:get name="prm.project.propertiesedit.discretionalactualcosttodateshouldbenumber.message" />');    
+if(!isNumeric(theForm.MetaDiscretionalCurrentEstimatedTotalCost_value.value))
+    return errorHandler(theForm.MetaDiscretionalCurrentEstimatedTotalCost_value,'<display:get name="prm.project.propertiesedit.discretionalcurrentestimatedtotalcostshouldbenumber.message" />');    
 if(!isNumeric(theForm.MetaMaterialsCurrentEstimatedTotalCost_value.value))
     return errorHandler(theForm.MetaMaterialsCurrentEstimatedTotalCost_value,'<display:get name="prm.project.propertiesedit.materialscurrentestimatedtotalcostshouldbenumber.message" />');
 if(!isNumeric(theForm.MetaResourcesCurrentEstimatedTotalCost_value.value))
@@ -890,26 +890,26 @@ Financial Status
         <td>&nbsp;</td>
 </tr>
 
-<%-- Actual Discretional Cost --%>
+<%-- Discretional Actual Cost To Date--%>
 <tr align="left">
 	<td>&nbsp;</td>
 	<td class="fieldNonRequired">
-		<display:get name="prm.project.propertiesedit.actualdiscretionalcost.label" />:&nbsp;
+		<display:get name="prm.project.propertiesedit.discretionalactualcosttodate.label" />:&nbsp;
 	</td>						
 	<td class="tableContent">
-        <input:money name="MetaActualDiscretionalCost" money="<%=projectSpace.getActualDiscretionalCost()%>" currency="<%=projectSpace.getDefaultCurrency()%>" />
+        <input:money name="MetaDiscretionalActualCostToDate" money="<%=projectSpace.getDiscretionalActualCostToDate()%>" currency="<%=projectSpace.getDefaultCurrency()%>" />
        </td>
    	<td>&nbsp;</td>
 </tr>
 
-<%-- Current Discretional Cost --%>
+<%-- Discretional Current Estimated Total Cost --%>
 <tr align="left">
 	<td>&nbsp;</td>
 	<td class="fieldNonRequired">
-		<display:get name="prm.project.propertiesedit.currentdiscretionalcost.label" />:&nbsp;
+		<display:get name="prm.project.propertiesedit.discretionalcurrentestimatedtotalcost.label" />:&nbsp;
 	</td>						
 	<td class="tableContent">
-        <input:money name="MetaCurrentDiscretionalCost" money="<%=projectSpace.getCurrentDiscretionalCost()%>" currency="<%=projectSpace.getDefaultCurrency()%>" />
+        <input:money name="MetaDiscretionalCurrentEstimatedTotalCost" money="<%=projectSpace.getDiscretionalCurrentEstimatedTotalCost()%>" currency="<%=projectSpace.getDefaultCurrency()%>" />
        </td>
    	<td>&nbsp;</td>
 </tr>	
@@ -957,43 +957,7 @@ Financial Status
 							</span>				
 						</td>
 						
-					</tr>	
-					
-					<%-- Materials Current Estimated Total Cost --%>
-					<tr align="left">
-						<td>&nbsp;</td>
-						<td class="fieldNonRequired">
-							<display:get name="prm.project.propertiesedit.materialscurrentestimatedtotalcost.label" />:&nbsp;
-						</td>						
-						<td class="tableContent">
-					        <input:money name="MetaMaterialsCurrentEstimatedTotalCost" money="<%=projectSpace.getMaterialsCurrentEstimatedTotalCost()%>" currency="<%=projectSpace.getDefaultCurrency()%>" disabled="true"/>
-				        </td>
-					   	<td>&nbsp;</td>
-					</tr>					
-					
-					<%-- Resources Current Estimated Total Cost --%>
-					<tr align="left">
-						<td>&nbsp;</td>
-						<td class="fieldNonRequired">
-							<display:get name="prm.project.propertiesedit.resourcescurrentestimatedtotalcost.label" />:&nbsp;
-						</td>						
-						<td class="tableContent">
-					        <input:money name="MetaResourcesCurrentEstimatedTotalCost" money="<%=projectSpace.getResourcesCurrentEstimatedTotalCost()%>" currency="<%=projectSpace.getDefaultCurrency()%>" disabled="true"/>
-				        </td>
-					   	<td>&nbsp;</td>
-					</tr>								
-					
-					<%-- Materials Actual Cost To Date --%>
-					<tr align="left">
-						<td>&nbsp;</td>
-						<td class="fieldNonRequired">
-							<display:get name="prm.project.propertiesedit.materialsactualcosttodate.label" />:&nbsp;
-						</td>						
-						<td class="tableContent">
-						        <input:money name="MetaMaterialsActualCostToDate" money="<%=projectSpace.getMaterialsActualCostToDate()%>" currency="<%=projectSpace.getDefaultCurrency()%>" disabled="true"/>
-				        </td>
-				        <td>&nbsp;</td>
-					</tr>					
+					</tr>
 					
 					<%-- Resources Actual Cost To Date --%>
 					<tr align="left">
@@ -1007,11 +971,47 @@ Financial Status
 				        <td>&nbsp;</td>
 					</tr>						
 					
+					<%-- Materials Actual Cost To Date --%>
+					<tr align="left">
+						<td>&nbsp;</td>
+						<td class="fieldNonRequired">
+							<display:get name="prm.project.propertiesedit.materialsactualcosttodate.label" />:&nbsp;
+						</td>						
+						<td class="tableContent">
+						        <input:money name="MetaMaterialsActualCostToDate" money="<%=projectSpace.getMaterialsActualCostToDate()%>" currency="<%=projectSpace.getDefaultCurrency()%>" disabled="true"/>
+				        </td>
+				        <td>&nbsp;</td>
+					</tr>
+					
+					<%-- Resources Current Estimated Total Cost --%>
+					<tr align="left">
+						<td>&nbsp;</td>
+						<td class="fieldNonRequired">
+							<display:get name="prm.project.propertiesedit.resourcescurrentestimatedtotalcost.label" />:&nbsp;
+						</td>						
+						<td class="tableContent">
+					        <input:money name="MetaResourcesCurrentEstimatedTotalCost" money="<%=projectSpace.getResourcesCurrentEstimatedTotalCost()%>" currency="<%=projectSpace.getDefaultCurrency()%>" disabled="true"/>
+				        </td>
+					   	<td>&nbsp;</td>
+					</tr>		
+					
+					<%-- Materials Current Estimated Total Cost --%>
+					<tr align="left">
+						<td>&nbsp;</td>
+						<td class="fieldNonRequired">
+							<display:get name="prm.project.propertiesedit.materialscurrentestimatedtotalcost.label" />:&nbsp;
+						</td>						
+						<td class="tableContent">
+					        <input:money name="MetaMaterialsCurrentEstimatedTotalCost" money="<%=projectSpace.getMaterialsCurrentEstimatedTotalCost()%>" currency="<%=projectSpace.getDefaultCurrency()%>" disabled="true"/>
+				        </td>
+					   	<td>&nbsp;</td>
+					</tr>
+					
 					<%-- Estimated ROI --%>
 					<tr align="left">
 						<td>&nbsp;</td>
 						<td class="fieldNonRequired">
-							<display:get name="prm.project.propertiesedit.estimatedroi.label" />:&nbsp;
+							<display:get name="prm.project.propertiesedit.estimatedroi.label" />&nbsp;
 						</td>
 
 						<td class="tableContent">
