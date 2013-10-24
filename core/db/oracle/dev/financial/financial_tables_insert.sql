@@ -21,8 +21,8 @@ insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.mate
 insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.resourcesactualcosttodate.label','Resources Actual Cost To Date','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.estimatedroi.label','Estimated ROI','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.discretionalcost.label','Discretional Cost','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.actualdiscretionalcost.label','Actual Discretional Cost','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.currentdiscretionalcost.label','Current Discretional Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.discretionalactualcosttodate.label','Discretional Actual Cost To Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.discretionalcurrentestimatedtotalcost.label','Discretional Current Estimated Total Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.budgetedtotalcost','Budgeted Total Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.costcenter','Cost Center','A',0,1,null);
 
@@ -33,12 +33,19 @@ insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.com
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.completion.projectcosts.description','Dinamically set the project costs from the costs data.','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.costs.label','Global costs values','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.costs.description','Insert manually the project costs values.','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.actualdiscretionalcost.label','Actual Discretional Cost','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.currentdiscretionalcost.label','Current Discretional Cost','A',0,1,null);
+
+insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.discretionalactualcosttodate.label','Discretional Actual Cost To Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.discretionalcurrentestimatedtotalcost.label','Discretional Current Estimated Total Cost','A',0,1,null);
+
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.materialscurrentestimatedtotalcost.label','Materials Current Estimated Total Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.resourcescurrentestimatedtotalcost.label','Resources Current Estimated Total Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.materialsactualcosttodate.label','Materials Actual Cost To Date','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.resourcesactualcosttodate.label','Resources Actual Cost To Date','A',0,1,null);
+
+insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.prm.project.propertiesedit.discretionalactualcosttodateshouldbenumber.message','Discretional Actual Cost To Date should be a valid currency number','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.discretionalcurrentestimatedtotalcostshouldbenumber.message','Discretional Current Estimated Total Cost should be a valid currency number','A',0,1,null);
+
+
 
 --Project Meta Properties
 insert into pn_project_space_meta_prop values (8,'CostCalculationMethod', 3);

@@ -13,6 +13,10 @@
  * If not, see http://www.gnu.org/licenses/gpl-3.0.html
 --%>
 
+<%@page import="java.text.DecimalFormat"%>
+<%@page import="java.util.Locale"%>
+<%@page import="org.apache.xmlbeans.SystemProperties"%>
+<%@page import="java.math.BigDecimal"%>
 <%@ page
     contentType="text/html; charset=UTF-8"
     info="New Project Wizard -- page 1"
@@ -25,7 +29,7 @@
             net.project.base.property.PropertyProvider,
             net.project.util.Validator,
             net.project.business.BusinessSpace,
-            net.project.base.money.Money,
+            net.project.base.money.Money,            
             net.project.util.ErrorReporter"
 %>
 <%@ include file="/base/taglibInclude.jsp" %>
@@ -180,13 +184,19 @@
 		String materialsActualCostToDate = projectWizard.getMetaData().getProperty("MaterialsActualCostToDate");
 		String resourcesActualCostToDate = projectWizard.getMetaData().getProperty("ResourcesActualCostToDate");
 		
-		String discretionalCurrentEstimatedTotalCost = projectWizard.getMetaData().getProperty("DiscretionalCurrentEstimatedTotalCost");
-		String materialsCurrentEstimatedTotalCost = projectWizard.getMetaData().getProperty("MaterialsCurrentEstimatedTotalCost");
-		String resourcesCurrentEstimatedTotalCost = projectWizard.getMetaData().getProperty("ResourcesCurrentEstimatedTotalCost");
+// 		String discretionalCurrentEstimatedTotalCost = projectWizard.getMetaData().getProperty("DiscretionalCurrentEstimatedTotalCost");
+// 		String materialsCurrentEstimatedTotalCost = projectWizard.getMetaData().getProperty("MaterialsCurrentEstimatedTotalCost");
+// 		String resourcesCurrentEstimatedTotalCost = projectWizard.getMetaData().getProperty("ResourcesCurrentEstimatedTotalCost");
 		
+		Money discretionalActualCostToDateMoney = new Money(discretionalActualCostToDate, projectWizard.getDefaultCurrency());
+		Money materialsActualCostToDateMoney = new Money(materialsActualCostToDate, projectWizard.getDefaultCurrency());
+		Money resourcesActualCostToDateMoney = new Money(resourcesActualCostToDate, projectWizard.getDefaultCurrency());
+// 		DecimalFormat format = new DecimalFormat();
+// 		format.setParseBigDecimal(true);
+// 		BigDecimal discretionalActualCostToDateBigDecimal = (BigDecimal) format.parse(discretionalActualCostToDate);
+		Money totalActual = discretionalActualCostToDateMoney.add(materialsActualCostToDateMoney).add(resourcesActualCostToDateMoney);
 		
-		
-		projectWizard.setActualCostToDate(new Money(materialsActualCostToDate, projectWizard.getDefaultCurrency()));
+		projectWizard.setActualCostToDate(totalActual);
 	} else {
 		
 	}

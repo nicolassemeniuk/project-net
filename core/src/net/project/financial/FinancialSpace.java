@@ -231,8 +231,8 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 			totalActualCostToDateBigDecimal = totalActualCostToDateBigDecimal.add(project.getActualCostToDate().getValue());
 			totalEstimatedCurrentCostBigDecimal = totalEstimatedCurrentCostBigDecimal.add(project.getCurrentEstimatedTotalCost().getValue());
 			totalBudgetedCostBigDecimal = totalBudgetedCostBigDecimal.add(project.getBudgetedTotalCost().getValue());
-			actualTotalDiscretionalCostBigDecimal = actualTotalDiscretionalCostBigDecimal.add(project.getActualDiscretionalCost().getValue());
-			currentTotalDiscretionalCostBigDecimal = currentTotalDiscretionalCostBigDecimal.add(project.getCurrentDiscretionalCost().getValue());					
+			actualTotalDiscretionalCostBigDecimal = actualTotalDiscretionalCostBigDecimal.add(project.getDiscretionalActualCostToDate().getValue());
+			currentTotalDiscretionalCostBigDecimal = currentTotalDiscretionalCostBigDecimal.add(project.getDiscretionalCurrentEstimatedTotalCost().getValue());					
 			materialsActualCostToDateBigDecimal = materialsActualCostToDateBigDecimal.add(project.getMaterialsActualCostToDate().getValue());
 			resourcesActualCostToDateBigDecimal = resourcesActualCostToDateBigDecimal.add(project.getResourcesActualCostToDate().getValue());
 			materialsEstimatedTotalCostBigDecimal = materialsEstimatedTotalCostBigDecimal.add(project.getMaterialsCurrentEstimatedTotalCost().getValue());
