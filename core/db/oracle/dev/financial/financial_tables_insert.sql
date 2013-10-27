@@ -33,19 +33,14 @@ insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.com
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.completion.projectcosts.description','Dinamically set the project costs from the costs data.','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.costs.label','Global costs values','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.costs.description','Insert manually the project costs values.','A',0,1,null);
-
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.discretionalactualcosttodate.label','Discretional Actual Cost To Date','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.discretionalcurrentestimatedtotalcost.label','Discretional Current Estimated Total Cost','A',0,1,null);
-
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.materialscurrentestimatedtotalcost.label','Materials Current Estimated Total Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.resourcescurrentestimatedtotalcost.label','Resources Current Estimated Total Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.materialsactualcosttodate.label','Materials Actual Cost To Date','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.resourcesactualcosttodate.label','Resources Actual Cost To Date','A',0,1,null);
-
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.prm.project.propertiesedit.discretionalactualcosttodateshouldbenumber.message','Discretional Actual Cost To Date should be a valid currency number','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.discretionalcurrentestimatedtotalcostshouldbenumber.message','Discretional Current Estimated Total Cost should be a valid currency number','A',0,1,null);
-
-
 
 --Project Meta Properties
 insert into pn_project_space_meta_prop values (8,'CostCalculationMethod', 3);
@@ -78,7 +73,6 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.financialportfol
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.financialportfolio.totalactualcost.label','Total Actual Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.financialportfolio.totalestimatedcost.label','Total Estimated Current Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.financialportfolio.totalbudgetedcost.label','Total Budgeted Cost','A',0,1,null);
-
 
 -- Module
 insert into PN_MODULE values (175,'financial_space','@prm.financialspace.module.description', 1, null);
@@ -231,20 +225,16 @@ insert into PN_PROPERTY values (2000,'en','text','prm.schedule.main.financialcos
 insert into PN_PROPERTY values (2000,'en','text','prm.project.report.businessprojectsfinancialreport.name','Business Projects Financial Report','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.report.businessprojectsfinancialreport.description','List all the costs from projects of the associated business of the financial space','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.report.businessprojectsfinancialreport.xslpath','/report/xsl/businessprojectsfinancialreport.xsl','A',0,1,null);
-
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.projectname.name','Project Name','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.projectdescription.name','Description','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.projectactualcost.name','Actual Cost To Date','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.projectestimatedcost.name','Current Estimated Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.projectbudgetedcost.name','Budgeted Cost','A',0,1,null);
-
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.totalprojects.name','Total Number of Projects','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.totalactualcost.name','Total Actual Cost To Date','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.totalestimatedcost.name','Total Current Estimated Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.totalbudgetedcost.name','Total Budgeted Cost','A',0,1,null);
-
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.noprojectsfound.name','No Projects on the Business founded','A',0,1,null);
-
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.common.reportsummary.name','Report Summary','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.projects.name','Projects','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.project.name','Project','A',0,1,null);
@@ -253,3 +243,30 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.proje
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.project.currentestimatedcost','Current Estimated Total Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.project.budgetedcost','Budgeted Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.businessprojectsfinancialreport.showallprojects.name','Show all Projects','A',0,1,null);
+
+
+insert into PN_PROPERTY values (2000,'en','text','prm.project.report.actualcosttypesovertotalreport.name','Actual Cost Types Over Total','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.report.actualcosttypesovertotalreport.description','Display the types of cost values for each business project','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.report.actualcosttypesovertotalreport.xslpath','/report/xsl/actualcosttypesovertotalreport.xsl','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.actualcosttypesovertotalreport.showallprojects.name','Show all Projects','A',0,1,null);
+
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.resourcesactualcosttodate.name','Resources Actual Cost To Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.materialsactualcosttodate.name','Materials Actual Cost To Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.discretionalactualcosttodate.name','Discretional Actual Cost To Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.resourcestotalactualcosttodate.name','Total Resources Actual Cost To Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.materialstotalactualcosttodate.name','Total Materials Actual Cost To Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.discretionaltotalactualcosttodate.name','Total Discretional Actual Cost To Date','A',0,1,null);
+
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.project.resourcesactualcosttodate','Resources Actual Cost To Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.project.materialsactualcosttodate','Materials Actual Cost To Date','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.project.discretionalactualcosttodate','Discretional Actual Cost To Date','A',0,1,null);
+
+-- Report type and sequence
+insert into pn_space_type_has_report_type values('financial','actr');
+insert into pn_report_sequence values('actr',12);
+
+
+
+
+
+

@@ -12,7 +12,6 @@ import net.project.base.finder.RadioButtonFilter;
 import net.project.base.property.PropertyProvider;
 import net.project.hibernate.model.PnSpaceHasSpace;
 import net.project.hibernate.service.ServiceFactory;
-import net.project.material.MaterialFinder;
 import net.project.persistence.PersistenceException;
 import net.project.project.ProjectSpace;
 import net.project.project.ProjectSpaceFinder;
@@ -24,13 +23,13 @@ public class ActualCostTypesOverTotalReportData extends SummaryDetailReportData 
     private String DEFAULT_GROUPING = PropertyProvider.get("prm.schedule.report.latetaskreport.grouping.default.name");
     
     /** Token for the label of the "All Business Projects" filter. */
-    private String ALL_BUSINESS_PROJECTS = PropertyProvider.get("prm.financial.report.businessprojectsfinancialreport.showallprojects.name");
+    private String ALL_BUSINESS_PROJECTS = PropertyProvider.get("prm.financial.report.actualcosttypesovertotalreport.showallprojects.name");
     
 	/**
 	 * Variable to contain all of the data that will be used to construct the
-	 * summary section of the Business Projects Financial Report.
+	 * summary section of the Actual Cost Types Over Total Report.
 	 */
-	private BusinessProjectsFinancialReportSummaryData summaryData;
+	private ActualCostTypesOverTotalReportSummaryData summaryData;
 	
     /**
      * Token pointing to: "Unexpected programmer error found while constructing
@@ -65,7 +64,7 @@ public class ActualCostTypesOverTotalReportData extends SummaryDetailReportData 
             FinderSorter fs = new FinderSorter(String.valueOf(i * 10),
                 new ColumnDefinition[]{ProjectSpaceFinder.NAME_COLUMN, ProjectSpaceFinder.STATUS_COLUMN,
             	ProjectSpaceFinder.DATE_START_COLUMN, ProjectSpaceFinder.DATE_FINISH_COLUMN},
-            	MaterialFinder.NAME_COLUMN);
+            	ProjectSpaceFinder.NAME_COLUMN);
             sorterList.add(fs);
         }
     }
@@ -80,8 +79,6 @@ public class ActualCostTypesOverTotalReportData extends SummaryDetailReportData 
             EmptyFinderFilter eff = new EmptyFinderFilter("20", ALL_BUSINESS_PROJECTS);
             eff.setSelected(true);
             rbf.add(eff);
-//            rbf.add(new MaterialConsumableFilter("30"));
-//            rbf.add(new MaterialNotConsumableFilter("40"));
             filterList.add(rbf);
         } catch (DuplicateFilterIDException e) {
             throw new RuntimeException(
@@ -104,23 +101,23 @@ public class ActualCostTypesOverTotalReportData extends SummaryDetailReportData 
 
 	}
 	
-	public BusinessProjectsFinancialReportSummaryData calculateTotalSummary(){
-		BusinessProjectsFinancialReportSummaryData summary = new BusinessProjectsFinancialReportSummaryData();
+	public ActualCostTypesOverTotalReportSummaryData calculateTotalSummary(){
+		ActualCostTypesOverTotalReportSummaryData summary = new ActualCostTypesOverTotalReportSummaryData();
 		summary.setTotalProjects(getDetailedData().size());
 		
-		float totalActualCostToDate=0;
-		float totalCurrentEstimatedTotalCost=0;
-		float totalBudgetedCost=0;
+		float materialTotalActualCostToDate=0;
+		float resourcesTotalActualCostToDate=0;
+		float discretionalTotalActualCostToDate=0;
 		
 		for(Object project : getDetailedData()){
 			ProjectSpace projectSpace = (ProjectSpace) project;
-			totalActualCostToDate = totalActualCostToDate + projectSpace.getActualCostToDate().getValue().floatValue();
-			totalCurrentEstimatedTotalCost = totalCurrentEstimatedTotalCost + projectSpace.getCurrentEstimatedTotalCost().getValue().floatValue();
-			totalBudgetedCost = totalBudgetedCost + projectSpace.getBudgetedTotalCost().getValue().floatValue();
+			materialTotalActualCostToDate = materialTotalActualCostToDate + projectSpace.getMaterialsActualCostToDate().getValue().floatValue();
+			resourcesTotalActualCostToDate = resourcesTotalActualCostToDate + projectSpace.getResourcesActualCostToDate().getValue().floatValue();
+			discretionalTotalActualCostToDate = discretionalTotalActualCostToDate + projectSpace.getDiscretionalActualCostToDate().getValue().floatValue();
 		}
-		summary.setTotalActualCostToDate(totalActualCostToDate);
-		summary.setTotalCurrentEstimatedTotalCost(totalCurrentEstimatedTotalCost);
-		summary.setTotalBudgetedCost(totalBudgetedCost);
+		summary.setMaterialsTotalActualCostToDate(materialTotalActualCostToDate);
+		summary.setResourcesTotalActualCostToDate(resourcesTotalActualCostToDate);
+		summary.setDiscretionalTotalActualCostToDate(discretionalTotalActualCostToDate);
 		return summary;		
 	}
 
@@ -131,7 +128,7 @@ public class ActualCostTypesOverTotalReportData extends SummaryDetailReportData 
 
 	}
 
-	public BusinessProjectsFinancialReportSummaryData getSummaryData() {
+	public ActualCostTypesOverTotalReportSummaryData getSummaryData() {
 		return this.summaryData;
 	}
 }

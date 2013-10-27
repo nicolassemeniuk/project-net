@@ -31,33 +31,33 @@ import com.lowagie.text.Table;
 public class ActualCostTypesOverTotalReport extends AbstractReport {
 	
 	/** "Project Name" column name. */
-	private String PROJECT_NAME = PropertyProvider.get("prm.financial.report.projectname.name");
+	private final static String PROJECT_NAME = PropertyProvider.get("prm.financial.report.projectname.name");
 	/** "Project Description" column name. */
-	private String PROJECT_DESCRIPTION = PropertyProvider.get("prm.financial.report.projectdescription.name");	
-	/** "Actual Cost to Date" column name. */
-	private String PROJECT_ACTUAL_COST = PropertyProvider.get("prm.financial.report.projectactualcost.name");	
-	/** "Current Estimated Total Cost" column name. */
-	private String PROJECT_CURRENT_ESTIMATED_TOTAL_COST = PropertyProvider.get("prm.financial.report.projectestimatedcost.name");	
-	/** "Budgeted Cost" column name. */
-	private String PROJECT_BUDGETED_COST = PropertyProvider.get("prm.financial.report.projectbudgetedcost.name");
+	private final static String PROJECT_DESCRIPTION = PropertyProvider.get("prm.financial.report.projectdescription.name");	
+	/** "Resources Actual Cost to Date" column name. */
+	private final static String RESOURCES_ACTUAL_COST = PropertyProvider.get("prm.financial.report.resourcesactualcosttodate.name");	
+	/** "Resources Actual Cost to Date" column name. */
+	private final static String MATERIALS_ACTUAL_COST = PropertyProvider.get("prm.financial.report.materialsactualcosttodate.name");	
+	/** "Resources Actual Cost to Date" column name. */
+	private final static String DISCRETIONAL_ACTUAL_COST = PropertyProvider.get("prm.financial.report.discretionalactualcosttodate.name");
 	
 	/** Label for the "Total Number of Projects" field. */
-	private String TOTAL_PROJECTS = PropertyProvider.get("prm.financial.report.totalprojects.name");
-	/** Label for the "Total Project Actual Cost" field. */
-	private String TOTAL_PROJECT_ACTUAL_COST = PropertyProvider.get("prm.financial.report.totalactualcost.name");
-	/** Label for the "Total Project Actual Cost" field. */
-	private String TOTAL_PROJECT_CURRENT_ESTIMATED_TOTAL_COST = PropertyProvider.get("prm.financial.report.totalestimatedcost.name");   
-	/** Label for the "Total Project Actual Cost" field. */
-	private String TOTAL_PROJECT_BUDGETED_COST = PropertyProvider.get("prm.financial.report.totalbudgetedcost.name");	
+	private final static String TOTAL_PROJECTS = PropertyProvider.get("prm.financial.report.totalprojects.name");
+	/** Label for the "Total Resources Actual Cost To Date" field. */
+	private final static String RESOURCES_TOTAL_ACTUAL_COST = PropertyProvider.get("prm.financial.report.resourcestotalactualcosttodate.name");
+	/** Label for the "Total Materials Actual Cost To Date" field. */
+	private final static String MATERIALS_TOTAL_ACTUAL_COST = PropertyProvider.get("prm.financial.report.materialstotalactualcosttodate.name");   
+	/** Label for the "Total Discretional Actual Cost To Date" field. */
+	private final static String DISCRETIONAL_TOTAL_ACTUAL_COST = PropertyProvider.get("prm.financial.report.discretionaltotalactualcosttodate.name");	
 	
 	/** Message shown when there are no detailed records to display. */
-    private String NO_PROJECTS_FOUND = PropertyProvider.get("prm.financial.report.noprojectsfound.name"); //"No Projects Found";
+    private final static String NO_PROJECTS_FOUND = PropertyProvider.get("prm.financial.report.noprojectsfound.name"); //"No Projects Found";
     
     /**
      * Token pointing at to an unexpected error message of: "Unexpected error
      * while creating report."
      */
-    private String UNEXPECTED_REPORT_ERROR_TOKEN = "prm.report.errors.unexpectedcreationerror.message";
+    private final static String UNEXPECTED_REPORT_ERROR_TOKEN = "prm.report.errors.unexpectedcreationerror.message";
     
 	/**
 	 * Standard constructor which creates a FormItemSummaryReport.
@@ -99,7 +99,7 @@ public class ActualCostTypesOverTotalReport extends AbstractReport {
 	}
 	
     private Table createReportSummary() throws BadElementException, IOException, ChartingException {
-    	BusinessProjectsFinancialReportSummaryData summaryData = ((BusinessProjectsFinancialReportData)getData()).getSummaryData();
+    	ActualCostTypesOverTotalReportSummaryData summaryData = ((ActualCostTypesOverTotalReportData)getData()).getSummaryData();
 
         //Create the table that will house the top summary section
         Table summaryTable = ReportComponents.createSummaryTable(2, 2);
@@ -109,14 +109,14 @@ public class ActualCostTypesOverTotalReport extends AbstractReport {
         summaryTable.addCell(ReportComponents.createSummaryCell(String.valueOf(summaryData.getTotalProjects())));
 
         //Create the remaining rows.
-        summaryTable.addCell(ReportComponents.createSummaryCell(TOTAL_PROJECT_ACTUAL_COST));
-        summaryTable.addCell(ReportComponents.createSummaryCell(String.valueOf(summaryData.getTotalActualCostToDate())));
+        summaryTable.addCell(ReportComponents.createSummaryCell(RESOURCES_TOTAL_ACTUAL_COST));
+        summaryTable.addCell(ReportComponents.createSummaryCell(String.valueOf(summaryData.getResourcesTotalActualCostToDate())));
         
-        summaryTable.addCell(ReportComponents.createSummaryCell(TOTAL_PROJECT_CURRENT_ESTIMATED_TOTAL_COST));
-        summaryTable.addCell(ReportComponents.createSummaryCell(String.valueOf(summaryData.getTotalCurrentEstimatedTotalCost())));
+        summaryTable.addCell(ReportComponents.createSummaryCell(MATERIALS_TOTAL_ACTUAL_COST));
+        summaryTable.addCell(ReportComponents.createSummaryCell(String.valueOf(summaryData.getMaterialsTotalActualCostToDate())));
         
-        summaryTable.addCell(ReportComponents.createSummaryCell(TOTAL_PROJECT_BUDGETED_COST));
-        summaryTable.addCell(ReportComponents.createSummaryCell(String.valueOf(summaryData.getTotalBudgetedCost())));
+        summaryTable.addCell(ReportComponents.createSummaryCell(DISCRETIONAL_TOTAL_ACTUAL_COST));
+        summaryTable.addCell(ReportComponents.createSummaryCell(String.valueOf(summaryData.getDiscretionalTotalActualCostToDate())));
 
         return summaryTable;
     }
@@ -131,9 +131,9 @@ public class ActualCostTypesOverTotalReport extends AbstractReport {
         detailedTable.setDefaultCellBorderWidth(3);
         detailedTable.addCell(ReportComponents.createDetailedHeaderCell(PROJECT_NAME));
         detailedTable.addCell(ReportComponents.createDetailedHeaderCell(PROJECT_DESCRIPTION));
-        detailedTable.addCell(ReportComponents.createDetailedHeaderCell(PROJECT_ACTUAL_COST));
-        detailedTable.addCell(ReportComponents.createDetailedHeaderCell(PROJECT_CURRENT_ESTIMATED_TOTAL_COST));
-        detailedTable.addCell(ReportComponents.createDetailedHeaderCell(PROJECT_BUDGETED_COST));
+        detailedTable.addCell(ReportComponents.createDetailedHeaderCell(RESOURCES_ACTUAL_COST));
+        detailedTable.addCell(ReportComponents.createDetailedHeaderCell(MATERIALS_ACTUAL_COST));
+        detailedTable.addCell(ReportComponents.createDetailedHeaderCell(DISCRETIONAL_ACTUAL_COST));
         detailedTable.endHeaders();
         detailedTable.setDefaultCellBorderWidth(1);
 
@@ -174,7 +174,7 @@ public class ActualCostTypesOverTotalReport extends AbstractReport {
 		getData().load();
 
 		// Start the output of the material report
-		doc.startElement("businessprojectsfinancialreport");
+		doc.startElement("actualcosttypesovertotalreport");
 
 		// Meta information
 		addReportHeader(doc);
@@ -183,12 +183,12 @@ public class ActualCostTypesOverTotalReport extends AbstractReport {
 		addReportParametersElements(doc);
 
 		// Create the summary section
-		BusinessProjectsFinancialReportSummaryData summaryData = ((BusinessProjectsFinancialReportData) getData()).getSummaryData();
+		ActualCostTypesOverTotalReportSummaryData summaryData = ((ActualCostTypesOverTotalReportData) getData()).getSummaryData();
 		doc.startElement("SummaryData");
 		doc.addElement("ProjectCount", new Integer(summaryData.getTotalProjects()));
-		doc.addElement("TotalActualCostToDate", new Float(summaryData.getTotalActualCostToDate()));
-		doc.addElement("TotalCurrentEstimatedTotalCost", new Float(summaryData.getTotalCurrentEstimatedTotalCost()));
-		doc.addElement("TotalBudgetedCost", new Float(summaryData.getTotalBudgetedCost()));
+		doc.addElement("ResourcesTotalActualCostToDate", new Float(summaryData.getResourcesTotalActualCostToDate()));
+		doc.addElement("MaterialsTotalActualCostToDate", new Float(summaryData.getMaterialsTotalActualCostToDate()));
+		doc.addElement("DiscretionalTotalActualCostToDate", new Float(summaryData.getDiscretionalTotalActualCostToDate()));
 		
 		doc.endElement();
 

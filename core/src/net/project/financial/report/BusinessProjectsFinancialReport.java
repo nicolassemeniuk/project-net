@@ -31,33 +31,33 @@ import com.lowagie.text.Table;
 public class BusinessProjectsFinancialReport extends AbstractReport {
 	
 	/** "Project Name" column name. */
-	private String PROJECT_NAME = PropertyProvider.get("prm.financial.report.projectname.name");
+	private final static String PROJECT_NAME = PropertyProvider.get("prm.financial.report.projectname.name");
 	/** "Project Description" column name. */
-	private String PROJECT_DESCRIPTION = PropertyProvider.get("prm.financial.report.projectdescription.name");	
+	private final static String PROJECT_DESCRIPTION = PropertyProvider.get("prm.financial.report.projectdescription.name");	
 	/** "Actual Cost to Date" column name. */
-	private String PROJECT_ACTUAL_COST = PropertyProvider.get("prm.financial.report.projectactualcost.name");	
+	private final static String PROJECT_ACTUAL_COST = PropertyProvider.get("prm.financial.report.projectactualcost.name");	
 	/** "Current Estimated Total Cost" column name. */
-	private String PROJECT_CURRENT_ESTIMATED_TOTAL_COST = PropertyProvider.get("prm.financial.report.projectestimatedcost.name");	
+	private final static String PROJECT_CURRENT_ESTIMATED_TOTAL_COST = PropertyProvider.get("prm.financial.report.projectestimatedcost.name");	
 	/** "Budgeted Cost" column name. */
-	private String PROJECT_BUDGETED_COST = PropertyProvider.get("prm.financial.report.projectbudgetedcost.name");
+	private final static String PROJECT_BUDGETED_COST = PropertyProvider.get("prm.financial.report.projectbudgetedcost.name");
 	
 	/** Label for the "Total Number of Projects" field. */
-	private String TOTAL_PROJECTS = PropertyProvider.get("prm.financial.report.totalprojects.name");
+	private final static String TOTAL_PROJECTS = PropertyProvider.get("prm.financial.report.totalprojects.name");
 	/** Label for the "Total Project Actual Cost" field. */
-	private String TOTAL_PROJECT_ACTUAL_COST = PropertyProvider.get("prm.financial.report.totalactualcost.name");
+	private final static String TOTAL_PROJECT_ACTUAL_COST = PropertyProvider.get("prm.financial.report.totalactualcost.name");
 	/** Label for the "Total Project Actual Cost" field. */
-	private String TOTAL_PROJECT_CURRENT_ESTIMATED_TOTAL_COST = PropertyProvider.get("prm.financial.report.totalestimatedcost.name");   
+	private final static String TOTAL_PROJECT_CURRENT_ESTIMATED_TOTAL_COST = PropertyProvider.get("prm.financial.report.totalestimatedcost.name");   
 	/** Label for the "Total Project Actual Cost" field. */
-	private String TOTAL_PROJECT_BUDGETED_COST = PropertyProvider.get("prm.financial.report.totalbudgetedcost.name");	
+	private final static String TOTAL_PROJECT_BUDGETED_COST = PropertyProvider.get("prm.financial.report.totalbudgetedcost.name");	
 	
 	/** Message shown when there are no detailed records to display. */
-    private String NO_PROJECTS_FOUND = PropertyProvider.get("prm.financial.report.noprojectsfound.name"); //"No Projects Found";
+    private final static String NO_PROJECTS_FOUND = PropertyProvider.get("prm.financial.report.noprojectsfound.name"); //"No Projects Found";
     
     /**
      * Token pointing at to an unexpected error message of: "Unexpected error
      * while creating report."
      */
-    private String UNEXPECTED_REPORT_ERROR_TOKEN = "prm.report.errors.unexpectedcreationerror.message";
+    private final static String UNEXPECTED_REPORT_ERROR_TOKEN = "prm.report.errors.unexpectedcreationerror.message";
     
 	/**
 	 * Standard constructor which creates a FormItemSummaryReport.
