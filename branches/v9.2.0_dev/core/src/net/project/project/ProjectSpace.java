@@ -2594,10 +2594,10 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 			doc.addElement("TypeOfExpense", getMetaData().getProperty("TypeOfExpense"));
 			doc.addElement("MaterialsCurrentEstimatedTotalCost", getMetaData().getProperty("MaterialsCurrentEstimatedTotalCost"));
 			doc.addElement("ResourcesCurrentEstimatedTotalCost", getMetaData().getProperty("ResourcesCurrentEstimatedTotalCost"));
+			doc.addElement("DiscretionalCurrentEstimatedTotalCost", getMetaData().getProperty("DiscretionalCurrentEstimatedTotalCost"));
 			doc.addElement("MaterialsActualCostToDate", getMetaData().getProperty("MaterialsActualCostToDate"));
 			doc.addElement("ResourcesActualCostToDate", getMetaData().getProperty("ResourcesActualCostToDate"));
-			doc.addElement("ActualDiscretionalCost", getMetaData().getProperty("ActualDiscretionalCost"));
-			doc.addElement("CurrentDiscretionalCost", getMetaData().getProperty("CurrentDiscretionalCost"));				
+			doc.addElement("DiscretionalActualCostToDate", getMetaData().getProperty("DiscretionalActualCostToDate"));							
 		} catch (NoSuchPropertyException e) {
 			e.printStackTrace();
 		}

@@ -12,7 +12,6 @@ import net.project.base.finder.RadioButtonFilter;
 import net.project.base.property.PropertyProvider;
 import net.project.hibernate.model.PnSpaceHasSpace;
 import net.project.hibernate.service.ServiceFactory;
-import net.project.material.MaterialFinder;
 import net.project.persistence.PersistenceException;
 import net.project.project.ProjectSpace;
 import net.project.project.ProjectSpaceFinder;
@@ -65,7 +64,7 @@ public class BusinessProjectsFinancialReportData extends SummaryDetailReportData
             FinderSorter fs = new FinderSorter(String.valueOf(i * 10),
                 new ColumnDefinition[]{ProjectSpaceFinder.NAME_COLUMN, ProjectSpaceFinder.STATUS_COLUMN,
             	ProjectSpaceFinder.DATE_START_COLUMN, ProjectSpaceFinder.DATE_FINISH_COLUMN},
-            	MaterialFinder.NAME_COLUMN);
+            	ProjectSpaceFinder.NAME_COLUMN);
             sorterList.add(fs);
         }
     }
@@ -80,8 +79,6 @@ public class BusinessProjectsFinancialReportData extends SummaryDetailReportData
             EmptyFinderFilter eff = new EmptyFinderFilter("20", ALL_BUSINESS_PROJECTS);
             eff.setSelected(true);
             rbf.add(eff);
-//            rbf.add(new MaterialConsumableFilter("30"));
-//            rbf.add(new MaterialNotConsumableFilter("40"));
             filterList.add(rbf);
         } catch (DuplicateFilterIDException e) {
             throw new RuntimeException(
