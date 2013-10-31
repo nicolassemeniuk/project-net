@@ -48,16 +48,25 @@ public interface IMaterialService {
 	public PnMaterialList getMaterialsFromSpace(String spaceId);
 
 	/**
-	 * Obtains the materials from a given space with a name searchKey. Retrieves
-	 * the active materials.
+	 * Obtains the materials from a given space and certain selectors. Retrieves
+	 * the active materials only.
 	 * 
 	 * @param spaceId
 	 *            the id of the space.
 	 * @param searchKey
 	 *            a string to compare the name with.
+	 * @param materialTypeId
+	 *            the id of the type of material to filter (0 for all).
+	 * @param consumable
+	 *            if the material should be consumable or no (can be null for
+	 *            all). 'true' or 'false' otherwise.
+	 * @param minCost
+	 *            the minimum cost for the materials to meet the criteria (null for all).
+	 * @param maxCost
+	 *            the maximum cost for the materials to meet the criteria (null for all).
 	 * @return a list of materials.
 	 */
-	public PnMaterialList getMaterialsFromSpace(String spaceId, String searchKey);
+	public PnMaterialList getMaterialsFromSpace(String spaceId, String searchKey, String materialTypeId, String consumable, String minCost, String maxCost);
 
 	/**
 	 * Disable a certain material from the database. This means setting his

@@ -112,8 +112,8 @@ public class PnMaterialServiceImpl implements IPnMaterialService {
 	}
 
 	@Override
-	public PnMaterialList getMaterials(List<Integer> materialsIds, String searchKey) {
-		return this.pnMaterialDAO.getMaterials(materialsIds, searchKey);
+	public PnMaterialList getMaterials(List<Integer> materialsIds, String searchKey, Integer materialTypeId, String consumable, Float minCost, Float maxCost) {
+		return this.pnMaterialDAO.getMaterials(materialsIds, searchKey, materialTypeId, consumable, minCost, maxCost);
 	}
 
 }
