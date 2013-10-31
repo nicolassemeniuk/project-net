@@ -37,6 +37,7 @@ import net.project.business.report.projectstatus.ProjectStatusReport;
 import net.project.database.DBBean;
 import net.project.financial.report.ActualCostTypesOverTotalReport;
 import net.project.financial.report.BusinessProjectsFinancialReport;
+import net.project.financial.report.EstimatedCostTypesOverTotalReport;
 import net.project.form.report.formitemsummaryreport.FormItemSummaryReport;
 import net.project.form.report.formitemtimeseries.FormItemTimeSeriesReport;
 import net.project.material.report.MaterialReport;
@@ -209,7 +210,16 @@ public class ReportType {
         "prm.project.report.actualcosttypesovertotalreport.name",
         "prm.project.report.actualcosttypesovertotalreport.description",
         "prm.project.report.actualcosttypesovertotalreport.xslpath", 
-		ActualCostTypesOverTotalReport.class);   
+		ActualCostTypesOverTotalReport.class);  
+    
+    /**
+     * Object describing the "Estimated Cost Types Over Total Report" report.
+     */
+    public static final ReportType ESTIMATED_COST_TYPES_OVER_TOTAL_REPORTS  = new ReportType("ectr",
+        "prm.project.report.estimatedcosttypesovertotalreport.name",
+        "prm.project.report.estimatedcosttypesovertotalreport.description",
+        "prm.project.report.estimatedcosttypesovertotalreport.xslpath", 
+		EstimatedCostTypesOverTotalReport.class);  
 
     /**
      * Get the report that corresponds to the report id passed in the id parameter.

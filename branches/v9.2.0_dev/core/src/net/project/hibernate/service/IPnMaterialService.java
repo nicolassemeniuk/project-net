@@ -89,8 +89,19 @@ public interface IPnMaterialService {
 	 *            a list of materials id's.
 	 * @param searchKey
 	 *            the search key to filter the name.
-	 * @returna list of materials.
+	 * @param materialTypeId
+	 *            to filter a certain type. 0 for all.
+	 * @param consumable
+	 *            to filter if we only want the consumable materials or not.
+	 *            Null for all.
+	 * @param minCost
+	 *            if we want only the ones that have a cost above or equal to
+	 *            this value. Can be null.
+	 * @param maxCost
+	 *            if we want only the ones that have a cost below or equal to
+	 *            this value. Can be null.
+	 * @return a list of materials.
 	 */
-	public PnMaterialList getMaterials(List<Integer> materialsIds, String searchKey);
+	public PnMaterialList getMaterials(List<Integer> materialsIds, String searchKey, Integer materialTypeId, String consumable, Float minCost, Float maxCost);
 
 }

@@ -17,19 +17,19 @@ import net.project.project.ProjectSpace;
 import net.project.project.ProjectSpaceFinder;
 import net.project.report.SummaryDetailReportData;
 
-public class ActualCostTypesOverTotalReportData extends SummaryDetailReportData {
+public class EstimatedCostTypesOverTotalReportData extends SummaryDetailReportData {
 
 	/** Token for the label of the "Default Grouping" grouper. */
 	private String DEFAULT_GROUPING = PropertyProvider.get("prm.schedule.report.latetaskreport.grouping.default.name");
 
 	/** Token for the label of the "All Business Projects" filter. */
-	private String ALL_BUSINESS_PROJECTS = PropertyProvider.get("prm.financial.report.actualcosttypesovertotalreport.showallprojects.name");
+	private String ALL_BUSINESS_PROJECTS = PropertyProvider.get("prm.financial.report.estimatedcosttypesovertotalreport.showallprojects.name");
 
 	/**
 	 * Variable to contain all of the data that will be used to construct the
 	 * summary section of the Actual Cost Types Over Total Report.
 	 */
-	private ActualCostTypesOverTotalReportSummaryData summaryData;
+	private EstimatedCostTypesOverTotalReportSummaryData summaryData;
 
 	/**
 	 * Token pointing to: "Unexpected programmer error found while constructing
@@ -40,7 +40,7 @@ public class ActualCostTypesOverTotalReportData extends SummaryDetailReportData 
 	/**
 	 * Standard constructor.
 	 */
-	public ActualCostTypesOverTotalReportData() {
+	public EstimatedCostTypesOverTotalReportData() {
 		populateFinderFilterList();
 		populateFinderSorterList();
 		populateFinderGroupingList();
@@ -99,23 +99,26 @@ public class ActualCostTypesOverTotalReportData extends SummaryDetailReportData 
 
 	}
 
-	public ActualCostTypesOverTotalReportSummaryData calculateTotalSummary() {
-		ActualCostTypesOverTotalReportSummaryData summary = new ActualCostTypesOverTotalReportSummaryData();
+	public EstimatedCostTypesOverTotalReportSummaryData calculateTotalSummary() {
+		EstimatedCostTypesOverTotalReportSummaryData summary = new EstimatedCostTypesOverTotalReportSummaryData();
 		summary.setTotalProjects(getDetailedData().size());
 
-		float materialTotalActualCostToDate = 0;
-		float resourcesTotalActualCostToDate = 0;
-		float discretionalTotalActualCostToDate = 0;
+		float materialTotalCurrentEstimatedTotalCost = 0;
+		float resourcesTotalCurrentEstimatedTotalCost = 0;
+		float discretionalTotalCurrentEstimatedTotalCost = 0;
 
 		for (Object project : getDetailedData()) {
 			ProjectSpace projectSpace = (ProjectSpace) project;
-			materialTotalActualCostToDate = materialTotalActualCostToDate + projectSpace.getMaterialsActualCostToDate().getValue().floatValue();
-			resourcesTotalActualCostToDate = resourcesTotalActualCostToDate + projectSpace.getResourcesActualCostToDate().getValue().floatValue();
-			discretionalTotalActualCostToDate = discretionalTotalActualCostToDate + projectSpace.getDiscretionalActualCostToDate().getValue().floatValue();
+			materialTotalCurrentEstimatedTotalCost = materialTotalCurrentEstimatedTotalCost
+					+ projectSpace.getMaterialsCurrentEstimatedTotalCost().getValue().floatValue();
+			resourcesTotalCurrentEstimatedTotalCost = resourcesTotalCurrentEstimatedTotalCost
+					+ projectSpace.getResourcesCurrentEstimatedTotalCost().getValue().floatValue();
+			discretionalTotalCurrentEstimatedTotalCost = discretionalTotalCurrentEstimatedTotalCost
+					+ projectSpace.getDiscretionalCurrentEstimatedTotalCost().getValue().floatValue();
 		}
-		summary.setMaterialsTotalActualCostToDate(materialTotalActualCostToDate);
-		summary.setResourcesTotalActualCostToDate(resourcesTotalActualCostToDate);
-		summary.setDiscretionalTotalActualCostToDate(discretionalTotalActualCostToDate);
+		summary.setMaterialsTotalCurrentEstimatedTotalCost(materialTotalCurrentEstimatedTotalCost);
+		summary.setResourcesTotalCurrentEstimatedTotalCost(resourcesTotalCurrentEstimatedTotalCost);
+		summary.setDiscretionalTotalCurrentEstimatedTotalCost(discretionalTotalCurrentEstimatedTotalCost);
 		return summary;
 	}
 
@@ -126,7 +129,7 @@ public class ActualCostTypesOverTotalReportData extends SummaryDetailReportData 
 
 	}
 
-	public ActualCostTypesOverTotalReportSummaryData getSummaryData() {
+	public EstimatedCostTypesOverTotalReportSummaryData getSummaryData() {
 		return this.summaryData;
 	}
 }

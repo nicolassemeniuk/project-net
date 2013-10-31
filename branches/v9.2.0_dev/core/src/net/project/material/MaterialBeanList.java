@@ -46,22 +46,21 @@ public class MaterialBeanList extends ArrayList<MaterialBean> implements IXMLPer
    		this.isLoaded=true;
 	}
 	
-	public void load(String searchKey)
-	{
-		PnMaterialList materialList = ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(this.spaceID, searchKey);
-		
-		for(PnMaterial material : materialList){
-				MaterialBean materialBean = new MaterialBean(material);
-				this.add(materialBean);
-		}
-	
-   		this.isLoaded=true;		
-	}
-	
+//	public void load(String searchKey)
+//	{
+//		PnMaterialList materialList = ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(this.spaceID, name, materialTypeId, consumable, minCost, maxCost);
+//		
+//		for(PnMaterial material : materialList){
+//				MaterialBean materialBean = new MaterialBean(material);
+//				this.add(materialBean);
+//		}
+//	
+//   		this.isLoaded=true;		
+//	}
+//	
 	public void load(String name, String materialTypeId, String consumable, String minCost, String maxCost)
 	{
-		// TODO Implementar criterios de busqueda
-		PnMaterialList materialList = ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(this.spaceID, name);
+		PnMaterialList materialList = ServiceFactory.getInstance().getMaterialService().getMaterialsFromSpace(this.spaceID, name, materialTypeId, consumable, minCost, maxCost);
 		
 		for(PnMaterial material : materialList){
 				MaterialBean materialBean = new MaterialBean(material);

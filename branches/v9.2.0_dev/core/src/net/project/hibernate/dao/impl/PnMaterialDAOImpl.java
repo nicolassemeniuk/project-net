@@ -78,7 +78,7 @@ public class PnMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<PnMaterial,
 	}
 	
 	@Override
-	public PnMaterialList getMaterials(List<Integer> materialsIds, String searchKey) {
+	public PnMaterialList getMaterials(List<Integer> materialsIds, String searchKey, Integer materialTypeId, String consumable, Float minCost, Float maxCost) {
 		PnMaterialList result = new PnMaterialList();
 		try {
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
@@ -87,6 +87,16 @@ public class PnMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<PnMaterial,
 			criteria.add(Restrictions.in("materialId", materialsIds));
 			if(searchKey!=null)
 				criteria.add(Restrictions.ilike("materialName", searchKey, MatchMode.ANYWHERE));
+			if(materialTypeId!=0)
+				criteria.add(Restrictions.eq("materialType.materialTypeId", materialTypeId));
+			if(consumable!=null){
+				boolean consumableBoolean = Boolean.parseBoolean(consumable);
+				criteria.add(Restrictions.eq("consumable", consumableBoolean));
+			}
+			if(minCost!=null)
+				criteria.add(Restrictions.ge("cost", minCost));
+			if(maxCost!=null)
+				criteria.add(Restrictions.le("cost", maxCost));
 			criteria.add(Restrictions.eq("recordStatus", "A"));
 			result = new PnMaterialList(criteria.list());
 			session.close();

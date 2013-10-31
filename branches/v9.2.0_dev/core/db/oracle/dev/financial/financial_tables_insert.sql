@@ -1,5 +1,5 @@
 
---select * from PN_PROPERTY a where a.PROPERTY like '%prm.project.report.businessprojectsfinancialreport.xslpath%';
+select * from PN_PROPERTY a where a.PROPERTY like '%prm.project.report.estimatedcosttypesovertotalreport.name%';
 
 --update PN_PROPERTY a set a.property_value='/report/xsl/businessprojectsfinancialreport.xsl' where a.PROPERTY like '%prm.project.report.businessprojectsfinancialreport.xslpath%';
 -- select * from PN_PROPERTY a where a.PROPERTY like '%prm.global.header%';
@@ -261,9 +261,27 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.proje
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.project.materialsactualcosttodate','Materials Actual Cost To Date','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.project.discretionalactualcosttodate','Discretional Actual Cost To Date','A',0,1,null);
 
+insert into PN_PROPERTY values (2000,'en','text','prm.project.report.estimatedcosttypesovertotalreport.name','Estimated Cost Types Over Total','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.report.estimatedcosttypesovertotalreport.description','Display the types of cost values for each business project','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.report.estimatedcosttypesovertotalreport.xslpath','/report/xsl/estimatedcosttypesovertotalreport.xsl','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.estimatedcosttypesovertotalreport.showallprojects.name','Show all Projects','A',0,1,null);
+
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.resourcescurrentestimatedtotalcost.name','Resources Current Estimated Total Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.materialscurrentestimatedtotalcost.name','Materials Current Estimated Total Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.discretionalcurrentestimatedtotalcost.name','Discretional Current Estimated Total Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.resourcestotalcurrentestimatedtotalcost.name','Total Resources Current Estimated Total Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.materialstotalcurrentestimatedtotalcost.name','Total Materials Current Estimated Total Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.report.discretionaltotalcurrentestimatedtotalcost.name','Total Discretional Current Estimated Total Cost','A',0,1,null);
+
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.project.resourcescurrentestimatedtotalcost','Resources Current Estimated Total Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.project.materialscurrentestimatedtotalcost','Materials Current Estimated Total Cost','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.financial.columndefs.project.discretionalcurrentestimatedtotalcost','Discretional Current Estimated Total Cost','A',0,1,null);
+
 -- Report type and sequence
 insert into pn_space_type_has_report_type values('financial','actr');
 insert into pn_report_sequence values('actr',12);
+insert into pn_space_type_has_report_type values('financial','ectr');
+insert into pn_report_sequence values('ectr',13);
 
 
 

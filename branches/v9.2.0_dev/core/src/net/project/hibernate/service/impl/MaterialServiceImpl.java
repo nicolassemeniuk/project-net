@@ -107,9 +107,9 @@ public class MaterialServiceImpl implements IMaterialService {
 	}
 
 	@Override
-	public PnMaterialList getMaterialsFromSpace(String spaceId, String searchKey) {
+	public PnMaterialList getMaterialsFromSpace(String spaceId, String searchKey, String materialTypeId, String consumable, String minCost, String maxCost) {
 		List<Integer> spaceMaterialsList = this.spaceHasMaterialService.getMaterialsFromSpace(spaceId);
-		return pnMaterialService.getMaterials(spaceMaterialsList, searchKey);
+		return pnMaterialService.getMaterials(spaceMaterialsList, searchKey, Integer.valueOf(materialTypeId), consumable, Float.valueOf(minCost), Float.valueOf(maxCost));
 	}
 
 	@Override
