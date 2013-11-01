@@ -302,7 +302,7 @@ html:root.menu-subadmin
 	vertical-align: middle;
 }
 table.menu-subpersonal {
-	width: 751px; /* personal tab submenu width */
+	width: 915px; /* personal tab submenu width */
 }
 .menu-subpersonal span {
 	margin-right: 12px;
@@ -374,7 +374,7 @@ table.menu-subfinancial {
 	vertical-align: middle;
 }
 table.menu-subbusiness {
-	width: 835px; /* business tab submenu width */
+	width: 900px; /* business tab submenu width */
 }
 
 .menu-subbusiness span {
@@ -483,7 +483,7 @@ table.menu-subprojects {
 	vertical-align: middle;
 }
 table.menu-subadmin {
-	width: 500px; /* admin tab submenu width */
+	width: 545px; /* admin tab submenu width */
 }
 .menu-subadmin span {
 	margin-right: 12px;

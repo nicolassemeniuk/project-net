@@ -68,12 +68,12 @@
 		String consumable = request.getParameter("consumable");
 		
 		// Consumable checkbox sends a null value when is not selected
-		if (consumable == null)
+		if (consumable == null || consumable.equals(""))
 		{
 			consumable = null;
 			request.setAttribute("consumable", "");			
 		}
-		// consumable == "on"
+		// consumable == 'true' || consumable == 'false' 
 		else
 			request.setAttribute("consumable", consumable);
 		

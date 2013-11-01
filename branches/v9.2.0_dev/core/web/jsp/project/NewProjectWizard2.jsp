@@ -168,6 +168,25 @@ function processForm(myForm) {
  		    return errorHandler(theForm.percentComplete,'<display:get name="prm.project.projectcreate.step2.completepercentvalidation.message" />');
     }
 
+    if(!isNumeric(theForm.budgetedTotalCost_value.value))
+        return errorHandler(theForm.budgetedTotalCost_value,'<display:get name="prm.project.create.wizard.budgetedtotalcostshouldbenumber.message" />');
+    if(!isNumeric(theForm.MetaDiscretionalActualCostToDate_value.value))
+        return errorHandler(theForm.MetaDiscretionalActualCostToDate_value,'<display:get name="prm.project.create.wizard.discretionalactualcosttodateshouldbenumber.message" />');    
+    if(!isNumeric(theForm.MetaDiscretionalCurrentEstimatedTotalCost_value.value))
+        return errorHandler(theForm.MetaDiscretionalCurrentEstimatedTotalCost_value,'<display:get name="prm.project.create.wizard.discretionalcurrentestimatedtotalcostshouldbenumber.message" />');    
+    if(!isNumeric(theForm.MetaMaterialsCurrentEstimatedTotalCost_value.value))
+        return errorHandler(theForm.MetaMaterialsCurrentEstimatedTotalCost_value,'<display:get name="prm.project.create.wizard.materialscurrentestimatedtotalcostshouldbenumber.message" />');
+    if(!isNumeric(theForm.MetaResourcesCurrentEstimatedTotalCost_value.value))
+        return errorHandler(theForm.MetaResourcesCurrentEstimatedTotalCost_value,'<display:get name="prm.project.create.wizard.resourcescurrentestimatedtotalcostshouldbenumber.message" />');
+    if(!isNumeric(theForm.MetaMaterialsActualCostToDate_value.value))
+        return errorHandler(theForm.MetaMaterialsActualCostToDate_value,'<display:get name="prm.project.create.wizard.materialsactualcosttodateshouldbenumber.message" />');
+    if(!isNumeric(theForm.MetaResourcesActualCostToDate_value.value))
+        return errorHandler(theForm.MetaResourcesActualCostToDate_value,'<display:get name="prm.project.create.wizard.resourcesactualcosttodateshouldbenumber.message" />');    
+    if(!isNumericWithNegative(theForm.estimatedROI_value.value))
+        return errorHandler(theForm.estimatedROI_value,'<display:get name="prm.project.create.wizard.estimatedroishouldbenumber.message" />');
+    if((theForm.estimatedROI_value.value>9999 || theForm.estimatedROI_value.value<-9999))
+    	return errorHandler(theForm.estimatedROI_value,'<display:get name="prm.project.create.wizard.estimatedroishouldbebetweennumbers.message" />')
+    
 	return true;
 
 }
@@ -175,6 +194,36 @@ function preselectTemplate(methodologyId) {
 	if(methodologyId != '') {
 		Ext.get('methodologyID').dom.value = methodologyId;		// preselect template value
 	}
+}
+
+function isNumericWithNegative(val) {
+	var roi = '';
+	var reg = '0123456789.,';
+	var ret = true;
+	if (val.charAt(0) == '-'){
+		roi = val.substring(1,val.length);
+	} else {
+		roi = val;
+	}
+	for(i=0; i<roi.length; i++){
+		if(reg.indexOf(roi.charAt(i)) == -1 ){
+			ret = false;
+			break;	
+		}
+	}
+	return ret;
+}
+
+function isNumeric(val){
+	var reg = '0123456789.,';
+	var ret = true;
+	for(i=0; i<val.length; i++){
+		if(reg.indexOf(val.charAt(i)) == -1 ){
+			ret = false;
+			break;	
+		}
+	}
+	return ret;
 }
 </script>
 </head>

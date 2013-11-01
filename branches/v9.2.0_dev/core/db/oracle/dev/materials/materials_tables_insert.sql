@@ -112,6 +112,8 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.main.material.tab
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.roster.namesearch.label','Search','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.roster.typesearch.label','Type','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.roster.consumablesearch.label','Consumable','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.roster.consumablesearch.yesoption','Yes','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.main.roster.consumablesearch.nooption','No','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.roster.costrangesearch.label','Cost range','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.material.mincostamountincorrect.message','The minimum cost must be a positive value','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.main.material.maxcostamountincorrect.message','The maximum cost must be a positive value','A',0,1,null);

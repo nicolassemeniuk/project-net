@@ -236,9 +236,9 @@ if(!isNumeric(theForm.MetaMaterialsActualCostToDate_value.value))
 if(!isNumeric(theForm.MetaResourcesActualCostToDate_value.value))
     return errorHandler(theForm.MetaResourcesActualCostToDate_value,'<display:get name="prm.project.propertiesedit.resourcesactualcosttodateshouldbenumber.message" />');    
 if(!isNumericWithNegative(theForm.estimatedROI_value.value))
-    return errorHandler(theForm.estimatedROI_value,'<display:get name="prm.project.propertiesedit.estimatedROIshouldbenumber.message" />');
+    return errorHandler(theForm.estimatedROI_value,'<display:get name="prm.project.propertiesedit.estimatedroishouldbenumber.message" />');
 if((theForm.estimatedROI_value.value>9999 || theForm.estimatedROI_value.value<-9999))
-	return errorHandler(theForm.estimatedROI_value,'<display:get name="prm.project.propertiesedit.estimatedROIshouldbebetweennumbers.message" />')
+	return errorHandler(theForm.estimatedROI_value,'<display:get name="prm.project.propertiesedit.estimatedroishouldbebetweennumbers.message" />')
 return true;
 }
 
