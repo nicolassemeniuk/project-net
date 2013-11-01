@@ -281,8 +281,12 @@
 					<%=domainList.getMaterialTypeListForMaterialModification(materialTypes, (String) request.getAttribute("materialTypeId"))%>
 				</select>		    	
 		    	
-				<label for="consumable" class="labelSearchField"><%=PropertyProvider.get("prm.material.main.roster.consumablesearch.label")%></label>		    	
-		    	<input type="checkbox" name="consumable" id="consumable" class="inputSearchField" <%=(request.getAttribute("consumable").equals("on") ? "checked" : "")%> />
+				<label for="consumable" class="labelSearchField"><%=PropertyProvider.get("prm.material.main.roster.consumablesearch.label")%></label>
+		    	<select name="consumable" id="consumable" class="inputSearchField">
+		    		<option value="" <%=(request.getAttribute("consumable") == null ? "selected" : "")%>></option>
+		    		<option value="true" <%=(request.getAttribute("consumable").equals("true") ? "selected" : "")%> ><%=PropertyProvider.get("prm.material.main.roster.consumablesearch.yesoption")%></option>
+		    		<option value="false"<%=(request.getAttribute("consumable").equals("false") ? "selected" : "")%> ><%=PropertyProvider.get("prm.material.main.roster.consumablesearch.nooption")%></option>		    		
+		    	</select>
 
 				<label for="minCost" class="labelSearchField"><%=PropertyProvider.get("prm.material.main.roster.costrangesearch.label")%></label>			    	
 		    	<input type="number" name="minCost" id="minCost" maxlength="14" value="<%=request.getAttribute("minCost")%>" onKeyDown="if(event.keyCode==13) searchButton()" class="inputSearchFieldCost"/>

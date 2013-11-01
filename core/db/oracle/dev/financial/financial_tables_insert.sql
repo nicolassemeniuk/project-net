@@ -25,6 +25,15 @@ insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.disc
 insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.discretionalcurrentestimatedtotalcost.label','Discretional Current Estimated Total Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.budgetedtotalcost','Budgeted Total Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.costcenter','Cost Center','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.budgetedtotalcostshouldbenumber.message','Budgeted Total Cost should be a positive number','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.discretionalactualcosttodateshouldbenumber.message','Discretional Actual Cost To Date should be a positive number','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.discretionalcurrentestimatedtotalcostshouldbenumber.message','Discretional Current Estimated Total Cost should be a positive number','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.materialscurrentestimatedtotalcostshouldbenumber.message','Materials Current Estimated Total Cost should be a positive number','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.resourcescurrentestimatedtotalcostshouldbenumber.message','Resources Current Estimated Total Cost should be a positive number','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.materialsactualcosttodateshouldbenumber.message','Materials Actual Cost To Date should be a positive number','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.resourcesactualcosttodateshouldbenumber.message','Resources Actual Cost To Date should be a positive number','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.estimatedroishouldbenumber.message','Estimated ROI should be a positive number','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.create.wizard.estimatedroishouldbebetweennumbers.message','Estimated ROI should be between -9999 and 9999','A',0,1,null);
 
 -- Project Edit
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.channel.finanacialcompletion.title','Project Finance Calculation Method','A',0,1,null);
@@ -39,8 +48,15 @@ insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.mat
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.resourcescurrentestimatedtotalcost.label','Resources Current Estimated Total Cost','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.materialsactualcosttodate.label','Materials Actual Cost To Date','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.resourcesactualcosttodate.label','Resources Actual Cost To Date','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.prm.project.propertiesedit.discretionalactualcosttodateshouldbenumber.message','Discretional Actual Cost To Date should be a valid currency number','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.discretionalcurrentestimatedtotalcostshouldbenumber.message','Discretional Current Estimated Total Cost should be a valid currency number','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.discretionalactualcosttodateshouldbenumber.message','Discretional Actual Cost To Date should be a positive number','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.discretionalcurrentestimatedtotalcostshouldbenumber.message','Discretional Current Estimated Total Cost should be a positive number','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.budgetedtotalcostshouldbenumber.message','Budgeted Total Cost should be a positive number','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.resourcesactualcosttodateshouldbenumber.message','Resources Actual Cost To Date should be a positive number','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.materialsactualcosttodateshouldbenumber.message','Materials Actual Cost To Date should be a positive number','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.resourcescurrentestimatedtotalcostshouldbenumber.message','Resources Current Estimated Total Cost should be a positive number','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.materialscurrentestimatedtotalcostshouldbenumber.message','Materials Current Estimated Total Cost should be a positive number','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.estimatedroishouldbenumber.message','Estimated ROI should be a positive number','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.project.propertiesedit.estimatedroishouldbebetweennumbers.message','Estimated ROI should be between -9999 and 9999','A',0,1,null);
 
 --Project Meta Properties
 insert into pn_project_space_meta_prop values (8,'CostCalculationMethod', 3);

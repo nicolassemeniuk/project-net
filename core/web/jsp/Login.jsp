@@ -308,6 +308,7 @@ body {
 	border-right-style: none;
 	border-bottom-style: solid;
 	border-left-style: none;
+	padding: 10px;
 	}
 .style2 {
 	font-family: Arial, Helvetica, sans-serif;
@@ -371,7 +372,7 @@ body {
 <!-- 	    </a> -->
     </td>
     <td width="34%" height="90" align="right" valign="bottom">
-    	<span class="style1"><span class="style4"><display:get name="prm.global.login.language.label" />
+    	<span><span class="style4"><display:get name="prm.global.login.language.label" />
 	<% if (brandManager.getSupportedLanguages().size() == 1) { %>
         <input type="hidden" name="language" value="<%=((String)brandManager.getSupportedLanguages().get(0))%>">
 		<%=Language.getLanguages().getLanguageForCode((String)brandManager.getSupportedLanguages().get(0)).getLanguageName()%>
