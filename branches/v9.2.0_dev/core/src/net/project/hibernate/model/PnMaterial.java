@@ -19,7 +19,7 @@ public class PnMaterial implements Serializable {
 
 	private String materialDescription;
 
-	private PnMaterialType materialType;
+	private PnMaterialType pnMaterialType;
 
 	private Float materialCost;
 	
@@ -41,7 +41,7 @@ public class PnMaterial implements Serializable {
 		this.materialId = materialId;
 		this.materialName = materialName;
 		this.materialDescription = materialDescription;
-		this.materialType = materialType;
+		this.pnMaterialType = materialType;
 		this.materialCost = materialCost;
 		this.recordStatus = recordStatus;
 		this.materialConsumable = materialConsumable;
@@ -78,11 +78,11 @@ public class PnMaterial implements Serializable {
 	@ManyToOne(targetEntity = PnMaterialType.class)
 	@JoinColumn(name = "MATERIAL_TYPE_ID")
 	public PnMaterialType getPnMaterialType() {
-		return materialType;
+		return pnMaterialType;
 	}
 
 	public void setPnMaterialType(PnMaterialType materialType) {
-		this.materialType = materialType;
+		this.pnMaterialType = materialType;
 	}
 
 	@Column(name = "MATERIAL_COST", nullable = false, length = 22)
