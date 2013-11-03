@@ -1,10 +1,13 @@
 package net.project.hibernate.dao.impl;
 
+import java.util.Date;
 import java.util.List;
 
 import net.project.base.property.PropertyProvider;
 import net.project.hibernate.dao.IPnMaterialDAO;
 import net.project.hibernate.model.PnMaterial;
+import net.project.hibernate.model.PnMaterialType;
+import net.project.hibernate.model.PnPersonSalary;
 import net.project.material.PnMaterialList;
 
 import org.apache.log4j.Logger;
@@ -12,8 +15,12 @@ import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
+import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.MatchMode;
+import org.hibernate.criterion.DetachedCriteria;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
+import org.hibernate.criterion.Subqueries;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -84,19 +91,18 @@ public class PnMaterialDAOImpl extends AbstractHibernateAnnotatedDAO<PnMaterial,
 			SessionFactory factory = getHibernateTemplate().getSessionFactory();
 			Session session = factory.openSession();
 			Criteria criteria = session.createCriteria(PnMaterial.class);
-			criteria.add(Restrictions.in("materialId", materialsIds));
+			criteria.add(Restrictions.in("materialId", materialsIds));				
 			if(searchKey!=null)
 				criteria.add(Restrictions.ilike("materialName", searchKey, MatchMode.ANYWHERE));
-			if(materialTypeId!=0)
-				criteria.add(Restrictions.eq("materialType.materialTypeId", materialTypeId));
-			if(consumable!=null){
-				boolean consumableBoolean = Boolean.parseBoolean(consumable);
-				criteria.add(Restrictions.eq("consumable", consumableBoolean));
+			if(materialTypeId!=0)			
+				criteria.add(Restrictions.eq("pnMaterialType.materialTypeId", materialTypeId));				
+			if(consumable!=null){				
+				criteria.add(Restrictions.eq("materialConsumable", consumable));
 			}
 			if(minCost!=null)
-				criteria.add(Restrictions.ge("cost", minCost));
+				criteria.add(Restrictions.ge("materialCost", minCost));
 			if(maxCost!=null)
-				criteria.add(Restrictions.le("cost", maxCost));
+				criteria.add(Restrictions.le("materialCost", maxCost));
 			criteria.add(Restrictions.eq("recordStatus", "A"));
 			result = new PnMaterialList(criteria.list());
 			session.close();
