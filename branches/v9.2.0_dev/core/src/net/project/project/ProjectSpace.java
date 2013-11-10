@@ -1986,15 +1986,12 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 			db.cstmt.registerOutParameter((planIDIndex = ++index), java.sql.Types.VARCHAR);
 			db.cstmt.registerOutParameter((spaceAdminRoleIDIndex = ++index), java.sql.Types.VARCHAR);
 
-			// Call the project create stored proceedure and create the new
-			// workspace
+			// Call the project create stored procedure and create the new workspace
 			db.executeCallable();
 			// set the spaceID returned for new ProjectSpace
 			setID(db.cstmt.getString(projectIDIndex));
-			// for the purpose of API-based project creation, we need the id
-			// of
-			// the workplan that is created
-			// by the stored proceedure.
+			// for the purpose of API-based project creation, we need the id of
+			// the workplan that is created by the stored procedure.
 			setWorkplanID(db.cstmt.getString(planIDIndex));
 
 			setSpaceAdminRoleID(db.cstmt.getString(spaceAdminRoleIDIndex));
@@ -2068,10 +2065,8 @@ public class ProjectSpace extends Space implements IPortfolioEntry, IJDBCPersist
 		// successfully the new ID will be set
 		createProjectSpace(db);
 
-		// if the flag has been set to allow the update of default workspace
-		// relationships
-		// establish relationships between the newly created space and other
-		// workspaces
+		// if the flag has been set to allow the update of default workspace relationships
+		// establish relationships between the newly created space and other workspaces
 		if (this.updateWorkspaceRelationshipsOnCreate) {
 			updateWorkspaceRelationships();
 
