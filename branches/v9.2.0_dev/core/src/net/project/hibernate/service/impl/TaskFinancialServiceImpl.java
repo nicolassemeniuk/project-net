@@ -176,19 +176,6 @@ public class TaskFinancialServiceImpl implements ITaskFinancialService {
 				if (assignmentOfTask.getRecordStatus().equals("A")) {
 					TimeQuantity workQuantity = TimeQuantity.parse(String.valueOf(assignmentOfTask.getWorkComplete()),
 							String.valueOf(assignmentOfTask.getWorkCompleteUnits()));
-//					BigDecimal workAmount = workQuantity.converToHours();
-//
-//					Integer id = assignmentOfTask.getComp_id().getPersonId();
-//
-//					PnPersonSalary personSalary = new PnPersonSalary();
-//
-//					// This value can be null in case the work didn't start yet
-//					if (task.getActualFinish() != null) {
-//						personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryForDate(id, task.getActualFinish());
-//					} else {
-//						personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryForDate(id, assignmentOfTask.getEndDate());
-//					}
-//					totalResourcesCost += workAmount.floatValue() * personSalary.getCostByHour();
 					totalResourcesCost += calculateResourcesCost(workQuantity, task, assignmentOfTask);
 				}
 			}
@@ -214,18 +201,6 @@ public class TaskFinancialServiceImpl implements ITaskFinancialService {
 				if (assignmentOfTask.getRecordStatus().equals("A")) {
 					TimeQuantity workQuantity = TimeQuantity.parse(String.valueOf(assignmentOfTask.getWork()),
 							String.valueOf(assignmentOfTask.getWorkUnits()));
-//					BigDecimal workAmount = workQuantity.converToHours();
-//
-//					Integer id = assignmentFromTask.getComp_id().getPersonId();
-//					PnPersonSalary personSalary = new PnPersonSalary();
-//
-//					// This value can be null in case the work didn't start yet
-//					if (task.getActualFinish() != null) {
-//						personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryForDate(id, assignmentFromTask.getActualFinish());
-//					} else {
-//						personSalary = ServiceFactory.getInstance().getPnPersonSalaryService().getPersonSalaryForDate(id, assignmentFromTask.getEndDate());
-//					}
-//					totalResourcesCost += workAmount.floatValue() * personSalary.getCostByHour();
 					totalResourcesCost += calculateResourcesCost(workQuantity, task, assignmentOfTask);
 				}
 			}
