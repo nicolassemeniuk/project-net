@@ -17,6 +17,7 @@
  */
 package net.project.hibernate.dao.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import net.project.base.property.PropertyProvider;
@@ -62,7 +63,7 @@ public class PnTaskDAOImpl extends AbstractHibernateAnnotatedDAO<PnTask, Integer
 	 * @see net.project.hibernate.dao.IPnTaskDAO#getTasksByProjectId(java.lang.Integer)
 	 */
 	public List<PnTask> getTasksByProjectId(Integer projectId){
-		List<PnTask> tasks = null;
+		List<PnTask> tasks = new ArrayList<PnTask>();
 		
 		String sql = " SELECT new PnTask(t.taskId, t.taskName, t.taskDesc, t.duration, t.dateStart, t.dateFinish, t.workPercentComplete) " +
 					" FROM PnTask t, PnPlan pp, PnPlanHasTask pht, PnSpaceHasPlan shp, PnProjectSpace ps " +
@@ -84,7 +85,7 @@ public class PnTaskDAOImpl extends AbstractHibernateAnnotatedDAO<PnTask, Integer
 	 * @see net.project.hibernate.dao.IPnTaskDAO#getTaskDetailsById(java.lang.Integer)
 	 */
 	public PnTask getTaskDetailsById(Integer taskId) {
-		PnTask task = null;
+		PnTask task = new PnTask();
 		
 		String sql = " SELECT new PnTask(t.taskId, t.taskName, t.taskDesc, t.duration, t.dateStart, t.dateFinish, t.workPercentComplete) " +
 					 " FROM PnTask t WHERE t.taskId = :taskId AND t.recordStatus = 'A' ";
@@ -104,7 +105,7 @@ public class PnTaskDAOImpl extends AbstractHibernateAnnotatedDAO<PnTask, Integer
 	 */
 	@SuppressWarnings("unchecked")
 	public List<PnTask> getProjectMilestones(Integer projectId, boolean onlyWithoutPhases) {
-	List<PnTask> tasks = null;
+	List<PnTask> tasks = new ArrayList<PnTask>();
 		
 		String sql = " SELECT new PnTask(t.taskId, t.taskName, t.taskDesc, t.duration, t.dateStart, t.dateFinish, t.workPercentComplete) " +
 					" FROM PnTask t, PnPlan pp, PnPlanHasTask pht, PnSpaceHasPlan shp, PnProjectSpace ps " +
@@ -130,7 +131,7 @@ public class PnTaskDAOImpl extends AbstractHibernateAnnotatedDAO<PnTask, Integer
 	 * @see net.project.hibernate.dao.IPnTaskDAO#getProjectByTaskId(java.lang.Integer)
 	 */
 	public Integer getProjectByTaskId(Integer taskId) {
-		Integer projectId = null;
+		Integer projectId = 0;
 		
 		String sql = " SELECT ps.projectId FROM PnPlan pp, PnPlanHasTask pht, PnProjectSpace ps, PnSpaceHasPlan shp "+
 					 " WHERE pp.planId = pht.comp_id.planId AND shp.comp_id.planId = pht.comp_id.planId "+
@@ -153,7 +154,7 @@ public class PnTaskDAOImpl extends AbstractHibernateAnnotatedDAO<PnTask, Integer
 	 * @return PnTask
 	 */
 	public PnTask getTaskWithRecordStatus(Integer taskId) {
-		PnTask task = null;
+		PnTask task = new PnTask();
 		
 		String sql = " SELECT new PnTask(t.taskId, t.taskName, t.recordStatus) " +
 					 " FROM PnTask t WHERE t.taskId = :taskId ";
@@ -169,7 +170,7 @@ public class PnTaskDAOImpl extends AbstractHibernateAnnotatedDAO<PnTask, Integer
 
 	@Override
 	public List<PnTask> getCompletedTasksByProjectId(Integer projectId) {
-		List<PnTask> tasks = null;
+		List<PnTask> tasks = new ArrayList<PnTask>();
 		Integer percentComplete = PropertyProvider.getInt("prm.global.taskcompletedpercentage");
 		
 		String sql = " SELECT new PnTask(t.taskId, t.taskName, t.duration, t.dateStart, t.dateFinish, t.workPercentComplete, t.actualStart, t.actualFinish) " +

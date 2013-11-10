@@ -58,24 +58,32 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 	public Float calculateActualCostToDate(String spaceID) {
 		Float totalActualCost = new Float(0.00);
 
-		List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getCompletedTasksByProjectId(Integer.valueOf(spaceID));
+		// This method can be called when we are creating a project,
+		// therefore the spaceID will be null so we return 0.
+		if (spaceID != null) {
+			List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getCompletedTasksByProjectId(Integer.valueOf(spaceID));
 
-		for (PnTask task : tasks) {
+			for (PnTask task : tasks) {
 
-			totalActualCost += taskFinancialService.calculateActualCostToDateForTask(spaceID, String.valueOf(task.getTaskId()));
+				totalActualCost += taskFinancialService.calculateActualCostToDateForTask(spaceID, String.valueOf(task.getTaskId()));
+			}
 		}
 		return totalActualCost;
 	}
-	
+
 	@Override
 	public Float calculateMaterialActualTotalCostToDate(String spaceID) {
 		Float materialTotalActualCost = new Float(0.00);
 
-		List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getCompletedTasksByProjectId(Integer.valueOf(spaceID));
+		// This method can be called when we are creating a project,
+		// therefore the spaceID will be null so we return 0.
+		if (spaceID != null) {
+			List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getCompletedTasksByProjectId(Integer.valueOf(spaceID));
 
-		for (PnTask task : tasks) {
+			for (PnTask task : tasks) {
 
-			materialTotalActualCost += taskFinancialService.calculateMaterialActualCostToDateForTask(spaceID, String.valueOf(task.getTaskId()));
+				materialTotalActualCost += taskFinancialService.calculateMaterialActualCostToDateForTask(spaceID, String.valueOf(task.getTaskId()));
+			}
 		}
 		return materialTotalActualCost;
 	}
@@ -84,56 +92,72 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 	public Float calculateResourcesActualTotalCostToDate(String spaceID) {
 		Float resourcesTotalActualCost = new Float(0.00);
 
-		List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getCompletedTasksByProjectId(Integer.valueOf(spaceID));
+		// This method can be called when we are creating a project,
+		// therefore the spaceID will be null so we return 0.
+		if (spaceID != null) {
+			List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getCompletedTasksByProjectId(Integer.valueOf(spaceID));
 
-		for (PnTask task : tasks) {
+			for (PnTask task : tasks) {
 
-			resourcesTotalActualCost += taskFinancialService.calculateResourcesActualCostToDateForTask(spaceID, String.valueOf(task.getTaskId()));
+				resourcesTotalActualCost += taskFinancialService.calculateResourcesActualCostToDateForTask(spaceID, String.valueOf(task.getTaskId()));
+			}
 		}
 		return resourcesTotalActualCost;
-	}	
+	}
 
 	@Override
 	public Float calculateEstimatedTotalCost(String spaceID) {
 		Float totalEstimatedCost = new Float(0.00);
 
-		// Obtain the tasks for the space.
-		List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getTasksByProjectId(Integer.valueOf(spaceID));
+		// This method can be called when we are creating a project,
+		// therefore the spaceID will be null so we return 0.
+		if (spaceID != null) {
 
-		// Calculate the cost for each task.
-		for (PnTask task : tasks) {
-			totalEstimatedCost += taskFinancialService.calculateEstimatedTotalCostForTask(spaceID, String.valueOf(task.getTaskId()));
-		}
+			// Obtain the tasks for the space.
+			List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getTasksByProjectId(Integer.valueOf(spaceID));
 
-		// If it's active, also add the cost of the materials not assigned
-		if (PropertyProvider.getBoolean("prm.global.addmaterialsnotassignedontasks.isenabled")) {
-			List<PnMaterial> materialsNotInAssignments = ServiceFactory.getInstance().getMaterialService().getMaterialsFromProjectWithoutAssignments(spaceID);
+			// Calculate the cost for each task.
+			for (PnTask task : tasks) {
+				totalEstimatedCost += taskFinancialService.calculateEstimatedTotalCostForTask(spaceID, String.valueOf(task.getTaskId()));
+			}
 
-			for (PnMaterial materialNotAssigned : materialsNotInAssignments) {
-				totalEstimatedCost += materialNotAssigned.getMaterialCost();
+			// If it's active, also add the cost of the materials not assigned
+			if (PropertyProvider.getBoolean("prm.global.addmaterialsnotassignedontasks.isenabled")) {
+				List<PnMaterial> materialsNotInAssignments = ServiceFactory.getInstance().getMaterialService()
+						.getMaterialsFromProjectWithoutAssignments(spaceID);
+
+				for (PnMaterial materialNotAssigned : materialsNotInAssignments) {
+					totalEstimatedCost += materialNotAssigned.getMaterialCost();
+				}
 			}
 		}
 		return totalEstimatedCost;
 	}
-	
+
 	@Override
 	public Float calculateMaterialCurrentEstimatedTotalCost(String spaceID) {
 		Float totalEstimatedCost = new Float(0.00);
 
-		// Obtain the tasks for the space.
-		List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getTasksByProjectId(Integer.valueOf(spaceID));
+		// This method can be called when we are creating a project,
+		// therefore the spaceID will be null so we return 0.
+		if (spaceID != null) {
 
-		// Calculate the cost for each task.
-		for (PnTask task : tasks) {
-			totalEstimatedCost += taskFinancialService.calculateMaterialEstimatedTotalCostForTask(spaceID, String.valueOf(task.getTaskId()));
-		}
+			// Obtain the tasks for the space.
+			List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getTasksByProjectId(Integer.valueOf(spaceID));
 
-		// If it's active, also add the cost of the materials not assigned
-		if (PropertyProvider.getBoolean("prm.global.addmaterialsnotassignedontasks.isenabled")) {
-			List<PnMaterial> materialsNotInAssignments = ServiceFactory.getInstance().getMaterialService().getMaterialsFromProjectWithoutAssignments(spaceID);
+			// Calculate the cost for each task.
+			for (PnTask task : tasks) {
+				totalEstimatedCost += taskFinancialService.calculateMaterialEstimatedTotalCostForTask(spaceID, String.valueOf(task.getTaskId()));
+			}
 
-			for (PnMaterial materialNotAssigned : materialsNotInAssignments) {
-				totalEstimatedCost += materialNotAssigned.getMaterialCost();
+			// If it's active, also add the cost of the materials not assigned
+			if (PropertyProvider.getBoolean("prm.global.addmaterialsnotassignedontasks.isenabled")) {
+				List<PnMaterial> materialsNotInAssignments = ServiceFactory.getInstance().getMaterialService()
+						.getMaterialsFromProjectWithoutAssignments(spaceID);
+
+				for (PnMaterial materialNotAssigned : materialsNotInAssignments) {
+					totalEstimatedCost += materialNotAssigned.getMaterialCost();
+				}
 			}
 		}
 		return totalEstimatedCost;
@@ -143,12 +167,18 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 	public Float calculatResourcesCurrentEstimatedTotalCost(String spaceID) {
 		Float totalEstimatedCost = new Float(0.00);
 
-		// Obtain the tasks for the space.
-		List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getTasksByProjectId(Integer.valueOf(spaceID));
+		// This method can be called when we are creating a project,
+		// therefore the spaceID will be null so we return 0.
+		if (spaceID != null) {
 
-		// Calculate the cost for each task.
-		for (PnTask task : tasks) {
-			totalEstimatedCost += taskFinancialService.calculateResourceEstimatedTotalCostForTask(spaceID, String.valueOf(task.getTaskId()));
+			// Obtain the tasks for the space.
+			List<PnTask> tasks = ServiceFactory.getInstance().getPnTaskService().getTasksByProjectId(Integer.valueOf(spaceID));
+
+			// Calculate the cost for each task.
+			for (PnTask task : tasks) {
+				totalEstimatedCost += taskFinancialService.calculateResourceEstimatedTotalCostForTask(spaceID, String.valueOf(task.getTaskId()));
+			}
+
 		}
 
 		return totalEstimatedCost;
@@ -156,12 +186,24 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 
 	@Override
 	public Float getBudgetedCost(String spaceID) {
-		return projectSpaceService.getBudgetedTotalCost(spaceID);
+		// This method can be called when we are creating a project,
+		// therefore the spaceID will be null so we return 0.
+		if (spaceID != null) {
+			return projectSpaceService.getBudgetedTotalCost(spaceID);
+		} else {
+			return new Float(0.00);
+		}
 	}
 
 	@Override
 	public Float getDiscretionalCost(String spaceID) {
-		return projectSpaceService.getDiscretionalCost(spaceID);
+		// This method can be called when we are creating a project,
+		// therefore the spaceID will be null so we return 0.
+		if (spaceID != null) {
+			return projectSpaceService.getDiscretionalCost(spaceID);
+		} else {
+			return new Float(0.00);
+		}
 	}
 
 }
