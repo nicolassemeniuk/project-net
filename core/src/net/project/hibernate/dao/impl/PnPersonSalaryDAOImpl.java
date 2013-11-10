@@ -138,7 +138,9 @@ public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPerso
 			criteria.add(Restrictions.eq("personId", personId));
 
 			pnPersonSalary = (PnPersonSalary) criteria.uniqueResult();
+			
 			session.close();
+			
 			// This should be erased, all persons should have a salary
 			if (pnPersonSalary == null) {
 				PnPersonSalaryPK pk = new PnPersonSalaryPK(0);
@@ -194,6 +196,7 @@ public class PnPersonSalaryDAOImpl extends AbstractHibernateAnnotatedDAO<PnPerso
 			session.close();
 		} catch (Exception e) {
 			log.error("Error occurred while getting the list of salaries " + e.getMessage());
+			
 		}
 		
 		return result;

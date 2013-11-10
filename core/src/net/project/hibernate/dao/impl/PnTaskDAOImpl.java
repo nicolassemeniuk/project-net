@@ -22,17 +22,12 @@ import java.util.List;
 
 import net.project.base.property.PropertyProvider;
 import net.project.hibernate.dao.IPnTaskDAO;
-import net.project.hibernate.model.PnFinancialSpace;
-import net.project.hibernate.model.PnMaterial;
 import net.project.hibernate.model.PnTask;
 
 import org.apache.log4j.Logger;
-import org.hibernate.Criteria;
-import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
 import org.hibernate.classic.Session;
-import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -73,7 +68,7 @@ public class PnTaskDAOImpl extends AbstractHibernateAnnotatedDAO<PnTask, Integer
 		try{
 			Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery(sql);
 			query.setInteger("projectId", projectId);
-			tasks = query.list();			
+			tasks = query.list();				
 		} catch(Exception e){
 			log.error("Error occurred while getting tasks by project id : "+e.getMessage());
 			e.printStackTrace();
