@@ -270,3 +270,11 @@ input, textarea, select			{font-family: arial,helvetica;
 .leftMargincls {
 	margin-left: 2px;
 }
+
+.notice
+{
+	font-family: Arial,Helvetica,Sans-Serif;
+	font-size: 12px;
+	font-weight: bold;	
+	color: #000000;
+}

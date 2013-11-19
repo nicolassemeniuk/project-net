@@ -201,7 +201,8 @@ insert into PN_PROPERTY values (2000,'en','text','prm.financial.salary.contactin
 -- Salary - Registration
 insert into PN_PROPERTY values (2000,'en','text','prm.global.registration.financial.header','Your Salary Information','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.global.registration.financial.salary','Cost By Hour','A',0,1,null);
-insert into PN_PROPERTY values (2000,'en','text','prm.global.registration.financial.salary.example','e.g. 20.75, 100.00','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.global.registration.financial.salary.example','e.g. 20.75, 100.00, 0.00','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','largetext','prm.global.registration.financial.salary.notice','','A',0,1,'Notice: this information won''t be visible for the rest of the users.<br />Only the Administrator of your business and the finance related users will be able to view and modify this information as well as yourself if you wish to do so.<br />If you have any concerns regarding this issue, please contact the Application Administrator.');
 insert into PN_PROPERTY values (2000,'en','text','prm.registration.userprofile.salaryamountrequired.message','The salary is a required value','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.registration.userprofile.salaryamountincorrect.message','The salary must be a positive value','A',0,1,null);
 
