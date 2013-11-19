@@ -441,6 +441,13 @@ if (errorMessage != null ) {
              </td>
              <td nowrap>&nbsp;</td>
           </tr>
+		  <tr>
+            <td nowrap>&nbsp;</td>
+            <td nowrap>&nbsp;</td>
+            <td nowrap class="notice"><display:get name="prm.global.registration.financial.salary.notice" />            
+            </td>
+            <td nowrap>&nbsp;</td>
+          </tr>          
 
      <%-- ************************** LOCALIZATION PREFERENCES ***************************************** --%>
 
