@@ -570,12 +570,20 @@ function overallocationExist(exist) {
 								}
 								
 							%>
+							
+							<% 
+							if(!materialAssignmentsHelper.getMaterialsAssigned().isEmpty())
+							{
+							%>							
+							
 							<tr>
 								<td></td>
 								<td class="tableContentHighlight" colspan="3"><font class="groupFont">Project Materials</font></td>
 								<td></td>
 							</tr>
-
+							<%
+							}
+							%>
 							<%									
 								for (MaterialAssignmentHelper assignment : materialAssignmentsHelper.getMaterialsAssigned()) {									
 									String materialID = assignment.getMaterial().getMaterialId();
