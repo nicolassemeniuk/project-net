@@ -4249,10 +4249,20 @@ public abstract class ScheduleEntry implements ICalendarEntry, ILinkableObject, 
 	}
 
 	public Money getActualCostToDate() {
-		Float actualCostToDate = ServiceFactory.getInstance().getTaskFinancialService().calculateActualCostToDateForTask(this.spaceID, id);
-		String defaultCurrencyCode = ServiceFactory.getInstance().getPnProjectSpaceService().getDefaultCurrency(this.getSpaceID());
-		Currency currency = Currency.getInstance(defaultCurrencyCode);
-		this.actualCostToDate = new Money(String.valueOf(actualCostToDate), currency);
+		Integer percentCompleteReference = PropertyProvider.getInt("prm.global.taskcompletedpercentage");		
+		BigDecimal workPercentComplete = this.workPercentComplete.multiply(new BigDecimal(100));		
+		
+		if(workPercentComplete.compareTo(new BigDecimal(percentCompleteReference))>=0){
+			//If the task match the criteria to be completed.
+			Float actualCostToDate = ServiceFactory.getInstance().getTaskFinancialService().calculateActualCostToDateForTask(this.spaceID, id);
+			String defaultCurrencyCode = ServiceFactory.getInstance().getPnProjectSpaceService().getDefaultCurrency(this.getSpaceID());
+			Currency currency = Currency.getInstance(defaultCurrencyCode);
+			this.actualCostToDate = new Money(String.valueOf(actualCostToDate), currency);
+		} else {
+			//Return 0 otherwise.
+			this.actualCostToDate = new Money();
+		}
+
 		return this.actualCostToDate;
 	}
 
