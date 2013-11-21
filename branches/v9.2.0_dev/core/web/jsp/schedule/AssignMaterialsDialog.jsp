@@ -40,6 +40,7 @@
 <title><display:get name="prm.schedule.assignmaterialsdialog.title"/></title>
 
 <%-- Import CSS --%>
+<template:import type="css" src="/styles/report.css" />
 <template:getSpaceCSS />
 
 <%-- Import Javascript --%>
@@ -160,40 +161,69 @@ function showMaterialAllocation(materialID) {
             <td colspan="4" class="headerSep"></td>
             <td></td>
         </tr>
-<%
-	 if (!SessionManager.getUser().getCurrentSpace().getSpaceType().equals(SpaceTypes.METHODOLOGY)) { 
-		for (MaterialAssignmentHelper assignment : materialAssignmentsHelper.getMaterialsAssigned()) {
-			String materialID = assignment.getMaterial().getMaterialId();
-%>
-        <tr class="tableContent">
-            <td></td>        
-            <td align="center"><input name="resource" id="<%=materialID%>" value="<%=materialID%>" type="checkbox" <%=assignment.isAssignedMaterialChecked()%> <%=assignment.isAssignedMaterialEnabled()%>  ></td>
-            <td><label for="<%=materialID%>"><%=assignment.getDisplayName()%></label></td>
-            <td align="center"><a href='javascript:showMaterialAllocation(<%=materialID%>)'><img src="<%=SessionManager.getJSPRootURL()%>/images/schedule/constraint.gif" border="0"></a></td>
-            <td></td>
-        </tr>
-        <% 
-        } 
-	 }
-        %>
 
-<%
-	 if (!SessionManager.getUser().getCurrentSpace().getSpaceType().equals(SpaceTypes.METHODOLOGY)) { 
-		for (MaterialAssignmentHelper assignment : materialBusinessAssignmentsHelper.getMaterialsAssigned()) {
+	<% 
+	if(!materialBusinessAssignmentsHelper.getMaterialsAssigned().isEmpty())
+	{
+	%>
+		<tr>
+			<td></td>
+			<td class="tableContentHighlight" colspan="3"><font class="groupFont">Business Materials</font></td>
+			<td></td>
+		</tr>
+	<%
+	}
+	%>  
+	<%
+		if (!SessionManager.getUser().getCurrentSpace().getSpaceType().equals(SpaceTypes.METHODOLOGY))
+		{ 
+			for (MaterialAssignmentHelper assignment : materialBusinessAssignmentsHelper.getMaterialsAssigned())
+			{
+				String materialID = assignment.getMaterial().getMaterialId();
+	%>
+		        <tr class="tableContent">
+		            <td></td>        
+		            <td align="center"><input name="resource" id="<%=materialID%>" value="<%=materialID%>" type="checkbox" <%=assignment.isAssignedMaterialChecked()%> <%=assignment.isAssignedMaterialEnabled()%>  ></td>
+		            <td><label for="<%=materialID%>"><%=assignment.getDisplayName()%></label></td>
+		            <td align="center"><a href='javascript:showMaterialAllocation(<%=materialID%>)'><img src="<%=SessionManager.getJSPRootURL()%>/images/schedule/constraint.gif" border="0"></a></td>
+		            <td></td>
+		        </tr>
+	<% 
+			} 
+		}
+	%>
+
+	<% 
+	if(!materialAssignmentsHelper.getMaterialsAssigned().isEmpty())
+	{
+	%>							
+		<tr>
+			<td></td>
+			<td class="tableContentHighlight" colspan="3"><font class="groupFont">Project Materials</font></td>
+			<td></td>
+		</tr>
+	<%
+	}
+	%>	
+              
+	<%
+	if (!SessionManager.getUser().getCurrentSpace().getSpaceType().equals(SpaceTypes.METHODOLOGY))
+	{ 
+		for (MaterialAssignmentHelper assignment : materialAssignmentsHelper.getMaterialsAssigned())
+		{
 			String materialID = assignment.getMaterial().getMaterialId();
-%>
-        <tr class="tableContent">
-            <td></td>        
-            <td align="center"><input name="resource" id="<%=materialID%>" value="<%=materialID%>" type="checkbox" <%=assignment.isAssignedMaterialChecked()%> <%=assignment.isAssignedMaterialEnabled()%>  ></td>
-            <td><label for="<%=materialID%>"><%=assignment.getDisplayName()%></label></td>
-            <td align="center"><a href='javascript:showMaterialAllocation(<%=materialID%>)'><img src="<%=SessionManager.getJSPRootURL()%>/images/schedule/constraint.gif" border="0"></a></td>
-            <td></td>
-        </tr>
-        <% 
-        } 
-	 }
-        %>        
-        
+	%>
+	    	<tr class="tableContent">
+	            <td></td>        
+	            <td align="center"><input name="resource" id="<%=materialID%>" value="<%=materialID%>" type="checkbox" <%=assignment.isAssignedMaterialChecked()%> <%=assignment.isAssignedMaterialEnabled()%>  ></td>
+	            <td><label for="<%=materialID%>"><%=assignment.getDisplayName()%></label></td>
+	            <td align="center"><a href='javascript:showMaterialAllocation(<%=materialID%>)'><img src="<%=SessionManager.getJSPRootURL()%>/images/schedule/constraint.gif" border="0"></a></td>
+	            <td></td>
+	        </tr>
+	<% 
+    	} 
+	}
+    %>
         </table>
     </td>
   </tr>
