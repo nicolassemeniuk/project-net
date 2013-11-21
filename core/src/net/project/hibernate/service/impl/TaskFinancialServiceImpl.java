@@ -1,6 +1,7 @@
 package net.project.hibernate.service.impl;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.text.ParseException;
 import java.util.List;
 
@@ -98,7 +99,7 @@ public class TaskFinancialServiceImpl implements ITaskFinancialService {
 
 				// Calculate the percentage of all materials assignments
 				// corresponding to this task
-				Float currentTaskPercentage = task.getWork().multiply(new BigDecimal("100")).divide(totalMaterialAssignedWork).floatValue();
+				Float currentTaskPercentage = task.getWork().multiply(new BigDecimal("100")).divide(totalMaterialAssignedWork, 2, RoundingMode.HALF_UP).floatValue();
 
 				// Get the material to obtain the cost
 				PnMaterial material = ServiceFactory.getInstance().getPnMaterialService().getMaterial(materialAssignment.getComp_id().getMaterialId());
@@ -152,7 +153,7 @@ public class TaskFinancialServiceImpl implements ITaskFinancialService {
 
 					// Calculate the percentage of all materials assignments
 					// corresponding to this task
-					Float currentTaskPercentage = task.getWork().multiply(new BigDecimal("100")).divide(totalMaterialAssignedWork).floatValue() / 100;
+					Float currentTaskPercentage = task.getWork().multiply(new BigDecimal("100")).divide(totalMaterialAssignedWork, 2, RoundingMode.HALF_UP).floatValue() / 100;
 
 					// Add the part corresponding to this task
 					// This represents the cost by the percentage of that cost

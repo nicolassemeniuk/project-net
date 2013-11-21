@@ -173,7 +173,7 @@ public class PnTaskDAOImpl extends AbstractHibernateAnnotatedDAO<PnTask, Integer
 					" WHERE shp.comp_id.spaceId = ps.projectId AND shp.comp_id.planId = pp.planId " +
 					" AND pht.comp_id.taskId = t.taskId AND pp.planId = pht.comp_id.planId " +
 					" AND ps.projectId = :projectId AND t.recordStatus = 'A' " +
-					" AND t.percentComplete = :percentComplete " +
+					" AND t.percentComplete >= :percentComplete " +
 					" ORDER BY t.seq ";
 		try{
 			Query query = getHibernateTemplate().getSessionFactory().getCurrentSession().createQuery(sql);
