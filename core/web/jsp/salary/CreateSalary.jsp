@@ -105,7 +105,7 @@
 			return false;
 		}		
 
-		if(!checkTextbox(theForm.startDate,'<display:get name="prm.personal.salary.create.salaryamountrequired.message" />'))
+		if(!checkTextbox(theForm.costByHour,'<display:get name="prm.personal.salary.create.salaryamountrequired.message" />'))
 			return false;		
 		
 		if(!checkIsPositiveNumber(theForm.costByHour,'<display:get name="prm.personal.salary.create.salaryamountincorrect.message" />', false))

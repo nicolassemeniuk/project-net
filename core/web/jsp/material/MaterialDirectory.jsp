@@ -228,13 +228,17 @@
 		</history:history>
 		</tb:setAttribute>
 		<tb:band name="standard">
-			<tb:button type="create" label='<%= PropertyProvider.get("prm.material.main.create.button.tooltip")%>' />
-			<tb:button type="modify" label='<%= PropertyProvider.get("prm.material.main.modify.button.tooltip")%>' />
-			<tb:button type="remove" label='<%= PropertyProvider.get("prm.material.main.remove.button.tooltip")%>' />
-		</tb:band>
+			<c:choose>
+				<c:when test="${currentSpace.spaceType.ID eq 'project' && currentTab eq 'project' || currentSpace.spaceType.ID eq 'business'}">
+					<tb:button type="create" label='<%= PropertyProvider.get("prm.material.main.create.button.tooltip")%>' />
+					<tb:button type="modify" label='<%= PropertyProvider.get("prm.material.main.modify.button.tooltip")%>' />
+					<tb:button type="remove" label='<%= PropertyProvider.get("prm.material.main.remove.button.tooltip")%>' />
+				</c:when>			
+			</c:choose>
+		</tb:band>			
 	</tb:toolbar>
 
-	<div id='content' style="padding-top:20px;width:60%">
+	<div id='content' style="padding-top:20px;width:75%">
 		<tab:tabStrip tabPresentation="true">		
 			<c:choose>
 				<%--Showing the materials of the business in the business workspace --%> 

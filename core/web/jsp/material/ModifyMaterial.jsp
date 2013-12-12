@@ -54,6 +54,7 @@
 <template:import type="javascript" src="/src/checkComponentForms.js" />
 <template:import type="javascript" src="/src/errorHandler.js" />
 <template:import type="javascript" src="/src/checkLength.js" />
+<template:import type="javascript" src="/src/checkIsNumber.js" />
 
 <script language="javascript">
 	var theForm;
@@ -94,7 +95,9 @@
 			return false;
 		if (!checkMaxLength(theForm.description,240,'<display:get name="prm.material.create.wizard.step1.materialdescriptionlength.message"/>'))
 			return false;
-		if (!checkNumeric(theForm.cost, '<display:get name="prm.material.create.wizard.step1.materialcostformat.message"/>'))
+		if(!checkTextbox(theForm.cost,'<display:get name="prm.material.create.wizard.step1.materialcostrequired.message" />'))
+			return false;			
+		if (!checkIsPositiveNumber(theForm.cost, '<display:get name="prm.material.create.wizard.step1.materialcostformat.message"/>', false))
 			return false;
 		
 		return true;
@@ -176,7 +179,7 @@
 												<td nowrap class="fieldNonRequired">
 													<display:get name="prm.material.modifymaterial.materialcost.label" />:&nbsp;</td>
 												<td nowrap class="tableContent" colspan="2">
-													<input type="number" name="cost" size="40" maxlength="14" value='<c:out value="${materialBean.cost}">0.0</c:out>'>
+													<input type="text" name="cost" size="40" maxlength="14" value='<c:out value="${materialBean.cost}">0.0</c:out>'>
 												</td>
 												<td nowrap class="tableContent" colspan="2">&nbsp;</td>
 											</tr>
@@ -214,5 +217,6 @@
 	</div>
 
 	<%@ include file="/help/include_outside/footer.jsp"%>
+	<template:getSpaceJS />		
 </body>
 </html>
