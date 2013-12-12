@@ -132,6 +132,7 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.ste
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.materialnamelength.message','Material name must be less than 40 characters','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.materialdescriptionlength.message','Description must be less than 240 characters','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.materialcostformat.message','Material Cost must be a valid number','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.materialcostrequired.message','Material Cost is a required value','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.lefttitle.label','Create New Material','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.righttitle.label','Material Identity','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.create.wizard.step1.name.label','Material Name','A',0,1,null);
