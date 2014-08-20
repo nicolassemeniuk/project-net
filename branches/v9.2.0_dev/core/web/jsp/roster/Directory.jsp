@@ -256,7 +256,7 @@ function notify(){
 			<tb:button type="notify" />
 		</tb:band>
 </tb:toolbar>
-<div id='content' style="padding-right:10px;padding-top:20px;">
+<div id='content' style="padding-left:10px;padding-right:10px;padding-top:20px;">
 <table width="100%" border="0" cellspacing="0" cellpadding="0" vspace="0">
 <tr>
 <td id="leftPane" valign="top">

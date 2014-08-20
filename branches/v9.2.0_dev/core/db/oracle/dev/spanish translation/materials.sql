@@ -164,7 +164,7 @@ insert into PN_PROPERTY values (2000,'es','text','prm.schedule.main.materialassi
 insert into PN_PROPERTY values (2000,'es','text','prm.taskdetail.nomaterialassignments.message','No hay materiales asignados a esta tarea','A',0,1,null);
 
 -- Escritorio
-insert into PN_PROPERTY values (2000,'es','text','prm.project.dashboard.projectmaterials.channel.title','Materiales del Proyecto','A',0,1,null);
+insert into PN_PROPERTY values (2000,'es','text','prm.project.dashboard.projectmaterials.channel.title','Proyecto','A',0,1,null);
 insert into PN_PROPERTY values (2000,'es','text','prm.project.dashboard.materials.link.title','Crear un Material','A',0,1,null);
 insert into PN_PROPERTY values (2000,'es','text','prm.project.dashboard.projectmaterials.name.label','Material','A',0,1,null);
 insert into PN_PROPERTY values (2000,'es','text','prm.project.dashboard.projectmaterials.workingcalendar.label','Sumario de Utilización','A',0,1,null);
@@ -174,7 +174,7 @@ insert into PN_PROPERTY values (2000,'es','text','prm.schedule.tasklistdecoratin
 
 -- Escritorio del Negocio - Canal de Materiales del Negocio
 insert into PN_PROPERTY values (2000,'es','boolean','prm.business.main.channel.businessmaterials.isenabled','1','A',0,0,null);
-insert into PN_PROPERTY values (2000,'es','text','prm.business.main.channel.businessmaterials.title','Materiales del Negocio','A',0,1,null);
+insert into PN_PROPERTY values (2000,'es','text','prm.business.main.channel.businessmaterials.title','Negocio','A',0,1,null);
 insert into PN_PROPERTY values (2000,'es','text','prm.business.dashboard.businessmaterials.name.label','Material','A',0,1,null);
 insert into PN_PROPERTY values (2000,'es','text','prm.business.dashboard.businessmaterials.workingcalendar.label','Sumario de Utilización','A',0,1,null);
 insert into PN_PROPERTY values (2000,'es','text','prm.business.dashboard.creatematerials.link','Crear un Material','A',0,1,null);

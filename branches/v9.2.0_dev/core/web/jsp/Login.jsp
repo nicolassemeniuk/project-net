@@ -310,6 +310,16 @@ body {
 	border-left-style: none;
 	padding: 10px;
 	}
+.style-version {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	border-bottom-color: #FFFFFF;
+	margin-bottom: 0px;
+	color: #3C5F84;
+	height: 0px;
+	padding: 10px;
+}	
+	
 .style2 {
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12px;
@@ -350,7 +360,7 @@ body {
  .style8 {  
  	font-family: Arial, Helvetica, sans-serif;
 	font-size: 26px;
-	color: #CC0000;
+	color: black;
  }
 -->
 </style>
@@ -360,18 +370,14 @@ body {
 <%-- Begin Content --%>
 <template:put name="bodyOnLoad" content="newUser();load_login();" direct="true" />
 <template:put name="content">
-<form name="Login" action="<%= SessionManager.getJSPRootURL() %>/LoginProcessing.jsp<%= requestedPage == null ? "" : ("?requestedPage=" + requestedPage) %>" onSubmit="return doAction('login');" method="POST">
-<table width="99%" height="400" border="0" cellpadding="0" cellspacing="0">
-  <tr>
-    <td width="66%" height="90" align="left" valign="top">
-<!-- 	    <a href="http://www.project.net"> -->
-<!-- 	    	<display:img src="@prm.project.login.pnet_logo2" width="165" height="90"/> -->
-<!-- 	    </a> -->
-<!-- 	    <a href="http://www.project.net"> -->
-<!-- 	    	<display:img src="@prm.project.login.pnet_home_button" width="113" height="17" /> -->
-<!-- 	    </a> -->
-    </td>
-    <td width="34%" height="90" align="right" valign="bottom">
+<form name="Login" 
+    style="height: 100%;" 
+    action="<%= SessionManager.getJSPRootURL() %>/LoginProcessing.jsp<%= requestedPage == null ? "" : ("?requestedPage=" + requestedPage) %>" onSubmit="return doAction('login');" method="POST">
+<table height="100%" width="100%" height="400" border="0" cellpadding="0" cellspacing="0">
+  <tr height="100%" >
+    <td width="20%" valign="bottom" align="left" ><span class="style-version"><span class="style4"><display:get name="prm.global.project.version.label" />
+          &nbsp; <%=net.project.util.Version.getInstance().getProductVersionCodename()%></td>
+    <td width="34%" height="20" align="right" valign="bottom">
     	<span><span class="style4"><display:get name="prm.global.login.language.label" />
 	<% if (brandManager.getSupportedLanguages().size() == 1) { %>
         <input type="hidden" name="language" value="<%=((String)brandManager.getSupportedLanguages().get(0))%>">
@@ -382,26 +388,22 @@ body {
     	</select>
     <% } %>
 	</span>
-    </span><display:img src="@prm.project.login.top_img_product" width="326" height="51" border="0" /></td>
   </tr>
   <tr>
     <td height="20" colspan="2" align="left" valign="top" bgcolor="666666"></td>
   </tr>
-  <tr>
+  <tr style="height: 100%;">
     <td colspan="2" valign="top">
-      <table width="900" height="390" border="0" cellpadding="0" cellspacing="0">
+      <table width="900" height="100%" border="0" cellpadding="0" cellspacing="0" style="background: white; height: 100%; padding-left: 100px">
         <tr>
-          <td width="173" rowspan="4" valign="top"><display:img src="@prm.project.login.bluBG" width="171" height="390"/></td>
           <td height="49" colspan="2" valign="top"><span class="style7"><span class="style8"><display:get name="prm.project.login.login_header_text-1" /></td>
           <td width="17"></td>
-          <td width="281" valign="top" align="right" ><span class="style1"><span class="style4"><display:get name="prm.global.project.version.label" />
-          &nbsp; <%=net.project.util.Version.getInstance().getProductVersionCodename()%></td>
         </tr>
         
         <tr>
           <td height="283"></td>
-          <td valign="top" align="right">
-            <table width="393"  valign="top" height="2" border="0" cellpadding="0" cellspacing="0">
+          <td valign="top" align="left">
+            <table width="400"  valign="top" height="2" border="0" cellpadding="0" cellspacing="0">
             <tr>
               <td width="71"></td>
               <td width="77"></td>

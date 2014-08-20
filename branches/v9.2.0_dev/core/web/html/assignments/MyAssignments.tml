@@ -50,7 +50,7 @@
 		
 		div.tap5c_tab-set-personal {
 			position: absolute;
-			left: 197px;
+			left: 230px;
 			top:110px;
 			height:${pnetTabSetHeight}px;
 			width:${pnetTabSetWidth}px;

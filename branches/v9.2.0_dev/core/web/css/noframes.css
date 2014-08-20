@@ -97,7 +97,7 @@ div#tLeftframe {
 div#fixedRightTop {
   /*width: 100%;*/
   height: 26px;
-  left: 196px;
+  left: 230px;
   right: 0px;
   padding-top: 0px;
   top: 104px;
@@ -154,8 +154,10 @@ img, div { behavior: url('jspRootUrl/styles/iepngfix.htc') }*/
 	color: Black;
 	float: left;
 	text-decoration: none;
-	padding-top: 20px;
+	padding-top: 22px;
 	padding-bottom: 2px;
+	text-align: center;
+	width: 100px;
 }
 
 * HTML .menu-one {
@@ -163,67 +165,61 @@ img, div { behavior: url('jspRootUrl/styles/iepngfix.htc') }*/
 }
 
 div.menu-one a {
-	padding-left: 11px;
-	padding-right: 10px;
-	width: 87px;
+/* 	padding-left: 11px; */
+/* 	padding-right: 10px; */
+/* 	width: 87px; */
 }
 
 
 .menu-one-selected-personal {
 	background: url('jspRootUrl/images/menu/personal/personal-back.png') no-repeat top;
-	text-align: center;
-	height: 24px;
-	padding-top: 0px;
-	width: 87px;
-
-}
-div.menu-one div.menu-one-selected-personal
- {
-padding-right: 2px;
-}
-div.menu-one div.menu-one-selected-business {
-
-}
-div.menu-one div.menu-one-selected-projects {
-padding-right: 1px;
-}
-div.menu-one div.menu-one-selected-resources {
-margin-left: -1px;
-}
-div.menu-one div.menu-one-selected-financial {
-margin-left: -2px;
+ 	text-align: center; 
+ 	height: 30px; 
+ 	width: 100px; 
 }
 
 .menu-one-selected-projects {
 	background: url('jspRootUrl/images/menu/projects/projects-back.png') no-repeat top;
 	text-align: center;
-	height: 24px;
-	padding-top: 0px;
-	width: 87px;
+ 	height: 30px; 
+ 	width: 100px; 
 }
 .menu-one-selected-business {
 	background: url('jspRootUrl/images/menu/business/business-back.png') no-repeat top;
-	text-align: center;
-	height: 24px;
-	padding-top: 0px;
-	width: 87px;
+ 	text-align: center; 
+ 	height: 30px;
+ 	width: 100px; 
 }
 .menu-one-selected-resources {
 	background: url('jspRootUrl/images/menu/resources/resources-back.png') no-repeat top;
-	width: 102px;
 	text-align: center;
-	height: 24px;
-	padding-top: 0px;
-
+ 	height: 30px; 
+ 	width: 100px; 
 }
 .menu-one-selected-financial {
 	background: url('jspRootUrl/images/menu/financial/financial-back.png') no-repeat top;
-	width: 102px;
 	text-align: center;
-	height: 24px;
-	padding-top: 0px;
+ 	height: 30px; 
+ 	width: 100px; 
+}
+div.menu-one div.menu-one-selected-personal
+ {
+/* padding-right: 2px; */
+}
+div.menu-one div.menu-one-selected-business {
 
 }
+div.menu-one div.menu-one-selected-projects {
+/* padding-right: 1px; */
+}
+div.menu-one div.menu-one-selected-resources {
+/* margin-left: -1px; */
+}
+div.menu-one div.menu-one-selected-financial {
+/* margin-left: -2px; */
+}
+
+
 
 div.menu-one-selected-financial a, div.menu-one-selected-financial a:hover,
 div.menu-one-selected-projects a, div.menu-one-selected-projects a:hover,
@@ -236,35 +232,33 @@ div.menu-one-selected-resources a, div.menu-one-selected-resources a:hover {
 
 a:hover.menu-business{
 
-	padding-bottom: 4px;
+/* 	padding-bottom: 4px; */
 	color: #444444;
 }
 a:hover.menu-projects{
 
-	padding-bottom: 4px;
+/* 	padding-bottom: 4px; */
 	color: #444444;
 }
 a:hover.menu-personal{
 
-	padding-bottom: 4px;
+/* 	padding-bottom: 4px; */
 	color: #444444;
 }
 a:hover.menu-resources{
-
-	padding-bottom: 4px;
+/* 	padding-bottom: 4px; */
 	color: #444444;
 }
 
 a:hover.menu-financial{
-
-	padding-bottom: 4px;
+	/*padding-bottom: 4px;*/
 	color: #444444;
 }
 
 .menu-one a {
 	color: #666666;
 	text-decoration: none;
-	padding-bottom: 4px;
+/* 	padding-bottom: 4px; */
 }
 .menu-one a:active {
 	color: Black;
@@ -290,10 +284,10 @@ html:root.menu-subadmin
 /* SUB PERSONAL*/
 .menu-subpersonal {
 	height: 19px;
-	background: url('jspRootUrl/images/menu/personal/personal-bg.png') no-repeat top right;
+	background: url('jspRootUrl/images/menu/personal/personal-bg.png') repeat-x top left;
 	font-family: Trebuchet MS;
 	font-size: 13px; /*float: left;*/
-	top: 66px;
+	top: 64px;
 	left: 0px;
 	position: absolute;
 	padding-right: 10px;
@@ -302,7 +296,7 @@ html:root.menu-subadmin
 	vertical-align: middle;
 }
 table.menu-subpersonal {
-	width: 915px; /* personal tab submenu width */
+	width: 100%; /* personal tab submenu width */
 }
 .menu-subpersonal span {
 	margin-right: 12px;
@@ -326,10 +320,10 @@ table.menu-subpersonal {
 /* SUB FINANCIAL */
 .menu-subfinancial {
 	height: 19px;
-	background: url('jspRootUrl/images/menu/financial/financial-bg.png') no-repeat top right;
+	background: url('jspRootUrl/images/menu/financial/financial-bg.png') repeat-x top left;
 	font-family: Trebuchet MS;
 	font-size: 13px; /*float: left;*/
-	top: 66px;
+	top: 64px;
 	left: 0px;
 	position: absolute;
 	padding-right: 10px;
@@ -338,7 +332,7 @@ table.menu-subpersonal {
 	vertical-align: middle;
 }
 table.menu-subfinancial {
-	width: 1000px; /* financial tab submenu width */
+	width: 100%; /* financial tab submenu width */
 }
 .menu-subfinancial span {
 	margin-right: 12px;
@@ -362,10 +356,10 @@ table.menu-subfinancial {
 /* SUB BUSINESS*/
 .menu-subbusiness {
 	height: 19px;
-	background: url('jspRootUrl/images/menu/business/business-bg.png') no-repeat top right;
+	background: url('jspRootUrl/images/menu/business/business-bg.png') repeat-x top left;
 	font-family: Trebuchet MS;
 	font-size: 13px; /*float: left;*/
-	top: 66px;
+	top: 64px;
 	left: 0px;
 	position: absolute;
 	padding-right: 10px;
@@ -374,7 +368,7 @@ table.menu-subfinancial {
 	vertical-align: middle;
 }
 table.menu-subbusiness {
-	width: 900px; /* business tab submenu width */
+	width: 100%; /* business tab submenu width */
 }
 
 .menu-subbusiness span {
@@ -403,10 +397,10 @@ table.menu-subbusiness {
 /* SUB PROJECTS*/
 .menu-subprojects {
 	height: 19px;
-	background: url('jspRootUrl/images/menu/projects/projects-bg.png') no-repeat top right;
+	background: url('jspRootUrl/images/menu/projects/projects-bg.png') repeat-x top left;
 	font-family: Trebuchet MS;
 	font-size: 13px; /*float: left;*/
-	top: 66px;
+	top: 64px;
 	left: 0px;
 	position: absolute;
 	padding-right: 10px;
@@ -415,7 +409,7 @@ table.menu-subbusiness {
 	vertical-align: middle;
 }
 table.menu-subprojects {
-	width: 1010px; /* projects tab submenu width */
+	width: 100%; /* projects tab submenu width */
 }
 .menu-subprojects span {
 	margin-right: 12px;
@@ -439,10 +433,10 @@ table.menu-subprojects {
 /* SUB RESOURCES*/
 .menu-subresources {
 	height: 19px;
-	background: #66CCFF url('jspRootUrl/images/menu/resources/resources-bg.png') no-repeat top right;
+	background: #66CCFF url('jspRootUrl/images/menu/resources/resources-bg.png') repeat-x top right;
 	font-family: Trebuchet MS;
 	font-size: 13px;
-	top: 66px;
+	top: 64px;
 	float: none;
 	position: absolute;
 	padding-left: 140px;
@@ -461,7 +455,7 @@ table.menu-subprojects {
 	color: #00CCFF;
 }
 .menu-subresources-end {
-	background: url('jspRootUrl/images/menu/resources/resources-right.png') no-repeat right;
+	background: url('jspRootUrl/images/menu/resources/resources-right.png') no-repeat left;
 	width: 19px;
 	height: 19px;
 	right: -19px;
@@ -471,10 +465,10 @@ table.menu-subprojects {
 /* SUB ADMIN*/
 .menu-subadmin {
 	height: 19px;
-	background: url('jspRootUrl/images/menu/admin/admin-bg.png') no-repeat top right;
+	background: url('jspRootUrl/images/menu/admin/admin-bg.png') repeat-x top left;
 	font-family: Trebuchet MS;
 	font-size: 13px; /*float: left;*/
-	top: 66px;
+	top: 64px;
 	left: 0px;
 	position: absolute;
 	padding-right: 10px;
@@ -483,7 +477,7 @@ table.menu-subprojects {
 	vertical-align: middle;
 }
 table.menu-subadmin {
-	width: 545px; /* admin tab submenu width */
+	width: 100%; /* admin tab submenu width */
 }
 .menu-subadmin span {
 	margin-right: 12px;
@@ -516,17 +510,17 @@ table.menu-subadmin {
 
 #left-navbar {
 	float: left;
-	width: 196px;
+	width: 220px;
 }
 
 /* PERSONAL Left Heading */
 #leftheading-person {
-	background: url('jspRootUrl/images/menu/personal/leftheading_personal.png') no-repeat;
-	width: 174px;
+	background: url('jspRootUrl/images/menu/personal/leftheading_personal.png') repeat-x;
+	width: 90%;
 	height: 23px;
 	padding-left: 14px;
 	margin-top: 4px;
-	position: absolute;
+/* 	position: absolute; */
 	font-family: Tahoma, Trebuchet;
 	font-size: 18px;
 	white-space: nowrap;
@@ -535,12 +529,12 @@ table.menu-subadmin {
 
 /* BUSINESS Left Heading */
 #leftheading-business {
-	background: url('jspRootUrl/images/menu/business/leftheading_business.png') no-repeat;
-	width: 174px;
+	background: url('jspRootUrl/images/menu/business/leftheading_business.png') repeat-x;
+	width: 90%;
 	height: 23px;
 	padding-left: 14px;
 	margin-top: 4px;
-	position: absolute;
+/* 	position: absolute; */
 	font-family: Tahoma, Trebuchet;
 	font-size: 18px;
 	white-space: nowrap;
@@ -549,12 +543,12 @@ table.menu-subadmin {
 
 /* PROJECTS Left Heading */
 #leftheading-project {
-	background: url('jspRootUrl/images/menu/projects/leftheading_projects.png') no-repeat;
-	width: 174px;
+	background: url('jspRootUrl/images/menu/projects/leftheading_projects.png') repeat-x;
+	width: 90%;
 	height: 23px;
 	padding-left: 14px;
 	margin-top: 4px;
-	position: absolute;
+/* 	position: absolute; */
 	font-family: Tahoma, Trebuchet;
 	font-size: 18px;
 	white-space: nowrap;
@@ -563,12 +557,12 @@ table.menu-subadmin {
 
 /* RESOURCES Left Heading */
 #leftheading-resources {
-	background: url('jspRootUrl/images/menu/resources/leftheading_resources.png') no-repeat;
-	width: 174px;
+	background: url('jspRootUrl/images/menu/resources/leftheading_resources.png') repeat-x;
+	width: 90%;
 	height: 23px;
 	padding-left: 14px;
 	margin-top: 4px;
-	position: absolute;
+/* 	position: absolute; */
 	font-family: Tahoma, Trebuchet;
 	font-size: 18px;
 	white-space: nowrap;
@@ -577,12 +571,12 @@ table.menu-subadmin {
 
 /* FINANCIAL Left Heading */
 #leftheading-financial {
-	background: url('jspRootUrl/images/menu/financial/leftheading-financial.png') no-repeat;
-	width: 174px;
+	background: url('jspRootUrl/images/menu/financial/leftheading-financial.png') repeat-x;
+	width: 90%;
 	height: 23px;
 	padding-left: 14px;
 	margin-top: 4px;
-	position: absolute;
+/* 	position: absolute; */
 	font-family: Tahoma, Trebuchet;
 	font-size: 18px;
 	white-space: nowrap;
@@ -591,12 +585,12 @@ table.menu-subadmin {
 
 /* ADMIN Left Heading */
 #leftheading-admin {
-	background: url('jspRootUrl/images/menu/admin/leftheading_admin.png') no-repeat;
-	width: 174px;
+	background: url('jspRootUrl/images/menu/admin/leftheading_admin.png') repeat-x;
+	width: 90%;
 	height: 23px;
 	padding-left: 14px;
 	margin-top: 4px;
-	position: absolute;
+/* 	position: absolute; */
 	font-family: Tahoma, Trebuchet;
 	font-size: 18px;
 	white-space: nowrap;
@@ -604,12 +598,12 @@ table.menu-subadmin {
 }
 /* application Left Heading */
 #leftheading-application {
-	background: url('jspRootUrl/images/menu/admin/leftheading_admin.png') no-repeat;
-	width: 174px;
+	background: url('jspRootUrl/images/menu/admin/leftheading_admin.png') repeat-x;
+	width: 90%;
 	height: 23px;
 	padding-left: 14px;
 	margin-top: 4px;
-	position: absolute;
+/* 	position: absolute; */
 	font-family: Tahoma, Trebuchet;
 	font-size: 18px;
 	white-space: nowrap;
@@ -617,12 +611,12 @@ table.menu-subadmin {
 }
 /* application Left Heading */
 #leftheading-configuration {
-	background: url('jspRootUrl/images/menu/admin/leftheading_admin.png') no-repeat;
-	width: 174px;
+	background: url('jspRootUrl/images/menu/admin/leftheading_admin.png') repeat-x;
+	width: 90%;
 	height: 23px;
 	padding-left: 14px;
 	margin-top: 4px;
-	position: absolute;
+/* 	position: absolute; */
 	font-family: Tahoma, Trebuchet;
 	font-size: 18px;
 	white-space: nowrap;
@@ -630,12 +624,12 @@ table.menu-subadmin {
 }
 /* METHODOLOGY Left Heading */
 #leftheading-methodology {
-	background: url('jspRootUrl/images/menu/projects/leftheading_projects.png') no-repeat;
-	width: 174px;
+	background: url('jspRootUrl/images/menu/projects/leftheading_projects.png') repeat-x;
+	width: 90%;
 	height: 23px;
 	padding-left: 14px;
 	margin-top: 4px;
-	position: absolute;
+/* 	position: absolute; */
 	font-family: Tahoma, Trebuchet;
 	font-size: 18px;
 	white-space: nowrap;
@@ -803,11 +797,12 @@ z-index: 30;
 display: inline;
 float: left;
 padding-right: 3px;
+padding-top: 2px;
 }
 ul.dropdown {
 	margin: 0px 0px -3px 0px;
 	text-indent: 0px;
-	padding-left: 130px;
+	padding-left: 30px;
 }
 
 ul.dropdown li div
@@ -1454,9 +1449,9 @@ div#profile-content {
 /* ToolBox BEGINs */
 
 div.toolbox-heading {
-	background: #f3f3fa url('jspRootUrl/images/menu/toolbox_heading_corner.png') no-repeat top right;
+	background: #f3f3fa url('jspRootUrl/images/menu/toolbox_heading.png') repeat-x top left;
 	height: 15px;
-	width: 159px;
+	width: 90%;
 	border-bottom: 2px solid #dcdcdc;
 	font-family: Tahoma, Trebuchet MS, Arial;
 	font-size: 12px;
@@ -1465,7 +1460,7 @@ div.toolbox-heading {
 	padding-bottom: 2px;
 	padding-top: 2px;
 	vertical-align: middle;
-	font-weight: bold;
+/* 	font-weight: bold; */
 	color: #333333;
 }
 div.toolbox-item {

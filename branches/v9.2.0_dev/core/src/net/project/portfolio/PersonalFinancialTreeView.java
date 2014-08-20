@@ -8,14 +8,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import net.project.business.BusinessSpace;
 import net.project.financial.FinancialSpace;
 import net.project.financial.PnFinancialSpaceList;
 import net.project.hibernate.model.PnFinancialSpace;
 import net.project.hibernate.service.ServiceFactory;
 import net.project.persistence.PersistenceException;
-import net.project.portfolio.PortfolioTreeView.NameComparator;
-import net.project.portfolio.PortfolioTreeView.TreeEntry;
 import net.project.space.SpaceManager;
 import net.project.space.SpaceRelationship;
 

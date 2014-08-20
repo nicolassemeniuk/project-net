@@ -63,7 +63,7 @@ public class EstimatedCostTypesOverTotalReport extends AbstractReport {
 	 * Standard constructor which creates a FormItemSummaryReport.
 	 */
 	public EstimatedCostTypesOverTotalReport(ReportScope scope) {
-		super(new EstimatedCostTypesOverTotalReportData(), ReportType.ACTUAL_COST_TYPES_OVER_TOTAL_REPORTS, scope);
+		super(new EstimatedCostTypesOverTotalReportData(), ReportType.ESTIMATED_COST_TYPES_OVER_TOTAL_REPORTS, scope);
 	}
 
 	@Override
