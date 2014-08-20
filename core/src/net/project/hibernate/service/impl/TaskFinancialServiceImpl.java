@@ -5,25 +5,48 @@ import java.math.RoundingMode;
 import java.text.ParseException;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
 import net.project.hibernate.model.PnAssignment;
 import net.project.hibernate.model.PnMaterial;
 import net.project.hibernate.model.PnMaterialAssignment;
 import net.project.hibernate.model.PnPersonSalary;
 import net.project.hibernate.model.PnTask;
 import net.project.hibernate.service.IPnAssignmentService;
+import net.project.hibernate.service.IPnMaterialAssignmentService;
+import net.project.hibernate.service.IPnMaterialService;
+import net.project.hibernate.service.IPnPersonSalaryService;
+import net.project.hibernate.service.IPnSpaceHasMaterialService;
+import net.project.hibernate.service.IPnTaskService;
 import net.project.hibernate.service.ITaskFinancialService;
 import net.project.hibernate.service.ServiceFactory;
 import net.project.material.PnMaterialAssignmentList;
 import net.project.util.TimeQuantity;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 @Service(value = "taskFinancialService")
 public class TaskFinancialServiceImpl implements ITaskFinancialService {
 	
 	@Autowired
+	private IPnTaskService taskService;
+	
+	@Autowired
 	private IPnAssignmentService assignmentService;
+	
+	@Autowired
+	private IPnPersonSalaryService personSalaryService;
+	
+	@Autowired
+	private IPnMaterialService materialService;
+	
+	@Autowired
+	private IPnMaterialAssignmentService materialAssignmentService;
+	
+	@Autowired
+	private IPnSpaceHasMaterialService spaceHasMaterialService;
+	
+
+	
 
 	@Override
 	public Float calculateActualCostToDateForTask(String spaceId, String objectId) {
@@ -70,11 +93,10 @@ public class TaskFinancialServiceImpl implements ITaskFinancialService {
 
 		// Obtain the materials assigned to this task (only the ones from the
 		// task's owner project).
-		PnMaterialAssignmentList materialAssignments = ServiceFactory.getInstance().getPnMaterialAssignmentService()
-				.getMaterialsAssignment(spaceId, String.valueOf(task.getTaskId()));
+		PnMaterialAssignmentList materialAssignments = materialAssignmentService.getMaterialsAssignment(spaceId, String.valueOf(task.getTaskId()));
 
 		// Obtain the materials id's from the project.
-		List<Integer> materialsIds = ServiceFactory.getInstance().getPnSpaceHasMaterialService().getMaterialsFromSpace(spaceId);
+		List<Integer> materialsIds = spaceHasMaterialService.getMaterialsFromSpace(spaceId);
 
 		// For each material calculate the cost for this task
 		for (PnMaterialAssignment materialAssignment : materialAssignments) {
@@ -84,7 +106,7 @@ public class TaskFinancialServiceImpl implements ITaskFinancialService {
 
 				// First obtain all the assignments for the material
 				BigDecimal totalMaterialAssignedWork = new BigDecimal("0.0");
-				PnMaterialAssignmentList materialAssigmentsInAllTasks = ServiceFactory.getInstance().getPnMaterialAssignmentService()
+				PnMaterialAssignmentList materialAssigmentsInAllTasks = materialAssignmentService
 						.getAssignmentsForMaterial(String.valueOf(materialAssignment.getComp_id().getMaterialId()));
 
 				// Calculate the total hours in ALL task assignments for the
@@ -92,7 +114,7 @@ public class TaskFinancialServiceImpl implements ITaskFinancialService {
 				for (PnMaterialAssignment assignmentInAnyTask : materialAssigmentsInAllTasks) {
 					// Only the active ones
 					if (assignmentInAnyTask.getRecordStatus().equals("A")) {
-						PnTask anyTask = ServiceFactory.getInstance().getPnTaskService().getTaskById(assignmentInAnyTask.getComp_id().getObjectId());
+						PnTask anyTask = taskService.getTaskById(assignmentInAnyTask.getComp_id().getObjectId());
 						totalMaterialAssignedWork = totalMaterialAssignedWork.add(anyTask.getWork());
 					}
 				}
@@ -102,7 +124,7 @@ public class TaskFinancialServiceImpl implements ITaskFinancialService {
 				Float currentTaskPercentage = task.getWork().multiply(new BigDecimal("100")).divide(totalMaterialAssignedWork, 2, RoundingMode.HALF_UP).floatValue();
 
 				// Get the material to obtain the cost
-				PnMaterial material = ServiceFactory.getInstance().getPnMaterialService().getMaterial(materialAssignment.getComp_id().getMaterialId());
+				PnMaterial material = materialService.getMaterial(materialAssignment.getComp_id().getMaterialId());
 
 				// Add the part corresponding to this task
 				// This represents the cost by the percentage of that cost that
@@ -119,11 +141,11 @@ public class TaskFinancialServiceImpl implements ITaskFinancialService {
 
 		// Obtain the materials assigned to this task (only the ones from the
 		// task's owner project).
-		PnMaterialAssignmentList materialAssignments = ServiceFactory.getInstance().getPnMaterialAssignmentService()
+		PnMaterialAssignmentList materialAssignments = materialAssignmentService
 				.getMaterialsAssignment(spaceId, String.valueOf(task.getTaskId()));
 
 		// Obtain the materials id's from the project.
-		List<Integer> materialsIds = ServiceFactory.getInstance().getPnSpaceHasMaterialService().getMaterialsFromSpace(spaceId);
+		List<Integer> materialsIds = spaceHasMaterialService.getMaterialsFromSpace(spaceId);
 
 		// For each material calculate the cost for this task
 		for (PnMaterialAssignment materialAssignment : materialAssignments) {
@@ -132,13 +154,13 @@ public class TaskFinancialServiceImpl implements ITaskFinancialService {
 			if (materialsIds.contains(materialAssignment.getComp_id().getMaterialId())) {
 
 				// Get the material
-				PnMaterial material = ServiceFactory.getInstance().getPnMaterialService().getMaterial(materialAssignment.getComp_id().getMaterialId());
+				PnMaterial material = materialService.getMaterial(materialAssignment.getComp_id().getMaterialId());
 
 				// Only the active ones
 				if (materialAssignment.getRecordStatus().equals("A")) {
 					// First obtain all the assignments for the material
 					BigDecimal totalMaterialAssignedWork = new BigDecimal("0.0");
-					PnMaterialAssignmentList materialAssigmentsInAllTasks = ServiceFactory.getInstance().getPnMaterialAssignmentService()
+					PnMaterialAssignmentList materialAssigmentsInAllTasks = materialAssignmentService
 							.getAssignmentsForMaterial(String.valueOf(materialAssignment.getComp_id().getMaterialId()));
 
 					// Calculate the total hours in ALL task assignments for the
@@ -146,7 +168,7 @@ public class TaskFinancialServiceImpl implements ITaskFinancialService {
 					for (PnMaterialAssignment assignmentInAnyTask : materialAssigmentsInAllTasks) {
 						// Only the active ones
 						if (assignmentInAnyTask.getRecordStatus().equals("A")) {
-							PnTask anyTask = ServiceFactory.getInstance().getPnTaskService().getTaskById(assignmentInAnyTask.getComp_id().getObjectId());
+							PnTask anyTask = taskService.getTaskById(assignmentInAnyTask.getComp_id().getObjectId());
 							totalMaterialAssignedWork = totalMaterialAssignedWork.add(anyTask.getWork());
 						}
 					}
@@ -195,7 +217,7 @@ public class TaskFinancialServiceImpl implements ITaskFinancialService {
 		float totalResourcesCost = 0;
 		try {
 			// Total resources cost.
-			List<PnAssignment> assignmentsFromTask = ServiceFactory.getInstance().getPnAssignmentService()
+			List<PnAssignment> assignmentsFromTask = assignmentService
 					.getAssigmentsByObjectId(Integer.valueOf(task.getTaskId()));
 			for (PnAssignment assignmentOfTask : assignmentsFromTask) {
 				// Only the active ones

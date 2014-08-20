@@ -301,8 +301,8 @@ public class SpaceManager {
     }
 
     /* 
-     *  Remove all relationships to a super-business for this business space.  
-     *  Makes this business space a top-level (parentless) business space. 
+     *  Remove all relationships to a super-financial for this financial space.  
+     *  Makes this financial space a top-level (parentless) financial space. 
     */
     public static void removeSuperFinancialRelationships(Space child)
     {

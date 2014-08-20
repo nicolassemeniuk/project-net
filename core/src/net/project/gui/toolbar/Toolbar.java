@@ -375,7 +375,7 @@ public class Toolbar implements java.io.Serializable, net.project.persistence.IX
 		if(bandOrder.size() > 0){
 			buffer.append("<div id='left-navbar'>\n");
 			
-			if (groupTitle != null) {
+			if (groupTitle != null && space == null) {
 				if(getProjectListPage()){
 					buffer.append("<div id='leftheading-" + SpaceTypes.PROJECT_SPACE + "'>"
 							+ groupTitle + "</div>");	

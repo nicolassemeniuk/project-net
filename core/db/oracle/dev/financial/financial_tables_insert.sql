@@ -1,5 +1,5 @@
 
-select * from PN_PROPERTY a where a.PROPERTY like '%prm.project.report.estimatedcosttypesovertotalreport.name%';
+--select * from PN_PROPERTY a where a.PROPERTY like '%prm.project.report.estimatedcosttypesovertotalreport.name%';
 
 --update PN_PROPERTY a set a.property_value='/report/xsl/businessprojectsfinancialreport.xsl' where a.PROPERTY like '%prm.project.report.businessprojectsfinancialreport.xslpath%';
 -- select * from PN_PROPERTY a where a.PROPERTY like '%prm.global.header%';

@@ -10,6 +10,7 @@ import net.project.hibernate.service.IPnMaterialAssignmentService;
 import net.project.hibernate.service.IPnMaterialService;
 import net.project.hibernate.service.IPnProjectSpaceService;
 import net.project.hibernate.service.IPnSpaceHasMaterialService;
+import net.project.hibernate.service.IPnTaskService;
 import net.project.hibernate.service.IProjectFinancialService;
 import net.project.hibernate.service.ITaskFinancialService;
 import net.project.hibernate.service.ServiceFactory;
@@ -37,6 +38,9 @@ public class ProjectFinancialServiceImpl implements IProjectFinancialService {
 
 	@Autowired
 	private ITaskFinancialService taskFinancialService;
+	
+	@Autowired
+	private IPnTaskService taskService;
 
 	public IPnMaterialService getMaterialService() {
 		return materialService;

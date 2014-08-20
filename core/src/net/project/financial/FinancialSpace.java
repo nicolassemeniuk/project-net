@@ -162,7 +162,8 @@ public class FinancialSpace extends Space implements Serializable, IXMLPersisten
 			ServiceFactory.getInstance().getPnFinancialSpaceService().saveFinancialSpace(this);
 
 			// Create the relationship between the business and the financial
-			// space.
+			// space. Also create the relation between both the parent financial and the current 
+			// financial space (if exists).
 			if (parentChanged) {
 				db.setAutoCommit(false);
 

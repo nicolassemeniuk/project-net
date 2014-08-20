@@ -277,7 +277,7 @@ function writeSpaceMenu() {
 	menuString += " <table width='365px'> <tr> ";
 	
 	<display:if name="prm.personal.isenabled">
-	menuString += "	<td width='90px' nowrap='nowrap'> <div class='menu-one'> ";
+	menuString += "	<td display='table-cell' min-width='100px'> <div class='menu-one'> ";
 		<% if (isPersonalMenuSelected) { %>
 			menuString += "	<div class='menu-one-selected-personal'> ";
 		<%}%> 
@@ -289,7 +289,7 @@ function writeSpaceMenu() {
 	</display:if>
 	
 	<display:if name="prm.business.isenabled">
-	menuString += " <td width='90px' nowrap='nowrap'> <div class='menu-one'> ";
+	menuString += " <td display='table-cell' min-width='100px'> <div class='menu-one'> ";
 		<% if (isBusinessMenuSelected ) { %>
 			menuString += "	<div class='menu-one-selected-business'> ";
 		<%}%> 
@@ -301,7 +301,7 @@ function writeSpaceMenu() {
 	</display:if>
 	
 	<display:if name="prm.project.isenabled">
-	menuString += "	<td width='90px' nowrap='nowrap'> <div class='menu-one'> ";
+	menuString += "	<td display='table-cell' min-width='100px'> <div class='menu-one'> ";
 		<% if (isProjectMenuSelected) { %>
 			menuString += "	<div class='menu-one-selected-projects'> ";
 		<%}%> 
@@ -313,7 +313,7 @@ function writeSpaceMenu() {
 	</display:if>
 
 	<display:if name="prm.enterprise.isenabled">
-	menuString += " <td width='90px' nowrap='nowrap'> ";
+	menuString += " <td display='table-cell' min-width='100px' > ";
 	<% if (new EnterpriseSpace().isUserSpaceMember(SessionManager.getUser())) { %>
 	//menuString += "	<div class='menu-one'> ";
 		<% if (user.getCurrentSpace().isTypeOf(net.project.space.Space.ENTERPRISE_SPACE) ) { %>
@@ -327,7 +327,7 @@ function writeSpaceMenu() {
 	</display:if>
 	
 	<display:if name="prm.resource.isenabled">
-	menuString += "	<td width='100px' nowrap='nowrap'> <div class='menu-one'> ";
+	menuString += "	<td display='table-cell' min-width='100px'> <div class='menu-one'> ";
 		<% if (isResourceMenuSelected ) { %>
 			menuString += "	<div class='menu-one-selected-resources'> ";
 		<%}%> 
@@ -339,7 +339,7 @@ function writeSpaceMenu() {
 	</display:if>
 	
 	<display:if name="prm.financial.isenabled">
-	menuString += "	<td width='90px' nowrap='nowrap'> <div class='menu-one'> ";
+	menuString += "	<td display='table-cell' min-width='100px'> <div class='menu-one'> ";
 		<% if (isFinancialMenuSelected) { %>
 			menuString += "	<div class='menu-one-selected-financial'> ";
 		<%}%> 
