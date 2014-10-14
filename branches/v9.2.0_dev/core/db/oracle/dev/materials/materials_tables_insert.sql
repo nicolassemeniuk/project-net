@@ -29,7 +29,7 @@ insert into PN_PROPERTY values (2000,'en','text','prm.material.report.projectmat
 insert into PN_PROPERTY values (2000,'en','text','prm.material.report.common.grouping.bytype.name','Group By Type','A',0,1,null);
 
                                                   
-insert into PN_PROPERTY values (2000,'en','text','prm.schedule.report.projectmaterialreport.showallmaterials.name','Show All Materials','A',0,1,null);
+insert into PN_PROPERTY values (2000,'en','text','prm.schedule.report.materialreport.showallmaterials.name','Show All Materials','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.report.common.filter.consumable.name','Consumable','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.report.common.filter.notconsumable.name','No Consumable','A',0,1,null);
 insert into PN_PROPERTY values (2000,'en','text','prm.material.report.common.reportsummary.name','Report Summary','A',0,1,null);
