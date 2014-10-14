@@ -20,8 +20,7 @@ insert into PN_PROPERTY values (2000,'es','text','prm.material.report.projectmat
 insert into PN_PROPERTY values (2000,'es','text','prm.material.report.projectmaterialreport.grouping.bytype.name','Agrupar por Tipo','A',0,1,null);
 insert into PN_PROPERTY values (2000,'es','text','prm.material.report.common.grouping.bytype.name','Agrupado por Tipo','A',0,1,null);
 
-                                                  
-insert into PN_PROPERTY values (2000,'es','text','prm.schedule.report.projectmaterialreport.showallmaterials.name','Mostrar todos los Materiales','A',0,1,null);
+insert into PN_PROPERTY values (2000,'es','text','prm.schedule.report.materialreport.showallmaterials.name','Mostrar todos los Materiales','A',0,1,null);
 insert into PN_PROPERTY values (2000,'es','text','prm.material.report.common.filter.consumable.name','Consumible','A',0,1,null);
 insert into PN_PROPERTY values (2000,'es','text','prm.material.report.common.filter.notconsumable.name','No Consumible','A',0,1,null);
 insert into PN_PROPERTY values (2000,'es','text','prm.material.report.common.reportsummary.name','Sumario del Reporte','A',0,1,null);
@@ -94,11 +93,13 @@ insert into PN_PROPERTY values (2000,'es','text','prm.material.main.list.type','
 insert into PN_PROPERTY values (2000,'es','text','prm.material.main.list.cost','Costo','A',0,1,null);
 insert into PN_PROPERTY values (2000,'es','text','prm.material.main.list.consumable','Consumible','A',0,1,null);
 insert into PN_PROPERTY values (2000,'es','text','prm.material.main.list.description','Descripción','A',0,1,null);
-insert into PN_PROPERTY values (2000,'es','text','prm.material.main.material.tab.businessmaterials.title','Materiales del Negocio','A',0,1,null);
-insert into PN_PROPERTY values (2000,'es','text','prm.material.main.material.tab.projectmaterials.title','Materiales del Proyecto','A',0,1,null);
+insert into PN_PROPERTY values (2000,'es','text','prm.material.main.material.tab.businessmaterials.title','Negocio','A',0,1,null);
+insert into PN_PROPERTY values (2000,'es','text','prm.material.main.material.tab.projectmaterials.title','Proyecto','A',0,1,null);
 insert into PN_PROPERTY values (2000,'es','text','prm.material.main.roster.namesearch.label','Buscar','A',0,1,null);
 insert into PN_PROPERTY values (2000,'es','text','prm.material.main.roster.typesearch.label','Tipo','A',0,1,null);
 insert into PN_PROPERTY values (2000,'es','text','prm.material.main.roster.consumablesearch.label','Consumible','A',0,1,null);
+insert into PN_PROPERTY values (2000,'es','text','prm.material.main.roster.consumablesearch.yesoption','Si','A',0,1,null);
+insert into PN_PROPERTY values (2000,'es','text','prm.material.main.roster.consumablesearch.nooption','No','A',0,1,null);
 insert into PN_PROPERTY values (2000,'es','text','prm.material.main.roster.costrangesearch.label','Rango de Costos','A',0,1,null);
 insert into PN_PROPERTY values (2000,'es','text','prm.material.main.material.mincostamountincorrect.message','El Costo mínimo debe ser un valor positivo','A',0,1,null);
 insert into PN_PROPERTY values (2000,'es','text','prm.material.main.material.maxcostamountincorrect.message','El Costo máximo debe ser un valor positivo','A',0,1,null);
